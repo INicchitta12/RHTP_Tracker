@@ -1,0 +1,727 @@
+IDAHO BUDGET JUSTIFICATION                                                Project Period:            December 31, 2025 - October 31, 2030
+  Rural Health Transformation Program
+  CMS-RHT-26-01                                                           Idaho Initiatives Key                                                        Number
+                                                                          Improving rural access to care through technology                               1
+                                                                          Ensuring accessible, quality care through innovative models                     2
+                                                                          Sustaining rural workforce with training, recruitment, and retention            3
+                                                                          Implementing population specific, evidence-based projects to MAHA               4
+                                                                          Investing in rural health infrastructure and partnerships                       5
+  A. (Personnel) Salaries and Wages
+  Personnel Total                                                                                                                   $5,499,919
+  Grant                                                                                                                             $5,499,919
+  Recipient Share                                                                                                                       $0
+                                                     Base                                                                                 Amount
+  Position Title                            FTE            COLA YR1                     YR2           YR3          YR4          YR5                   Initiative
+                                                    Salary     (10 months)                                                               Requested
+Project Manager 3 (Project Director) 1.0           $105,851 3% $88,209                $109,026     $112,297       $115,666    $119,136    $544,334      ALL
+Administrative Assistant 2            1.0           $44,824 3% $37,353                $46,168      $47,553        $48,980      $50,449    $230,503      ALL
+Technical Records Specialist 1        1.0           $39,645 3% $33,037                $40,834      $42,059        $43,321      $44,620    $203,871      ALL
+Financial Specialist Senior           2.0           $63,939 3% $106,565               $131,714     $135,665       $139,735    $143,927    $657,606      ALL
+Financial Specialist Principal        1.0          $72,862 3% $60,718                 $75,047      $77,299        $79,618     $82,006     $374,688      ALL
+Program Manager: EB Projects          1.0           $83,491 3% $69,575                $85,995      $88,575        $91,232      $93,969    $429,346       4
+Epidemiologist State                  1.0           $93,538 3% $77,948                $96,344      $99,234        $102,211    $105,277    $481,014      ALL
+Project Manager 2: Access             1.0           $93,538 3% $77,948                $96,344      $99,234        $102,211    $105,277    $481,014       2
+Project Manager 2: Workforce          1.0           $93,538 3% $77,948                $96,344      $99,234        $102,211    $105,277    $481,014       3
+Project Manager 2: ICT                1.0           $93,538 3% $77,948                $96,344      $99,234        $102,211    $105,277    $481,014       1
+Grants/Contracts Program Specialist 2.0             $41,766 3% $69,610                $86,037      $88,619        $91,277      $94,016    $429,559      ALL
+Grants/Contracts Officer              2.0           $68,640 3% $114,400               $141,398     $145,640       $150,009    $154,509    $705,956      ALL
+  Total Personnel                    15.0                                                                                                $5,499,919
+    *All requested positions are TBD at the time of application | Year 1 salaries and fringe have been adjusted
+    to reflect 10 months of service. | "Amount Requested" rounded down to the nearest dollar.
+
+  Personnel | Narrative Summary | Year 1 -5
+
+
+
+
+                                                                                                                                                                   1
+Idaho proposes a time-limited RHTP team, staffed by limit-service positions for the duration of the award period. This personnel
+team will provide the strategic, operational, fiscal, and clinical oversight needed to manage a complex, statewide cooperative
+agreement. Positions include a Project Director (Project Manager 3) to lead implementation and contractor performance and to
+coordinate cross-agency activities; an Administrative Assistant and Technical Records Specialist will support logistics and
+communications; Financial Specialist positions (3) will oversee compliance, reporting, fiscal controls, and general budget
+maintenance; the Principal position will provide fiscal team oversight. The Epidemiologist will focus on enhancements to data
+systems, data analytics, and workflows. The Idaho Department of Health & Welfare Director will also provide oversight to ensure
+synergy across strategies and contracts. This time will be provided in-kind at the state's cost.
+Specialized staff manage initiative clusters:
+  · Access & Infrastructure: Project Manager will coordinate facility and technology modernization.
+  · Workforce: Project Manager will oversee recruitment, training, and retention initiatives.
+  · Innovative Care Technology: Project Manager will guide telehealth, data modernization, and cybersecurity projects.
+  · Evidence-Based Projects: Program Manager will ensure interventions meet federal and state standards.
+  · Grants/Contracts Officers (2): develops and manages procurement and solicitations including RFPs and award documentation.
+  · Grants/Contracts Specialists (2): administer subgrants and contracts; provide compliance guidance and technical assistance.
+
+Accountability: Each position has a defined scope of work and performance objectives. Effort is certified per pay period on
+individual timesheets and deliverables are linked to project milestones subject to administrative and fiscal review.
+  B. Fringe Benefits
+  Fringe Benefits Total                                                                                                      $2,560,014        Initiative
+  Grant                                                                                                                      $2,560,014          ALL
+  Recipient Share                                                                                                                $0
+  Fringe Benefit                                    Rate                                                                   Amount Requested
+      Retirement                                    11.96%                                                                    $657,790
+      FICA                                          7.65%                                                                     $420,743
+      Life Insurance                                0.55%                                                                      $30,359
+      Human Resources                               2.00%                                                                     $109,998
+      Workers Compensation                          0.96%                                                                      $52,799
+  Subtotal                                          23.12%
+      Health Insurance                              $17,770 Annually                                                            $1,288,325
+  Total Fringe Benefits                                                                                                        $2,560,014.00
+    * Fringe Benefits are calculated on total projected Wages as outlined above. Health Insurance is prorated based on FTE and months.
+
+
+
+
+                                                                                                                                                            2
+  C. Travel
+  Travel Total                                                                                                           $396,690
+  Grant                                                                                                                  $396,690
+  Recipient Share                                                                                                           $0
+                                                                                                      Per
+  Purpose                       Years    Staff    Days   Nights Miles        Airfare      Hotel                   Fees          Cost        Initiative
+                                                                                                     Diem
+Site Visits Idaho                5         6        65        64   2500       $0.00       $99.00     $74.00      $0.00       343,130.00       ALL
+TBD TA Conference                5         6         3         2    0        $350.00     $150.00     $74.00      $0.00        26,160.00       ALL
+Initiative Focused Seminars      5         5        4         3     0        $350.00     $150.00     $74.00      $0.00       27,400.00        ALL
+  Total Travel                                                                                                              $396,690.00
+  *The current mileage reimbursement rate is $0.70/mi.
+
+  Travel Justification:
+  Travel supports statewide monitoring, technical assistance, and participation in federally required trainings. In-state travel will be
+  reserved for site inspections, desk reviews, and coordination across Idaho. (6) Program Staff will travel regularly across the state to
+  ensure progress and compliance for all deliverables. Out-of-State travel will be limited to sponsored technical assistance and CMS
+  sanctioned (to-be-determined) initiative focused seminars for specialized staff coding directly to the grant. Costs align with state
+  mileage, lodging, and per diem rates under GSA standards. All travel will be preapproved and documented to ensure
+  reasonableness.
+
+  D. Equipment              (Not Requested)
+  Total Equipment                                                                                                          $0
+
+  E. Supplies
+  Supplies Total                                                                                                       $100,310
+  Grant                                                                                                                $100,310
+  Recipient Share                                                                                                         $0
+  Item                                  Years         Rate         QTY                      Basis                        Cost               Initiative
+Laptops                                   1          $1,700         15      (15) new staff                            $25,500.00              ALL
+General Office Supplies                   5           $408          14      $24/month per staff annually              $28,560.00              ALL
+Monitors                                  1           $600          15      (15) new staff                             $9,000.00              ALL
+IT Peripherals                            1           $300          15      Allowance per new staff member             $4,500.00              ALL
+Tableau Software Licenses                 3           $350          5       (5) staff * fee; occurs annually           $5,250.00              ALL
+ArcGIS Software License                   2           $750          5       (5) staff * fee; occurs annually           $7,500.00              ALL
+Meeting facilitation supplies             5           $300          4       (4) meetings annually; $300/meeting        $6,000.00              ALL
+
+
+                                                                                                                                                         3
+Reserve for Replacement Items            5           $200              14      Allowance per direct staff                    $14,000.00               ALL
+ Total Supplies                                                                                                              $100,310.00
+
+  Supplies Justification:
+  Supplies are limited to essential items necessary for program administration, analysis, and statewide coordination under the RHTP
+  cooperative agreement. Laptops, monitors, and peripherals will equip newly hired staff to manage fiscal tracking, reporting, and
+  data entry functions efficiently. General office supplies such as paper, ink, and binders will support documentation and daily
+  administrative operations. Tableau and ArcGIS software licenses are required for visualization, reporting, and mapping activities
+  that identify rural service gaps, track outcomes, and inform data-driven decisions. Meeting facilitation supplies (printing, packets,
+  presentation materials) will support stakeholder and task force participation at required quarterly meetings. A reserve for
+  replacement items is included to cover the repair or replacement of staff equipment and accessories over the project period,
+
+  F. Contractual                      *All contractual elements TBD pending award; competitive procurement or solicitation will precede execution.
+                                      *Derived itemized budgets are inclusive of personnel and indirect cost allocation. The 10% administrative cap
+                                      restriction will be passed-through to subrecipients.
+
+
+  Contractual Total                                                                                                          $985,000,000
+  Grant                                                                                                                      $985,000,000
+  Recipient Share                                                                                                                 $0
+
+
+1. Name of Contractor:                        Project Management Integration Services Contract
+2. Method of Selection:                       Competitive RFP; PMI-aligned project controls; program portfolio experience
+3. Period of Performance:                     December 31, 2025 - October 31, 2030
+4. Scope of Work:                             Coordinate project management across all RHTP initiatives, including timelines,
+                                              deliverables, and milestone tracking. Serve as the central liaison with program leads,
+                                              fiscal staff, and CMS. Standardize progress reporting and risk management, support
+                                              stakeholder and governance meetings, and maintain an integrated master schedule with
+                                              escalation of delays or resource needs.
+5. Method of Accountability:
+                                              Report to and be monitored directly by DHW Project Director; Comprehensive Project
+                                              Management Plan within first 60 days of contract execution; Monthly deliverables
+                                              related to scheduling, project progress metrics, and reporting deadlines.
+
+
+
+
+                                                                                                                                                            4
+6. Itemized Budget & Justification:   Project Management Personnel: $500,000
+                                      Project Tracking Tools & Systems: $200,000
+                                      Meeting & Communication Support: $300,000
+                                      Evaluation Integration & Risk Mitigation: $300,000
+                                      Total Average Annual Budget: $1,300,000 | 5-year Estimate: $6,500,000
+                                      Support front-loaded; phased reduction across years 3-5.
+
+                                      Five-Year Progression: Y1 launch plan & baseline; Y2 optimize workflows; Y3
+                                      integrate vendor/subrecipient schedules; Y4 mature benefits tracking; Y5 handoff and   Initiative
+                                      closure.                                             Contractor Total:      $6,500,000   ALL
+
+1. Name of Contractor:                Data Analytics & Outcomes Evaluation Services Contracts
+2. Method of Selection:               Competitive RFP; independence, health data analytic, and prior large-scale evaluation
+                                      experience required.
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+4. Scope of Work:                     Develop and maintain integrated data systems and dashboards for financial,
+                                      performance, and outcomes reporting across all RHTP subgrants and contracts.
+                                      Implement a logic model and performance measurement plan, conduct baseline
+                                      assessments and stakeholder input activities, and evaluate health, workforce, and system
+                                      impacts, including return on investment. Provide quarterly analytic summaries and
+                                      annual evaluation findings with sustainability recommendations.
+5. Method of Accountability:          Evaluation Design & Logic Model within 90 days of contract execution; Build data
+                                      backbone and Baseline Evaluation Report (Year 1); Quarterly learning briefs; Mid-term
+                                      evaluation (Year 3); Final Summative Evaluation Report (Year 5); All methods and
+                                      finding must adhere to CMS standards and 2 CFR 200 regulations.
+6. Itemized Budget & Justification:   Evaluation Design & Implementation: $500,000
+                                      Data Collection & Analysis: $950,000
+                                      Reporting & Dissemination: $350,000
+                                      Stakeholder Engagement & Learning Products: $200,000
+                                      Total Annual Budget: $2,000,000 | 5-year Estimate: $10,000,000
+
+                                      Five-Year Progression: Y1 design & baseline; Y2 early outcomes; Y3 midterm; Y4
+                                      continuous improvement; Y5 summative reporting & dissemination.
+                                                                                                                                 Initiative
+                                                                                            Contractor Total:     $10,000,000      ALL
+
+
+
+                                                                                                                                              5
+1. Name of Contractor:                Third-Party Administrator for Ladder Payment Program
+2. Method of Selection:               Competitive RFP; financial controls and grants disbursement expertise required.
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+4. Scope of Work:                     Manage the Ladder Payment Program, including disbursement of rural provider
+                                      recruitment and retention payments and healthcare education scholarship awards with a
+                                      targeted emphasis for post-graduate participants. Verify eligibility, service commitments,
+                                      and required documentation; schedule payments and maintain compliance records in
+                                      coordination with State finance staff. Provide quarterly participation and expenditure
+                                      reports and ensure fiduciary oversight consistent with 2 CFR 200.
+5. Method of Accountability:          Require monthly activity and reconciliation reports verifying participant payments and
+                                      fund balances. Conduct quarterly State oversight review to confirm data accuracy,
+                                      timeliness, and compliance with 2 CFR 200. Scrutinize administration fees.
+6. Itemized Budget & Justification:   Fund Disbursement:
+                                         Target Annual Disbursements: $13,200,000
+                                      Administrative Activities:
+                                         Program Administration: $600,000
+                                         System Maintenance: $150,000
+                                         Financial & Compliance Audits: $50,000
+
+                                      Total Annual Budget: $14,000,000 | 5-year Estimate: $65,000,000
+
+                                      Five-Year Progression: Y1 build portal, controls, disbursement schedules; Y2 statewide
+                                      rollout; Y3 scale and risk scoring; Y4 optimize disbursement cycles; Y5 transition to
+                                      state operations.                                                                      Initiative
+                                                                                             Contractor Total: $70,000,000        3
+
+1. Name of Contractor:                Facility Technology Assessments & Shared Infrastructure
+2. Method of Selection:               Competitive RFP; cybersecurity and HIT infrastructure credentials required.
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+
+
+
+
+                                                                                                                                          6
+4. Scope of Work:                     Conduct statewide and regional technology assessments to evaluate rural healthcare
+                                      facilities' readiness for telehealth and cybersecurity modernization. Develop share-
+                                      service models that enable smaller facilities to pool IT resources, technical expertise, and
+                                      infrastructure. Support adoption of secure data-sharing platforms and standardized
+                                      configurations that improve interoperability and reduce redundancy. Provide target
+                                      funding for facilities to address the most critical IT gaps identified in assessments
+5. Method of Accountability:
+                                      Require implementation schedules, milestone reports, and verification of each completed
+                                      assessment or installation. Conduct State-led quality reviews and acceptance testing.
+
+6. Itemized Budget & Justification:   Facility Technology Assessments: $2,000,000
+                                      Total Annual Budget: $2,000,000 | 5-year Estimate: $10,000,000
+
+                                      Five-Year Progression: Y1 statewide assessment; Y2 remediate high-risk sites; Y3
+                                      standardize shared services; Y4 optimize configurations; Y5 sustain and handoff.
+                                                                                                                                Initiative
+                                                                                              Contractor Total:     $10,000,000      1
+
+1. Name of Contractor:                Rural Health Facility Modernization and Solutions Contractors
+2. Method of Selection:               Competitive RFP; construction-related procurement for remodels.
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+4. Scope of Work:                     Modernize rural healthcare facilities to enhance access, safety, and workforce capacity
+                                      through renovation and equipment upgrades; Fund telehealth-enabled spaces, clinical
+                                      equipment, and mobile health units to improve service reach.
+5. Method of Accountability:          Milestone inspections, deliverable reviews, and final acceptance reports.
+6. Itemized Budget & Justification:   Healthcare Facility Remodels: $36,000,000
+                                      Clinical Equipment Purchases: $16,000,000
+                                      Vehicles (Patient transport, Mobile Health units): $2,000,000
+                                      Total Average Annual Budget: $54,000,000 | 5-year Estimate: $270,000,000
+
+                                      Five-Year Progression: Y1 design & procurement; Y2 phased upgrades; Y3 deploy
+                                      equipment & units; Y4 optimize; Y5 sustain and handoff.                            Initiative
+                                                                                          Contractor Total: $270,000,000      5
+
+
+
+
+                                                                                                                                             7
+1. Name of Contractor:                Rural Diagnostic & Telehealth Access Procurement
+2. Method of Selection:               Competitive bids under state procurement; technical compliance and price
+                                      reasonableness.
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+4. Scope of Work:                     Deploy diagnostic kiosks, telehealth pods, and care stations in accessible community
+                                      locations (libraries, schools, pharmacies, and community centers). Install prescription
+                                      kiosks and increase mail-order pharmacy options to improve medication access.
+                                      Implement remote-patient-monitoring programs for chronic-condition management and
+                                      post-discharge care. Integrate kiosk and monitoring data with local clinics and hospitals
+                                      to enable coordinated outreach and follow up.
+5. Method of Accountability:          Implementation plans (review and acceptance); Installation verification, and quarterly
+                                      utilization reports; Validate connectivity, interoperability, and user functionality, collect
+                                      outcomes metrics on patient encounters, screenings completed, and travel distance
+                                      reduced.
+6. Itemized Budget & Justification:   Diagnostic Kiosks & Telehealth Pods: $4,000,000
+                                      Prescription Kiosks & Mail Pharmacy Support: $2,400,000
+                                      Remote Monitoring Devices & Software: $2,000,000
+                                      Data Integration & Connectivity: $400,000
+                                      Training & Evaluation: $200,000
+                                      Total Annual Budget: $9,000,000 | 5-year Estimate: $45,000,000
+
+                                      Five-Year Progression: Y1 procure/install; Y2 increase coverage; Y3 integrate specialty
+                                      networks; Y4 optimize utilization; Y5 sustain & refresh critical units.                 Initiative
+                                                                                             Contractor Total: $45,000,000         5
+
+1. Name of Contractor:                Rural Health Needs Assessment Contractors
+2. Method of Selection:               Competitive RFP; rural health planning, survey design, and data collection experience
+                                      required.
+3. Period of Performance:             December 31, 2025 - October 31, 2027
+4. Scope of Work:
+                                      Conduct statewide and county-level assessments to identify gaps in EMS workforce,
+                                      care availability, and maternal/neonatal services. Use data analysis to determine service
+                                      needs and guide funding priorities. Partner with county officials, hospitals, and
+                                      community members to define service priorities and develop sustainable coverage
+                                      models, including shared-resource agreements where appropriate.
+
+
+
+                                                                                                                                           8
+5. Method of Accountability:          Standardized data submissions and quarterly progress summaries; validate final reports
+                                      and stakeholder engagement documentation prior to reimbursement; tie final
+                                      deliverables to measurable recommendations and readiness indicators.
+6. Itemized Budget & Justification:   Needs Assessment & Data Contracts: $2,000,000
+                                      Stakeholder Workshops & Reporting: $500,000
+                                      Total Annual Budget: $2,500,000 | 2-year Estimate: $5,000,000
+
+                                      Assessments and stakeholder reports completed by the end of the second year.           Initiative
+                                                                                            Contractor Total:     $5,000,000      2
+
+1. Name of Contractor:                Emergency Communications Systems Implementation Procurement Agreements
+2. Method of Selection:               Competitive RFP
+3. Period of Performance:             December 31, 2025 - October 31, 2030
+4. Scope of Work:                     Upgrade and connect to the State's Health Alert Network (HAN) and Next Generation
+                                      911 (NG911) infrastructure. Support installation of communication equipment,
+                                      redundant power sources, and connectivity improvements. Strengthen integration
+                                      between emergency medical services, public health alerts, and hospital incident-
+                                      command systems. Provide training for dispatchers, EMS, and public health staff on
+                                      emergency communication protocols and system use.
+5. Method of Accountability:
+                                      Require approved implementation plans and vendor quotes before agreement execution.
+                                      Collect quarterly performances reports on activation tests, uptime, and incident logs.
+                                      Verify installation and connectivity via documentation or onsite review. Maintain
+                                      records of certification of test results and system-readiness validation.
+
+6. Itemized Budget & Justification:   HAN Connectivity Upgrades: $100,000
+                                      NG911 Connectivity & Equipment: $3,800,000
+                                      Ancillary Equipment & Redundant Power: $600,000
+                                      Training & Simulation Exercises: $300,000
+                                      Reporting & Evaluation: $200,000
+                                      Total Annual Budget: $5,000,000 | 5-year Estimate: $25,000,000
+
+                                      Five-Year Progression: Y1 install; Y2 test & drill; Y3 increase coverage; Y4 integrate
+                                      regional command; Y5 sustain systems.                                                  Initiative
+                                                                                              Contractor Total: $25,000,000       1
+
+
+                                                                                                                                          9
+1. Name of Subrecipient:              Maternal & Child Health Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Enhance group prenatal care, launch teleobstetric and strengthen rural maternity units
+                                      through QI collaboratives, perinatal data reporting improvements
+4. Method of Accountability:
+                                      Quarterly outcomes reports, participation in statewide collaboratives, validation of
+                                      service delivery and data accuracy
+5. Itemized Budget & Justification:   Maternal Health Programs (Group prenatal care, teleobstertrics): $2,000,000
+                                      Idaho Perinatal Quality Collaborative: $2,000,000
+                                      Total Annual Budget: $4,000,000 | 5-year Estimate: $20,000,000
+
+                                      Five-Year Progression: Y1 launch services; Y2 increase rural sites; Y3 integrate
+                                      referrals/data; Y4 optimize outcomes; Y5 sustain and transition.                         Initiative
+                                                                                            Subrecipient Total:    $20,000,000      4
+
+1. Name of Subrecipient:              Healthcare Career Advancement Program Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Develop and implement programs to train people into healthcare careers. Attract and
+                                      engage students to advance their career and work in rural Idaho. Provide infrastructure
+                                      for program materials, positions, and location.
+4. Method of Accountability:          Require approved curricula, partner letters, and budget plans. Collect quarterly
+                                      performance reports on participant numbers, training hours, and follow up engagement
+                                      metrics. Verify implementation through documentation (attendance logs and program
+                                      materials). Conduct annual monitoring reviews to ensure program fidelity and
+                                      expenditure of funds.
+
+
+
+
+                                                                                                                                            10
+5. Itemized Budget & Justification:   Program Design & Implementation Plan (including Personnel budgets): $2,500,000
+                                      Healthcare Professional Education Space Renovations: $3,500,000
+                                      Curriculum & Materials: $700,000
+                                      Instructor Incentives: $500,000
+                                      Evaluation & Reporting: $300,000
+                                      Total Annual Budget: $7,500,000 | 5-year Estimate: $37,500,000
+
+                                      Five-Year Progression: Y1 launch programs; Y2 increase participation; Y3 increase
+                                      pathways; Y4 align with placements; Y5 sustain via local funding.                   Initiative
+                                                                                          Subrecipient Total: $37,500,000      3
+
+1. Name of Subrecipient:              Work-Based Learning & Clinical Training Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:
+                                      Enhance hands-on learning and clinical rotations for students in nursing, behavioral
+                                      health, EMS, and allied health fields. Develop preceptor networks, faculty partnerships,
+                                      and cross-agency agreements to increase training capacity in rural sites. Fund incentives
+                                      for clinical instructors. Build or upgrade simulation and skills-lab spaces that align with
+                                      state licensure or accreditation standards. Strengthen coordination between education
+                                      and employer partners to streamline transition from training to employment
+4. Method of Accountability:          Require approved training plans, partnership MOU(s), and budget narratives. Collect
+                                      quarterly reports detailing number of students trained, hours, completed, and placement
+                                      outcomes. Verify deliverables through participant logs, clinical site documentation, and
+                                      expenditure support. Desk and site visit reviews.
+5. Itemized Budget & Justification:   Preceptor & Instructor Compensation: $2,500,000
+                                      Simulation & Training Equipment: $2,000,000
+                                      Curriculum Development & Partnership Coordination: $500,000
+                                      Total Annual Budget: $5,000,000 | 5-year Estimate: $25,000,000
+
+                                      Five-Year Progression: Y1 set sites; Y2 scale placements; Y3 increase preceptors; Y4
+                                      optimize retention; Y5 sustain through tuition/partners.
+                                                                                                                                Initiative
+                                                                                             Subrecipient Total:    $25,000,000      3
+
+
+
+
+                                                                                                                                             11
+1. Name of Subrecipient:              Rural Telehealth Access and Integration Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Enhance telehealth capacity in rural and frontier communities through hospitals, clinics,
+                                      and EMS agencies. Support integration of telehealth into primary care, behavioral
+                                      health, maternal health, and chronic-disease management. Purchase equipment and
+                                      connectivity improvements with prior approval. Enable partnerships with specialty
+                                      providers and telepharmacy networks to reduce travel and improve timely access to care.
+                                      Test interoperability and secure data exchange between telehealth platforms and existing
+                                      EHR systems.
+4. Method of Accountability:
+                                      Preapproved work plans and outcome measures. Quarterly reporting on progress.
+                                      Require baseline and post-implementation utilization data (encounters, patient reach,
+                                      connectivity uptime). Verify equipment installation. Conduct onsite reviews.
+5. Itemized Budget & Justification:   Telehealth Implementation: $6,000,000
+                                      Connectivity & Equipment Support: $3,000,000
+                                      Specialty & Telepharmacy Integration: $1,000,000
+                                      Training, Evaluation, and Reporting: $500,000
+                                      Total Annual Budget $10,500,000 | 5-year Estimate: $52,500,000
+
+                                      Five-Year Progression: Y1 deploy; Y2 enhance; Y3 integrate specialty networks; Y4
+                                      optimize throughput; Y5 sustain operations.                                       Initiative
+                                                                                        Subrecipient Total: $52,500,000      1
+
+1. Name of Subrecipient:              Rural Cybersecurity & Artificial Intelligence Modernization Program Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Support purchase and implementation of cybersecurity tools such as network
+                                      monitoring, endpoint protections, and data-encryption software. Research, analyze, and
+                                      adopt where applicable artificial intelligence strategies and applications that improve
+                                      operational efficiency, early risk detection, and predictive analytics. Provide technical
+                                      guidance to ensure alignment with State and federal security standards and data-sharing
+                                      protocols. Promote workforce readiness through staff training and cybersecurity
+                                      awareness initiatives.
+
+
+
+
+                                                                                                                                     12
+4. Method of Accountability:          Require prior approval for cybersecurity and AI implementation plans and budgets.
+                                      Monthly invoicing and expenditure detail reports. Progress reporting that details tool
+                                      adoption, training completion, and threat mitigation outcomes. Verify purchases and
+                                      installations through documentation and onsite visits.
+5. Itemized Budget & Justification:   Cybersecurity Tool Implementation: $5,000,000
+                                      AI-Driven Analytics & Risk Tools: $5,000,000
+                                      Workforce Training & Readiness: $500,000
+                                      Evaluation & Compliance Verification: $500,000
+                                      Total Annual Budget: $11,000,000 | 5-year Estimate: $55,000,000
+
+                                      Five-Year Progression: Y1 deploy; Y2 train; Y3 enhance analytics; Y4 optimize; Y5
+                                      sustain with audits.                                                               Initiative
+                                                                                         Subrecipient Total: $55,000,000      1
+
+1. Name of Subrecipient:              Consumer Applications & Online Platforms - Local Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Deploy patient-facing app portals that integrate with EHRs for self-monitoring,
+                                      scheduling, medicine adherence, and coaching. Run targeted digital education and
+                                      outreach in rural communities to boost adoption and chronic-disease self-management.
+                                      Provide provider/facility training and technical assistance to operationalize tools within
+                                      routine workflows.
+4. Method of Accountability:          Require prior approval of an approved applications and tools list. Require an
+                                      interoperability plan. Privacy and security attestations prior to agreement execution.
+                                      Collect quarterly performance data. Monthly invoicing and expenditure detail reports.
+                                      Track active users, engagement, completion of care tasks, readmission trends. Verify
+                                      purchases and implementations via onsite visits and demonstrations.
+5. Itemized Budget & Justification:   Application Portal Licenses & Integration Support: $1,700,000
+                                      Community Adoption & Digital Outreach: $700,000
+                                      Provider Training & Workflow Integration: $500,000
+                                      Evaluation & Reporting: $300,000
+                                      Total Annual Budget: $3,200,000 | 5-year Estimate: $16,000,000
+
+                                      Five-Year Progression: Y1 configure; Y2 adoption; Y3 enhance features; Y4 optimize
+                                      adherence; Y5 sustain and refresh.                                                           Initiative
+
+
+
+                                                                                                                                                13
+                                                                                            Subrecipient Total:    $16,000,000    1
+
+1. Name of Subrecipient:              Rural EHR Program Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Purchase software to upgrade interoperability modules. Support vendor implementation
+                                      and configuration. Improve documentation, reporting, and quality-measure tracking
+                                      through modernized EHR systems. Strengthen privacy and security controls.
+4. Method of Accountability:          Quarterly progress reports showing installation status and data-sharing functionality.
+                                      Verify system activation, staff training, and interoperability testing. Monthly invoicing
+                                      and expenditure detail reports. Report on data-security standards.
+5. Itemized Budget & Justification:   EHR Software Licenses & Upgrades: $3,000,000
+                                      Implementation & Configuration: $1,500,000
+                                      Training & Security Enhancements: $500,000
+                                      Total Annual Budget: $5,000,000 | 5-year Estimate: $25,000,000
+
+                                      Five-Year Progression: Y1 upgrade core; Y2 enhance modules; Y3 integrate exchange;
+                                      Y4 optimize; Y5 sustain.                                                           Initiative
+                                                                                        Subrecipient Total: $25,000,000       1
+
+1. Name of Subrecipient:              Health Management & Data Analytics Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Adopt health analytics tools that track chronic conditions and preventive care. Support
+                                      integration of analytic dashboards with local EHR systems. Enable data-driven decision
+                                      making through automated reporting and trend visualization. Build analytic capacity for
+                                      performance measurement and value-based care initiatives.
+4. Method of Accountability:          Preapproved work plans and vendor quotes for analytics tools. Collect quarterly reports
+                                      documenting system deployment, data outputs, and utilization metrics. Verify
+                                      implementation through sample reports and system screenshots. Validation of analytics
+                                      and staff training completions.
+
+
+
+
+                                                                                                                                      14
+5. Itemized Budget & Justification:   Health Analytics Software: $2,500,000
+                                      EHR Integration & Data Interoperability: $2,000,000
+                                      Training & Technical Assistance: $500,000
+                                      Evaluation & Reporting: $300,000
+                                      Total Annual Budget: $5,300,000 | 5-year Estimate: $21,500,000
+
+                                      Five-Year Progression: Y1 implement; Y2 train; Y3 increase datasets; Y4 automate
+                                      alerts; Y5 sustain and handoff.                                                    Initiative
+                                                                                         Subrecipient Total: $25,500,000      1
+
+1. Name of Subrecipient:              Graduate Medical Education (GME)
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:
+                                      Support development of new rural residency and graduate medical education programs
+                                      in high-need disciplines. Fund rural rotations and preceptor development to increase
+                                      exposure and transition to rural practice. Assist teaching hospitals with accreditation
+                                      costs, faculty development, and GME program start-up, expenses. Coordinate with
+                                      Idaho's physician workforce boards and universities to align programs with statewide
+                                      workforce shortage priorities.
+4. Method of Accountability:          Require approved implementation plans and partner agreements. Collect quarterly
+                                      reports documenting residents trained, rotations completed, and student incentive
+                                      disbursements. Verify deliverables through rosters, payment records, and signed service
+                                      agreements. Desk reviews and site visits.
+5. Itemized Budget & Justification:   Residency/GME Expansion: $5,000,000
+                                      Preceptor Development & Faculty Support: $2,000,000
+                                      Accreditation & Program Start-Up Costs: $700,000
+                                      Evaluation & Reporting: $300,000
+                                      Total Annual Budget: $8,000,000 | 5-year Estimate: $40,000,000
+
+                                      Five-Year Progression: Y1 design tracks; Y2 launch cohorts; Y3 increase slots; Y4
+                                      retain graduates; Y5 sustain programs.
+                                                                                                                                Initiative
+                                                                                           Subrecipient Total:    $40,000,000        3
+
+1. Name of Subrecipient:              Cancer & Chronic Disease Prevention & Treatment Management Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+
+
+                                                                                                                                             15
+3. Scope of Work:                     Implement evidence-based chronic disease prevention and management programs
+                                      (NDPP, DSMES, nutrition and family health initiatives)
+4. Method of Accountability:          Quarterly reporting on enrollment, completion, and outcomes metrics
+5. Itemized Budget & Justification:   National Diabetes Prevention Program (NDPP): $3,000,000
+                                      Diabetes Self-Management Education (DSMES): $2,000,000
+                                      Alzheimer's & Dementia Support: $2,000,000
+                                      Cancer, Heart Disease, & Other Chronic Disease Program Management: $5,000,000
+                                      Total Annual Budget: $12,000,000 | 5-year Estimate: $60,000,000
+
+                                      Five-Year Progression: Y1 launch programs; Y2 increase enrollees; Y3 integrate
+                                      referrals; Y4 optimize outcomes; Y5 sustain.
+
+                                                                                                                                   Initiative
+                                                                                            Subrecipient Total:    $60,000,000          2
+
+1. Name of Subrecipient:              Rural Community Health Workforce Expansion Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:
+                                      Recruit, train, and deploy health extenders and CHEMS personnel across rural Idaho.
+                                      Fund at least one paid EMS staff member per county, prioritizing volunteer-only
+                                      jurisdictions. Create cross-training pathways connecting health extenders, CHEMS, and
+                                      public health staff to improve care continuity. Integrate health extenders into telehealth
+                                      and population-health systems for data sharing and referrals.
+
+4. Method of Accountability:          Quarterly reports on staffing levels, training completion, and service coverage. Verify
+                                      employment status and credentialing before reimbursement; Progress reports by county
+                                      level staffing and retention goals.
+
+
+
+
+                                                                                                                                                16
+5. Itemized Budget & Justification:   Recruitment & Training: $2,000,000
+                                      Community Health EMS Deployment: $5,000,000
+                                      Cross-Training & Integration: $5,000,000
+                                      Total Annual Budget: $12,000,000 | 5-year Estimate: $60,000,000
+
+                                      Five-Year Progression: Y1 recruit; Y2 deploy; Y3 integrate; Y4 retain and upskill; Y5
+                                      sustain via local funds.
+                                                                                                                                Initiative
+                                                                                             Subrecipient Total:    $60,000,000      2
+
+1. Name of Subrecipient:              Mental & Behavioral Health Prevention & Treatment Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Enhance psychiatry access lines, provide spaces for parentally-directed school-based
+                                      clinicians, launch mobile crisis teams, deliver prevention training and incentive rural
+                                      behavioral health workforce.
+4. Method of Accountability:          Quarterly performance reports for service delivery, workforce metrics, and outcomes
+5. Itemized Budget & Justification:   Pediatric Psychiatry Access Line: $3,000,000
+                                      Parentally-Directed School-Based Mental Health Services: $3,000,000
+                                      Mobile Crisis Response Teams: $3,000,000
+                                      Rural Behavioral Health Workforce: $2,000,000
+                                      Total Annual Budget: $11,000,000 | 5-year Estimate: $55,000,000
+
+                                      Five-Year Progression: Y1 deploy teams; Y2 enhance coverage; Y3 integrate care
+                                      pathways; Y4 optimize outcomes; Y5 sustain.                                       Initiative
+                                                                                        Subrecipient Total: $55,000,000      4
+
+1. Name of Subrecipient:              Rural Healthcare Safety and Readiness Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Facility readiness assessment (including a report for necessary code compliance
+                                      upgrades); Facility improvement plan that aligns with state, federal, and life-safety code
+                                      standards; Strengthen operational readiness through infrastructure repairs and
+                                      modernization; Address critical safety deficiencies
+4. Method of Accountability:          Quarterly performance reports, Monthly expenditure reports, Code-compliance progress
+                                      updates.
+
+
+                                                                                                                                             17
+5. Itemized Budget & Justification:   Safety & Security Upgrades: $2,000,000
+                                      Life-Safety Code Compliance: $500,000
+                                      Facility Repair & Modernization: $400,000
+                                      Compliance Verification & Reporting: $100,000
+                                      Total Annual Budget: $3,000,000 | 5-year Estimate: $12,000,000
+
+                                      Five-Year Progression: Y1 assess; Y2 remediate high risks; Y3 continue upgrades; Y4
+                                      optimize; Y5 sustain.                                                               Initiative
+                                                                                         Subrecipient Total: $12,000,000       5
+
+1. Name of Subrecipient:              Pharmacy Access and Integration Subgrants
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:
+                                      Upgrade pharmacy facilities to include private exam or consultation space for chronic-
+                                      disease monitoring, basic urgent care, and immunizations. Support creation of shared
+                                      spaces for clinical pharmacists within rural clinics or via telepharmacy models. Install
+                                      secure medication-dispensing lockers to improve after-hours access and medication
+                                      adherence. Pilot pharmacist-led care coordination services to increase rural access to
+                                      preventive and chronic-care support. Strengthen partnerships between pharmacists,
+                                      providers, and health systems to enhance continuity of care.
+4. Method of Accountability:          Require review of work plans, budgets, and deliverable milestones before award
+                                      execution; Collect quarterly performance data on patient access, service volume, and
+                                      utilization metrics; verify completion of facility upgrades or service deliverables prior to
+                                      final payment; Evaluation pilot outcomes to determine sustainability.
+
+
+
+
+                                                                                                                                       18
+5. Itemized Budget & Justification:   Facility Upgrades & Exam Space: $2,000,000
+                                      Telepharmacy Infrastructure: $1,000,000
+                                      Medication-Dispensing Lockers: $1,000,000
+                                      Pharmacist-Led Pilot Projects: $800,000
+                                      Training, Reporting, & Evaluation: $200,000
+                                      Total Annual Budget: $5,000,000 | 5-year Estimate: $25,000,000
+
+                                      Five-Year Progression: Y1 build capacity; Y2 activate services; Y3 enhance access; Y4
+                                      optimize adherence; Y5 sustain.                                                       Initiative
+                                                                                          Subrecipient Total: $25,000,000        5
+
+1. Name of Subrecipient:              Tribal Coordinated Plan: Idaho Tribal Health Partnership Initiative
+2. Period of Performance:             December 31, 2025 - October 31, 2030
+3. Scope of Work:                     Support the five federally recognized Tribal nations in Idaho in advancing culturally
+                                      aligned public health, behavioral health, and healthcare access initiatives. Including:
+                                      health system capacity building, chronic disease prevention, behavioral health
+                                      integration, workforce development, telehealth access and expansion, and emergency
+                                      preparedness coordination.
+4. Method of Accountability:          By February 2026, Tribes will submit a coordinated plan encompassing all Tribal
+                                      activities. Each Tribe will subsequently submit an individual workplan, itemized budget
+                                      narrative, and selected performance measures prior to award execution. Quarterly
+                                      progress reports. Monthly invoicing and expenditure detail reports. Desk reviews and
+                                      site visits.
+5. Itemized Budget & Justification:   Proposed activities will align with NOFO objectives and will be explicitly defined by
+                                      each Tribe at the completion of the coordinated plan and prior to agreement execution.
+
+                                      Total Annual Budget (including Personnel & Indirect Costs): $7,000,000 | 5-year
+                                      Estimate: $35,000,000
+
+                                      Five-Year Progression: Y1 baseline assessments, staffing; Y2 implementation and data
+                                      systems; Y3 mid-term eval; Y4 improvements; Y5 sustainability efforts and hand off
+
+                                                                                                                                Initiative
+
+
+
+                                                                                                                                             19
+                                                                                                 Subrecipient Total:   $35,000,000           5
+Total Contractual                                                                                               $985,000,000.00
+
+G: Construction (not applicable)
+H. Other
+Other Total                                                                                                        $487,500
+Grant                                                                                                              $487,500
+Recipient Share                                                                                                       $0
+Item                                Years        Rate           Qty                   Basis                          Cost                Initiative
+Outreach & Comms Materials            5         $25,000          1       $25,000 annually                         $125,000.00              ALL
+Legal & Policy Review Services        5          $250           200      Allocate 200 annual hours                $250,000.00              ALL
+Specialized Audit Support             5          $150           150      Allocate 150 annual hours                $112,500.00              ALL
+Total Other                                                                                                       $487,500.00
+
+Other Justification:
+Other costs, as identified above, are necessary to support communication, compliance, and staff capacity across all RHTP
+initiatives. Outreach and communications materials will provide print and digital resources to share program information, promote
+participation, and disseminate best practices among rural partners. Legal and policy review services will ensure that contracts,
+subawards, and program materials align with federal and state requirements, including data-sharing and reimbursement policies.
+Specialized audit support will assist with annual risk assessments, subrecipient reviews, and internal control evaluations to maintain
+fiscal integrity.
+I. Total Direct Costs
+                                                                                                                $994,044,433.00
+
+J. Indirect Costs
+                                                                                                                 $5,955,567.00
+Indirect Costs are estimated to be $5,955,567. Final indirect charges will be calculated through the use of our federally approved
+Cost Allocation Plan.
+
+TOTAL FEDERAL SHARE                                                                                            $1,000,000,000.00
+
+
+
+
+                                                                                                                                                      20
+

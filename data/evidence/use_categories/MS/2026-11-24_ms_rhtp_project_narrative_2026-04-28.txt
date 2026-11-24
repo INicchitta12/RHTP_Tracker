@@ -1,0 +1,796 @@
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+according to our 2021 DSH Audit. Social and economic barriers, including the nation’s
+
+highest hunger rate, with 18.8% of children going to bed hungry most nights [7], further
+
+contribute to chronic disease prevalence and poor health outcomes across rural
+
+communities [8].
+
+    The Mississippi RHT Program will prioritize Mississippi’s most underserved rural
+     communities, targeting counties facing provider shortages and high poverty, to
+      improve access for children, pregnant women, and residents with chronic or
+                             behavioral health conditions.
+
+Rural Demographics
+
+Mississippi defines rural areas using a combination of federal and state criteria. The U.S.
+
+Census Bureau considers areas outside urbanized zones with populations under 50,000
+
+rural [12], while HRSA/FORHP uses RUCA codes and population density for federal program
+
+eligibility[3]. At the state level, Mississippi classifies counties with fewer than 50,000
+
+residents, fewer than 500 people per square mile, or municipalities with populations under
+
+15,000[4].
+
+Population Size and Density: Mississippi has a total population of approximately 2.94
+
+million, with 53.2% residing in rural areas, equating to roughly 1.56 million rural
+
+residents. The State spans 46,924 square miles,           Mississippi’s rural
+                                                          demographics reflect a
+resulting in an average population density of 62.6        population that is older, poorer,
+                                                          less educated, increased
+people per square mile, though rural counties             instances of comorbidities, and
+                                                          more reliant on public health
+often fall below 30 people per square mile [1],[13].      programs than their urban
+                                                          counterparts.
+Income Levels: Mississippi’s median household
+
+income is $54,203, but many rural counties report per capita incomes below $30,000.
+
+
+
+
+                                                                                              3
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Mississippi ranks 50th in the nation for poverty, with 19.5% of residents living below the
+
+poverty line, including 26.4% of children and nearly 16% of seniors[38].
+
+Employment Sectors and Unemployment Rates: Rural Mississippi’s economy is
+
+historically rooted in agriculture, forestry, and manufacturing, but these sectors have seen
+
+declining employment due to automation and population loss. Over the past three years,
+
+Mississippi has experienced a record low in unemployment. However, when viewed over a
+
+10-year period, the State’s unemployment rate has averaged 5.35%, indicating that
+
+while recent years have shown remarkable progress, the long-term trend remains
+
+moderate [39].
+
+Educational Attainment: In Mississippi’s rural counties, 15.5% of adults did not
+
+complete high school, and only 20.2% have a college degree. [40]. The high school
+
+dropout rate was 8.5% in the 2023-2024 school year, almost double the national rate [41].
+
+Health Insurance Coverage: Approximately 12.1% of Mississippians are uninsured, with
+
+higher rates in rural areas. Medicaid plays a critical role in rural health access, with
+
+over 27% of rural residents relying on it for coverage. Gaps remain in behavioral health,
+
+maternal care, and specialty services, particularly in counties designated as Health
+
+Professional Shortage Areas (HPSAs) [1].
+
+Frontier and Remote: Approximately 5% of Mississippi’s population resides in a zip
+
+code designated as a Frontier and Remote (FAR) Area Code level 2 by the USDA, based
+
+on data from the 2010 decennial census [16].
+
+
+
+
+                                                                                            4
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Health Outcomes
+
+Chronic Conditions in Rural Mississippi: Leading chronic conditions among adults
+
+include hypertension at 49.5%, obesity at 39.6%, arthritis at 35.2%, mental illness at
+
+20.2%, diabetes at 13.1%, and cardiovascular
+                                                             Mississippi carries one of the
+disease at 10.0% [17]. Counties in the Delta region          highest burdens of chronic
+                                                             disease in the nation, with
+report the highest rates of stroke and heart disease         rural communities
+                                                             disproportionately affected.
+mortality, with stroke death rates reaching 140 per
+
+100,000 and heart disease mortality exceeding 700 per 100,000 in some areas. These
+
+conditions contribute to high rates of disability, premature death, and avoidable
+
+hospitalizations, particularly in rural counties[18].
+
+Child Health Outcomes: Mississippi consistently ranks among the lowest states in the
+
+nation for child well-being and health outcomes[19]. Key indicators include low-birth
+
+weight, affecting 12.5% of newborns; a child and teen death rate of 53 per 100,000 for
+
+ages 1–19; child obesity affecting over 42% of adolescents aged 10–17; and 6% of
+
+children lacking health insurance, with rural areas reporting higher rates[20], [21].
+
+Maternal Health Outcomes: Mississippi has the highest maternal mortality rate in the
+
+nation[21], [22]. Nearly 20% of mothers receive late or inadequate prenatal care[24], [25]. More
+
+than 51% of counties lack birthing facilities or obstetric providers [26].
+
+Healthcare Access
+
+Average Distance to Nearest Hospital or Primary Care Clinic: In many rural areas, drive
+
+times to access primary and maternal healthcare regularly exceed 30 minutes [42]. In the
+
+Delta, some travel up to 75 miles for primary care services [27], [28].
+
+
+
+
+                                                                                              5
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Availability of Healthcare Providers: Approximately 50% of Mississippians live in
+
+underserved counties with greater than 2,000 persons per primary care physician [28].
+
+Nearly all rural counties in Mississippi are designated as Health Professional Shortage
+
+Areas (HPSAs) for primary care[32].
+
+Availability of Public Transportation: Public transportation in rural Mississippi is present
+
+but far from sufficient. While regional transit providers deliver over five million trips each
+
+year through programs such as Delta Rides, SMART, and TRANS-CON, service remains
+
+limited and uneven. Many communities still face long travel distances, minimal
+
+infrastructure, and unreliable funding. For seniors and individuals with disabilities,
+
+accessibility barriers persist, leaving large areas of the state without consistent or
+
+practical transportation options.
+
+Health Care Facility Numbers and Distribution: Mississippi’s rural health infrastructure
+
+includes 32 Critical Access Hospitals, 6
+
+Rural Emergency Hospitals, 245 Rural
+
+Health Clinics, 238 Federally Qualified
+
+Health Centers, and 40 Short-Term/PPS
+
+Hospitals [31]. However, these facilities are
+
+unevenly distributed. Seven counties
+
+lack any hospital presence, and over half of Mississippi’s counties are classified as
+
+maternity care deserts [31].
+
+
+
+
+                                                                                                 6
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Rural Facility Financial Health
+
+Rural Hospital Closures: According to the Center for Healthcare Quality and Payment
+
+Reform, as of mid-2025, more than half of the State’s rural hospitals are at risk of
+
+closure. High rates of uncompensated care, totaling 5.54%, and more than half of
+
+hospitals in the State receiving DSH payments, exacerbate financial instability[1].
+
+Closures would disproportionately affect counties          Mississippi is experiencing
+                                                           one of the most severe rural
+already designated as HPSAs or maternity care              hospital crises in the nation.
+
+deserts. Rural hospitals serve as major employers in their communities, and closures
+
+have ripple effects on local economies, workforce stability, and emergency response
+
+capacity [36].
+
+Utilization & Volumes: Rural hospitals face lower patient volumes and higher per-patient
+
+costs due to limited local utilization, with occupancy rates often below 50%[36]. Rural
+
+emergency departments commonly serve as the primary access point for non-
+
+emergency care, resulting in high volumes of non-urgent visits and increased levels of
+
+uncompensated care [1].
+
+RURAL HEALTH TRANSFORMATION PLAN: GOALS AND
+STRATEGIES
+By 2031, every rural Mississippian will have reliable access to high-quality healthcare
+                                                        Mississippi has designed a plan
+services, both in-person and through telehealth,
+                                                        that directly supports the RHT
+                                                        Program’s five strategic pillars:
+supporting increased access points and healthier
+                                                        Make Rural America Healthy
+                                                        Again, Sustainable Access,
+communities across the State. The strategy
+                                                        Workforce Development,
+                                                        Innovative Care, and Technology
+prioritizes access, measurable improvements in
+                                                        Innovation.
+health outcomes, workforce development, financial
+
+
+
+
+                                                                                            7
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+sustainability, scalable care delivery models, and the strategic application of health
+
+technology.
+
+EXPAND ACCESS AND IMPROVE OUTCOMES
+Mississippi is tailoring our initiatives to include expanding access and improving outcomes
+
+in rural settings. Programs designed to recruit and retain doctors, nurses, and other allied
+
+health professionals, while simultaneously launching pilots for expanded services like
+
+obstetrics, mental health care, and value-based care initiatives, can significantly
+
+strengthen healthcare delivery, particularly in underserved areas. By integrating telehealth
+
+and remote patient monitoring, these programs extend clinical reach beyond physical
+
+facilities, enabling timely interventions and chronic disease management. Regionalized
+
+systems of care, featuring nurse navigation and closed-loop referrals to social services,
+
+will ensure patients receive coordinated medical and non-medical support, reducing gaps
+
+in care and improving compliance with treatment plans. Collectively, these strategies
+
+expand access to essential services, enhance continuity of care, and foster better health
+
+outcomes through earlier detection, proactive chronic disease management, and
+
+streamlined pathways across providers and community resources.
+
+HARNESS TECHNOLOGY AND DATA
+With RHT Program funds, Mississippi will develop a comprehensive statewide Health
+
+Information Exchange network, allowing for bi-directional sharing of patient records and
+
+facilitating coordination of transfers, sites of care selection and care coordination efforts.
+
+The State will also use funds to improve integrated technology at provider sites, including
+
+upgrades and module additions to electronic health record systems, cybersecurity,
+
+telehealth and remote patient monitoring capabilities.
+
+
+
+
+                                                                                                 8
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+BUILD PARTNERSHIPS AND STRENGTHEN WORKFORCE
+Mississippi is implementing initiatives to build partnerships through technology and
+
+integrated systems of care and strengthen the rural workforce through incentives,
+
+expanded training opportunities, and focused educational outreach. The statewide Health
+
+Information Exchange will connect providers in new and innovative ways and help facilitate
+
+clinically integrated efforts and value-based care opportunities. Facilities and clinicians
+
+will be able to share resources and expertise through expanded telehealth capabilities and
+
+wraparound social services.
+
+Mississippi will also use RHT Program funds to strengthen the rural clinical workforce
+
+through financial incentives (retention awards and “earn while you learn” programs), while
+
+also expanding the number of physician residencies, nurse preceptor programs, and allied
+
+health training opportunities in rural markets.
+
+ENSURE FINANCIAL STABILITY AND ADDRESS ROOT CAUSES
+Mississippi will use RHT Program funds to upgrade healthcare facilities to improve access
+
+and close gaps in care. These improvements will facilitate the opening of necessary
+
+service lines in rural markets, such as chronic disease management, obstetrics, neonatal
+
+intensive care, and psychiatric emergency services. Pilot programs will be launched to
+
+address early intervention for chronic conditions to better address root causes.
+
+Other Required Components
+
+PROGRAM KEY PERFORMANCE OBJECTIVES
+By the end of the funding period in FY 2031, the State expects the RHT Program to establish
+
+a more integrated, data-informed, and sustainable rural health system, improving access,
+
+quality, workforce capacity, care coordination, technology adoption, virtual care,
+
+
+
+
+                                                                                              9
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+behavioral health services, and infrastructure across the State. These objectives reflect
+
+the State’s intended outcomes and may evolve as programs are designed and
+
+implemented.
+
+The Statewide Rural Health Assessment will provide a foundational roadmap. By project
+
+completion, 100% of planned assessment activities—including data collection,
+
+stakeholder engagement, analysis, and reporting—will be executed. The assessment will
+
+engage ≥150 stakeholders across hospitals, FQHCs, EMS, behavioral health, and
+
+community representatives. It will identify ≥5 major service, workforce, or infrastructure
+
+gaps statewide and deliver a data-driven roadmap with recommendations aligned with
+
+assessment findings, prioritized by urgency, impact, and feasibility.
+
+The Coordinated Regional Integrated Systems (CRIS) Initiative will strengthen regional
+
+care networks and patient care continuity. By the end of Year 5, CRIS is designed to reduce
+
+low-acuity ER visits by ≥10% through nurse navigation and treat-in-place interventions,
+
+engage ≥50% of rural hospitals and clinics in coordinated care networks, and ensure
+
+≥35% of high-risk patients have completed care plans within 7 days of discharge,
+
+resulting in a ≤20% 30-day readmission rate for high-risk patients.
+
+The Workforce Expansion Initiative (WEI) will expand and sustain the rural healthcare
+
+workforce. By FY 2031 the State intends to recruit and retain ≥150 clinicians, allied health
+
+professionals, and support staff in rural areas for at least 5 years, with ≥20% of program
+
+participants remaining in rural practice 5 years post-completion. WEI is designed to
+
+create and fill ≥35 new residency or training positions and engage ≥50 preceptors or
+
+mentors to provide high-quality supervision.
+
+
+
+
+                                                                                            10
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+The Health Technology Advancement and Modernization (HTAM) Initiative will
+
+modernize rural provider systems and support digital health. HTAM seeks to have, by Year
+
+5, ≥90% of funded providers have upgraded, interoperable EHR systems, ≥75% of
+
+eligible providers will actively share data through the statewide HIE, ≥50% of
+
+applicable provider staff will complete cybersecurity or IT training, and ≥40% of
+
+patients will actively engage with digital tools, including patient portals, telehealth, and
+
+remote monitoring.
+
+The Telehealth Adoption and Provider Support (TAPS) Initiative will increase virtual care
+
+access and capacity. By Year 5, TAPS is structured to: increase by ≥40% telehealth visits
+
+among funded providers, enroll and sustain ≥50% of eligible providers in telehealth
+
+service delivery for at least two consecutive years, ≥85% of funded sites will achieve
+
+full operational readiness, and ≥50% of applicable provider staff will complete
+
+telehealth competency training within the first year.
+
+The Building Rural Infrastructure for Delivery, Growth, and Efficiency (BRIDGE)
+
+Initiative will improve rural behavioral health access and infrastructure. BRIDGE is
+
+structured to, by Year 5, have ≥3 Psychiatric Emergency Services (PES) units
+
+established, and ≥100 Community Health Workers and clinical staff will be trained and
+
+deployed. By Year 5, ≥25 rural capital projects will be completed, contributing to ≥15%
+
+increases in service capacity, a ≥15% reduction in patient travel distances, and a ≥15%
+
+reduction in preventable ER visits in pilot program areas. ≥50% of pilot programs will
+
+show measurable improvements, and BRIDGE will reach ≥100,000 rural residents
+
+statewide.
+
+
+
+
+                                                                                          11
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Based on survey results, Mississippi then hosted a full-day listening forum on August 28,
+
+2025. Attendees included representatives from the State Department of Health and Mental
+
+Health, Emergency Management, Workforce Development, Institutes of Higher Learning,
+
+select providers, and association leaders that represented hospitals, rural providers,
+
+community health centers, ambulance services, and nursing homes. Each forum
+
+participant brought expert insight into Mississippi’s rural health needs and potential
+
+solutions, helping the State to solidify the initiatives in this plan.
+
+The leadership team from the Office of the Governor, Department of Health, and Division
+
+of Medicaid has also conducted many additional conversations with stakeholders,
+
+including rural providers, tribal leaders, and potential vendor partners outside of the
+
+official survey and forum settings. Best efforts were made to include as many stakeholder
+
+perspectives as possible, enabling the State to develop an application and plan that best
+
+serve the needs of Mississippi’s rural residents.
+
+Engagement Framework and Project Governance
+
+Mississippi plans to continue having an open process for stakeholder engagement. The
+
+State will explore structures such as a stakeholder advisory committee or other regular
+
+meetings and forums to ensure that the expectations of the populations intended to
+
+benefit from RHT Program funds are being met.
+
+Mississippi plans to maintain the same program governance used during the application
+
+development. The Office of the Governor will work in conjunction with the State
+
+Department of Health (which houses the State Office of Rural Health) and Division of
+
+Medicaid to oversee the RHT Program. The State also plans on partnering with a third-party
+
+
+
+
+                                                                                            48
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Evaluation plan
+
+Mississippi will cooperate with any CMS-led evaluation or monitoring. Mississippi plans to
+
+partner with a qualified firm with extensive 2 CFR 200 and rural health experience to
+
+perform compliance and monitoring services for the RTH Program. This partnership will
+
+include conducting program evaluation activities, ensuring that implementation aligns
+
+with program goals and identifying areas for continuous improvement.
+
+
+Sustainability Plan
+
+Mississippi recognizes that for RHT Program funds to drive true transformation, initiatives
+
+must have a sustainable path beyond the RHT Program’s five-year window. Our initiatives
+
+balance one-time investments in infrastructure and technology with programmatic
+
+investments designed to demonstrate value and transition to State-level sustainable
+
+funding. The goal is to:
+
+    •   Strengthen the healthcare workforce without creating dependency on RHT
+
+        Program funds,
+
+    •   Develop scalable, replicable clinical models that improve care quality and
+
+        efficiency, and
+
+    •   Create new revenue streams and support provider transition to value-based
+
+        payment models for long-term sustainability.
+
+
+
+
+                                                                                          58
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+INITIATIVE SUSTAINABILITY PLANS
+
+RURAL HEALTH STATEWIDE ASSESSMENT
+A one-time investment to verify care gaps and key factors affecting rural health. The
+
+assessment contractor will also review and strengthen sustainability plans for each
+
+initiative, providing recommendations to enhance long-term impact.
+
+COORDINATED REGIONAL INTEGRATED SYSTEMS (CRIS) INITIATIVE
+Regionalized EMS System – Rural Healthcare Districts: Investments will reorganize and
+
+enhance existing EMS systems. Sustainability will come from operational efficiencies, cost
+
+savings, and reduced downstream care costs by ensuring patients receive appropriate
+
+care in the right setting.
+
+EMS Treat in Place Pilot Program: Aims to reduce unnecessary ER visits and
+
+hospitalizations, lowering the cost of care. Sustainability will come through new
+
+reimbursement models from Medicaid and private insurers.
+
+Clinical Integration & Post-Discharge Care Coordination: RHT Program will provide
+
+start-up funding for regional or statewide Clinically Integrated Networks (CINs). These will
+
+be governed by participants and sustained through payer contracts, value-based care
+
+arrangements, and participant investments.
+
+Remote Medical Assistance & Nurse Navigation Lines: Provides statewide patient
+
+guidance to improve care coordination and reduce costs. Once cost savings are
+
+demonstrated, the State will commit to continued funding.
+
+AI & Algorithmic EMS Decision Support Pilot: AI tools will improve efficiency within the
+
+new regionalized EMS system. Sustainability will be driven by the cost savings generated
+
+through these efficiencies.
+
+
+
+
+                                                                                           59
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+Closed-Loop Referral & Wraparound Social Services: Connects patients to social
+
+services addressing social determinants of health (SDOH). By improving long-term health
+
+and reducing reliance on Medicaid and SNAP, State savings will support ongoing program
+
+funding.
+
+WORKFORCE EXPANSION INITIATIVE (WEI)
+Retention Award Pilot Program: Evaluated at program end; successful pilots will
+
+transition to State-level funding.
+
+Residency Program Expansion Grant: Covers two-year start-up costs for new residency
+
+slots. Thereafter, programs will receive standard CMS residency funding.
+
+Preceptor Expansion Program: Provides incentive payments to nurse preceptors. Upon
+
+proven success, the State will maintain funding.
+
+Earn While You Learn: Reduces financial barriers for healthcare trainees. If successful in
+
+growing the rural workforce, the State will continue funding.
+
+Secondary Education Medical Career Outreach: Funds educational materials and
+
+activities guiding students toward healthcare careers. Continued funding will depend on
+
+program success in expanding the rural healthcare pipeline.
+
+HEALTH TECHNOLOGY ADVANCEMENT & MODERNIZATION (HTAM) INITIATIVE
+Small Provider Technology Grants: One-time funding for providers to upgrade technology
+
+that enhances efficiency and supports care integration. No continuation beyond RHT
+
+Program.
+
+Small Provider EHR Replacement Grants: One-time funding for providers to replace low-
+
+performing EHR systems with high-performing ones. No continuation beyond RHT
+
+Program.
+
+
+
+
+                                                                                          60
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+TELEHEALTH ADOPTION & PROVIDER SUPPORT (TAPS) INITIATIVE
+Telehealth Adoption Incentives: Supports provider transitions to telehealth operations.
+
+Once implemented, facilities will sustain operations through billing revenue. No
+
+continuation beyond RHT Program.
+
+Telehealth Hub Connectivity & Equipment: One-time funding for telehealth equipment
+
+and connectivity. No continuation beyond RHT Program.
+
+Telehealth Education: Supports development of telehealth curriculum for medical,
+
+nursing, and undergraduate programs. If effective in expanding the workforce, the State
+
+will maintain funding.
+
+BUILDING RURAL INFRASTRUCTURE FOR DELIVERY, GROWTH & EFFICIENCY
+(BRIDGE) INITIATIVE
+Psychiatric Emergency Services (PES) Development: One-time capital to create
+
+Psychiatric Emergency Departments (PEDs), plus staffing and overhead support. These
+
+facilities are expected to become self-sustaining through revenue generation.
+
+Rural Capital for Care Gap Closures: One-time funds for minor facility renovations to
+
+improve access and close care gaps. No continuation beyond RHT Program.
+
+Clinical Pilot Programs: Funds pilot projects targeting key rural care gaps. Successful
+
+pilots will transition to ongoing State-level funding.
+
+
+
+
+                                                                                          61
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+END NOTES
+1. https://www.mspha.org/wp-
+    content/uploads/2024/02/MPHA2024LegislativeAgenda.pdf
+2. www.mspha.org/wp-content/uploads/2024/02/MPHA2024LegislativeAgenda.pdf
+3. https://chroniccarealliance.org/wp-content/uploads/2023/11/CCPA-Mississippi-State-
+    of-Chronic-Disease-2023.pdf
+4. https://www.mhanet.org/Online/Online/Press/2024/Mississippi-Rural-Hospitals-
+    Tackle-Workforce-Shortages-with-Innovative-Solutions-.aspx
+5. https://msdh.ms.gov/msdhsite/index.cfm/31,20750,444,pdf/Maternal_Health_Action_P
+    lan_2024.pdf
+6. https://ruralhospitals.chqpr.org/downloads/Rural Hospitals at Risk of Closing.pdf
+7. https://www.msfoodnet.org/about-us/hunger/
+8. https://extension.msstate.edu/publications/mississippi-economic-and-financial-well-
+    being-patterns-and-trends
+9. https://www.census.gov/programs-surveys/geography/guidance/geo-areas/urban-
+    rural.html
+10. https://www.ncsl.org/health/overview-of-rural-health
+11. https://www.hrsa.gov/rural-health/about-us/what-is-rural/data-files
+12. https://msdh.ms.gov/msdhsite/_static/44,0,111.html#rural
+13. https://censusreporter.org/profiles/04000US28-mississippi/
+14. https://extension.msstate.edu/publications/mississippi-economic-and-financial-well-
+    being-patterns-and-trends
+15. https://www.census.gov/topics/education/educational-attainment.html
+16. https://www.ers.usda.gov/data-products/frontier-and-remote-area-codes
+17. https://chroniccarealliance.org/wp-content/uploads/2023/11/CCPA-Mississippi-State-
+    of-Chronic-Disease-2023.pdf
+18. https://www.cdc.gov/heart-disease-and-stroke-data/hd-stroke-trends-dashboard/index.html
+19. https://assets.aecf.org/m/databook/2025-KCDB-profile-MS.pdf
+20. https://childrensfoundationms.org/
+21. https://www.cdc.gov/nchs/maternal-mortality/mmr-2018-2022-state-data.pdf
+22. https://www.cdc.gov/nchs/maternal-mortality/data.htm
+23. https://medicaid.ms.gov/wp-content/uploads/2025/01/MOMS-Initiative-
+    Presentation.pdf
+24. https://maternalhealthms.org
+25. https://www.childstats.gov/americaschildren/prenatal.asp
+26. https://www.marchofdimes.org/peristats/reports/mississippi/maternity-care-deserts
+27. https://www.pewresearch.org/short-reads/2018/12/12/how-far-americans-live-from-
+    the-closest-hospital-differs-by-community-type/
+28. https://msdh.ms.gov/msdhsite/ static/resources/7357.pdf
+29. https://mspublictransitassociation.org/resources
+30. https://mdot.ms.gov/connectms/
+31. https://www.ruralhealthinfo.org/states/mississippi
+32. https://www.graham-center.org/content/dam/rgc/documents/maps-data-tools/state-
+    collections/phys-workforce/Mississippi.pdf
+
+
+
+                                                                                        62
+Mississippi Rural Healthcare Transformation Program
+
+
+
+
+33. https://ruralhospitals.chqpr.org/downloads/Rural_Hospitals_at_Risk_of_Closing.pdf
+34. https://www.clarionledger.com/story/news/2025/07/10/medicaid-cuts-could-lead-to-
+    8-mississippi-hospitals-closing-see-why/84530916007/
+35. https://ruralhospitals.chqpr.org/downloads/Rural Hospitals at Risk of Closing.pdf
+36. https://www.mhanet.org/common/Uploadedfiles/Advocacy/TransformingRuralHealthin
+    Mississippi-SecondUpdate2011.3.25.pdf
+37. www.mstelehealth.org/wp-content/uploads/2017/08/Mississippi-Telehealth-
+    Manual.pdf
+38. https://www.americashealthrankings.org/explore/measures/ChildPoverty/MS
+39. https://www.bls.gov/charts/state-employment-and-unemployment/state-
+    unemployment-rates-map.htm#
+40. https://www.mhanet.org/common/Uploadedfiles/Advocacy/TransformingRuralHealthin
+    Mississippi-SecondUpdate11.3.25.pdf
+41. https://mdek12.org/wp-content/uploads/sites/33/2025/02/Grad-Dropout-Rates-2025-
+    Report.pdf
+
+
+
+
+                                                                                  63
+

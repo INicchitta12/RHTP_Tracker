@@ -215,7 +215,12 @@ rhtp_strip_summary_calls <- function(d) {
   }
   # SESSION 116f: and the spend-category columns (R/07 --apply writes them
   # last; RHTP_SPEND_COLUMNS in R/utils_spend_category.R, pinned equal in test_10).
-  d[, setdiff(names(d), c(RHTP_SUMMARY_COLUMNS, RHTP_SPEND_STRIP_COLUMNS)), drop = FALSE]
+  # SESSION 123: and the use-category columns (R/11 --apply writes them last of all;
+  # RHTP_USE_COLUMNS in R/utils_use_category.R, pinned equal in test_11).
+  d[, setdiff(names(d), c(RHTP_SUMMARY_COLUMNS, RHTP_SPEND_STRIP_COLUMNS, RHTP_USE_STRIP_COLUMNS)), drop = FALSE]
 }
+RHTP_USE_STRIP_COLUMNS <- c("use_category_primary", "use_group_primary", "use_categories_all",
+                            "use_category_basis", "use_category_confidence", "use_category_quote",
+                            "use_category_source")
 RHTP_SPEND_STRIP_COLUMNS <- c("spend_category", "spend_category_basis", "vendor_role", "out_of_state",
                               "vendor_public", "vendor_verified", "vendor_verified_usd", "vendor_case_id")

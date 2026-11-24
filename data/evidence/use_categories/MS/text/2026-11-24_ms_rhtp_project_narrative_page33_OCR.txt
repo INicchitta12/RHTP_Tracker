@@ -1,0 +1,62 @@
+Mississippi Rural Healthcare Transformation Program
+
+Content Description
+Category
+Other considerations:
+e Funding for provider payments is subject to restrictions
+described in funding policies and limitations.
+e Funding for capital expenditures and infrastructure is subject to
+restrictions described in funding policies and limitations.
+e Limit direct payments to individual providers or facilities without
+alignment to TAPS initiative.
+e Arrangements/affiliations should not be contingent on or
+influence ownership and/or independence of participating
+
+providers.
+Main Tech Innovation; Make Rural America Healthy Again
+Strategic
+Goals
+
+Use of Funds | B. Provider payment
+C. Consumer tech solutions
+D. Training and technical assistance
+E. Workforce
+F. IT advances
+|. Innovative care
+J. Capital Expenditures and Infrastructure
+K. Fostering Collaboration
+
+Technical B.1 Population health clinical infrastructure
+Score C.1 Rural provider strategic partnerships
+Factors E.1 Medicaid provider payment incentives
+
+F.1 Remote Care Services
+F.3 Consumer-facing technology
+
+Key Rural hospitals, FQHCs, telehealth vendors, community health centers,
+
+Stakeholders | State Office of Rural Health
+
+Possible e Increased telehealth visits across rural and underserved
+
+Outcomes communities.
+
+(not e Reduced geographic and transportation barriers for patients.
+
+exhaustive) |e Expanded access to specialty care through remote consultation
+models.
+
+e More providers offering telehealth services without financial loss.
+
+e Successful testing and implementation of new telehealth payment
+models.
+
+e Sustained adoption of virtual care after the incentive period ends.
+
+e Increased number of fully equipped telehealth hubs across the
+State.
+
+e Improved broadband connectivity and IT readiness among rural
+providers.
+
+33

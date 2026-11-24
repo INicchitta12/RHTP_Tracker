@@ -1,0 +1,530 @@
+
+
+State of Idaho Rural Health Transformation Program
+Idaho Department of Health and Welfare
+
+SOLICITATION FOR SUBAWARD APPLICATIONS
+Statewide Chronic Disease Education Network
+Federal Agency
+Centers for Medicare & Medicaid Services
+Federal Award No.
+RHTCMS332084
+ALN No.
+93.798
+Solicitation No.
+RHTPDIS2
+Posting Date
+08/18/2026
+Application Deadline
+09/15/2026
+Estimated Award Range
+$2,000,000
+Anticipated Project Period
+10/09/2026 – 09/30/2031
+Point of Contact
+IdahoRHTP@dhw.idaho.gov
+
+This document was supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling $185,974,367.81 with 100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+Section 1: Program Description & Purpose
+Chronic diseases remain among the leading causes of illness, disability, healthcare utilization, and mortality in Idaho. Many chronic health conditions require ongoing prevention, early identification, treatment, and long-term management, including cardiovascular disease, stroke, diabetes, cancer, Alzheimer's disease and other dementias, obesity and metabolic conditions, neurodevelopmental disorders, mental health conditions, and immune-related conditions. Rural healthcare providers frequently serve as the primary point of care for individuals living with or at risk for these conditions but may have limited access to current evidence-based education, specialty expertise, and continuing professional development opportunities, particularly in rural and frontier communities.
+Expanding access to high-quality education, technical assistance, and peer-to-peer learning through a Statewide Chronic Disease Education Network will strengthen clinical practice, promote evidence-based prevention and treatment, improve care coordination, and support earlier identification and long-term management of chronic health conditions across Idaho.
+All activities must comply with the Idaho Parental Rights Act, Idaho Code §§ 32-1010-1015
+1.1 Background 
+The Department will serve as the lead agency for administering the Rural Health Transformation Program (RHT) Grant funding award for the state of Idaho (ID). As such, the Department is committed to removing barriers to treatment, improving health outcomes, and promoting patient-centered care. The RHTP website address is:  https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/about-rural-health-transformation-program-grant  
+As the grant recipient, the Department manages the entire grant award and is responsible for distributing funding to other ID state agencies, contractors, and Subgrantees in alignment with the projects awarded by Centers for Medicare & Medicaid Services (CMS). This distribution will be carried out in accordance with both state and federal regulation, specifically procurement rules, to facilitate the execution of RHTP work. The state’s RHTP is a critical mechanism to advance a sustainable, data-driven model of care that enhances access, quality, and outcomes.      
+Idaho’s Rural Health Transformation Plan (RHTP) (Attachment A, ID RHTP Project Narrative) is a multi-year strategic plan including five (5) major initiatives designed to strengthen rural health systems, increase access to care, enhance quality outcomes, expand workforce capacity, and promote financial sustainability. These initiatives address CMS’ strategic goals for this grant to transform healthcare for residents in the state’s rural areas. 
+The five initiatives are:  
+Initiative 1.  Improving rural access to care through technology  
+Facility technology assessments and shared infrastructure  
+Telehealth expansion  
+Digital health  
+Cybersecurity modernization and artificial intelligence (AI) tools  
+Emergency communication systems implementation and enrollment  
+Health management and data analytics tools  
+EHR software and upgrades  
+Initiative 2.  Ensuring accessible, quality care through innovative models  
+Diagnostic and care access innovations  
+Health extenders  
+Emergency medical service (EMS) expansion and workforce stabilization  
+Understand opportunities to leverage health extenders and optimize service delivery   
+Initiative 3.  Sustaining rural workforce with training, recruitment, and retention.  
+Ladder payments based on priority positions and rural presence  
+Healthcare career exploration and advancement programs  
+Work-based learning  
+Graduate medical education (GME) programs  
+Initiative 4.  Implementing population specific, evidence-based projects to Make America Healthy Again  
+Chronic disease prevention and treatment  
+Behavioral health prevention and treatment  
+Maternal and child health efforts    
+Initiative 5.  Investing in rural health infrastructure and partnerships  
+Healthcare facility renovations  
+Pharmacy solutions  
+Clinical equipment purchases  
+Vehicles for patient transport and rural mobile health units  
+Healthcare facility federal, state, and local safety code compliance 
+Tribal rural health transformation support  
+
+The state’s RHTP leverages partnerships with state and local agencies, tribal partners, healthcare providers, and community organizations to ensure locally responsive solutions. 
+
+This plan will work to modernize electronic and logistical infrastructure, strengthen community-to-clinician connections, and further integrate healthcare and community-based services across settings and types of care.
+1.2 Project Coordination
+To ensure alignment across the Idaho Rural Health Transformation initiatives and to prevent duplication or overlap, the selected applicant must, as applicable to the scope of work, coordinate with Department staff, other Rural Health Transformation-funded entities, and key stakeholders in conducting assessment, data collection, evaluation, reporting, and development of deliverables.
+1.3  Program Goals & Objectives
+This solicitation specifically addresses RHTP Initiative 4: Implementing population specific, evidence-based projects to Make America Healthy Again, by establishing a Statewide Chronic Disease Education Network. The Department anticipates making one (1) award to an organization capable of administering and coordinating a statewide network that expands access to evidence-based education, training, technical assistance, and professional learning opportunities related to chronic disease prevention and management. The selected applicant (subgrantee) may implement the deliverables through partnerships, subawards, subject matter experts, learning collaboratives, continuing education opportunities, and other strategies that strengthen Idaho's rural healthcare workforces’ education and understanding of chronic disease reduction and management measures. All activities must comply with the Idaho Parental Rights Act, Idaho Code §§ 32-1010-1015.
+The selected subgrantee must administer activities that align with each of the following goals:
+Goal 1
+Expand access to evidence-based education related to chronic disease prevention and management.
+Goal 2
+Improve Idaho’s allied and clinical healthcare workforce knowledge and confidence in addressing priority chronic conditions.
+Goal 3
+Increase adoption of evidence-based prevention, screening, referral, and treatment practices.
+Goal 4
+Strengthen connections between rural providers, specialists, public health programs, community resources, and caregiver support systems.
+Goal 5
+Improve provider understanding of family caregiver engagement and the role caregivers play in chronic disease management.
+Goal 6
+Establish a sustainable Statewide Chronic Disease Education Network.
+1.4 Scope of Work
+Required Activities:
+Complete the Non-Duplication Assessment (Appendix H) and submit with the solicitation application to ensure funds do not support an existing project or plan. 
+Develop and administer a Statewide Chronic Disease Education Network focused on chronic disease prevention, early identification, treatment, and management.
+Establish and administer a statewide implementation model that encourages engagement of participating organizations through subawards, partnerships, learning collaboratives, technical assistance, continuing education opportunities, and other workforce development activities.
+Coordinate subject matter experts, clinical faculty, professional associations, healthcare organizations, academic institutions, and community partners to increase the adoption of evidence-based education and workforce development activities.
+Partner and/or subgrant with participating organizations to deliver education and training related to the following Idaho and MAHA priority topic areas:
+Cardiovascular disease
+Stroke
+Diabetes
+Cancer prevention, screening, treatment, and survivorship
+Alzheimer's disease and other dementias
+Obesity and metabolic conditions
+Neurodevelopmental disorders
+Immune and allergic conditions
+Identify and facilitate adoption of evidence-based and evidence-informed approaches that align with current clinical practice guidelines, prevention strategies, and chronic disease management best practices.
+Develop approaches to incentivize participating organizations to increase healthcare workforce knowledge and confidence related to prevention, screening, risk reduction, treatment, care coordination, referral pathways, and long-term disease management.
+Develop, curate, and/or disseminate educational materials, toolkits, clinical resources, referral guides, and implementation protocols that promote adoption of evidence-based chronic disease prevention and treatment practices to participating subgrantees.
+Facilitate statewide and regional learning collaboratives, peer-to-peer learning opportunities, case-based learning activities, communities of practice, or other workforce engagement strategies that support knowledge sharing and practice improvement.
+Promote awareness about the available healthcare, public health, and community-based resources that support prevention, treatment, self-management, caregiver engagement, and long-term disease management.
+ Integrate family caregiver engagement practices into workforce education activities when appropriate, recognizing the role family caregivers play in chronic disease management, treatment adherence, care coordination, and support of individuals living with chronic health conditions.
+Incentivize participating organizations to identify opportunities to improve coordination among healthcare providers, specialists, public health programs, community-based organizations, and other partners involved in chronic disease prevention and management.
+Establish and maintain partnerships with healthcare organizations, academic institutions, professional associations, workforce development entities, public health organizations, and other stakeholders necessary to achieve program goals.
+Provide technical assistance and implementation support to participating organizations to strengthen adoption of evidence-based prevention and treatment practices.
+Collect, monitor, and report data related to participation, educational activities, workforce development outcomes, geographic reach, implementation efforts, and other required performance measures.
+Maintain documentation of subgrant activities, educational programs, technical assistance activities, participating organizations, and workforce development outcomes.
+Submit required programmatic, financial, and performance reports to the Department.
+Participate in Department-required evaluation, monitoring, quality improvement, and continuous learning activities, including facilitating participation by subgrantees and participating organizations as requested.
+Meet at least quarterly with the Department’s Rural Health Transformation Program Data Analytics and Evaluation Contractor to complete the following tasks:  
+Develop theory of change diagram(s) (e.g., logic model, line-of-sight diagram, driver diagram, or similar visualization of assumptions connecting proposed work with intended outcomes and performance indicators) 
+Use data sharing mechanisms (to be developed by the Data Analytics and Evaluation contractor) to report on required key performance objectives (KPO) within timelines established by the Department.
+Develop and implement a process evaluation and quality improvement plan that identifies useful evaluation or process improvement measures in addition to required KPOs. 
+Review and provide input on draft evaluation findings, reports, and analyses as requested. 
+Measures to be defined in consultation with the Data Analytics and Evaluation contractor after award.
+1.5 Target Population & Service Area
+The primary recipients of activities supported through this solicitation are allied and clinical healthcare professionals and members of the healthcare workforce serving rural and frontier communities throughout Idaho. This includes physicians, advanced practice providers, nurses, pharmacists, behavioral health professionals, social workers, community health workers, care coordinators, public health professionals, healthcare students, trainees, and other professionals involved in the prevention, identification, treatment, management, and coordination of care for individuals living with chronic health conditions.
+The ultimate beneficiaries of this solicitation include Idahoans living in rural and frontier communities who are at risk for or are living with chronic health conditions, including cardiovascular disease, stroke, diabetes, cancer, Alzheimer's disease and other dementias, obesity and metabolic conditions, neurodevelopmental disorders, mental health conditions, and immune or allergic conditions.
+Family caregivers and care partners are important participants in chronic disease management and may also benefit from activities supported through this solicitation. Family caregivers often play an important role in supporting prevention activities, treatment adherence, care coordination, self-management, and long-term disease management. Workforce education activities should promote awareness of caregiver engagement practices and available caregiver resources when appropriate.
+Activities funded through this solicitation must benefit rural and frontier communities across Idaho where access to specialty expertise, continuing education opportunities, workforce development resources, and evidence-based clinical guidance may be limited.
+The Department anticipates making one (1) award to an applicant capable of administering and coordinating a Statewide Chronic Disease Education Network. Applicants should describe how their proposed model will ensure broad geographic reach and equitable access to educational opportunities across Idaho through partnerships, subawards, learning collaboratives, technical assistance, virtual learning platforms, or other implementation strategies.
+Applicants should clearly describe how their proposed structure will strengthen workforce knowledge, expand access to evidence-based education, and improve the prevention, identification, treatment, and management of chronic health conditions across rural Idaho.
+Priority Populations
+Consistent with the goals of the Rural Health Transformation initiative, priority populations include:
+Healthcare professionals serving rural and frontier communities.
+Healthcare organizations seeking to strengthen workforce knowledge and implementation of evidence-based chronic disease prevention and treatment practices in rural Idaho.
+Individuals living in rural Idaho with or at increased risk for cardiovascular disease, stroke, diabetes, cancer, Alzheimer's disease and other dementias, obesity and metabolic conditions, neurodevelopmental disorders, mental health conditions, and immune or allergic conditions.
+Individuals in rural Idaho experiencing barriers to specialty care, prevention services, or evidence-based treatment due to geographic distance, workforce shortages, transportation challenges, or other barriers to care.
+Family caregivers and care partners in rural Idaho who support individuals living with chronic health conditions and may benefit from improved provider engagement and awareness of caregiver resources.
+Applicants are encouraged to demonstrate how proposed activities will strengthen workforce capacity, improve access to evidence-based prevention and treatment practices, and improve health outcomes for Idahoans living in rural and frontier communities.
+Section 2: Eligibility Requirements
+2.1 Eligible Applicant Types
+Eligible entities include organizations with demonstrated experience administering statewide clinical education, workforce development, continuing education, learning collaboratives, tele-mentoring programs, or healthcare provider training initiatives, such as: 
+Institutions of higher education located in Idaho 
+Nonprofit organizations with 501(c)(3) status 
+State/local government agencies 
+Tribal organizations 
+Healthcare associations and professional societies 
+Healthcare quality improvement organizations and healthcare improvement collaboratives
+Hospitals and health systems located in Idaho 
+Federally Qualified Health Centers (FQHCs) and FQHC look-alikes 
+Healthcare providers in rural Idaho
+
+2.2 Minimum Qualifications
+Minimum qualifications include: 
+
+Unique Entity Identifier (UEI): Have a valid UEI, the federal identification number assigned through SAM.gov.
+
+SAM.gov Registration: Have an active SAM.gov registration, if required for receipt of the award. Applicants should verify their registration status before applying.
+
+Federal Eligibility: Be eligible to receive federal funds and have no active exclusions or debarments that prohibit the organization from receiving a federally funded award.
+
+Single Audit: If the organization is subject to federal Single Audit requirements (spent $1 million in federal funds in the last year), have completed the required audit for the applicable fiscal year.
+
+Relevant Experience: Demonstrate experience, expertise, or organizational capability relevant to the public health activities proposed in the application.
+
+Federal Grant Compliance: Demonstrate the organizational capacity to manage federal funds and comply with applicable requirements of 2 CFR Part 200 (Uniform Guidance). This includes appropriate financial management, recordkeeping, internal controls, procurement, and oversight practices, as applicable to the award.
+
+RHTP Alignment: Demonstrate that the proposed use of funds supports the goals and allowable activities of the Idaho Rural Health Transformation Program (RHTP) and applicable Centers for Medicare & Medicaid Services (CMS) requirements and guidance.
+
+Applicants who are unfamiliar with federal grant requirements are encouraged to review the application guidance and available technical assistance resources. Lack of prior experience receiving federal funds does not necessarily disqualify an applicant; however, selected applicants must be able to meet all applicable federal and program requirements associated with the award.
+Because Lead Entities will administer subgrants and serve as pass-through entities, applicants must also demonstrate:
+Written policies and procedures governing subaward administration
+Internal control systems that comply with 2 CFR 200.303
+Experience conducting pre-award risk assessments
+Experience monitoring subrecipients through desk reviews, site visits, report reviews, and corrective action processes
+Capacity to review and approve reimbursement requests and support documentation
+Experience issuing management decisions and corrective action plans when compliance concerns are identified
+Systems for collecting, validating, and aggregating performance data from multiple implementation partners
+Experience managing statewide or multi-site initiatives involving multiple stakeholders.
+2.3 Exclusions
+The following entities are not eligible to apply for funding under this subgrant solicitation:
+Applicants that are debarred, suspended, or otherwise excluded from participation in federal programs, as verified through SAM.gov
+Applicants that do not maintain an active registration in SAM.gov
+Applicants with unresolved audit findings, including outstanding single audit findings or material weaknesses that have not been adequately addressed to the satisfaction of the awarding agency
+Applicants that do not have the financial management systems and internal controls necessary to manage federal funds in accordance with applicable requirements
+Individuals applying in a personal capacity
+
+The awarding agency reserves the right to verify eligibility and disqualify applicants that do not meet federal and state compliance requirements.
+2.4 Cost Sharing / Match Requirements
+No cost share or match is required for this subaward. 
+Section 3: Award Information
+Funding for initiatives related to the Rural Health Transformation Program (RHTP) is appropriated annually through the Centers for Medicare & Medicaid Services and distributed to all 50 states and U.S. territories. Funding is allocated using a formula that considers population characteristics, with the goal of supporting rural communities where the need for access to healthcare (dental, physical, and mental and behavioral health) is the greatest. RHTP funds are intended to help rural populations within states expand community outreach and support for individuals with mental and behavioral health care needs to community-based access.  
+
+The Idaho Department of Health and Welfare, Rural Health Transformation Program in cooperation with the Division of Behavioral Health anticipates awarding up to fifteen (15) school districts with a maximum of five-year subgrants under this RHTP funding opportunity. The annual award amount is variable depending on the number of awards granted and ranges from eighty thousand ($80,000.00) to one hundred twenty thousand ($120,000.00). Renewal of the subgrant may be considered for up to five (5) total years, subject to federal funding availability, satisfactory program performance, and continued authorization of the Rural Health Transformation Program initiatives within the State of Idaho. Future year funding is not guaranteed and will be determined annually.  
+
+Funding is contingent upon continued availability of federal/state appropriations and programmatic authorization for the Rural Health Transformation Program initiative within the State of Idaho. The Department reserves the right to adjust/modify award amounts or funding requirements, if there are changes in federal funding levels, state legislative appropriations, program performance, grantee is unable to maintain satisfactory performance in accordance with subaward expectations, or the grantee’s capacity to successfully deliver SBFSH’s services.
+
+The Rural Health Transformation Program (RHTP) award number RHTCMS332084 is administered by the Centers for Medicare & Medicaid Services under the Assistance Listing Number (ALN) 93.798 and is authorized under Section 71401 of Public Law 119-21 of the One Big Beautiful Bill Act. 
+
+Detailed information regarding allowable expenses, budget expectations, and financial reporting requirements is provided in the Budget section of this document.  Applicants should develop budgets that align with the program objectives and comply with applicable federal and state financial guidance. Programmatic and fiscal reporting requirements will begin at that start of service implementation and will remain in effect throughout the award period. 
+Please note: The subgrant becomes effective upon execution, after all required signatures have been obtained. Consequently, funded activities may not commence until the subgrant is fully executed.
+3.1 Funding Details
+Total Available Funding
+$2,000,000.00
+Anticipated No. of Awards
+1
+Award Range (per subaward)
+$2,000,000
+Subaward Type
+Reimbursement
+Period of Performance
+10/09/2026- 9/30/2027
+Continuation Funding
+No
+
+3.2 Indirect Cost Rate
+As required by the Centers for Medicare & Medicaid Services under Rural Health Transformation, administrative costs, including indirect costs, are limited to 10 percent of the total approved subaward budget. Indirect costs must be calculated on the Modified Total Direct Cost (MTDC) base as defined in 2 CFR 200.1. 
+Together, indirect costs and direct administrative costs may not exceed 10 percent of the total approved budget. This federally required limitation applies to all subawards. Costs exceeding this threshold are not allowable and will not be reimbursed.
+Section 4: Application Instructions
+4.1 Required Application Components
+
+
+Applicants must submit all of the following components as a single, consolidated application package:
+#
+Component
+Format
+Page Limit
+Required?
+1
+Cover Page / Application Face Sheet
+Template provided (Appendix C)
+1 page
+Yes
+2
+Project Narrative
+Template provided (Appendix D)
+10 pages
+Yes
+3
+Work Plan with Milestones & Timeline
+Template provided (Appendix E)
+No limit  
+
+Yes
+4
+Budget & Budget Justification 
+Template provided (Excel File)
+No limit
+Yes
+5
+Organizational Capacity Statement
+PDF
+3 pages
+Yes
+6
+Letters of Support / MOUs
+PDF
+No limit
+If applicable
+7
+Proof of SAM.gov Registration 
+Screenshot or PDF 
+No limit  
+Yes
+8
+Current Indirect Cost Rate Agreement
+PDF
+No limit  
+If applicable
+9
+Most Recent Single Audit Report (if >$1 million)
+PDF or link
+No limit  
+
+If applicable
+10
+Pre-Award Financial Questionnaire
+Template provided (Appendix F)
+No limit  
+
+Yes
+11
+Signed Certifications & Assurances 
+Template provided (Appendix G)
+No limit  
+
+Yes
+12
+Assurance of Non-Duplication
+Template provided (Appendix H)
+No limit  
+
+Yes
+
+4.2 Project Narrative Guidance
+The Project Narrative is the primary basis for evaluating the applicant’s approach to developing a Statewide Chronic Disease Education Network. Address each area below in the order listed. Reviewers will evaluate narrative quality, specificity, and alignment with program goals. Vague or generic responses will score poorly.
+A. Statement of Need (recommended: 2–3 pages)
+Describe the need for improved access to evidence-based education, training, and workforce development related to chronic disease prevention and treatment across the geographic area proposed for implementation. Applicants should describe the burden of chronic disease in Idaho, including cardiovascular disease, stroke, diabetes, cancer, Alzheimer's disease and other dementias, obesity and metabolic conditions, neurodevelopmental disorders, and immune or allergic conditions, as applicable to the proposed project.
+Applicants should identify workforce challenges, gaps in access to specialty expertise, barriers to continuing education, and limitations in existing training and technical assistance opportunities, particularly in rural and frontier communities. Explain how the proposed statewide or multi-regional implementation model will address identified needs and strengthen workforce capacity through partnerships, subawards, learning collaboratives, technical assistance, continuing education opportunities, or other educational approaches. Cite all relevant data sources.
+B. Goals, Objectives & Measurable Outcomes (recommended: 2 pages)
+State proposed program goals and SMART objectives (Specific, Measurable, Achievable, Relevant, and Time-bound) that align with improving workforce knowledge, clinical practice, and implementation of evidence-based chronic disease prevention and treatment approaches that are expected to contribute to improved chronic disease outcomes over time.
+Applicants should identify both implementation-level outcomes (such as participating organizations, educational activities delivered, workforce participation, continuing education opportunities, geographic reach, or learning collaboratives established) and workforce-level outcomes (such as changes in knowledge, confidence, practice patterns, referral practices, caregiver engagement practices, or adoption of evidence-based approaches). Where feasible, applicants may also describe how these activities are expected to contribute to longer-term improvements in patient or population health outcomes and how those outcomes could be monitored over time.
+For each objective, applicants must provide a baseline value, target value, data source, and timeframe for measurement.
+C. Approach & Methods (recommended: 4–5 pages)
+Describe the proposed implementation model in detail. Explain how the applicant will administer, coordinate, and support a statewide or multi-regional network of participating organizations through subawards, partnerships, learning collaboratives, continuing education opportunities, technical assistance, communities of practice, tele-mentoring, or other workforce development strategies.
+Describe the educational approaches, training models, evidence base, subject matter expertise, and implementation supports that will be used. Applicants should explain how activities will be adapted for rural and frontier healthcare settings and how program quality, consistency, accountability, and fidelity will be maintained across participating organizations.
+Applicants should describe how education related to prevention, screening, treatment, care coordination, chronic disease self-management, caregiver engagement, and evidence-based clinical practice will be incorporated into workforce development activities when appropriate.
+D. Target Population & Engagement (recommended: 1–2 pages)
+Describe the workforce populations that will be served through the proposed project, including allied and clinical healthcare providers, healthcare students, nurses, pharmacists, behavioral health professionals, social workers, community health workers, care coordinators, public health professionals, and other members of the healthcare workforce serving rural and frontier communities.
+Applicants should describe how workforce training needs were identified and explain strategies for engaging healthcare organizations, academic institutions, professional associations, subject matter experts, family caregivers, community partners, and other stakeholders in planning, implementation, and continuous improvement activities.
+If proposing a subgrant model, describe how local needs and stakeholder input will inform subaward decisions and implementation priorities.
+E. Partnerships & Collaboration (recommended: 1–2 pages)
+Describe key partner organizations and their roles in supporting administration, coordination, workforce education, technical assistance, subject matter expertise, training delivery, workforce development, and sustainability activities.
+Applicants should explain how participating organizations, subgrantees, healthcare systems, academic institutions, professional associations, public health organizations, and other stakeholders will contribute to implementation of the project. If proposing a subgrant model, describe the process for selecting, supporting, monitoring, and coordinating participating organizations.
+Explain how partnerships will improve statewide reach, reduce duplication, strengthen workforce capacity, and support long-term sustainability. Letters of support, memoranda of understanding, or other partnership agreements may be included as attachments.
+F. Evaluation Plan (recommended: 2 pages)
+Describe how the project will be evaluated for both implementation and outcomes. Applicants should identify process measures, outcome measures, data collection methods, reporting frequency, and responsible staff.
+Applicants should describe how participation, educational activities, workforce development outcomes, implementation efforts, and performance measures will be collected, aggregated, monitored, and reported across participating organizations. Measures may include participation levels, geographic reach, continuing education activities, workforce knowledge gains, implementation of evidence-based practices, caregiver engagement practices, referral practices, and other indicators relevant to project goals.
+Explain how evaluation findings will be used to support continuous quality improvement and demonstrate the applicant's capacity to collect, manage, analyze, and report required performance data to the Department.
+G. Sustainability (recommended: 1 page)
+Describe how workforce education activities, partnerships, implementation structures, and educational resources will be sustained beyond the funding period. Applicants should explain how successful training models, learning collaboratives, technical assistance resources, continuing education opportunities, caregiver engagement content, and evidence-based educational materials will be integrated into ongoing organizational operations or partner networks.
+Identify potential future funding sources, organizational commitments, reimbursement opportunities, and partnership strategies that will support continuation of activities. If proposing a subgrant model, describe how participating organizations, partnerships, and statewide coordination efforts will be maintained or expanded beyond the grant period.
+
+4.3 Budget & Budget Justification Guidance
+Submit a detailed line-item budget using the provided Excel template (Excel File) for each year of the period of performance, plus a cumulative total. Accompany the budget with a narrative justification that explains and supports every line item. All proposed costs must be allowable, allocable, reasonable, and necessary per 2 CFR 200 Subpart E (§§200.400–200.476).
+Applicants should clearly describe the proposed allocation of funds between statewide coordination activities and local implementation support activities, including any proposed subawards.
+Required budget categories:
+Personnel: List each position by title, annual salary, % FTE charged, and fringe benefit rate. Justify each position’s necessity to the project.
+Fringe Benefits: Provide the fringe rate and its components (FICA, retirement, health insurance, etc.). If rates differ by employee class, break them out separately and display in a table.
+Travel: Itemize trips by purpose, destination, number of travelers, and estimated costs (airfare, mileage at the federal rate, lodging, per diem). 
+Equipment: Items with a per-unit cost of $2,000 or more and a useful life exceeding one year. Prior approval from the Department is required for all equipment purchases.
+Supplies: Items under $2,000 per unit. Group by category (office supplies, program materials, technology) and justify quantities.
+Contractual: Describe each proposed contract or subaward, including the scope, estimated cost, and procurement method. Note: Subrecipients may not subaward to other entities without prior written approval from the Department.
+Other Direct Costs: Includes participant support costs, printing, communications, training fees, software licenses, continuing education expenses, and other allowable costs necessary to implement the project. Participant incentives, if proposed, must be reasonable, justified, and approved by the Department.
+Administrative Costs: No more than 10% administrative costs.
+Payment and Reimbursement
+Subawards will be issued on a reimbursement basis.  Lead Entities will be responsible for:
+Reviewing and approving reimbursement requests submitted by local implementation partners
+Maintaining all supporting documentation
+Ensuring all expenditures comply with applicable federal and state requirements
+Submitting reimbursement requests and required supporting documentation to the Department
+Payments are contingent upon satisfactory performance, timely reporting, and compliance with all award requirements.
+
+
+
+
+4.4 Submission Instructions
+Submission Method
+Email
+Submit To
+IdahoRHTP@dhw.idaho.gov
+Deadline
+09/15/2026 at 5:00 P.M. MT
+Late Policy
+Late applications will not be reviewed.
+Questions Deadline
+08/26/2026– all questions must be submitted by this date
+Q&A Publication
+Responses posted to URL by 09/08/2026
+A webinar will be offered Tuesday, September 2 from 11 a.m. – noon (MDT) for all eligible organizations to ask questions related to this funding opportunity. To participate, refer to Idaho RHTP website. A Q&A document will be posted to: 
+ 
+https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/funding-opportunities-rural-health
+
+Section 5: Application Review & Evaluation Criteria
+Applications will first undergo an administrative review conducted by Department staff to ensure that the Statewide Chronic Disease Education Network submission requirements are met. Applications that are incomplete or non-responsive will not advance to the evaluation stage.
+
+Eligible and complete applications will be reviewed by a selection committee using the scoring rubric outlined below in section 5.1 Evaluation Criteria & Scoring.
+ 
+The Department reserves the right to:
+Award funding to one or more applicants, or
+Decline to make an award if applications do not sufficiently meet program priorities or funding needs.
+Priority consideration may be given to school districts that demonstrate:
+Strong administrative and programmatic infrastructure
+Experience conducting outreach and engagement with students and their families within their community
+
+Applicants meeting the minimum scoring threshold does not guarantee an award of funding. Final award determinations will be based on application quality, program alignment, and available RHTP Statewide Chronic Disease Education Network funding. The Idaho Department of Health and Welfare is under no obligation to make an award if only one applicant meets the minimum technical score threshold or if applications do not adequately meet programmatic, geographic, or funding priorities.
+
+
+
+
+
+
+
+
+
+
+
+5.1 Evaluation Criteria & Scoring
+Criterion
+Max Points
+Key Considerations
+Statement of Need & Alignment
+10
+Data-driven, aligned to program goals and workforce needs
+Goals, Objectives & Work Plan
+15
+SMART, feasible, measurable
+Approach & Innovation
+18
+Evidence-based, rural applicability, statewide implementation model, workforce development approach
+Organizational Capacity
+10
+Track record, infrastructure, statewide coordination capacity, subaward management experience
+Key Personnel Qualifications
+10
+Expertise, subject matter knowledge, time commitment
+Budget Reasonableness & Justification
+10
+Allowable, allocable, reasonable
+Evaluation & Data Collection Plan
+12
+Methods, tools, reporting capability, performance measurement
+Sustainability & Partnerships
+15
+Continuation plan, partnerships, statewide reach, learning networks, workforce sustainability
+TOTAL
+100
+
+
+5.2 Review Process
+The review process consists of three stages:
+Stage 1 – Administrative Screening: Department staff will screen applications for completeness and eligibility. Incomplete applications or those from ineligible applicants will not advance to technical review. Applicants will be notified of disqualification within 5 business days.
+Stage 2 – Technical Review: A review panel of at least three individuals with expertise in chronic disease prevention, public health program management, and federal grants compliance will independently score each application. Reviewers will participate in a consensus scoring session to discuss and finalize scores. Panel members will sign conflict of interest disclosures.
+Stage 3 – Final Selection: The Department will make final funding decisions based on panel scores, geographic coverage across the state, population reach, and programmatic priorities. The Department reserves the right to fund applications out of rank order to ensure equitable geographic distribution.
+The Department may request clarification, additional information, or interviews from applicants as part of the review process. Funding recommendations will be developed based on final evaluation scores, risk assessment results, available funding, and the Department’s goal of establishing an effective Statewide Chronic Disease Education Network. The Department anticipates funding one (1) Lead Entities capable of administering and overseeing a statewide network of local partners.
+Final funding decisions will consider:
+Application scores
+Funding availability
+Geographic coverage
+Organizational capacity
+Program priorities
+Ability to achieve statewide population-level outcomes
+5.3 Pre-Award Risk Assessment
+All recommended applicants will undergo a pre-award risk assessment prior to subaward execution. This assessment will evaluate:
+Prior experience managing federal awards of similar size and complexity
+Results of the most recent Single Audit (if applicable), including the type of opinion, material weaknesses, significant deficiencies, and findings specific to federal programs
+Financial stability indicators, including current ratio, unrestricted net assets, and recent year-over-year revenue trends
+Adequacy of the organization’s financial management system, including ability to track costs by funding source per §200.302
+Written policies for procurement (§§200.318–327), travel, property management, and time-and-effort reporting
+History of performance on prior Department subawards or other state/federal awards
+New organizations or those with identified risk factors will be designated as “high risk” and subject to enhanced monitoring conditions per §200.208
+Section 6: Subaward Terms & Conditions
+6.1 Federal Flow-Down Requirements
+Subgrantees will be subject to all applicable federal requirements that flow down from the prime award, including but not limited to:
+2 CFR Part 200 – Uniform Administrative Requirements, Cost Principles, and Audit Requirements
+45 CFR Part 75 (HHS-specific implementation, if applicable)
+Federal award terms and conditions as specified in the Notice of Award
+CMS/CDC/HRSA program-specific requirements from the Notice of Funding Opportunity (NOFO)
+Single Audit requirements per §200.501 (for entities expending $1,000,000+ in federal awards)
+
+
+
+
+
+
+
+
+6.2 Reporting Requirements
+Subgrantees will be required to submit the following reports:
+Report
+Frequency
+Due Date
+Submit To
+Financial Status Report (FSR)
+Quarterly
+30 days after quarter end
+[Contact]
+Program Progress Report
+Quarterly
+30 days after quarter end
+[Contact]
+Performance Measures / Data
+Quarterly
+30 days after quarter end
+[Contact]
+Final Report (Financial + Programmatic)
+End of Period of Performance (POP)
+90 days after POP
+[Contact]
+6.3 Monitoring & Oversight
+The Department will monitor Subgrantee activities to ensure compliance with the subaward terms and applicable federal requirements. Monitoring activities may include:
+Desk reviews of financial and programmatic reports
+On-site or virtual monitoring visits (at least annually for high-risk Subgrantees)
+Review of single audit reports per §200.332(d)
+Technical assistance and capacity-building support
+Review of Subgrantee procurement documentation for compliance with §§200.318–200.327
+6.4 Remedies for Noncompliance
+If a Subgrantee fails to comply with the terms of the subaward or applicable federal requirements, the pass-through entity may take one or more of the following actions per §200.339:
+Temporarily withhold payments pending corrective action
+Disallow all or part of the cost of the noncompliant activity
+Wholly or partly suspend or terminate the subaward
+Initiate suspension or debarment proceedings per 2 CFR Part 180
+Withhold further awards or impose additional conditions
+6.5 Record Retention
+Subgrantees must retain all financial records, supporting documents, statistical records, and all other records pertinent to the subaward for a period of six (6) years from the date of submission of the final expenditure report, or as otherwise required by §200.334. If any litigation, claim, or audit is started before the expiration of the retention period, records must be retained until all issues are resolved.
+6.6 Procurement Standards
+Subgrantees must follow the procurement standards in §§200.318–200.327, including conducting all procurement transactions in a manner providing full and open competition. Subgrantees must maintain written conflict of interest policies and document the procurement process including cost/price analysis.
+Section 7: Key Dates & Timeline
+Milestone
+Date
+Solicitation Released
+08/18/2026
+Pre-Application Webinar / Informational Session
+09/02/2026
+Deadline for Questions
+08/26/2026
+Q&A Responses Published
+09/08/2026
+Application Deadline
+09/15/2026 at 5:00 P.M. MT
+Review Period
+09/17/2026-09/24/2026
+Award Notifications
+On or about 10/06/2026
+Anticipated Subaward Start Date
+10/27/2026
+Section 8: Post-Award Timeline
+Following award execution, the selected Subgrantee will be expected to complete the following activities and deliverables in phases.
+Phase 1: Startup and Network Development (Months 1–3)
+Phase 2: Network Launch and Partner Engagement (Months 3–6)
+Phase 3: Program Implementation and Workforce Education (Months 6–24)
+Phase 4: Sustainability and Project Closeout (Final 6 Months of Performance Period)
+Ongoing Requirements Throughout the Project Period
+The Subgrantee shall maintain ongoing compliance with all reporting, monitoring, and performance requirements throughout the project period, including:
+Monthly reimbursement requests
+Quarterly financial reports
+Quarterly programmatic reports
+Quarterly performance measure reporting
+Participation in Department-led meetings and evaluation activities
+Coordination with participating organizations and partners
+Continuous quality improvement activities
+Maintenance of performance monitoring and data collection systems
+
+The Department reserves the right to modify timelines, reporting schedules, and milestone expectations as necessary to ensure successful implementation of the statewide Clinical Education and Chronic Disease Prevention Network.

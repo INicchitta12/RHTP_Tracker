@@ -1,0 +1,104 @@
+file: 2026-11-24_id_application_narrative.pdf
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=35081&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:41:46Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 612165
+sha256: 46b41b62f7fb227b6ce8aea36205210199baa50b3cb7bd6f6ad412b4b45a6291
+
+file: 2026-11-24_id_budget_narrative.pdf
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=36078&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:41:47Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 511063
+sha256: 9814fd3802ab2a4be5f5618cf503f53e0bde4a3808126ecdf0b3dd1c4045902c
+
+file: 2026-11-24_id_revised_budget.pdf
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=36079&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:41:54Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 5263021
+sha256: f88f321a98b3ab81a34cf20437fb0f50348d9f54960ad52a8e887a4a48b7b670
+
+file: 2026-11-24_id_his_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37356&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:42:40Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 222785
+sha256: 305203b7dba5d68fa25485284ee8fe454496f50cf66997ffcc3ed061c1f8b70e
+
+file: 2026-11-24_id_cit_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37432&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:11Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 193262
+sha256: 1e5c6cb5432374e9f34324cb8a694ec3a1ba8da118cf24d1455dc2851d87cf21
+
+file: 2026-11-24_id_sud_prevention_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37403&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:11Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 201417
+sha256: 8b93e396d2caaf205ab705d177604191f3f1faa9e962c311d29727677dca0113
+
+file: 2026-11-24_id_bh_prevention_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37417&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:12Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 198344
+sha256: 541a7878879898492da823f58c3d41fe91fd6d64345c9d527e9f12acc40ad04b
+
+file: 2026-11-24_id_chronic_disease_education_network_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37373&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:13Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 204873
+sha256: 7c41476e7405481734bfdafab1654fad02e6d943fa3f3e205c62c887543ee23e
+
+file: 2026-11-24_id_chronic_disease_cancer_screening_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37217&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:13Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 234768
+sha256: 4a51d312768f009b9b31b28991797041efb9ec231a68a6ca84b8d02d4bdbf926
+
+file: 2026-11-24_id_cognitive_care_pathway_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37229&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:14Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 244883
+sha256: d4285eb3afb03bb77aeb4e617606094a21624f07df03ccedb669d721e0d820ed
+
+file: 2026-11-24_id_cognitive_workforce_response_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37241&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:15Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 238249
+sha256: e646e4456fa83a0fae14ae03ea508af9f96f9b49bfe93a05ed4f5a8e174e8b9f
+
+file: 2026-11-24_id_diabetes_prevention_solicitation.docx
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37253&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:16Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 243171
+sha256: dba48eb06574bb8a255806ce808f55adf4ca41106f3da5eaafa38fc287349cb6
+
+file: 2026-11-24_id_ppal_solicitation.pdf
+source_url: https://publicdocuments.dhw.idaho.gov/WebLink/ElectronicFile.aspx?docid=37026&dbid=0&repo=PUBLIC-DOCUMENTS
+fetched_utc: 2026-11-24T14:43:17Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 301090
+sha256: 6642a687f210bd0da2d9ddd0f651a4ff96a305d239b1ea742ae9ae92809aa6a4
+

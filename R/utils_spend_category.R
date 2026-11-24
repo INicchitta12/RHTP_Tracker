@@ -514,7 +514,10 @@ rhtp_spend_rows <- function(award_files) {
                    spend_category = d$spend_category, spend_category_basis = d$spend_category_basis,
                    vendor_role = d$vendor_role, out_of_state = d$out_of_state == "TRUE",
                    vendor_public = d$vendor_public == "TRUE", vendor_verified = d$vendor_verified == "TRUE",
-                   vendor_verified_usd = as.numeric(d$vendor_verified_usd), vendor_case_id = d$vendor_case_id)
+                   vendor_verified_usd = as.numeric(d$vendor_verified_usd), vendor_case_id = d$vendor_case_id,
+                   # SESSION 123: the use-category group (R/11) on award rows; contract
+                   # rows carry none (NA).
+                   use_group_primary = o("use_group_primary"))
   }
   cf <- rhtp_contract_files()
   dplyr::bind_rows(

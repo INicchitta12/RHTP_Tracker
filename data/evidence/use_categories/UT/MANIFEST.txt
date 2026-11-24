@@ -1,0 +1,8 @@
+file: 2026-11-24_ut_rhtp_revised_project_narrative_v1.28.26.pdf
+source_url: https://dhhs.utah.gov/wp-content/uploads/Utah-RHTP-Revised-Project-Narrative_v.1.28.26.pdf
+fetched_utc: 2026-11-24T14:40:30Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1110238
+sha256: 11c61e9b4f78ab3c63eece3ba5467fa2e927c592bc579911824b9d4a62117f09
+

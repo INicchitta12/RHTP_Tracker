@@ -1,0 +1,15 @@
+file: 2026-11-24_me_rhtp_project_narrative_updated_march2026.pdf
+source_url: https://www.maine.gov/dhhs/sites/maine.gov.dhhs/files/inline-files/Maine_RHTP_Project%20Narrative_Updated-March2026.pdf
+fetched_utc: 2026-11-24T15:05:01Z
+http_status: 200
+user_agent: Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)
+bytes: 768497
+sha256: c261f8a240e00afd3ee621390636a4efbb32652852d06facd4fcea2354129dc5
+
+note: the fetch above used the project's recorded maine.gov agent (R/03aa ME_MAINE_GOV_AGENT, owner decision session 103), shown in user_agent; the plain agent got HTTP 403 at the same time.
+
+file: text/fsrs_ME_subaward_descriptions_2026-11-20.txt
+source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive)
+
+note: the pdftotext .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text. No other change.
+

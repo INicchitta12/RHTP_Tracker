@@ -1,0 +1,8 @@
+file: 2026-11-24_ia_hhs_healthy_hometowns_project_narrative.pdf
+source_url: https://hhs.iowa.gov/media/17491/download?inline
+fetched_utc: 2026-11-24T14:49:05Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1255610
+sha256: 3df484140da91a8562820a64884149155577ff59f5443fe20c627c72fefe865d
+

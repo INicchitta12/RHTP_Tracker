@@ -1,0 +1,16 @@
+file: 2026-11-24_il_hfs_rht_program_narrative.pdf
+source_url: https://hfs.illinois.gov/content/dam/soi/en/web/hfs/info/fedresctr/rhtsprogramnarrative.pdf
+fetched_utc: 2026-11-24T14:38:49Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 477119
+sha256: 7a07877b27f4296672c91761e24aa7d95fcd7a2170bac9f77833b9c0b612dcf6
+
+file: 2026-11-24_il_csfa_3950_htc.html
+source_url: https://omb.illinois.gov/public/gata/csfa/Program.aspx?csfa=3950
+fetched_utc: 2026-11-24T14:38:49Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 30628
+sha256: 41fbaf6525012511cbde1c4b928d759cad643f3abff87d7a542420ad2cd3155f
+

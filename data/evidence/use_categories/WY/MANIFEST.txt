@@ -1,0 +1,8 @@
+file: 2026-11-24_wy_rht_final_application_2025-11-05.pdf
+source_url: https://health.wyo.gov/wp-content/uploads/2025/11/Rural-Health-Transformation-in-Wyoming-final-application.pdf
+fetched_utc: 2026-11-24T14:41:44Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 5845482
+sha256: f30db01663577365f79ff1e2866b64c7cd4e7a812bda85e5bc54d3a8922a2b90
+

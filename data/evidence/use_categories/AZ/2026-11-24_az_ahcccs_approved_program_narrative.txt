@@ -1,0 +1,3713 @@
+                                                              Revised Project Narrative 1.30.2026
+
+
+
+ The State of Arizona’s Rural Health Transformation Program: Revised Project Narrative
+                     in accordance with CMS RHTP NOA Guidance
+
+
+Rural Health Needs and Target Population
+
+Arizona’s Rural Health Transformation Plan (RHTP) targets the 785,992 (~11%) of Arizonans
+
+who live in rural communities. These individuals often have lower incomes, higher burdens of
+
+chronic disease, and limited access to primary, preventive, and maternal health care. This leads to
+
+poorer health outcomes and higher costs due to overuse of emergency departments and
+
+preventable hospitalizations. Arizona’s RHTP tackles these challenges through improved access,
+
+targeted health workforce capacity expansion, and statewide system coordination.
+
+Arizona’s Rural Demographics and Socioeconomic Context: Arizona is the sixth-largest state
+
+in land area and has 15 geographically large counties, 7 of which are classified as 100% rural,
+
+according to the Arizona Center for Rural Health. Roughly 27% of Arizona’s land area is Tribal
+
+land. Arizona is home to 22 federally recognized Tribes, contributing to a diverse geographic and
+
+jurisdictional landscape. The State’s topography is also diverse, consisting of more than 200
+
+mountain ranges; rivers, basins, and canyons including the Grand Canyon (the world’s longest
+
+canyon); and vast forest land covering 19.4 million acres. Arizona is the only state that contains
+
+all four American deserts—the Sonoran, Mojave, Chihuahuan, and the Great Basin Deserts.
+
+Arizona’s rural population is widely dispersed, averaging 7.69 people per square mile.
+
+Arizona’s rural residents earn $24,000 less than urban residents, have higher unemployment
+
+rates, and rural residents have lower educational attainment. Rural employment is more often
+
+tied to seasonal, extraction, and public service work. Rural private health insurance coverage is
+
+lower, and rural Arizonans are enrolled in Medicaid and Medicare at higher rates than urban
+
+
+                                                                                                     1
+                                                                     Revised Project Narrative 1.30.2026
+
+Arizonans. These factors create barriers to health care access and continuity of care. Arizona’s
+
+RHTP addresses these challenges by transforming the rural delivery system and improving
+
+coordination across the state.
+
+Table 1: Arizona Urban vs. Rural Demographic & Socioeconomic Comparisons
+ Measure (Data Year)                  AZ Urban AZ Rural
+                Total Pop.             6,482,183    785,992
+  Population
+                Density Per Sq. Mi.      549.7         7.7
+    (2023)
+                % Total Pop.             89.2%       10.8%
+              Median Income (2023)      $79,142     $55,766
+              Unemployment (2023)         4.9%        7.5%
+                <High School             10.6%       13.8%
+                High School              22.7%       29.7%
+   Education
+                Some College             32.6%       35.9%
+     (2024)
+                BA                       21.0%       12.6%
+                Grad/Professional        13.2%        8.1%
+                Ag/Forestry/Mining        0.9%        5.3%
+                Public Admin              4.5%        8.4%
+ Employment*
+                Educ/Hlth/Soc. Asst.     21.8%       24.5%
+     (2024)
+                Hospitality**             9.4%       11.5%
+                Construction              7.6%        8.6%
+          Insurance coverage (2023)      89.7%       87.1%
+Source: U.S. Census Bureau, American Community Survey (ACS) 2019–2023, Table B01003: Total Population
+(Variable B01003_001E). Rural areas are defined using the Health Resources and Services Administration (HRSA)
+rural classification methodology.
+* Employment sectors more concentrated in urban areas include manufacturing, wholesale and resale trade,
+information, finance/insurance/real estate, professional/management
+**Hospitality includes accommodation, food, arts
+
+
+Health Outcomes and Risks: Rural Arizonans experience higher mortality from chronic
+
+conditions compared with urban residents including cancer, cardiovascular disease, diabetes, and
+
+Alzheimer’s disease/dementia. While the State’s rural health outcomes remained steady or
+
+worsened since 2021, urban outcomes had modest improvements. For example, rural cancer
+
+mortality rose from 210 per 100,000 in 2021 to 228 per 100,000 population in 2024, while urban
+
+rates declined from 166 per 100,000 to 164 per 100,000 in the same timeframe. Suicide and
+
+substance use mortality is also higher in rural areas.
+
+
+                                                                                                                2
+                                                                      Revised Project Narrative 1.30.2026
+
+
+
+
+Table 2. Arizona Urban vs. Rural Chronic Disease Mortality
+ 2024 Mortality per 100,000 Pop.          AZ Urban AZ Rural
+    Cancer1                                163.8    228.0
+    Cardiovascular Disease2                179.1    257.1
+    Diabetes                               29.2     40.9
+    Alzheimer’s /Dementia                  59.5     70.1
+    Substance Use                          29.7     29.8
+    Suicide                                16.0     24.6
+Source: The Arizona Department of Health Services (ADHS) Vital Statistics. Rural areas are defined using the
+Health Resources and Services Administration (HRSA) rural classification methodology.
+1
+  Rural cancer mortality increased from 210.0 per 100,000 in 2021, while urban declined from 166.2 per 100,000.
+2
+  Rural rates fluctuated but are now similar to 2021 levels, while urban rates declined.
+
+These rural versus urban differences highlight the persistent burden of chronic disease and
+
+behavioral health risk in rural communities—conditions that often require consistent,
+
+coordinated management and accessible primary, preventive, specialty, and behavioral health
+
+care. To address this, the Priority Health Initiatives Grants Portfolio in this application proposes
+
+funding local government-led screening and prevention outreach in rural areas to mitigate risk
+
+early and connect residents to services.
+
+Maternal-Fetal Health Outcomes: Maternal-fetal health indicators reveal disparities between
+
+Arizona’s rural and urban communities. Rural areas experience higher infant mortality and
+
+severe maternal morbidity, and more rural mothers receive no prenatal care compared to urban
+
+mothers. Moreover, four rural counties have no to low access to maternity care. These disparities
+
+underscore the need to strengthen maternal, child, and family health systems in rural Arizona.
+
+Arizona’s application focuses on improving outcomes before, during, and after delivery through
+
+The Improving Rural Maternal-Fetal Health Grant, which will increase evidence-based
+
+resources to improve outcomes in these areas, like access to prenatal care and pre- and
+
+
+
+
+                                                                                                                  3
+                                                                         Revised Project Narrative 1.30.2026
+
+postpartum behavioral health care, Alliance for Innovation on Maternal Health (AIM) maternal
+
+safety bundles, obstetrician (OB) simulation training, and regional tele-OB consults.
+
+Table 3: Maternal and Infant Morbidity & Mortality Arizona Rural vs. Urban Comparisons.
+                 Measure (Data Year)                          AZ Urban         AZ Rural
+
+ Infant Mortality per 1,000 Live Births (2024)                     5.3              5.8
+ Severe Maternal Morbidity per 10,000 Delivery
+                                                                 78.8              83.0
+ Hospitalizations (2022)
+ No prenatal care per 100 live births (2024)                       2.7              3.9
+
+ No to Low Access to Maternity Care (2023)                         0                4
+
+    Child (Age 0–17 Yrs) Non-fatal              Inpatient         124.2           154.6
+    Injury Hospitalization rates per
+                                              Emergency
+           100,000, (2024)                                       6,837.6         7,726.8
+                                              Department
+Source: ADHS Viral Statistics; ADHS Hospital Discharge Database; HCUP-SID; March of Dimes. Rural areas for
+Infant Mortality and No Prenatal Care. Rural areas are defined using the Health Resources and Services
+Administration (HRSA) rural classification methodology and the other statistics use ADHS’s definition of rural (by
+county).
+
+Access and System Capacity: Provider supply and infrastructure are thinner in rural Arizona,
+
+making care harder to obtain. Public transportation reaches significantly fewer neighborhoods,
+
+and emergency response is slower. Rural residents travel an average of 20.5 miles to reach a
+
+hospital or primary care provider—over seven times the urban average of 2.75 miles.
+
+Population-to-provider ratios also reflect substantial differences, particularly for access to
+
+behavioral health services, with just one provider for every 50,588 residents in rural areas
+
+compared with 1 provider for every 15,716 residents in urban communities. Facility access is
+
+likewise constrained, with one rural facility serving 1,216 people versus one urban facility
+
+serving 804 people. Arizona’s RHTP aims to close these access gaps through initiatives that
+
+include deploying mobile and satellite clinics, expanding telehealth hubs, and coordinating
+
+interfacility transfers and outpatient referrals to shorten time-to-care.
+
+
+
+                                                                                                                 4
+                                                                     Revised Project Narrative 1.30.2026
+
+Table 4: Urban vs. Rural Barriers to Accessing Health Care Services in Arizona.
+            Measure (Data Year)              AZ Urban        AZ Rural
+    Avg. Miles to hospital/PCP (2024)          2.75 mi        20.52 mi
+ Population-to-    Primary Care Physician      3,136:1        4,513:1
+   Provider                          Dental    3,269:1        5,329:1
+    Ratios              Behavioral Health      15,716:1       50,588:1
+ Public Transportation Availability (2024)     72.2 %         42.8%
+   Avg. Ambulance Response Time per
+                                                6 min.          7 min.
+        AZPIERS 911 calls (2024)
+      # of Healthcare Facilities (2024)        8,473          669
+  Healthcare Facility Distribution (2024)      804:1          1,216:1
+Source: ADHS Licensing, Data Axle, USDOT, AZPIERS 911 Calls; AZ REACH. Rural areas are defined using
+ADHS’s definition of rural (by county).
+Rural Health Facility Utilization: Although there were zero rural hospital closures in Arizona
+
+in 2024, the state’s rural facilities operate on extraordinarily slim margins, and patient volumes
+
+and utilization levels illustrate the high demand placed on limited rural infrastructure. Rural
+
+facilities handled 386,549 patient encounters in 2024, reflecting substantial demand spread
+
+across long distances and limited capacity. Utilization levels in rural areas—505.1 visits per bed
+
+capacity—are more than double those in urban settings, which are 235.8 visits per bed capacity,
+
+indicating heavier service use relative to available capacity and underscoring the need for
+
+strengthened system efficiency and resource allocation. The Making Rural Healthcare Resilient
+
+program will address these challenges by leveraging scaling opportunities to reduce and
+
+subsidize fixed costs required to operate in rural Arizona.
+
+Table 5: Urban vs. Rural Arizona Health Facility Patient Volume and Utilization Levels
+              Measure                          AZ Urban             AZ Rural
+  Health Facilities Patient Volume             3,149,247             368,185
+ Health Facilities Utilization Levels            235.8                505.1
+     (Visits per Bed Capacity)
+Source: Syndromic Surveillance Emergency Department Visits and Inpatient Admissions, 2024. Rural areas are
+defined using the Health Resources and Services Administration (HRSA) rural classification methodology.
+
+Please find additional graphics and maps highlighting urban vs. rural disparities in “Other
+Supporting Documentation”
+
+
+
+                                                                                                             5
+                                                              Revised Project Narrative 1.30.2026
+
+Arizona’s RHTP prioritizes rural communities that face persistent barriers to health access,
+
+workforce shortages, and poorer health outcomes compared to urban areas. The Plan will target
+
+Arizona’s rural population as defined by the HRSA rural eligibility criteria, which includes all
+
+100% rural counties and rural-designated areas within partially rural counties. Arizona’s program
+
+aims to ease burdens on rural providers throughout Arizona, especially Arizona’s Critical Access
+
+Hospitals. Arizona is committed to ongoing engagement with rural and healthcare stakeholders
+
+to ensure appropriate implementation and fair allocation of resources.
+
+Rural Health Transformation Plan
+
+Section 1: Goals & Strategies (Address Each Statutory Element)
+
+1.1 Improving Access
+
+   ●​ Current Challenge(s): Rural Arizonans face significant barriers to care due to long
+
+       travel distances (20.5 miles on average to reach a hospital), limited public transportation
+
+       and access to reliable transportation, and provider shortages—especially in behavioral
+
+       health (50,588:1 population-to-provider ratio). Rural facilities experience utilization rates
+
+       more than double those in urban settings, indicating high demand on limited
+
+       infrastructure.
+
+   ●​ Actions: The State will implement the Making Rural Healthcare Accessible initiative,
+
+       which will focus on expanding access to primary and secondary preventive services via
+
+       expansion of telehealth service availability, implementation of mobile/satellite service
+
+       delivery models in rural communities, and improved regional care coordination.
+
+   ●​ Expected Outcomes: Increased rural utilization of telehealth services for acute and
+
+       chronic disease management, increased rural utilization of digital devices to facilitate
+
+       remote monitoring by healthcare providers, enhanced access to specialty healthcare
+
+                                                                                                     6
+                                                             Revised Project Narrative 1.30.2026
+
+      providers for rural residents, and increased utilization of collaborative care models in
+
+      rural areas.
+
+1.2 Improving Outcomes
+
+   ●​ Target Outcomes: Increased screening and use of interventions for chronic disease and
+
+      maternal-fetal health in rural communities.
+
+   ●​ Approach: Deploy the Priority Health Initiatives Grants Portfolio, emphasizing
+
+      behavioral health, chronic disease screening and management, and maternal-fetal
+
+      healthcare. Interventions include expansion of mobile crisis units and care coordination
+
+      connecting patients to quality outpatient behavioral healthcare, funding for chronic
+
+      disease prevention grants, and statewide adoption of Alliance for Innovation on Maternal
+
+      Health (AIM) maternal safety bundles.
+
+   ●​ Measurement: The Arizona Department of Health Services (ADHS) will track indicators
+
+      including increased opportunities to screen for chronic diseases, improved prenatal care
+
+      access, and increased behavioral health service availability.
+
+1.3 Technology Use and Data-Driven Solutions
+
+   ●​ Planned Technologies: Telehealth hub development, remote patient monitoring, upgrade
+
+      medical diagnostic equipment and technology, including subsidizing electronic health
+
+      records (EHRs), improved Health Information Exchange (HIE) integration with single
+
+      sign-on for providers to easily integrate their EHRs and improve care coordination, and
+
+      cybersecurity enhancements.
+
+   ●​ Evaluation & Suitability: All technology solutions will align with Trusted Exchange
+
+      Framework and Common Agreement (TEFCA) interoperability standards and undergo
+
+
+
+
+                                                                                                 7
+                                                             Revised Project Narrative 1.30.2026
+
+      HIE compatibility testing. Mini-grants will prioritize scalable, secure, and user-friendly
+
+      systems suited for rural environments.
+
+   ●​ Data Integration: Arizona’s plan supports EHR upgrades and integration with Arizona’s
+
+      statewide Health Information Exchange (HIE) to ensure interoperability and enable
+
+      real-time care coordination.
+
+1.4 Workforce Development
+
+   ●​ Recruitment Strategies: Building on the state’s workforce development initiative Talent
+
+      Ready Arizona, launch a comprehensive Rural Health Workforce Development and
+
+      Training Program to recruit and retain clinicians and allied health professionals using
+
+      high school educational pathways, education accessibility incentives, financial incentives
+
+      (including stipends, commuting, and relocation support), and provider upskilling and
+
+      residency support (both tied to rural service commitments).
+
+   ●​ Centralize Healthcare Workforce Strategies: Create the Arizona Healthcare Workforce
+
+      Project within the Arizona Office of Economic Opportunity (OEO) to lead strategic
+
+      planning for rural workforce development, and establish statewide training networks and
+
+      best practices.
+
+   ●​ Training & Retention: Expand rural clinical rotations, expand the Rural Nursing and
+
+      Allied Professionals Education Investment Program, and provides training opportunities
+
+      for community health workers (CHWs), emergency medical technicians (EMTs), and
+
+      behavioral health staff in rural settings, prioritizing programs with the highest educator
+
+      needs.
+
+   ●​ Outcome Targets: Expected outcomes include increased number of students learning
+
+      about health professions in rural communities, students trained to work as clinicians and
+
+
+
+                                                                                                   8
+                                                              Revised Project Narrative 1.30.2026
+
+       allied health professionals in rural communities, increased number of preceptors trained
+
+       to work in rural communities, and providers and allied health professionals trained to
+
+       provide services in rural communities.
+
+1.5 Partnerships & Governance
+
+   ●​ Network Structure: Statewide collaboration amongst agencies led by the OEO, as part
+
+       of the Governor’s Workforce Cabinet and Talent Ready AZ workforce and education
+
+       initiative, along with AHCCCS, ADHS, Arizona Area Health Education Centers
+
+       (AHEC), the Arizona Advisory Council on Indian Health Care (AACIHC), and regional
+
+       Emergency Medical Services (EMS) Councils. OEO will also coordinate with Arizona’s
+
+       professional healthcare membership associations, Career and Technical Education
+
+       Districts (CTEDs), public community colleges, and state universities. Integration with the
+
+       Governor’s Workforce Cabinet ensures alignment with State workforce goals, as well as
+
+       complementary resources and initiatives (e.g., broadband workforce).
+
+   ●​ Governance: OEO will oversee program implementation. All initiatives will include
+
+       advisory committees. These committees will meet quarterly to guide priorities, metrics,
+
+       and funding decisions.
+
+   ●​ Joint Activities: Shared training, data dashboards, and joint technical assistance will link
+
+       state agencies, Tribal partners, and healthcare facilities to improve coordination.
+
+1.6 Financial Solvency Strategies
+
+   ●​ Current Fiscal Status: Rural facilities face financial strain from low margins, workforce
+
+       shortages, and high uncompensated care rates.
+
+
+
+
+                                                                                                  9
+                                                               Revised Project Narrative 1.30.2026
+
+
+   ●​ Reform Measures: Pilot innovative and alternative care models through the Rural
+
+       Health Innovative Care Pilot Program to strengthen financial sustainability and
+
+       encourage shared-service models.
+
+   ●​ Projected Impact: Improved fiscal performance of rural hospitals and providers through
+
+       reduced duplication, shared administrative functions, and enhanced reimbursement tied to
+
+       quality outcomes.
+
+1.7 Cause Identification and Mitigation
+
+    ●​ Root Causes: Geographic isolation, workforce shortages, and fragmented service
+
+        delivery remain primary drivers of poor rural health outcomes.
+
+    ●​ Remediation Plan: Integrate co-located care models, expand telehealth and EMS
+
+        interoperability, and enhance local capacity through shared staffing, data systems, and
+
+        fiscal reforms. Community-based hubs will ensure continuity across the lifespan and
+
+        reduce health disparities.
+
+Section 2: Program Key Performance Objectives (Through FY2031)
+
+Arizona RHTP represents a coordinated, statewide portfolio of initiatives strategically designed
+
+to advance statewide priorities for rural health access, workforce capacity, behavioral health,
+
+maternal health, chronic disease prevention and management, and making rural healthcare
+
+resilient. Together, these initiatives align under a unified vision to strengthen rural health systems
+
+and deliver sustainable improvement in healthcare access and outcomes by FY 2031.
+
+At a high level, the following measurable objectives reflect the statewide impact Arizona seeks
+
+to achieve across its integrated portfolio of programs, as follows:
+
+For Rural Health Workforce Development and Training Program targets outcomes
+
+including:
+
+
+                                                                                                   10
+                                                               Revised Project Narrative 1.30.2026
+
+
+   ●​ % increase in rural clinician retention; and
+
+   ●​ % improvement of training and rural placement rates to ensure sustained access to care in
+
+       Arizona’s rural communities.
+
+For Priority Health Initiatives Grants Portfolio, outcomes include:
+
+   ●​ % increase availability of opioid antagonist drugs, including naloxone;
+
+   ●​ % increase in access to crisis services in rural communities;
+
+   ●​ % increase in chronic disease screening and connection to resources;
+
+   ●​ % increase in distribution maternal mental health resources; and
+
+   ●​ % increase of perinatal psychiatric access and training, improving hospital readiness, and
+
+       increasing early detection and treatment of pregnancy-related conditions.
+
+For Making Rural Healthcare Accessible, including Rural Health Innovative Care Pilot and
+Telehealth Digital Transformation, Adoption, and Care Coordination Grant, outcomes include:
+
+   ●​ % increase in access to healthcare via telehealth connectivity, improved digital
+
+       infrastructure and care coordination, and funding innovative methods to enhance
+
+       healthcare access.
+
+For Making Rural Healthcare Resilient, outcomes include:
+
+   ●​ % increase rural provider resiliency, as measured by scaling and subsidizing fixed costs
+
+   ●​ % decrease in administrative burdens faced by rural providers.
+
+Please see the “Initiatives” section for a full list of outcomes and targets by initiative
+
+Section 3: Strategic Goals Alignment
+
+   1.​ Make Rural America Healthy Again: Arizona’s RHTP strengthens prevention, early
+
+       interventions, behavioral health, and maternal-fetal health programs, and supports chronic
+
+       disease prevention and management through the Priority Health Initiatives Grants
+
+                                                                                                 11
+                                                              Revised Project Narrative 1.30.2026
+
+       Portfolio. This approach aims to improve access to health screenings, education, and care
+
+       in rural communities.
+
+   2.​ Sustainable Access: The Making Rural Healthcare Accessible and Making Rural
+
+       Healthcare Resilient initiatives expand innovative care models, including telehealth,
+
+       mobile care, and co-located service hubs to close geographic gaps. These programs
+
+       leverage medical diagnostic equipment, technology, and scaling to reduce fixed costs and
+
+       administrative burdens faced by rural providers, contributing to long-term rural provider
+
+       sustainability.
+
+   3.​ Workforce Development: The Rural Health Workforce Development and Training
+
+       Program recruits, trains, and retains rural clinicians and allied professionals through
+
+       education incentives, rural rotations, and coordinated statewide workforce planning.
+
+   4.​ Innovative Care: Through the Rural Health Innovative Care Pilot Program, Arizona will
+
+       pilot mobile health, alternative care models, and innovative payment models to enhance
+
+       access, coordination, efficiency, and quality of rural healthcare delivery.
+
+   5.​ Tech Innovation: The Telehealth Digital Transformation, Adoption, and Care
+
+       Coordination Grant aims to modernize rural health technology via telehealth and digital
+
+       infrastructure investments, and HIE integration improvement to enable data-driven
+
+       interoperable care statewide.
+
+Section 4: Legislative or Regulatory Actions
+
+Current Policy​
+
+Arizona has implemented a range of state policy actions and best practices to advance rural
+
+health transformation, including integrated acute and behavioral healthcare, significant graduate
+
+medical education funding in rural areas, Critical Access Hospital funding, a grant for dialysis
+
+
+                                                                                                   12
+                                                              Revised Project Narrative 1.30.2026
+
+treatment in rural Arizona, nurse preceptor training, funding for maternal mental health
+
+resources, sweeping access to telehealth, broadband expansion, wide adoption of professional
+
+licensure compacts to drive workforce growth, a prescription drug discount card program, a
+
+medication donation program, and significant medical debt relief.
+
+The state continues to actively review additional opportunities to further enhance provider
+
+mobility and care delivery. Currently, Emergency Medical Services (EMS) personnel and
+
+Physician Assistants (PAs) are required to obtain Arizona-specific licenses, as the state does not
+
+participate in interstate licensure compacts for these professions. This approach, while
+
+maintaining rigorous standards, results in administrative barriers that can limit workforce
+
+mobility and emergency response coordination, particularly in rural and frontier regions.
+
+Legislative Commitment and Timeline:
+
+Arizona commits to pursuing legislation and associated regulatory changes to join both compacts
+
+by December 31, 2027, with full implementation by 2028:
+
+   ●​ EMS Personnel Licensure Compact (REPLICA)​
+
+       The State understands and supports that the Arizona legislature will likely introduce
+
+       legislation during the 2026 legislative session, with approval targeted by December 31,
+
+       2027. Arizona has engaged with and will continue to engage with Arizona’s EMS
+
+       Councils, relevant professional associations, including the Arizona Ambulance
+
+       Association, Arizona Fire District Association, and unions including the Professional
+
+       Firefighters of Arizona and United Emergency Medical Professionals of Arizona. Upon
+
+       enactment, the state will adopt administrative rules and integrate with the national EMS
+
+       database and background check system to operationalize compact privileges. These
+
+
+
+
+                                                                                                 13
+                                                               Revised Project Narrative 1.30.2026
+
+       actions will enable EMS professionals licensed in other compact states to practice in
+
+       Arizona without delay, improving emergency response and mutual aid capabilities.
+
+   ●​ Physician Assistant Licensure Compact​
+
+       The State understands and supports that the Arizona legislature will also likely introduce
+
+       legislation to enact model compact legislation by December 31, 2027. The State has and
+
+       will continue to engage stakeholders, such as the State Association of Physician
+
+       Assistants, the Arizona Regulatory Board of Physician Assistants to support the bill’s
+
+       passage. Following enactment, Arizona will establish regulatory infrastructure for
+
+       compact privilege issuance and designate state representation on the PA Compact
+
+       Commission. Full operational readiness is targeted for 2028.
+
+Impact on Access and Quality in Rural Communities​
+
+These legislative and regulatory actions will directly improve access to care by expanding
+
+Arizona’s healthcare workforce and enabling cross-state practice authority. They will enhance
+
+quality by ensuring credentialed professionals can respond quickly to emergencies and fill
+
+staffing gaps in rural clinics and hospitals. With over 3.3 million residents living in federally
+
+designated Health Professional Shortage Areas (HPSAs), these compacts represent a high-impact
+
+strategy to strengthen emergency preparedness, continuity of care, and health system resilience
+
+statewide. In addition, a significant portion of Tribal land in the Navajo Nation in particular is
+
+interstate, and Tribal communities live, shop, work, and receive healthcare across state lines.
+
+These licensure compacts will increase workforce and access opportunities in those regions,
+
+where dual-licensure may be essential.
+
+Section 5: Other Required Information
+State Policies: Arizona is committed to pursuing membership in both the EMS Compact and the
+
+PA Compact as outlined in Section 4: Legislative or Regulatory Actions
+                                                                                                     14
+                                                               Revised Project Narrative 1.30.2026
+
+Report the most current list of Certified Community Behavioral Health Clinic (CCBHC)
+
+entities within your State as of September 1, 2025, every active site of care associated with
+
+each CCBHC entity, and the address of every active site of care: Please see the attached
+
+“RHTP CCBHC Active Care Sites” PDF file in “Other Supporting Documentation”.
+
+Report the number of hospitals that received a Medicaid Disproportionate Share Hospital
+
+(DSH) payment: There are currently 124 hospitals, (77 PT 02 – Acute hospitals, 24 PT 71 –
+
+Psychiatric hospitals and 23 PT C4 – Specialty Per Diem hospitals). 18 hospitals received DSH
+
+payments in 2023, (17 Acute hospitals and 1 Psychiatric hospitals), 15% of the total.
+
+Sections 6-10: Proposed Timelines and Initiatives
+
+This section details our proposed timelines and initiatives. Figure 1 addresses Arizona’s RHTP -
+
+Proposed Timeline. Refer to “Other Supporting Documentation” for a more detailed view.
+
+
+
+
+                            Figure 1: Arizona’s RHTP - Proposed Timeline
+
+Rural Health Workforce Development and Training Program
+
+
+                                                                                               15
+                                                              Revised Project Narrative 1.30.2026
+
+Arizona is experiencing significant healthcare workforce shortages across rural regions, with 177
+
+rural or partially rural primary care HPSAs. According to the Arizona Office of Economic
+
+Opportunity (OEO), Healthcare and Social Assistance (HCSA) job growth has been the fastest
+
+among all Arizona sectors dating back to 1990 (35 years). This initiative responds to the urgent
+
+need by deploying a comprehensive, multi-pronged strategy to recruit, train, and retain skilled
+
+health professionals in rural areas.
+
+The Rural Health Workforce Development and Training Program prioritizes non-physician
+
+providers—including allied health professionals, community health workers (CHWs), nurses,
+
+and physician assistants (PAs)—followed by targeted investments in the primary and specialty
+
+care physician workforce. Each component is designed to produce measurable outcomes and
+
+support long-term sustainability:
+
+   ●​ Rural Health Education, and Training Expansion:
+
+           o​ Establishing new rural clinical rotations and residency slots at educational
+
+               institutions, including universities and community colleges. Subsidy expansion
+
+               opportunities for medical, nursing, allied health, technical programs, and
+
+               emergency medical technicians, prioritizing accelerated programs and those that
+
+               prioritize students from rural communities who commit to working in rural
+
+               communities. Preference will be given to specialties that are difficult to access in
+
+               rural communities.
+
+           o​ The Rural Nursing and Allied Professionals Education Investment Program will
+
+               increase the number of nursing and allied professional educators in community
+
+               colleges outside metropolitan areas. These funds will prioritize the programs with
+
+               the highest educator needs.
+
+
+                                                                                                  16
+                                                         Revised Project Narrative 1.30.2026
+
+       o​ Expansion of opportunities to participate in health Career and Technical
+
+          Education (CTE) programs for students in rural high schools and community
+
+          colleges, including using Arizona Area Health Education Centers (AHECs) and
+
+          Career and Technical Education Districts (CTEDs). These programs introduce
+
+          students to health professions early, creating pathways into rural health careers.
+
+●​ Financial Incentives for Rural Practice: Offer sign-on incentives, relocation support
+
+   allowances, commuting subsidies, retention programs, childcare subsidies—all tied to a
+
+   five-year rural service commitment, and clinical/preceptor stipends to increase the
+
+   number of teachers for critical health professions. These incentives are designed to
+
+   improve recruitment and retention outcomes and align with RHTP’s emphasis on
+
+   long-term rural workforce sustainability.
+
+●​ Micro Grants for provider upskilling and residency support:
+
+       o​ Will fund specialized training programs for rural providers including Community
+
+          Health Workers (CHW), Emergency Medical Technicians (EMTs), and behavioral
+
+          health professionals, through partnerships with major health systems. The
+
+          initiative also includes funding for wellbeing support and safety to improve
+
+          retention and reduce burnout among the existing workforce.
+
+       o​ Funds will also provide micro-grants to rural clinics, hospitals, and preceptors to
+
+          expand clinical training capacity. These grants enable facilities to host students
+
+          and residents, increasing hands-on learning opportunities in rural settings. These
+
+          funds can be used for new-to-specialty training opportunities, which directly
+
+          supports workforce readiness and retention.
+
+●​ Arizona Healthcare Workforce Project and Rural Innovation Learning Network:
+
+
+                                                                                               17
+                                                                Revised Project Narrative 1.30.2026
+
+           o​ Create the Arizona Healthcare Workforce Project at OEO to coordinate long-term
+
+               strategic planning in the rural workforce pipeline, for rural workforce
+
+               development. This office will coordinate with education, health care, and
+
+               government partners to accelerate enrollment in training programs.
+
+           o​ Funding will establish a statewide Rural Innovation Learning Network to
+
+               disseminate best practices. This will support the development of statewide
+
+               provider training and consultation networks to strengthen clinical capacity and
+
+               telehealth adoption.
+
+           o​ K-12 career exploration programs will introduce students to healthcare careers
+
+               early, building the future workforce pipeline.
+
+
+
+Funding Framework: AHCCCS will sub-award funds to OEO, which will administer
+
+cooperative contracts, agreements, and competitive Requests for Grant Applications (RGA) to
+
+support initiative execution. Through this structure, OEO will award contracts and sub-awards
+
+based on alignment with project objectives, compliance with program requirements, and
+
+demonstrated capacity to deliver and report measurable outcomes. Arizona will also procure
+
+vendors to develop secure data pipelines, dashboards, and fiscal tracking tools that meet federal
+
+audit standards, ensuring transparency and accountability across all funded activities.
+
+All project funds will be administered through a state agency agreement and expended in
+
+compliance with 2 CFR Part 200 and the Arizona Procurement Code (A.R.S. Title 41, Chapter
+
+23). Procurement of goods and services will be conducted using competitive methods or existing
+
+state and cooperative contracts, as appropriate, to ensure full and open competition, cost
+
+reasonableness, and transparency. All contracts will be awarded to responsible vendors and will
+
+
+                                                                                                 18
+                                                               Revised Project Narrative 1.30.2026
+
+include applicable federal and state provisions. Any subrecipient or pass-through administrative
+
+costs will remain below the 10 percent administrative cost cap, and the state agency will
+
+maintain written procurement and financial documentation sufficient to demonstrate compliance
+
+with federal regulations, state law, and audit requirements.
+
+Main Strategic Goal          Workforce Development
+Use of Funds                 ●​ Training and Technical Assistance (D)
+                             ●​ Workforce (E)
+                             ●​ Appropriate Care Availability (G)
+                             ●​ Fostering Collaboration (K)
+Technical Score Factors      ●​ D.1 – Talent Recruitment
+                             ●​ B.1 – Population Health Clinical Infrastructure
+Key Stakeholders             ●​ State Agencies: OEO, ADHS, AHCCCS
+                             ●​ Educational Institutions: Arizona’s public universities,
+                                 community colleges, Arizona Board of Regents, CTEDs, and
+                                 AHEC
+                             ●​ Healthcare Providers and Facilities: Rural health clinics,
+                                 Critical Access Hospitals (CAHs), Federally Qualified Health
+                                 Centers (FQHCs), Tribal health clinics, and critical EMS
+                                 stakeholders across Arizona’s rural areas
+                             ●​ Community and Tribal Organizations: Tribal governments
+                                 and Tribal health departments (to tailor programs for reservation
+                                 communities), rural county public health departments,
+                                 community health clinics, and community-based organizations
+                             ●​ Professional Associations and Boards: State licensing boards
+                                 and associations (nursing, medical, behavioral health) and the
+                                 Arizona Center for Rural Health.
+Outcomes                     ●​ Increase rural health workforce pipeline
+                             ●​ Increased rural clinician retention
+                             ●​ Increased training rates
+                             ●​ Expanded access to care
+Impacted Counties            This initiative will target Arizona’s rural population as defined by
+                             the HRSA rural eligibility criteria, which includes all 100% rural
+                             counties and rural-designated areas within partially rural counties
+Estimated Funding            $47,100,000 / year
+
+Implementation Plan and Timeline
+
+Stage     Timeframe          Milestones
+Stage 0   FY26 Q1-Q2         Project plan developed by existing OEO staff
+                             Staff hired; work on contract amendments and recruitment strategies
+Stage 1   FY26 Q1-Q2
+                             will be underway
+Stage 2   FY26 Q3-Q4         Original project plan refined and adjusted
+
+                                                                                                19
+                                                             Revised Project Narrative 1.30.2026
+
+
+                            Contracts executed for contracted organizations
+                            Conduct comprehensive baseline assessment post-award/early
+Stage 3   FY26 Q3-Q4
+                            implementation
+                            Determine milestones/targets for all outcome metrics for tracking
+                            All program elements implemented. Reporting on the first cohort of
+Stage 4   FY27 Q1-Q2
+                            program participants begins
+                            Initiatives fully implemented in 2027. Measurable outcomes
+          FY27 Q1/Q2 –
+Stage 5                     reported in 2027 - onward
+          Grant closeout
+                            Program Sustainability Plan & Implementation begins.
+
+Governance and Project Management Structure
+
+OEO, the State of Arizona’s workforce strategy agency, will oversee and coordinate rural health
+
+workforce initiatives for the state funded by the Rural Health Transformation Program. In this
+
+role, it will manage the Rural Health Workforce Development and Training Program, in
+
+coordination with ADHS, AHCCCS, and the Governor’s Office. To support implementation, the
+
+agency will establish the Arizona Healthcare Workforce Project Office to coordinate these
+
+programs, and to the Rural Innovation Learning Network. Regular meetings with all stakeholder
+
+organizations involved in the program implementation will be convened, and key decisions will
+
+be made in consultation with the Governor’s Office and AHCCCS to ensure coordinated
+
+execution. For EMS workforce initiatives, collaboration with ADHS to leverage existing EMS
+
+infrastructure, including the State EMS Council and Medical Direction Commission, which meet
+
+quarterly. The ADHS Bureau of EMS and Trauma System (BEMSTS) also supports quarterly
+
+meetings of the Trauma and EMS Performance Improvement Committee, the Protocols,
+
+Medications, and Devices Committee, and the Education Committee for the EMS and Trauma
+
+System.
+
+Stakeholder Engagement Plan
+
+Arizona engaged rural hospitals, frontline providers, Arizona Board of Regents, State
+
+universities, and other healthcare stakeholders during the planning stage through surveys and a
+
+
+                                                                                                  20
+                                                              Revised Project Narrative 1.30.2026
+
+statewide Request for Information (RFI). Tribal health authorities were consulted to tailor
+
+approaches for Tribal communities. ADHS facilitated discussions with the Arizona Local Health
+
+Officers Association, Regional EMS Coordinating Systems, and the Rural Health/Urban
+
+Underserved Workgroup of the Arizona Health Improvement Plan (2021–2025). Arizona will
+
+continue engaging these stakeholders and expand participation to include academic institutions,
+
+licensing boards, and AHEC directors to ensure statewide alignment on workforce development
+
+goals.
+
+An advisory committee—comprising OEO program leadership, academic partners, rural and
+
+Tribal hospital CEOs, CTEC leadership, AHEC directors, and licensing boards—will meet
+
+quarterly to advise on training priorities, pipeline expansion, credentialing, and workforce
+
+distribution. The committee will also provide technical assistance, identify emerging needs, and
+
+guide sustainability efforts. Additionally, the Arizona Healthcare Workforce Project Office will
+
+serve as a permanent interagency body for workforce planning and licensure compacts.
+
+Statewide coordination and alignment will be driven by OEO. Training pipelines and clinical
+
+rotations will be strengthened by CTEDs, AHECs, and higher education partners, which local
+
+providers will play a key role in shaping incentive and residency programs to recruit and retain
+
+professionals serving rural populations.
+
+
+Metrics and Evaluation Plan
+
+Arizona will conduct a structured baseline assessment as part of early implementation to
+
+establish current levels for all workforce metrics. These include the number of rural preceptors,
+
+nursing students receiving educational incentives, nurse educators supported, and newly certified
+
+CHWs, EMCTs, and paramedics practicing in rural communities.
+
+
+
+
+                                                                                                   21
+                                                             Revised Project Narrative 1.30.2026
+
+
+
+
+Metric               Baseline     Milestone/Target          Data Source Timing of Updates
+# of preceptors in   TBD          % increase of preceptors OEO          Quarterly
+rural communities by              being trained to work in
+discipline                        rural communities by
+                                  discipline
+# of students          TBD        % increase of students OEO            Quarterly
+receiving subsidy                 being trained to work in
+                                  rural communities
+# of educators         TBD        % of educators            OEO         Quarterly
+supported for nursing             supported for nurses
+and/or allied                     and/or allied
+professions                       professionals
+# of rural high school TBD        % increase of high        OEO/CTEDs/ Quarterly
+students learning                 school students in rural AHEC
+about health                      communities learning
+professions, including            about health professions,
+allied health                     including allied health
+professions                       professions
+
+
+OEO will collect and analyze workforce metrics by strengthening the OEO Integrated Data
+
+System (IDS) to support enhanced workforce and education data integration. The IDS serves as
+
+the state’s centralized, privacy-protected platform for linking education, workforce, and licensure
+
+data to evaluate how training investments translate into employment outcomes. Established
+
+within the agency, the IDS connects participant-level information from multiple state agencies,
+
+including education, workforce, and licensing entities, to support longitudinal analysis, program
+
+evaluation, and evidence-based policy decisions. Metrics will be updated quarterly, with data
+
+aggregated through a centralized system designed to meet federal audit and reporting standards.
+
+Additional data sources will include contractor reports, the EMT Certification Portal, and direct
+
+submissions from participating entities. To ensure compliance and accountability, reporting
+
+
+
+
+                                                                                                  22
+                                                               Revised Project Narrative 1.30.2026
+
+requirements will be embedded in all program contracts and monitored by OEO project
+
+managers.
+
+Implementation monitoring will be conducted through required reporting from program
+
+participants and contracted agencies. In addition to internal oversight, the agency will cooperate
+
+with CMS-led evaluation and monitoring activities.
+
+Sustainability Plan & Policy Integration
+
+Arizona’s strategies aim to recruit new health workers for rural areas and retain the current
+
+workforce. To ensure long-term sustainability beyond FY31, coordination will occur through the
+
+Governor’s Office and the Governor’s Workforce Cabinet. Established by executive order in
+
+September 2024, the Cabinet is charged with implementing and coordinating actions, policies,
+
+programs, and engagement across state government to meet Arizona’s workforce needs and
+
+create opportunities for every Arizonan. Healthcare has been identified as a priority sector, with a
+
+goal of expanding the healthcare workforce by 76,000 by 2030. ADHS and AHCCCS have led
+
+efforts, in partnership with OEO, to articulate goals and strategies for the healthcare industry, and
+
+the Workforce Cabinet, along with existing coordination channels, will serve as a key vehicle for
+
+determining sustainable approaches for successful interventions. Because healthcare is the largest
+
+and highest-need industry in the State, Arizona is committing to ensuring that these programs are
+
+sustainable long term.
+
+ADHS is currently working with partners to develop the next Arizona Health Improvement Plan
+
+(AzHIP) for 2026–2030. The AzHIP Steering Committee has recently selected new priorities:
+
+Workforce Development, Access to Care, Prevention, and Mental and Behavioral Wellbeing.
+
+Workgroups launching in late 2025 will provide a structured opportunity to embed RHTP
+
+strategies into AzHIP, with the final plan expected by spring 2026. Implementation teams will
+
+                                                                                                  23
+                                                                 Revised Project Narrative 1.30.2026
+
+monitor progress and apply lessons learned throughout the program lifecycle. With Workforce
+
+Development as a core AzHIP priority, Arizona is well positioned to leverage this collaborative
+
+process to champion and steward RHTP goals. Together, the Workforce Cabinet and AzHIP
+
+create durable policy pathways to institutionalize lessons learned and ensure long-term impact
+
+for rural health care.
+
+
+Healthcare is Arizona’s largest workforce sector and is its fastest growing area of need. The State
+
+of Arizona is firmly committed to sustaining the impact of the Workforce Development initiative
+
+beyond the conclusion of RHTP funding. To this end, Arizona will provide robust support for
+
+workforce development activities using state general funds after the RHTP award sunsets. This
+
+reflects our strategic focus on developing and maintaining a strong healthcare backbone in rural
+
+Arizona, recognizing that a resilient and well-supported workforce is essential to achieving this
+
+goal.
+
+
+    ●​ Rural Education and Training Expansion
+
+            ○​ New rural clinical rotations and residency slots.
+
+                    ■​ Sustainability plan: With respect to our university partners, Arizona will
+
+                         require these institutions to transition to alternative funding sources
+
+                         following the sunset of RHTP support. Universities will be expected to
+
+                         pursue other mechanisms such as competitive grants, foundation
+
+                         fundraising, and/or operational efficiencies to sustain programmatic
+
+                         activities. Arizona will incorporate language into partnership agreements
+
+                         mandating that universities make demonstrable efforts to seek and secure
+
+                         alternative funding, and to report on these efforts as part of ongoing
+
+                         accountability measures.
+
+                                                                                                   24
+                                                        Revised Project Narrative 1.30.2026
+
+
+      ○​ Rural Nursing and Allied Professionals Education Investment Program
+
+             ■​ Sustainability plan: Mix of ongoing General Fund dollars and community
+
+                 investment through increased marketing of Arizona’s Public School’s Tax
+
+                 Credit.
+
+      ○​ Expansion of opportunities to participate in health career and technical education
+
+          (CTE) programs for students in rural high schools and community colleges,
+
+          including with Arizona Area Health Education Centers (AHECs) and Career and
+
+          Technical Education Districts (CTEDs).
+
+             ■​ Sustainability plan: Mix of ongoing General Fund dollars and State of
+
+                 Arizona Lottery funds (which currently fund AHECs), and community
+
+                 investment through increased marketing of Arizona’s Public School’s Tax
+
+                 Credit.
+
+●​ Financial Incentives for Rural Practice and Provider Upskilling & Residency
+
+   Support, Training Capacity Grants
+
+      ○​ Sustainability plan: Following initial infusion from RHTP, Arizona will transition
+
+          to a less robust, but permanent long-term financial incentives and Provider
+
+          Upskilling, Support and Training model that will be supported by a combination
+
+          of General Fund dollars, and support from healthcare foundation community
+
+          partners.
+
+●​ Arizona Healthcare Workforce Project and Rural Innovation Learning Network
+
+      ○​ Sustainability plan: Arizona is committed to continuing to fund the Arizona
+
+          Healthcare Workforce Project and Rural Innovation Learning Network long-term
+
+
+
+
+                                                                                         25
+                                                               Revised Project Narrative 1.30.2026
+
+               through the Office of Economic Opportunity that will be supported by General
+
+               Fund dollars.
+
+
+Priority Health Initiatives Grants Portfolio
+
+The Priority Health Initiatives Grants Portfolio advances health outcomes across Arizona by
+
+funding high-impact, community-driven programs that address behavioral health, chronic disease
+
+prevention and management, and maternal-fetal health disparities. It comprises of three grants,
+
+described below:
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+This grant aims to increase clinical capacity and access points for behavioral health and SUD
+
+treatment in rural communities. Funded activities include:
+
+   ●​ Opioid overdose prevention through expanded opioid antagonists (e.g., naloxone
+
+       distribution, etc.) and community-based access in rural areas. This component expands
+
+       the availability of opioid antagonists and strengthens rural readiness to respond to
+
+       opioid-related emergencies. Funds will support distribution through first responders, rural
+
+       clinics, Tribal partners, and county agencies; provider and responder training on overdose
+
+       prevention; and efforts that increase timely access to life‑saving interventions in
+
+       communities with limited EMS coverage.
+
+   ●​ Mobile and digital service expansion and rural crisis services, including clinics, detox
+
+       centers, and crisis stabilization units—especially in northern Arizona where adults and
+
+       pediatric crisis care gaps persist. This strengthens rural behavioral health and crisis
+
+       infrastructure by supporting mobile health units, digital access points, and mobile crisis
+
+       services specifically targeted to areas with limited or no same-day access to treatment.
+
+       Allowable investments include vehicles, equipment, staffing, telehealth-capable
+
+
+                                                                                                    26
+                                                              Revised Project Narrative 1.30.2026
+
+        technology, and operational support needed to deliver outpatient, crisis, and SUD
+
+        treatment services.
+
+   ●​ Training and recruitment of behavioral health professionals in shortage areas.
+
+Prevention programs addressing suicide, trauma, and substance use, including the expansion of
+
+evidence-based programs for youth and the adults that care for them and introducing a behavioral
+
+health prevention model for children into rural school districts that have not previously been
+
+served. Implementation will occur through cooperative agreements with entities including
+
+behavioral health managed care plans, Tribal behavioral health authorities and departments, and
+
+rural public health agencies. AZ REACH will receive grant support to oversee and implement
+
+the Behavioral Health Transfer Expansion, ensuring coordination across participating hospitals
+
+and crisis systems.
+
+Chronic Disease Prevention & Management Grant
+
+This grant strengthens county and regional infrastructure to prevent and manage chronic disease
+
+including hypertension, diabetes, and obesity. Rural and frontier counties face disproportionate
+
+burdens of chronic disease and limited access to preventive services—for example, colorectal
+
+cancer screening rates are only 58.1% in Graham County and 58.9% in Apache County.
+
+Additional challenges include reduced access to diabetes prevention programs and a lack of
+
+sustainable financing systems. The program will enhance chronic disease prevention, nutrition,
+
+cancer screening, and rural public health infrastructure through direct annual funding to Local
+
+Health Departments.
+
+Key activities include:
+
+   ●​   Rural health screening events and targeted outreach campaigns to identify and address
+
+        chronic disease risk factors early; and
+
+
+
+                                                                                                   27
+                                                                Revised Project Narrative 1.30.2026
+
+   ●​   Embedding resources within healthcare and community-based environments to ensure
+
+        Arizonans who are eligible for health insurance programs become enrolled, and that
+
+        Arizonans are connected to social services for which they are eligible.
+
+Local health departments will implement evidence-based, multi-level prevention strategies that
+
+address priority chronic disease conditions and promote health improvement in rural
+
+communities. In partnership with ADHS, counties will implement coordinated interventions that
+
+influence individual behaviors, organizational practices, community environments, systems, and
+
+policies, with the goal of achieving sustainable policy, systems, and environmental change
+
+responsive to local community needs. Counties are expected to integrate complementary policy,
+
+environmental, programmatic, and infrastructure activities and to develop billing and
+
+sustainability approaches that support the long-term continuation of prevention services.
+
+In parallel with these prevention focused investments, funding will support the Improving
+
+Cardiac Arrest Survival in Arizona program through the development and implementation of
+
+statewide bystander cardiopulmonary resuscitation (CPR) and dispatcher-assisted life support
+
+initiatives to improve early cardiac arrest recognition, increase bystander CPR rates, and reduce
+
+time to lifesaving intervention.
+
+This funding will also support the creation and expansion of programs designed to enroll eligible
+
+rural Arizonans in health insurance and connect them to social services. These programs embed
+
+resources within healthcare and community-based environments to ensure Arizonans who are
+
+eligible for health insurance programs become enrolled, and that Arizonans be connected to
+
+healthcare clinics, and to social services for which they are eligible. These investments increase
+
+financial stability of rural health providers, reduce fragmentation, foster trust, and ensure holistic
+
+
+
+
+                                                                                                    28
+                                                               Revised Project Narrative 1.30.2026
+
+care delivery aligned with community needs. Costs are justified as they strengthen local capacity
+
+in high-need areas.
+
+Improving Rural Maternal-Fetal Health Grant
+
+This grant improves maternal-fetal health before, during, and after pregnancy by coordinating
+
+prevention and early intervention across clinical, behavioral, and community settings. Arizona
+
+faces persistently high maternal mortality rates—31.4 per 100,000 live births statewide, and
+
+233.9 per 100,000 among American Indian women. Access challenges are acute outside metro
+
+areas: only 5 of the state’s 17 Critical Access Hospitals offer labor and delivery services, and
+
+nearly half of rural women must travel more than 30 minutes for maternity care due to local unit
+
+closures.
+
+Key activities include:
+
+   ●​ Expanding maternal health programs: This initiative expands evidence-based maternal
+
+       health programming by strengthening Arizona’s public health infrastructure to prevent
+
+       and respond to congenital syphilis, a growing driver of adverse maternal and neonatal
+
+       outcomes. Funding will support disease investigation and intervention activities across
+
+       local jurisdictions and supporting services (e.g., surveillance data entry, prevention
+
+       campaigns, and community-based testing and linkage to treatment). Funding supports
+
+       statewide coordination led by ADHS and targeted investments in rural and Tribal
+
+       jurisdictions to close critical gaps in disease investigation and intervention services that
+
+       currently lack dedicated funding. Activities will include case investigation and follow-up,
+
+       testing and treatment support, and prevention education for pregnant and postpartum
+
+       individuals and their partners. Dedicated support for Navajo Nation is included given the
+
+
+
+
+                                                                                                      29
+                                                              Revised Project Narrative 1.30.2026
+
+       disproportionate burden of congenital syphilis cases and the need for tailored
+
+       investigation and intervention services.
+
+   ●​ Enhancing OB and maternal mental health training: This initiative strengthens rural
+
+       maternal-fetal care quality by investing in hands-on clinical training, standardized safety
+
+       practices, and specialized perinatal mental health workforce development. Resources
+
+       support training approaches that have demonstrated impact on reducing obstetric
+
+       emergencies and improving patient safety, including high-fidelity obstetric simulation
+
+       and expansion of AIM safety bundles across birthing facilities. Funding also builds
+
+       statewide capacity for evidence-based perinatal mental health care by supporting
+
+       professional development and certification pathways for clinicians who serve pregnant
+
+       and postpartum patients.
+
+   ●​ Ensuring access to critical help lines: This initiative ensures that rural clinicians and
+
+       patients can access timely, specialized perinatal mental health support by expanding
+
+       statewide psychiatric consultation and care navigation infrastructure. Funding will scale
+
+       the University of Arizona’s Arizona Perinatal and Pediatric Psychiatry Access Lines
+
+       (APAL) to provide real-time psychiatric consultation and education to providers caring
+
+       for pregnant and postpartum individuals, including support for complex diagnostic
+
+       questions, medication management, and referral planning.
+
+Together, these grants form a cohesive portfolio that leverages strategic partnerships, rural
+
+leadership, and data-driven planning to address Arizona’s most pressing health challenges. By
+
+aligning funding with community needs and statewide priorities, the Priority Health Initiatives
+
+Grants Portfolio provides a sustainable framework for improving health outcomes and
+
+healthcare system resilience across the state.
+
+
+
+                                                                                                  30
+                                                              Revised Project Narrative 1.30.2026
+
+Funding Framework
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+AHCCCS will execute cooperative agreements through:
+
+   ●​   Contract amendments with health plans that serve as behavioral health managed care
+
+        plans Intergovernmental Agreements (IGAs) with Tribal behavioral health authorities,
+
+        state agencies, rural public health departments, Tribal partners, and rural CBOs;
+
+   ●​   RGA or limited competition contracts for eligible fee-for-service providers; and
+
+   ●​   IGA or micro-grants for community prevention, opioid antagonist distribution, and peer
+
+        support networks.
+
+Chronic Disease Prevention & Management Grant
+
+ADHS which will administer contracts, Inter-Agency Agreements (IGAs), and competitive RGA
+
+processes. ADHS will require quarterly performance reports with standardized chronic disease
+
+indicators.
+
+Improving Rural Maternal-Fetal Health Grant
+
+ADHS will manage contracts, agreements, and competitive RGA processes. Funds may be
+
+awarded to local and Tribal health departments, rural hospitals or clinics, nonprofit
+
+organizations, and academic institutions. ADHS will monitor implementation through
+
+performance measures and provide technical assistance.
+
+Across all grants, Arizona will institute processes to secure vendors who can build secure data
+
+pipelines, dashboards, and fiscal tracking tools that meet federal audit standards.
+
+All project funds will be administered through a state agency agreement and expended in
+
+compliance with 2 CFR Part 200 and the Arizona Procurement Code (A.R.S. Title 41, Chapter
+
+23). Procurement of goods and services will be conducted using competitive methods or existing
+
+
+
+                                                                                                  31
+                                                               Revised Project Narrative 1.30.2026
+
+state and cooperative contracts, as appropriate, to ensure full and open competition, cost
+
+reasonableness, and transparency. All contracts will be awarded to responsible vendors and will
+
+include applicable federal and state provisions. Any subrecipient or pass-through administrative
+
+costs will remain below the 10 percent administrative cost cap, and the state agency will
+
+maintain written procurement and financial documentation sufficient to demonstrate compliance
+
+with federal regulations, state law, and audit requirements.
+
+Main Strategic Goal          Innovative Care
+                             Make Rural America Healthy Again
+Use of Funds                    ●​ Prevention and chronic disease (A)
+                                ●​ Consumer tech solutions (C)
+                                ●​ Training and technical assistance (D)
+                                ●​ Workforce (E)
+                                ●​ IT advances (F)
+                                ●​ Appropriate care availability (G)
+                                ●​ Behavioral health (H)
+                                ●​ Fostering Collaboration (K)
+Technical Score Factors         ●​ B.1 – Population health clinical infrastructure
+                                ●​ B.2 – Health and lifestyle
+                                ●​ C.1 – Rural provider strategic partnerships
+                                ●​ D.1 – Talent recruitment
+                                ●​ E.1 – Medicaid provider payment incentives
+                                ●​ F.1 – Remote care services
+Key Stakeholders                ●​ Health plans, including behavioral health managed care plans
+                                ●​ State agencies
+                                ●​ County health departments
+                                ●​ Tribal partners
+                                ●​ Rural Community-based Organizations (CBOs)
+                                ●​ ADHS
+                                ●​ AHCCCS
+                                ●​ Critical access, sole-community, Medicare-dependent, small
+                                    rural, low-volume, rural emergency, and other hospitals in
+                                    rural areas
+                                ●​ Federally-Qualified Health Centers
+                                ●​ Community health centers
+                                ●​ Other rural hospitals and health clinics
+                                ●​ Health centers receiving section 330 grants
+                                ●​ Higher-ed partners
+Outcomes                     Behavioral Health & Substance Use Disorder (SUD) Expansion
+                             Grant
+
+
+                                                                                               32
+                                                        Revised Project Narrative 1.30.2026
+
+
+                            ●​ Improved geographic access to behavioral health and crisis
+                                services
+                            ●​ Increase in treatment engagement via digital therapeutics
+                            ●​ Increased individuals engaged in prevention activities
+                            ●​ Increase in naloxone distribution events and kits provided
+                        Improving Rural Maternal-Fetal Health
+                            ●​ Increased implementation of the AIM Maternal Health Safety
+                                Bundle to improve the quality and consistency of care
+                            ●​ Enhanced readiness for rural hospitals to respond to obstetric
+                                emergencies
+                            ●​ Expanded access to perinatal mental health consultation and
+                                education
+                            ●​ Increased number of healthcare providers trained and
+                                certified in perinatal mental health (PMH-C)
+                            ●​ Increased percentage of pregnant women with syphilis linked
+                                to care
+                            ●​ Increased percentage of pregnant women treated for syphilis
+                        Chronic Disease Prevention & Management Grant
+                            ●​ Improved rural prevention infrastructure
+                            ●​ Increase rural chronic illness screening opportunities/events
+Impacted Counties       This initiative will target Arizona’s rural population as defined by
+                        the HRSA rural eligibility criteria, which includes all 100% rural
+                        counties and rural-designated areas within partially rural counties
+Estimated Funding       $27,000,000/year
+                            ●​ Behavioral Health & Substance Use Disorder (SUD)
+                                Expansion Grant: $10,000,000
+                            ●​ Improving Rural Maternal-Fetal Health Grant: $5,000,000
+                            ●​ Chronic Disease Prevention & Management Grant:
+                                $12,000,000
+
+
+
+
+Implementation Plan and Timeline
+
+Stage    Timeframe      Milestones
+                        Behavioral Health & Substance Use Disorder Expansion Grant
+                        ●​ Initiative scopes, evaluation metrics, and data collection
+                           methods for all subgrantees (health plans, including behavioral
+                           health managed care plans, and community organizations)
+                           defined.
+0        FY26 Q1-Q2
+                        ●​ Technical assistance materials and templates for reporting and
+                           contracting developed.
+                        ●​ Facility sites for crisis stabilization and inpatient expansion;
+                           assess readiness for mobile unit retrofitting and digital
+                           therapeutic integration identified.
+
+                                                                                          33
+                                                     Revised Project Narrative 1.30.2026
+
+
+                      RGA criteria for prevention, digital therapeutics, and naloxone
+                     ●​
+                      distribution programs finalized.
+                   Improving Rural Maternal-Fetal Health Grant
+                   ●​ Scopes of work established and contracts updated with partners
+                   ●​ Competitive solicitations launched.
+                   ●​ Initial trackers, dashboards, and training plans developed to
+                      monitor early implementation metrics.
+                   ●​ Development and/or expansion of statewide frameworks for
+                      programs, training, and help lines.
+                   Chronic Disease Prevention & Management Grant
+                   ●​ Statewide Preventive Health Steering Committee with
+                      representation from ADHS, AHCCCS, Tribal Liaison, and local
+                      health departments established.
+                   ●​ Readiness assessments conducted to determine county capacity
+                      in workforce, billing infrastructure, and data reporting.
+                   ●​ Scopes of work for competitive request for grant application
+                      (RGA). Launch the competitive process for awarding funds.
+                   ●​ Data collection tools, fiscal tracking templates, and reporting
+                      schedules developed.
+                   Behavioral Health & Substance Use Disorder Expansion Grant
+                   ●​ Provider onboarding and training for digital therapeutics,
+                      medication-assisted treatment (MAT) access via mobile units,
+                      and naloxone distribution protocols launched.
+                   ●​ Subgrants awarded for community prevention and education
+                      programs targeting youth, families, and rural populations.
+                   ●​ Facility retrofits for new or expanded crisis stabilization centers
+                      or units.
+                   ●​ Community outreach and awareness campaigns initiated,
+                      including stakeholder sessions and early prevention education
+                   Improving Rural Maternal-Fetal Infant Health
+                   ●​ Statewide frameworks for AIM program and helplines finalized
+    FY26 Q2 – FY27    including data sharing and evaluation tools,
+1
+    Q2             ●​ Round 1 of AIM and maternal mental health helpline provider
+                      onboarding and initial OB emergency simulation training
+                      launched.
+                   ●​ Perinatal clinical help line awareness and utilization campaigns
+                      established in 3–5 rural counties.
+                   ●​ First learning collaboratives for AIM and congenital syphilis
+                      convened to refine strategies.
+                   Chronic Disease Prevention & Management Grant
+                   ●​ Grant agreements with local health departments developed and
+                      executed
+                   ●​ Grant orientation on fiscal and performance expectations
+                      provided.
+                   ●​ Technical assistance series launched on:
+
+
+
+                                                                                       34
+                                                     Revised Project Narrative 1.30.2026
+
+
+                            o​Public health billing structures and sustainability
+                              planning
+                           o​ Implementation of chronic disease program models
+                           o​ Workforce development and retention strategies
+                              (Epidemiologists, CHWs, DIS).
+                   Behavioral Health & Substance Use Disorder Expansion Grant
+                   ●​ Digital therapeutic interventions fully launched and statewide
+                      data collection started on treatment engagement and outcomes.
+                   ●​ Mobile behavioral health service delivery started.
+                   ●​ Naloxone distribution networks expanded through local
+                      partners, emergency responders, and provider programs.
+                   ●​ Prevention activities statewide roll out launched— community
+                      events, school-based initiatives.
+                   ●​ Crisis stabilization and inpatient service operations started;
+                      collect baseline data on utilization and community impact.
+                   Improving Rural Maternal-Fetal Infant Health Grant
+                   ●​ AIM expanded and maternal mental health help line extended to
+                      24/7 psychiatric coverage.
+                   ●​ Continued Round 1 OB simulation training; Complete training
+                      and publish a midterm progress report on participation and
+2   FY27 Q2 – FY28    outcomes.
+                   ●​ Perinatal clinical help line awareness campaign expanded
+                      statewide.
+                   ●​ Congenital syphilis monitoring code and training curriculum for
+                      county investigators relaunched; communication and outreach
+                      tools developed.
+                   Chronic Disease Prevention & Management Grant
+                   ●​ Support provided for county-led development of public health
+                      billing models, allowing local flexibility to determine structure.
+                   ●​ Quarterly learning collaboratives facilitated for counties to share
+                      best practices and address barriers.
+                   ●​ Workforce expansion started by hiring Epidemiologists and
+                      Disease Intervention Specialists (DIS) in priority counties.
+                   ●​ New programs connecting individuals with health insurance and
+                      social services are established and fully operational as a result
+                      of the competitive grant
+                   Behavioral Health & Substance Use Disorder Expansion Grant
+                   ●​ Midpoint evaluations conducted for all activities, assessing
+                      performance, access, and outcomes.
+                   ●​ Implementation strategies adjusted based on data from digital
+                      therapeutic engagement, MAT access rates, and naloxone reach.
+3   FY28
+                   ●​ Outreach for prevention and overdose response expanded based
+                      on early findings from rural partners, including Tribal partners.
+                   ●​ Coordination between mobile units, inpatient centers, and crisis
+                      stabilization facilities strengthened to streamline referrals.
+                   Improving Rural Maternal-Fetal Health Grant
+
+                                                                                      35
+                                             Revised Project Narrative 1.30.2026
+
+
+               ●​ 100% participation of birthing hospitals in at least three AIM
+                  bundles achieved and quality measures integrated into hospital
+                  QI dashboards.
+               ●​ Round 2 OB simulation training launched based on evaluation
+                  findings and feedback.
+               ●​ Field-based congenital syphilis testing/treatment expanded and
+                  local progress dashboards deployed.
+               ●​ Perinatal clinical help line integrated into hospital workflows
+                  and care coordination protocols.
+               ●​ Statewide evaluations conducted on outcomes, disparities, and
+                  training impacts.
+               Chronic Disease Prevention & Management Grant
+               ●​ All counties are actively implementing evidence-based
+                  prevention programs.
+               ●​ Pilots for billing and reimbursement processes for preventive
+                  services under Counties’ chosen structures launched.
+               ●​ Progress on screening rates, evaluated.
+               ●​ Annual Prevention Learning Collaborative for data sharing,
+                  performance review, and peer-to-peer technical exchange
+                  convened.
+               Behavioral Health & Substance Use Disorder Expansion Grant
+               ●​ Deliverables finalized, all provider performance and access
+                  benchmarks met, and reporting aligned across initiatives.
+               ●​ Distribution of naloxone continued and MAT-enabled mobile
+                  behavioral health services sustained statewide.
+               ●​ Partnerships with schools, health systems, and law enforcement
+                  expanded to reinforce prevention and crisis intervention
+               ●​ Digital therapeutic data systems integrated into ADHS and
+                  AHCCCS dashboards for real-time monitoring.
+               ●​ Annual performance audits conducted and comprehensive
+                  reports prepared demonstrating measurable impacts on overdose
+                  deaths, relapse rates, and crisis utilization.
+               Improving Rural Maternal-Fetal Health Grant
+4   FY 29-30
+               ●​ Annual performance audit conducted across AIM, the maternal
+                  mental health help line, and congenital syphilis initiatives.
+               ●​ Round 2 continued and Round 3 OB simulation training
+                  launched with ongoing evaluations and feedback incorporated.
+               ●​ Technical assistance provided to low-performing hospitals or
+                  regions and maternal mortality and the maternal mental health
+                  help line utilization trends monitored.
+               ●​ At least 75% of congenital syphilis investigations completed
+                  within 14 days and collaborative reviews maintained.
+               ●​ AIM, the maternal mental health help line, perinatal clinical
+                  help line, and simulation systems explored for sustainability
+                  operations.
+               Chronic Disease Prevention & Management Grant
+
+                                                                              36
+                                                           Revised Project Narrative 1.30.2026
+
+
+                           ●​ Mid-program evaluation conducted assessing health outcomes,
+                              fiscal performance, and sustainability progress.
+                           ●​ Targeted technical assistance provided to counties lagging in
+                              performance or billing readiness
+                           ●​ Implementation strategies refined based on evaluation findings
+                              and feedback from counties and partners.
+                           ●​ Integration of high-performing programs into long-term local
+                              public health operations started.
+                           Behavioral Health & Substance Use Disorder Expansion Grant
+                           ●​ Final evaluation completed and comprehensive report issued
+                              summarizing statewide behavioral health outcomes and policy
+                              recommendations.
+                           ●​ Crisis stabilization, MAT mobile units, and naloxone programs
+                              explored for sustainability.
+                           ●​ Prevention, outreach, and overdose monitoring maintained as
+                              standard components of Arizona’s behavioral health
+                              infrastructure.
+                           ●​ Final collaborative review sessions with Tribal, rural, and local
+                              partners conducted to ensure sustainability and continuous
+                              quality improvement beyond RHTP funding.
+                           Improving Rural Maternal-Fetal Health Grant
+          FY 31- Grant
+5                          ●​ Final evaluation reports for AIM/the maternal mental health
+          Closeout
+                              help line, Congenital Syphilis, and OB Simulation initiatives
+                              issued summarizing statewide outcomes and lessons learned.
+                           ●​ Continuous data collection and performance monitoring
+                              maintained through MHIP dashboards and PRISM systems.
+                           ●​ Final collaborative and policy forums held to share outcomes
+                              and sustainability roadmaps.
+                           ●​ Final policy recommendations for sustaining maternal health
+                              infrastructure beyond RHTP funding published.
+                           Chronic Disease Prevention & Management Grant
+                           ●​ County operational billing systems or sustainability plans in
+                              place for preventive and clinical services.
+                           ●​ Statewide evaluation report published summarizing impact,
+                              outcomes, and lessons learned
+
+
+Governance and Project Management Structure
+
+AHCCCS will serve as the lead agency for the Behavioral Health & Substance Use Disorder
+
+(SUD) Expansion Grant, while ADHS will lead the Chronic Disease Prevention & Management
+
+Grant and the Improving Rural Maternal-Fetal Health Grant. All funding streams will be
+
+executed through cooperative agreements under CMS RHTP guidance.
+
+                                                                                              37
+                                                              Revised Project Narrative 1.30.2026
+
+Oversight of program-related activities and fund utilization will be provided by the Arizona
+
+RHTP Steering Committee, which includes ADHS, AHCCCS, OEO, and the Governor’s Office.
+
+Further detail on key personnel roles is provided in the budget narrative.
+
+To ensure effective coordination among state health agencies and external stakeholders,
+
+AHCCCS and ADHS will jointly provide fiscal and data oversight, technical assistance in
+
+reimbursement and compliance, contract monitoring, and monthly coordination calls and
+
+quarterly progress reviews will be conducted to maintain transparency and accountability.
+
+
+Stakeholder Engagement Plan
+
+During the planning stage, Arizona engaged rural hospitals, frontline providers, and other
+
+healthcare stakeholders through surveys and a statewide RFI. Tribal health authorities were
+
+consulted to tailor approaches for Tribal communities. As implementation progresses, the State
+
+will continue engaging these stakeholders and broaden participation to include public health
+
+agencies, county health departments, and local community-based organizations. See attached
+
+Stakeholder Engagement Efforts graphic in “Other Supporting Documentation" section.
+
+Quarterly advisory committee meetings will be convened to guide planning, implementation, and
+
+performance tracking for each grant component.
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+   ●​   Composition: Behavioral health providers and provider associations, county prevention
+
+        coalitions, law enforcement, and Tribal behavioral health leaders.
+
+   ●​ Responsibilities: Identify evidence-based programs, address behavioral health workforce
+
+        shortages, and coordinate with opioid abatement and prevention efforts.
+
+Improving Rural Maternal-Fetal Health Grant
+
+
+
+                                                                                               38
+                                                               Revised Project Narrative 1.30.2026
+
+   ●​   Composition: OB/GYN/Maternal-Fetal Medicine networks, hospitals, community health
+
+        centers, Tribal maternal health representatives, and health plan representatives.
+
+   ●​   Responsibilities: Guide rural maternal health hubs, expand prenatal care access, and
+
+        oversee tele-obstetrics implementation.
+
+Chronic Disease Prevention & Management Grant
+
+   ●​   Composition: Local health directors, hospital public health teams, Tribal representatives,
+
+        and community-based organizations.
+
+   ●​   Responsibilities: Integrate local prevention programs and align county health
+
+        improvement plans with overall Rural Health Transformation Program outcomes.
+
+Additional partners will include AHCCCS (to align preventive services and billing strategies
+
+with Medicaid policy), the ADHS Tribal Liaison (for Tribal engagement, consultation
+
+requirements), and federal partners such as the CDC.
+
+Advisory committees and state partners will ensure community-driven governance across all
+
+Priority Health Initiatives Grants Portfolio. For example:
+
+   ●​ Behavioral Health and SUD Expansion will coordinate behavioral health managed care
+
+        plans, county prevention coalitions, law enforcement, and Tribal partners to strengthen
+
+        interoperability between local organizations and tele-behavioral providers.
+
+   ●​ Rural Maternal-Fetal Health will engage OB/GYN networks, community health centers,
+
+        and Tribal maternal health representatives through regional projects such as simulation
+
+        training, perinatal tele-hubs, and local pilots focused on certification and outreach.
+
+   ●​ Chronic Disease Prevention and Management Grant will collaborate with county health
+
+        departments, Tribal communities, and patient and provider voices to align decisions with
+
+        populations served.
+
+
+
+                                                                                                  39
+                                                             Revised Project Narrative 1.30.2026
+
+Metrics and Evaluation Plan
+
+Metric                     Baseline          Milestone/Target      Data Source        Timing of
+                                                                                      Updates
+             Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+Increase in crisis services To be established Increase               Subgrantee      Quarterly
+available to rural          via subgrantee year-over-year            reporting
+Arizonans                   data; estimated
+                            access rate of
+                            20%
+Number of providers         TBD               Increase year over Subgrantee          Quarterly and
+offering patients to access                   year                   data;           annual
+treatment through digital                                            provider-report
+platforms                                                            ed digital
+                                                                     platform
+                                                                     metrics
+                        Chronic Disease Prevention & Management Grant
+Colorectal Cancer           Graham: 58.1%; Increase average          Behavioral Risk Annual
+Screening Rates in Rural Apache: 58.9% screening rates in at Factor
+Counties                    (2024)            least 6 rural counties Surveillance
+                                              (e.g., Graham,         System
+                                              Apache, Mohave) by
+                                              FY31
+Counties with Operational N/A                 At least 6 counties County fiscal       Semi-annual
+Public Health Billing                         establish a            and program
+Systems                                       sustainable billing or reports
+                                              reimbursement          submitted to
+                                              structure for          ADHS
+                                              preventive care by
+                                              FY31
+Adults Enrolled in          Data collection Increase year over County program Quarterly
+Chronic Disease             begins FY26       year                   reports; CDC
+Prevention Programs                                                  NDPP Data
+(DPP, BP, Healthy Heart)                                             Portal
+                          Improving Rural Maternal-Fetal Health Grant
+% of hospitals
+                                              100% of birthing       AIM National
+implementing ≥3 AIM         40/42 hospitals                                          Quarterly
+                                              hospitals by FY29 Data Portal
+bundles
+% providers educated
+                                                                     Report by
+about the maternal mental Baseline: 0         ≥200 by FY31                           Annually
+                                                                     managing entity
+health help line
+# of providers committing
+                                                                     Report by
+to using the perinatal      Baseline: 0       ≥200 by FY31                           Quarterly
+                                                                     managing entity
+clinical help line
+
+
+
+                                                                                                40
+                                                                 Revised Project Narrative 1.30.2026
+
+
+                                                                      Report by
+% of hospitals receiving                       21/42 receiving
+                              0/42 hospitals                          managing        Quarterly
+OB simulation training                         training (50%)
+                                                                      entity
+
+Note: The “Counties with Operational Public Health Billing Systems” metric applies to
+all participating county health departments with a focus on the seven 100% rural counties:
+Apache, Gila, Graham, Greenlee, La Paz, Navajo, and Santa Cruz. Our operational intent is to
+work collaboratively with each of them, providing tailored resources and support to establish a
+sustainable billing or reimbursement structure for preventative care and maximize long-term
+sustainability.
+Recognizing historical challenges that county health departments have faced implementing and
+
+maintaining billing systems, and limitations on what public health services are reimbursable, we
+
+have set a realistic milestone for at least six counties to successfully establish these systems by
+
+FY31. This target reflects both our commitment to broaden capacity and our understanding of the
+
+operational and logistical complexities that may arise. While our goal is full participation, we
+
+have allowed for flexibility in the program design to accommodate circumstances where a rural
+
+county may encounter barriers that prevent immediate adoption. Nevertheless, we are committed
+
+to providing technical assistance, targeted funding, and other resources to each county to reduce
+
+and, where possible, eliminate logistical constraints.
+
+
+As we engage with each rural county, we will conduct individualized feasibility assessments and
+
+offer all available support to participation. Our approach is grounded in partnership and
+
+capacity-building, with the overarching objective of bringing every rural county online with a
+
+sustainable billing system.
+
+Data collection / Analysis Methods:
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+AHCCCS will partner with ADHS to leverage existing population health data to evaluate impact
+
+at a state and county level. Additionally, AHCCCS will collect data from providers and health
+
+plans.
+
+                                                                                                      41
+                                                              Revised Project Narrative 1.30.2026
+
+Chronic Disease Prevention & Management Grant
+
+ADHS will employ a performance management framework that emphasizes quantifiable
+
+outcomes, data transparency, and continuous quality improvement. County-level data and
+
+reporting will be validated by ADHS to ensure accuracy and consistency across jurisdictions.
+
+Metrics will be monitored quarterly and reported annually through a centralized performance
+
+dashboard.
+
+Improving Rural Maternal-Fetal Health Grant
+
+   ●​   Hospital Data: Submitted quarterly through the AIM National Data Portal
+
+        (SaferBirth.org); includes process, structure, and outcome measures for each bundle.
+
+   ●​   Maternal Mental Health Help Line Data: Subawardee will maintain a secure
+
+        dashboard tracking consultation volume, response time, and provider type.
+
+   ●​   Perinatal Clinical Help Line Data: Monitored via ADHS system with metrics on call
+
+        type, response time, referral source, and outcome.
+
+   ●​   Congenital Syphilis Testing and Prevention: ADHS has the ability to monitor metrics
+
+        and milestones described in the plan for congenital syphilis using data that is already
+
+        collected in their statewide surveillance database.
+
+   ●​   OB Simulation Training: Number of providers receiving OB simulation training: Report
+
+        from Managing Entity, quarterly; Number of providers receiving OB simulation training:
+
+        Report from the Training entity to the Managing Entity.
+
+Program Evaluation Approach
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+
+
+
+                                                                                                  42
+                                                                  Revised Project Narrative 1.30.2026
+
+
+   ●​ Data Collection and Reporting: Subgrantees will submit quarterly reports detailing
+
+        service delivery metrics, participant demographics, and outcomes using standardized
+
+        templates to ensure consistency across initiatives.
+
+   ●​ Performance Metrics: Each initiative will track defined metrics such as residents
+
+        served, overdose fatalities, and awareness levels, with baseline data collected at launch
+
+        and progress measured quarterly and annually.
+
+   ●​ Midpoint and Final Evaluations: A midpoint evaluation in FY28 will assess progress
+
+        and guide adjustments, while a final evaluation in FY31 will measure overall impact and
+
+        inform future funding and policy.
+
+   ●​ Data Sources: Evaluation will draw on ADHS public health dashboards, subgrantee
+
+        reports, and encounter data for comprehensive analysis.
+
+   ●​ Continuous Quality Improvement (CQI): Findings will drive continuous improvement
+
+        efforts, with technical assistance provided to strengthen data quality and program
+
+        performance throughout the grant period.
+
+Chronic Disease Prevention & Management Grant
+ADHS will use a combination of process and outcome measures to assess implementation
+
+fidelity, reach, and health impact. Evaluation activities will:
+
+   ●​   Assess county-level implementation fidelity, fund utilization, and milestone achievement.
+
+   ●​   Evaluate impact on key outcomes such as increased cancer screening, or diabetes
+
+        prevention enrollment.
+
+   ●​   Document progress in establishing sustainable billing and reimbursement structures.
+
+   ●​   Identify best practices for replication and scale.
+
+
+
+
+                                                                                                    43
+                                                              Revised Project Narrative 1.30.2026
+
+Performance measures will be tracked at both statewide and county levels to ensure distribution
+
+of impact across rural communities.
+
+Improving Rural Maternal-Fetal Health Grant
+   ●​   Process Evaluation: Track participation, training completion, and fidelity to
+
+        AIM/maternal mental health help line protocols.
+
+   ●​   Outcome Evaluation: Measure changes in morbidity, mortality, access to behavioral
+
+        health consultation, and continuity of care.
+
+   ●​   Impact Evaluation: Assess system-level outcomes, including hospital readiness, mental
+
+        health service utilization, and rural access. ADHS will develop an internal tracker to
+
+        monitor progress on each metric and milestone described in the congenital syphilis plan.
+
+        Progress reports on metrics and milestones will be shared with local jurisdictions and
+
+        monitored quarterly.
+
+OB Simulation Training
+
+   ●​   Process Evaluation: Track participation, training completion, and participant
+
+        evaluations.
+
+   ●​   Outcome Evaluation: Measure participant comfort and confidence with managing
+
+        obstetric emergencies in a rural setting.
+
+   ●​   Impact Evaluation: Measure number and/or nature of OB transfers through AZ REACH
+
+        (rural hospital transfer program) from hospitals receiving the OB simulation training
+
+        versus those who have not received the OB simulation training.
+
+Sustainability Plan & Policy Integration
+
+Behavioral Health & Substance Use Disorder (SUD) Expansion Grant
+
+                                                                                                 44
+                                                               Revised Project Narrative 1.30.2026
+
+Arizona will ensure the long-term viability of funded initiatives through a combination of
+
+reimbursement alignment, operational integration, and policy development. Crisis stabilization
+
+services and mobile behavioral health units, will sustain service through reimbursable Medicaid
+
+and insurance-covered services. Subgrantees must demonstrate billing capacity and integration
+
+with health plans to ensure financial continuity beyond the grant period.
+
+For digital therapeutics (DTx), Arizona will pursue reimbursement expansion via a State Plan
+
+Amendment (SPA) and legislative approval to include DTx as a covered Medicaid service. In the
+
+interim, Arizona will collaborate with health plans and pilot programs to demonstrate efficacy
+
+and cost-effectiveness, building the evidence base necessary for long-term coverage.
+
+Chronic Disease Prevention & Management Grant
+
+The Preventive Rural Health Grant aims to create sustainable public health systems by enabling
+
+counties to screen and operationalize their own public health billing and reimbursement
+
+structures suited to local capacity and context.
+
+Public Health Billing Structure
+
+Rather than establishing a single statewide billing model, ADHS will provide funding and
+
+technical assistance for counties to develop their own systems. Counties may use funds to:
+
+   ●​   Conduct feasibility assessments of billing and revenue models
+
+   ●​   Hire consultants or fiscal experts to design or strengthen billing systems
+
+   ●​   Pilot reimbursement processes for preventive care
+
+   ●​   Develop local government-level partnerships with AHCCCS and private payers
+
+   ●​   Identify staffing, technology, and data needs to sustain billing operations
+
+
+
+
+                                                                                                 45
+                                                              Revised Project Narrative 1.30.2026
+
+Counties will submit a Billing and Sustainability Plan to ADHS describing its proposed
+
+structure, governance model, payer engagement strategy, and timeline for implementation.
+
+Community Health Worker (CHW) and Workforce Reimbursement
+
+Counties will evaluate opportunities to bill CHW services as part of their chosen sustainability
+
+approach. ADHS and AHCCCS will jointly provide statewide guidance, including options for
+
+eligible billing codes (CPT/HCPCS), documentation standards, and care coordination models,
+
+but counties will decide how best to incorporate CHWs within their local system of care.
+
+Infrastructure for Rural Health Services
+
+RHTP funding will enable rural counties to build the foundational infrastructure for rural health
+
+services, including data systems, electronic billing capabilities, and fiscal workflows. Once
+
+established,this foundation will support long-term sustainability of preventive care.
+
+Improving Rural Maternal-Fetal Health Grant
+
+AIM/Help Lines for Maternal Mental Health and /Perinatal Clinical Help
+
+Arizona will increase resources related to OB and maternal mental health initiatives: AIM
+
+Maternal Health Bundle Expansion, a maternal mental health help line, and the perinatal clinical
+
+help line. These initiatives aim to embed sustainable practices into statewide systems that will
+
+lead to safer births and healthier outcomes long after the funding cycle ends:
+
+
+   ●​   AIM Bundles will standardize evidence-based practices and reduce preventable
+
+        complications, especially in rural and underserved areas. Embedding these protocols into
+
+        hospital quality improvement systems will permanently strengthen emergency readiness
+
+        and ensure consistent, high-quality obstetric care statewide. This will reduce preventable
+
+
+
+                                                                                                   46
+                                                              Revised Project Narrative 1.30.2026
+
+        transfers, improve outcomes, and create a self-sustaining culture of quality improvement
+
+        supported by trained staff and continuous peer learning.
+
+   ●​   Maternal Mental Health Help Line will transition from a grant-supported model to a
+
+        sustainable funding structure by the end of the funding cycle, ensuring continuity of
+
+        real-time psychiatric consultation for perinatal patients as RHTP funds phase out.
+
+        Arizona will explore alternative funding mechanisms to make this line permanent, such
+
+        as wireless fee options.
+
+   ●​   Perinatal Clinical Help Line will become a permanent bridge between providers,
+
+        patients, and community-based services. By integrating the Help Line into hospital
+
+        discharge and Medicaid care coordination systems, it will continue beyond the RHTP
+
+        funding period without additional federal investment. This ensures providers and families
+
+        have a reliable navigation resource for behavioral health, social services, and emergency
+
+        support—particularly in rural regions with limited specialty care.
+
+
+Collectively, these programs will reduce maternal morbidity and mortality, improve care
+
+coordination, and strengthen rural health system capacity. By embedding AIM, a maternal
+
+mental health help line, and the perinatal clinical help line into ADHS and AHCCCS operations,
+
+Arizona will maintain infrastructure, workforce training, and data systems established through
+
+RHTP funding, ensuring lasting statewide impact.
+
+
+Congenital Syphilis
+
+Arizona will integrate congenital syphilis screening the five-year funding period to lower
+
+outbreak potential and ease investigative burdens. Case counts directly impact resources needed
+
+for control and response. Resources will be used to integrate syphilis screening into routine
+
+
+
+                                                                                                 47
+                                                               Revised Project Narrative 1.30.2026
+
+healthcare services for earlier detection and response. Additionally, Arizona will develop and
+
+refine public health messaging campaigns, investigative training materials, and other tools to
+
+ensure effective interventions and sustainability .
+
+
+By focusing on case reduction, Arizona will reduce outbreak risk in rural communities and create
+
+manageable workloads for public health professionals. Currently, investigative demand exceeds
+
+capacity, limiting effective transmission control. Reversing rising rates will allow case counts to
+
+reach levels that enable timely interventions after the funding cycle ends and normal workforce
+
+levels resume.
+
+
+OB Simulation Training
+
+
+Arizona aims to train and expose as many rural providers as possible to obstetric emergency
+
+management through simulation-based learning. Evidence shows that OB simulation training
+
+significantly improves practitioner confidence and competence in managing obstetric
+
+emergencies.
+
+
+Given the shortage of OB providers in rural areas—often referred to as “obstetric deserts”—it is
+
+critical that rural facilities have baseline training to stabilize and manage emergencies before
+
+transfer or adverse outcomes occur. After the initial pilot, Arizona will consider long-term
+
+funding options, such as funding the program with Arizona General Fund dollars.
+
+Lessons learned will inform Arizona’s ongoing public health policy. Data on utilization,
+
+reimbursement, and health outcomes will guide policy updates, support SPA and legislative
+
+actions, and strengthen future investment strategies. Proven models—mobile service delivery,
+
+
+
+
+                                                                                                   48
+                                                                Revised Project Narrative 1.30.2026
+
+crisis stabilization, and digital therapeutic integration—will be embedded into statewide
+
+frameworks to enhance access, and efficiency.
+
+ADHS is currently working with partners to develop its next Arizona Health Improvement Plan
+
+(AzHIP) covering 2026-2030, which prioritizes Workforce Development, Access to Care,
+
+Prevention, and Mental and Behavioral Wellbeing. Workgroups launching in early 2026 will
+
+integrate RHTP strategies into AzHIP. The plan will be issued by the summer of 2026, with
+
+implementation teams monitoring progress and applying lessons learned. With prevention as a
+
+core priority, Arizona is well positioned to embed RHTP into statewide policy.
+
+Arizona’s Maternal Health Improvement Plan (MHIP) 2024, the roadmap for reducing
+
+preventable maternal deaths and advancing health outcomes, aligns with expanding AIM
+
+bundles, a maternal mental health help line, and the perinatal clinical help line strengthens the
+
+state’s ability to operationalize MHIP strategies across all birthing facilities and rural health
+
+systems.
+
+The maternal mental health help line directly supports the Maternal Mortality Review Committee
+
+(MMRC) recommendations to improve timely access to behavioral health consultation for
+
+perinatal patients. Integrating the maternal mental health help line into AHCCCS telehealth
+
+reimbursement policies and ADHS behavioral health coordination frameworks ensures continued
+
+funding and long-term service delivery beyond the RHTP grant period.
+
+The perinatal clinical help line will be incorporated into ADHS and AHCCCS care coordination
+
+systems as part of the state’s perinatal telehealth and case management infrastructure. This
+
+integration will establish a sustainable referral and follow-up process for high-risk pregnancies,
+
+improving continuity of care and access to behavioral, medical, and social support services
+
+statewide.
+
+                                                                                                    49
+                                                                Revised Project Narrative 1.30.2026
+
+Ongoing evaluation throughout the five-year RHTP funding period ensures interventions remain
+
+data-driven, responsive to community needs, and aligned with evolving state priorities. AIM,
+
+maternal mental health help line, and perinatal clinical help line initiatives will transition from
+
+temporary grant-supported projects to permanent components of Arizona’s maternal health
+
+policy and system of care.
+
+In general, across the Priority Health Initiatives, participating entities will be expected to apply
+
+for public-payer reimbursement for services previously funded by RHTP. This transition to
+
+sustainable reimbursement models is critical to ensuring the continuity of innovative care
+
+delivery in rural communities. Across the initiatives, Arizona is committed to supporting
+
+contractors and partners in identifying and securing funding to sustain operations beyond the
+
+RHTP funding period. Technical assistance, guidance on reimbursement strategies, and
+
+collaborative planning will be provided to facilitate this transition and to promote long-term
+
+program viability.
+
+Behavioral Health & SUD Expansion Grant
+
+   ●​ Opioid Antagonist Distribution of Overdose Prevention
+
+           ○​ Sustainability plan: Funded long-term with a combination of General Fund
+
+               dollars and community support, as needed, by leveraging Arizona’s tax credits,
+
+               including for Qualified Charitable Organizations.
+
+   ●​ Expansion of Mobile Digital Services Access Points, Clinics, And Crisis Services in
+
+       Rural Communities
+
+           ○​ Sustainability plan: Participating entities will transition to public-payer
+
+               reimbursement for services previously funded by RHTP.
+
+   ●​ Training And Recruitment of Behavioral Health Professionals in Shortage Areas
+
+
+                                                                                                       50
+                                                             Revised Project Narrative 1.30.2026
+
+
+          ○​ Sustainability plan: Supported long-term through the Office of Economic
+
+             Opportunity’s Healthcare Workforce Project Office, which will be funded
+
+             long-term by General Fund dollars in the Arizona budget.
+
+   ●​ Prevention Programs Addressing Suicide, Trauma, And Substance Use
+
+          ○​ Sustainability plan: Participating entities will transition to public-payer
+
+             reimbursement for services previously funded by RHTP.
+
+Improving Rural Maternal-Fetal Health Grant
+
+   ●​ Expanding evidence-based maternal health programs
+
+          ○​ Sustainability plan: Funded long-term with a combination of General Fund
+
+             dollars, and participating entities will transition to public-payer reimbursement for
+
+             services that can be billable, which were previously funded by RHTP, including
+
+             for community health workers.
+
+   ●​ Enhanced OB and maternal mental health training
+
+          ○​ Sustainability plan: Funded long-term with General Fund dollars, through the
+
+             Arizona Department of Health Services and the Office of Economic Opportunity.
+
+   ●​ Ensuring access to critical help lines, including perinatal psychiatric help for
+
+      patients, and perinatal help for rural clinicians
+
+          ○​ Sustainability plan: Funded long-term with General Fund dollars. Arizona also
+
+             intends to coordinate with its public universities and major hospital systems to
+
+             ensure community support for these critical help lines.
+
+Chronic Disease Prevention & Management Grant
+
+   ●​ Community Health Screening, Prevention, Outreach, Intervention, and
+
+      Management
+
+
+                                                                                                51
+                                                              Revised Project Narrative 1.30.2026
+
+
+           ○​ Sustainability plan: Participating entities will transition to public-payer
+
+               reimbursement for services previously funded by RHTP.
+
+   ●​ Create and Bolster Programs Designed to Enroll Eligible Rural Arizonans in Health
+
+       Insurance and Connect Them to Social Services
+
+           ○​ Sustainability plan: Participating entities will transition to public-payer
+
+               reimbursement for services previously funded by RHTP.
+
+Making Rural Healthcare Accessible
+
+The Making Rural Healthcare Accessible initiative aims to expand access to care across rural
+
+Arizona. It is comprised of the two major components below:
+
+Telehealth Digital Transformation, Adoption, and Care Coordination Grant
+
+This grant establishes and expands telehealth hubs, resources for telehealth equipment,
+
+permissible broadband upgrades, and digital access supports. The telehealth hubs will be
+
+integrated with rural hospitals and community health centers, enabling virtual specialty consults
+
+and remote patient monitoring. Through cooperative agreements and grants (<$500K), the
+
+program supports rural providers, hospitals, state agencies, health system partners, and
+
+community health centers in the following ways:
+
+   ●​ Telehealth hubs and remote monitoring: Establish and expand telehealth hub sites to
+
+       provide virtual specialty consults and implement remote patient monitoring programs that
+
+       extend care to patients at home.
+
+   ●​ Grants for technology, including digital infrastructure and access, and care
+
+       coordination:
+
+           o​ Investing in digital infrastructure modernization, telehealth equipment and
+
+               technology, and offering rural digital supports.
+
+
+                                                                                                52
+                                                              Revised Project Narrative 1.30.2026
+
+           o​ Integration of services into care coordination platforms, including mobile and
+
+               fixed-site services, tele-behavioral health and chronic care services, and
+
+               expanding EMS service networks to strengthen emergency response and
+
+               continuity of care. Complementing these priorities, a key initiative under this
+
+               grant is the AZ REACH Behavioral Health Transfer Program Expansion, this
+
+               expansion will extend services to include behavioral health transfers for rural
+
+               areas.
+
+Rural Health Innovative Care Pilot Program
+
+The Rural Health Innovative Care Pilot Program will increase long-term rural health access
+
+points for preventive, specialty, and primary care services by piloting innovative care models,
+
+technologies, and payment approaches.
+
+   ●​ Mobile & Satellite Service Expansion: Acquire, equip, and deploy mobile units and
+
+       satellite sites to deliver specialty, primary, and preventive care in remote areas. Arizona
+
+       will expand healthcare access in remote areas by establishing mobile health units through
+
+       a structured, competitive procurement process. This process is open to anchor institutions
+
+       and healthcare organizations (including hospitals, universities, and nonprofit entities) that
+
+       serve as trusted partners within rural communities.
+
+       Key Steps in Provision:
+
+           ●​ Anchor Institutions Approach:​
+
+               By partnering with established institutions, the State ensures that each mobile unit
+
+               has the necessary technological backbone for secure connectivity and data
+
+               interoperability. These organizations possess the infrastructure and expertise
+
+               required to integrate mobile units with EMR and HIE systems, allowing the
+
+
+                                                                                                     53
+                                                  Revised Project Narrative 1.30.2026
+
+   mobile unit to function as a true extension of the clinic environment. This
+
+   integration is critical for maintaining continuity of care, supporting real-time data
+
+   exchange, and enabling coordinated service delivery across rural and remote
+
+   settings.
+
+●​ Competitive Solicitation and Selection:​
+
+   The State will release a competitive Request for Grant Proposals (RGP) inviting
+
+   anchor institutions to submit plans for mobile unit deployment. Proposals must
+
+   detail the scope of services (specialty, primary, and preventive care), target
+
+   populations, evidence of community need, cost estimates, and sustainability
+
+   strategies for programming. administration, and maintenance.
+
+●​ Eligibility and Evaluation:​
+
+   Anchor institutions must demonstrate established relationships and good standing
+
+   within the rural community, as well as financial stability and operational capacity
+
+   to manage mobile clinics. Proposals will be evaluated for their capacity to support
+
+   EMR/HIE integration, resource adequacy, and operational readiness. Proposals to
+
+   retrofit existing mobile units will be considered, and Arizona will ensure the
+
+   allocation remains under the 20% maximum threshold for minor alterations, in
+
+   accordance with RHTP guidance.
+
+●​ Acquisition and Equipping:​
+
+   Upon selection, the State will partner with the anchor institution to acquire and
+
+   equip the mobile unit, ensuring it is outfitted with the necessary medical
+
+   technology, supplies, and connectivity to deliver high-quality care. The
+
+   procurement process will prioritize units capable of providing a broad range of
+
+
+
+                                                                                       54
+                                                  Revised Project Narrative 1.30.2026
+
+   services, including chronic disease management, maternal-fetal health, behavioral
+
+   health, and preventive screenings.
+
+●​ Deployment Strategy:​
+
+   Deployment will be data-informed, targeting areas with the greatest unmet need.
+
+   The anchor institution will work collaboratively with the State to schedule mobile
+
+   unit visits, optimize timing and frequency, and tailor services to local health
+
+   priorities. Workforce development initiatives will be layered in to ensure the
+
+   recruitment and retention of clinicians and support staff necessary for effective
+
+   service delivery.
+
+●​ Community Engagement and Oversight:​
+
+   Stakeholder engagement is integral to the process. The State will require anchor
+
+   institutions to actively involve community members through surveys, in-person
+
+   feedback sessions, and advisory committees. Site visits and ongoing monitoring
+
+   will ensure that mobile units are meeting community needs and adapting to
+
+   changing circumstances.
+
+●​ Monitoring:​
+
+   The State conducts site visits and ongoing monitoring to verify that mobile units
+
+   are reaching remote areas, maintaining equipment, and delivering high-quality
+
+   care. Performance is tracked through regular reporting and evaluation.
+
+●​ Sustainability and Accountability:​
+
+   Anchor institutions must provide a sustainability plan for ongoing operations and
+
+   maintenance of the mobile unit. The State will monitor performance through
+
+
+
+
+                                                                                       55
+                                                               Revised Project Narrative 1.30.2026
+
+               regular reporting, site verification, and evaluation of service reach, patient
+
+               outcomes, and equipment utilization.
+
+   ●​ Innovative & Alternative Care Models: Pilot and scale community health worker
+
+        programs, diversion models, in-home services, and traditional healing supports.
+
+   ●​ Alternative Payment & Value-Based Care Adoption: Adoption of alternative payment
+
+        models and value-based care strategies to incentivize quality and efficiency in rural
+
+        health delivery. Investments include technical assistance, data infrastructure, and provider
+
+        training to support transition from fee-for-service to outcomes-based reimbursement.
+
+Funding Framework
+
+For both grant programs, AHCCCS will enter into cooperative agreements through:
+
+   ●​   Contract amendments with health plans;
+
+   ●​   IGAs/grants with state agencies, local governments, Tribal behavioral health authorities;
+
+   ●​   Limited RGAs competitive contracts with ‘rural health facilities’ as defined by HR1,
+
+        Title VVII Sec. 71401. to include fee for service providers; and
+
+   ●​   Competitive RGA for implementation of specific programs/services.
+
+
+Across both programs, Arizona will institute processes to secure vendors who can build secure
+
+data pipelines, dashboards, and fiscal tracking tools that meet federal audit standards.
+
+All project funds will be administered through a state agency agreement and expended in
+
+compliance with 2 CFR Part 200 and the Arizona Procurement Code (A.R.S. Title 41, Chapter
+
+23). Procurement of goods and services will be conducted using competitive methods or existing
+
+state and cooperative contracts, as appropriate, to ensure full and open competition, cost
+
+reasonableness, and transparency. All contracts will be awarded to responsible vendors and will
+
+include applicable federal and state provisions. Any subrecipient or pass-through administrative
+
+                                                                                                 56
+                                                               Revised Project Narrative 1.30.2026
+
+costs will remain below the 10 percent administrative cost cap, and the state agency will
+
+maintain written procurement and financial documentation sufficient to demonstrate compliance
+
+with federal regulations, state law, and audit requirements.
+
+
+
+Main Strategic Goal          ●​ Sustainable Access
+                             ●​ Tech Innovation
+                             ●​ Innovative Care
+                             ●​ Make Rural America Healthy Again
+Use of Funds                 ●​ Prevention and Chronic Disease (A)
+                             ●​ Consumer Tech Solutions (C)
+                             ●​ Training & Technical Assistance (D)
+                             ●​ Workforce (E)
+                             ●​ IT Advances (F)
+                             ●​ Appropriate Care Availability (G)
+                             ●​ Innovative Care (I)
+                             ●​ Fostering Collaboration (K)
+Technical Score Factors      ●​ B.1 – Population health clinical infrastructure
+                             ●​ C.1 – Rural provider strategic partnerships
+                             ●​ C.2 – EMS
+                             ●​ F.1 – Remote care services
+                             ●​ F.2 – Data infrastructure
+                             ●​ F.3 – Consumer‑facing tech
+                             ●​ E.1 – Medicaid provider payment incentives
+Key Stakeholders             ●​ State agencies (ADHS, AHCCCS)
+                             ●​ Healthcare Providers and Facilities: Rural health clinics and
+                                hospitals, Critical Access Hospitals, Federally Qualified Health
+                                Centers (FQHCs), community health centers, and Tribal health
+                                clinics
+                             ●​ Community and Tribal Organizations: Tribal governments
+                                and Tribal health departments, community-based organizations
+                             ●​ Emergency Medical Services (EMS) and First Responders:
+                                County and Tribal EMS agencies, fire departments, and
+                                ambulance services
+
+Outcomes                     Telehealth Digital Transformation, Adoption and Care Coordination
+                             Grant
+                             ●​ Increased telehealth utilization
+                             ●​ Improved care coordination
+                             Rural Health Innovative Care Pilot Program
+                             ●​ Expanded service reach and rural specialty access
+                             ●​ Reduced emergency and hospital utilization
+
+                                                                                               57
+                                                            Revised Project Narrative 1.30.2026
+
+
+                           ●​ Strengthened local health infrastructure
+                           ●​ Accelerated adoption of value-based care
+
+Impacted Counties          This initiative will target Arizona’s rural population as defined by
+                           the HRSA rural eligibility criteria, which includes all 100% rural
+                           counties and rural-designated areas within partially rural counties
+Estimated Funding          $38,000,000/year
+                           ●​ Telehealth Digital Transformation, Adoption, and Care
+                               Coordination Grant: $17,000,000
+                           ●​ Rural Health Innovative Care Pilot Program: $21,000,000
+
+Implementation Plan and Timeline
+
+Stage     Timeframe        Milestones
+                           Telehealth Digital Transformation, Adoption, and Care Coordination
+                           Grant: Program design and partner agreements finalized.Develop
+                           and release competitive RGAs notice. , Establish reporting and
+                           performance frameworks.
+
+Stage 0   FY26 Q1 - Q2
+                           Rural Health Innovative Care Pilot Program: Program framework,
+                           funding tiers, and eligibility criteria finalized. Rural Innovation
+                           Advisory Council formally established. Develop and release
+                           competitive RGA notice. Performance and reporting frameworks
+                           finalized to ensure alignment with RHTP evaluation standards.
+                           Telehealth Digital Transformation, Adoption, and Care Coordination
+                           Grant: Cooperative agreements and grants awarded. Provider
+                           onboarding and baseline readiness assessments launched. Telehealth
+                           hub installations started.
+
+                           Rural Health Innovative Care Pilot Program: Round 1 of grants and
+Stage 1   FY26 Q2 - Q3
+                           cooperative agreements awarded. These early-stage projects will
+                           focus on mobile and satellite care expansion, EMS-community
+                           integration, and innovative service models in high-need rural areas,
+                           including Tribal areas. Partners will complete baseline data
+                           collection on access, utilization, and cost metrics to establish
+                           evaluation baselines and readiness assessments.
+                           Telehealth Digital Transformation, Adoption, and Care Coordination
+                           Grant: Technical assistance and training networks expanded.
+                           Non-broadband connectivity solutions and telehealth infrastructure
+                           deployed. Early adoption metrics tracked.
+          FY26 Q4 – FY27
+Stage 2
+          Q2
+                           Rural Health Innovative Care Pilot Program: Additional regional
+                           pilots and scaling of promising early initiatives launched. Rural
+                           Innovation Learning Network (RILN) formalized to promote
+                           collaboration, peer-to-peer learning, and shared evaluation among
+
+                                                                                                  58
+                                                           Revised Project Narrative 1.30.2026
+
+
+                           grantees. Data-sharing agreements and technical assistance protocols
+                           implemented to support standardized reporting and interoperability
+                           across participating pilots.
+                           Telehealth Digital Transformation, Adoption, and Care Coordination
+                           Grant: Mid-term evaluation conducted. Utilization and integration
+                           milestone incentive payments disbursed. Tele-behavioral and chronic
+                           care management services integrated. Interim outcomes report
+                           published.
+          FY27 Q3 - FY28
+Stage 3
+          Q2             Rural Health Innovative Care Pilot Program: Operations refinement
+                         and early outcomes related to access gains, emergency department
+                         diversion, and hospital readmission reductions evaluated.
+                         Sustainability multiplier awards disbursed to high-performing pilots
+                         that demonstrate measurable results and financial viability. Interim
+                         findings and case studies published through the RILN.
+                         Telehealth Digital Transformation, Adoption, and Care Coordination
+                         Grant: HIE participation by rural Arizona healthcare providers
+                         institutionalized. Telehealth measures embedded into AHCCCS
+                         value-based models. Sustainability planning initiated.
+
+          FY28 Q3 - FY29 Rural Health Innovative Care Pilot Program: Successful pilots
+Stage 4
+          Q3             expanded regionally and integrated into broader system and payment
+                         structures. Embedding effective models into managed care contracts,
+                         alternative payment arrangements, and statewide telehealth and EMS
+                         coordination frameworks started. Alignment of financial incentives
+                         with long-term sustainability and institutionalizing effective
+                         practices across rural Arizona started.
+                         Telehealth Digital Transformation, Adoption, and Care Coordination
+                         Grant: Final evaluation and outcomes report completed. Remaining
+                         program operations transferred to AHCCCS and partners. Best
+                         practices and statewide Telehealth Adoption Playbook completed.
+                         Complete CMS close-out.
+          FY29 – Grant
+Stage 5                    Rural Health Innovative Care Pilot Program: Final evaluations
+          Closeout
+                           completed by AHCCCS and its partners including outcome analysis,
+                           documenting lessons learned, cost savings, and long-term impacts on
+                           rural health access and outcomes. Proven pilots transitioned to
+                           permanent funding streams or reimbursement pathways through
+                           AHCCCS and local partners, to ensure sustainability beyond grant
+                           period.
+
+
+
+
+                                                                                            59
+                                                             Revised Project Narrative 1.30.2026
+
+Governance and Project Management Structure
+
+AHCCCS will serve as the lead agency for this initiative. All funding streams will be executed
+
+through cooperative agreements under CMS RHTP guidance. Oversight for program-related
+
+activities and the use of funds will be provided by the Arizona RHTP Steering Committee
+
+(ADHS, AHCCCS, OEO, and the Governor’s Office). The budget narrative provides further
+
+details on key personnel. To ensure effective coordination among state health agencies and
+
+external stakeholders, joint responsibilities between AHCCCS and ADHS will include fiscal and
+
+data oversight, technical assistance and reimbursement and compliance, and contract monitoring.
+
+Monthly coordination calls and quarterly progress reviews will maintain transparency and
+
+accountability.
+
+
+Stakeholder Engagement Plan
+
+During the planning stage, Arizona engaged rural hospitals, frontline providers, and other
+
+healthcare stakeholders through surveys and a statewide RFI. Tribal health authorities were also
+
+consulted to tailor approaches for Tribal communities. As the program moves into
+
+implementation, the State will continue engaging existing stakeholders and expand engagement
+
+to include hospital IT directors, EMS agencies, and rural health clinics. This expanded
+
+collaboration will support alignment on strategies to increase access through technology and
+
+innovative care models.
+
+Advisory committees composed of representatives from key stakeholder groups will meet
+
+quarterly to guide planning, implementation, and performance tracking for each grant
+
+component.
+
+For the Telehealth Digital Transformation, Adoption, and Care Coordination Grant, an advisory
+
+committee composed of ADHS, AzCRH, the State HIE provider, regional and Tribal health
+
+                                                                                                 60
+                                                             Revised Project Narrative 1.30.2026
+
+system partners, and provide associations will oversee deployment coordination, data standards,
+
+and evaluation.
+
+The Rural Health Innovative Care Pilot Program will be guided by an advisory committee
+
+including representatives from critical access and rural hospitals, FQHCs, EMS agencies,
+
+community mental health centers, Tribal 638 hospitals, Tribal health departments, and local
+
+government partners. This group will advise on pilot project selection, oversee integration of
+
+mobile and satellite service delivery and support community-based care coordination. It will also
+
+provide input on the adoption of alternative payment models to promote sustainability and
+
+alignment with value-based care goals.
+
+To foster continuous learning and statewide collaboration, Arizona will establish a Statewide
+
+Rural Innovation Learning Network. This network will share best practices and lessons learned
+
+from pilot sites, ensuring that community input drives ongoing improvements in access and care
+
+delivery across rural Arizona.
+
+
+
+
+Metrics and Evaluation Plan
+
+Metric                Baseline Milestone/Target Data Source            Timing of Updates
+           Telehealth Digital Transformation, Adoption, and Care Coordination Grant
+
+% increase in # of     Baseline   # increase of rural   AHCCCS Provider Quarterly
+providers that offer avg          providers offering    Data and HIE
+telehealth services in FFY24:     telehealth visits     Reports
+rural Arizona          424,190
+
+                      Rural
+                      Only:
+                      TBD
+
+                                                                                                 61
+                                                               Revised Project Narrative 1.30.2026
+
+
+
+Reduction in average TBD         Measured average       ADHS Portal         Quarterly
+credentialing                    credentialing          Metrics
+processing time                  processing time
+% of grant-funded    TBD         % increase of          Site               Quarterly
+equipment                        grant-funded           Verification/audit
+maintained and in                equipment
+active use                       maintained and in
+                                 active use
+Rural Health Innovative Care Pilot Program
+# of new or expanded TBD         % increase of new      AHCCCS              Semi-annual
+rural service access             or expanded rural      reports/site
+points                           service access         verification
+                                 points
+# of patients served TBD         % increase of          Provider reports    Quarterly
+through funded                   patients served
+innovations                      through funded
+                                 innovations
+
+Data collection / Analysis Methods:
+
+For the Telehealth Digital Transformation, Adoption, and Care Coordination Grant, data will be
+
+collected via AHCCCS reporting systems, the statewide HIE’s utilization data, and quarterly
+
+provider-level submissions documenting telehealth activity and connectivity. For the Rural
+
+Health Innovative Care Pilot Program, subrecipients will submit quarterly reports capturing
+
+patient reach, service utilization, cost avoidance, and care coordination metrics. State-level
+
+aggregation will be conducted using AHCCCS and ADHS data systems, supplemented by HIE
+
+analytics for referral and utilization tracking.
+
+Evaluation for the Telehealth Digital Transformation, Adoption, and Care Coordination Grant
+
+will include quantitative tracking of adoption rates, utilization volumes, and interoperability
+
+levels. Structured feedback from participating providers, health plans, Tribal and local partners,
+
+and training networks will inform qualitative assessment. Comparative analysis will measure
+
+
+
+
+                                                                                                  62
+                                                              Revised Project Narrative 1.30.2026
+
+improvements in access and system efficiency against baseline metrics in targeted rural and
+
+frontier counties.
+
+Evaluation for Rural Health Innovative Care Pilot Program will measure access gains and
+
+participation in innovative and value-based models. Case studies, focus groups, and narrative
+
+reporting from pilot communities will inform qualitative assessment, while comparative analysis
+
+will evaluate outcomes against baseline utilization and access indicators in pilot versus non-pilot
+
+counties.
+
+Sustainability Plan & Policy Integration
+The sustainability plan for the Telehealth Digital Transformation, Adoption, and Care
+
+Coordination Grant ensures long-term continuity by embedding telehealth and digital
+
+transformation efforts into AHCCCS’s operational and contracting models. Telehealth utilization
+
+and interoperability will be incorporated as reimbursable and performance-tracked components
+
+of Medicaid value-based care models. Ongoing partnerships will support provider training and
+
+technical assistance, institutionalizing telehealth as a core element of Arizona’s healthcare
+
+delivery system and reinforcing access and resilience across rural communities beyond the grant
+
+period.
+
+For the Rural Health Innovative Care Pilot Program, proven models will be integrated into the
+
+Arizona Health Improvement Plan and incorporated into healthcare contracts to institutionalize
+
+effective practices. The Rural Innovation Learning Network will continue beyond the grant term
+
+to provide ongoing technical assistance and facilitate replication of successful models. Private
+
+and philanthropic partners will be engaged to co-invest in sustaining program operations, while
+
+the Rural Innovation Advisory Council will provide state-level oversight to ensure
+
+accountability, coordination, and long-term policy alignment.
+
+
+                                                                                                   63
+                                                              Revised Project Narrative 1.30.2026
+
+Policy integration for the Telehealth Digital Transformation, Adoption, and Care Coordination
+
+Grant aligns with Arizona’s statewide health IT and interoperability policies by ensuring
+
+telehealth infrastructure and HIE integration adhere to state and federal standards and best
+
+practices. This initiative strengthens cross-agency collaboration among AHCCCS, ADHS, and
+
+other partners to promote consistent telehealth policy, inform future rulemaking, and guide
+
+development of quality measures, licensing standards, and performance tracking.
+
+The Rural Health Innovative Care Pilot Program supports broader health reform and Medicaid
+
+transformation goals by connecting rural delivery innovations to policy development. Insights
+
+from pilot implementation will inform AHCCCS and ADHS decisions on alternative payment
+
+models, care coordination standards, and performance-based contracting. The program also
+
+complements ongoing efforts in EMS integration and community paramedicine policy
+
+development advancement.
+
+Telehealth Digital Transformation
+
+   ●​ Grants for Telehealth Hubs, Remote Monitoring, Digital Infrastructure, and Care
+
+       Coordination
+
+           ○​ Establishment and expansion of telehealth hubs, resources for telehealth
+
+               equipment, permissible broadband upgrades, and digital access supports.
+
+                   ■​ Sustainability plan: The RHTP funds will be used as a one-time resource
+
+                      to help rural providers obtain the technology and equipment needed to
+
+                      deliver services using telehealth and remote monitoring. After the initial
+
+                      investment, these service lines will be supported by public-payer
+
+                      reimbursement.
+
+           ○​ Care Coordination expansion.
+
+                                                                                                   64
+                                                            Revised Project Narrative 1.30.2026
+
+
+                 ■​ Sustainability plan: Arizona will continue to fund care coordination
+
+                     long-term with General Fund dollars, and with public-payer
+
+                     reimbursement, as applicable. Effective care coordination can significantly
+
+                     decrease Medicaid spend, so this remains a priority for the State.
+
+          ○​ Expanding EMS service networks to strengthen emergency response and
+
+             continuity of care.
+
+                 ■​ Sustainability plan: The RHTP funds will be used as a one-time resource
+
+                     to help rural providers expand EMS service networks. After the initial
+
+                     investment, these service lines will be supported by public-payer
+
+                     reimbursement.
+
+
+
+
+Rural Health Innovative Care Pilot Program
+
+   ●​ Mobile & Satellite Service Expansion: Funding supports acquisition, equipping, and
+
+      deployment of mobile units and satellite sites to deliver specialty, primary, and preventive
+
+      care in remote areas.
+
+          ○​ Sustainability plan: The RHTP funds will be used as a one-time resource to help
+
+             rural providers obtain the technology and equipment needed to deliver services
+
+             remotely. After the initial investment, these service lines will be supported by
+
+             public-payer reimbursement.
+
+   ●​ Innovative & Alternative Care Models: Resources will support piloting and scaling of
+
+      community health worker programs, diversion models, in-home services, and traditional
+
+      healing supports tailored to rural populations.
+
+
+
+                                                                                                65
+                                                              Revised Project Narrative 1.30.2026
+
+
+           ○​ Sustainability plan: Participating entities will transition to public-payer
+
+                reimbursement for services previously funded by RHTP.
+
+   ●​ Alternative Payment & Value-Based Care Adoption: Funding will facilitate adoption
+
+       of alternative payment models and value-based care strategies to incentivize quality and
+
+       efficiency in rural health delivery.
+
+           ○​ Sustainability plan: After implementation, alternative payment and value-based
+
+                care adoption will be sustainable by billing Medicaid, Medicare and applicable
+
+                commercial insurance payors.
+
+Making Rural Healthcare Resilient
+
+Rural populations in Arizona face persistent and significant barriers to accessing high-quality
+
+healthcare. Chief among these challenges are geographic isolation—which limits the ability of
+
+residents to travel to healthcare facilities—and a pronounced shortage of healthcare providers
+
+and services within rural communities. Rural residents are at greater risk for delayed treatment,
+
+increased healthcare expenditures, and diminished health outcomes relative to their urban
+
+counterparts.
+
+In response to these challenges, Arizona’s Making Rural Healthcare Resilient initiative aims to
+
+build and strengthen collaboration among rural health facilities and other rural providers to
+
+operate more efficiently and promote the adoption of shared service models, co-located
+
+community hubs, and integrated rural networks. By fostering integration and collaboration
+
+among healthcare providers, social service organizations, and community partners, Arizona seeks
+
+to enhance care coordination, reduce duplication, and promote long-term financial viability
+
+across Arizona’s rural communities.
+
+Key Activities include:
+
+
+
+                                                                                                  66
+                                                         Revised Project Narrative 1.30.2026
+
+
+●​ Medical Diagnostic Equipment and Technology, including EHR Upgrades & Data
+
+   Sharing: Funding will support upgrade medical diagnostic equipment and technology,
+
+   including subsidizing electronic health record (EHR) opportunities for rural providers,
+
+   and ensures that EHRs integrate with Arizona’s statewide HIE to improve interoperability
+
+   and care coordination. Resources will also deploy cybersecurity tools and provide
+
+   technical assistance to protect patient data, ensure HIPAA compliance, and mitigate cyber
+
+   threats. Improvements to HIE interoperability will reduce administrative burden on
+
+   providers.
+
+●​ Provider Liaisons Pilot Project: Funding will support one FTE Provider Liaison at the
+
+   following agencies: AHCCCS, the Department of Insurance and Financial Institutions
+
+   (DIFI), and ADHS, who will be tasked with reducing administrative burdens for
+
+   healthcare providers, and supporting compliance with regulatory requirements, and
+
+   streamlining credentialing. Provider Liaisons will coordinate and co-report to their
+
+   agency leadership, and the RHTP State Project Officer.
+
+●​ Adopt Shared Services Consortiums: Funding will implement shared staffing, training,
+
+   data systems, and facilities to improve operational efficiency and sustainability in
+
+   low-population and Tribal areas.
+
+●​ Provide technical assistance to improve operational and fiscal performance: We will
+
+   empower local organizations and healthcare providers with targeted support,
+
+   strengthening community resilience and self-sufficiency. Technical assistance will
+
+   include operational improvement, financial management, and network administration to
+
+   organizations forming, expanding, or enhancing integrated rural health networks.
+
+
+
+
+                                                                                             67
+                                                               Revised Project Narrative 1.30.2026
+
+Through these targeted activities, Arizona will not only address the immediate barriers to rural
+
+healthcare but also catalyze a lasting transformation that positions the state as a leader in
+
+innovative health delivery.
+
+Funding Framework
+
+AHCCCS to enter into cooperative agreements through
+
+   ●​   Contract amendments with health plans;
+
+   ●​   Intergovernmental agreements (IGAs) and grants with state, local, and Tribal
+
+        governments, Tribal behavioral health authorities, and other eligible entities;
+
+   ●​   Competitive RGA opportunities for rural health facilities to implement hub-based,
+
+        shared-service, or integrated network programs; and
+
+   ●​   Cooperative grants for shared-service hubs and programs that will connect eligible
+
+        Arizonans to health insurance and social services.
+
+Importantly, Arizona will institute processes to secure vendors who can build secure data
+
+pipelines, dashboards, and fiscal tracking tools that meet federal audit standards.
+
+All project funds will be administered through a state agency agreement and expended in
+
+compliance with 2 CFR Part 200 and the Arizona Procurement Code (A.R.S. Title 41, Chapter
+
+23). Procurement of goods and services will be conducted using competitive methods or existing
+
+state and cooperative contracts, as appropriate, to ensure full and open competition, cost
+
+reasonableness, and transparency. All contracts will be awarded to responsible vendors and will
+
+include applicable federal and state provisions. Any subrecipient or pass-through administrative
+
+costs will remain below the 10 percent administrative cost cap, and the state agency will
+
+maintain written procurement and financial documentation sufficient to demonstrate compliance
+
+with federal regulations, state law, and audit requirements.
+
+
+
+                                                                                                   68
+                                                           Revised Project Narrative 1.30.2026
+
+
+Main Strategic Goal       Sustainable Access
+                          Innovative Care
+                          Make Rural America Healthy Again
+Use of Funds              ●​ Prevention and Chronic Disease (A)
+                          ●​ Training and Technical Assistance (D)
+                          ●​ IT Advances (F)
+                          ●​ Appropriate Care Availability (G)
+                          ●​ Fostering Collaboration (K)
+Technical Score Factors   ●​ B. 1. Population health clinical infrastructure
+                          ●​ C. 1. Rural provider strategic partnerships
+                          ●​ C. 2. EMS
+Key Stakeholders          ●​ Rural and frontier hospitals: Critical Access Hospitals
+                             (CAHs), Sole-Community Hospitals, Medicare-Dependent
+                             Hospitals, Low-Volume Hospitals, and Rural Emergency
+                             Hospitals, which serve as anchors for medical and emergency
+                             care in small communities.
+                          ●​ Primary care and outpatient providers: Rural Health Clinics
+                             (RHCs) and Federally Qualified Health Centers (FQHCs), which
+                             provide essential preventive, behavioral, and primary care
+                             regardless of insurance status.
+                          ●​ Community-based and behavioral health providers: Community
+                             Mental Health Centers and Section 330-funded Health Centers,
+                             offering integrated behavioral and substance use services.
+                          ●​ Tribal and local government entities: Oversee public health,
+                             emergency response, and community wellness services in Tribal
+                             nations and rural counties.
+                          ●​ Nonprofit and regional coalitions: Coordinate family support,
+                             navigation, workforce development, and shared-service
+                             partnerships across multiple rural communities.
+Outcomes                  ●​ Increased co-located care sites
+                          ●​ Increased improved care coordination
+                          ●​ Reduced service duplication
+                          ●​ Improved operational sustainability
+                          ●​ Expanded cybersecurity capabilities for providers
+Impacted Counties         This initiative will target Arizona’s rural population as defined by
+                          the HRSA rural eligibility criteria, which includes all 100% rural
+                          counties and rural-designated areas within partially rural counties
+Estimated Funding         $38,190,060.32/ year
+
+Implementation Plan and Timeline
+
+
+                                                                                                 69
+                                                           Revised Project Narrative 1.30.2026
+
+
+Stage     Timeframe      Milestones
+                         ●​ Cooperative agreement framework, funding tiers, and eligibility
+                            criteria finalized.
+                         ●​ Interagency coordination between AHCCCS, ADHS, DES, and
+                            ADOH established.
+Stage 0   FY26 Q1        ●​ Optimizing Rural Health Delivery Implementation Guide
+                            developed and the first Notice of Funding Opportunity (NOFO)
+                            released.
+                         ●​ Evaluation protocols and sustainability metrics for
+                            network-based delivery models defined.
+                         ●​ Technical assistance and start-up support provided to rural
+                            providers seeking to establish or formalize shared-service
+                            networks or co-located community hubs
+                         ●​ Legal, governance, and operational readiness for network
+Stage 1   FY26 Q1 - Q3
+                            participants facilitated (articles of incorporation, bylaws, shared
+                            governance agreements)
+                         ●​ Peer learning collaboratives focused on shared IT, billing, and
+                            data integration launched.
+                         ●​ Shared or distributed network services implemented, including
+                            telehealth, joint billing/coding, workforce recruitment, and
+          FY26 Q3 - FY27    compliance systems.
+Stage 2
+          Q2
+                         ●​ Mobile service expansions initiated to increase clinical capacity
+                            and co-located service delivery.
+                         ●​ Shared staffing models deployed across partner facilities.
+Stage 3   FY27 Q2 – Q4 ●​ Network operations aligned with advanced payment models
+                            (e.g., value-based payment or shared-risk models).
+                         ●​ Performance data on access, utilization, and financial outcomes
+                            collected.
+                         ●​ TA and funding strategies refined based on early implementation
+Stage 4   FY28 Q1 - Q2
+                            results.
+                         ●​ Midterm evaluation published highlighting outcomes and
+                            sustainability lessons
+                         ●​ Successful models scaled statewide through cooperative
+                            extensions or competitive subawards.
+                         ●​ Lessons learned integrated into ongoing AHCCCS and ADHS
+          FY28 Q3 –         grant programs.
+Stage 5
+          Grant Closeout ●​ Sustainability playbooks developed for local governments and
+                            provider coalitions.
+                         ●​ Successful networks transitioned to long-term financing through
+                            reimbursement, shared savings, or pooled funding models
+
+                                                                                             70
+                                                              Revised Project Narrative 1.30.2026
+
+
+
+Governance and Project Management Structure
+
+AHCCCS will serve as the lead agency for this initiative. All funding streams will be executed
+
+through cooperative agreements under CMS RHTP guidance. Oversight for program activities
+
+and funds will be provided by the Arizona RHTP Steering Committee (ADHS, AHCCCS,
+
+OSPB, and the Governor’s Office). Key personnel are detailed in the budget narrative.
+
+Interagency alignment among AHCCCS (funding and coordination), ADHS (public health), DES
+
+(social services), and ADOH (community infrastructure) will ensure integrated planning and
+
+delivery.
+
+Stakeholder Engagement Plan
+
+Arizona engaged rural hospitals, frontline providers, and Tribal health authorities through
+
+surveys and a statewide RFI. Implementation will continue this engagement and expand to
+
+include rural hospital administrators, FQHC leaders, EMS representatives, and community
+
+mental health centers.
+
+
+An advisory committee composed of key stakeholders—rural hospital administrators, FQHC
+
+leaders, EMS representatives, and regional economic development districts—will meet quarterly
+
+to guide planning, implementation, and performance tracking. The committee will support the
+
+development of co-located hubs, shared-service models, rural integration pilots, and advise on
+
+technical assistance strategies to improve operational and fiscal performance. It will also help
+
+align state and local partners to promote sustainability and coordination across Arizona’s rural
+
+health systems.
+
+
+The Making Rural Healthcare Resilient initiative will follow a community-driven governance
+
+model that empowers rural providers, Tribal partners, and local leaders to shape shared-service
+
+                                                                                                   71
+                                                              Revised Project Narrative 1.30.2026
+
+networks. Regional advisory committees will include representatives from hospitals, FQHCs,
+
+Tribal health departments, and community-based organizations to ensure decisions reflect local
+
+needs. AHCCCS and ADHS will coordinate oversight and provide technical assistance, while
+
+preserving local decision-making authority to ensure implementation remains transparent and
+
+grounded in community input across rural Arizona.
+
+
+Metrics and Evaluation Plan
+
+Arizona will conduct a structured baseline assessment as part of early implementation to
+
+establish current levels for all workforce metrics. These include establishment of rural health
+
+networks, co-located care sites and shared-service hubs, extent of service duplication, adoption
+
+of shared IT or billing systems, patient volumes served through networked or co-located sites.
+
+This baseline will provide the foundation for setting realistic numeric targets and tracking
+
+progress and outcomes over time.
+
+Metric               Baseline      Milestone/Target Data Source              Timing of Updates
+Number of co-located TBD           % of co-located     Site visit reports;   Quarterly
+care sites /                       care sites /        ADHS registry
+shared-service hubs                shared-service hubs
+
+Number of rural       TBD          Number increase in AHCCCS data            Quarterly
+facilities engaged in              rural facilities     collection
+shared services                    implementing
+agreements                         shared IT or billing
+                                   systems
+
+
+Data will be collected through quarterly cooperative agreement reports, grantee dashboards, and
+
+network self-assessments, with AHCCCS and ADHS jointly analyzing performance data to
+
+identify high-performing models and inform technical assistance priorities. A mixed-methods
+
+approach will be used, combining quantitative metrics such as access, cost savings, service
+
+
+
+                                                                                                   72
+                                                               Revised Project Narrative 1.30.2026
+
+utilization with qualitative feedback from stakeholder interviews and case studies. These findings
+
+will guide replication, policy adjustments, and sustainability strategies.
+
+Sustainability Plan & Policy Integration
+
+This initiative emphasizes self-sustaining shared-service models that reduce overhead and
+
+strengthen rural provider networks. Sustainability will be achieved by embedding cost-sharing
+
+agreements and joint purchasing into network governance, transitioning successful
+
+shared-service hubs to long-term funding through value-based payment, shared savings, and
+
+cooperative revenue models, and leveraging capital planning and access-to-financing technical
+
+assistance to support future growth. Shared infrastructure such as IT, billing, and HR services
+
+will be institutionalized beyond the grant term with programmatic and capital support aligned to
+
+AHCCCS and ADHS reimbursement modernization efforts. This initiative also integrates with
+
+Arizona’s broader Rural Health Transformation strategy, including telehealth and digital
+
+connectivity expansion through shared data and IT infrastructure; the Rural Health Workforce
+
+Development and Training Program via shared staffing and rotations; behavioral health initiative
+
+through co-located behavioral and physical health care; maternal-fetal health initiative via
+
+referral integration; and the Rural Health Innovative Care Pilot Program through coordinated
+
+health care pilots and evaluation scaling.
+
+   ●​ Medical Diagnostic Equipment and Technology, including EHR Upgrades & Data
+
+       Sharing: Upgrade medical equipment and technology, including subsidizing initial
+
+       licensing costs for electronic health record (EHR) for rural providers, cybersecurity, etc.
+
+           ○​ Sustainability plan: The RHTP funds will be used as a one-time resource to help
+
+               rural providers create more sustainable operating costs, and to increase their
+
+               existing functionality, while reducing their fixed costs moving forward.
+
+
+                                                                                                  73
+                                                         Revised Project Narrative 1.30.2026
+
+
+●​ Provider Liaisons Pilot Project: Funding will support one FTE Provider Liaison at the
+
+   following agencies: AHCCCS, DIFI, and ADHS, who will be tasked with reducing
+
+   administrative burdens for healthcare providers, and supporting compliance with
+
+   regulatory requirements, and streamlining credentialing.
+
+       ○​ Sustainability plan: If well received by the rural healthcare community, Arizona
+
+          will make this program permanent and will fund it with General Fund dollars
+
+          ongoing.
+
+●​ Adopt Shared Services Consortiums: Funding will implement shared staffing, training,
+
+   data systems, and facilities to improve operational efficiency and sustainability in
+
+   low-population and tribal areas.
+
+       ○​ Sustainability plan: The RHTP funds will be used as a one-time resource to help
+
+          rural providers create more sustainable systems long-term and to reduce their
+
+          fixed costs moving forward.
+
+●​ Technical Assistance for Operational & Fiscal Performance: Resources will provide
+
+   targeted technical assistance to rural organizations for operational improvement, financial
+
+   management, and network administration.
+
+       ○​ Sustainability plan: If well received by the rural healthcare community, Arizona
+
+          will make this program permanent and will fund it with General Fund dollars
+
+          ongoing.
+
+
+
+
+                                                                                             74
+

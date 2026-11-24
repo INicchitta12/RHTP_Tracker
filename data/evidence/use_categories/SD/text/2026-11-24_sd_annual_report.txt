@@ -1,0 +1,1036 @@
+             Stage                            Checkpoint                                       Examples of Acceptable Evidence                             Weight                                                                 Guidance
+
+                                                                                                                                                                          Provide a simple organizational chart showing the governance and oversight structure for the initiative. The chart should
+                                                                                                                                                                          identify oversight and reporting relationships across the program structure, including the State, subrecipients, and sub-
+                                                                                                                                                                          subrecipients, as applicable.
+                            0.1   Establish governance                                                 Organizational chart                           5%
+                                                                                                                                                                          States should present the structure at an appropriate level for initiative oversight and are not expected to list every
+                                                                                                                                                                          individual subrecipient entity where groups or categories can be reasonably consolidated. Submissions should remain
+                                                                                                                                                                          concise and focused on oversight roles and reporting relationships relevant to program administration.
+
+
+       Stage 0 – Planning                                                                                                                                           10%
+                                                                                                                                                                          Provide operational information in a structured format consistent with industry-standard project planning practices. The
+                                                                                                                                                                          State should submit a project plan for each initiative. The initiative project plans should include each milestone from the
+                                                                                                                                                                          approved State application and the respective completion dates. The State may choose to include additional tasks beyond
+                                                                                                                                                                          the required milestones in the project plans, if desired. States may leverage the project plan template provided by CMS to
+                            0.2   Submit project plan to CMS                                               Project plan                               5%
+                                                                                                                                                                          create their initiative project plans or may use their preferred format as long as it accurately maps the application
+                                                                                                                                                                          milestones to completion dates. Industry-standard project planning is typically performed in Excel or a similar structured
+                                                                                                                                                                          format rather than in narrative form, and the State should include data fields similar to those in the project plan template
+                                                                                                                                                                          (e.g., milestone/task, start and end dates, status, task owner, etc.).
+
+
+
+                                                                                                                                                                          CMS approval means the project plan is complete enough for implementation and aligns with the NOFO, standard and
+                                                                                                                                                                                                                                              2
+                            1.1   CMS approval of project plan                                            CMS approval                                5%                  program terms and conditions, and the approved State application. The State should retain the CMS approval
+                                                                                                                                                                          communication for its records.
+       Stage 1 – Project
+                                                                                                                                                                    10%
+         Preparation
+                                                                                                                                                                          Provide evidence that the initiative has moved from planning to execution. Evidence should show that at least one program,
+                                                                               Go-live memo, public announcement, evidence of payment, executed
+                            1.2   Launch initiative                                                                                                   5%                  activity, subaward, contract, payment, go-live action, or equivalent implementation step is underway; issuing a NOFO or
+                                                                                                           contract
+                                                                                                                                                                          RFP alone is not sufficient. At least one executed contract may serve as evidence that the initiative has launched.
+
+
+
+
+                                                                                                                                                                          Provide evidence that a broad range of initiative activities have continued after launch. Evidence should demonstrate
+                                                                                                                                                                          implementation beyond initial startup activities and should reasonably reflect continued implementation across the
+                            2.1   Continue initiative activities               In-progress project plan or similar implementation tracking document   5%                  initiative, rather than only a single activity or small selection of activities. An in-progress project plan or similar
+                                                                                                                                                                          implementation tracking document showing multiple tasks in progress during the reporting period may support this
+                                                                                                                                                                          checkpoint.
+
+
+
+                                                                                                                                                                          Provide evidence that at least one post-launch milestone from the approved State application has been completed. The
+                                                                                                                                                                          milestone should reflect substantive implementation progress tied to the approved project plan, and the documentation
+                                                                                                                                                                          should clearly connect the evidence to the milestone achieved. This milestone must directly relate to the substance of the
+                            2.2   Achieve at least one post-launch milestone   In-progress project plan or similar implementation tracking document   5%                  initiative, as opposed to administrative or project management milestones such as issuing RFPs, establishing governance,
+                                                                                                                                                                          etc. An in-progress project plan or similar implementation tracking document showing the milestone as complete may
+                                                                                                                                                                          support this checkpoint, provided the milestone is tied to the approved project plan and reflects substantive
+                                                                                                                                                                          implementation progress.
+        Stage 2 – Early
+                                                                                                                                                                    20%
+       Implementation
+                                                                                                                                                                          Submit this update after subrecipients have been selected and established. At this stage, States are expected to provide a
+                                                                                                                                                                          more developed and operational metric reporting and analysis methodology than what was proposed in the application.
+                            2.3   Establish metric reporting methodology            Metric targets, baseline, and data collection methodology         5%
+                                                                                                                                                                          Submissions should reflect finalized metric approaches, including how methodologies are being implemented in practice,
+                                                                                                                                                                          rather than projections or planned models.
+
+
+
+
+                                                                                                                                                                          Submit an updated project plan reflecting implementation progress and any refinements to activities, timelines,
+                                                                                                                                                                          milestones, responsible parties, or dependencies, as appropriate to the State’s approach. The updated plan should
+                                                                                                                                                                          continue to operationalize the milestones approved by CMS and demonstrate how implementation has evolved since the
+                            2.4   Submit updated project plan to CMS                                  Updated project plan                            5%                  initial project plan submission.
+
+                                                                                                                                                                          The plan should continue to follow a structured format consistent with standard project planning practices. States may
+                                                                                                                                                                          reference provided examples to inform format and level of detail.
+
+
+
+
+                                                                                                                                                                          CMS approval means the updated project plan adequately reflects implementation experience and remains aligned with
+                            3.1   CMS approval of updated project plan                                    CMS approval                                5%                  the NOFO, terms and conditions, and approved State application. The State should retain the CMS approval
+                                                                                                                                                                          communication for its records.
+
+
+
+
+Checkpoint Guidance                                                                                                                                                                                                                                                                         Page 1 of 2
+                                                                                                                                                                                                      Provide evidence that all milestones scheduled for completion by Q2 2028 have been completed, unless CMS has
+       Stage 3 – Midway
+                                   3.2    Complete Q2 2028 milestones                        In-progress project plan or similar implementation tracking document            10%            25%       approved an adjustment. Submissions should confirm that milestone activities have been carried out and are complete.
+       Implementation
+                                                                                                                                                                                                      Evidence should clearly reflect fulfillment of the specified milestones and be supported by appropriate documentation.
+
+
+
+
+                                                                                                                                                                                                      Report initial progress for each initiative metric. The report should explain the direction and meaning of progress, including
+                                   3.3    Report initial metric progress to CMS                   Report with initial metric progress and/or reporting methods               10%                      whether data are delayed, unavailable, stagnant, improving, or declining, and should describe the reason for any limited or
+                                                                                                                                                                                                      unexpected results.
+
+
+
+
+                                                                                                                                                                                                      Share the plan for final deliverables with CMS. The plan should describe what the State will submit at the end of the
+                                   4.1    Share final deliverables plan with CMS                             Draft report, reporting template/outline                         5%                      initiative, the expected format, responsible parties, timeline, and how the deliverables will demonstrate appropriate use of
+                                                                                                                                                                                                      funds and initiative outcomes.
+
+
+
+
+   Stage 4 – Preparation for                                                                                                                                                                          CMS approval means the final deliverables plan is complete, feasible, and aligned with program requirements. The State
+                                   4.2    CMS approval of final deliverables plan                                         CMS approval                                        5%            20%
+         Completion                                                                                                                                                                                   should retain the CMS approval communication for its records before proceeding toward final deliverable submission.
+
+
+
+
+                                                                                                                                                                                                      Provide post-program planning that explains how each activity or benefit of the initiative will be sustained, transitioned,
+                                   4.3    Complete post-program planning                        Sustainability plan, lessons learned, external funding, legislation          10%                      completed, or responsibly closed out after RHT Program funding ends. Evidence may include sustainability plans, funding
+                                                                                                                                                                                                      strategies, transition plans, partner commitments, or closeout plans.
+
+
+
+
+                                                                                                                                                                                                      Submit the final deliverables described in the CMS-approved final deliverables plan. Deliverables should be complete,
+                                   5.1    Submit final deliverables to CMS                                           Final report, dashboards                                 5%
+                                                                                                                                                                                                      organized, and clearly aligned with the approved plan and any required final reporting expectations.
+
+
+
+
+                                                                                                                                                                                                      Provide evidence that all milestones scheduled for completion by 2030 have been completed. Submissions should
+        Stage 5 – Full
+                                   5.2    Complete all 2030 milestones                             Project plan or similar implementation tracking document                   5%            15%       confirm that milestone activities have been carried out and are complete. Evidence should clearly reflect fulfillment of the
+       Implementation
+                                                                                                                                                                                                      specified milestones and be supported by appropriate documentation.
+
+
+
+
+                                                                                                                                                                                                      Report final progress for each initiative metric. The report should include complete metric results, the methodology used to
+                                   5.3    Report updated metric progress to CMS                      Report with values and reporting method for all metrics                  5%                      calculate them, any validation or quality-control steps, and explanations for trends, limitations, or delayed data where
+                                                                                                                                                                                                      relevant.
+
+
+                               ¹ Change Control and CMS Review:
+                               Submission and CMS review/approval of project plan, milestone, and metric changes are program requirements under the NOFO and are not limited to checkpoint scoring activities. States should notify CMS as soon as material changes are anticipated. Material changes must be
+                               submitted to CMS for review and approval before being finalized or operationalized. Updates may be submitted during checkpoint reporting (quarterly/annual), or at another time determined appropriate by CMS and the State. States may propose revisions due to implementation
+                               experience, funding adjustments, or extenuating circumstances consistent with the NOFO.
+
+                               2
+                                Milestone Review Considerations:
+                               CMS review of milestones is intended to ensure milestones provide a reasonable framework for tracking implementation progress over the period of performance. When reviewing milestones, CMS may consider whether milestones are aligned with the approved initiative and project
+                               plan, reflect meaningful implementation activities, are reasonably timed and achievable, and are supported by sufficient justification consistent with the NOFO. Changes to approved milestones remain subject to Footnote ¹ regarding Change Control and CMS Review. CMS would not
+                               expect milestones to change absent implementation experience, funding adjustments, extenuating circumstances, or other sufficient justification consistent with the NOFO.
+
+
+
+
+Checkpoint Guidance                                                                                                                                                                                                                                                                                                      Page 2 of 2
+  #                                                       Initiative Name
+
+  1                                 Connect Technology and Data for a Healthier South Dakota
+
+                                                          Narrative
+
+
+
+        This initiative addresses the digital divide in rural healthcare by modernizing health IT infrastructure across South
+        Dakota. It supports EHR adoption, health information exchange, and operational resilience through tiered funding
+        and technical assistance. The initiative empowers providers with tools to improve care, coordinate services, and
+                     make data-driven decisions, ultimately enhancing health outcomes in rural communities.
+
+
+
+                                                 Number of People Served
+Please provide the number of people served                                                                     0
+                                                           Metrics
+  #                              Metric                                     Current Value                 As of Date
+
+        Percentage of facilities that transition from paper-based
+  1                                                                              0                       07/31/2026
+          or limited EHR systems to certified EHR technology
+
+        Percentage of preventative screenings for colon cancer,
+  2    breast cancer, or diabetes completed through automated                    0                       07/31/2026
+                  patient identification and outreach
+
+    One hundred percent (100%) of funded organizations will
+ 3a track Key Performance Indicators (KPI) who implement or                      0                       07/31/2026
+        upgrade health-related technology and equipment.
+
+    One hundred percent (100%) of funded organizations will
+ 3b   track Key Performance Indicators (KPI) who implement                       0                       07/31/2026
+                     cybersecurity measures.
+    One hundred percent (100%) of funded organizations will
+     track Key Performance Indicators (KPI) who will improve
+ 3c                                                                              0                       07/31/2026
+    workforce competency in health information technology,
+              cybersecurity, and digital health tools.
+       Number of innovative health IT pilots (AI-driven tools,
+ 4a      advanced analytics, novel telehealth integrations)                      0                       07/31/2026
+                          implemented
+       Number of innovative health IT pilots (AI-driven tools,
+ 4b advanced analytics, novel telehealth integrations) scaled                    0                       07/31/2026
+                       to partner facilities
+ 5          Number of resources referencing Data Altas                           0                       07/31/2026
+     Number of county-level outcome indicators available in
+ 6                                                                               0                       07/31/2026
+                            Data Atlas
+                                                                                                                                                           CMS Review (CMS Use Only)
+                                                     Stage 0 – Planning                                                                                        Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                             CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                              Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                             Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                            Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                        Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                              Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 1                                                                                                                                                                                   Page 1 of 1
+  #                                                       Initiative Name
+
+  2                                     Building a Sustainable Rural Healthcare Workforce
+
+                                                           Narrative
+
+
+            This initiative strengthens the rural healthcare workforce through an incentive-based program that attracts,
+         develops, and retains professionals across critical roles and care settings. By combining recruitment incentives
+         such as sign-on bonuses, relocation assistance, and rural service stipends with education-focused supports like
+        tuition assistance, paid clinical release time, and flexible training, the program ensures access to care in rural and
+                 frontier communities. Together, these strategies build a stable, skilled, and sustainable workforce.
+
+
+                                                  Number of People Served
+Please provide the number of people served                                                                     0
+                                                           Metrics
+  #                              Metric                                     Current Value                  As of Date
+         Number of healthcare professionals recruited to rural
+  1                                                                               0                       07/31/2026
+                              communities
+        Percentage of healthcare professionals retained in rural
+  2                                                                               0                       07/31/2026
+           communities five years after receiving incentives
+           Number of professionals completing education or
+  3     professional development programs supported through                       0                       07/31/2026
+                              the initiative
+         Number of rural, frontier, and tribal counties that have
+  4    benefited from an individual or entity receiving education                 0                       07/31/2026
+                               incentives
+                                                                                                                                                            CMS Review (CMS Use Only)
+                                                      Stage 0 – Planning                                                                                        Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                              CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                               Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                              CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      No
+                                               Stage 2 – Early Implementation                                                                              Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                              CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                             Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                              CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                         Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                              CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                               Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                              CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 2                                                                                                                                                                                    Page 1 of 1
+  #                                                     Initiative Name
+
+  3                            Expand and Strengthen Rural Community Health Worker Workforce
+
+                                                            Narrative
+        Over the past 7 months, we have released an RFP (Request for Proposals) for a contractor to oversee CHW work
+          across SD, received 3 applications, and selected one organization. This organization works closely with the
+        Initiative lead on the 4 key activities: Financial Sustainability & Payment Frameworks, Technical Assistance for
+     Program Development & Expansion, Workforce Recruitment & Retention, and Training, Certification, & Professional
+         Development. The contractor and initiative lead meet 2x/month for progress updates, recruitment efforts, and
+         implementation planning. The team has recruited 26 organizations (both previously established and new) for
+      technical assistance and support efforts since May 1, 2026, with additional organizations continuing to reach out.
+       The Initiative Lead is also working closely with the technical colleges for CHW training and educational awards for
+        students set to begin at the end of August Contracts for both organizations are set to be signed in August The
+                                                   Number of People Served
+Please provide the number of people served                                                                 1250
+                                                             Metrics
+  #                              Metric                                   Current Value               As of Date
+
+  1            Total number of individuals trained as CHWs                    340                     07/31/2026
+
+  2             Number of Certified CHWs and CHRs                             147                     07/31/2026
+        Number of CHW and CHR programs enrolled and serving
+  3                                                                            33                     07/31/2026
+                         Medicaid patients
+           Number of unique Medicaid recipients receiving
+  4                                                                           1745                    07/31/2026
+                        CHW/CHR services
+                                                                                                                                                        CMS Review (CMS Use Only)
+                                                    Stage 0 – Planning                                                                                      Stage 0 - Planning
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                           Comments
+ 0.1                Establish governance                     Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2              Submit project plan to CMS                 Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                           Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                          Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               Yes           South Dakota Checkpoint Evidence.pdf
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                         Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                     Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                           Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                          CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 3                                                                                                                                                                                Page 1 of 1
+  #                                                        Initiative Name
+
+  4                                        Rural Health Forward: Training and Resource Hub
+
+                                                           Narrative
+      The initiative established a formal governance structure, including a designated team lead, supporting staff, and a
+      contract monitoring process. While no contracts have been fully executed yet, three contracts have been awarded
+       and are currently in the finalization stage. The Department of Health team and the awarded contractor have been
+         meeting regularly to align on the governance model, confirm the needs assessment framework, plan provider
+       engagement activities, and prepare for an external stakeholder kick-off. These steps have positioned the initiative
+                                        for timely launch once contracts are fully executed.
+        Challenges: A need for increased project management support for the initiative was noted during year 1 and was
+                                                    added to the budget for year 2.
+                                                  Number of People Served
+Please provide the number of people served                                                                 0
+                                                            Metrics
+  #                               Metric                                     Current Value             As of Date
+  1                   Number of providers trained                                 0                   07/31/2026
+
+
+        % of rural, frontier, and Tribal counties with at least one
+  2                                                                               0                   07/31/2026
+                           participating provider
+
+
+
+          Increase in participant knowledge or skill confidence
+  3                                                                               0                   07/31/2026
+                based on pre-/post-training assessments
+
+
+           Percentage of trained providers remaining in South
+  4                                                                               0                   07/31/2026
+            Dakota’s healthcare workforce after 12 months
+
+                                                                                                                                                        CMS Review (CMS Use Only)
+                                                      Stage 0 – Planning                                                                                    Stage 0 - Planning
+                     Checkpoint                            Yes/No                      Attachment(s)                         CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                           Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                      Attachment(s)                         CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+                                                                    South Dakota Checkpoint     Initiative4_1.2_KickOff
+ 1.2                  Launch initiative                      Yes
+                                                                          Evidence.pdf                  PPT.pptx
+                                               Stage 2 – Early Implementation                                                                          Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                      Attachment(s)                         CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                         Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                      Attachment(s)                         CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                     Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                      Attachment(s)                         CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                           Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                      Attachment(s)                         CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 4                                                                                                                                                                                Page 1 of 1
+  #                                                      Initiative Name
+
+  5                                    Medicaid Primary Accountable Care Transformation
+
+                                                         Narrative
+
+
+
+          This initiative will implement an alternative payment model that provides flexible, capitated payments to rural
+          primary care practices, incentivizing both providers and patients for quality outcomes while promoting shared
+                                                accountability for cost and utilization.
+
+
+
+
+                                                 Number of People Served
+Please provide the number of people served                                                                   0
+                                                          Metrics
+  #                             Metric                                     Current Value                As of Date
+  1          HEDIS-based primary care quality measures                      see below
+  2                     Unnecessary ED Costs                              $12,700,000.00               07/31/2026
+           Healthcare expenditures allocated to primary care
+  3                                                                        72,000,000                  07/31/2026
+                               services
+            Number of payers formally aligned on payment
+  4                                                                             0                      07/31/2026
+                            methodology
+             Medicaid recipients enrolled in ongoing case
+  5                                                                             0                      07/31/2026
+                        management services
+              HEDIS COL (Colorectal Cancer Screening)
+
+ 6a         Percentage of members aged 45–75 who receive                     25.06%                    07/31/2026
+          appropriate, guideline-driven screening to prevent or
+                        detect colorectal cancer
+          HEDIS Child and Adolescent Well-Care Visits (WCV)
+
+ 6b     Percentage of members aged 3–21 who had at least one                 37.53%                    07/31/2026
+         comprehensive well-child visit with a PCP or OB/GYN
+              practitioner during the measurement year
+
+
+                                                                                                                                                       CMS Review (CMS Use Only)
+                                                     Stage 0 – Planning                                                                                    Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                         CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                          Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                         CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                         Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                         CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               Yes           South Dakota Checkpoint Evidence.pdf
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                        Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                         CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                    Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                         CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                          Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                         CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 5                                                                                                                                                                               Page 1 of 1
+  #                                                      Initiative Name
+
+  6                                       Medicaid Rural Health Access and Quality Grants
+
+                                                          Narrative
+
+
+        This initiative will establish Rural Health Access and QualityStrong Grants to help rural hospitals and clinics that
+        serve rural populations assess and transition update their service delivery models to ensure long-term access to
+        essential healthcare. These grants will help sustain vital rural healthcare services and promote quality in clinical
+        and operational delivery across South Dakota. Funding will support professional services such as financial, legal,
+          and organizational change management, as well as regional assessments and partnerships that strengthen
+         coordination and sustainability. Grants will be awarded through a competitive RFP process. Provider proposals
+            must describe how funds will be used to maintain or expand healthcare access and improve operational
+                                                            performance.
+
+                                                  Number of People Served
+Please provide the number of people served                                                                    0
+                                                           Metrics
+  #                              Metric                                    Current Value                 As of Date
+
+         Number of rural communities with access to expanded
+  1                                                                              0                       07/31/2026
+                             dental care
+        Number of rural communities with access to expanded
+  2                                                                              0                       07/31/2026
+                            specialty service.
+  3     Types of specialty care expanded to rural communities.                   0                       07/31/2026
+        Number of at-risk service lines supported to prevent loss
+  4                                                                              0                       07/31/2026
+                            of access to care
+           Number of initiatives funded to strengthen provider
+  5                                                                              0                       07/31/2026
+         financial solvency to ensure continued access to care.
+                                                                                                                                                          CMS Review (CMS Use Only)
+                                                     Stage 0 – Planning                                                                                       Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                            CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                             Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                            CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                            Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                            CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               Yes           South Dakota Checkpoint Evidence.pdf
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                           Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                            CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                       Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                            CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                             Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                            CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 6                                                                                                                                                                                  Page 1 of 1
+  #                                                     Initiative Name
+
+  7                                       Strengthening Chronic Disease Management
+
+                                                        Narrative
+
+
+          Chronic diseases account for the majority of deaths and healthcare costs in rural South Dakota, yet many are
+          preventable or manageable with appropriate interventions. To help address this we administered 5 different
+         Request for Proposals to provide funding to a variety of entities to implement evidence-based chronic disesase
+        management interventions related to remote patient monitoring, chronic disease self-management programming
+                                                     and caregiver support.
+
+
+                                                Number of People Served
+Please provide the number of people served                                                               0
+                                                         Metrics
+  #                             Metric                                    Current Value             As of Date
+  1      30-day readmission rate for chronic condition patients                 0                   07/31/2026
+  2        Number of patients with controlled blood pressure                    0                   07/31/2026
+  3      Number of individuals completing a certified workshop                  0                   07/31/2026
+
+  4    Number of metrics (of 7) showing improved performance                   0                    07/31/2026
+
+                                                                                                                                                     CMS Review (CMS Use Only)
+                                                    Stage 0 – Planning                                                                                   Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                       CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                        Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                       Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               Yes           South Dakota Checkpoint Evidence.pdf
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                      Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                  Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                        Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 7                                                                                                                                                                             Page 1 of 1
+  #                                                     Initiative Name
+
+  8                                        Regional Maternal and Infant Health Hubs
+
+                                                       Narrative
+       The Department of Health (DOH)-Established governance with a team lead, support staff, and contract monitoring
+       process. DOH has fully executed two of the projected seven contracts, Guidehouse and South Dakota Foundation
+         for Medical Care (SDFMC). The remaining five contracts have been awarded and are in the finalization process.
+
+        Guidehouse - Maternal Health Needs Assessment, Planning, and Policy Alignment contract started June 1, 2026.
+           Guidehouse held a kickoff meeting, developed the assessment framework with priority and project activity
+         alignment to final goals and project deliverables. They also completed a project plan with project management
+                     tools and identified and requested data sources needed to complete the assessment.
+
+                                                Number of People Served
+Please provide the number of people served                                                               0
+                                                         Metrics
+  #                                Metric                                 Current Value             As of Date
+         Prenatal care visit during the first trimester (% among
+  1                                                                            0                    07/31/2026
+                 participating women at each OB hub)
+  2           Number of women receiving hybrid OB care                         0                    07/31/2026
+         Percentage of women in OB hybrid model who had a
+  3       positive social determinant of health screening that                 0                    07/31/2026
+          receive a referral for social/behavioral health needs
+       Number of trained, certified, and Medicaid verified doulas
+  4                                                                            14                   07/31/2026
+                                 statewide
+                                                                                                                                                    CMS Review (CMS Use Only)
+                                                    Stage 0 – Planning                                                                                  Stage 0 - Planning
+                    Checkpoint                             Yes/No                     Attachment(s)                      CMS Status Evaluation                           Comments
+ 0.1              Establish governance                       Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2            Submit project plan to CMS                   Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                       Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                      CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                      Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                      CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                     Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                      CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                 Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                      CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                       Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                      CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 8                                                                                                                                                                            Page 1 of 1
+  #                                                      Initiative Name
+
+  9                             Integrated Behavioral Health through CCBHC & Collaborative Care
+
+                                                          Narrative
+
+       This initiative will implement the Certified Community Behavioral Health Clinic (CCBHC) model statewide, ensuring
+        comprehensive, coordinated care with same-day access, 24/7 crisis response, integrated physical and behavioral
+       health services, and evidence-based care for special populations including veterans and perinatal populations. This
+         initiative will also expand the Collaborative Care Model from three pilot sites to additional primary care locations
+             statewide, integrating mental health into primary care through teams of physicians, behavioral health case
+         managers, and psychiatric consultants. This evidence-based model improves access and quality of care for rural
+                                                 and frontier patients closer to home.
+
+                                                 Number of People Served
+Please provide the number of people served                                                                    0
+                                                           Metrics
+ #                           Metric                                        Current Value                As of Date
+ 1              Operational CCBHCs per region                                    0                      07/31/2026
+ 2a      Percentage of same-day access standards met                             0                      07/31/2026
+         Percentage of 7-day follow-ups completed and
+ 2b                                                                             0                       07/31/2026
+                         documented
+    6-month symptoms and medication improvement among
+ 3                                                                              0                       07/31/2026
+              those pursuing CCBHC certification
+       Average days from identification to first treatment
+ 4                                                                              0                       07/31/2026
+      intervention among all members enrolled in CCBHC
+                                                                                                                                                           CMS Review (CMS Use Only)
+                                                     Stage 0 – Planning                                                                                        Stage 0 - Planning
+                     Checkpoint                            Yes/No                     Attachment(s)                             CMS Status Evaluation                           Comments
+ 0.1               Establish governance                      Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2             Submit project plan to CMS                  Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                              Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      Yes           South Dakota Checkpoint Evidence.pdf
+                                               Stage 2 – Early Implementation                                                                             Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                            Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                        Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                              Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                             CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 9                                                                                                                                                                                   Page 1 of 1
+  #                                                    Initiative Name
+
+ 10                                  Enhancing Sustainable Emergency Medical Services
+
+                                                       Narrative
+                                                               This initiative is designed to create a more connected,
+                                                                 coordinated, and sustainable EMS system for South
+                                                                Dakota’s rural, frontier, and Tribal communities while
+                                                              preserving local control with regional and state support.
+                                                                Initial efforts focused on developing the regional EMS
+                                                              hub framework and preparing investments in workforce
+                                                                   development, telemedicine, health information
+                                                                exchange integration, shared resources, coordinated
+                                                                response and clinical quality improvement Over the
+                                               Number of People Served
+Please provide the number of people served                                                                0
+                                                      Metrics
+  #                             Metric                                   Current Value             As of Date
+  1     Operational regional EMS hubs per designated region                    0                   07/31/2026
+       Percentage of licensed South Dakota ground ambulance
+        services integrated with the State Health Information
+  2                                                                           0                    07/31/2026
+        Exchange (HIE) through electronic patient care report
+                        (ePCR) data exchange
+
+                                                                 1.65% (During calendar
+                                                                year 2025, 1,604 of 97,449
+                                                                  ground ambulance 911
+        Reduce the percentage of EMS responses exceeding 15
+  3                                                                responses with a unit-          07/31/2026
+        minutes by 25% from baseline by December 31, 2029.
+                                                                 notified-to unit en route
+                                                                    interval exceeded 15
+                                                                          minutes)
+
+        Number of South Dakota EMS providers licensed by the        EMR = 98; EMT = 2,177;
+  4       South Dakota Board of Medical and Osteopathic            AEMT = 139; Paramedic =         07/31/2026
+               Examiners (EMR through Paramedic).                            890
+                                                                                                                                                     CMS Review (CMS Use Only)
+                                                   Stage 0 – Planning                                                                                    Stage 0 - Planning
+                    Checkpoint                             Yes/No                     Attachment(s)                       CMS Status Evaluation                           Comments
+ 0.1              Establish governance                       Yes              ALL_0.1_OrganizationChart.pptx
+ 0.2            Submit project plan to CMS                   Yes                 ALL_0.2_Project Plan.xlsx
+                                                Stage 1 – Project Preparation                                                                        Stage 1 - Project Preparation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                             Comments
+ 1.1            CMS approval of project plan                 Yes           South Dakota Checkpoint Evidence.pdf
+ 1.2                  Launch initiative                      No
+                                               Stage 2 – Early Implementation                                                                       Stage 2 - Early Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                            Comments
+ 2.1            Continue initiative activities               No
+ 2.2     Achieve at least one post-launch milestone          No
+ 2.3      Establish metric reporting methodology             No
+ 2.4        Submit updated project plan to CMS               No
+                                              Stage 3 – Midway Implementation                                                                      Stage 3 - Midway Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                           Comments
+ 3.1       CMS approval of updated project plan              No
+ 3.2           Complete Q2 2028 milestones                   No
+ 3.3        Report initial metric progress to CMS            No
+                                            Stage 4 – Preparation for Completion                                                                  Stage 4 - Preparation for Completion
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                              Comments
+ 4.1       Share final deliverables plan with CMS            No
+ 4.2       CMS approval of final deliverables plan           No
+ 4.3         Complete post-program planning                  No
+                                                Stage 5 – Full Implementation                                                                        Stage 5 - Full Implementation
+                      Checkpoint                           Yes/No                     Attachment(s)                       CMS Status Evaluation                            Comments
+ 5.1          Submit final deliverables to CMS               No
+ 5.2           Complete all 2030 milestones                  No
+ 5.3      Report updated metric progress to CMS              No
+
+
+
+
+Initiative 10                                                                                                                                                                            Page 1 of 1
+                   Workload Funding Score Factor
+ Score Factor                                                                 Baseline                                                 Commitment                                                Current Status                                      Supporting Evidence                                Optional Comments/Notes
+                             Criterion
+
+
+
+                                                                                                                   100 Points: A State requires schools to reestablish the                                                                                                                  South Dakota Department of Health will be bringing
+                                                       0 Points: A State does not require schools to reestablish                                                             0 Points: A State does not require schools to reestablish
+      B.2.               Presidential Fitness Test                                                                  Presidential Fitness Test that is aligned with federal                                                                                                               forward a bill to re-enact the Presidential Fitness Test for
+                                                                      the Presidential Fitness Test                                                                                         the Presidential Fitness Test
+                                                                                                                     guidance associated with Executive Order 14327                                                                                                                             the 2027 South Dakota Legislative Session
+
+
+
+                       Physician - Medical Licensure   100 Points: IMLC Member State serving as SPL (State of
+                                                                                                                                     No Commitment
+                                 Compact                                 principal license)
+
+                  Nurse - Nurse Licensure Compact                       100 Points: NLC state                                        No Commitment
+
+                                                       100 Points: Is-a-licensure compact member of the EMS
+                           EMS - EMS Compact                                                                                         No Commitment
+                                                                              Compact
+      D.2.                Psychology - PSYPACT                   100 Points: PSYPACT participating                                   No Commitment
+
+
+                                                       0 Points: No active legislation to become a PA Compact         100 Points: Legislation enacted to become a PA            100 Points: Legislation enacted to become a PA                                                             House Bill 1146 passed during South Dakota's 2026
+                  Physician Assistant - PA Compact                                                                                                                                                                                       ps://sdlegislature.gov/Session/Bill/26716/302
+                                                                                member                                Compact member – State is a compact member                Compact member – State is a compact member                                                                legislative session to become a PA Compact Member.
+
+
+                          PA - Scope of Practice               100 Points: Optimal Scope of Practice                                 No Commitment
+                          NP - Scope of Practice                  100 Points: Full Scope of Practice                                 No Commitment
+                                                        0 Points: 0-3 score from Cicero report for States with
+                        Pharmacist - Overall Score                                                                                   No Commitment
+                                                                          restricted authority
+                  Pharmacist - Drug Administration                      2 Points: Full Authority                                     No Commitment
+                      Pharmacist - Lab Testing                      1 Point: CLIA-Waived Authority                                   No Commitment
+                     Pharmacist - Independent
+                                                                    0 Points: Restricted Authority                                   No Commitment
+                           Prescribing
+                                                       50 Points: Semi Restricted Scope of Practice (3-5 types
+                   Dental Hygienist - Overall Score                                                                                  No Commitment
+                                                                               tasks)
+                 Dental Hygienist - Dental Hygiene
+                                                                          Unallowable Task                                           No Commitment
+                             Diagnosis
+                   Dental Hygienist - Prescriptive
+      D.3.                                                                Unallowable Task                                           No Commitment
+                             Authority
+                      Dental Hygienist - Local
+                                                                               General                                               No Commitment
+                            Anesthesia
+                  Dental Hygienist - Supervision of
+                                                                           Allowable Task                                            No Commitment
+                         Dental Assistants
+                 Dental Hygienist - Direct Medicaid
+                                                                          Unallowable Task                                           No Commitment
+                          Reimbursement
+                 Dental Hygienist - Dental Hygiene
+                                                                          Unallowable Task                                           No Commitment
+                        Treatment Planning
+                   Dental Hygienist - Provision of
+                                                                           Allowable Task                                            No Commitment
+                             Sealants
+                 Dental Hygienist - Direct Access to
+                                                                           Allowable Task                                            No Commitment
+                            Prophylaxis
+                       Short-term, limited-duration     100 Points: STLDI plans are not restricted in the State
+      E.3.                                                                                                                           No Commitment
+                            insurance (STLDI)                    beyond the latest federal guidance
+                 Medicaid Payment for at Least One
+                                                                       100 Points: Reimbursed                                        No Commitment
+                         Form of Live Video
+                  Medicaid Payment for Store and
+                                                                       100 Points: Reimbursed                                        No Commitment
+                               Forward
+                   Medicaid Payment for Remote
+                                                                       100 Points: Reimbursed                                        No Commitment
+      F.1.            Patient Monitoring (RPM)
+                  In-State Licensing Requirement
+                                                                 0 Points: No exceptions are in place                                No Commitment
+                              Exception
+                  Telehealth License/Registration
+                     Process (including special               100 Points: Regulation process is in place                             No Commitment
+                              licenses)
+
+
+
+
+State Policy Actions                                                                                                                                                                                                                                                                                                                            Page 1 of 1
+                                                                                                  Success Stories
+
+                                                Please share success stories that you want to highlight as result of your State’s implementation of the RHT Program.
+
+
+
+   1) In February 2026, South Dakota released the first round of Rural Health Transformation funding opportunities including the Digital Health Modernization and Technology Grant Program Manager, Medicaid
+Primary Accountable Care Transformation, Department of Social Services Project Manager, Project Management Support for the Chronic Disease Management initiative, Caregiver Support Programming, Chronic
+                                              Disease Self-Management Programming, and Expand and Strengthen the Rural Community Health Worker Workforce.
+   2) South Dakota had moved from planning to the implementation phase of the Rural Health Transformation Program, awarding $31.75 million through selecting 30 Rural Strong grants serving 20+ healthcare
+                      systems across the state. The investments support expanded access, care coordination, maternal and Tribal health initiatives and sustainable rural healthcare models.
+                                                        3) Community Health Worker Initiative: Transforming Rural Care Through Community Health Workers
+ The experience at Huron Regional Medical Center (HRMC) is a strong example of how South Dakota’s Community Health Worker Initiative can advance the goals of the Rural Health Transformation Program by
+                                                             strengthening the connection between healthcare providers, patients, and the community.
+
+    As part of the initiative, a Community Health Worker (CHW) in Huron was supported in providing services to a single male client with both health and social care needs. The CEO of HRMC participated in a
+                                    shadowing experience during the CHW’s home visit to better understand the role, scope, and value of CHWs within a rural healthcare setting.
+
+ Before entering the client’s home, the CHW prepared the CEO for the visit by explaining the client’s living environment, the different dynamics that could be present, safety considerations, and the importance of
+   approaching the client and his circumstances with dignity and respect. The visit provided the CEO with a firsthand look at the complexity of needs that rural patients may experience outside of the traditional
+                                                               healthcare setting—and how CHWs are uniquely positioned to address those needs.
+
+During and after the visit, the CEO was inspired by the compassion, professionalism, and expertise demonstrated by the CHW. While he was already supportive of the CHW program at HRMC, witnessing the work
+                                                          firsthand significantly deepened his understanding of the CHW role and its impact on patient care.
+
+ As a direct result of the experience, the CEO is now actively encouraging HRMC healthcare providers to refer patients who fall within the CHW scope of work to the program. He is also identifying opportunities to
+    expand CHW services throughout the organization. The CEO described the work of HRMC’s current team of three CHWs as “beyond impressive” and plans to work with other healthcare leaders to increase
+                                                                        referrals for CHW-specific services and supports across the hospital.
+
+   This is precisely the type of system-level change the Rural Health Transformation Program seeks to encourage. CHWs extend the reach of the healthcare system beyond the walls of the hospital, helping rural
+                                                                                  residents navigate healthcare and social service.
+
+
+
+
+                                                                                              Sustainability Planning
+
+                                  What are the most significant updates or changes to your sustainability plan based on the past year's experiences, successes, and challenges?
+
+
+
+
+Additional Information                                                                                                                                                                                     Page 1 of 3
+                                                       1)Rural Strong Grants: Sustainability Strategy 1 — Frontier Pediatric Dental Surgical Readiness Project
+   The Frontier Pediatric Dental Surgical Readiness Project is designed to be financially and operationally sustainable following the grant period. Rather than creating a grant-dependent service line, the project
+                                         provides a one-time infrastructure and operational readiness investment that optimizes an established healthcare delivery model.
+
+  Once the post-COVID PACU recovery bottleneck is resolved, the expanded recovery workflow will become part of routine operations at Rushmore Ambulatory Surgery Center (RASC). Sustainability is supported
+     by: a)Sustained regional demand: RASC has a pediatric surgical scheduling backlog exceeding five months, demonstrating substantial unmet demand and supporting continued utilization. b) Established
+                                reimbursement: Increased surgical throughput will continue to be supported through existing Medicaid and third-party payer reimbursement pathways.
+ The project leverages existing leadership, surgical and anesthesia teams, workflows, billing systems, and licensed infrastructure, minimizing long-term administrative and staffing burden. Improved utilization of
+                                                                  existing capacity will increase scheduling flexibility and reduce throughput limitations.
+  By permanently expanding local pediatric surgical access, the project will support rural healthcare sustainability through earlier intervention, reduced backlogs, emergency diversion, and preservation of rural
+                                                                                                  healthcare infrastructure.
+                                                                            2)Rural Strong Grants: Sustainability Strategy 2 — Avera CURE Project
+    The Avera CURE Project is designed for long-term sustainability by building on Avera Heart Hospital's existing cardiovascular infrastructure, including cardiology coverage, diagnostics, outpatient capacity,
+     telehealth, electronic health records, quality systems, and established relationships with rural hospitals and critical access hospitals. Grant funding will establish the staffing, technology, workflows, and
+ evaluation systems needed to implement the model at scale. Following implementation, sustainability will be supported through retained clinical revenue, reduced leakage, operational efficiencies, appropriate
+use of rural and tertiary resources, value-based care readiness, and continued organizational investment in rural specialty access. The addition of two on-staff cardiologists creates capacity for a dedicated CURE
+    rotation while maintaining existing clinical responsibilities. This allows CURE to be integrated into the ongoing cardiology staffing model rather than creating a separate grant-dependent structure. Program
+                                           leadership, quality oversight, technology management, and data analysis will similarly be integrated into existing operational roles.
+ Financial sustainability will be reinforced through four mechanisms: 1. Reduced leakage: CURE will improve access to timely cardiology consultation and help retain clinically appropriate cardiac care within the
+  Avera network. Current leakage is approximately 10 cardiology and vascular-related transfer requests per month, with an estimated contribution margin impact of $3,000–$15,000 per procedure or transfer. 2.
+ Strengthened rural services: Supporting appropriate ECG review, echocardiography, stress testing, cardiac CT, rhythm monitoring, and follow-up will preserve utilization and financial viability of rural services. 3.
+ Value-based care readiness: Improved care coordination, follow-up, chronic disease management, and reduced avoidable utilization will strengthen management of high-risk cardiac populations. 4. Data-driven
+investment: CURE will track referral response times, transfer avoidance, diagnostic completion, follow-up closure, patient and provider satisfaction, and cardiovascular outcomes to demonstrate value and guide
+                                                                                                     future investment.
+     After the grant period, Avera anticipates sustaining CURE through retained clinical revenue, improved use of rural services, reduced avoidable transfers and leakage, standardized workflows, and ongoing
+   organizational investment. Technology, care navigation, and analytics costs may also be supported through service-line operating budgets, value-based care infrastructure, payer partnerships, or future rural
+                                                                                                health funding opportunities.
+
+
+
+                                                                                                   Rural Definition
+
+                                           Please provide the definition of 'rural area' that the State used to determine whether subrecipients were considered to be rural.
+
+
+
+
+Additional Information                                                                                                                                                                                      Page 2 of 3
+ South Dakota defines rural areas using the Health Resources and Services Administration's (HRSA) definition of rural as ZIP codes with Rural-Urban Commuting Area (RUCA) codes 4-10. RUCA classifications,
+  developed by the United States Department of Agriculture (USDA), are based on population density, urbanization, and commuting patterns. Recognizing the varying degrees of rurality across the State, South
+ Dakota further categorized these areas as Rural (RUCA 4-6), Small Rural (RUCA 7-9), and Very Rural (RUCA 10). Under this methodology, 59 ZIP codes were classified as Rural, 47 ZIP codes as Small Rural, and
+                                                                                         253 ZIP codes as Very Rural.
+
+
+
+
+                         Further documentation explains this in our strategic analysis of rural health in South Dakota online at: https://doh.sd.gov/healthcare-professionals/rural-health/.
+
+
+
+
+Additional Information                                                                                                                                                                               Page 3 of 3
+

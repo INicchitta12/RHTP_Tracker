@@ -1,0 +1,8 @@
+file: 2026-11-24_va_rht_project_narrative.pdf
+source_url: https://dmas.virginia.gov/media/visgijnd/rhc-transformation-project-narrative.pdf
+fetched_utc: 2026-11-24T14:48:45Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 2225254
+sha256: 69cb966a1a0134ea8ac8c46bd77b82fa6ecc69cb00a7deb97022fc5b338ed1f3
+

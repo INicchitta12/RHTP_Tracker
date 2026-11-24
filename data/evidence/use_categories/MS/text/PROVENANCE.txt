@@ -1,0 +1,8 @@
+Files *_pageNN_OCR.txt are tesseract 4 OCR (300 dpi, --psm 4) of pages 26, 29, 33 and 37 of
+data/evidence/use_categories/MS/2026-11-24_ms_rhtp_project_narrative_2026-04-28.pdf
+(Mississippi RHTP Project Narrative, mississippirhtp.com, fetched 2026-11-24). Those pages are
+images in the PDF (pdftotext returns no text for pages 1-2, 12-47, 49-57), so the "Use of Funds"
+table rows exist only as pixels. The OCR text is a DERIVATIVE, not publisher text: known OCR
+artefacts include "|." for "I." and "|" for a table rule. Each quote used from these files was
+checked against the page image by eye in session 123. Commands:
+  pdftoppm -r 300 -f N -l N -png <pdf> hi ; tesseract hi-N.png out --psm 4

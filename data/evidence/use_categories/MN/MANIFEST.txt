@@ -1,0 +1,32 @@
+file: 2026-11-24_mn_rhtp_project_narrative.pdf
+source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/rhtpnarrative.pdf
+fetched_utc: 2026-11-24T14:44:50Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 797419
+sha256: c21f02d6b187af44d60e167bfa16798c72533ae420e65d8320d878dd703fe820
+
+file: 2026-11-24_mn_hitrfp.pdf
+source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/hitrfp.pdf
+fetched_utc: 2026-11-24T14:45:14Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 479990
+sha256: 6fe4a7d14f7b29bec13fa45e1da3d8566e8df1ccfa0242228c772ef3a136f469
+
+file: 2026-11-24_mn_hitproviderrfp.pdf
+source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/hitproviderrfp.pdf
+fetched_utc: 2026-11-24T14:45:14Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 412472
+sha256: d8b1335d026b811f273c20ee9e89d8ac5569523f29408a28c25fd1de0534dca8
+
+file: 2026-11-24_mn_rhtpecho.pdf
+source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/rhtpecho.pdf
+fetched_utc: 2026-11-24T14:45:15Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 563338
+sha256: f1e4d748395fa96f69504971931c7d8b7e9244c8015d5afb653e1b8de9afdcf8
+

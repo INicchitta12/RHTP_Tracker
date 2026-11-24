@@ -1,0 +1,3429 @@
+Contents
+Rural Health Needs and Target Population ...................................................................................1
+   Rural Demographics ................................................................................................................1
+   Health Outcomes ......................................................................................................................2
+   Healthcare Access.....................................................................................................................3
+   Rural Facility Financial Health .................................................................................................5
+   Target Population .....................................................................................................................6
+Rural Health Transformation Plan ...............................................................................................7
+   Vision, Goals, and Strategies ......................................................................................................7
+   Program Key Performance Objectives .................................................................................... 11
+   Legislative or Regulatory Action ............................................................................................. 14
+   Other Required Information ................................................................................................... 16
+Proposed Initiatives and Use of Funds ........................................................................................ 17
+   Regional Partnerships & System Transformation Initiative...................................................... 17
+   Healthy Communities & Prevention Initiative ......................................................................... 22
+   Workforce Capacity & Resilience Initiative ............................................................................. 26
+   Technology & Data Modernization Initiative ........................................................................... 31
+   Tribal Initiative ...................................................................................................................... 34
+Implementation Plan and Timeline: ............................................................................................ 41
+Stakeholder Engagement............................................................................................................ 45
+Metrics and Evaluation Plan ...................................................................................................... 49
+Sustainability Plan ..................................................................................................................... 56
+Appendix ................................................................................................................................... 63
+   Table 1: Select Social Characteristics in Oregon by Geography, avg 2018-2022 ......................... 63
+   Table 2: Median Household Income in Oregon by County, 2023 ............................................... 63
+   Table 3: Causes of Death Rates per 100,000 by Geography, avg. 2018-2022 ............................... 63
+   Table 4: List of Stakeholders ................................................................................................... 64
+   Table 5: Oregon Counties and FIPS codes ............................................................................... 64
+Endnotes ................................................................................................................................... 65
+Rural Health Needs and Target Population
+Rural Demographics
+
+   Oregon is the ninth largest U.S. state, covering over 98,000 square miles. It is home to
+
+roughly 4.2 million people, 33% of whom live in rural and frontier communities. i Oregon is also
+                                                                                    0F
+
+
+
+
+home to nine Federally Recognized Tribes, and it was the first state to pass a state-tribal
+
+government-to-government relations law. Of Oregon’s 36 counties, all but two have rural areas
+
+or are entirely rural, and 10 are designated as frontier. Half of the state’s counties have less than
+
+22 persons per square mile, down to 0.7 persons per square mile in Harney County. ii Oregon is
+                                                                                          1F
+
+
+
+
+deeply familiar with the challenges that often arise from geographic distribution and isolation,
+
+whether that be infrastructural constraints impacting economic development in rural areas or the
+
+persistent concentration of services in urban areas. These physical and systemic factors
+
+contribute to higher rates of poverty, unemployment, and uninsurance, along with lower median
+
+household income and lower levels of educational attainment (see Appendix Table 1 and 2).
+
+   As one of the most geographically diverse states, spanning two times zones, Oregon also
+
+boasts a uniquely varied economy. Its longstanding industries of agriculture, fishing, and lumber
+
+production are complemented by an accelerating high-tech manufacturing sector, which holds a
+
+greater share of statewide employment than the national average. iii Another prominent sector is
+                                                                    2F
+
+
+
+
+healthcare and social assistance, to which seven of the 15 fastest-growing occupations in Oregon
+
+are related. iv Despite strong current and projected demand for workers in this sector, growth is
+           3F
+
+
+
+
+outpacing labor supply, particularly in rural areas where workforce shortages are exacerbated by
+
+an aging population, increasing retirements, and lack of new entrants in the field. v4F
+
+
+
+
+                                                                                 Version 12.12.25 - 1
+Health Outcomes
+
+   In Oregon, rural and frontier communities experience higher-than-average death rates for the
+
+top 10 causes of death in the state (see Table 3). Adults in rural areas are more likely to be
+
+diagnosed with chronic conditions such as asthma, diabetes, coronary heart disease, depressive
+
+disorder, and hypertension. vi The rural-urban difference is also evident in health-related
+                            5F
+
+
+
+
+behaviors and risk factors, with rural adults (18.3%) reporting higher rates of alcohol and
+
+tobacco use compared to their urban counterparts (13.8%). vii6F
+
+
+
+
+   One of Oregon’s most pressing healthcare challenges is its high level of behavioral health
+
+needs, including mental health and substance use disorder (SUD). Current data shows that
+
+Oregon ranks 42nd of 51 states (including the District of Columbia) in a composite measure of
+
+behavioral health outcomes and access to care. viii While Oregon ranks 7th for overall access to
+                                                  7F
+
+
+
+
+care, this is heavily influenced by urban access which is 1.75 providers to 1000 residents
+
+compared to .61 to 1000 in rural areas. ix Oregon ranks last for prevalence of behavioral health
+                                             8F
+
+
+
+
+disorders and 47th for percentage of youth who had a least one major depressive episode in the
+
+past year. x
+          9F
+
+
+
+
+   Oregon’s rural communities have on average double the rates of inadequate access to prenatal
+
+care compared to urban areas. xi People in Gilliam and Curry counties must travel on average 35
+                                 10F
+
+
+
+
+miles to the nearest birthing hospital, on roads that can be treacherous during winter weather or
+
+fire season. xii Inadequate prenatal care contributes to low birth weight in newborns; in fact, the
+               11F
+
+
+
+
+rate of low birth weight newborns has increased in Oregon in the last fifteen years and is higher
+
+on average in rural communities. xiii In addition, two hospital obstetric (OB) units in rural Oregon
+                                       12F
+
+
+
+
+have closed in recent years, and other rural hospitals have indicated that they may need to close
+
+their OB units soon without substantial funding or intervention. Evidence indicates that when an
+
+
+
+                                                                                 Version 12.12.25 - 2
+OB unit closes, initiation of prenatal care decreases even if access to prenatal care is maintained
+
+in the community. xiv13F
+
+
+
+
+   Oregon faces a rapidly growing older adult population. One in four Oregonians will be over
+
+the age of 65 by 2035, and much of rural Oregon has already exceeded that proportion (for
+
+example 30% of the population is already over 65 in seven Oregon counties). xv Older adults face
+                                                                                    14F
+
+
+
+
+unique medical and social needs; across the state, 9% report cognitive difficulties, 20% struggle
+
+with depression, 33% have fallen in the last year, and 43% have multiple chronic conditions. xvi        15F
+
+
+
+
+Healthcare Access
+
+   Primary and behavioral health access remains one of the biggest barriers to care for many
+
+rural and frontier Oregonians. These communities are served by a strained patchwork of rural
+
+healthcare providers and systems, including 37 rural hospitals, 25 of which are Critical Access
+
+Hospitals (CAHs), 108 Rural Health Clinics (RHCs), 98 Federally Qualified Health Center
+
+(FQHC) facilities, and 28 rural community mental health centers. xvii  16F
+
+
+
+
+   Even among rural and frontier communities, geographic barriers express differently
+
+depending on transportation availability and the strength of local healthcare infrastructure. For
+
+example, Wheeler County, which is larger than the entire state of Rhode Island, has no hospital,
+
+with transport to the closest hospital 65.5 miles away – a 1.5-hour drive on secondary roads in
+
+good weather. xviii Poor cell phone reception can cause delays in emergency calls, impacting the
+               17F
+
+
+
+
+outcome of serious health events and accidents. There is also a shortage of emergency medical
+
+services, many of which rely on dedicated volunteers in these rural areas, undermining a system
+
+that is intended to be timely, consistent, and the first line of response. xix
+                                                                             1 8F
+
+
+
+
+   A recent report from the Oregon Office of Rural Health on Areas of Unmet Health Care Need
+
+highlights the increased barriers rural communities experience with health care access:
+
+
+
+                                                                                          Version 12.12.25 - 3
+    •   The ratio of estimated primary care visits that providers in urban areas of Oregon can
+
+        accommodate is 1.19 (a ratio of 1.00 signifies a balance between supply and demand).
+
+        Rural and frontier regions have a lower average ratio of 0.71, indicating a higher demand
+
+        than supply. 11 primary care service areas, all rural or remote, have zero primary care
+
+        provider FTE. xx
+                       19F
+
+
+
+
+    •   Rural and remote areas display a higher rate of preventable hospitalizations, with some
+
+        areas exhibiting rates twice or more than the state average (6.7 per 1,000).
+
+   Behavioral health access reflects a similarly troubling picture. In Oregon, 32 of 36 counties
+
+lack even one mental health provider per 1,000 residents. xxi In a 2022 statewide assessment
+                                                            20F
+
+
+
+
+conducted by Oregon Health & Science University – Portland State University (OHSU-PSU)
+
+School of Public Health in collaboration with the Oregon Alcohol and Drug Policy Commission
+
+and Oregon Health Authority (OHA), over 50% of the behavioral health service organizations
+
+surveyed did not think their capacity met the current demand for services. 64% also reported that
+
+travel time and transportation were significant barriers to timely care, particularly for their
+
+patients in rural areas. Despite improvements in access and other benefits of telehealth,
+
+utilization in rural Oregon communities lags behind. In 2024, 21% of all telehealth visits
+
+occurred in rural areas, while the majority (79%) were provided in urban areas. This distribution
+
+is disproportionate to the rural-urban population split (33% vs. 67%), highlighting potential gaps
+
+in digital access and technology in rural areas. xxii
+                                                 21F
+
+
+
+
+   In rural Oregon, healthcare access is marked by incongruities in supply and demand. While a
+
+third of Oregonians live in rural and frontier areas, only 15.9% of all providers (including
+
+doctors, nurses, physician assistants, dentists, and therapists) are rural based. When broken down
+
+
+
+
+                                                                                  Version 12.12.25 - 4
+by specialty, the differences become even more apparent: just 9.1% of internal medicine
+
+providers and 24.3% of general practice providers serve rural communities. xxiii   22F
+
+
+
+
+   Oregon faces significant gaps in its training pathways for healthcare providers with just 11.7
+
+primary care (family medicine, internal medicine, geriatrics, and pediatrics) medical residents
+
+per 100,000, which is well below the national average of 17 per 100,000. xxiv The nursing and
+                                                                             23F
+
+
+
+
+dental fields are facing similar trends. For instance, the average annual growth of certified
+
+nursing assistants (0.3%) is not keeping pace with Oregon’s population growth and the number
+
+of clinical nurse specialists decreased annually by 2.7% on average over the past five years.
+
+Approximately one million Oregonians across 33 of 36 counties live in a Dental Health
+
+Professional Shortage Area. xxv Exacerbating workforce shortages is the concentration of
+                               24F
+
+
+
+
+postsecondary education training opportunities in urban areas. For instance, 83% of family
+
+medicine graduate medical education (GME) slots are found in the Portland Metro area, even
+
+though only 46.7% of Oregon's population live in that area. xxvi
+                                                               25F
+
+
+
+
+Rural Facility Financial Health
+
+   Although Oregon has largely avoided rural hospital closures, many facilities have been forced
+
+by shrinking operating margins to cut jobs and divest from critical but costly service lines,
+
+including maternity and pediatric intensive care units. xxvii 14 of the state’s 37 rural hospitals
+                                                         26F
+
+
+
+
+ended 2024 with negative operating margins, and incurred a combined net financial loss of $93
+
+million due to maintaining essential services for the community such as 24-hour emergency and
+
+labor and delivery care. xxviii One rural hospital recently reduced available emergency room
+                         27F
+
+
+
+
+services by stepping down from a Trauma III emergency room to a Trauma IV emergency room
+
+because of cost pressures and workforce constraints. This created a 130-mile gap in coverage
+
+between it and the next hospital with available 24-hour trauma surgery capacity.
+
+
+
+                                                                                         Version 12.12.25 - 5
+   There is greater representation of independent hospitals in rural Oregon than in urban settings.
+
+13 of the 37 rural hospitals are independent of a health system. For instance, Harney District
+
+Hospital, which has 25 beds, is the only hospital to serve all of Harney County (the population is
+
+7,623 people). Harney County is 10,226 square miles—larger than six U.S. states. With distances
+
+like these, CAHs must work more independently than their urban colleagues. As importantly,
+
+rural and frontier areas have higher shares of Medicaid enrollees than urban areas; for example,
+
+54% of residents in Malheur County, which is designated as fully frontier, are enrolled in
+
+Medicaid, compared to 36% in Multnomah County, which is completely urban. xxix This reality
+                                                                                  28F
+
+
+
+
+places additional strain on rural safety-net providers when there is more uncompensated or
+
+undercompensated care.
+
+   Preventable hospitalizations in Oregon have been steadily increasing since the pandemic low
+
+point in 2020. While total outpatient visits decreased from 2023 to 2024, total emergency
+
+department (ED) utilization and inpatient discharges increased across the state’s 60 acute
+
+hospitals (A, B, and DRG) with rates consistently higher for rural communities, reaffirming the
+
+urgent need to improve timely and effective primary care xxx.
+                                                           29F
+
+
+
+
+Target Population
+
+   In the face of these daunting healthcare challenges, from access gaps to chronic disease
+
+burden, Oregon is committed to stewarding RHT program funds effectively by investing it in the
+
+most at-risk rural communities. We will target rural and frontier hospitals, health clinics,
+
+community health centers, and community-based organizations providing health care services in
+
+rural and frontier areas statewide. Rural is defined as any geographic areas in Oregon ten or more
+
+miles from the centroid of a population center of 40,000 people or more. Frontier (or “remote”)
+
+
+
+
+                                                                                 Version 12.12.25 - 6
+is any county with six or fewer people per square mile and are included whenever rural
+
+populations are referenced.
+
+Rural Health Transformation Plan
+
+Vision, Goals, and Strategies
+
+Vision: We envision healthy rural communities where people, partners, and technology come
+
+together to build thriving communities of care – rooted in prevention, strengthened by regional
+
+collaboration, sustained by a resilient workforce, and guided by smart data for better health and
+
+well-being.
+
+Goals: To ensure all people and communities in rural Oregon can achieve optimum physical,
+
+mental, and social well-being at every life stage, we will anchor our efforts in 1) improving access
+
+and outcomes; 2) workforce innovation; 3) technological and data-driven solutions; 4) strategic
+
+partnerships; and 5) financial sustainability.
+
+Anchor Strategies:
+
+Improving access and outcomes: Oregon’s proposed access activities address many needs
+
+identified through Oregon’s RHT Program public comment period (see Stakeholder Engagement
+
+on page 45). These activities, which span across multiple RHT Program initiatives, will address
+
+the higher rates of preventable disease in rural communities, outdated EMS infrastructure,
+
+limited access to chronic disease management programs and specialists, and a need for more
+
+community-specific solutions that support patient navigation, care coordination, and access to
+
+social health services.
+
+   Through the RHT Program, Oregon will expand its nurse home-visiting programs to new
+
+rural communities, launch rural school nursing access programs in rural/frontier school districts,
+
+increase the use of remote patient monitoring (RPM) and health IT tools, and increase self-
+
+
+
+                                                                                 Version 12.12.25 - 7
+management education programs to help patients manage their chronic conditions. Furthermore,
+
+Oregon will support rural organizations with developing comprehensive regional school
+
+treatment and recovery programs and increasing teletherapy services. Additionally, Oregon will
+
+support expanding rural pharmaceutical services through pharmacy lockers, tele-pharmacy and
+
+other technologies that enable pharmacist-supervised dispensing, counseling, and medication
+
+adherence support. To ensure there are highly skilled care teams to provide ongoing access and
+
+care, Oregon will support investment in workforce training programs, non-physician health
+
+professional certification to expand the number of allied health professionals in rural areas, and
+
+short-term housing solutions for rural healthcare providers for better retention.
+
+   Oregon will focus on advanced chronic disease prevention and management through
+
+connecting rural residents to preventive care, increasing primary care visits, increasing use of
+
+telehealth and RPM, enhancing and creating a stronger rural health care infrastructure, and
+
+increasing the number of family medicine, certified nurse midwifery, advanced practice,
+
+behavioral health and dentistry residencies in rural areas. To ensure long-term sustainability,
+
+Oregon will reinforce and boost strong regional partnerships focused on operational efficiency,
+
+continued quality and performance improvement, and the dissemination of best practices and
+
+successful models across the state. Additionally, Oregon will direct funds to both ready-to-go
+
+innovative projects and longer-term health care infrastructure projects.
+
+Technology and data driven-solution: Oregon will invest in and empower rural stakeholders to
+
+assess, select, and use data and technology solutions to ensure digital access to and secure
+
+sharing of health information. This will support chronic disease prevention and intervention,
+
+reduce administrative complexity and burden, and improve communication and coordination
+
+across providers, patients, and systems.
+
+
+
+                                                                                Version 12.12.25 - 8
+   Oregon will harness data and technology to furnish high-quality, convenient healthcare
+
+services by focusing on supporting remote and digital care tools that give patients the choice
+
+receive care outside of traditional health care settings (e.g., at home), reducing travel burdens.
+
+The state will also invest in rural community capacity to collect, analyze and disseminate data
+
+through community-led data convenings and locally driven projects. These efforts will enable
+
+rural communities to leverage their data for informed decision making and targeted investments.
+
+Oregon will use new and emerging technologies such as RPM and digital care tools, patient-facing
+
+apps, and AI-enabled technology, among others, that emphasize prevention and chronic disease
+
+management. These tools will be used by providers and healthcare organizations to monitor vital
+
+signs like blood pressure and A1C levels, provide medication titration and monitor medication
+
+adherence outside of traditional healthcare settings, and increase patient engagement in managing
+
+their own health.
+
+Workforce innovation: Oregon is committed to expanding and sustaining its rural healthcare
+
+workforce through targeted recruitment, training, and retention strategies that will include “Grow
+
+Your Own” models, new residency programs, and provider training and family supports.
+
+Achieving this vision requires both immediate and long-term solutions, including tele-mentoring,
+
+career pathway development, and financial incentives tied to rural service, to ensure that rural
+
+communities are attractive places to train, work, and live. Special focus will be placed on high-
+
+need specialties like family medicine, surgery, maternity care, and behavioral health to meet
+
+growing demand and ensure access to essential services.
+
+Strategic partnerships: The vision for Oregon’s rural health transformation is predicated on
+
+ensuring our state’s rural healthcare system is organized in a way that enables regionally driven
+
+approaches to meet the unique and evolving needs of communities by sharing resources,
+
+
+
+                                                                                 Version 12.12.25 - 9
+providers, technology, and more. In years one and two of the RHT Program, Oregon will launch
+
+catalyzing efforts to pair region-specific health care needs with transformative resources. In
+
+FY28-30, Oregon expects that entities receiving funds through the RHT Program will apply to
+
+do so as a regional consortium (e.g., via a lead organization serving as a hub, a shared
+
+collaborative, or a similar formal contractual agreement) or in alignment with a shared regional
+
+health care plan. In addition, Oregon will bring in trusted partner organizations, such as the state
+
+Office of Rural Health, to support distribution of funds, grant management, and targeted
+
+technical assistance.
+
+Financial solvency: Oregon plans on connecting rural hospitals and other rural providers together
+
+through regional partnerships to identify best practices for financial stability and sustainable cost
+
+containment. Oregon will support rural organizations to:
+
+   •   Diversify their revenue streams – including through creative integrated networks with
+
+       appropriate risk-based models.
+
+   •   Control costs through shared resources.
+
+   •   Design and implement alternative payment models, including per-member-per-month
+
+       (PMPM) payments to support team-based care, and other strategies to drive towards
+
+       innovative, sustainable, and strategic payment reform.
+
+   •   Advanced and targeted technical assistance for financial and operational management.
+
+   •   Right-sizing by aligning services and infrastructure with the needs of Oregon’s current
+
+       and future rural populations by ensuring financial sustainability to support any necessary
+
+       transitions and maintain access to care.
+
+Cause identification: Sparse population in rural communities leads to fewer providers and lower
+
+volume of services, which correlates with lower revenue. The median number of annual inpatient
+
+
+                                                                                Version 12.12.25 - 10
+discharges for Oregon’s rural hospitals is 474 compared with a median of 4,053 for Oregon’s
+
+urban hospitals. xxxi These low volumes create challenges for rural hospitals to maintain certain
+                 30F
+
+
+
+
+services that rely on 24/7 staffing, including maternity services and ED, as well as services for a
+
+significantly older population compared to the urban areas of the state. In 2024, 45% of Oregon’s
+
+hospitals had negative margins, 26% of hospitals had modest margins of 0-5%, and 29% of
+
+hospitals had an operating margin above 5%. Operating margins can be a signal of the financial
+
+health of a hospital. In Q1 of 2025, Oregon hospitals lost a combined $359 million on operations,
+
+the equivalent of a statewide -7.0% operating margin. This is the most significant operating
+
+margin deficit for hospitals to date. xxxii
+                                      31F
+
+
+
+
+   One of the most pressing issues facing rural Oregon is the closure of hospital labor and
+
+delivery units, and the reduction in maternity services. Oregon’s Perinatal Collaborative visited
+
+each of Oregon’s 47 hospitals that provide labor, birth, and postpartum services in 2024 to
+
+understand the specific factors influencing hospital operations, and they all confirmed three
+
+major challenges that exacerbate financial issues: 1) staffing challenges, 2) patients who are
+
+sicker, and 3) more patients with unmet basic needs. xxxiii
+                                                      32F
+
+
+
+
+Program Key Performance Objectives
+
+   By the end of the cooperative agreement period in FY 2031, our program will have achieved
+
+measurable, transformative improvements in rural health care across Oregon. Through a
+
+carefully designed and selected portfolio of initiatives, we aim to expand access, improve
+
+outcomes, modernize systems, build a resilient and skilled workforce, and empower local and
+
+regional partnerships. Just as our Transformation Plan is informed by CMS’s five strategic goals,
+
+so too are the program performance objectives, which have been selected for their relevance,
+
+feasibility, and alignment with the initiatives.
+
+
+
+                                                                               Version 12.12.25 - 11
+   The overall program performance objectives are:
+
+   1. By FY 2031, increase the number of new access points in operation for preventative care
+
+       and social health services in rural and frontier counties by 15%.
+
+   2. By FY 2031, increase the percentage of rural health care providers participating in a
+
+       value-based payment arrangement. 75% of participating providers will demonstrate
+
+       improved performance on at least one quality metric.
+
+   3. By FY 2031, ensure that at least 75% of rural health care organizations participating in
+
+       RHT Program report improved workforce stability.
+
+   4. By FY 2031, ensure that 75 of rural provider entities participating in the RHT Program
+
+       report improved health IT capabilities, interoperability and/or cybersecurity.
+
+   5. By FY 2031, ensure that at least 75% of rural counties are engaged in formal regional
+
+       partnerships that support shared infrastructure, governance, and service delivery.
+
+   These objectives are supported by a comprehensive and complementary set of initiative
+
+milestones and outcome metrics that will ensure operational direction and accountability, as well
+
+as continuous performance improvement throughout the cooperative agreement period. Our
+
+metrics are designed to track progress towards initiative-specific outcomes and systems-level
+
+change. For example, we will measure increase in access to preventative care, growth in the rural
+
+health workforce, and expanded interoperability and adoption of health IT. These outcome
+
+metrics will help us assess whether rural communities are experiencing improvements in service
+
+availability, care coordination, and social health services support.
+
+   By aligning initiative-level metrics and milestones with the program performance objectives
+
+and the strategic goals of the RHT Program, we are designing a symbiotic program that ensures
+
+
+
+
+                                                                              Version 12.12.25 - 12
+that improvements in one area, such as workforce or technology, contribute to broader gains in
+
+access, quality, and system transformation.
+
+Strategic Goal Alignment
+
+Make Rural America Healthy Again: Increasing the proportion of rural residents with access to
+
+preventative care, which includes nutrition and dietary counseling, will help support a thriving
+
+rural community through innovative new access points. This will include funding and supporting
+
+nurse home-visiting programs and projects that improve access to telehealth and tele-pharmacy.
+
+Sustainable Access: As part of the first phase, Oregon will reinforce and accelerate regional
+
+partnership building to bring stakeholders together and design long-term access points for care.
+
+Key to the effort is increasing the percentage of rural health care providers participating in new
+
+payment arrangements to ensure long-term financial sustainability.
+
+Workforce Development: Building, supporting, and attracting a high-skilled health care
+
+workforce is paramount to Oregon’s goals and objectives. To ensure a long-term pipeline of
+
+healthcare professionals across the state, Oregon will launch new certification programs and
+
+residency programs with rural tracks. Strategies will include expanding tele-mentoring
+
+opportunities, developing clear career pathways, and offering financial incentives tied to rural
+
+service – all designed to make rural practice a viable and rewarding career choice.
+
+Innovative Care: Oregon’s regional partnership initiative will include robust community
+
+discussion and input to bring innovative care models forward. Regional entities are best
+
+positioned to identify and implement coordinated care models that improve health outcomes
+
+while reducing costs.
+
+Tech Innovation: Oregon will support innovative technologies, such as telehealth, wearable
+
+monitoring devices, and virtual access points to assist rural residents in managing chronic
+
+
+
+                                                                               Version 12.12.25 - 13
+diseases and receiving care from their providers when they need it. Tech tools will also be used
+
+by providers and healthcare organizations to monitor vital signs like blood pressure and A1C
+
+levels, provide care and monitor medication adherence outside of traditional healthcare settings.
+
+Legislative or Regulatory Action
+
+   Oregon is actively working with the Governor’s Office and Legislators to identify future
+
+legislative or regulatory actions related to the RHT Program. This includes exploring policy
+
+needs that align with the RHT “State policy actions” and support the state’s overall participation
+
+and success in the program. Oregon will focus its policy actions on the levers that offer the
+
+greatest potential to reinforce the outcomes and goals of the state’s strategic initiatives.
+
+B.4. Nutrition Continuing Medical Education (CME):
+
+   Currently, Oregon does not have nutrition education included in its CME for physicians, nor
+
+is there pending state legislation addressing this issue. Oregon recognizes the importance of
+
+nutrition in preventive and whole-person care and intends to continue discussions with trusted
+
+partners, including the Oregon Medical Board and Oregon Medical Association, to explore the
+
+development of a policy that ensures clinical relevance, administrative feasibility, and successful
+
+adoption. Oregon will use this opportunity to explore continuing education (CE) policies to
+
+include non-physician providers, where appropriate, to support team-based approaches to
+
+nutrition and chronic disease prevention, a core component of the State’s RHT activities.
+
+   By September 30, 2026, Oregon will work with partners and medical boards to identify
+
+opportunities for integrating nutrition education into CME and CE and by September 30, 2028,
+
+Oregon will pursue all necessary discussions and policy development related to nutrition-focused
+
+CME and CE, including assessing the implementation pathways with our partners and
+
+identifying the most effective medium for policy action. Based on the outcomes of that planning,
+
+
+
+                                                                                 Version 12.12.25 - 14
+we would work with Legislators and the Governor’s office to pursue bill sponsorship for the
+
+2027 or 2028 State Legislative Session. That legislative process would position the state to enact
+
+a bill and finalize regulations by December 31, 2028.
+
+D.2. Licensure Compacts
+
+   Oregon continues to explore approaches to strengthen and expand its health care workforce,
+
+including efforts to reduce barriers to licensure and credentialing. In the most recent legislative
+
+session, a draft provision to join the Emergency Medical Services (EMS) Compact had prompted
+
+robust dialogue around the need to balance workforce mobility with patient safety, administrative
+
+feasibility, and system readiness. Oregon intends to build on these efforts and focus its licensure
+
+compact exploration on the EMS Compact as this essential service and workforce are focal
+
+points throughout the state’s RHT Program initiatives. Compact participation is a strategy that
+
+could complement the other EMS activities, particularly those aimed at enhancing workforce
+
+training and regional coordination.
+
+   Over the next two years, Oregon will pursue all necessary discussions and policy
+
+development with the state’s Public Health Division, Legislature, and EMS stakeholders to
+
+revisit the compact framework and assess regulatory implications. By September 30, 2026,
+
+Oregon will have refined the policy option and completed initial legislative engagement,
+
+positioning the introduction of a bill for 2027 State Legislative Session with a target enactment
+
+by December 31, 2027.
+
+D.3. Scope of Practice
+
+   Oregon is committed to exploring further scope of practice expansions for provider types
+
+facing significant workforce strain. We intend to focus on pharmacists, who currently have full
+
+drug administration authority and partial laboratory testing and independent prescribing
+
+
+
+                                                                                Version 12.12.25 - 15
+authority. xxxiv Exploring this State policy action would complement emerging tele-pharmacy and
+           33F
+
+
+
+
+mobile health care delivery models aimed at expanding pharmacy services found in key activities
+
+across several of the initiatives.
+
+   Oregon will engage in policy development and discussions in collaboration with the Oregon
+
+Board of Pharmacy, the Public Health & Pharmacy Formulary Advisory Committee, and other
+
+Pharmacy stakeholders, who will advise on policy actions around pharmacy prescribing and
+
+laboratory testing authority. By September 30, 2026, Oregon will have refined the policy option
+
+and completed initial legislative engagement, positioning the introduction of a bill for 2027 State
+
+Legislative Session, with a target enactment by December 31, 2027.
+
+Other Required Information
+
+State Policy Action       Current Status                                              Proposed Policy Commitment
+B.2. Health and Lifestyle Oregon currently has a comprehensive policy around          Oregon does not plan to pursue a
+                          Physical Education Standards. These standards include       state mandate.
+                          identifying ways to be physically active and developing a
+                          variety of motor skills.
+B.3. SNAP Waivers         Oregon does not currently have a SNAP Food Restriction  Oregon does not plan to pursue a
+                          Waiver                                                  SNAP Food Restriction Waiver.
+B.4. Nutrition Continuing Oregon does not currently have nutrition CME.           Oregon plans to pursue this policy
+Medical Education                                                                 action. See Legislative or
+                                                                                  Regulatory Action for more detail.
+C.3. Certificate of Need Oregon has moderate CON policies across Cicero facility Oregon does not plan to pursue
+(CON)                    categories.                                              any CON eliminations.
+D.2. Licensure Compacts Oregon is not a member state of the Interstate Medical Oregon plans to pursue policy
+                         Licensure compact, the PSYPACT, the Nurse Licensure action for the EMS compact. See
+                         Compact, and the EMS compact.                            Legislative or Regulatory Action
+                                                                                  for more detail.
+D.3. Scope of Practice   Oregon has full, unrestricted scope of practice policies Oregon plans to pursue policy
+                         for Nurse Practitioners and Dental Hygienists. Oregon action for Pharmacists. See
+                         has advanced scope of practice policies for Physician Legislative or Regulatory Action
+                         Assistants and moderate scope of practice policies for for more detail.
+                         Pharmacists.
+E.3. Short-term, limited Oregon has some restrictions in place that limit STLDI Oregon does not plan to pursue
+duration insurance       plans.                                                   amendments to its STLDI plan
+(STLDI)                                                                           restrictions.
+F.1. Remote Care         Oregon has optimal Telehealth Laws and                   Not Applicable.
+Services                 Reimbursement Policies across all five CCHP categories.
+
+For factor A. 2 and A.7:
+
+A current list of CCBHC entities is provided in Supporting Documentation: All CCBHCs in Oregon.
+
+                                                                                               Version 12.12.25 - 16
+Oregon has 15 hospitals that met the DSH criteria and are qualified to receive a DSH payments.
+
+Proposed Initiatives and Use of Funds
+Oregon will have five initiatives:
+Initiative           Summary                        Main Strategic Goal          Use of Funds Technical Score
+                                                                                                Factors
+Regional           Focus on building rural regional Sustainable Access,          A, B, F, G, H, B.1, C.1, C.2,
+Partnerships &     hubs to accelerate long-term     Innovative Care              I, K           E.1., F.2
+System             sustainable strategies.
+Transformation
+Healthy            Focus on creating new health     Make Rural America          A, C, G, B, J, B.1, B.2, C.2.,
+Communities &      access points to rural counties. Healthy Again, Tech         K              E.2, F.1, F.3
+Prevention                                          Innovation
+Workforce Capacity Focus on developing workforce Workforce Development, E, G, H, K             B.1, B.4, C.2,
+& Resilience       from training to professional    Make Rural America                         D.1, D.3
+                   development programs             Healthy Again, Tech
+                                                    Innovation
+Technology & Data Focus on expanding and            Tech Innovation,            D, F, G, K     C.1, F.1, F.2
+Modernization      connecting rural health care to Sustainable Access
+                   needed technologies.
+Tribal             Focus on supporting the Tribes Make Rural America            A, B, C, D, E, B.1, C.1, D.1,
+                   with improving health            Healthy Again, Workforce F, G, H, J, K F.1, F.2, F.3
+                   outcomes.                        Development, Sustainable
+                                                    Access, and Tech Innovation
+
+
+Regional Partnerships & System Transformation Initiative
+Main strategic goals: Sustainable Access, Innovative Care
+
+Uses of funds: A, B, F, G, H, I, K
+
+Technical score factors: B.1, C.1, C.2, E.1., F.2
+
+Description: The Regional Partnerships and Systems Transformation initiative intends to:
+
+    1. Apply regional solutions to address urgent, immediate needs and enhance Oregon’s
+
+         shared health care infrastructure for rural communities;
+
+    2. Scale up planning efforts to pair region-specific health care needs with transformative
+
+         resources; and
+
+    3. Invest in cross-sector collaboration.
+
+Sharing Infrastructure: Enhancing rural Oregon’s health care infrastructure will require start-up
+
+funding to develop shared resources, as well as centralize and streamline back-office functions in
+
+order to ensure the financial stability of rural hospitals and clinics and maintain services for rural
+                                                                                        Version 12.12.25 - 17
+residents. Communities and rural health care entities will explore partnerships with larger health
+
+care entities to develop targeted and financially sustainable service line expansions while
+
+preserving independence of rural providers and keeping care local. Those involved in this work
+
+will also intensify efforts around partnerships such as clinically integrated networks (CINs) to
+
+better coordinate patient care, collaborate on staff recruitment and retention, share technology,
+
+right-size facilities and services, reduce health care entities’ administrative costs, and deploy
+
+value-based payment arrangements. Projects to expand value-based payment arrangements
+
+among rural health care providers will align with current goals expressed by the Oregon Health
+
+Policy Board and the Oregon Committee on Health Care Affordability, both of which strive to
+
+increase health care quality and value in the state.
+
+Strategic Planning Activities: This initiative will fund planning activities that will first focus on
+
+at-risk specialty services, such as maternity care. The focus will be on building regional solutions
+
+that increase efficiencies in care delivery, thereby improving participants’ financial stability and
+
+long-term sustainability. A primary component of this work will be exploring new payment
+
+structures as a mechanism for reliable revenue streams.
+
+Cross-sector Collaboration: Lastly, cross-sector collaboration and investments will ensure that
+
+regional efforts build towards financial stability, efficient resource allocation and utilization, and
+
+an ongoing collaborative culture that promotes sharing best practices in rural health care
+
+delivery. Representatives from the behavioral and medical health care delivery system, social
+
+health services, and coordinated care organizations (CCOs) xxxv will convene to strategize region-
+                                                              34F
+
+
+
+
+specific priorities and investment opportunities.
+
+   All three components – shared infrastructure, regional planning, and cross-sector
+
+collaboration – will be achieved through a community hub-and-spoke model, which provides an
+
+
+
+                                                                                 Version 12.12.25 - 18
+efficient means of creating the advanced financial, technical, administrative, and operational
+
+infrastructure needed to engage and connect with healthcare partners on behalf of multiple
+
+agencies in an organized network delivery model. Hubs can serve multiple functions such as:
+
+leadership and governance, strategic business development, network recruitment, engagement
+
+and support, contract administration and compliance, centralizing back-office functions and
+
+operations, information technology and security.
+
+Uses of funds:
+
+   The initiative will solicit local proposals and competitively fund efforts to create and sustain
+
+regional partnerships that include health care and social service entities serving rural
+
+communities. Targeted technical assistance will be provided to eligible entities, such as
+
+organizations serving the AI/AN population, ensuring fair access to applying for the Catalyst
+
+Awards and efficient and timely deployment of funds during the first fiscal year (see
+
+Implementation Plan for more details). Over the long-term, the goal is to encourage collaboration
+
+and strategically invest in these partnerships that have the greatest potential to ensure lasting
+
+sustainability. Funds will be used to:
+
+    • Accelerate, formalize, and support regional collaboratives. Funds may be used to
+
+       organize and support the convening of partners as these collaboratives take shape.
+
+    • Promote technical assistance on topics such as cycle optimization, workflow and needs
+
+       assessments, and how to pursue a change in scope for RHCs and CCBHCs.
+
+    • Establish and support hub-and-spoke models to further strengthen regional partnerships
+
+       through centralized infrastructure and operational and administrative functions, including
+
+       sharing advanced technologies such as surgical robotics.
+
+
+
+
+                                                                                Version 12.12.25 - 19
+• Explore and reinforce other partnerships with private sector, business leaders and other
+
+   sectors to ensure broad engagement and buy-in.
+
+• Support strategic investments in CAHs to ensure sustainable emergency, maternity, and
+
+   other services.
+
+• Learning collaboratives: Develop and launch learning collaborative opportunities so
+
+   health care entities both within and across rural areas can support each other.
+
+• Child & Youth focus: Increase regional collaboration for children through partnerships
+
+   between school districts, early learning hubs, school-based health centers, local systems
+
+   of care collaboratives, intellectual and developmental disability services, juvenile justice
+
+   and child welfare to provide physical, and behavioral health supports and resources.
+
+• Data focus: Support for input on program development, structure, and oversight, such as
+
+   when implementing IT systems, software, or data sharing that supports care coordination
+
+   or for collaboration and convening to strategize region specific priorities and investments.
+
+• Rural community-led data analysis and governance: Invest in rural community capacity
+
+   to collect, analyze and disseminate data through community-led data convening and data
+
+   projects including:
+
+       o Convener(s) to develop community-led data practices for data governance and
+
+          decision making to leverage their data for investments that improve health
+
+          outcomes, efficiency, and sustainability.
+
+• Maternity focus: Improve access to perinatal services in rural Oregon by investing in:
+
+      o Rural maternity care coalitions or partnerships to design a sustainable system of
+
+          maternity care and allows maternity providers to practice at the top of their
+
+          training and license.
+
+
+                                                                           Version 12.12.25 - 20
+           o FQHCs, RHCs, and birthing centers’ abilities to provide perinatal care through
+
+               partnerships with nearby hospitals.
+
+           o Expansion of Nurture Oregon, a rural integrated care model for pregnant families
+
+               that includes peer support, prenatal care, substance use and mental health
+
+               treatment, care coordination, and other services, into three additional
+
+               communities.
+
+    • Emergency Medical Services (EMS) focus: EMS modernization through strengthened
+
+       regional coordination and formalized coordination agreements. Establish standardized
+
+       regional advisory structures to coordinate EMS response, hospital triage, and interfacility
+
+       transfers. Promote data sharing, joint training, and integrated resource planning.
+
+Key Stakeholders: See Appendix Table 4 for full list.
+
+Outcomes:
+
+  1. Reduce operating costs for rural health organizations through shared infrastructure according
+
+    to regional/local needs
+
+  2. Increase access to high-need or at-risk service lines, such as maternity care
+
+  3. Increase regional planning efforts focused on shared governance models, including CINs
+
+    and consortiums by county level
+
+  4. Increase participation in value-based care models
+
+Oregon’s Metrics and Evaluation Plan (page 49) provides additional details.
+
+Impacted counties: This initiative will impact all counties in Oregon. See Appendix Table 5 for
+
+the list of FIPS codes.
+
+Estimated required funding: $40,000,000 - $55,000,000 / year
+
+
+
+
+                                                                               Version 12.12.25 - 21
+Healthy Communities & Prevention Initiative
+
+Main strategic goals: Make Rural America Healthy Again, Tech Innovation
+
+Uses of funds: A, C, G, B, J, K
+
+Technical score factors: B.1, B.2, C.2., E.2, F.1, F.3
+
+Key stakeholders: See Appendix Table 4 for full list.
+
+Description: The Healthy Communities & Prevention Initiative focuses on bolstering rural
+
+health systems by expanding access to integrated primary care and social health services that
+
+promote prevention, healthy nutrition, care coordination, and care management, especially for
+
+individuals with complex health statuses. Investments made under this initiative promote whole
+
+person health across all facets of life, from prenatal & infancy to end-of-life care.
+
+   This initiative responds to these identified challenges with the following aims:
+
+   •   Ensuring rural Oregonians can easily and affordably access the necessary services,
+
+       including for behavioral health, maternal and child health, oral health, long-term care,
+
+       and emergency services, in their community across a variety of settings by leveraging
+
+       local partnerships and technology-driven solutions.
+
+   •   Increasing social health services, navigation and outreach capabilities, non-traditional
+
+       care teams, and population health infrastructure.
+
+   •   Advancing innovative, community-driven solutions that provide choice and tools to
+
+       support personal health care management.
+
+   Oregon will leverage this funding opportunity to move beyond the status quo of care delivery
+
+and coordination by scaling promising programs and adopting innovative solutions, especially
+
+those aided by digital tools and remote care access, to address health across the entire lifespan.
+
+
+
+
+                                                                                Version 12.12.25 - 22
+Strong Foundations for Healthy Families: The Healthy Communities & Prevention initiative
+
+reflects Oregon’s standing commitment to creating a state where rural families can thrive.
+
+Beginning with the health and wellbeing of mothers and babies and continuing to support the
+
+optimal development of Oregon’s children and youth, this initiative will focus on prevention-
+
+focused initiatives that address the root causes of public health.
+
+Supporting Rural Residents with Special Healthcare Needs (Those with chronic disease,
+
+behavioral health needs, and Dual Eligible Special Needs Plan (D-SNP) members): Building
+
+healthy communities also requires targeted solutions for the unique medical and social
+
+challenges experienced by individuals during life stages marked by complex, changing, and
+
+sometimes stressful roles within families and communities. Without reliable or sufficient access
+
+to essential care and social health services, individuals are not being empowered to lead healthy
+
+lives. To support rural residents with their complex medical needs, this initiative supports new
+
+and innovative ways to connect people to healthcare services and facilities.
+
+Aging in Place: This initiative responds to rural older adults’ specific challenges accessing care
+
+and fostering social cohesion by expanding long-term care and community-based services that
+
+support seniors to age safely, healthfully, and independently in their homes and communities.
+
+Uses of funds:
+
+   The initiative will dedicate funding to expand proven, evidence-based solutions and solicit
+
+proposals for community-driven solutions for each of the three lifespan groups.
+
+Strong Foundations for Healthy Families:
+
+   •   Expand nurse home visiting programs (such as Family Connects Oregon xxxvi) to new
+                                                                                  35F
+
+
+
+
+       rural communities.
+
+
+
+
+                                                                               Version 12.12.25 - 23
+   •   Launch a rural school nursing access program to increase access to school nursing in
+
+       rural/frontier school districts. This program will fund a nurse consultant to support three
+
+       school districts, providing regional support for the delivery of school nursing services in
+
+       collaboration with school nurse extenders (including telenursing and partnering with
+
+       LPHA RNs).
+
+Supporting Rural Residents with Special Health Care Needs:
+
+   •   Improve the ability and capacity of schools to provide resources and respond to co-
+
+       occurring behavioral health concerns through the development of a comprehensive
+
+       regional school treatment and recovery program in public schools that have access to
+
+       community SUD services.
+
+   •   Increase access for individuals to behavioral health services including teletherapy
+
+       (individual, group, and peer support), respite, remote and ED/emergency response-
+
+       initiated medication assisted treatment for SUD and other SUD treatment.
+
+   •   Strengthen care linkages to EMS services for Buprenorphine initiation to support ongoing
+
+       engagement of treatment, such as connection to follow up providers or utilization of
+
+       embedded peer service providers.
+
+   •   Investments in technical assistance to build capacity for telehealth-based ambulatory
+
+       detox as well as community-based services that support families through intensive
+
+       inpatient treatment programs.
+
+   •   Improve access to integrated care for dually eligible individuals and/or children and
+
+       youth with complex needs in rural areas through increased outreach and strengthened
+
+       care coordination and care management.
+
+
+
+
+                                                                              Version 12.12.25 - 24
+   •   Increase access to community naloxone to reduce the number of fatal overdoses,
+
+       including through local public health department in partnership with schools and other
+
+       local site to ensure low barrier to access.
+
+Aging in Place:
+
+   •   Expand community health worker outreach models, such as the Connected Care for Older
+
+       Adults (CCOA) model, to new rural clinics. In the CCOA model, community health
+
+       workers (CHWs) improve care for frail adults 55 and older through home visits,
+
+       information, education, coordination with primary care providers to existing community
+
+       services. The initial pilot successfully reduced ED and hospital utilization, increased
+
+       Advanced Directive completion, connected over 400 patients and their families to
+
+       community resources, and improved patient, caregiver, and provider experience.
+
+   •   Expand brain health and caregiver trainings through online self-management platforms.
+
+   •   Support for emergency medicine services to establish treat “in place” procedures as part
+
+       of emergency calls for older adults.
+
+Interventions Across the Entire Life course:
+
+   •   Support for expanded rural pharmaceutical services through pharmacy lockers, tele-
+
+       pharmacy and other technologies to enable pharmacist-supervised dispensing, counseling,
+
+       and medication adherence support.
+
+   •   Support to expand or modify services through non-traditional delivery mechanisms, such
+
+       as mobile health units, for general health purposes or specialties like maternal health.
+
+   •   Increase access to nutrition/lifestyle medicine approaches to meet the needs of rural
+
+       Oregonians by expanding models such as the Heart Healthy Ambassador Program xxxvii, 36F
+
+
+
+
+       Walk With Ease xxxviii, and Chronic Disease Self-Management Education programs. xxxix
+                        37F                                                                      38F
+
+
+
+
+                                                                              Version 12.12.25 - 25
+   •   Invest in locally developed networks to increase access to social health services,
+
+       including emergency food services and transportation.
+
+   •   Increase access to comprehensive oral health services for patients across Oregon through
+
+       innovative solutions including mobile dental clinics and tele-dentistry.
+
+   •   Expansion of telehealth and digital health tools, including RPM and self-management
+
+       education programs to help rural patients with chronic conditions.
+
+Outcomes
+
+   1. Universal access to home visiting services
+
+   2. Increase availability of mental health and substance use disorder treatment
+
+   3. Increase patient engagement with new preventative health and/or self-management
+
+       programs
+
+   4. Increase rural populations served by new health care and social health services
+
+   5. Increase proportion of telehealth encounters by county
+
+Oregon’s Metrics and Evaluation Plan (page 49) provides additional details.
+
+Impacted counties: This initiative will impact all counties in Oregon. See Appendix Table 5 for
+
+the list of FIPS codes.
+
+Estimated required funding: $50,000,000 - $75,000,000 / year
+
+Workforce Capacity & Resilience Initiative
+
+Main strategic goals: Workforce Development, Make Rural America Healthy Again, Tech
+
+Innovation
+
+Uses of funds: E, G, H, K
+
+Technical score factors: B.1, B.4, C.2, D.1, D.3
+
+
+
+
+                                                                              Version 12.12.25 - 26
+Description: A strong workforce is the backbone to a sustainable, high-quality healthy America.
+
+Oregon has long been a leader in empowering providers to practice in team-based settings at the
+
+top of their license through advanced scopes of practice. The Workforce Capacity & Resilience
+
+Initiative builds on this legacy by addressing the growing shortage of health care professionals,
+
+especially in rural communities, through targeted investments and innovative strategies to:
+
+    •   Expand Oregon’s skilled health care workforce, including non-physician providers and
+
+        allied health professionals
+
+    •   Create new training opportunities
+
+    •   Build long-term capacity across rural areas of the state
+
+   Through a concerted approach, including recruitment and retention efforts, rural-, maternity-,
+
+and behavioral health-focused new residency programs and training, “Grow Your Own"
+
+workforce models, upskilling, and alternative staffing models, Oregon will be ready to meet the
+
+evolving health care needs of its rural and frontier communities.
+
+   In the immediate term, this initiative focuses on the current workforce by enhancing provider
+
+wellness and retention. This includes increasing access to peer support and technical assistance,
+
+as well as expanding tele-mentoring, e-consultation, mobile simulations units, and continuing
+
+education opportunities in areas such as nutrition and lifestyle medicine. These tools ensure rural
+
+providers have the ongoing training and support they need to deliver high-quality care. A
+
+provider “exchange” program will be explored, allowing rural providers to gain rapid on-the-job
+
+training and skills refreshing, while bringing specialists or other high-need providers to the rural
+
+areas to meet local needs. Special attention will be given to training and continuing medical
+
+education related to maternity care, behavioral health, nutrition, dementia care, and gerontology.
+
+
+
+
+                                                                               Version 12.12.25 - 27
+   To strengthen recruitment, this initiative will also invest in strategies that attract providers to
+
+rural areas. Financial support will be offered to students and recent graduates pursuing health
+
+care careers in exchange for five years of service in rural communities, with a focus on high-
+
+need specialties such as maternity and behavioral health. Before receiving qualifying workforce
+
+benefits, all participants will be asked to sign a service commitment agreement that outlines the
+
+expected 5-year service period including anticipated start and end dates. The agreement will be
+
+administered by the respective subcontractor or subgrantee and provide clear information about
+
+what happens if a participant needs to end their service early or is unable to meet the full
+
+commitment. These efforts will be complemented by partnerships with local employers and the
+
+private sector to address common barriers to rural practice by providing supports such as
+
+community orientation, housing search assistance and stipends, career networking for
+
+spouses/partners, and childcare assistance. When paired with the Regional Partnerships &
+
+Systems Innovation Initiative, these strategies foster shared resources, professional camaraderie,
+
+and collaborative decision-making, making rural practice more sustainable and appealing.
+
+   Long-term success depends on building a strong pipeline of future providers. This initiative
+
+will support career pathway development beginning in high school, helping students in rural
+
+areas envision themselves in health care roles and understand how to get there. Strategic, place-
+
+based programs, otherwise known as “Grow Your Own” models, will help to build a sustainable
+
+pipeline of local talent by recruiting, training, and retaining community members. Fellowships
+
+and residencies with tracks in rural communities will provide early-career providers hands-on
+
+training and exposure, increasing the likelihood they will remain in those communities beyond
+
+their five-year commitment. Priority areas for these investments include family medicine,
+
+obstetrics, behavioral health, and oral health.
+
+
+
+                                                                                  Version 12.12.25 - 28
+   Together, these immediate, medium-, and long-term strategies will drive innovative
+
+transformation and sustainability in Oregon’s rural health care workforce. By investing in a
+
+workforce capable of delivering both in-person and virtual care tailored to local needs, this
+
+initiative ensures that rural and frontier communities are not only equipped but also empowered
+
+to meet their evolving health care needs, now and into the future.
+
+Uses of funds:
+
+   •   Invest in development of rural track residencies/fellowships in high-demand specialties
+
+       including but not limited to family medicine, surgery, obstetrics, psychiatry and dentistry.
+
+   •   Expand workforce training activities. Allocate resources to rural provider training
+
+       through activities such as virtual education for surgical care and mobile simulation units.
+
+   •   Expand investment in tele-mentoring through Project ECHO, including continuing
+
+       education offerings in nutrition and lifestyle medicine, as well as tele-mentoring and
+
+       provider trainings in areas of critical need (e.g., obstetrical care, behavioral health,
+
+       dementia, gerontology, and pharmacy dispensing, counseling, and adherence support).
+
+   •   Establish new or expand provider-to-provider consultation lines to rural regions to
+
+       provide clinical and prescribing guidance for complex patients, such as 1) obstetric
+
+       patients in need of SUD treatment to prevent unnecessary transfer to higher level of care;
+
+       2) complex pediatric patients for children with special health care needs; or 3) child and
+
+       adult psychiatric consultation (such as OPAL-K).
+
+   •   Investment in rural K-12 health care workforce pathway programs through camps, career
+
+       coaching, internships and job shadowing opportunities to expose and encourage students
+
+       to pursue health careers in rural communities.
+
+
+
+
+                                                                                 Version 12.12.25 - 29
+   •   Support expansion of EMS training, certification pathways, models that incentivize
+
+       providers, and simulation exercises in rural communities to equip paramedics, EMT’s and
+
+       other first responders.
+
+   •   Support short-term housing solutions for rural training rotations. Collaborate with
+
+       partners and the private sector to provide career networking for spouses/partners, housing
+
+       search assistance, flexible childcare options and other family-based programs to ensure
+
+       providers can pursue professional and family goals without compromise.
+
+   •   Invest in training, certification, and integration of non-physician health care providers,
+
+       non-hospital-based providers, and allied health professionals, such as birth doulas and
+
+       end-of-life doulas, and develop sustainable payment models for Traditional Health
+
+       Workers (THWs) across the continuum of care and lifespan. xl   39F
+
+
+
+
+   •   Invest in workforce training programs for rural behavioral health providers, such as
+
+       qualified professional counselors, marriage and family therapists, and clinical social
+
+       workers, with supervision practicum opportunities in coordination with local health
+
+       clinics, hospitals, higher education, technical/career education partners, and community
+
+       organizations.
+
+Key Stakeholders: See Appendix Table 4 for full list.
+
+Outcomes:
+
+  1. Increase # of rural providers and partner organizations participating in workforce training
+
+    programs
+
+  2. Increase # of rural providers recruited to deliver health care in rural areas through local
+
+    partnerships and relocation and retention incentives by county
+
+  3. Increase health care career pathway programs in rural K-12 schools
+
+
+                                                                                Version 12.12.25 - 30
+  4. Increased hiring, training, and use of non-physician, non-hospital, and allied health
+
+    professionals
+
+Oregon’s Metrics and Evaluation Plan (page 49) provides additional details.
+
+Impacted counties: This initiative will impact all counties in Oregon. See Appendix Table 5 for
+
+the list of FIPS codes.
+
+Estimated required funding: $30,000,000 - $45,000,000 / year
+
+Technology & Data Modernization Initiative
+
+Main strategic goals: Tech Innovation, Sustainable Access
+
+Uses of funds: D, F, G, K
+
+Technical score factors: C.1, F.1, F.2
+
+Description: The Technology & Data Modernization Initiative will transform Oregon’s rural
+
+health communities through investments for enhanced technological approaches and solutions to
+
+ensure digital access to and secure sharing of health information, reduced administrative
+
+complexity and burden, and better communication and coordination across providers, patients,
+
+and systems. Rural entities across the health care ecosystem including providers, hospitals,
+
+organizations serving the American Indian/Alaska Native (AI/AN) population, EMS agencies,
+
+behavioral health providers, and community-based organizations lack the resources to purchase,
+
+upgrade, or replace equipment and technology that is necessary to provide quality care to their
+
+patients and community. They also may not have robust health information technology (IT) staff
+
+with the expertise to support the selection, implementation, maintenance, and enhancement of
+
+technology solutions. This initiative focuses on support for providers and rural communities to
+
+invest thoughtfully in technologies that meet their needs and technical assistance to maximize the
+
+
+
+
+                                                                              Version 12.12.25 - 31
+value of technology investments. These investments will improve efficiency, have a long-term
+
+financial benefit to organizations, and improve patient outcomes.
+
+   This initiative emphasizes the use of innovative tech-enabled solutions to improve patient
+
+engagement, service delivery, care coordination, population health management, interoperability,
+
+and data sharing particularly in high-need areas such as:
+
+   •   Perinatal and maternal health
+
+   •   Mental health and SUD treatment
+
+   •   Referral to social health services and other community-based organizations
+
+   •   Primary care settings
+
+   •   Emergency response
+
+   Projects prioritized for funding under this initiative aim to bridge data silos, support real-time
+
+decision-making, and ensure that rural providers have access to the tools and information needed
+
+to deliver high-quality, coordinated care. For patients, these projects will improve their access to
+
+their health information through easy-to-use digital tools and to quality care in their communities
+
+that promotes preventative health and addresses root causes of disease.
+
+Uses of funds:
+
+   •   Support the design, deployment, and/or enhancement of IT systems, software, data
+
+       sharing, or data analytics infrastructure, such as:
+
+       o   Remote care infrastructure and technology supporting the provision of remote patient
+
+           monitoring and telehealth services, such as tablets, audio visual equipment, and
+
+           kiosks and associated clinical solutions.
+
+       o   AI-enabled tech solutions such as clinical AI scribes, clinical decision support tools,
+
+           and analytics tools for population health management.
+
+
+
+                                                                                Version 12.12.25 - 32
+    o   Solutions to streamline admin processes like billing or practitioner credentialing.
+
+    o   Community information exchange (CIE) and closed-loop referrals technology to
+
+        streamline care coordination by sharing resources, making referrals, and ensuring the
+
+        completion of the referral process that help with coordinating amongst stakeholders
+
+        and/or population health management.
+
+    o   Enhance cybersecurity capability (e.g., via managed security service provider).
+
+    o   Tools and/or functionality to facilitate electronic lab ordering and reporting, and
+
+        electronic case reporting.
+
+    o   Procurement or modification to IT infrastructure or data platforms to support rural
+
+        community data capacity, including ASTP/ONC certified electronic health records
+
+        (EHRs), and connection to standards-based health information exchange in alignment
+
+        with CMS’s Health Technology Ecosystem criteria.
+
+•   Centralized strategic technical assistance and training for all phases of health IT
+
+    technology implementation and operations for rural providers and organizations,
+
+    including:
+
+    o   Supporting the selection, implementation, maintenance, and enhancement of
+
+        technology solutions (e.g., effectively adopting new tech-enabled solutions).
+
+    o   Advancing and maintaining their technology infrastructure.
+
+    o   Legal and regulatory issues concerning the implementation of technology projects.
+
+    o   Data projects and building rural capacity to collect, analyze, and disseminate data,
+
+        including technical assistance on procurement or modification of IT infrastructure
+
+    o Rural health IT landscape needs assessments, including cybersecurity and availability
+
+        of broadband internet service.
+
+
+
+                                                                            Version 12.12.25 - 33
+Key Stakeholders: See Appendix Table 4 for full list.
+
+Outcomes:
+
+  1. Robust engagement with IT technical assistance
+
+  2. Increase health IT adoption and interoperability
+
+  3. Reduce administrative burden on providers
+
+  4. Improve organizational cybersecurity practices
+
+  5. Increased use of remote care services and remote patient monitoring to prevent and manage
+
+    chronic disease and reduce hospital admittance
+
+Oregon’s Metrics and Evaluation Plan (page 49) provides additional details.
+
+Impacted counties: This initiative will impact all counties in Oregon. See Appendix Table 5 for
+
+the list of FIPS codes.
+
+Estimated required funding: $7,400,000 - $ 35,000,000 / year
+
+Tribal Initiative
+
+Main strategic goals: Make Rural America Healthy Again, Workforce Development,
+
+Sustainable Access, and Tech Innovation
+
+Uses of funds: A, B, C, D, E, F, G, H, J, K
+
+Technical score factors: B.1, C.1, D.1, F.1, F.2, F.3
+
+Description: The Tribal Initiative supports the Nine Federally Recognized Tribes of Oregon
+
+(“the Tribes”) to implement and enhance projects that align with both the RHT Program
+
+requirements and each individual Tribe’s priorities and goals. Some of these goals are also
+
+included in the Oregon Tribal Health Strategic Plan, which guides the Oregon Health Authority’s
+
+(OHA) work with the Tribes. The vision for this initiative is that investments in the Tribes’ health
+
+
+
+
+                                                                              Version 12.12.25 - 34
+care systems, infrastructure, and community-based projects will create long-lasting, sustainable
+
+and measurable impacts on the health of communities throughout rural Oregon.
+
+   OHA has engaged in formal Tribal Consultation with the Tribes regarding the RHT Program
+
+and their inclusion in Oregon’s application. OHA also provided the draft Tribal Initiative
+
+narrative to the Tribes for review, and met with them to receive feedback, which has been
+
+integrated into Oregon’s application. OHA’s Office of Tribal Affairs will continue to lead and
+
+facilitate ongoing discussions with the Tribes to ensure that implementation of the Tribal
+
+Initiative is managed according to the government-to-government relationship with the Tribes
+
+and OHA’s Tribal Consultation and Urban Indian Health Program Confer Policy.
+
+   This initiative honors self-determination, self-governance, and Tribal sovereignty of the
+
+Tribes and recognizes the critical role the Tribes play in transforming rural health care in Oregon.
+
+All nine of the Tribes’ Service Delivery Areas include predominantly rural and/or remote (i.e.
+
+frontier) counties of Oregon, and all of the Tribes operate health centers within their service
+
+delivery areas. Work implemented under this initiative will be directed to these areas per the
+
+requirements of the RHT Program. This initiative follows both state and federal laws in honoring
+
+the government-to-government relationship with the Nine Federally Recognized Tribes. It
+
+acknowledges the Tribes are best positioned to understand the needs of their communities and to
+
+lead the transformation of rural health care for their own Tribal communities, as well as for the
+
+broader communities they serve.
+
+   Each individual Tribe determines its patient population. Therefore, those impacted by this
+
+initiative include enrolled Tribal members; other American Indian/Alaska Native people; often
+
+Tribal employees and their families; and the general population.
+
+Potential uses of funds could include:
+
+
+
+                                                                               Version 12.12.25 - 35
+•   Promoting chronic disease management:
+
+    o   Integration and support for the Diabetes Prevention Program (DPP) to be expanded to
+
+        new rural and remote patient populations. DPP is evidence based and demonstrated
+
+        effective at lowering the risk of diabetes.
+
+•   Paying health care providers:
+
+    o   Payments to health care providers serving rural and remote patient populations for
+
+        providing non-reimbursable care aligned with Oregon’s RHT Plan. Examples include
+
+        cases where services related to care coordination, patient navigation, prevention
+
+        classes, and screening events are not reimbursable.
+
+•   Promote consumer-facing tech for chronic disease management:
+
+    o   Invest in promotion of and access to apps and personal tech tools for managing
+
+        diabetes, cardiovascular conditions, and other chronic diseases through remote and
+
+        personal monitoring, fitness, and other strategies.
+
+•   Recruit and retain clinical workforce in rural/remote areas with 5-year service
+
+    commitments (OHA will require participating Tribes to attest that they will ensure funds
+
+    will only be used toward providers who state their willingness to remain committed to
+
+    serving rural and remote communities for five years):
+
+    o   Start and/or expand a “Grow Your Own” workforce programs for Certified Nursing
+
+        Assistants, CHWs, Peers, Tribal THWs and more.
+
+    o   Expanded implementation of the Community Health Aide Program (CHAP) to rural
+
+        and remote areas by creating and supporting training programs for Dental Health
+
+        Aides, Behavioral Health Aides, and Community Health Aides.
+
+
+
+
+                                                                          Version 12.12.25 - 36
+    o   Implement relocation grants and short-term housing solutions for students, trainees,
+
+        and providers in rural and remote areas.
+
+    o   Develop a provider rotation plan with the Northwest Native American Center of
+
+        Excellence at Oregon Health and Sciences University to promote Tribal clinic
+
+        recruitment.
+
+    o   Invest in expanded training programs for Tribal Certified Alcohol and Drug
+
+        Counselor Cohort, Tribal Certified Prevention Specialist Cohort, and Traditional
+
+        Health Care Practices serving rural and remote patient populations.
+
+•   Provide IT support to improve efficiency, cybersecurity, and patient outcomes:
+
+    o   Invest in electronic health record and telehealth upgrades including at rural and
+
+        remote Tribal health clinics that rely on manual processes.
+
+    o   Implement a dedicated telehealth suite to provide remote behavioral health, chronic
+
+        disease management, and maternal care services.
+
+    o   Upgrade clinic systems for secure data sharing with regional hospitals while
+
+        maintaining Tribal data governance.
+
+    o   Invest in IT supports for a withdrawal management service expansion.
+
+•   Help rural communities right-size delivery systems:
+
+    o   Assess preventive, telehealth and other care needs among rural and remote patient
+
+        populations to identify additional strategies for addressing needs.
+
+•   Expand access to opioid, substance use, and mental health treatment:
+
+    o   Implement a mobile Opioid Treatment program unit for rural and remote patients.
+
+    o   Expand existing Opioid Treatment Program facilities, inpatient residential treatment,
+
+        detox, sober living facilities for behavioral health treatment and recovery.
+
+
+
+                                                                              Version 12.12.25 - 37
+   •   Invest in rural health care facility infrastructure:
+
+       o   Equipment purchases and minor alterations to existing Tribal facilities to expand
+
+           available services and populations served, including:
+
+           ▪   Updating a small facility to provide counseling in a remote area of a reservation.
+
+           ▪   Facility upgrades to support additional exam rooms, prevention clinics, pharmacy,
+
+               behavioral health services and Tribal elder care.
+
+       o   Purchase vehicle(s) and equipment to launch mobile health services in rural and
+
+           remote Tribal service areas, including:
+
+           ▪   Mobile counseling unit and/or mobile primary care unit(s).
+
+           ▪   Starlink or wireless hotspot to allow for access to telehealth services from a
+
+               mobile health unit.
+
+   •   Foster and strengthen strategic partnerships between local and regional partners:
+
+       o   Strengthen regional partnerships to enhance access to primary care, behavioral health,
+
+           and substance use disorder services for rural and remote patient populations.
+
+   •   Train and assist rural hospitals in adopting technology-enabled solutions:
+
+       o   Providing technology technical assistance and expertise to support rural hospitals
+
+           serving patients to develop targeted programs for specific health conditions that
+
+           would use consumer-facing technology.
+
+Key Partners: The entities that will carry out this initiative are the Nine Federally Recognized
+
+Tribes of Oregon:
+
+   •   Burns Paiute Tribe
+
+   •   Confederated Tribes of Coos, Lower Umpqua and Siuslaw Indians
+
+   •   Confederated Tribes of Grand Ronde
+
+
+
+                                                                              Version 12.12.25 - 38
+   •   Confederated Tribes of Siletz Indians
+
+   •   Confederated Tribes of the Umatilla Indian Reservation
+
+   •   Confederated Tribes of Warm Springs
+
+   •   Coquille Indian Tribe
+
+   •   Cow Creek Band of Umpqua Tribe of Indians
+
+   •   Klamath Tribes
+
+   The Tribes will collectively determine, through established government-to-government
+
+processes, which of the Tribes will participate as subgrantees under the Rural Health
+
+Transformation Program. The Tribes may choose to include the Native American Rehabilitation
+
+Association of the Northwest (NARA NW) in implementing this initiative.
+
+Outcomes:
+
+   Oregon is providing the following options for potential outcomes which will be finalized by
+
+the point of award through further consultation with the Tribes. This will include finalization of
+
+associated metrics and milestones for each outcome/metric. The Tribes may collectively choose
+
+from or modify outcomes (and associated metrics) included in this list. This approach honors the
+
+Tribes’ right to self-determination and self-governance and provides time for OHA’s standard
+
+Tribal consultation processes around this type of decision that was not allowed for by the short
+
+application timeline.
+
+Potential Outcomes List:
+
+   1. Increase in healthcare providers recruited to Tribal clinics or access points serving rural
+
+       and remote service delivery areas.
+
+   2. Increase in health care programs serving rural and remote patient populations.
+
+   3. Increase in number of primary care visits at rural and remote Tribal clinics/access points.
+
+
+
+                                                                              Version 12.12.25 - 39
+   4. Increase in rate of individuals screened for behavioral health needs at rural and remote
+
+       Tribal clinics or other access points.
+
+   5. Decreased rates of diabetes/hypertension in rural and remote patient populations.
+
+   6. Increase in telehealth encounters for rural and remote patient populations.
+
+   7. Increase in number of EHR systems that meet the needs of the rural remote patient
+
+       populations
+
+   8. Increase in members of rural and remote patient population participating in chronic
+
+       disease programs.
+
+   9. Increase in provider training sessions held to enhance skillset and services to rural and
+
+       remote patient populations.
+
+   10. Increase in new partnerships established by Tribes to deliver behavioral health services to
+
+       their rural and remote patient populations.
+
+   11. Reduction in social health needs among rural and remote patient populations.
+
+   12. Reduction of emergency room referrals from clinics and other access points serving rural
+
+       and remote patient populations.
+
+   13. Increase in number of patients in rural and remote patient populations with access to
+
+       opioid use disorder treatment.
+
+Impacted counties:
+
+This initiative will be carried out by Nine Federally Recognized Tribes of Oregon within their
+
+Service Delivery Areas. These service delivery areas adhere to county boundaries, and together
+
+represent the following 23 Oregon counties: Benton, Clackamas, Coos, Curry, Deschutes,
+
+Douglas, Harney, Jackson, Jefferson, Josephine, Klamath, Lane, Lincoln, Linn, Marion,
+
+
+
+
+                                                                             Version 12.12.25 - 40
+Multnomah, Polk, Tillamook, Umatilla, Union, Wasco, Washington, and Yamhill. See Appendix
+
+Table 5 for the list of FIPS codes.
+
+Estimated required funding: $20,000,000 / year or 10% of funding
+
+This honors a formal set-aside request made collectively by the Nine Federally Recognized
+
+Tribes of Oregon, as supported by OHA’s Tribal Consultation and Urban Indian Confer Policy,
+
+following state and federal laws that honor the government-to-government relationship with the
+
+Federally Recognized Tribes.
+
+Implementation Plan and Timeline:
+
+Oregon’s RHT Program consists of many different components in different stages of
+
+implementation. The Oregon RHT Program Work Plan, available in the Supporting Documents,
+
+describes the stages and timing of key operational milestones in detail.
+
+Timeline: Oregon’s program will be a two-phase approach to maximize both short- and long-
+
+term success.
+
+PHASE 1 (FY26 – FY27): The initial phase of Oregon’s Rural Health Transformation Plan
+
+focuses on three pathways for fund distribution:
+
+1. Catalyst awards: To ensure that investments and initiatives are community-directed and
+
+   address local needs, this funding method creates a structured framework that drives the state
+
+   forward to achieve its goals while offering a specific menu of possible options to potential
+
+   applicants. All applicants will be expected to apply across initiatives for ready-to-go projects
+
+   that can be implemented within the first two years of the RHT Program, maximizing impact
+
+   of the first budget period and ensuring subgrantees have through the following fiscal year to
+
+   spend awarded funding. Targeted technical assistance will be provided to organizations,
+
+   including those serving the AI/AN population, to support the development of complete,
+
+
+
+                                                                              Version 12.12.25 - 41
+   aligned, and competitive applications the Catalyst Award. In Phase 1, applicants for Catalyst
+
+   Awards would be asked to list up to two potential initiative-based projects or activities that
+
+   are ready-to-go and meet the goals of the program. To further narrow the focus to achieve our
+
+   goals, the initiatives must serve at least one population of focus: 1) maternal and child health,
+
+   2) co-occurring BH conditions (mental health and substance use disorder), 3) individuals
+
+   aging in place, and 4) chronic disease. These populations experience the greatest challenges
+
+   related to access and health and wellness outcomes in rural Oregon. (See Budget Narrative
+
+   and Supporting Document: Work Plan for more info.)
+
+2. Immediate Impact: Simultaneously, the state has identified a select set of aligned
+
+   opportunities, across the initiatives, that ensure funds go out rapidly for immediate impact.
+
+   Examples include team-based care PMPMs, funding of new residency programs, and
+
+   establishing new sites for expansion of successful care delivery models.
+
+3. Regional Sustainability: The state will award a subcontractor(s) to provide facilitation and
+
+   technical assistance to drive towards regional solutions, including advanced Clinically
+
+   Integrated Networks, in preparation for Phase 2 funding. In parallel, the state will provide
+
+   strategic investments to independent rural hospitals and CAHs to stabilize essential services
+
+   and build readiness for Phase 2 regional models focused on resource optimization and
+
+   sustainability.
+
+INITIATIVE ACTIVITY         +     POPULATION OF FOCUS             =     CATALYST AWARD
+
+PHASE 2 (FY28 – FY30): Distribution of funds in Oregon’s second phase will mirror the initial
+
+phase but will incentivize true transformation with increased expectations related to regional
+
+alignment and sustainability.
+
+
+
+
+                                                                              Version 12.12.25 - 42
+   1. Competitive Catalyst awards: Funds will be distributed through a competitive Request
+
+       for Grant Proposals process that incentivizes organizations to apply collectively (e.g., as a
+
+       consortium, as part of a formal agreement, a CIN) or demonstrate significant alignment
+
+       with regional priorities and needs. Those awarded must demonstrate how the funds will
+
+       enable further transformation and sustainability of health care in the region.
+
+   2. Sustained awards: Some Phase 1 projects across all the initiatives that had demonstrated
+
+       significant success and valuable impact but requires additional years of investment to
+
+       ensure completion (e.g., investment in new residency programs and state-sponsored
+
+       Technical Assistance) will continue to be funded.
+
+As part of this work, the program will onboard subcontractors to assist entities with planning and
+
+applying for the Phase 2 Request for Proposals (RFPs). Criteria for subcontractors and
+
+subgrantees include:
+
+   •   Experience with rural health community organizations
+
+   •   Ability to assess organizational capacity to implement the requested tool
+
+   •   Proven ability to scale up to meet need of project
+
+   •   Experience with health IT
+
+   •   TA experience specific to health information technology implementation and strategy
+
+       (e.g., EHR, HIE, CIE, health information sharing, population health tools, telehealth)
+
+   •   Experience with facilitation (e.g. community of practice)
+
+   •   Experience with federal funding mechanisms and compliance with federal requirements
+
+   •   Demonstrated capacity and intent to execute on a sustainability plan
+
+Oregon will select and fund entities’ Phase 2 projects in accordance with the vision outlined in
+
+this RHT Program application. We will prioritize scalable projects that create new or accelerate
+
+
+
+                                                                              Version 12.12.25 - 43
+existing partnerships, reduce overhead, minimize patient travel costs, ensure and expand access
+
+to care, and deploy new technologies that align with the vision of CMS’s Health Technology
+
+Ecosystem initiative. Technical assistance will be provided to ensure the projects succeed and
+
+that technologies are appropriate, scalable, and aligned with rural workflows.
+
+   Legislative or regulatory action related to committed policy actions will be pursued for
+
+completion by the required enactment date (i.e., December 31, 2027, for all but two State policy
+
+actions, B.2 and B.4, which have a deadline of December 31, 2028). Please see Supporting
+
+Document: Work Plan and Legislative or Regulatory Action (page 14) for more detail.
+
+Governance and Project Management Structure:
+
+   The Oregon Health Authority (OHA) will be the lead agency. The statutorily required Rural
+
+Health Coordinating Council, which advises the Oregon Office of Rural Health, will serve as the
+
+RHT Program advisory group for the state. The new Oregon RHT Program will possess the skills
+
+and resources to effectively manage all components of the program. Key personnel will include a
+
+Program Director, a Project Manager, grant and contract analysts, operational staff, data analysts,
+
+budget analysts, and a communications specialist. The communications specialist will lead
+
+efforts to inform the wider community about upcoming funding opportunities, share progress
+
+made with media outlets and Legislators, and coordinate with other government offices such as
+
+the Oregon Department of Human Services. For a complete list of key personnel and function,
+
+see the Budget Narrative.
+
+   In order to fully leverage the RHT Program opportunity, the state will both hire new staff and
+
+engage external partners to manage components of the program. State staff will ensure all
+
+contracting and requests for applications and proposals comply with state procurement
+
+requirements. External partners will assist in administering smaller awards to applicants.
+
+
+
+                                                                              Version 12.12.25 - 44
+External entities will also provide the technical assistance as outlined in other sections of the
+
+Project Narrative. State staff will solicit applications from vendors and choose only those who
+
+are qualified and experienced in the subject matter.
+
+Stakeholder Engagement
+
+   Rural Oregon partners are eager to engage with this work, by bringing innovative solutions
+
+and a commitment to the improvement of their communities. OHA has an ever-growing list of
+
+over 100+ statewide partners that we have met with, collaborated, communicated, or intend to
+
+work with throughout the entirety of the RHT Program. Please see Supporting Documentation:
+
+List of Stakeholders and Engagement Steps for more details.
+
+OHA will manage stakeholder engagement in three ways:
+
+   1. Formal agreements with state-wide trusted organizations, such as the state Office of Rural
+
+       Health, which will provide pathways for ongoing process improvement.
+
+   2. Public discussion, review and insight from Oregon’s Rural Health Coordinating Council.
+
+   3. Direct statewide publications and communications, including surveys, public
+
+       presentations, and other strategies for soliciting ongoing feedback, input and engagement.
+
+In particular, Oregon will utilize existing pathways for communication and engagement,
+
+including websites and meeting forums such as the Oregon Health Policy Board, which is the
+
+policymaking and oversight board of the OHA.
+
+   Pre-award public comment has occurred from August 2025 – October 2025. This step has
+
+involved multiple virtual public forums, meetings with healthcare associations, entities, and rural
+
+health experts, robust survey collection, and a presentation at Oregon’s Rural Health Conference.
+
+Between both public forums and the conference, OHA had over 600+ individuals hear about and
+
+
+
+
+                                                                                Version 12.12.25 - 45
+provide feedback on OHA’s intended initiatives. From that feedback, OHA has modified the
+
+initiatives and Transformation Plan to more directly impact on ready-to-go projects.
+
+   Continuous stakeholder engagement will occur during all five years of the program. During
+
+this time, OHA will support and act as a conduit for stakeholder engagement in two ways:
+
+   1. Continuous Information Sharing – OHA will connect committees/boards/councils, Tribal
+
+       communities, and program subgrantees/subcontractors. Information will flow from each
+
+       of these groups to OHA, who will compile and report out on a quarterly basis. This will
+
+       be through OHA’s website, in-Person/Virtual meetings, and quarterly newsletters. All
+
+       parties will remain up-to-date on subaward process, any major shifts in health, and allow
+
+       OHA to respond to the most important needs.
+
+   2. Rural Health Advisory – OHA will support the continued work of the Rural Health
+
+       Coordinating Council (RHCC). This group consists of healthcare providers, rural
+
+       Oregonians, and rural healthcare leaders. They will act as both OHA’s accountability
+
+       board for appropriate use of RHT Program funds and advise on any gaps for rural and
+
+       frontier communities. The Oregon statute (ORS 442.495) specifies that a number of
+
+       organizations will be represented on the RHCC. These include: Oregon Medical
+
+       Association, Oregon Osteopathic Association, Oregon Nurse Association, State Board of
+
+       Pharmacy, Oregon State EMT Association, Coalition of Local Health Officials, Oregon
+
+       Association for Home Care, Oregon Health & Science University, Hospital Association
+
+       of Oregon, Oregon Dental Association, Oregon Association of Optometry, Oregon
+
+       Association of Physician Associates, and Oregon Association of Naturopathic Physicians.
+
+Nine Federally Recognized Tribes of Oregon:
+
+
+
+
+                                                                             Version 12.12.25 - 46
+   OHA has engaged in formal Tribal Consultation with the Nine Federally Recognized Tribes of
+
+Oregon regarding the Rural Health Transformation Program and the Tribes inclusion in Oregon’s
+
+application. OHA’s Office of Tribal Affairs will continue to lead and facilitate ongoing
+
+discussions with the Tribes to ensure that implementation of the Tribal Initiative is managed
+
+according to the government-to-government relationship with the Tribes and OHA’s Tribal
+
+Consultation and Urban Indian Health Program Confer Policy.
+
+   The OHA Office of Tribal Affairs maintains regular communication with the Tribes, including
+
+monthly meetings with the Tribal Health Directors and staff. OHA will use these existing forums,
+
+formal consultation, and other venues as needed, to communicate with the Tribes regarding RHT
+
+Program implementation and ensuring progress on the Tribal Initiative.
+
+Stakeholder Letters of Support:
+
+   •   Please see Additional Attachments for the Governor’s Endorsement
+
+   •   Please see Supporting Documentation: Letters of Support for letters from the Oregon
+
+       Office of Rural Health, the Oregon Primary Care Association, the Oregon Perinatal
+
+       Collaborative, and the Hospital Association of Oregon.
+
+Engagement Framework:
+
+OHA will act as a nexus and collect feedback and share out with all major partners and
+
+stakeholders. OHA will hold quarterly public forums that coincide with the monthly Rural Health
+
+Coordinating Council (RHCC) meetings. The RHCC will have frequent communication and
+
+information regarding all RHT developments. OHA will also collaborate and inform with
+
+multiple OHA Boards and Committees, State Legislature, Governor’s Office, Tribes, and all
+
+Oregonians through monthly and quarterly communications, such as electronic newsletters,
+
+website updates, and public forums.
+
+
+
+                                                                              Version 12.12.25 - 47
+Collect → Assess → Communicate
+
+– OHA will collect continuous
+
+feedback on the progress of the
+
+program via email, forums,
+
+meetings, and surveys. The agency
+
+will then assess the feedback,
+
+ensuring any gaps in care are noted
+
+and addressed. Finally, the agency
+
+will have frequent modalities to
+
+communicate progress, milestones
+
+and metrics. Through the communications, OHA will be able to continue collecting feedback,
+
+questions and information and ensure the cycle of engagement remains. With some rural and
+
+frontier counties having over 50% of their population enrolled on Medicaid, OHA will
+
+continually work with the Medicaid Advisory Committee, the Beneficiary Advisory Committee
+
+and the OHP Bridge Advisory Committee. These three committees represent multiple patient
+
+perspectives. Furthermore, OHA will provide quarterly updates to Hospital Association of
+
+Oregon, it’s Medicaid Provider Connects newsletters, and establish continuing communication
+
+and information sharing through the public website and virtual public forums.
+
+Table A: Specific Stakeholder Engagement:
+    Stakeholder Group                        RHT Program Communication & Engagement Approach
+State health agency or           OHA Director and Leadership will receive weekly updates via reports, meetings, and
+department of health             internal newsletters.
+                                 Medicaid Director will be informed through OHA leadership updates, meetings, and
+State Medicaid agency
+                                 internal newsletters.
+State Office of Rural Health Will oversee and lead the advisory committee; closely involved in all program work.
+State tribal affairs office or   OHA’s Office of Tribal Affairs and Tribal Affairs Director will receive weekly
+tribal liaison                   meetings, reports, or written updates.
+
+
+
+                                                                                              Version 12.12.25 - 48
+    Stakeholder Group                     RHT Program Communication & Engagement Approach
+                               Communication through existing forums, formal consultation, and other venues to
+Indian health care providers
+                               support program implementation and Tribal Initiative.
+
+
+Metrics and Evaluation Plan
+Oregon’s RHT Program Performance Metrics and Outcomes Plan
+
+   For each initiative, there are at least four specific metrics and outcomes designed to track
+
+progress in a meaningful manner. These metrics are selected based on their relevance to the
+
+initiative’s long-term outcomes, as well as on the feasibility of timely data collection and
+
+analysis. As specified in Table B, at least one metric for each initiative will be measured at the
+
+county level, or similar community level of granularity. For claims-based and state-specific
+
+metrics, existing databases and infrastructure will be leveraged, supplemented with additional
+
+reporting mechanisms to ensure comprehensive tracking. For participant-reported metrics, we
+
+will work with subgrantees and subcontractors to maintain a secure tracking system with
+
+appropriate data fields and require subgrantees to submit regular data to support monitoring and
+
+evaluation efforts.
+
+   In addition to initiative-level metrics and outcomes, we have established a global target to
+
+achieve stronger engagement with primary care in rural areas. This target not only aligns with
+
+CMS’s five strategic goals but also with the specific aims of each initiative. The global target is
+
+intended to anchor the initiatives in Oregon’s RHT vision – that people and communities in rural
+
+Oregon can achieve optimum physical, mental, and social well-being at every life stage. These
+
+initiatives are far more impactful when braided together, tackling rural health care challenges
+
+from multiple angles to ensure both short term success and long-term sustainability. As such, it is
+
+important to identify a shared outcome that formally unifies our efforts and reinforces
+
+accountability across the whole program.
+
+Table B: Initiative Outcomes, Metrics, and Milestones
+                                                                                         Version 12.12.25 - 49
+Initiative: Regional Partnerships & Systems Transformation
+Outcome 1: Reduce operating costs for rural health organizations through shared infrastructure according to
+regional/local needs
+   Metric: Operating margins for CAHs
+   Data Source and Timing: State-specific, Oregon Hospital Financial and Utilization Data, quarterly
+Targets:
+Yr 1: By September 30, 2026, staff will have identified interested partners and defined the regions for regional
+planning discussions to explore the types of shared infrastructure that will have the most transformative impact
+for their communities.
+Yr 2: By September 30, 2027, program staff will launch technical assistance project, which will provide rural
+health care entities with tools to target how best to share infrastructure.
+Yr 3: By September 30, 2028, at least two partnerships will launch and begin sharing infrastructure, services,
+technology, or other resource as identified in the planning efforts.
+Yr 4: By September 30, 2029, at least three additional partnerships will launch and begin sharing infrastructure,
+services, technology, or other resource as identified in the planning efforts.
+Yr 5: By September 30, 2030, at least two additional partnerships will launch and begin sharing infrastructure,
+services, technology, or other resource as identified in the planning efforts.
+Outcome 2: Increase access to high-need or at-risk service lines, such as maternity care
+   Metric: # of patients receiving care from shared resources for at-risk service
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, program staff will allocate a specific dollar amount for strategic investments and
+will possess a rubric by which funds will be awarded.
+Yr 2: By September 30, 2027, a full 12 months of strategic investments will conclude, and staff will re-assess the
+allocated dollar amount and rubric to ensure funds are optimally targeting the desired outcomes.
+Yr 3: By September 30, 2028, and after two years of strategic investments, program staff will launch additional
+technical assistance focusing on sustainability and maintaining or expanding services.
+Yr 4: By September 30, 2029, entities will finalize and begin implementing their sustainability plans.
+Yr 5: By September 30, 2030, at least two entities in different regions will expand access to what was previously
+considered an at-risk service.
+Outcome 3: Increase regional planning efforts focused on shared governance models, including CINs and
+consortiums
+   Metric: # of organizations participating in regional partnerships
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, staff will have identified and engaged at least 50 entities.
+Yr 2: By September 30, 2027, the program will have at least four partnerships identified with either
+memorandums of agreements or terms sheets outlining commitments of the partners involved.
+Yr 3: By September 30, 2028, at least three potential partnerships will be identified, and planning will begin.
+Yr 4: By September 30, 2029, at least three more potential partnerships will be identified, and planning will
+begin.
+Yr 5: By September 30, 2030, at least seven shared governance models, including CINs and consortiums, are
+active and have realized economies of scale or increased profitability.
+Outcome 4: Increase participation in value-based care models
+   Metric: # of organizations participating in value-based care models
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, survey will be administered to partners to assess interest in participating in a VBP.
+Yr 2: By September 30, 2027, interested parties will establish a cross-sector, cross-regional learning
+collaborative, to which VBP-specific technical assistance is provided.
+Yr 3: By September 30, 2028, at least five entities will begin discussions with commercial, CCOs, or other payers
+about launching a new or expanding an existing VBP.
+Yr 4: By September 30, 2029, at least five more entities will begin discussions with commercial, CCOs, or other
+payers about launching a new or expanding an existing VBP
+Yr 5: By September 30, 2030, at least ten entities will be operating under a new or expanded VBP.
+
+                                                                                          Version 12.12.25 - 50
+  Initiative: Healthy Communities & Prevention
+  Outcome 1: Universal access to home visiting services
+     Metric: # of families receiving home visits
+     Data Source and Timing: County-specific, Oregon Family Care Connects data, annual
+  Targets:
+  Yr 1: By September 30, 2026, launch new home visiting programs in 5 rural counties; integrate CHW outreach
+  and care coordination models into 10 rural clinics.
+  Yr 2: By September 30, 2027, launch new home visiting programs in 4 rural counties; integrate CHW outreach
+  and care coordination models into 25 new rural clinics.
+  Yr 3: By September 30, 2028, launch new or expand home visiting programs in 4 counties; integrate CHW
+  outreach and care coordination models into 25 new rural clinics; evaluate program impact, test sustainable
+  funding models.
+  Yr 4: By September 30, 2029, launch new or expand existing home visiting programs in 4 counties; integrate
+  CHW outreach and care coordination models into 20 new rural clinics; evaluate program impact, implement
+  sustainable funding models.
+  Yr 5: By September 30, 2030, ensure there is access to home visiting programs in every Oregon county; integrate
+  CHW outreach and care coordination models in 20 new rural clinics for total of 100 clinics; evaluate program
+  impact, implement sustainable funding models.
+  Outcome 2: Increase availability of mental health and substance use disorder treatment
+     Metric: Follow up after ED visit for MH & SUD (7-day and 30-day rates)
+     Data Source and Timing: State-specific, Oregon Medicaid data for CMS Core (NCQA), annual
+Targets:
+Yr 1: By September 30, 2026, integrate SUD and MH standardized screening tool(s) and early intervention protocol
+into at least 3 schools; increase access to community naloxone in at least 5 rural counties; identify 2-3 EMS
+providers to pilot overdose reversal and buprenorphine initiation in the field for 2027 and 2028 implementation;
+identify strategic investments for improving access to integrated care for dually eligible individuals and/or child and
+youth with complex needs.
+Yr 2: By September 30, 2027, integrate SUD and MH standardized screening tool(s) and early intervention protocol
+into at least 3 additional schools; assess feasibility for telehealth-based ambulatory detox and identify at least 3 sites
+for FY2028; increase access to community naloxone in at least 10 additional rural counties.
+Yr 3: By September 30, 2028, integrate SUD and MH standardized screening tool(s) and early intervention protocol
+into at least 3 additional schools; implement at least 3 telehealth-based ambulatory detox programs; increased
+availability of remote medication assisted treatment in 3 counties and ensure connection to local emergency
+departments; 1-2 EMS providers are piloting initiation of buprenorphine in the field post overdose reversal; invest in
+innovative integrated care models for dually eligible individuals and/or children and youth with complex needs in at
+least 3 rural communities.
+Yr 4: By September 30, 2029, implement at least 3 additional telehealth-based ambulatory detox programs;
+increased availability of remote medication assisted treatment in 5 additional counties.
+Yr 5: By September 30, 2030, finalize expanded partnerships and sustainable funding mechanisms for expanded
+services.
+Outcome 3: Increase patient engagement with new preventative health and/or self-management programs
+   Metric: # of new preventative health or self-management programs in rural Oregon
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, conduct at least 3 chronic disease management trainings for CHWs; launch at least
+one caregiver training through an online self-management platform; launch Brain Health Promotion initiative.
+Yr 2: By September 30, 2027, conduct at least 3 additional chronic disease management trainings for CHWs;
+Partner with at least 5 CBOs or clinics to provide patient facing technology enabled programs to their eligible
+patients/participants; Launch Dementia Care Navigation initiative and/or nutrition and lifestyle medicine programs
+in at least 4 rural community settings.
+Yr 3: By September 30, 2028, Partner with at least 5 additional CBOs or clinics to provide patient facing technology
+enabled programs to their eligible patients/participants; Launch Dementia Care Navigation initiative and/or nutrition
+and lifestyle medicine programs in at least 5 additional rural community settings.
+
+
+                                                                                                Version 12.12.25 - 51
+  Initiative: Healthy Communities & Prevention
+Yr 4: By September 30, 2029, Partner with at least 5 additional CBOs or clinics to provide patient facing technology
+enabled programs to their eligible patients/participants; Launch Dementia Care Navigation initiative and/or nutrition
+and lifestyle medicine programs in at least 5 additional rural community settings.
+Yr 5: By September 30, 2030, Partnerships established with a total of 20 CBOs or clinics to provide patient facing
+technology programs to their eligible patients/participants; New care navigation and/or nutrition and lifestyle
+medicine programs are operating in at least 20 rural community settings.
+Outcome 4: Increase rural populations served by new health care and social health services (i.e., health services)
+   Metric: # of new access points to care
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, increase access to health services in school settings in 3 school districts; identify at
+least 3 clinics that can participate in a mobile care clinic expansion initiative (including oral, perinatal, and/or
+optometry services); direct 15 awards to regional health coalitions in rural and frontier counties for social health
+service projects, including emergency food services and transportation supports.
+Yr 2: By September 30, 2027, increase access to health services in school settings in 4 school districts; provide
+school health service planning and assessment support to at least 3 school districts; support at least 5 critical access
+pharmacies to launch expanded services through lockers, tele-pharmacy, and other technologies; launch mobile
+clinic expansion initiative, including implementation of at least 3 new mobile clinics.
+Yr 3: By September 30, 2028, fund at least one initiative that expands access to care; identified by regional partner
+convenings, in each region; increase access to health services in school settings in at least 3 school districts; support
+at least 10 additional critical access pharmacies to launch expanded services through lockers, tele-pharmacy, and
+other technologies; provide ongoing TA and support for at least 5 mobile clinics.
+Yr 4: By September 30, 2029; assess funded programs and initiatives for effectiveness and potential improvement;
+provide ongoing TA and support for at least 5 mobile clinics; confirm sustainability plans for all currently funded
+initiatives.
+Yr 5: By September 30, 2030, finalize expanded partnerships and funding mechanisms for new health services.
+Outcome 5: Expanded access to health care services, including chronic disease management, through increased
+availability of telehealth
+   Metric: Increased proportion of telehealth encounters
+   Data Source and Timing: County-specific, Claims and encounter data, annual
+Target:
+Yr 1: By September 30, 2026, update telehealth billing guidance and documentation templates; explore expansion of
+additional telehealth service lines for new specialty care types that have limited rural provider networks.
+Yr 2: By September 30, 2027, launch telehealth training for navigators and existing CHWs to be able to support
+patients with limited digital literacy; launch TA and quality improvement learning collaboratives for rural providers
+who are initiating or expanding telehealth services; 4 assessments of internet availability and strength within
+communities (outside of hospitals and schools) are conducted and locations with weak and strong internet access are
+mapped; tele-pharmacy guidelines and regulations mapped and necessary updates determined.
+Yr 3: By September 30, 2028, rural providers and organizations have agreements in place with telehealth service
+providers for provision of critical services such as teletherapy and medication assisted treatment; education on
+telehealth is developed and provided to patients; tele-pharmacy agreements in place.
+Yr 4: By September 30, 2029, appropriate locations for telehealth access points withing communities are selected
+and implementation started; necessary additional agreements to provide rural telehealth services at telehealth access
+points, including physical, behavioral, and oral health, are negotiated with vendors; expanded tele-pharmacy
+provision implemented.
+Yr 5: By September 30, 2030, location for telehealth access points within communities are implemented; 10%
+increase in telehealth visits.
+
+
+ Initiative: Workforce Capacity & Resilience
+ Outcome 1: Increase # of rural providers/partner organizations participating in workforce training programs
+    Metric: # of provider trainings held
+    Data Source and Timing: State-specific, participant-reported, annual
+ Targets:
+
+                                                                                               Version 12.12.25 - 52
+ Initiative: Workforce Capacity & Resilience
+ Yr 1: By September 30, 2026, conduct 15 simulation trainings for at least two specialties; launch one new project
+ ECHO or comparable education programs designed for rural providers; establish one additional peer-to-peer e-
+ consultation line for rural providers.
+ Yr 2: By September 30, 2027, conduct 20 simulation trainings for at least two specialties; launch three new
+ project ECHO or comparable education program for rural providers; expand hours of access to peer-to-peer e-
+ consultation line for rural providers and promote consult line to increase access and availability of resource.
+ Yr 3: By September 30, 2028, maintain at least 20 simulation trainings across two specialties; add additional
+ consultation capacity and incorporate more regional expertise.
+ Yr 4: By September 30, 2029, maintain at least 20 simulation trainings across two specialties; begin transitioning
+ to non RHT Program funding for sustainability of provider consultation service.
+ Yr 5: By September 30, 2030, secure sustainable funding to maintain and expand workforce training programs as
+ needed by communities.
+ Outcome 2: Increase # of providers recruited to deliver health care in rural areas through local partnerships and
+ relocation and retention incentives
+     Metric: Provider-to-population ratio (direct patient care FTE per 100,000 population) in rural areas.
+     Data Source and Timing: County-specific, Oregon Health Care Workforce Reporting Program data, annual
+Targets:
+Yr 1: By September 30, 2026, at least three partners identified to implement rural provider incentive programs;
+identify sponsoring institution for new family medicine residency.
+Yr 2: By September 30, 2027, identified partners distribute provider incentive programs and recruit more providers;
+continue residency program development and apply for accreditation.
+Yr 3: By September 30, 2028, identify at least three additional partners to implement second round of provider
+incentive programs; add core faculty for residency program to aid in recruitment and selection of participants.
+Yr 4: By September 30, 2029, identify three additional partners to distribute provider incentive programs to recruit
+rural providers; first class of residents begin.
+Yr 5: By September 30, 2030, secure sustainable funding to continue workforce training programs as identified by
+community needs; second class of residents begin.
+Outcome 3: Increase health care career pathway programs in rural K-12 schools
+   Metric: # of K-12 health career pathway programs launched
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, establish partnerships between K-12 schools, higher education institutions and health
+care settings such as hospital or clinics; develop project plan and implementation strategy; identify 1 initial sites for
+health care career exploration programs.
+Yr 2: By September 30, 2027, develop one initial K-12 health care career pathway programs in rural community;
+identify 1 additional site for program expansion.
+Yr 3: By September 30, 2028, open one additional K-12 health care career pathway programs in rural communities;
+assess initial program for effectiveness and potential improvement; identify one additional site for program
+expansion and begin identifying long-term sustainable funding through partnerships.
+Yr 4: By September 30, 2029, have a total of at least three K-12 health care career pathway programs with plans to
+scale the program for additional sites as communities need; secure sustainable funding for program continuation and
+expansion.
+Yr 5: By September 30, 2030, have at least three sustainable K-12 health care career pathway programs in rural
+communities.
+Outcome 4: Increased hiring, training, and use of non-physician, non-hospital, and allied health professionals
+   Metric: # of non-physician, non-hospital and allied health professionals recruited to rural areas
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, identify at least 2 partners to coordinate training for non-physician, non-hospital and
+allied health profession in rural areas such as dental hygienists, pharmacy technicians, and traditional health workers
+such as peer support specialists.
+Yr 2: By September 30, 2027, identify at least 2 additional partners to coordinate and administer training for non-
+physician, non-hospital and allied health professionals in rural areas.
+
+
+
+                                                                                               Version 12.12.25 - 53
+ Initiative: Workforce Capacity & Resilience
+Yr 3: By September 30, 2028, expand partnerships to integrate and provide continuing education of non-physician,
+non-hospital and allied health professionals in FQHC’s, RHC’s and other primary care initiatives.
+Yr 4: By September 30, 2029, continued expansion of partnerships to integrate and provide continuing education;
+assess success of initial training programs for effectiveness and potential improvement.
+Yr 5: By September 30, 2030, have sustainable funding for additional trainings and partnerships for long-term
+workforce retention of non-physician, non-hospital and allied health professionals in rural communities.
+
+
+ Initiative: Technology & Data Modernization
+ Outcome 1: Robust engagement in IT technical assistance
+    Metric: % organizations requesting health IT technical assistance that complete health IT and cybersecurity
+    self-assessment
+    Data Source and Timing: State-specific, participant-reported, annual
+ Targets:
+ Yr 1: By September 30, 2026, guidelines and procedure developed for TA deployment and self-assessment
+ support.
+ Yr 2: By September 30, 2027, 30% of organizations requesting health IT technical assistance that complete health
+ IT and cybersecurity self-assessment.
+ Yr 3: By September 30, 2028, 40% of organizations requesting health IT technical assistance that complete health
+ IT and cybersecurity self-assessment.
+ Yr 4: By September 30, 2029, 60% of organizations requesting health IT technical assistance that complete health
+ IT and cybersecurity self-assessment.
+ Yr 5: By September 30, 2030, 75% of organizations requesting health IT technical assistance that complete health
+ IT and cybersecurity self-assessment.
+ Outcome 2: Increase health IT adoption and interoperability
+    Metric: # of tools/capabilities adopted by awardees
+    Data Source and Timing: County-specific, participant-reported, annual
+    Note: Tools/capabilities are counted at the organization level
+Targets:
+  Yr 1: By September 30, 2026, guidelines developed for tool selection.
+  Yr 2: By September 30, 2027, 5 tools and capabilities adopted.
+  Yr 3: By September 30, 2028, 20 additional tools and capabilities adopted.
+  Yr 4: By September 30, 2029, 25 additional tools and capabilities adopted.
+  Yr 5: By September 30, 2030, 70 total tools and capabilities adopted.
+Outcome 3: Reduce administrative burden on providers
+   Metric: % of organizations adopting a new health IT tool/capability that self
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, develop assessment for self-report and begin baseline data gathering.
+Yr 2: By September 30, 2027, continue baseline data gathering, develop follow-up data gathering protocol.
+Yr 3: By September 30, 2028, 15% of organizations adopt a new health IT tool/capability that self-report
+administrative burden reduction.
+Yr 4: By September 30, 2029, 30% of organizations adopt a new health IT tool/capability that self-report
+administrative burden reduction.
+Yr 5: By September 30, 2030, 40% of organizations adopt a new health IT tool/capability that self-report
+administrative burden reduction.
+Outcome 4: Improve organizational cybersecurity practices
+   Metric: % of organizations completing a cybersecurity self-assessment implementing measures to improve
+   cybersecurity
+   Data Source and Timing: State-specific, participant-reported, annual
+Targets:
+Yr 1: By September 30, 2026, develop cybersecurity educational materials, including expectations for cybersecurity
+performance goals.
+
+
+
+                                                                                          Version 12.12.25 - 54
+ Initiative: Technology & Data Modernization
+Yr 2: By September 30, 2027, distribute cybersecurity educational materials and provide TA to support
+implementation.
+Yr 3: By September 30, 2028, 10% of organizations completing a cybersecurity self-assessment implementing
+measures to improve cybersecurity.
+Yr 4: By September 30, 2029, 20% of organizations completing a cybersecurity self-assessment implementing
+measures to improve cybersecurity.
+Yr 5: By September 30, 2030, 40% of organizations completing a cybersecurity self-assessment implementing
+measures to improve cybersecurity.
+Outcome 5: Increased use of remote care services and remote patient monitoring to prevent and manage chronic
+disease and reduce hospital admittance
+Metric: % increase in providers using remote patient monitoring
+  Data Source and Timing: State-specific, claims data, annual
+Targets:
+Yr 1: By September 30, 2026, assess current utilization of remote patient monitoring.
+Yr 2: By September 30, 2027, provide technical assistance for providers on the use of remote patient monitoring.
+Yr 3: By September 30, 2028, 20% increase in providers using remote patient monitoring.
+Yr 4: By September 30, 2029, 30% increase in providers using remote patient monitoring.
+Yr 5: By September 30, 2030, 40% increase in providers using remote patient monitoring.
+   For the Tribal Initiative, Oregon has a list of options for potential metrics that will be finalized
+
+prior to Notice of Award through further consultation with the Tribes. This will include
+
+finalization of proposed annual milestones and confirmation of data sources/systems for each
+
+selected metric as well as baseline data when available. The Tribes may collectively choose from
+
+or modify metrics included in this list, which align with the potential outcomes identified in the
+
+Tribal Initiative. This approach honors the Tribes’ right to self-determination and self-governance
+
+and provides time for OHA’s standard Tribal consultation processes.
+
+Evaluation Plan
+
+   To ensure the integrity, effectiveness, and accountability of our RHT Program, we are
+
+committed to a sound and collaborative evaluation strategy that ensures the success of all five
+
+initiatives. This includes leveraging evaluation experts at OHA and coordinating with trusted
+
+partners that have proven track records of supporting the state in previous program
+
+implementation and evaluations.
+
+   Our phased approach is intentionally designed to support early, active monitoring while
+
+identifying preliminary successes and opportunities to support continuous improvement. We will
+
+
+                                                                                           Version 12.12.25 - 55
+work closely with partners to develop a rigorous and tailored evaluation plan for each initiative
+
+focused on measuring the impact of initiative activities based on all identified milestones and
+
+metrics. Robust reporting will be required of subgrantees and subcontractors to collect and
+
+analyze data that ensures fidelity in program activities. Phase 2 would build on Phase 1 by
+
+implementing the evaluation plan and by continuing to assess progress not only with the
+
+program’s milestones but towards its intended long-term outcomes.
+
+   We affirm our full cooperation with any CMS-led evaluation or monitoring activities. We
+
+recognize the importance of aligning with federal oversight and contributing to the broader
+
+learning and evidence-base for rural health care transformation.
+
+Sustainability Plan
+
+   Oregon is committed to the health of its rural communities and ensuring that the investments
+
+made through this initiative will lead to lasting, self-sustaining improvements in rural health care
+
+delivery, access, and health outcomes. Just as sustainability is a top priority to ensure lasting
+
+impact of program funds beyond FY2031, avoiding a “funding cliff” or unplanned ongoing costs
+
+to our partners is equally important. Since certain activities eligible under the RHT Program and
+
+proposed initiatives may involve ongoing operating expenses, each initiative includes its own
+
+sustainability considerations and pathways. Together, these will build on each other’s strengths
+
+and operate in a reinforcing, self-sustaining manner.
+
+   Regional Partnerships & Systems Transformation: Through strategic investments and cross-
+
+sector partnerships – the primary focus of this initiative – we will enhance care coordination and
+
+referral pathways, reduce administrative overhead, and improve operational efficiency. Technical
+
+assistance for value-based payment participation; learning collaboratives for community-
+
+identified issues such as data governance; and convenings focused on regional healthcare issues
+
+
+
+                                                                                Version 12.12.25 - 56
+such as maternity care are time-limited programs. Their goal is to accelerate concerted planning
+
+and implementation of regional solutions that will reduce costs for entire health systems with
+
+improved operational efficiency, utilization, and health outcomes. These regional planning
+
+efforts will also strengthen relationships among rural providers, hospital systems, and clinics,
+
+fostering a network built on shared accountability and success.
+
+   RHT Program funds will cover the costs of programs or activities that require targeted upfront
+
+investment, agreements, and coordination in order to unlock network effects that will facilitate
+
+rural facility cost efficiency and can be self-sustaining after the end of the program. For instance,
+
+the State is committed to supporting regional networks and partnerships that implement shared
+
+services, including centralized credentialing and value-based purchasing, as we know part of
+
+controlling healthcare costs is finding more cost-effective, collaborative ways to deliver services.
+
+Clinically Integrated Networks (CINs) are a key mechanism for achieving these goals. We
+
+understand that CINs require both start-up funding and ongoing financial commitments, such as
+
+membership dues. Through these partnerships, entities can reduce input costs such as electronic
+
+health record HER) systems, health care supplies, and administrative costs. It is expected that
+
+RHT Program funding will enable CIN implementation with entities realizing cost-savings that
+
+can be reinvested after the program is done.
+
+   This initiative will also increase participation in value-based payment models, building a
+
+healthcare cost environment where more providers are reimbursed for delivering high-quality,
+
+low-cost care. This care is supported by enhanced workforce skills, improved system
+
+infrastructure, next-generation technology, shared delivery strategies, strong regional
+
+collaboration, and other key drivers of cost-efficiency found across the initiatives. These efforts
+
+
+
+
+                                                                                Version 12.12.25 - 57
+allow providers to benefit from shared savings over the long-haul and ultimately reduce the total
+
+cost of care within rural healthcare systems.
+
+   Healthy Communities & Prevention Initiative: By incentivizing preventive care, health
+
+promotion, and community-based chronic disease management programs in this initiative,
+
+Oregon will improve population health outcomes and reduce expensive costs associated with
+
+unnecessary hospital utilization. One-time costs for technology tools and mobile vans funded
+
+through the RHT Program will be absorbed by organizations utilizing these resources to expand
+
+access to essential care. These investments are expected to generate additional reimbursement
+
+revenue by enabling providers to see more patients and improve population health outcomes for
+
+years to come. Furthermore, mobile health units, mobile simulation units, and investment in
+
+allied health professionals and CHWs will increase the capacity and skills of local care teams,
+
+preventing high-cost transfers and traveling long distances for care.
+
+   Community-based prevention programs under this initiative are designed to be locally-driven
+
+and self-sustaining. For instance, this initiative supports programs that improve the capacity of
+
+schools and organizations to respond to co-occurring behavioral health needs and increase access
+
+through teletherapy and other community-based programs. By investing in locally developed
+
+networks, these programs can transition smoothly beyond initial funding and remain under local
+
+ownership. County governments, healthcare providers, local health departments, schools, and
+
+other partners are positioned to maintain successful programs that deliver preventative health
+
+benefits, reduce reliance on costly tertiary care services, and generate cost offsets through
+
+primary care-driven strategies.
+
+   Workforce Capacity & Resilience Initiative: Investing in a stable, skilled, and scalable
+
+healthcare workforce is one of the most effective ways to achieve long-term returns-on-
+
+
+
+                                                                               Version 12.12.25 - 58
+investment (ROI). Activities under this initiative are designed to complement each other, driving
+
+better planning and engagement from partners involved in the continuum of healthcare training,
+
+recruitment, and retention.
+
+   Time-limited efforts such as providing financial support for recent grads and other early
+
+education programs are intended to jumpstart educational pathway programs in rural
+
+communities where they may currently be lacking or under resourced. Investments in rural K-12
+
+health care pathway programs will support the economic vitality of these communities and create
+
+generative conditions for a locally sourced workforce.
+
+   Clinical training and upskilling opportunities will ensure that new entrants can train and
+
+practice at the top of their licenses, which will lead to increased rural provider supply and access
+
+over the long haul. There is immense value generation in building rural residency programs that
+
+are eligible for Medicare reimbursement; not only do they create a stable pipeline of providers,
+
+but they also lead to transformation of local health systems, making them more self-sufficient
+
+and resilient.
+
+   Workforce retention and recruitment initiatives will be supported through investments in
+
+advanced tech-enabled solutions, including telehealth, RPM, cloud-based EHRs, tele-mentoring,
+
+and emerging applications of AI. These technologies will transform the way care is delivered,
+
+increasing timeliness, reducing costs, expanding access, and improving patient outcomes. Many
+
+services, such as care coordination and referrals, that can be streamlined or enhanced by
+
+technology platforms will be eligible for reimbursement under Medicaid and other public payer
+
+models. Additionally, health care entities with expanded capacity due to workforce investments
+
+will be able to bill for more services, thereby increasing the entity’s revenue and strengthening
+
+their financial position.
+
+
+
+                                                                               Version 12.12.25 - 59
+   Together, these activities are expected to lower staffing costs long-term by reducing turnover
+
+rates and costly alternatives like temporary staffing; improve quality of care and health
+
+outcomes; and produce operational efficiencies which drive financial health. Ongoing operating
+
+costs for programs that show demonstrated success will transition to school and employer
+
+support and can be sustained through other strategies, including ROI factors such as improved
+
+productivity, existing reimbursement sources for GME residency, and leveraging state policy to
+
+integrate fruitful programs.
+
+   Technology & Data Modernization: This initiative underscores the immense potential of
+
+digital technologies and modernization to drive improved health outcomes and operational
+
+efficiency. For activities leveraging technology services that may require perpetual operational
+
+expenses, healthcare providers are expected to demonstrate how the technology solution will
+
+realize its full value. This includes showing how the technology combines with other investments
+
+to generate measurable impact, including cost-savings and new revenue generation. The state
+
+does not plan to directly purchase technologies that will require perpetual operating expenses.
+
+   For example, if a clinic is awarded funds to upgrade its electronic health record (EHR) and
+
+implement a telehealth platform, they will be expected to project their future cost savings and
+
+new or increased revenue to demonstrate potential ROI. The clinic may show that automated
+
+scheduling, billing, and streamlined reporting processes enabled by the EHR upgrade will save a
+
+portion of admin staff FTE currently handling these processes. Or, the telehealth platform may
+
+increase access to appointments and reduce no-shows, resulting in ongoing savings. In both
+
+instances, technology investments provide new or increased revenue streams. A modern EHR
+
+might alternatively or additionally improve coding accuracy by prompting better documentation,
+
+
+
+
+                                                                              Version 12.12.25 - 60
+increasing reimbursement rates. Across the board, telehealth expansion will enable expanded
+
+billing for remote visits not previously offered or reimbursed by rural health clinics.
+
+   Ultimately, projected ROIs will need to be documented prior to receiving funding.
+
+Subgrantees must develop a business case(s) projecting ROI for projects involving digital
+
+technologies. Subgrantees may also provide a cost-benefit analysis in their final reports and/or
+
+data dashboards showing real-time savings and revenue growth during the funding period.
+
+Tribal Initiative:
+
+   Projects funded under the Tribal Initiative are designed to set Tribes up for long-term success
+
+by launching work that can continue beyond Year 5 without significant additional investment.
+
+This initiative will support improved infrastructure and systems that can be sustained through
+
+existing Tribal healthcare resources. It will also fund changes that create or enhance revenue
+
+pathways to maintain services post-funding. Training and retention structures will empower
+
+Tribal health programs to fill permanent health workforce roles, reducing reliance on short-term
+
+contracts and creating more stable and responsive healthcare systems.
+
+   Sustainability strategies under this initiative include building Medicaid billing and
+
+reimbursement capacity without supplanting other funding sources. Paired with staff training and
+
+development, system improvements may include payer enrollment and credentialing, EHR
+
+configuration for claims, and enhanced revenue-cycle workflows. These efforts will establish
+
+durable revenue pathways beyond RHT Program funding and align with CMS’s priorities around
+
+IT modernization, interoperability, and workforce development. OHA will continue to work with
+
+Tribal representatives to ensure that their sustainability plans, including the type of
+
+documentation and reporting needed to meet program milestones and targets, are developed in a
+
+way that honors our government-to-government relationship.
+
+
+
+                                                                                Version 12.12.25 - 61
+   For Phase 1, the selection of entities and activities to fund across the four non-Tribal
+
+initiatives will include an assessment of the strength and sustainability of applicants’ goals and
+
+strategic plans. OHA will evaluate each organization’s capacity to continue necessary operations
+
+beyond the life of the program, including whether the proposed activity is likely to generate ROI
+
+that could eventually offset the program’s operational costs. Community organizations and
+
+healthcare providers applying for funding will be required to submit a narrative outlining their
+
+phase-out strategy and, when relevant, ROI targets. This requirement ensures that funded
+
+activities are designed with accountability, long-term impact, and sustainability in mind, and
+
+allows OHA staff to collaborate with organizations to develop, evaluate, and maintain the gains
+
+of successful programs beyond the conclusion of the RHT Program.
+
+   In Phase 2, grantees will be required to submit a robust sustainability plan as part of their
+
+Competitive Catalyst application. This plan must describe how the group of organizations will
+
+continue to operate at least five years beyond the end of funding. By coupling transformative
+
+investments with clear accountability, our sustainability approach creates both a strong program
+
+on-ramp and a sound financial off-ramp, focused on reinvesting generated savings to support
+
+continued operations before and FY2031. Sustainability is embedded in every aspect of our
+
+proposal—from workforce and technology to prevention and reimbursement—because we are
+
+building a model designed to support and sustain healthy communities in rural areas long after
+
+the Rural Health Transformation Program concludes.
+
+
+
+
+                                                                                Version 12.12.25 - 62
+Appendix
+Table 1: Select Social Characteristics in Oregon by Geography, avg 2018-2022
+                                                                                       Rural        Urban
+ Population below Poverty Level ($24,526 per year for 2 adults/1 child <18 in 2023)    12.6%        11.6%
+ Population below 200% of Poverty Level                                               31.90%        26.2%
+ Population 16+ Unemployed                                                             5.8%          5.4%
+ Population with no health insurance coverage                                            7%          6.3%
+ Adults aged ≥ 25 years with any postsecondary credential                               43%          57%
+Source: American Community Survey, U.S. Census, avg 2018-2022
+
+Table 2: Median Household Income in Oregon by County, 2023
+           Urban Counties Tend to Have Higher Household lncome, 2023 Oregon = $80,061
+       County         Median           County          Median          County           Median
+                     Household                       Household                        Household
+                      Income                           Income                           Income
+Washington County $103,486      Marion County       $73,210     Josephine County   $61,575
+CIackamas County    $100,376    Sherman County      $73,123     Coos County        $61,386
+Deschutes County    $95,414     Jackson County      $71,030     Wallowa County     $61,173
+Yamhill County      $86,887     Linn County         $70,242     Grant County       $61,024
+Multnomah County    $83,290     Lane County         $70,065     Douglas County     $60,296
+Columbia County     $81,463     Tillamook County    $68,717     Baker County       $59,123
+Morrow County       $80,508     Jefferson County    $68,419     Harney County      $56,649
+Polk County         $79,970     Wasco County        $65,701     Lake County        $56,518
+Hood River County   $79,092     Clatsop County      $65,160     Curry Gounty       $55,238
+Benton County       $74,800     Union County        $63,524     Klamath County     $54,630
+Gilliam County      $74,010     Umatilla County     $62,890     Malheur County     $53,762
+Crook County        $73,421     Lincoln County      $61,603     Wheeler County     $46,315
+                                = denotes Urban County
+Source: Oregon Employment Department, U.S. Census Bureau, Small Area Income and Poverty Estimates
+
+Table 3: Causes of Death Rates per 100,000 by Geography, avg. 2018-2022
+                                 Frontier   Rural   Urban   Oregon
+ Cancer                          242.4      244.7   167.5   193.5
+ Heart Disease                   265.5      222.1   146.9   173.4
+ Unintended Injuries             76.7       71.2    54.1    61
+ Cerebrovascular Disease         62.9       62.7    47.6    52.8
+ Alzheimer’s                     47.2       48.4    45.2    46.3
+ Chronic Lower Resp. Disease     75.1       66.7    35.5    46.1
+ Diabetes                        39         39.3    27.3    31.4
+ Alcohol Induced                 24.3       32.3    22.3    25.7
+ Suicide                         25         24.7    17.8    20.3
+ Hypertension                    21.9       19.4    13.7    15.7
+Source: Oregon Office of Rural Health and OHA Public Health Division (2018-2022 average per year)
+
+
+
+
+                                                                                      Version 12.12.25 - 63
+Table 4: List of Stakeholders
+Initiative       Key Stakeholders
+Regional         Rural health systems, rural hospitals, and rural health clinics; Critical Access Hospitals (CAHs);
+Partnerships &   Federally Qualified Health Centers (FQHCs); Organizations providing emergency medical
+System           services (EMS); Certified Community Behavioral Centers (CCBHCs); Local Mental Health
+Transformation   Authority/Community MH Program; County public health departments; Community based
+Initiative       organizations; Statewide Perinatal Quality Collaborative; Education service districts (ESDs);
+                 Early Learning hubs; Oregon Office of Rural Health (ORH); Coordinated Care Organizations;
+                 Organizations serving the American Indian /Alaska Native population; Rural educational entities
+                 such as high schools, community colleges and more
+Healthy          Community clinics: FQHCs, RHCs, SBHCs; Local Public Health Authorities; Education Service
+Communities &    Districts; Schools; Faith communities; Community Based Organizations; Residential Treatment
+Prevention       Facilities; CCBHCs; Pharmacies; Oregon Department of Human Services: Aging & Disability
+Initiative       Services; Child Welfare; Intellectual & Developmental Disabilities
+
+Workforce        FQHCs; Primary Care Clinics and RHCs; Organizations serving the AI/AN population; CAHs
+Capacity &       (specifically, but not limited to, those with residency programs, preceptor programs/staff); ORH;
+Resilience       Oregon Primary Care Association (OPCA); Hospital Association of Oregon (HAO); Education
+Initiative       institutions (specifically, but not limited to, those with rural residency programs); Oregon Nurses
+                 Association (ONA); Oregon Dental Association (ODA); Area Health Education Centers
+                 (AHEC); Oregon Community Health Worker Association (ORCHWA); Oregon Council for
+                 Behavioral Health; Higher Education Coordinating Commission (HECC); Oregon Perinatal
+                 Collaborative (OPC); Oregon Health Sciences University (OHSU); Association of Community
+                 Mental Health Programs (AOCMHP); Oregon Workforce Partnerships
+Technology &     ORH; local health departments; school districts and ESDs; Tribal clinics; RHCs and hospitals,
+Data             including FQHCs and CAHs; emergency service agencies; oral health providers and payers;
+Modernization    community-based service organizations; and public-private partnerships (HIT Commons).
+Initiative
+
+
+Table 5: Oregon Counties and FIPS codes
+Name         FIPS code Name          FIPS code Name             FIPS code Name            FIPS code
+Baker        01135845   Douglas      01135849     Lake          01135854    Sherman       01135863
+Benton       01155126   Gilliam      01135850     Lane          01135855    Tillamook     01135864
+Clackamas 01155127      Grant        01135851     Lincoln       01135856    Umatilla      01156673
+Clatsop      01135846   Harney       01135852     Linn          01135857    Union         01164165
+Columbia     01135847   Hood River 01155131       Malheur       01135858    Wallowa       01155135
+Coos         01135848   Jackson      01135853     Marion        01135859    Wasco         01155136
+Crook        01155128   Jefferson    01155132     Morrow        01135860    Washington 01155137
+Curry        01155129   Josephine    01155133     Multnomah 01135861        Wheeler       01135865
+Deschutes 01155130      Klamath      01155134     Polk          01135862    Yamhill       01135866
+
+
+
+
+                                                                                           Version 12.12.25 - 64
+Endnotes
+
+i
+   The Oregon Office of Rural Health (ORH) defines rural as any geographic area that is ten miles or more from a
+population center of 40,000 people or more. Frontier counties are those with six or fewer people per square mile;
+https://www.ohsu.edu/sites/default/files/2025-02/ORH_2024YearEndReport%20-%20FINAL.pdf
+ii
+    The Oregon Office of Rural Health
+iii
+    https://oregonbusinessplan.org/about-the-plan/about-oregons-industry-clusters/; https://www.qualityinfo.org/-
+/made-in-oregon-a-profile-of-the-state-s-manufacturing-sector
+iv
+    https://www.qualityinfo.org/documents/d/guest/growing-demand-and-workforce-needs-in-oregon-s-health-care-
+and-social-assistance-sector
+v
+    https://www.oregon.gov/oha/HPA/HP-HCW/Documents/2025-Health-Care-Workforce-Need-Assessment-report-
+final.pdf
+vi
+    Oregon Behavioral Risk Factors Surveillance System
+vii
+     Ibid
+viii
+      https://mhanational.org/wp-content/uploads/2025/09/State-of-Mental-Health-2025.pdf
+ix
+    https://mhanational.org/wp-content/uploads/2025/09/State-of-Mental-Health-2025.pdf; Oregon Areas of Unmet
+Health Care Needs Report 2025
+x
+   https://mhanational.org/wp-content/uploads/2025/09/State-of-Mental-Health-2025.pdf
+xi
+    Oregon Areas of Unmet Health Care Needs Report defines inadequate prenatal care as care that did not begin until
+the third trimester or consisted of fewer than five prenatal visits.
+xii
+     https://www.marchofdimes.org/peristats/reports/oregon/maternity-care-deserts
+xiii
+      Oregon Annual Trends in Birth & Pregnancy Dashboard
+xiv
+      Radke, S et al (2023) Closure of Labor & Delivery units in rural counties is associated with reduced adequacy of
+prenatal care, even when prenatal care remains available. https://onlinelibrary.wiley.com/doi/full/10.1111/jrh.12758
+xv
+     “Forecasts of Oregon's County Populations by Age and Sex, 2010 - 2050.” Office of Economic Analysis,
+Department of Administrative Services.
+xvi
+     America’s Health Rankings® 2025 Senior Report, United Health Foundation, 2025
+xvii
+      https://www.ohsu.edu/sites/default/files/2025-02/ORH_2024YearEndReport%20-%20FINAL.pdf;
+https://www.oregon.gov/oha/hsd/amh/pages/cmh-programs.aspx
+xviii
+       https://www.ohsu.edu/sites/default/files/2025-02/ORH_2024YearEndReport%20-%20FINAL.pdf
+xix
+      https://oregoncounties.org/road-resources/
+xx
+    Primary Care Services Areas are sub-county units defined by factors such as travel time, ZIP codes, population,
+and community needs and used by the Oregon Office of Rural Health to more accurately measure and represent
+access and use of health care services.
+xxi
+      Oregon 2025 Behavioral Health Talent Assessment Report
+xxii
+      The Oregon All Payers All Claims (APAC) Reporting Program
+xxiii
+       https://www.stroudwater.com/services/rural-health-insights-for-each-state-and-congressional-district/
+xxiv
+       https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/state-of-the-primary-care-workforce-report-
+2024.pdf; https://www.milbank.org/primary-care-scorecard/
+xxv
+      Oregon 2025 Health Care Workforce Need Assessment Report
+xxvi
+       Oregon’s Health care Workforce Committee GME Educational Webinar (April 2025)
+xxvii
+       https://www.opb.org/article/2025/08/19/providence-seaside-hospital-closes-maternity-unit/;
+https://www.opb.org/article/2025/09/16/providence-st-vincent-pediatric-icu-close/
+xxviii
+        Oregon Community Benefit Data (2025) Oregon Health Authority Hospital Reporting Program
+xxix
+       Oregon Medicaid Enrollment Report
+xxx
+      OHA categorizes hospitals by size, distance from another hospital, and reimbursement level. OHA’s Hospital
+Reporting Program primarily uses three hospital type designations: DRG, Type A, and Type B. Type B hospitals are
+small hospitals with 50 or fewer beds that are located within 30 miles of another hospital. Type A are small hospitals
+with 50 or fewer beds that are located more than 30 miles from another hospital. DRG are typically urban hospitals
+that receive standard Medicare Diagnostic Related Group based reimbursement; https://visual-
+data.dhsoha.state.or.us/t/OHA/views/databankdashboardappendix/UtilizationDashboard
+xxxi
+      Oregon Community Benefit Data (2025) Oregon Health Authority Hospital Reporting Program
+xxxii
+      Oregon Community Benefit Data (2025) Oregon Health Authority Hospital Reporting Program
+xxxiii
+       https://oregonperinatalcollaborative.org/wp-content/uploads/2024/Hospital-Report-FINAL-Map-Added-
+5.1.25.pdf
+xxxiv
+       https://ciceroinstitute.org/research/2025-policy-strategies-for-full-practice-authority/
+xxxv
+      Coordinated care organizations (CCOs) are local health plans that serve individuals with the Oregon Health
+Plan, Oregon’s Medicaid program.
+xxxvi
+      Family Connects is an evidence-based model that offers 1-3 home visits from a registered nurse to all families
+with newborns.
+xxxvii
+        https://pmc.ncbi.nlm.nih.gov/articles/PMC11414079/
+xxxviii
+        https://www.arthritis.org/health-wellness/healthy-living/physical-activity/walking/walk-with-ease/wwe-about-
+the-program
+xxxix
+       https://www.ruralhealthinfo.org/toolkits/chronic-disease/2/self-management
+xl
+   In Oregon, Traditional Health Workers are trusted and trained community members who serve as a bridge between
+health systems and communities. They provide health education, care coordination, advocacy, and social support.
+Birth doulas provide emotional, physical, and informational support before, during and after childbirth. End-of-life
+doulas are non-medical companions who support individuals and families through the dying process offering
+emotional, spiritual, and practical care.
+

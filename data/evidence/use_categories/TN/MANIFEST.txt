@@ -1,0 +1,8 @@
+file: 2026-11-24_tn_rhtf_application_full_document.pdf
+source_url: https://www.tn.gov/content/dam/tn/health/TN_RHTF_Application_Full_Document.pdf
+fetched_utc: 2026-11-24T14:55:12Z
+http_status: 200 (third attempt; the first two and two earlier attempts returned HTTP 403 with a 118-byte body, an intermittent block)
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 737864
+sha256: 356d5d017543ea7cd318a6ac6fe7fa5ceb2b9f47408614f45f1badc971dc4663
+

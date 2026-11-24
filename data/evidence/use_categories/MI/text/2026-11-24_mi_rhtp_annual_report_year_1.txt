@@ -1,0 +1,1869 @@
+Michigan Rural Health Transformation Annual Report
+
+Note: MDHHS submitted its Year 1 annual report to the Centers for Medicare & Medicaid Services (CMS) in accordance with applicable
+reporting requirements. CMS has accepted the report as submitted. To support transparency, MDHHS is making the report publicly available
+and sharing it with the Michigan Legislature, with the understanding that certain information may be subject to further review, clariﬁcation,
+or reﬁnement as CMS continues to work with states.
+
+Initiative 1: Transforming Rural Health through Partnerships
+
+         #                                                                         Initiative Name
+
+         1                                                         Transforming Rural Health through Partnerships
+
+                                                                               Narrative
+
+
+    The Transforming Rural Health through Partnerships Initiative builds and formalizes cross-sector partnerships among healthcare providers, public health agencies,
+      community-based organizations, and regional stakeholders to improve access to integrated care in rural communities. The initiative expands coordinated care
+    models, strengthens chronic disease management and preventive services, supports community health worker integration, and leverages data-sharing and referral
+                                   infrastructure to improve health outcomes and long-term sustainability of rural healthcare delivery.
+
+       Budget Period 1 established the foundation for community-driven rural health partnerships focused on chronic disease management, CHW integration, and
+    coordinated care projects. MDHHS allocated approximately $26.0M to this pillar and received 75 LOIs totaling approximately $23.0M by July 2026. One competitive
+      GFO was released for chronic disease programming ($2.5M). Activities focused on standing up regional hubs, strengthening partnerships among FQHCs, rural
+    hospitals, CAHCs, family resource centers, and community-based organizations, and preparing cross-sector networks to improve access to preventive, behavioral
+                                                                health, and chronic disease services.
+
+
+                                                                       Number of People Served
+    Please provide the number of people served                                         0 individuals served, implementation activities not yet started.
+                                                                              Metrics
+         #                                             Metric                                          Current Value                       As of Date
+                       Number of trained and credentialed Rural CHWs through the MiCHWA
+         1                                                                                                   01                           07/31/2026
+                                   cardiovascular health micro-credential track.
+
+
+1
+ Zero values are placeholders and should not be interpreted as conﬁrmed baselines or reported performance. Depending on the measure, the appropriate value may be
+an established baseline, “N/A,” or a value to be determined. Values will be updated as applicable.
+    Number of established Self-Monitored Blood Pressure (SMBP) programs in rural
+2                                                                                        0   07/31/2026
+                                      clinics.
+
+         Number of supported rural clinics or partner organizations (rural sites)
+3       establishing multi-disciplinary hypertension care teams (provider, nurse,        0   07/31/2026
+                                 pharmacist, and CHW).
+
+4       Number of rural counties with telehealth access to diabetes education.           0   07/31/2026
+
+
+5   Number of rural home repairs completed to support chronic disease prevention.        0   07/31/2026
+
+    Percentage of high-risk patients with chronic conditions receiving regular contact
+6                                                                                        0   07/31/2026
+                             from Hubs, CAHCs, and AAAs.
+
+         Number of CHWs trained and employed in Hub partner network in rural
+7                                                                                        0   07/31/2026
+                                  communities.
+
+      Percentage of shared referral and communication pathways between funded
+8      project hub partners. Number of executed referral and information-sharing         0   07/31/2026
+                     agreements between funded project partners.
+
+     Participation in evidence-based preventive and behavioral health programs for
+9                                                                                        0   07/31/2026
+                               children and adolescents.
+Initiative 2: Workforce for Wellness
+
+      #                                                                          Initiative Name
+
+      2                                                                      Workforce for Wellness
+
+                                                                             Narrative
+
+  The Workforce for Wellness Initiative strengthens the rural health workforce through recruitment, training, retention, and workforce development strategies. The
+   initiative supports educational pathways, workforce incentives, provider recruitment and retention efforts, and community health worker capacity building to
+  address workforce shortages and improve access to primary care, behavioral health, maternal health, and other essential healthcare services in rural Michigan.
+
+ Budget Period 1 focused on developing Michigan's rural workforce pipeline through provider recruitment, retention, training, and educational pathway investments.
+     MDHHS allocated approximately $44.7M to this pillar and received 18 LOIs totaling approximately $4.5M by July 2026. Five workforce-related GFOs totaling
+  approximately $34.2M were released, supporting recruitment and retention programs, maternal health workforce development, EMS workforce initiatives, MSW
+    training pathways, and health care career pipelines. Activities emphasized long-term workforce sustainability and addressing shortages in behavioral health,
+                                                          maternal health, EMS, and primary care services.
+
+                                                                    Number of People Served
+ Please provide the number of people served                                         0 individuals served, implementation activities not yet started.
+                                                                           Metrics
+      #                                             Metric                                            Current Value                      As of Date
+      1                Number of enrolled students in postsecondary health programs.                       0                            07/31/2026
+
+      2                       Number of MSWs employed in rural communities.                                0                            07/31/2026
+
+      3                       Number of MSW students placed in rural settings.                             0                            07/31/2026
+
+      4                    Number of provider grants awarded related to workforce.                         0                            07/31/2026
+
+      5               Percentage of counties considered within a maternity care desert.                    0                            07/31/2026
+
+      6           Number of total EMT/Paramedic workforce retained in rural communities.                   0                            07/31/2026
+
+      7          Number of newly licensed MSWs placed in rural behavioral health positions.                0                            07/31/2026
+
+      8                   Number of certified CHWs and CPs trained and employed.                           0                            07/31/2026
+
+      9                 Number of rural providers utilizing the Rural Health Dashboard.                    0                            07/31/2026
+Initiative 3: Interoperability in Action
+
+      #                                                                            Initiative Name
+
+      3                                                                        Interoperability in Action
+
+                                                                               Narrative
+
+ The Interoperability in Action Initiative enhances healthcare data exchange and interoperability across rural Michigan by strengthening health information exchange
+   capabilities, community information exchange infrastructure, telehealth connectivity, and data integration. The initiative supports coordinated care, improved
+  access to information, reduced administrative burden, and expanded technology adoption to improve care delivery, population health management, and patient
+                                                                    outcomes in rural communities.
+
+       Budget Period 1 activities focused on expanding health information exchange, digital infrastructure, and rural provider connectivity. MDHHS allocated
+  approximately $48.8M to this pillar and received 20 LOIs totaling approximately $16.8M by July 2026. No competitive GFOs had been released during this period;
+  implementation primarily occurred through targeted LOIs and interagency partnerships. Activities included planning for interoperability governance, supporting
+   rural provider participation in HIE/CIE systems, modernizing health technology infrastructure, and developing solutions to improve care coordination and data
+                                                                     sharing across rural settings.
+
+                                                                      Number of People Served
+ Please provide the number of people served                                           0 individuals served, implementation activities not yet started.
+                                                                             Metrics
+      #                                              Metric                                                 Current Value                As of Date
+                     Percentage of rural health organizations that have completed a needs
+      1                                                                                                          0                      07/31/2026
+                                                  assessment.
+
+                 Percentage of rural provider organizations reporting satisfaction with health IT
+      2                                                                                                          0                      07/31/2026
+                                  workflows, tools, and technology solutions.
+
+      3                  Percentage of rural providers exchanging data through a HIE.                            0                      07/31/2026
+
+               Percentage of rural providers integrating referral and secure messaging solutions
+      4                                                                                                          0                      07/31/2026
+                     into workflows, standard operating procedures, and/or client care.
+
+               Percentage of rural community members reporting awareness of and satisfaction
+      5                                                                                                          0                      07/31/2026
+                                with local health and social service resources.
+Initiative 4: Care Closer to Home Blueprint
+
+      #                                                                          Initiative Name
+
+      4                                                                   Care Closer to Home Blueprint
+
+                                                                             Narrative
+
+  The Care Closer to Home Initiative expands community-based models of care that allow rural residents to receive services closer to where they live. The initiative
+ promotes home- and community-based care, strengthens provider and community partnerships through hub-and-spoke models, improves transportation access,
+               and expands access to behavioral health services to reduce barriers to care and improve health outcomes across rural communities.
+
+  Budget Period 1 focused on expanding access to services through transportation, behavioral health innovation, aging supports, and hub-and-spoke care delivery
+  models. MDHHS allocated approximately $41.7M to this pillar and received 17 LOIs totaling approximately $18.5M by July 2026. One transportation-related GFO
+    totaling approximately $12.0M was released. Activities emphasized reducing barriers to care, strengthening community-based service delivery, developing
+                     transportation solutions, advancing behavioral health access, and supporting aging-in-place strategies for rural residents.
+
+                                                                     Number of People Served
+ Please provide the number of people served                                          0 individuals served, implementation activities not yet started.
+                                                                            Metrics
+      #                                             Metric                                            Current Value                       As of Date
+               Percentage of patients aged 65+ with a hospital readmission within 30 days due
+      1                                                                                                     0                            07/31/2026
+                                            to medication error.
+
+      2         Number of behavioral health providers per 100,000 residents in rural counties.              0                            07/31/2026
+
+      3            Number of funded projects related to community-based transportation.                     0                            07/31/2026
+
+               Behavioral health-related emergency department visits per 100,000 residents in
+      4                                                                                                     0                            07/31/2026
+                                              rural counties.
+Checkpoint Reporting
+
+
+
+Stage 0 – Planning
+    Checkpoint                                                          Yes/No                      Attachment(s)
+         0.1                           Establish governance               Yes    MI_All_Initiatives_Evidentiary_Documentation.pdf
+         0.2                       Submit project plan to CMS             Yes     MI_1Checkpoint0.2_Project Management Plan
+Stage 1 – Project Preparation
+    Checkpoint                                                          Yes/No                      Attachment(s)
+         1.1                       CMS approval of project plan           Yes    MI_All_Initiatives_Evidentiary_Documentation.pdf
+         1.2                              Launch initiative               Yes    MI_All_Initiatives_Evidentiary_Documentation.pdf
+Stage 2 – Early Implementation
+    Checkpoint                                                          Yes/No                    Attachment(s)
+         2.1                       Continue initiative activities         No
+         2.2               Achieve at least one post-launch milestone     No
+         2.3                 Establish metric reporting methodology       No
+         2.4                   Submit updated project plan to CMS         No
+Stage 3 – Midway Implementation
+    Checkpoint                                                          Yes/No                    Attachment(s)
+         3.1                  CMS approval of updated project plan        No
+         3.2                      Complete Q2 2028 milestones             No
+         3.3                   Report initial metric progress to CMS      No
+Stage 4 – Preparation for Completion
+    Checkpoint                                                          Yes/No                    Attachment(s)
+         4.1                  Share final deliverables plan with CMS      No
+         4.2                 CMS approval of final deliverables plan      No
+         4.3                    Complete post-program planning            No
+Stage 5 – Full Implementation
+    Checkpoint                                                          Yes/No                    Attachment(s)
+         5.1                     Submit final deliverables to CMS         No
+         5.2                      Complete all 2030 milestones            No
+         5.3                 Report updated metric progress to CMS        No
+State Policy Actions
+
+
+
+   Score      Workload Funding Score Factor                                                               Current
+                                                              Baseline                     Commitment               Supporting Evidence
+   Factor               Criterion                                                                         Status
+
+                                                 0 Points: A State does not require
+    B.2.          Presidential Fitness Test         schools to reestablish the            No Commitment
+                                                     Presidential Fitness Test
+
+
+               SNAP Food Restriction Waiver    25 Points: State with active bill in the
+    B.3.                                                                                  No Commitment
+                         Policy                      State legislative process
+
+
+                                                    0 Points: States that have no
+                                                   requirement for nutrition to be
+                                                  included in continuing medical
+                Nutrition Continuing Medical
+    B.4.                                        education (CME) for physicians as         No Commitment
+                          Education
+                                               well as no pending State bill requiring
+                                                nutrition to be included in CME for
+                                                             physicians
+                                                  50 Points: 45-79 score from the
+                                                   Cicero report for States with
+                       Overall CON Score                                                  No Commitment
+                                                  moderate CONs across facility
+                                                             categories
+                CON - Behavioral Outpatient                 Unrestricted                  No Commitment
+
+                 CON - Medical Outpatient                    Restricted                   No Commitment
+    C.3.
+                CON - Behavioral Inpatient                   Restricted                   No Commitment
+
+                        CON - Imaging                        Restricted                   No Commitment
+
+                  CON - Medical Inpatient                    Restricted                   No Commitment
+
+                    CON - Day Services                      Unrestricted                  No Commitment
+       CON - Long-term Care Facilities                  Restricted                  No Commitment
+
+               CON - Ancillaries                        Restricted                  No Commitment
+
+                 CON - Other                           Unrestricted                 No Commitment
+                                             100 Points: IMLC Member State
+         Physician - Medical Licensure
+                                             serving as SPL (State of principal     No Commitment
+                   Compact
+                                                         license)
+
+       Nurse - Nurse Licensure Compact      50 Points: Pending NLC legislation      No Commitment
+
+D.2.                                              0 Points: Not a Member
+             EMS - EMS Compact                                                      No Commitment
+                                                            State
+
+            Psychology - PSYPACT            100 Points: PSYPACT participating       No Commitment
+
+                                           50 Points: Legislation filed to become
+       Physician Assistant - PA Compact                                             No Commitment
+                                                  a PA Compact member
+                                               75 Points: Advanced Scope of
+            PA - Scope of Practice                                                  No Commitment
+                                                          Practice
+
+            NP - Scope of Practice         0 Points: Restricted Scope of Practice   No Commitment
+
+                                           0 Points: 0-3 score from Cicero report
+          Pharmacist - Overall Score                                                No Commitment
+                                             for States with restricted authority
+                                                                                                          0 Points:
+                                                                                     2 Points: Full                    House Bill 5108 of 2025 -
+       Pharmacist - Drug Administration        0 Points: Restricted Authority                            Restricted
+                                                                                       Authority                        Michigan Legislature
+                                                                                                         Authority
+                                                                                                          0 Points:
+D.3.                                                                                                     Restricted
+                                                                                     2 Points: Full                    House Bill 5108 of 2025 -
+           Pharmacist - Lab Testing           1 Point: CLIA-Waived Authority                             Authority
+                                                                                       Authority                        Michigan Legislature
+                                                                                                       (Narrow CLIA-
+                                                                                                        Waived List)
+                                                                                      6 points: Full
+                                                                                        Authority        0 Points:
+          Pharmacist - Independent                                                                                     House Bill 5108 of 2025 -
+                                               0 Points: Restricted Authority        Grounded in a      Restricted
+                Prescribing                                                                                             Michigan Legislature
+                                                                                    Standard of Care    Authority
+                                                                                         Model
+                                            50 Points: Semi Restricted Scope of
+        Dental Hygienist - Overall Score                                            No Commitment
+                                                 Practice (3-5 types tasks)
+        Dental Hygienist - Dental Hygiene
+                                                      Unallowable Task               No Commitment
+                   Diagnosis
+         Dental Hygienist - Prescriptive
+                                                      Unallowable Task               No Commitment
+                    Authority
+
+       Dental Hygienist - Local Anesthesia                  Direct                   No Commitment
+
+        Dental Hygienist - Supervision of
+                                                      Unallowable Task               No Commitment
+               Dental Assistants
+       Dental Hygienist - Direct Medicaid
+                                                        Allowable Task               No Commitment
+                Reimbursement
+       Dental Hygienist - Dental Hygiene
+                                                      Unallowable Task               No Commitment
+              Treatment Planning
+         Dental Hygienist - Provision of
+                                                        Allowable Task               No Commitment
+                   Sealants
+       Dental Hygienist - Direct Access to
+                                                        Allowable Task               No Commitment
+                  Prophylaxis
+
+                                               100 Points: STLDI plans are not
+          Short-term, limited-duration
+E.3.                                          restricted in the State beyond the     No Commitment
+               insurance (STLDI)
+                                                    latest federal guidance
+
+       Medicaid Payment for at Least One
+                                                   100 Points: Reimbursed            No Commitment
+              Form of Live Video
+         Medicaid Payment for Store and
+                                                   100 Points: Reimbursed            No Commitment
+                    Forward
+         Medicaid Payment for Remote
+                                                   100 Points: Reimbursed            No Commitment
+F.1.       Patient Monitoring (RPM)
+         In-State Licensing Requirement
+                                              100 Points: Exceptions are in place    No Commitment
+                     Exception
+
+         Telehealth License/Registration      0 Points: No registration Process in
+                                                                                     No Commitment
+       Process (including special licenses)                  place
+First-Tier Entities
+
+
+
+                                                                                                              Reference Columns
+                                                                                                                                                          Sum of
+                                                                                            Total                           Sum of       Retained                      Net Available
+                                                                         Uncategorized                  Unliquidated                                      Unpaid
+                                                                                          Disbursed                      Downstream      Disbursed                     Unliquidated
+                                                                            Funds                        Obligations                                    Downstream
+          First-Tier                                                                        Funds                       Disbursements      Funds
+                                                                                                                                                       Commitments
+                                                                                                                                                                        Obligations
+           Entity
+                                                          Obligated        Obligated        Sum of                      Sum of Column
+                                                                                                                                                         Sum of
+ Entity (Subrecipient            Entity Type                                                                                                            Column K
+                                                           Funds         Funds – Sum       Disbursed                        J across
+  ID          or                                                                                                                                        across all
+                                                                         of Obligations     Amount       Column E –       second-tier    Column G –                     Column H –
+         Contractor)                                                                                                                                   downstream
+                                                                          assigned on     assigned on    Column G         entities on     Column I                       Column K
+                                                                                                                                                        entities on
+                                                                         Use of Funds        Use of                      Downstream
+                                                                                                                                                       Downstream
+                                                                              tab          Funds tab                     Reporting tab
+                                                                                                                                                       Reporting tab
+        Michigan Health
+   1    & Hospital               Health System           $8,625,000.00       $0.00           $0.00      $8,625,000.00       $0.00           $0.00         $0.00        $8,625,000.00
+        Association
+        Michigan
+        Community            Other Rural Healthcare
+   2                                                     $250,000.00         $0.00           $0.00      $250,000.00         $0.00           $0.00         $0.00        $250,000.00
+        Health Worker         Workforce Training
+        Alliance
+        Access Health       Other Health IT Vendors
+   3                                                     $600,000.00         $0.00           $0.00      $600,000.00         $0.00           $0.00         $0.00        $600,000.00
+        Inc.                or Health IT Consultant
+        American Indian
+   4    Health & Family     Tribal Healthcare Provider   $665,877.00         $0.00           $0.00      $665,877.00         $0.00           $0.00         $0.00        $665,877.00
+        Serv of SE MI INC
+                             Grants Management
+   5    Guidehouse                                       $500,000.00         $0.00           $0.00      $500,000.00         $0.00           $0.00         $0.00        $500,000.00
+                                   Vendor
+        Michigan Public              Other
+   6                                                     $2,696,000.00       $0.00        $552,782.65   $2,143,217.35       $0.00        $552,782.65      $0.00        $2,143,217.35
+        Health Institute    Consulting/Contractor
+Use of Funds
+
+                                                                                                             Reference Columns
+                                                                                                                                                         Sum of
+                                                                                           Total                           Sum of       Retained                      Net Available
+                                                                        Uncategorized                  Unliquidated                                      Unpaid
+                                                                                         Disbursed                      Downstream      Disbursed                     Unliquidated
+                                                                           Funds                        Obligations                                    Downstream
+         First-Tier                                                                        Funds                       Disbursements      Funds
+                                                                                                                                                      Commitments
+                                                                                                                                                                       Obligations
+          Entity
+                                                         Obligated        Obligated        Sum of                      Sum of Column
+                                                                                                                                                        Sum of
+Entity (Subrecipient            Entity Type                                                                                                            Column K
+                                                          Funds         Funds – Sum       Disbursed                        J across
+ ID          or                                                                                                                                        across all
+                                                                        of Obligations     Amount       Column E –       second-tier    Column G –                     Column H –
+        Contractor)                                                                                                                                   downstream
+                                                                         assigned on     assigned on    Column G         entities on     Column I                       Column K
+                                                                                                                                                       entities on
+                                                                        Use of Funds        Use of                      Downstream
+                                                                                                                                                      Downstream
+                                                                             tab          Funds tab                     Reporting tab
+                                                                                                                                                      Reporting tab
+       Michigan Health
+  1    & Hospital               Health System           $8,625,000.00       $0.00           $0.00      $8,625,000.00       $0.00           $0.00         $0.00        $8,625,000.00
+       Association
+       Michigan
+       Community            Other Rural Healthcare
+  2                                                     $250,000.00         $0.00           $0.00      $250,000.00         $0.00           $0.00         $0.00        $250,000.00
+       Health Worker         Workforce Training
+       Alliance
+       Access Health       Other Health IT Vendors
+  3                                                     $600,000.00         $0.00           $0.00      $600,000.00         $0.00           $0.00         $0.00        $600,000.00
+       Inc.                or Health IT Consultant
+       American Indian
+  4    Health & Family     Tribal Healthcare Provider   $665,877.00         $0.00           $0.00      $665,877.00         $0.00           $0.00         $0.00        $665,877.00
+       Serv of SE MI INC
+                            Grants Management
+  5    Guidehouse                                       $500,000.00         $0.00           $0.00      $500,000.00         $0.00           $0.00         $0.00        $500,000.00
+                                  Vendor
+       Michigan Public              Other
+  6                                                     $2,696,000.00       $0.00        $552,782.65   $2,143,217.35       $0.00        $552,782.65      $0.00        $2,143,217.35
+       Health Institute    Consulting/Contractor
+Additional Information
+
+                                                                            Success Stories
+
+                         Please share success stories that you want to highlight as result of your State’s implementation of the RHT Program.
+
+
+  MDHHS advanced from program award to governance establishment, outreach to 252 organizations, 143 executed LOIs totaling $73.5M, release of seven GFOs
+                            totaling $48.7M, and a successful CMS site visit within the first seven months of implementation.
+
+
+
+
+                                                                         Sustainability Planning
+
+           What are the most significant updates or changes to your sustainability plan based on the past year's experiences, successes, and challenges?
+
+
+    Sustainability planning during the reporting period focused on establishing long-term program infrastructure, governance, and financing mechanisms that will
+      support continuity beyond the federal funding period. MDHHS established an Advisory Council, formalized governance structures across MDHHS, MPHI,
+ Guidehouse, Tribal Partners, and other stakeholders, and developed five-year implementation and annual work plans to support long-term program management.
+  The State also structured investments through a combination of Letters of Intent, Grant Funding Opportunities, and Interagency Agreements designed to promote
+ statewide reach, accountability, and long-term partnership development. Technical assistance strategies, program monitoring functions, evaluation activities, and
+                       data infrastructure planning were initiated to support continuous improvement and inform future sustainability decisions.
+
+
+
+
+                                                                            Rural Definition
+
+                    Please provide the definition of 'rural area' that the State used to determine whether subrecipients were considered to be rural.
+
+
+    Michigan defines rural areas to include 75 counties that are either fully rural or partially rural counties as identified by the Federal Office of Rural Health Policy
+ (FORHP) within the Health Resources and Services Administration (HRSA). The program prioritizes counties with high chronic disease prevalence, limited access to
+  hospitals, primary care, OB/GYN, and behavioral health services, high Medicaid dependence, socioeconomic vulnerability, and significant rates of child poverty or
+                                                                            aging populations.
+Rural Health Transformation Program (RHTP) Annual Report
+
+Evidence submitted as: MI_1Checkpoint0.2_Project Management Plan
+
+Checkpoint 0.2: Submit project narrative to CMS
+
+                                                                 Checkpoint Narrative
+
+
+
+
+ The RHTP Project Management Plan serves as the primary tool for organizing, coordinating, and monitoring implementation across each of
+ Michigan’s four RHTP initiatives. The plan translates initiative-level goals into defined stages, projects, and milestones, providing a structured view
+ of the work required to move each initiative from planning through implementation and completion.
+
+ For each milestone, the plan identifies anticipated start and target completion dates to support sequencing, identified in the project narrative by
+ fiscal year. Notes are included as needed to document key considerations, dependencies, decisions, risks, or other information relevant to
+ implementation and ongoing monitoring.
+
+ The plan is intended to be a living management tool and will be updated as implementation progresses, milestones are achieved, timelines or
+ dependencies change, and additional actions are identified. Quarterly review of the plan will support progress monitoring, early identification of
+ implementation risks or delays, coordination across RHTP initiatives, and alignment with overall program objectives and requirements.
+Initiative 1: Transforming Rural Health through Partnerships
+
+ Number    Milestones/Tasks                   Target Start   Target Due Date   Status        Task Owner             Notes
+ Stage 0   Planning
+ CHW & CIE Chronic Disease Monitoring
+                                                                                                                    All Program & Data
+ 0.1       Hire or Assign 1 FTE Analyst.      12/31/2025     03/31/2026        Complete      Program Director       Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+                                                                                                                    Informed by chronic disease
+ 0.2       Identify Pilot Sites.              12/31/2025     03/31/2026        Complete      Program Director
+                                                                                                                    partners.
+           Convene Stakeholders to Design                                                                           Convened chronic disease
+ 0.3       Collaborative Framework and        12/31/2025     03/31/2026        Complete      Program Director       stakeholders through a
+           Workflows.                                                                                               series of virtual meetings.
+ Chronic Disease & Healthy Homes Collaborative
+           Establish Governance/Advisory                                                                            Advisory Council established
+ 0.1                                          12/31/2025     03/31/2026        Complete      Program Director
+           Committees                                                                                               April 2026.
+                                                                                                                    Healthy Homes guidelines
+ 0.2       Develop Program Guidelines         12/31/2025     03/31/2026        Complete      Program Director       were refined and finalized
+                                                                                                                    based on CMS feedback.
+                                                                                             RHTP Advisory
+                                                                               In Progress   Council and Michigan
+ 0.3       Conduct Rural Needs Assessment.    12/31/2025     03/31/2026                                             Assessments ongoing.
+                                                                               - OnTrack     Center for Rural
+                                                                                             Health (MCRH)
+ CHW Medicaid Integration & Billing Support
+           Select Vendor for Resource                                                                               Michigan Center for Rural
+ 0.1                                          12/31/2025     03/31/2026        Complete      Program Director
+           Development.                                                                                             Health (MCRH)
+ Evaluation & Data Management
+                                                                                             Program Director
+                                                                                                                    Guidehouse is the evaluation
+ 0.1       Define Evaluation Framework.       12/31/2025     03/31/2026        Complete      and Evaluation
+                                                                                                                    contractor.
+                                                                                             Contractor
+                                                                                                                    All Program & Data
+ 0.2       Hire 2 Data Analysts.              12/31/2025     03/31/2026        Complete      Program Director       Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+                                                                                                                    Two Program & Data
+ 0.3       Assign Program Managers.           12/31/2025     03/31/2026        Complete      Program Director       Monitoring Analysts assigned
+                                                                                                                    to each initiative.
+ Stage 1   Project Preparation
+ CHW & CIE Chronic Disease Monitoring
+                                                                                                                    All Program & Data
+ 1.1       Assign Staff.                      04/01/2026     09/30/2026        Complete      Program Director       Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+ 1.2       Finalize Project Plan.             04/01/2026     09/30/2026        Complete      Program Director
+          Implement Initial Workflows/                                  In Progress
+1.3                                           04/01/2026   09/30/2026                 Program Director
+          Protocols.                                                    - OnTrack
+          Deliver Patient Education and                                               Michigan Center for
+1.4                                           04/01/2026   09/30/2026   Upcoming
+          Monitoring Tools.                                                           Rural Health (MCRH)
+Chronic Disease & Healthy Homes Collaborative
+1.1       Launch RFA.                         04/01/2026   09/30/2026   Complete      Program Director      Closed 8/11/26.
+                                                                                      Bureau of Grants
+1.2       Conduct Webinars.                   04/01/2026   09/30/2026   Complete      and Purchasing
+                                                                                      (BGP)
+                                                                                      Bureau of Grants
+1.3       Provide Technical Assistance.       04/01/2026   09/30/2026   Complete      and Purchasing
+                                                                                      (BGP)
+                                                                        In Progress                         Selection ongoing; informed
+1.4       Select Grantees.                    04/01/2026   09/30/2026                 Program Director
+                                                                        - OnTrack                           by a robust review process.
+CHW Medicaid Integration & Billing Support
+          Technical Assistance for Medicaid                             In Progress   Michigan Center for
+1.1                                           04/01/2026   09/30/2026
+          Billing Readiness.                                            - OnTrack     Rural Health (MCRH)
+                                                                        In Progress   Michigan Center for
+1.2       Deploy Toolkit/Technology.          04/01/2026   09/30/2026
+                                                                        - OnTrack     Rural Health (MCRH)
+Evaluation & Data Management
+                                                                                      Program Director
+                                                                        In Progress
+1.1       Setup Data Collection Systems.      04/01/2026   09/30/2036                 and Evaluation
+                                                                        - OnTrack
+                                                                                      Contractor
+          Implementation Contracts with
+1.2                                           04/01/2026   09/30/2026   Complete      Grant Manager
+          Hubs.
+Stage 2   Early Implementation
+CHW & CIE Chronic Disease Monitoring
+        Full Implementation of                                                        Partnerships
+2.1                                           10/01/2026   09/30/2027   Upcoming
+        Interventions.                                                                Subrecipients
+                                                                                      Partnerships
+                                                                                      Subrecipients and
+2.2       Collect Interim Outcome Data.       10/01/2026   09/30/2027   Upcoming
+                                                                                      Evaluation
+                                                                                      Contractor
+                                                                                      Evaluation
+2.3       Adjust Protocols.                   10/01/2026   09/30/2027   Upcoming
+                                                                                      Contractor
+Chronic Disease & Healthy Homes Collaborative
+                                                                                                            This project scope has
+                                                                        In Progress                         changed (reflected in the
+2.1       Execute Grants.                     10/01/2026   09/30/2027                 Grant Manager
+                                                                        - OnTrack                           project narrative);
+                                                                                                            milestones are still relevant.
+                                                                        In Progress   Partnerships
+2.2       Facilitate Partnerships.            10/01/2026   09/30/2027
+                                                                        - OnTrack     Subrecipients
+                                                                                     Partnerships
+                                                                       In Progress   Subrecipients and
+2.3       Provide Training.                  10/01/2026   09/30/2027
+                                                                       - OnTrack     Michigan Center for
+                                                                                     Rural Health (MCRH)
+                                                                                     Program Director
+                                                                       In Progress
+2.4       Establish Monitoring Protocols.    10/01/2026   09/30/2027                 and Evaluation
+                                                                       - OnTrack
+                                                                                     Contractor
+CHW Medicaid Integration & Billing Support
+                                                                                                         Not executed by end of
+                                                                       In Progress                       reporting period, but
+2.1     Execute Agreements.              10/01/2026 09/30/2027                     Grant Manager
+                                                                       - OnTrack                         executed before submission
+                                                                                                         of annual report.
+Executed agreements represent the shift of RHTP initiatives from planning and preparation into active implementation.
+                                                                       In Progress   Michigan Center for
+2.2       Facilitate Partnerships.           10/01/2026   09/30/2027
+                                                                       - OnTrack     Rural Health (MCRH)
+                                                                                     Michigan Center for
+2.3       Provide Training.                  10/01/2026   09/30/2027   Upcoming
+                                                                                     Rural Health (MCRH)
+                                                                                     Program Director
+2.4       Establish Monitoring.              10/01/2026   09/30/2027   Upcoming      and Evaluation
+                                                                                     Contractor
+Evaluation & Data Management
+          Collect and Validated Initial                                              Program Director or
+2.1                                          10/01/2026   09/30/2027   Upcoming
+          Outcome Data.                                                              Designee
+Stage 3 Midway Implementation
+CHW & CIE Chronic Disease Monitoring
+                                                                                     Project Director,
+                                                                                     Michigan Center for
+                                                                                     Rural Health
+3.1       Refine Care Models.                10/01/2027   09/30/2028   Upcoming      (MCRH), Evaluation
+                                                                                     Contractor, and
+                                                                                     Partnerships
+                                                                                     Subrecipients
+          Convene Stakeholders to Share                                              Michigan Center for
+3.2                                          10/01/2027   09/30/2028   Upcoming
+          Lessons Learned.                                                           Rural Health (MCRH)
+Chronic Disease & Healthy Homes Collaborative
+          Engage CHWS for Education,                                                 Partnerships
+3.1                                          10/01/2027   09/30/2028   Upcoming
+          Follow-up, Navigation.                                                     Subrecipients
+                                                                                     Analysts and
+3.2       Track Outputs.                     10/01/2027   09/30/2028   Upcoming      Partnerships
+                                                                                     Subrecipients
+CHW Medicaid Integration & Billing Support
+          Rural Partners Implement Billing                                        Partnerships
+3.1                                          10/01/2027   09/30/2028   Upcoming
+          Systems.                                                                Subrecipients
+                                                                                  Partnerships
+3.2       Integrate Workflows.               10/01/2027   09/30/2028   Upcoming
+                                                                                  Subrecipients
+Evaluation & Data Management
+                                                                                  Project Director,
+                                                                                  Michigan Center for
+                                                                                  Rural Health
+3.1       Midpoint Analysis.                 10/01/2027   09/30/2028   Upcoming   (MCRH), Evaluation
+                                                                                  Contractor, and
+                                                                                  Partnerships
+                                                                                  Subrecipients
+                                                                                  Evaluation
+3.2       Generate Reports.                  10/01/2027   09/30/2028   Upcoming
+                                                                                  Contractor
+                                                                                  Evaluation
+3.3       Refine Data Collection.            10/01/2027   09/30/2028   Upcoming
+                                                                                  Contractor
+Stage 4   Preparation for Closing
+CHW & CIE Chronic Disease Monitoring
+                                                                                  Analysts and
+4.1       Finalize Deliverables.             10/01/2029   09/30/2030   Upcoming   Partnerships
+                                                                                  Subrecipients
+                                                                                  Project Director,
+                                                                                  Michigan Center for
+                                                                                  Rural Health
+          Ensure Pilot Site Implement
+4.2                                          10/01/2029   09/30/2030   Upcoming   (MCRH), Evaluation
+          Refined Models.
+                                                                                  Contractor, and
+                                                                                  Partnerships
+                                                                                  Subrecipients
+                                                                                  Michigan Center for
+4.3       Consolidate Training/Toolkits.     10/01/2029   09/30/2030   Upcoming
+                                                                                  Rural Health (MCRH)
+Chronic Disease & Healthy Homes Collaborative
+          Analyze Health, Housing,                                                Evaluation
+4.1                                          10/01/2029   09/30/2030   Upcoming
+          Economic Outcomes.                                                      Contractor
+                                                                                  Project Director,
+                                                                                  Michigan Center for
+                                                                                  Rural Health
+4.2       Adjust Interventions as Needed.    10/01/2029   09/30/2030   Upcoming   (MCRH), Evaluation
+                                                                                  Contractor, and
+                                                                                  Partnerships
+                                                                                  Subrecipients
+CHW Medicaid Integration & Billing Support
+                                                                                  Evaluation
+4.1       Midpoint Evaluation.               10/01/2029   09/30/2030   Upcoming
+                                                                                  Contractor
+                                                                                   Michigan Center for
+4.2       Adjust Technical Assistance.        10/01/2029   09/30/2030   Upcoming
+                                                                                   Rural Health (MCRH)
+                                                                                   Partnerships
+4.3       Finalize Billing Integration.       10/01/2029   09/30/2030   Upcoming
+                                                                                   Subrecipients
+Evaluation & Data Management
+                                                                                   Analysts and
+4.1       Finalize Evaluation Deliverables.   10/01/2029   09/30/2030   Upcoming   Partnershhips
+                                                                                   Subrecipients
+                                                                                   Analysts and
+4.2       Summarize Lessons Learned.          10/01/2029   09/30/2030   Upcoming   Partnershhips
+                                                                                   Subrecipients
+Stage 5   Full Implementation
+CHW & CIE Chronic Disease Monitoring
+                                                                                   Partnerships
+5.1       Full Implementation.                10/01/2030   09/30/2031   Upcoming
+                                                                                   Subrecipients
+          Report Outcomes for
+                                                                                   Partnerships
+5.2       Hypertension, Diabetes,            10/01/2030    09/30/2031   Upcoming
+                                                                                   Subrecipients
+          Cardiovascular Disease.
+Chronic Disease & Healthy Homes Collaborative
+                                                                                   Evaluation
+5.1       Conduct Final Evaluation.           10/01/2030   09/30/2031   Upcoming
+                                                                                   Contractor
+                                                                                   Evaluation
+5.2       Document Case Studies.              10/01/2030   09/30/2031   Upcoming
+                                                                                   Contractor
+                                                                                   Partnerships
+5.3       Develop Sustainability Plans        10/01/2030   09/30/2031   Upcoming
+                                                                                   Subrecipients
+                                                                                   Michigan Center for
+5.4       Share Findings.                     10/01/2030   09/30/2031   Upcoming
+                                                                                   Rural Health (MCRH)
+CHW Medicaid Integration & Billing Support
+                                                                                   Partnerships
+5.2       Full CHW Billing Integration.       10/01/2030   09/30/2031   Upcoming
+                                                                                   Subrecipients
+          Measure and Document                                                     Evaluation
+5.2                                           10/01/2030   09/30/2031   Upcoming
+          Outcomes.                                                                Contractor
+Evaluation & Data Management
+                                                                                   Evaluation
+5.1       Complete Evaluation.                10/01/2030   09/30/2031   Upcoming
+                                                                                   Contractor
+                                                                                   Analysts and
+5.2       Report Measurable Outcomes.         10/01/2030   09/30/2031   Upcoming   Partnerships
+                                                                                   Subrecipients
+                                                                                   Evaluation
+5.3       Document Recommendations.           10/01/2030   09/30/2031   Upcoming
+                                                                                   Contractor
+Initiative 2: Workforce for Wellness
+
+ Number    Milestones/Tasks                    Target Start   Target Due Date   Status        Task Owner            Notes
+ Stage 0   Planning
+ High School to Health Care Pipeline
+                                                                                                                    AHECs, schools, and rural
+           Partner with AHECs, schools, and
+ 0.1                                           12/25/2025     09/30/2026        Complete      Program Director      hospitals received Letters of
+           rural hospitals.
+                                                                                                                    Intent (LOIs).
+                                                                                In Progress                         Informed by workforce
+ 0.2       Design pipelines program.           12/25/2025     09/30/2026                      Program Director
+                                                                                - OnTrack                           partners.
+                                                                                                                    Not executed by end of
+                                                                                In Progress                         reporting period, but
+ 0.3       Execute contracts.                  12/25/2025     09/30/2026                      Grant Manager
+                                                                                - OnTrack                           executed before submission
+                                                                                                                    of annual report.
+ BSW to Clinical MSW Stipend University Led MSW Scholarship
+                                                                                                                    All Program & Data
+ 0.1       Hire or assign 0.5 FTE.             12/31/2025     09/30/2026        Complete      Program Director      Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+           Develop RFP, guidelines,                                                           Program Director
+ 0.2                                           12/31/2025     09/30/2026        Complete                            Closed 8/11/26.
+           evaluation standards.                                                              and Specialist
+ Maternal Health Provider Recruitment & Training
+                                                                                                                    All Program & Data
+ 0.1       Hire or assign 1 FTE.               12/31/2025     09/30/2026        Complete      Program Director      Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+                                                                                In Progress
+ 0.2       Collaborate with task force.        12/31/2025     09/30/2026                      Program Director
+                                                                                - OnTrack
+ LLMSW Supervision Stipend Program
+                                                                                                                    All Program & Data
+ 0.1       Hire or assign 0.5 FTE.             12/31/2025     09/30/2026        Complete      Program Director      Monitoring Analysts started
+                                                                                                                    by 3/31/26.
+                                                                                In Progress
+ 0.2       Develop program guidelines.         12/31/2025     09/30/2026                      Program Director
+                                                                                - OnTrack
+                                                                                In Progress   Program Director or
+ 0.3       Coordinate with universities.       12/31/2025     09/30/2026
+                                                                                - OnTrack     Designee
+ CHW/CP Trainings & Certification
+                                                                                              Michigan Community
+           Develop guidelines, certification                                    In Progress
+ 0.1                                           12/31/2025     09/30/2026                      Health Worker
+           pathways, stipends.                                                  - OnTrack
+                                                                                              Alliance (MiCHWA)
+                                                                                              Michigan Community
+           Identify counties with greatest                                      In Progress
+ 0.2                                           12/31/2025     09/30/2026                      Health Worker
+           need.                                                                - OnTrack
+                                                                                              Alliance (MiCHWA)
+ Rural Health Dashboard
+                                                                                                              All Program & Data
+0.1       Hire or assign 1 FTE.                 12/31/2025   09/30/2026   Complete      Program Director      Monitoring Analysts started
+                                                                                                              by 3/31/26.
+                                                                          In Progress
+0.2       Convene advisory group.               12/31/2025   09/30/2026                 Program Director
+                                                                          - OnTrack
+                                                                                        Program Director
+                                                                          In Progress
+0.3       Identify key metrics.                 12/31/2025   09/30/2026                 and Evaluation
+                                                                          - OnTrack
+                                                                                        Contractor
+EMS Retention & Recruitment
+                                                                                                              All Program & Data
+                                                                          In Progress
+0.1       Hire or assign 0.5 FTE.               12/31/2025   09/30/2031                 Program Director      Monitoring Analysts started
+                                                                          - OnTrack
+                                                                                                              by 3/31/26.
+                                                                                                              MDHHS EMS team supported
+                                                                          In Progress   EMS Subject Matter
+0.2       Develop guidelines.                   12/31/2025   09/30/2031                                       EMS subrecipient
+                                                                          - OnTrack     Expert
+                                                                                                              identification.
+Rural Health Provider Recruitment & Retention
+                                                                                                              All Program & Data
+0.1       Hire or assign 0.5 FTE.               12/31/2025   09/30/2027   Complete      Program Director      Monitoring Analysts started
+                                                                                                              by 3/31/26.
+Stage 1   Project Preparation
+High School to Health Care Pipeline
+                                                                                        Michigan Dept. of
+          Targeted outreach to rural high                                 In Progress   Education (MDE) and
+1.1                                             10/01/2026   09/30/2027
+          schools.                                                        - OnTrack     Workforce
+                                                                                        Subrecipints
+                                                                                        Michigan Dept. of
+          Collect baseline student interest                               In Progress   Education (MDE) and
+1.2                                             10/01/2026   09/30/2027
+          data.                                                           - OnTrack     Workforce
+                                                                                        Subrecipints
+BSW to Clinical MSW Stipend University Led MSW Scholarship
+                                                                                        Program Director
+                                                                                        and Workforce
+1.1       Issue RFP.                            10/01/2026   09/30/2027   Complete                            Closed 8/11/26.
+                                                                                        Subject Matter
+                                                                                        Experts
+                                                                                        Program Director
+                                                                          In Progress   and Workforce         Selection ongoing; informed
+1.2       Select universities.                  10/01/2026   09/30/2027
+                                                                          - OnTrack     Subject Matter        by a robust review process.
+                                                                                        Experts
+1.3       Execute contracts.                    10/01/2026   09/30/2027   Upcoming      Grant Manager
+Executed agreements represent the shift of RHTP initiatives from planning and preparation into active implementation.
+Maternal Health Provider Recruitment & Training
+                                                                                        Program Director       MDHHS Workforce subject
+                                                                          In Progress   and Workforce          matter experts informed
+1.1      Marketing/outreach.                    10/01/2026   09/30/2027
+                                                                          - OnTrack     Subject Matter         workforce strategies and
+                                                                                        Experts                implementation efforts.
+                                                                                        Program Director
+                                                                          In Progress   and Workforce
+1.2      Leverage training pipelines.           10/01/2026   09/30/2027
+                                                                          - OnTrack     Subject Matter
+                                                                                        Experts
+LLMSW Supervision Stipend Program
+                                                                                        Program Director
+                                                                          In Progress   and Workforce
+1.1      Release application.                   10/01/2026   09/30/2027
+                                                                          - OnTrack     Subject Matter
+                                                                                        Experts
+                                                                                        Program Director
+                                                                          In Progress   and Workforce
+1.2      Select first cohort.                   10/01/2026   09/30/2027
+                                                                          - OnTrack     Subject Matter
+                                                                                        Experts
+                                                                                        Project Director and
+1.3      Orientation.                           10/01/2026   09/30/2027   Upcoming
+                                                                                        Analysts
+CHW/CP Trainings & Certification
+                                                                                        Analysts and EMS
+1.1      Recruit cohorts.                       10/01/2026   09/30/2030   Upcoming      Subject Matter
+                                                                                        Experts
+                                                                                        Analysts and EMS
+         Provide trainings, exam fees,
+1.2                                             10/01/2026   09/30/2030   Upcoming      Subject Matter
+         certification.
+                                                                                        Experts
+                                                                                        Analysts and EMS
+         Transition certified CHWs/CPs into
+1.3                                             10/01/2026   09/30/2030   Upcoming      Subject Matter
+         rural employment.
+                                                                                        Experts
+Rural Health Dashboard
+                                                                          In Progress   Evaluation
+1.1      Conduct baseline data collection.      10/01/2026   09/30/2026
+                                                                          - OnTrack     Contractor
+EMS Retention & Recruitment
+                                                                                        Program Director
+1.1      Marketing.                             12/31/2025   09/30/2031   Upcoming      and EMS Subject
+                                                                                        Matter Experts
+                                                                                        Program Director
+1.2      Application period.                    12/31/2025   09/30/2031   Upcoming      and EMS Subject
+                                                                                        Matter Experts
+                                                                                        Analysts and EMS
+1.3      Orientation.                           12/31/2025   09/30/2031   Upcoming      Subject Matter
+                                                                                        Experts
+Rural Health Provider Recruitment & Retention
+                                                                                     Program Director
+                                                                                     and Workforce
+1.1       Develop RFP.                       12/31/2025   09/30/2027   Complete
+                                                                                     Subject Matter
+                                                                                     Experts
+                                                                                     Program Director
+                                                                                     and Workforce
+1.2       Issue RFP.                         12/31/2025   09/30/2027   Complete                            Closed 8/4/26.
+                                                                                     Subject Matter
+                                                                                     Experts
+                                                                       In Progress
+1.3       Award contract.                    12/31/2025   09/30/2027                 Grant Manager
+                                                                       - OnTrack
+Stage 2   Early Implementation
+High School to Health Care Pipeline
+          Implement enrichment activities                                            Michigan Dept. of
+2.1                                          10/01/2027   09/30/2028   Upcoming
+          (mentoring, shadowing, camps).                                             Education (MDE)
+BSW to Clinical MSW Stipend University Led MSW Scholarship
+         Students complete MSW                                                       Workforce
+2.1                                          10/01/2026 09/30/2029     Upcoming
+         coursework.                                                                 Subrecipients
+                                                                                     Workforce
+2.2       Provide rural practice exposure.   10/01/2026   09/30/2029   Upcoming
+                                                                                     Subrecipients
+Maternal Health Provider Recruitment & Training
+                                                                                     Program Director
+                                                                                     and Workforce
+2.1       Application cycle.                 10/01/2027   09/30/2028   Upcoming
+                                                                                     Subject Matter
+                                                                                     Experts
+          Execute contracts with training
+2.2                                          10/01/2027   09/30/2028   Upcoming      Grant Manager
+          institutions.
+                                                                                     Analysts and
+2.3       Collect early progress data.       10/01/2027   09/30/2028   Upcoming      Workforce
+                                                                                     Subrecipients
+LLMSW Supervision Stipend Program
+                                                                                     Workforce
+2.1       Supervised practice hours.         10/01/2026   09/30/2028   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+2.2       Provide stipends.                  10/01/2026   09/30/2028   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+2.3       TA.                                10/01/2026   09/30/2028   Upcoming
+                                                                                     Subrecipients
+CHW/CP Trainings & Certification
+Rural Health Dashboard
+                                                                                     Evaluation
+2.1       Launch dashboard.                  10/01/2027   09/30/2028   Upcoming
+                                                                                     Contractor
+                                                                                     Michigan Center for
+2.2       Provide partner training.          10/01/2027   09/30/2028   Upcoming
+                                                                                     Rural Health (MCRH)
+EMS Retention & Recruitment
+                                                                                     Workforce
+2.1       Post-employment tracking.             12/31/2025   09/30/2031   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+2.2       Provide TA.                           12/31/2025   09/30/2031   Upcoming
+                                                                                     Subrecipients
+Rural Health Provider Recruitment & Retention
+                                                                                     Project Director,
+          Provide orientation, oversee
+2.1                                             10/01/2026   09/30/2031   Upcoming   Analysts, and Grants
+          contracts, monitor progress.
+                                                                                     Manager
+                                                                                     Michigan Center for
+2.2       Technical assistance.                 10/01/2026   09/30/2031   Upcoming
+                                                                                     Rural Health (MCRH)
+Stage 3   Midway Implementation
+High School to Health Care Pipeline
+                                                                                     Michigan Dept. of
+                                                                                     Education (MDE) and
+3.1       Evaluate student commitment.          10/01/2027   09/30/2029   Upcoming
+                                                                                     Workforce
+                                                                                     Subrecipients
+                                                                                     Michigan Dept. of
+                                                                                     Education (MDE) and
+3.2       Adjust programming.                   10/01/2027   09/30/2029   Upcoming
+                                                                                     Workforce
+                                                                                     Subrecipients
+BSW to Clinical MSW Stipend University Led MSW Scholarship
+                                                                                     Workforce
+3.1       Monitor student progress.             10/01/2026   09/30/2029   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+3.2       Provide TA.                           10/01/2026   09/30/2029   Upcoming
+                                                                                     Subrecipients
+                                                                                     Analysts and
+          Track employment/retention
+3.3                                             10/01/2026   09/30/2029   Upcoming   Workforce
+          outcomes.
+                                                                                     Subrecipients
+Maternal Health Provider Recruitment & Training
+                                                                                     Workforce
+3.1       Launch mentorship program.            10/01/2028   09/30/2029   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+                                                                                     Subrecipients and
+3.2       Midway evaluation.                    10/01/2028   09/30/2029   Upcoming
+                                                                                     Evaluation
+                                                                                     Contractor
+                                                                                     Workforce
+3.3       Provide TA.                           10/01/2028   09/30/2029   Upcoming
+                                                                                     Subrecipients
+LLMSW Supervision Stipend Program
+                                                                                     Workforce
+                                                                                     Subrecipients and
+3.1       Midpoint evaluation.                  10/01/2028   09/30/2029   Upcoming
+                                                                                     Evaluation
+                                                                                     Contractor
+CHW/CP Trainings & Certification
+Rural Health Dashboard
+                                                                                     Analysts, Workforce
+                                                                                     Subrecipients, and
+3.1       Continuous assessment.                10/01/2028   09/30/2029   Upcoming
+                                                                                     EMS/CHW Subject
+                                                                                     Matter Experts
+                                                                                     Program Director
+3.2       Add metrics.                          10/01/2028   09/30/2029   Upcoming   and Evaluation
+                                                                                     Contractor
+EMS Retention & Recruitment
+                                                                                     Workforce
+3.1       Monitor retention.                    12/31/2025   09/30/2031   Upcoming
+                                                                                     Subrecipients
+Rural Health Provider Recruitment & Retention
+Stage 4   Preparation for Closing
+High School to Health Care Pipeline
+                                                                                     Michigan Dept. of
+          Track post-high school student                                             Education (MDE) and
+4.1                                             10/01/2027   09/30/2031   Upcoming
+          outcomes.                                                                  Workforce
+                                                                                     Subrecipients
+BSW to Clinical MSW Stipend University Led MSW Scholarship
+                                                                                     Workforce
+4.1       Scholarship recipients graduate.      10/01/2028   09/30/2029   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+4.2       Begin rural employment.               10/01/2028   09/30/2029   Upcoming
+                                                                                     Subrecipients
+Maternal Health Provider Recruitment & Training
+                                                                                     Workforce
+4.1       Expand professional development.      10/01/2029   09/30/2030   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+4.2       Strengthen training partnerships.     10/01/2029   09/30/2030   Upcoming
+                                                                                     Subrecipients
+LLMSW Supervision Stipend Program
+                                                                                     Workforce
+4.1       Complete supervised hours.            10/01/2029   09/30/2030   Upcoming
+                                                                                     Subrecipients
+                                                                                     Workforce
+4.2       Obtain LMSW licensure.                10/01/2029   09/30/2030   Upcoming
+                                                                                     Subrecipients
+CHW/CP Trainings & Certification
+Rural Health Dashboard
+                                                                                     Program Director
+4.1       Refine dashboard.                     10/01/2029   09/30/2030   Upcoming   and Evaluation
+                                                                                     Contractor
+EMS Retention & Recruitment
+Rural Health Provider Recruitment & Retention
+                                                                                    Project Director,
+                                                                                    Analysts, Evaluation
+4.1       Interim evaluation.                  10/01/2028   09/30/2029   Upcoming   Contractor, and
+                                                                                    Workforce
+                                                                                    Subrecipients
+                                                                                    Workforce
+4.2       Prepare sustainability strategies.   10/01/2028   09/30/2029   Upcoming
+                                                                                    Subrecipients
+Stage 5   Full Implementation
+High School to Health Care Pipeline
+                                                                                    Michigan Dept. of
+          Report on participation,
+                                                                                    Education (MDE) and
+5.1       postsecondary programs, rural        10/01/2027   09/30/2031   Upcoming
+                                                                                    Workforce
+          health care employment.
+                                                                                    Subrecipients
+BSW to Clinical MSW Stipend University Led MSW Scholarship
+          Track and report outcomes:
+          funded students, degree                                                   Workforce
+5.1                                           10/01/2030 09/30/2031      Upcoming
+          completion, rural workforce                                               Subrecipients
+          retention.
+Maternal Health Provider Recruitment & Training
+          Track final outcomes: providers
+                                                                                    Workforce
+5.1       trained, retention rates, maternal  10/01/2030 09/30/2031      Upcoming
+                                                                                    Subrecipients
+          health access improvements.
+LLMSW Supervision Stipend Program
+          Track and report licensure and                                            Workforce
+5.1                                           10/01/2030 09/30/2031      Upcoming
+          retention outcomes.                                                       Subrecipients
+CHW/CP Trainings & Certification
+                                                                                    Workforce
+          Evaluate workforce impact:
+                                                                                    Subrecipients and
+5.1       trained/certified CHWs/CPs,          10/01/2030   09/30/2031   Upcoming
+                                                                                    Evaluation
+          retention in rural areas.
+                                                                                    Contractor
+Rural Health Dashboard
+          Track/report usage and                                                    Program Director
+5.1                                            10/01/2030   09/30/2031   Upcoming
+          policy/funding impacts.                                                   and Grants Manager
+EMS Retention & Recruitment
+Rural Health Provider Recruitment & Retention
+          Track final provider                                                      Program Director
+5.1       recruitment/retention; report       10/01/2030    09/30/2031   Upcoming   and Evaluation
+          impact.                                                                   Contractor
+Initiative 3: Interoperability in Action
+
+ Number    Milestones/Tasks                      Target Start   Target Due Date   Status        Task Owner              Notes
+ Stage 0   Planning
+ Rural Interoperability Advisory Council
+                                                                                  In Progress
+ 0.1       Develop Charter.                      12/31/2025     09/30/2027                      Program Director
+                                                                                  - OnTrack
+ 0.2       Recruit Members.                      12/31/2025     09/30/2027        Upcoming      Program Director
+                                                                                  In Progress   Interoperability
+ 0.3       Conduct Needs Assessment.             12/31/2025     09/30/2027
+                                                                                  - OnTrack     Subrecipients
+           Design Request for Proposals                                           In Progress
+ 0.4                                             12/31/2025     09/30/2027                      Program Director
+           (RFPs).                                                                - OnTrack
+                                                                                                                        Contract executed with
+ 0.5       Contract Consulting Group.            12/31/2025     09/30/2027        Complete      Grants Manager          Michigan Public Health
+                                                                                                                        Institute (MPHI).
+ Data Integration Pilot Project
+                                                                                                Program Director,
+           Establish Four Pilot Cohorts of the                                    In Progress
+ 0.1                                             12/31/2025     09/30/2027                      Project Director, and
+           Left-Behind Provider Types.                                            - OnTrack
+                                                                                                Analysts
+ Technical Infrastructure
+                                                                                                Project Director and
+                                                                                  In Progress   Dept. of Labor and
+ 0.1       Design/Deploy Rural Tech Grants.      12/31/2025     09/30/2028
+                                                                                  - OnTrack     Economic
+                                                                                                Opportunity (LEO)
+                                                                                                Project Director and
+                                                                                  In Progress   Dept. of Labor and
+ 0.2       Select 25 Rural Sites.                12/31/2025     09/30/2028
+                                                                                  - OnTrack     Economic
+                                                                                                Opportunity (LEO)
+           Telehealth/Secure Messaging                                                          Interoperability
+ 0.3                                             12/31/2025     09/30/2028        Upcoming
+           Platforms.                                                                           Subrecipients
+                                                                                                Interoperability
+ 0.4       Establish TA/Training Sessions.       12/31/2025     09/30/2028        Upcoming
+                                                                                                Subrecipients
+ Technology & Transportation Connection
+                                                                                    Project Director and
+                                                                                  In Progress
+                                                                                    Dept. of Labor and
+ 0.1     Design/Launch Grants.            12/31/2025 09/30/2027
+                                                                                  - OnTrack
+                                                                                    Economic
+                                                                                    Opportunity (LEO)
+                                                                                    Dept. of Labor and
+                                                                        In Progress
+ 0.2     Establish Contracts.             12/31/2025 09/30/2027                     Economic
+                                                                        - OnTrack
+                                                                                    Opportunity (LEO)
+ Executed agreements represent the shift of RHTP initiatives from planning and preparation into active implementation.
+                                                                        In Progress Interoperability
+ 0.3     Develop Workplans.               12/31/2025 09/30/2027
+                                                                        - OnTrack   Subrecipients
+                                                                                     Project Director,
+                                                                                     Analysts, Evaluation
+                                                                       In Progress
+0.4       Establish Evaluation Metrics.      12/31/2025   09/30/2027                 Contractor, and
+                                                                       - OnTrack
+                                                                                     Interoperability
+                                                                                     Subrecipients
+                                                                       In Progress   Interoperability
+0.5       Collect Baseline Data.             12/31/2025   09/30/2027
+                                                                       - OnTrack     Subrecipients
+Rural Resource Directory Investments
+                                                                       In Progress
+0.1       Release 2-1-1 Contract.            12/31/2025   09/30/2027                 Program Director
+                                                                       - OnTrack
+                                                                       In Progress   Interoperability
+0.2       Develop Staffing/Workplans.        12/31/2025   09/30/2027
+                                                                       - OnTrack     Subrecipients
+                                                                                     Interoperability
+0.3       Pilot Rural Resource Centers.      12/31/2025   09/30/2027   Upcoming
+                                                                                     Subrecipients
+Evaluation & Data Management
+                                                                       Not Yet       Program Director or    Eliminated through state
+0.1       Hire or Assign 1 FTE.              N/A          N/A
+                                                                       Started       Designee               clarification process.
+          Select Contracts with Evaluation                             Not Yet       Program Director or
+0.2                                          N/A          N/A
+          Consultants.                                                 Started       Designee
+                                                                       Not Yet       Program Director or
+0.3       Design Framework.                  N/A          N/A
+                                                                       Started       Designee
+                                                                       Not Yet       Program Director or
+0.4       Establish Evaluation Metrics.      N/A          N/A
+                                                                       Started       Designee
+                                                                       Not Yet       Program Director or
+0.5       Implement TA/Training Contracts.   N/A          N/A
+                                                                       Started       Designee
+Stage 1   Project Preparation
+Rural Interoperability Advisory Council
+1.1       Conduct Meetings.                  10/01/2026   09/30/2028   Upcoming      Program Director
+                                                                                     Interoperability
+1.2       Support Pilots.                    10/01/2026   09/30/2028   Upcoming
+                                                                                     Subrecipients
+                                                                                     Program Director,
+                                                                                     Interoperability
+1.3       Provide Governance.                10/01/2026   09/30/2028   Upcoming
+                                                                                     Advisory Council
+                                                                                     Chairs
+                                                                                     Interoperability
+1.4       Deliver First Annual Report.       10/01/2026   09/30/2028   Upcoming
+                                                                                     Subrecipients
+Data Integration Pilot Project
+          Launch Phase 1 Integration in                                              Interoperability
+1.1                                          10/01/2026   09/30/2028   Upcoming
+          50% of Sites.                                                              Subrecipients
+Technical Infrastructure
+                                                                                     Dept. of Labor and
+1.1       Expand Rural Tech Grants.          10/01/2026   09/30/2029   Upcoming      Economic
+                                                                                     Opportunity (LEO)
+                                                                               Dept. of Labor and
+1.2       Implement TA/Training.          10/01/2026   09/30/2029   Upcoming   Economic
+                                                                               Opportunity (LEO)
+         Expand Platform to Additional                                         Interoperability
+1.3                                       10/01/2026   09/30/2029   Upcoming
+         Sites.                                                                Subrecipients
+Technology & Transportation Connection
+                                                                               Dept. of Labor and
+1.1       Release Funding.                10/01/2026   09/30/2028   Upcoming   Economic
+                                                                               Opportunity (LEO)
+                                                                               Dept. of Labor and
+1.2       Implement TA/Training.          10/01/2026   09/30/2028   Upcoming   Economic
+                                                                               Opportunity (LEO)
+                                                                               Dept. of Labor and
+1.3       Monitor Data Collection.        10/01/2026   09/30/2028   Upcoming   Economic
+                                                                               Opportunity (LEO)
+Rural Resource Directory Investments
+                                                                               Interoperability
+1.1       Expand Provider Networks.       10/01/2026   09/30/2028   Upcoming
+                                                                               Subrecipients
+                                                                               Interoperability
+1.2       Provide TA.                     10/01/2026   09/30/2028   Upcoming
+                                                                               Subrecipients
+                                                                               Project Director and
+1.3       Ongoing Monitoring.             10/01/2026   09/30/2028   Upcoming
+                                                                               Analysts
+Evaluation & Data Management
+                                                                    Not Yet    Program Director or    Eliminated through state
+1.1       Impement Evaluation.            N/A          N/A
+                                                                    Started    Designee               clarification process.
+                                                                    Not Yet    Program Director or
+1.2       Condust Baseline Monitoring.    N/A          N/A
+                                                                    Started    Designee
+                                                                    Not Yet    Program Director or
+1.3       Year 1 Summit.                  N/A          N/A
+                                                                    Started    Designee
+Stage 2   Early Implementation
+Rural Interoperability Advisory Council
+2.1       Implement Council.              10/01/2027   09/30/2028   Upcoming   Program Director
+                                                                               Interoperability
+2.2       Draft Standards.                10/01/2027   09/30/2028   Upcoming
+                                                                               Advisory Council
+                                                                               Interoperability
+2.3       Support 3 Pilot Regions.        10/01/2027   09/30/2028   Upcoming
+                                                                               Subrecipients
+                                                                               Evaluation
+2.4       Gather Feedback.                10/01/2027   09/30/2028   Upcoming
+                                                                               Contractor
+Data Integration Pilot Project
+                                                                               Interoperability
+2.1       Implement in 100% of Sites.     10/01/2027   09/30/2029   Upcoming
+                                                                               Subrecipients
+                                                                               Interoperability
+2.2       Provide Technical Assistance.   10/01/2027   09/30/2029   Upcoming
+                                                                               Subrecipients
+Technical Infrastructure
+                                                                                   Interoperability
+2.1       Baseline Measurement.               10/01/2027   09/30/2030   Upcoming
+                                                                                   Subrecipients
+                                                                                   Interoperability
+2.2       Midpoint Analysis.                  10/01/2027   09/30/2030   Upcoming
+                                                                                   Subrecipients
+                                                                                   Interoperability
+2.3       Report to Advisory Council.         10/01/2027   09/30/2030   Upcoming
+                                                                                   Subrecipients
+Technology & Transportation Connection
+                                                                                   Dept. of Labor and
+2.1       Establish Additional Cohorts.       10/01/2027   09/30/2030   Upcoming   Economic
+                                                                                   Opportunity (LEO)
+                                                                                   Interoperability
+2.2       Provide Ongoing Training/TA.        10/01/2027   09/30/2030   Upcoming
+                                                                                   Subrecipients
+                                                                                   Analysts and Grants
+2.3       Oversee Contracts.                  10/01/2027   09/30/2030   Upcoming
+                                                                                   Manager
+Rural Resource Directory Investments
+          TA for Rural Community-Based                                             Interoperability
+2.1                                           10/01/2027   09/30/2030   Upcoming
+          Organizations (CBOs).                                                    Subrecipients
+                                                                                   Interoperability
+          Stage 2 Monitoring/Data                                                  Subrecipients and
+2.2                                           10/01/2027   09/30/2030   Upcoming
+          Collection.                                                              Evaluation
+                                                                                   Contractor
+Evaluation & Data Management
+                                                                        Not Yet    Program Director or   Eliminated through state
+2.1       Stage 2 Monitoring.                 N/A          N/A
+                                                                        Started    Designee              clarification process.
+                                                                        Not Yet    Program Director or
+2.2       Adjust Scaling.                     N/A          N/A
+                                                                        Started    Designee
+                                                                        Not Yet    Program Director or
+2.3       Year 2 Summit.                      N/A          N/A
+                                                                        Started    Designee
+Stage 3   Midway Implementation
+Rural Interoperability Advisory Council
+3.1       Maintain Governance.                10/01/2028   09/30/2031   Upcoming   Program Director
+                                                                                   Interoperability
+3.2       Finalize Standards.                 10/01/2028   09/30/2031   Upcoming
+                                                                                   Advisory Council
+                                                                                   Interoperability
+3.3       Support 3 Rural Pilot Regions.      10/01/2028   09/30/2031   Upcoming
+                                                                                   Subrecipients
+                                                                                   Evaluation
+3.4       Gather Feedback.                    10/01/2028   09/30/2031   Upcoming
+                                                                                   Contractor
+Data Integration Pilot Project
+          Ongoing Data Collection, Training                                        Interoperability
+3.1                                           10/01/2028   09/30/2031   Upcoming
+          and Support.                                                             Subrecipients
+Technical Infrastructure
+                                                                                    Interoperability
+                                                                                    Subrecipients and
+3.1       Ongoing Evaluation.                  10/01/2028   09/30/2031   Upcoming
+                                                                                    Evaluation
+                                                                                    Contractor
+                                                                                    Interoperability
+                                                                                    Subrecipients and
+3.2       Adjust for Quality Improvement.      10/01/2028   09/30/2031   Upcoming
+                                                                                    Evaluation
+                                                                                    Contractor
+                                                                                    Interoperability
+          Final Report and Sustainability                                           Subrecipients and
+3.3                                            10/01/2028   09/30/2031   Upcoming
+          Plan.                                                                     Evaluation
+                                                                                    Contractor
+Technology & Transportation Connection
+                                                                                    Dept. of Labor and
+3.1       Monitor Service Delivery.            10/01/2026   09/30/2031   Upcoming   Economic
+                                                                                    Opportunity (LEO)
+                                                                                    Dept. of Labor and
+3.2       Midpoint Reports.                    10/01/2026   09/30/2031   Upcoming   Economic
+                                                                                    Opportunity (LEO)
+                                                                                    Dept. of Labor and
+3.3       Develop Sustainability Strategies.   10/01/2026   09/30/2031   Upcoming   Economic
+                                                                                    Opportunity (LEO)
+Rural Resource Directory Investments
+                                                                                    Interoperability
+3.1       Onboard Additional CBOs.             10/01/2028   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Interoperability
+3.2       Midpoint Analysis.                   10/01/2028   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Interoperability
+3.3       Adjust Data Collection.              10/01/2028   09/30/2031   Upcoming
+                                                                                    Subrecipients
+Evaluation & Data Management
+                                                                         Not Yet    Program Director or   Eliminated through state
+3.1       Midpoint Analysis.                   N/A          N/A
+                                                                         Started    Designee              clarification process.
+                                                                         Not Yet    Program Director or
+3.2       Year 3 Summit.                       N/A          N/A
+                                                                         Started    Designee
+Stage 4   Preparation for Closing
+Rural Interoperability Advisory Council
+                                                                                                          Combine with exisiting,
+4.1       Continue Governance.                 10/01/2029   09/30/2030   Upcoming   Program Director
+                                                                                                          MCRH and/or HIMSS
+                                                                                    Michigan Center for
+4.2       Hold Year 3 Summit.                  10/01/2029   09/30/2030   Upcoming
+                                                                                    Rural Health (MCRH)
+Data Integration Pilot Project
+                                                                                    Project Director,
+4.1       Evaluate and Adjust Workplans.       10/01/2028   09/30/2031   Upcoming
+                                                                                    Analysts, and
+                                                                                 Interoperability
+                                                                                 Subrecipients
+
+Technical Infrastructure
+                                                                                 Interoperability
+4.1       Ongoing Evaluation.               10/01/2028   09/30/2031   Upcoming
+                                                                                 Subrecipients
+                                                                                 Interoperability
+4.2       Adjust for Quality Improvement.   10/01/2028   09/30/2031   Upcoming
+                                                                                 Subrecipients
+         Final Report and Sustainability                                         Interoperability
+4.3                                         10/01/2028   09/30/2031   Upcoming
+         Plan.                                                                   Subrecipients
+Technology & Transportation Connection
+                                                                                 Dept. of Labor and
+4.1       Finalize Analysis.                10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                 Opportunity (LEO)
+                                                                                 Dept. of Labor and
+4.2       Implement Sustainability.         10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                 Opportunity (LEO)
+                                                                                 Dept. of Labor and
+4.3       Report Final Outcomes.            10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                 Opportunity (LEO)
+Rural Resource Directory Investments
+                                                                                 Interoperability
+4.1       Finalize Resource Directory.      10/01/2030   09/30/2031   Upcoming
+                                                                                 Subrecipients
+                                                                                 Interoperability
+4.2       Report Final Findings.            10/01/2030   09/30/2031   Upcoming
+                                                                                 Subrecipients
+Evaluation & Data Management
+                                                                      Not Yet    Program Director or   Eliminated through state
+4.1       Final Evaluation Deliverables.    N/A          N/A
+                                                                      Started    Designee              clarification process.
+                                                                      Not Yet    Program Director or
+4.2       Year 4 Summit.                    N/A          N/A
+                                                                      Started    Designee
+Stage 5   Full Implementation
+Rural Interoperability Advisory Council
+                                                                                 Interoperability
+5.1       Full Integration.                 10/01/2030   09/30/2031   Upcoming
+                                                                                 Advisory Council
+                                                                                 Interoperability
+                                                                                 Subrecipients and
+5.2       Produce Final Outcomes Report.    10/01/2030   09/30/2031   Upcoming
+                                                                                 Evaluation
+                                                                                 Contractor
+Data Integration Pilot Project
+                                                                                 Interoperability
+                                                                                 Subrecipients and
+5.1       Evaluate and Adjust Workplans.    10/01/2027   09/30/2031   Upcoming
+                                                                                 Evaluation
+                                                                                 Contractor
+Technical Infrastructure
+                                                                                Interoperability
+                                                                                Subrecipients and
+5.1      Ongoing Evaluation.               10/01/2028   09/30/2031   Upcoming
+                                                                                Evaluation
+                                                                                Contractor
+                                                                                Interoperability
+                                                                                Subrecipients and
+5.2      Adjust for Quality Improvement.   10/01/2028   09/30/2031   Upcoming
+                                                                                Evaluation
+                                                                                Contractor
+                                                                                Interoperability
+         Final Report and Sustainability                                        Subrecipients and
+5.3                                        10/01/2028   09/30/2031   Upcoming
+         Plan.                                                                  Evaluation
+                                                                                Contractor
+Technology & Transportation Connection
+                                                                                Dept. of Labor and
+5.1      Finalize Analysis.                10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                Opportunity (LEO)
+                                                                                Dept. of Labor and
+5.2      Implement Sustainability.         10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                Opportunity (LEO)
+                                                                                Dept. of Labor and
+5.3      Report Final Outcomes.            10/01/2029   09/30/2031   Upcoming   Economic
+                                                                                Opportunity (LEO)
+Rural Resource Directory Investments
+                                                                                Interoperability
+5.1      Finalize Resource Directory.      10/01/2030   09/30/2031   Upcoming
+                                                                                Subrecipients
+                                                                                Interoperability
+5.2      Report Final Findings             10/01/2030   09/30/2031   Upcoming
+                                                                                Subrecipients
+Evaluation & Data Management
+                                                                     Not Yet    Program Director or   Eliminated through state
+5.1      Full Evaluation Completed.        N/A          N/A
+                                                                     Started    Designee              clarification process.
+                                                                     Not Yet    Program Director or
+5.2      Measurable Outcomes.              N/A          N/A
+                                                                     Started    Designee
+                                                                     Not Yet    Program Director or
+5.3      Final Report.                     N/A          N/A
+                                                                     Started    Designee
+Initiative 4: Care Closer to Home Blueprint
+
+ Number    Milestones/Tasks                     Target Start   Target Due Date   Status        Task Owner            Notes
+ Stage 0   Planning
+ Rural Health Care Delivery Hub
+                                                                                                                     Not awarded by end of
+                                                                                               Program Director
+                                                                                 In Progress                         reporting period, but
+ 0.1       Award received.                      12/31/2025     09/30/2026                      and Care Closer to
+                                                                                 - OnTrack                           awarded before submission
+                                                                                               Home Subrecipients
+                                                                                                                     of annual report.
+                                                                                 In Progress   Care Closer to Home
+ 0.2       Right-size blueprint.                12/31/2025     09/30/2026
+                                                                                 - OnTrack     Subrecipients
+ Improving Care Delivery & Access
+                                                                                               Program Director
+ 0.1       Award received.                      12/31/2025     09/30/2026        Complete      and Care Closer to
+                                                                                               Home Subrecipients
+                                                                                               Care Closer to Home
+ 0.2       Right-size blueprint.                12/31/2025     09/30/2026        Complete
+                                                                                               Subrecipients
+ Advancing Rural Behavioral Health
+                                                                                               Program Director
+ 0.1       Award received.                      12/31/2025     09/30/2026        Complete      and Care Closer to
+                                                                                               Home Subrecipients
+                                                                                               Care Closer to Home
+ 0.2       Right-size blueprint.                12/31/2025     09/30/2026        Complete
+                                                                                               Subrecipients
+ Promoting Healthy Aging in Rural Communities
+                                                                                    Program Director
+ 0.1       Award received.                      12/31/2025     09/30/2026        Complete
+                                                                                    and Care Closer to
+                                                                                    Home Subrecipients
+                                                                                    Program Director
+ 0.2     Right-size blueprint.            12/31/2025 09/30/2026         Complete    and Care Closer to
+                                                                                    Home Subrecipients
+ Executed agreements represent the shift of RHTP initiatives from planning and preparation into active implementation.
+ Stage 1   Project Preparation
+ Rural Health Care Delivery Hub
+                                                                                                                     All Program & Data
+ 1.1       Staff assignment.                    12/31/2025     09/30/2026        Complete      Program Director      Monitoring Analysts started
+                                                                                                                     by 3/31/26.
+                                                                                               Project Director,
+                                                                                               Analysts, and Care
+ 1.2       Project plan.                        12/31/2025     09/30/2026        Complete      Closer to Home
+                                                                                               Subject Matter
+                                                                                               Experts
+                                                                                       Program Director,
+                                                                                       Grants Manager, and
+1.3      Grant application development.        12/31/2025   09/30/2026   Complete      Care Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+Improving Care Delivery & Access
+                                                                                                             All Program & Data
+1.1      Staff assignment.                     12/31/2025   09/30/2026   Complete      Program Director      Monitoring Analysts started
+                                                                                                             by 3/31/26.
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+1.2      Project plan.                         12/31/2025   09/30/2026   Complete      Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Program Director,
+                                                                                       Grants Manager, and
+1.3      Grant application development.        12/31/2025   09/30/2026   Complete      Care Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+Advancing Rural Behavioral Health
+                                                                         In Progress
+1.1      Staff assignment.                     12/31/2025   09/30/2027                 Program Director
+                                                                         - OnTrack
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+                                                                         In Progress
+1.2      Project plan.                         12/31/2025   09/30/2027                 Closer to Home
+                                                                         - OnTrack
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+                                                                         In Progress
+1.3      Sub-initative preparation.            12/31/2025   09/30/2027                 Closer to Home
+                                                                         - OnTrack
+                                                                                       Subject Matter
+                                                                                       Experts
+Promoting Healthy Aging in Rural Communities
+1.1      Staff assignment.                     12/31/2025   09/30/2026   Complete      Program Director
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+1.2      Project plan.                         12/31/2025   09/30/2026   Complete      Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Program Director,
+                                                                                       Grants Manager, and
+1.3      Grant application development.        12/31/2025   09/30/2026   Complete      Care Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+Stage 2   Early Implementation
+Rural Health Care Delivery Hub
+                                                                            Project Director,
+                                                                            Analysts, and Care
+                                                              In Progress
+2.1       Final review.             12/31/2025   09/30/2026                 Closer to Home
+                                                              - OnTrack
+                                                                            Subject Matter
+                                                                            Experts
+                                                                            Project Director,
+                                                                            Analysts, and Care
+                                                              In Progress
+2.2       Post application.         12/31/2025   09/30/2026                 Closer to Home
+                                                              - OnTrack
+                                                                            Subject Matter
+                                                                            Experts
+                                                                            Care Closer to Home
+2.3       Provide TA.               12/31/2025   09/30/2026   Upcoming
+                                                                            Subrecipients
+                                                                            Program Director,
+                                                                            Grants Manager, and
+2.4       Select awardees.          12/31/2025   09/30/2026   Upcoming      Care Closer to Home
+                                                                            Subject Matter
+                                                                            Experts
+Improving Care Delivery & Access
+                                                                            Project Director,
+                                                                            Analysts, and Care
+                                                              In Progress
+2.1       Final review.             12/31/2025   09/30/2027                 Closer to Home
+                                                              - OnTrack
+                                                                            Subject Matter
+                                                                            Experts
+                                                                            Project Director,
+                                                                            Analysts, and Care
+                                                              In Progress
+2.2       Post application.         12/31/2025   09/30/2027                 Closer to Home
+                                                              - OnTrack
+                                                                            Subject Matter
+                                                                            Experts
+                                                                            Care Closer to Home
+2.3       Provide TA.               12/31/2025   09/30/2027   Upcoming
+                                                                            Subrecipients
+                                                                            Program Director,
+                                                                            Grants Manager, and
+2.4       Select awardees.          12/31/2025   09/30/2027   Upcoming      Care Closer to Home
+                                                                            Subject Matter
+                                                                            Experts
+Advancing Rural Behavioral Health
+                                                                            Project Director,
+                                                                            Analysts, and Care
+                                                              In Progress
+2.1       Post application.         10/01/2026   09/30/2027                 Closer to Home
+                                                              - OnTrack
+                                                                            Subject Matter
+                                                                            Experts
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+                                                                         In Progress
+2.2       Readiness reviews.                   10/01/2026   09/30/2027                 Closer to Home
+                                                                         - OnTrack
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Program Director,
+                                                                                       Grants Manager, and
+2.3       Awardees selection.                  10/01/2026   09/30/2027   Upcoming      Care Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Care Closer to Home
+2.4       Intiate programs.                    10/01/2026   09/30/2027   Upcoming
+                                                                                       Subrecipients
+Promoting Healthy Aging in Rural Communities
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+                                                                         In Progress
+2.1       Final review.                        12/31/2025   09/30/2027                 Closer to Home
+                                                                         - OnTrack
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Project Director,
+                                                                                       Analysts, and Care
+                                                                         In Progress
+2.2       Post application.                    12/31/2025   09/30/2027                 Closer to Home
+                                                                         - OnTrack
+                                                                                       Subject Matter
+                                                                                       Experts
+                                                                                       Care Closer to Home
+2.3       Provide TA.                          12/31/2025   09/30/2027   Upcoming
+                                                                                       Subrecipients
+                                                                                       Program Director,
+                                                                                       Grants Manager, and
+2.4       Select awardees.                     12/31/2025   09/30/2027   Upcoming      Care Closer to Home
+                                                                                       Subject Matter
+                                                                                       Experts
+Stage 3   Midway Implementation
+Rural Health Care Delivery Hub
+                                                                                       Care Closer to Home
+3.1       Awardees receive funding.            12/31/2025   09/30/2028   Upcoming
+                                                                                       Subrecipients
+                                                                                       Care Closer to Home
+3.2       Implement hub & spoke model.         12/31/2025   09/30/2028   Upcoming
+                                                                                       Subrecipients
+                                                                                       Care Closer to Home
+3.2       Telehealth established.              12/31/2025   09/30/2028   Upcoming
+                                                                                       Subrecipients
+Improving Care Delivery & Access
+                                                                                       Care Closer to Home
+3.1       Implement transport networks.        10/01/2026   09/30/2029   Upcoming
+                                                                                       Subrecipients
+                                                                                       Care Closer to Home
+3.2       Routinely move patients.             10/01/2026   09/30/2029   Upcoming
+                                                                                       Subrecipients
+Advancing Rural Behavioral Health
+          Awardees begin providing                                                  Care Closer to Home
+3.1                                            10/01/2026   09/30/2028   Upcoming
+          services.                                                                 Subrecipients
+                                                                                    Care Closer to Home
+3.2       Mobile unit routes established.      10/01/2026   09/30/2028   Upcoming
+                                                                                    Subrecipients
+Promoting Healthy Aging in Rural Communities
+                                                                                    Care Closer to Home
+3.1       Awardees begin project planning.     10/01/2026   09/30/2028   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+3.2       Provide community services.          10/01/2026   09/30/2028   Upcoming
+                                                                                    Subrecipients
+Stage 4   Preparation for Closing
+Rural Health Care Delivery Hub
+                                                                                    Care Closer to Home
+4.1       Fully built hubs.                    01/01/2028   09/30/2030   Upcoming
+                                                                                    Subrecipients
+          Routine patient care at                                                   Care Closer to Home
+4.2                                            10/01/2028   09/30/2030   Upcoming
+          home/community.                                                           Subrecipients
+                                                                                    Care Closer to Home
+4.3       Telehealth operational.              10/01/2028   09/30/2030   Upcoming
+                                                                                    Subrecipients
+Improving Care Delivery & Access
+                                                                                    Care Closer to Home
+4.1       Fully built networks.                10/01/2028   09/30/2030   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+4.2       Reliable transporation.              10/01/2028   09/30/2030   Upcoming
+                                                                                    Subrecipients
+Advancing Rural Behavioral Health
+                                                                                    Care Closer to Home
+4.1       Fully built programs.                10/01/2027   09/30/2030   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+4.2       Routine community services.          10/01/2027   09/30/2030   Upcoming
+                                                                                    Subrecipients
+Promoting Healthy Aging in Rural Communities
+                                                                                    Care Closer to Home
+4.1       Fully built programs.                10/01/2027   09/30/2029   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+4.2       Routine home/community care.         10/01/2027   09/30/2029   Upcoming
+                                                                                    Subrecipients
+Stage 5   Full Implementation
+Rural Health Care Delivery Hub
+                                                                                    Care Closer to Home
+5.1       Model fully mature.                  10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+                                                                                    Subrecipients and
+5.2       High patient satisfaction.           10/01/2029   09/30/2031   Upcoming
+                                                                                    Evaluation
+                                                                                    Contractor
+                                                                                    Care Closer to Home
+5.3       Sustainability plans in place.       10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+Improving Care Delivery & Access
+                                                                                    Care Closer to Home
+5.1      Transportation through networks.      10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+5.2      Sustainability plans implemented.     10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+Advancing Rural Behavioral Health
+                                                                                    Care Closer to Home
+5.1      Programs fullt mature.                10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+5.2      Sustainability plans implemented.     10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+Promoting Healthy Aging in Rural Communities
+                                                                                    Care Closer to Home
+5.1      Programs fully mature.                10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                                                    Care Closer to Home
+5.2      Sustainability plans implemented.     10/01/2029   09/30/2031   Upcoming
+                                                                                    Subrecipients
+                                                      CHECKPOINT
+
+                                                           1.2
+
+
+
+Checkpoint 1.2: Launch Initiative
+
+ Executed Subrecipient Contracts
+
+The following excerpts from executed contracts are provided as documentation of completion of
+Checkpoint 1.2. These agreements demonstrate that the necessary contractual arrangements have
+been finalized and executed to move the applicable RHTP initiatives from planning and preparation
+into active implementation 1.
+
+The excerpts highlight key provisions establishing the scope of work, roles and responsibilities,
+and/or period of performance associated with each initiative. Only relevant portions of the executed
+contracts, including and signature section, are included for purposes of milestone verification.
+
+
+
+
+                                                                                                                 -
+Complete executed agreements are maintained in the program's official records and are available
+as supporting documentation, if requested.
+
+
+ Initiative                                           Executed Contract
+
+ 1: Transforming Rural Health through
+                                                      Michigan Health & Hospital Association                          12
+ Partnerships
+
+ 2: Workforce for Wellness                            Michigan Community Health Worker Alliance                       13
+
+
+ 3: Interoperability in Action                        Access Health Inc.                                              14
+
+
+ 4: Care Closer to Home Blueprint                     Michigan Health & Hospital Association                          15
+
+                                                      American Indian Health & Family Services of
+ Tribal Government Partnership2                                                                                       16
+                                                      Southeast Michigan Inc.
+
+
+
+1 - CMS Clarification provided July 17, 2026: At least one executed contract per initiative signed on or before July 31,
+2026, may serve as evidence that the initiative has launched. Issuing a NOFO or RFP alone would not be sufficient.
+2- This is not a numbered initiative, however, Michigan's RHT Program supports Tribal partners through a dedicated
+five-percent annual carve-out.
+
+
+
+
+                                                                                                                           10
+Please note: Contract excerpts
+have been redacted, as they
+contain Personally Identifiable
+Information (PII). However, an
+overview of these contracts is
+included on this page.
+Additionally, an up-to-date list
+of Michigan RHTP
+subrecipients is maintained on
+the RHTP website:
+Michigan.gov/RHTP.
+

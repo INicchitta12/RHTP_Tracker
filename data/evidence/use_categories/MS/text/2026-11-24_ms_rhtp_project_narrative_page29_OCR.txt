@@ -1,0 +1,51 @@
+Mississippi Rural Healthcare Transformation Program
+
+Content Description
+Category
+e User training and workflow redesign to optimize EHR utilization
+Cybersecurity and Technology Modernization for healthcare providers
+including FQHCs
+e Implementation of cybersecurity software and network protections
+e Staff cybersecurity training and awareness programs
+e Development of security policies, risk assessments, and incident
+response plans
+Health Information Exchange (HIE) Implementation
+e HIEsystem assessment and design, including stakeholder
+engagement
+e Development and implementation of the HIE infrastructure
+e Provider onboarding, data standardization, and training
+e Governance and sustainability planning for long-term HIE operations
+Other considerations:
+e Funding for provider payments is subject to restrictions described in
+funding policies and limitations.
+e Funding for capital expenditures and infrastructure is subject to
+restrictions described in funding policies and limitations.
+e Limit direct payments to individual providers or facilities without
+alignment to HTAM initiative.
+e Arrangements/affiliations should not be contingent on or influence
+ownership and/or independence of participating providers.
+Main Tech Innovation; Innovative Care
+Strategic
+Goals
+Use of Funds | C. Consumer tech solutions
+D. Training and technical assistance
+F. IT advances
+J. Capital Expenditures and Infrastructure
+K. Fostering Collaboration
+
+Technical B.1 Population health clinical infrastructure
+Score C.1 Rural provider strategic partnerships
+Factors F.1 Remote care services
+
+F.2 Data infrastructure
+F.3 Consumer-facing technology
+
+Key Rural hospitals, FQHCs, IT vendors, State Office of Rural Health,
+Stakeholders | provider networks
+Outcomes e Increased adoption of interoperable EHRs among rural and critical
+
+access providers.
+e Upgraded capacity supporting telehealth and digital health services.
+e Reduction in downtime or technical barriers to care delivery.
+
+29

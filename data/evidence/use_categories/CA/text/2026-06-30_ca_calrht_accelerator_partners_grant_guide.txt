@@ -1,0 +1,832 @@
+California Rural Health Transformation
+           Program (CalRHT)
+            Initiative One (1):
+      Transformative Care Model
+          Accelerator Partner
+                Grant Guide for Applicants
+                    Grant Year 2026
+                                           Revised 20260624
+                                              Version 1.0
+
+
+
+       2020 WEST EL CAMINO AVENUE, SUITE 1222 • SACRAMENTO, CA 95833
+
+  “A healthier California where all receive equitable, affordable, and quality health care.”
+
+
+
+The CalRHT program is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S.
+Department of Health and Human Services (HHS) as part of a financial award totaling $233,639,308.46 with
+100 percent funded by CMS/HHS. The contents are those of CalRHT and do not necessarily represent the
+official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+                                                     Table of Contents
+Background and Mission .................................................................................................. 3
+Description of Program Services ...................................................................................... 3
+Available Funding ............................................................................................................. 3
+Eligibility ........................................................................................................................... 4
+Application Process Resources ........................................................................................ 5
+Key Dates......................................................................................................................... 5
+Application Instructions .................................................................................................... 6
+Application Review ........................................................................................................... 8
+Evaluation Criteria ............................................................................................................ 8
+Final Selection and CMS Approval ................................................................................... 9
+Budget Restrictions .......................................................................................................... 9
+Additional Terms and Conditions ................................................................................... 10
+Grant Deliverables and Payment Provisions .................................................................. 10
+ HCAI Department Contact........................................................................................... 10
+Appendix A. Accelerator Partners Under the Rural Health Transformative Care Model
+and Eligibility Expanded ................................................................................................. 12
+  Purpose and Context .................................................................................................. 12
+  Eligibility and Selection Framework............................................................................. 12
+  Ineligibility criteria ........................................................................................................ 13
+Appendix B. Budget restrictions and allowable costs guide ........................................... 14
+ Allowable use of RHTP funds...................................................................................... 14
+ Unallowable use of HHS funds.................................................................................... 15
+ Unallowable use of RHTP funds ................................................................................. 16
+Appendix C. Glossary..................................................................................................... 17
+Attachment A. Required attachments and attestations................................................... 21
+  Attachments ................................................................................................................ 21
+  Attestations ................................................................................................................. 21
+
+
+
+
+                                                       Page 2 of 21
+Background and Mission
+The Department of Health Care Access and Information (HCAI), through the California
+Rural Health Transformation Program (CalRHT), is developing Accelerator Partners (AP)
+as a proposed funding opportunity under the Transformative Care Model (TCM) initiative.
+This Grant Guide is intended to explain, in applicant-facing terms, the purpose of the
+proposed opportunity, the anticipated application requirements, the award structure under
+consideration, and the key conditions that applicants should be prepared to meet.
+CalRHT is designed to strengthen rural health access, quality, and sustainability across
+California. Under the TCM initiative, HCAI seeks to support a connected rural health
+system built around regional care collaboratives, hub-and-spoke relationships, evidence-
+based care redesign, strategic workforce supports, interoperable technology, and targeted
+stabilization for hospitals that are essential to maintaining access in rural communities.
+
+
+Description of Program Services
+Accelerator Partner funding is proposed as support for hospitals or other organizations in
+rural regions that demonstrate strong readiness and commitment to implement the
+California Rural Health Transformation (CA-RHT) TCM through regional care
+collaboratives and hub-and-spoke relationships which will seek to strengthen primary and
+maternity care in rural parts of the state.
+Accelerator Partners will strengthen TCM performance metrics in their service areas
+(described in Appendix A), such as hypertension control and first-trimester prenatal care
+while serving as testing sites for innovative care models and approaches. Accelerator
+Partners will demonstrate how integrated service delivery can strengthen access, quality,
+and sustainability in rural and Frontier and Remote (FAR) communities. Accelerator
+Partner funding may also support hospitals, clinics, Tribal health programs, and affiliated
+providers in other CalRHT work, including:
+•   Implementing evidence-based care models (for example but not limited to Project
+    ECHO, OB Nest, tele-OB, and tele-cardiology modules)
+•   Building capacity through workforce expansion and/or training essential to sustaining
+    new care models in rural settings
+•   Expanding telehealth utilization
+•   Advancing interoperability (for example but not limited to establishing shared
+    scheduling, call coverage, or transfer coordination systems that strengthen service
+    continuity across the network)
+Lessons learned from these Accelerator Partners will inform statewide scaling and
+continuous improvement of the regional care collaboratives and hub-and-spoke framework
+in future years.
+
+
+Available Funding
+The CalRHT Budget Period 1 planning amount totals $39,010,000 for Accelerator
+Partners, with grants for entities to design, test, and/or operationalize scalable models of
+rural care delivery. Final funding available for release, final award size, final number of
+
+                                       Page 3 of 21
+awards, and final disbursement structure remain subject to HCAI and Centers for Medicare
+& Medicaid Services (CMS) approval.
+
+HCAI will award full, partial, or no funding to an applicant based on the applicant’s
+readiness, merit review results, alignment with CalRHT goals, and the amount of funds
+available for release. If additional approved funding becomes available, HCAI may make
+additional awards or adjust recommended award amounts.
+
+
+Category             Details
+
+Initiative           Transformative Care Model (TCM) initiative within CalRHT
+
+Estimated            5-25 CalRHT Accelerator Partner subrecipients, subject to
+number of            downward or upward revision based on CalRHT program decisions
+awards               or if additional approved funding becomes available.
+
+                     Federal Fiscal Year (FFY) 2026-27 $8 million dollar award limit;
+Award ceiling        subject to downward or upward revision based
+                     on CalRHT program decisions
+
+Funding method       Milestone-based payments
+
+                     Final applicant-facing release remains subject to HCAI and CMS
+Funding status
+                     approval
+
+
+
+Eligibility
+California will apply a structured, multi-stage review process to evaluate and select
+applicants for the Accelerator Partners program. Applications will be assessed based on
+the proposed use of funds, including the overall project concept, innovative approach, rural
+health care access gaps addressed, geographic reach, alignment with one or more
+Transformative Care Model (TCM) metrics, funding request, budget, and the applicant’s
+commitment to serving as a regional incubator for rural health care transformation.
+
+The review process will also evaluate the applicant’s implementation readiness and
+organizational capacity, including the feasibility of the proposed workplan and budget, the
+applicant’s ability to launch project activities, and the systems needed to manage grant
+funds, documentation, and reporting requirements. In addition, applications will be
+assessed based on the proposed partnership structure, including the roles of participating
+entities, the extent of regional coordination, and the degree to which partners are
+positioned to support shared implementation, care delivery, referral pathways, workforce
+support, technology enablement, and other activities needed to advance the project.
+
+While multiple aspects of the application will be considered, projects must demonstrate a
+clear and credible pathway to achieving measurable improvements in one or more TCM
+metrics. Applicants will be evaluated on the strength of their proposed activities, the
+
+                                      Page 4 of 21
+anticipated impact on selected TCM metrics, and their ability to measure, monitor, and
+report progress over time. Additional consideration may be given to projects that support
+broader Rural Health Transformation Program objectives, including workforce
+development, technology and tools adoption, and virtual care expansion, when those
+activities contribute to the project’s primary TCM metric outcomes. See Appendix A for
+additional eligibility requirements.
+
+
+Application Process Resources
+It is critical that all organizations review the full application package before applying. The
+final applicant package will include the following resources:
+1. Accelerator Partners Request for Application (RFA). This document sets forth the
+   controlling solicitation terms, including dates, submission requirements, and evaluation
+   procedures. This also includes the fillable application portal.
+2. Budget workbook template. This template document provides structured instructions
+   for budget development and submission and is a required attachment for applicants.
+3. Frequently asked questions, glossary, and addenda issued by HCAI, if / when
+   applicable.
+HCAI is committed to supporting applicants throughout the application process and
+encourages interested organizations to reach out with any questions. Questions regarding
+the application or submission process may be directed to info@calruralhealth.org.
+
+
+Key Dates
+The final published Accelerator Partners application portal will specify the official
+application cycle dates which are subject to change. Estimated dates are as follows:
+
+Milestone                                   Timeline
+
+RFA release target                          July 1st, 2026
+
+Application close                           August 14th, 2026
+
+CMS review of selected applicants           August 2026
+
+Award notifications issued                  August / September 2026
+
+Grant agreements executed                   September / October 2026
+
+
+
+
+                                        Page 5 of 21
+Application Instructions
+•     Read this Grant Guide and the provided application materials before starting the
+      application.
+•     Confirm organizational fit based on the final eligibility criteria.
+•     Identify a primary point of contact and an authorized representative before beginning
+      the application.
+•     Prepare materials needed for each application component before the application close
+      date.
+
+A submitted application must contain all required information and conform to required
+formatting. Application Partners core application sections:
+
+    Section           Details
+
+                      This section consists of organizational identifiers and contact
+                      information for the applicant organization. This would reflect the legal
+                      entity that will execute the grant agreement. Fields in this section
+                      include:
+    Applicant
+    Profile           Entity Legal Name, Primary Point of Contact, Authorized
+                      Representative, Additional Contact (optional), SAM Status, Unique
+                      Entity Identifier, Taxpayer Identification Number / Employer
+                      Identification Number, National Provider Identifier (optional), Tribal
+                      Entity
+
+                      This section provides information about the proposed request for
+                      funds, including an overview of proposed project, the innovative
+                      approach of the project, rural health care access gaps that will be
+                      addressed, geographic reach of the project, the alignment to at least
+                      one Transformative Care Model (TCM) metric, the amount of funding
+                      requested, a completed budget workbook, and the applicant’s
+                      commitment for the project to serve as regional incubator to lead
+                      rural health care transformations. Fields in this section include:
+    Project
+    Overview          Required:
+                      Executive summary, funding requested, completed budget workbook,
+                      Innovative approach, geographic reach of the project, alignment to at
+                      least one TCM metric, commitment for project to serve as regional
+                      testing ground
+                      Optional:
+                      Alignment to additional CalRHT Program Metrics (Workforce metrics
+                      and Technology & Tools metrics)
+
+                      This section provides information about proposed or existing
+    Partnership
+                      partnerships that will support the Applicant Entity in fulfilling the
+    Participants
+                      proposed Accelerator Partners projects. Fields in this section include:
+
+
+
+                                        Page 6 of 21
+                 Partnership descriptions, partner organization information, estimated
+                 amount of funding allocated for each partner, description of partner
+                 funding, and partnership documentation
+
+                 This section is intended to assess whether the Applicant Entity has
+                 the experience, systems, governance structure, partnerships,
+                 workforce capacity, and operations readiness necessary to:
+                     • Implement the proposed project
+                     • Manage grant funding and reporting requirements
+                     • Coordinate across participating partners
+                     • Support implementation and operations activities over time
+Operations           • Contribute to regional learning and scaling activities, if
+Capability              requested
+                     • Maintain stable leadership and organizational continuity
+                        throughout implementation
+                 Fields in this section include:
+                 Partnership management capabilities, operations and grant
+                 management capabilities, IT, data, & telehealth infrastructure, staffing
+                 & workforce readiness, execution capabilities, scale readiness and
+                 governance experience
+
+Implementation   This section provides information on a high-level implementation
+                 timeline, organized by quarter, that identifies the project’s major
+                 phases, milestones, anticipated deliverables, and the participating
+                 entity or organization responsible for each deliverable or milestone.
+                 Fields in this section include:
+                 Timeline and major milestones, project readiness
+
+Additional       Applicants must submit the most recent IRS Form 990 available for
+Documents        the Applicant Entity, if applicable. This information may be used to
+                 support organizational review, financial assessment, and grant
+                 administration activities. Fields in this section include:
+                 Form 990 or alternative documentation
+
+Attestations     This section requires an authorized signature for final submission
+                 certifications. The Authorized Representative identified in the
+                 application will be authorized to act on behalf of the Applicant Entity
+                 and to make all representations, certifications, and attestations in this
+                 application. Fields in this section include:
+                 Disclosure of investigations or enforcement actions, commitment for
+                 project to serve as regional testing group and to scale, financial
+                 sustainability, non-duplicative funding, acknowledgement of
+                 allowable-use restrictions, documentation, and grant funding timeline
+
+
+
+                                   Page 7 of 21
+•   Applicants are responsible for providing all necessary application information and
+    ensuring that the application submitted is complete and accurate.
+•   Application development costs in anticipation of award shall not be charged to the State
+    of California.
+•   Pre-award costs cannot be applied to the grant (e.g. not reimbursable, as occurs
+    outside of the window of award).
+•   HCAI will not consider late or incomplete applications except to the extent
+    expressly stated in the final published application materials.
+
+
+
+Application Review
+HCAI will conduct a threshold review to determine entities that are eligible to apply based
+on the eligibility criteria, as described in Filter 2 through 6 in Appendix A. Then, HCAI will
+conduct a merit review evaluating applicants’ submitted details.
+HCAI staff will review each submitted application and will provide technical and
+informational assistance to eligible applicants as needed. All applications that meet the
+eligibility requirements described in ‘Award Category and Eligibility’ of this Grant Guide will
+be considered for funding through this program. Applications will be evaluated against
+criteria described in the Eligibility and Selection Framework in Appendix A of this Grant
+Guide.
+Applications submitted by the application close date will be treated as final. If an
+application contains false or misleading information or documentation that does not
+support a claim made in the application, HCAI will reject the application.
+
+
+
+Evaluation Criteria
+Applications will be evaluated across four components: (1) Project Overview, (2)
+Partnership Participants, (3) Operations Capability, and (4) Implementation. Explanations
+for these components can be found below.
+Project Overview
+This section is an overview of how the project will be structured and its expected impact.
+This section of the application will include the following:
+•   The total funding requested, how innovative the project is, what rural health care
+    access gap(s) will be addressed and how, the geographic reach of the project, which
+    TCM metric(s) the project aligns to, which workforce metric(s) the project will support (if
+    any), which technology and tools metric(s) the project will support (if any), additional
+    project-specific metrics proposed by the applicant, and commitment to serve as
+    regional incubator to lead rural health care transformation.
+Partnership Participants (if applicable)
+
+
+
+                                       Page 8 of 21
+This section will describe the proposed partnerships that the applicant plans to collaborate
+with, to successfully implement the proposed project. This section of the application will
+include the following:
+• Geographic location of partners, capabilities of partners, how much funding will be
+    allocated to each partner, documentation related to applicant’s legal ability to enter into
+    grant agreements, and documentation of existing relationships between applicant and
+    partners.
+Operations Capability
+This section will demonstrate the applicant’s ability to carry out the proposed project based
+on previous experience and current capabilities. This section of the application will include
+the following:
+•   Experience and previous partnerships, operations and management capabilities, IT,
+    data, and telehealth infrastructure, staffing and workforce readiness, and governance
+    and organizational stability.
+Implementation
+This section will ask applicants to demonstrate their plan for implementing the proposed
+project. This section of the application will include the following:
+•   Project timeline, major milestones, which organization owns deliverables / milestones,
+    and how soon a project can be implemented.
+
+
+
+Final Selection and CMS Approval
+•   HCAI reviews eligible applications and develops award recommendations.
+•   HCAI may recommend full awards, partial awards, conditional awards, or no awards.
+•   HCAI will submit subrecipient proposal and budget details for CMS review.
+•   CMS may approve, request modifications, modify the grant award, or deny the award.
+•   After CMS responds, HCAI notifies the applicant of the final award amount and terms
+    for disbursement.
+
+
+Budget Restrictions
+The full allowable costs and cost limitations as restricted by CMS are referenced in
+Appendix B. Applicants should review the budget restrictions in Appendix B to understand
+the federal rules to which CMS Rural Health Transformation Program (RHTP) funds are
+subject. Some of the unallowable costs include but are not limited to:
+•   Pre-award costs
+•   Payment for clinical services that duplicate billable services (i.e., could be reimbursed
+    by health coverage)
+•   Meeting matching requirements for any other federal funds or local entities
+
+
+
+                                       Page 9 of 21
+•   Services, equipment, or supports that are the legal responsibility of another party under
+    any civil rights law, such as modifying a workplace or providing accommodations that
+    are obligations under law
+•   Goods or services not allocable to the project
+•   Supplanting existing State, local, tribal, private, or other federal funding of infrastructure
+    or services, such as staff salaries
+•   Purchase of covered telecommunications and video surveillance equipment (See 2
+    CFR 200.216) as well as financial assistance to households for installation and monthly
+    broadband internet costs
+•   Construction, lobbying, or other unallowable costs under applicable CMS, HHS, and 2
+    CFR Part 200 requirements unless expressly approved by HCAI and CMS
+
+
+Additional Terms and Conditions
+1. By submitting an application, the applicant acknowledges that any award will be subject
+   to the final terms and conditions of the program
+2. HCAI may consider the submission of an application to imply acceptance of the final
+   published terms and conditions. All applicants must agree to the final terms and
+   conditions before receiving funds.
+3. If the applicant requires internal approval to contract, the applicant must inform the
+   approving authority of the terms and conditions contained in the final award agreement
+   package.
+4. Applicants must comply with civil rights, nondiscrimination, accessibility, records
+   retention, audit readiness, required disclosures, privacy and security, and any
+   applicable federal or state publicity requirements.
+5. All reports and supporting documentation become State property and are subject to the
+   California Public Records Act. In addition, CMS retains a royalty-free, nonexclusive,
+   irrevocable license to reproduce, publish, and use all works developed under the
+   Federal Award for federal purposes (2 CFR 200.315(b); Exhibit A, A.12).
+
+
+Grant Deliverables and Payment Provisions
+The final sub-award agreement will define the payment method and required deliverables.
+Milestone-based payments could include but are not limited to startup milestones, output-
+based milestones, outcomes-based milestones, or administrative / reporting milestones.
+
+
+
+HCAI Department Contact
+For questions related to the Transformative Care Model Accelerator Partner (TCM AP)
+application, please email the HCAI staff at: info@calruralhealth.org
+Additional CalRHT resources are available on the HCAI California State Office of Rural
+Health / CalRHT webpage
+
+                                        Page 10 of 21
+Thank You!
+Thank you for your interest in the California Rural Health Transformation Program and for
+your continued commitment to preserving and strengthening access to care in rural
+California communities.
+
+
+
+
+                                    Page 11 of 21
+Appendix A. Accelerator Partners Under the Rural Health
+Transformative Care Model and Eligibility Expanded
+Purpose and Context
+Accelerator Partners in the Rural Health Transformative Care Model (TCM) are
+investments in a group of organizations that demonstrate the capacity to lead
+transformation in care delivery, care coordination, operations management, technology,
+and revenue management in rural and FAR communities. As described in the Project
+Narrative, California’s rural communities are geographically expansive, demographically
+diverse, and operate under widely varying conditions. These entities will contribute to
+closing gaps across the region by serving as local innovators and implementation leaders
+that identify clinical and operational challenges, develop practical solutions, and translate
+strategic initiatives into measurable practice change. The intent of Accelerator Partners is
+to establish real-world testing environments that incubate innovation, strengthen rural
+health care delivery, improve access, reduce fragmentation, and generate actionable
+insights to inform broader statewide scaling. Accelerator Partners are therefore not solely
+implementers of TCM initiatives, but strategic learning collaboratives that advance the
+program’s broader goals of sustainable access, enhanced care coordination, technology-
+enabled care, workforce innovation, and improved rural health outcomes.
+Accelerator Partners will play a role in advancing regional partnerships that further the
+goals of CalRHT. Through new collaborations, Accelerator Partners will strengthen shared
+learning, align implementation efforts, and accelerate the adoption of effective practices
+across rural communities. When applicable, applicants should demonstrate how proposed
+partnerships will support coordinated implementation, expand regional capacity, and drive
+sustainable improvements in rural health care access, quality, and outcomes.
+
+Eligibility and Selection Framework
+California will apply a structured, multi-stage process to select proposals for the
+Accelerator Partners program. The objective is to ensure that awards are directed to
+applicants that are (1) positioned to drive measurable progress on Transformative Care
+Model (TCM) metrics, (2) capable of serving as regional incubator to lead rural health
+transformation, (3) capable of capturing lessons learned from their project and prepared to
+support statewide scaling through structured learning, (4) capable of maintaining
+accountability for documentation and reporting requirements, (5) have the necessary
+management capabilities to implement their proposed program, and (6) can implement the
+proposed project upon receiving funding.
+
+       Filter 1: Drive measurable progress on TCM metrics
+       HCAI will assess the ability of proposed projects to contribute to one or more of the
+       following TCM metrics:
+          •   improving the rate of hypertension control
+          •   decreasing the rate of poor diabetes control
+
+                                      Page 12 of 21
+           •   increasing the rate of screening for colorectal cancer
+           •   increasing the rate of first-trimester prenatal care
+           •   increasing the rate of uncomplicated vaginal births after cesarean sections
+           •   increasing the amount of telehealth virtual visits / electronic consultations.
+
+       Filter 2: Serve as regional incubator to lead rural health care transformations
+       HCAI will assess the ability of proposed projects to serve for regional testing and
+       scaling, and serve as regional incubator to lead rural health care transformation.
+
+       Filter 3: Capture lessons learned and support statewide scaling through
+       structured learning
+       HCAI will assess the willingness of applicants to capture lessons learned through
+       implementation of proposed projects and cooperate with the state of California to
+       create structured learnings for future rural health care delivery.
+
+       Filter 4: Maintain accountability for documentation and reporting
+       HCAI will assess the willingness of applicants to provide documentation and fulfill
+       reporting requirements associated with Federal Rural Health Transformation
+       (RHTP) funding program.
+
+       Filter 5: Have the management capabilities to implement program
+       HCAI will assess the ability of applicant to implement proposed project and meet the
+       requirements outlined in Filters 3 and 4.
+
+       Filter 6: Capability to start project upon receiving award
+       HCAI will assess the ability for applicant to start implementing the project as soon
+       as funds are received to expedite testing of innovative care models that will be used
+       in upcoming work with Hub-and-Spoke implementation.
+
+
+Ineligibility criteria
+•   Applicants must be eligible to receive federal funds (e.g., cannot be suspended,
+    debarred, or deemed ineligible in SAM.gov)
+•   Applicants must be verified as legitimately licensed, certified, and qualified to provide
+    the rural health services approved under the respective award
+•   Applicants must have appropriate financial management procedures, controls, and
+    capabilities to manage and report on the funds used (refer to the federal guidance for
+    the complete set of qualifying criteria)
+•   Applicants cannot be currently under, or subject to, bankruptcy proceedings (voluntary
+    or involuntary)
+
+
+                                       Page 13 of 21
+Appendix B. Budget restrictions and allowable costs guide
+The following sections detail allowable and unallowable costs for all RHTP funding as set
+forth by the federal government. CalRHT Accelerator Partners Grant is subject to the
+following. Thus, applicants should review the following federal rules to ensure that their
+plans for any application component remain within the federal parameters. The following
+may not be comprehensive, and HCAI may set additional funding restrictions to be detailed
+elsewhere.
+
+Allowable use of RHTP funds
+It is important to understand that RHTP funds are subject to specific federal rules about
+what costs are allowed. RHTP funds may only be used for purposes permitted by federal
+statute and approved by CMS. CalRHT Accelerator Partners subrecipients are subject to
+CalRHT restrictions, thus are not allowed to use CalRHT Accelerator Partners funds for
+Category B or Category J as described below. CMS allowable use categories include1:
+     A. Prevention and chronic disease: Promoting evidence-based, measurable
+        interventions to improve prevention and chronic disease management.
+     B. Provider payments (not allowed): Provider payments are not allowed for CalRHT
+        Accelerator Partner subrecipients.
+     C. Consumer tech solutions: Promoting consumer-facing, technology-driven
+        solutions for the prevention and management of chronic diseases.
+     D. Training and technical assistance: Providing training and technical assistance for
+        the development and adoption of technology-enabled solutions that improve care
+        delivery in rural hospitals, including remote monitoring, robotics, artificial
+        intelligence, and other advanced technologies.
+     E. Workforce: Recruiting and retaining clinical workforce talent to rural areas, with
+        commitments to serve rural communities for a minimum of 5 years.
+     F. IT advances: Providing technical assistance, software, and hardware for significant
+        information technology advances designed to improve efficiency, enhance
+        cybersecurity capability development, and improve patient health outcomes.
+     G. Appropriate care availability: Assisting rural communities to right size their health
+        care delivery systems by identifying needed preventative, ambulatory, pre-hospital,
+        emergency, acute inpatient care, outpatient care, and post-acute care service lines.
+     H. Behavioral health: Supporting access to opioid use disorder treatment services (as
+        defined in section 1861(jjj)(1) of the Social Security Act), other substance use
+        disorder treatment services, and mental health services.
+     I.   Innovative care: Developing projects that support innovative models of care that
+          include value-based care arrangements and alternative payment models, as
+          appropriate. For Accelerator Partners, this could include bringing an already existing
+          care model, workflow, partnership structure, service, technology use, or way of
+
+1
+    CMS-RHT-26-001, Rural Health Transformation Program, Notice of Funding Opportunity
+
+                                             Page 14 of 21
+          delivering services to a community that does not currently have it. The proposed
+          model must be novel and not an existing model in the local area or service region.
+     J.   Capital expenditures and infrastructure (not allowed): Capital expenditures and
+          infrastructure payments are not allowed for CalRHT Accelerator Partner
+          subrecipients.
+     K. Fostering collaboration: Initiating, fostering, and strengthening local and regional
+        strategic partnerships between rural facilities and other health care providers to
+        promote quality improvement, improve financial stability of rural facilities, and
+        expand access to care.
+
+Unallowable use of HHS funds (Under “Limitations” section in CMS NOFO2)
+Federal rules do not allow RHTP funds to be used for certain expenses that the CalRHT
+Accelerator Partners program is subject to follow. Applicants should review these policies
+to ensure their proposed plan and use of funds fits within the RHTP funding parameters
+and to avoid developing plans and budgets that rely on unallowable uses of funds. The
+federal government does not allow the following costs:
+      •   Pre-award costs.
+      •   Meeting matching requirements for any other federal funds or local entities.
+      •   Services, equipment, or supports that are the legal responsibility of another party
+          under federal, State, or tribal law, such as vocational rehabilitation or education
+          services.
+      •   Services, equipment, or supports that are the legal responsibility of another party
+          under any civil rights law, such as modifying a workplace or providing
+          accommodations that are obligations under law.
+      •   Goods or services not allocable to the project.
+      •   Supplanting existing State, local, tribal, or private funding of infrastructure or
+          services, such as staff salaries.
+      •   Construction or building expansion, purchasing or significant retrofitting of buildings,
+          cosmetic upgrades, or any other cost that materially increases the value of the
+          capital or useful life as a direct cost.
+      •   The cost of independent research and development, including their proportionate
+          share of indirect costs. See 2 CFR 300.477.
+      •   Funds related to any activity designed to influence the enactment of legislation,
+          appropriations, regulation, administrative action, or executive order.
+      •   Purchase of covered telecommunications and video surveillance equipment (See 2
+          CFR 200.216) as well as financial assistance to households for installation and
+          monthly broadband internet costs.
+      •   Meals, unless in limited circumstances such as:
+             o Subjects and patients under study.
+             o Where specifically approved as part of the project or program activity, such
+                 as in programs providing children’s services.
+             o As part of a per diem or subsistence allowance provided in conjunction with
+                 allowable travel.
+
+2
+    CMS-RHT-26-001, Rural Health Transformation Program, Notice of Funding Opportunity
+
+                                             Page 15 of 21
+   •   Activities prohibited under 2 CFR 200.450 and the HHS Grants Policy Statement,
+       including but not limited to:
+           o Paying the salary or expenses of any grant recipient, or agent acting for such
+               recipient, related to any activity designed to influence the enactment of
+               legislation, appropriations, regulation, administrative action, or executive
+               order proposed or pending before the Congress or any State government,
+               State legislature, or local legislature or legislative body.
+           o Lobbying, but subrecipients can lobby at their own expense if they can
+               segregate federal funds from other financial resources used for lobbying.
+
+Unallowable use of RHTP funds (Under “Unallowable costs” section in CMS NOFO2)
+   •    New construction is unallowable. Supplanting funding for in-process or planned
+        construction projects or directing funding towards new construction builds is
+        unallowable. Renovations or alterations, as described in category J of the CMS
+        allowable use of funds section, are not allowed for Accelerator Partners
+        subrecipients.
+     • CMS will not accept payments to clinical services if they duplicate billable services
+        and/or attempt to change payment amounts of existing fee schedules. If you plan to
+        fund direct health care services, you must justify why they are not already
+        reimbursable, how the payment will fill a gap in care coverage (such as
+        uncompensated care or services not covered by insurance), and/or how they
+        transform the current care delivery model.
+            o Funding cannot be used for initiatives that fund certain cosmetic and
+               experimental procedures that fall within the definition of a specified sex-trait
+               modification procedure at 45 CFR 156.400 because that is beyond the scope
+               of this program.
+     • Accelerator Partners applicants should be aware that no more than 5% of total
+        funding for the CalRHT program (includes Accelerator Partners and other
+        programs) in a given budget period can support funding the replacement of an EHR
+        system if a previous HITECH certified EHR system is already in place as of
+        September 1, 2025.
+     • Clinician salaries or wage supports for facilities that subject clinicians to non-
+        compete contractual limitations.
+SSA Section 2105(c), paragraphs (1), (7), and (9) apply as funding limitations. These
+limitations are related to general limitations, limitations on payment for abortions, and
+citizenship documentation requirements for payments made with respect to an individual.
+
+
+
+
+                                      Page 16 of 21
+Appendix C. Glossary
+  •   Accelerator Partners (AP): Organizations within care collaboratives and hub-and-
+      spoke relationships that serve as innovation hubs, incubators to lead new workforce
+      strategies, technologies, partnerships, and payment approaches that can be
+      replicated across rural regions.
+
+  •   California Department of Health Care Access and Information (HCAI): The
+      state agency leading the California Rural Health Transformation Program (CalRHT)
+      and responsible for program oversight and implementation
+
+  •   California Rural Health Transformation Program (CalRHT): A statewide initiative
+      designed to improve access, quality, workforce capacity, and financial sustainability
+      of health care delivery in rural and FAR California communities.
+
+  •   Capital Expenditures and Infrastructure: Investing in existing rural health care
+      facility buildings and infrastructure, including minor building alterations or
+      renovations and equipment upgrades to ensure long-term overhead and upkeep
+      costs are commensurate with patient volume.
+
+  •   Centers for Medicare & Medicaid Services (CMS): The federal agency within the
+      U.S. Department of Health and Human Services that administers Medicare,
+      Medicaid, and other national health care programs.
+
+  •   Code of Federal Regulations (CFR): The official collection of federal government
+      regulations and rules.
+
+  •   Community-Based Organizations (CBOs): Local organizations that provide
+      social, educational, or supportive services and partner with health providers to
+      address community needs.
+
+  •   Chief-level executive suite (C-suite): A collective term for an organization’s top
+      executive leaders whose titles typically begin with “Chief,” such as Chief Executive
+      Officer (CEO), Chief Financial Officer (CFO), Chief Operations Officer (COO), and
+      Chief Medical Officer (CMO).
+
+  •   Coronavirus Disease 2019 (COVID-19): An infectious respiratory disease caused
+      by the SARS-CoV-2 virus.
+
+  •   Electronic Consultation (eConsult): An asynchronous or synchronous provider-
+      to-provider consultation that allows primary care clinicians to obtain specialist input
+      without requiring an in-person patient visit.
+
+
+                                     Page 17 of 21
+•   Electronic Health Record (EHR): Electronic records containing a patient’s medical
+    history and key administrative and clinical data relevant to that person’s care.
+
+•   Federally Qualified Health Center (FQHCs): A federally funded community health
+    center that provides comprehensive primary care services regardless of patients’
+    ability to pay.
+
+•   Federal Fiscal Year (FFY): The account period that spans 12 months from October
+    1 to September 30. This differs from California’s state Fiscal Year, which runs from
+    July 1 through June 30.
+
+•   Frontier and Remote (FAR) Area: Extremely rural areas characterized by very
+    low population density and significant geographic isolation. “Frontier and Remote
+    (FAR)” designations are determined by USDA, which is one of several inputs that
+    the Federal Office of Rural Health Policy (FORHP) at HRSA use to determine its
+    rural definition.
+
+•   Health Information Technology for Economic and Clinical Health (HITECH): A
+    2009 federal law focused on supporting the use of health information technology,
+    including electronic health records and secure electronic health information
+    exchange.
+
+•   Hub-and-Spoke Model: A regional care delivery model in which a central “hub”
+    (typically a hospital with specialty capacity) supports multiple “spoke” sites such as
+    clinics, rural hospitals, and community providers.
+
+•   Information Technology (IT): Systems and services related to computing,
+    software, networks, and digital infrastructure.
+
+•   Interoperability: The ability of different health information systems and EHRs to
+    exchange, interpret, and use data effectively.
+
+•   Memoranda of Understanding (MOUs): A written agreement, typically non-
+    binding, outlining intentions, objections, and general framework of collaborating
+    parties.
+
+•   Notice of Funding Opportunity (NOFO): A formal notice typically issued by a
+    federal agency to announce the availability of funding and describe application
+    requirements.
+
+
+
+
+                                   Page 18 of 21
+•   OB Nest Model: An evidence-based maternity care model that reduces in-person
+    visits through virtual check-ins and home monitoring while maintaining care quality
+    and outcomes.
+
+•   Obstetrics (OB): The medical specialty focused on pregnancy, childbirth, and
+    postpartum care.
+
+•   Point of Contact (POC): The designated individual responsible for coordinating
+    and managing the application, and potential project, on behalf of the Applicant
+    Entity.
+
+•   Primary Care Health Provider Shortage Area (PCHPSA): A designation
+    indicating insufficient access to primary care providers within a defined geographic
+    area.
+
+•   Project Extension for Community Healthcare Outcomes (Project ECHO): A
+    tele-mentoring model that connects specialists with rural providers to improve care
+    access and expertise.
+
+•   Provider Payments: Providing payments to health care providers for the provision
+    of health care items or services.
+
+•   Request for Applications (RFA): A formal announcement issued by government
+    agencies, foundations, or organizations to solicit proposals for grants.
+
+•   Rural Health Clinic (RHC): A clinic certified by CMS to provide primary care
+    services in rural areas and receive enhanced reimbursement.
+
+•   Rural Health Transformation Program (RHTP): A federal initiative created by the
+    One Big Beautiful Bill Act (H.R. 1) to reshape and strengthen healthcare systems in
+    rural communities across the United States, with a total of $50 billion available in
+    funding across 50 states over a 5-year period.
+
+•   Social Security Act (SSA): A federal law governing social insurance and
+    healthcare programs, including Medicare and Medicaid.
+
+•   Supplanting: Replacing existing State, local, tribal, or private funding with federal
+    RHTP funds. This is explicitly prohibited.
+
+•   Transformative Care Model (TCM): The CalRHT program’s core initiative that
+    integrates workforce, technology, telehealth, and payment strategies through
+    regional care collaboratives and hub-and-spoke relationships.
+
+                                   Page 19 of 21
+•   Telehealth: The delivery of health care services using electronic and digital
+    technologies, including live video, audio-only, store-and-forward, and remote
+    monitoring.
+
+•   U.S. Department of Health and Human Services (HHS): a cabinet-level executive
+    branch department of the U.S. federal government that oversees programs and
+    agencies related to health care, public health, biomedical research, and human
+    services. It oversees a selection of agencies and offices, including CMS.
+
+•   Value-Based Care (VBC): A healthcare delivery model that compensates providers
+    based on patient health outcomes, quality of care, and patient experience, rather
+    than the volume of services provided.
+
+
+
+
+                                  Page 20 of 21
+Attachment A. Required attachments and attestations
+Attachments
+  Budget workbook
+
+
+Attestations
+  Disclosure of investigations or enforcement actions attestation
+
+  Commitment for project to serve as regional testing group and to scale, if asked,
+
+   attestation
+
+  Financial sustainability attestation
+
+   Non-duplicative funding attestation
+
+   Acknowledgement of allowable-use restrictions attestation
+
+   Documentation attestation
+
+   Grant funding timeline attestation
+
+
+
+
+                                         Page 21 of 21
+

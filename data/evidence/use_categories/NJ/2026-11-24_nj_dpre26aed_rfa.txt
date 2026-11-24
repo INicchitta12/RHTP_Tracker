@@ -1,0 +1,1440 @@
+      Rural Health Transformation Program 2026:
+      Advancing Access to Care, EMS, and Dispatch
+             Capability in Rural New Jersey
+
+                          Request for Applications (RFA)
+
+                                     Issued by:
+                       Office of Emergency Medical Services
+                   Division of Disaster Preparedness, Resiliency,
+                          and Emergency Medical Services
+
+                       Application Deadline: April 8, 2026
+
+                                    Submission Portal:
+                           https://dohsage.intelligrants.com/
+
+
+
+This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+Transformation (RHT) Program, as authorized by the One Big Beautiful Bill Act (OBBBA) (Section
+71401 of Public Law 119-21).
+
+Issuance of this RFA does not obligate the New Jersey Department of Health (Department) to award
+funding. Any awards under this RFA are contingent upon the availability of funds appropriated
+through OBBBA and applicable state approvals.
+
+This project is supported by the Center for Medicare & Medicaid Services (CMS) of the U.S.
+Department of Health and Human Services (HHS) as part of a financial assistance award totaling
+$147,250,805 million, with 100 percent funded by CMS/HHS. The contents are those of the author(s)
+and do not necessarily represent the official views of, nor an endorsement by, CMS/HHS, or the U.S.
+Government.
+
+
+
+
+Rural Health Transformation Program 2026                                                   Page 1 of 49
+                                                       TABLE OF CONTENTS
+
+Contents
+ Project Contacts ............................................................................................................................................ 3
+ Important Dates ............................................................................................................................................. 3
+ Technical Assistance Webinar........................................................................................................................ 3
+ Program Overview/Background .................................................................................................................... 4
+ Eligibility ......................................................................................................................................................... 6
+ Scope of Work ................................................................................................................................................ 7
+ Available Funding ........................................................................................................................................... 9
+ Scope of Work - Activities A, B, C, D ............................................................................................................ 11
+    Activity A – Mobile Integrated Health (MIH) ........................................................................................... 11
+    Activity B – Pre-Hospital Whole Blood Administration ............................................................................ 12
+    Activity C – EMS Dispatch and Clinician Triage ........................................................................................ 12
+    Activity D – Administrative and Indirect Costs......................................................................................... 13
+ Reporting Requirements and Timeline ........................................................................................................ 14
+ Programmatic and Administrative Requirements ....................................................................................... 15
+ Allowable Costs and Funding Restrictions ................................................................................................... 18
+ Budget Revisions and Grant Amendments .................................................................................................. 22
+ Review and Evaluation Criteria .................................................................................................................... 22
+ Grant Compliance Requirements................................................................................................................. 23
+ APPENDIX A - Rural New Jersey: Federal Definition .................................................................................... 26
+ APPENDIX B - Rural New Jersey: State Definition ........................................................................................ 27
+ APPENDIX C - Rural New Jersey: Rural Ruggedness Scale (RRS) .................................................................. 28
+ APPENDIX D - RFA Application Guidance ..................................................................................................... 29
+ APPENDIX E - RFA Application Scoring Guide .............................................................................................. 38
+ APPENDIX F - Project and Budget Submission Form (Activity A) ................................................................. 41
+ APPENDIX G - Project and Budget Submission Form (Activity B) ................................................................ 44
+ APPENDIX H - Project and Budget Submission Form (Activity C)................................................................. 47
+
+
+
+
+Rural Health Transformation Program 2026                                                                                                        Page 2 of 49
+Program Overview/Background
+Although New Jersey is the most densely populated state in the nation, more than one million
+residents live in communities that meet federal or state definitions of rurality. Notably, rural New
+Jerseyans reside across eleven counties, including Atlantic, Burlington, Cape May, Cumberland,
+Hunterdon, Mercer, Monmouth, Ocean, Salem, Sussex, and Warren, and experience challenges
+common to rural regions nationwide, despite their proximity to urban centers, including fewer
+healthcare access points and workforce shortages.
+
+Approximately 138,000 New Jersey residents (approximately 1.5% of the state’s population) live
+within 40 federally recognized Rural Census Tracts (RCTs) located across eight (8) counties,
+according to the most recent rural definition maintained by the Health Resources and Services
+Administration (HRSA) 1. These rural counties include Atlantic, Burlington, Cumberland,
+Hunterdon, Mercer, Monmouth, Ocean, and Warren. See Appendix A for federally recognized
+rural counties and RCTs.
+
+New Jersey also uses a state-specific rural definition, identifying areas with population densities
+below 500 persons per square mile as rural. Under this definition, seven (7) counties - Atlantic,
+Cape May, Cumberland, Hunterdon, Salem, Sussex, and Warren - qualify as rural. This state
+definition acknowledges the unique geographic landscape of rural New Jersey, where most areas
+are near urban centers but still face barriers similar to those in federally defined rural areas. See
+Appendix B for state-recognized rural counties.
+
+Other metrics, such as the Road Ruggedness Scale (RRS), developed by the United States
+Department of Agriculture, identify additional areas in northeastern New Jersey that are
+considered rural. Under this metric, ten (10) RCTs across four (4) counties - Bergen, Hudson,
+Morris, and Passaic - are designated as rural. See Appendix C for RRS-designated rural counties
+and RCTs. These examples exemplify how rural barriers persist even within the nation’s most
+densely populated state.
+
+Rural communities across the United States face significant challenges in accessing quality
+healthcare. These challenges stem from provider shortages, limited specialized care, financial
+constraints, geographic isolation, and limited public transportation. Although New Jersey is the
+most densely populated state in the nation, it contains meaningful pockets of rurality, distributed
+across several counties, that face similar challenges to those in rural regions nationwide. These
+challenges are compounded by the state’s rural geography, diverse population, and significant
+socioeconomic disparities, all of which affect access to healthcare. The result is unique barriers
+that require targeted, state-specific solutions that strengthen care access. Among the most
+promising and necessary strategies are mobile integrated health programs and clinician-based 9-1-
+
+1
+ 2. Health Resources & Services Administration (HRSA). How We Define Rural. [Online] September 23, 2025.
+https://www.hrsa.gov/rural-health/about-us/what-is-rural.
+
+    Rural Health Transformation Program 2026                                                     Page 4 of 49
+1 triage programs, which can overcome longstanding barriers to care and improve health
+outcomes in communities with limited access to traditional healthcare.
+
+Rural New Jersey communities face significant challenges in accessing healthcare providers,
+including primary care physicians, specialists, and mental health professionals. These limitations
+make it difficult for residents to receive quality healthcare, particularly for chronic conditions such
+as diabetes, heart disease, and hypertension, as well as preventive services like cancer screenings
+and vaccinations.
+
+Targeted funding is essential to expand access to care and EMS, enhance EMS dispatch, address
+disparities in rural New Jersey communities, and strengthen the EMS workforce.
+
+The Rural Health Transformation (RHT) Program was authorized by the One Big Beautiful Bill Act
+(OBBBA) (Section 71401 of Public Law 119-21) and empowers states to strengthen rural
+communities across America by improving healthcare access, quality, and outcomes, with a
+particular focus on uninsured and underinsured populations, through transformation of the
+healthcare delivery ecosystem. Through innovative system-wide change, the RHT Program invests
+in the rural healthcare delivery system to better serve these populations now and for future
+generations.
+
+The RHT Program is designed to fund investments that will transform and sustain the delivery of
+care in rural communities, with a focus on improving access and outcomes, particularly for
+uninsured and underinsured individuals. Additional funding opportunities are available at
+https://healthapps.nj.gov/noticeofgrant/noticegrants.aspx. This funding will drive the following
+strategic goals:
+
+1. Make Rural America Healthy Again: Support rural health innovations and new access points to
+   promote preventative health and address root causes of diseases. Projects will use evidence-
+   based, outcomes-driven interventions to improve disease prevention, chronic disease
+   management, behavioral health, oral health, and prenatal care.
+
+2. Sustainable Access: Help rural providers become long-term access points for care by
+   improving efficiency and sustainability. With RHT Program support, rural facilities work
+   together with high-quality regional systems to share or coordinate operations, technology,
+   primary and specialty care, and emergency services.
+
+3. Workforce Development: Attract and retain a highly skilled health care workforce by
+   strengthening recruitment and retention of healthcare providers in rural communities. Help
+   rural providers practice at the top of their license and develop a broader set of providers to
+   serve a rural community’s needs, such as community health workers, pharmacists, and
+   individuals trained to help patients navigate the healthcare system.
+
+
+ Rural Health Transformation Program 2026                                                Page 5 of 49
+4. Innovative Care: Spark the growth of innovative care models to improve health outcomes,
+   coordinate care, and promote flexible care arrangements. Develop and implement payment
+   mechanisms that incentivize providers or Accountable Care Organizations (ACOs) to reduce
+   health care costs, improve quality of care, and shift care to lower-cost settings.
+
+5. Tech Innovation: Foster use of innovative technologies that promote efficient care delivery,
+   data security, and access to digital health tools by rural facilities, providers, and patients.
+   Projects support access to remote care, improve data sharing, strengthen cybersecurity, and
+   invest in emerging technologies.
+
+For more information about the RHT Program’s strategic goals, visit the Centers for Medicare &
+Medicaid Services Rural Health Transformation (RHT) Program website or access the Notice of
+Funding Opportunity (NOFO) at https://grants.gov/search-results-detail/360442.
+Funding under the RHT Program is contingent upon appropriations through the OBBBA. These
+investments will help overcome longstanding barriers to care, improve health outcomes, and
+strengthen access to healthcare in rural New Jersey, with a particular focus on uninsured and
+underinsured populations.
+
+Eligibility
+Eligibility is limited to applicants who operate programs or propose activities that serve uninsured
+and underinsured individuals in the designated rural target-population counties and RCTs
+identified under federal, state, or RRS definitions. This includes the combined federal and state
+rural-designated counties of Atlantic, Burlington, Cape May, Cumberland, Hunterdon, Mercer,
+Monmouth, Ocean, Salem, Sussex, and Warren, as well as ten (10) RCTs in Bergen, Hudson,
+Morris, and Passaic counties designated as rural under the RRS. In some cases, only certain areas
+within a county or an RCT may qualify as rural. Eligibility can be verified using Appendix A for
+federally recognized rural counties and RCTs, Appendix B for state-recognized rural counties, and
+Appendix C for RRS-designated RCTs.
+
+Applicants are not required to serve exclusively uninsured or underinsured populations across
+their entire organization, and programs or positions supported by this grant may interact with or
+serve insured individuals. However, grant funds may not be used to pay for or support any services
+or activities that are reimbursable by Medicaid, Medicare, or private insurance. Additionally,
+reimbursement for care provided to non-citizens is not allowed under the RHT Program.
+
+Eligible applicants include:
+    • Activity A: Mobile Integrated Health (MIH): Agencies licensed, or eligible for licensure as
+        an MIH program in accordance with N.J.A.C. 8:49-1.1 et seq.
+
+
+
+
+ Rural Health Transformation Program 2026                                             Page 6 of 49
+   •   Activity B: Prehospital Whole Blood Administration: Agencies licensed as a Mobile
+       Intensive Care program in accordance with N.J.A.C. 8:41-1.3, and who hold a current blood
+       bank license pursuant to N.J.S.A. 26:2A-2 et seq., and N.J.A.C. 8:8-1.1 et seq.
+   •   Activity C: EMS Dispatch and Clinician Triage: State, municipal, and county governments;
+       hospitals; public and private nonprofit organizations that operate a Public Safety
+       Answering Point (PSAP) or Public Safety Dispatch Point (PSDP).
+
+Note: Applicants serving areas that meet the federal Health Resources and Services Administration
+(HRSA) definition of rural may receive priority consideration in the funding process.
+
+Note: Applicants for Activity A who are eligible for but are not yet licensed as an MIH program by
+the Department must complete the licensure process no later than June 1, 2026.
+
+Scope of Work
+The Department’s Rural Health Transformation Program 2026: Advancing Access to Care, EMS,
+and Dispatch Capability in rural New Jersey focuses on expanding primary care access through
+MIH programs, enhancing the capabilities of Emergency Medical Services to effectively care for
+patients suffering from significant traumatic injuries, integrating technology-driven solutions, and
+bolstering the capabilities and consistency of dispatch to improve overall health and health
+outcomes in rural New Jersey.
+
+To achieve this goal, the program supports targeted initiatives, including MIH programs, pre-
+hospital whole-blood administration, and enhanced dispatch center capabilities and consistency to
+integrate clinician-based triage, evidence-based protocols, and standardized guide cards. These
+initiatives promote continuity of care, access to primary care, and care coordination, all while
+advancing and diversifying the capabilities of the EMS workforce. MIH programs have a unique
+ability to be integrated into rural New Jersey communities and to address social determinants of
+care, such as transportation and barriers to provider access. These programs can connect rural
+New Jersey to advanced resources and monitoring by integrating the latest patient-monitoring
+and telehealth technologies, bringing vulnerable communities access to services that are often out
+of reach.
+
+Furthermore, pre-hospital administration of whole blood provides access to the latest, most
+advanced clinical trauma care by enabling early, definitive hemorrhage control in the field.
+This ensures patients suffering from significant traumatic injuries have access to timely, evidence-
+based lifesaving care shown to improve survival and reduce morbidity. Making pre-hospital whole
+blood available throughout the state eliminates geographic barriers, ensuring equitable access to
+lifesaving care and strengthening the statewide trauma system.
+
+
+
+
+ Rural Health Transformation Program 2026                                              Page 7 of 49
+As we expand resource availability and types across the state, we aim to enhance dispatch
+capabilities by establishing the first regionalized resources through partnerships that foster
+collaboration to standardize, update, and advance processes in each region. Additionally, funding
+is available to support the integration of clinician-based triage into the call-taking operations,
+enabling the diversion of low-acuity calls to a qualified clinician who can facilitate access to non-
+emergent resources when appropriate.
+
+By expanding access to care, the type of treatment available, and streamlining the process that
+delivers these resources, the funding helps promote the overall health and wellness of the rural
+New Jersey communities, protects public health, and continues to improve the quality of health
+care in line with the state’s vision of making New Jersey the healthiest state in the union.
+
+LETTER OF INTENT & RFA QUESTIONS
+On March 9, 2026, OEMS announced the 2026 Rural Health Transformation Program RFA via email
+to eligible entities, as defined in the Rural Health Transformation Program Notice of Funding
+Opportunity (MC-RHT-26-001). A copy of the RFA, the Rural Health Transformation Program Letter
+of Intent To Apply Template, and upcoming application due dates were provided in the email.
+
+Entities interested in applying for this funding opportunity are to complete the Rural Health
+Transformation Program 2026: Advancing Access to Care, EMS, and Dispatch Capability - Letter
+of Intent To Apply Template, to include the following information:
+
+   1. Contact information (name, title, phone number, email address), submitting the
+       application in SAGE;
+
+   2. Applicant Federal Employer Identification Number (FEIN);
+
+   3. Rural communities served by the entity;
+
+   4. Name of grant funding opportunity and confirmation of interest to receive grant funds
+       under
+
+           a. Activity A – Mobile Integrated Health (MIH); and/or
+
+           b. Activity B – Pre-hospital Whole Blood Administration; and/or
+
+           c. Activity C – EMS Dispatch and Clinician Triage; and/or
+
+           d. Activity D – Administrative and Indirect Costs; and
+
+   5. Questions about the RFA.
+
+
+
+ Rural Health Transformation Program 2026                                               Page 8 of 49
+Important to Note: The deadline to submit an LOI to RHT-EMS@doh.nj.gov is 5:00 PM on March
+13, 2026. No new Letters of Intent will be accepted for this RFA after this date/time.
+
+Although submitting an LOI does not obligate an entity to complete an application for this funding
+opportunity, an application will only be accepted if an LOI is submitted. Entities that did not
+submit an LOI by the deadline are not eligible to apply for this funding opportunity.
+To apply for this funding opportunity, an eligible entity must be listed in SAGE. Visit the following
+website to apply/manage your SAGE access https://dohsage.intelligrants.com. The Request for
+Application (RFA) will open in SAGE on March 19, 2026, and applications must be received by 5:00
+PM (EDT) on April 8, 2026. Applications received after this date/time will not be accepted.
+Applicants must complete the required SAGE forms and their respective budget pages with
+sufficient detail. Applications may be returned for revisions and/or additional information; if the
+applicant fails to complete this process or fails to provide revisions and/or additional information
+by the requested due date, the Department reserves the right to deny further review of the
+application.
+
+Available Funding
+Funding for this program is dependent on the final award received by the Department through the
+OBBBA. The Department anticipates distributing funds to eligible applicants proposing activities
+that benefit uninsured and underinsured residents in the designated rural target areas.
+
+Applicants serving areas that meet the federal HRSA definition of rural, providing Letters of
+Collaboration from planned partners, and/or submitting vendor quotes for proposed grant activity
+purchases may receive priority consideration in the funding process.
+
+Note: The Department may adjust eligibility or prioritization criteria if the federal award limits or
+excludes the use of state-specific rural designations or the RRS.
+
+Total Funding Available:
+• $11,000,000 annually for up to five (5) years
+      o Activity A - Mobile Integrated Health (MIH)
+      o Activity B - Pre-hospital Whole Blood Administration
+      o Activity C - EMS Dispatch and Clinician Triage
+
+Award Amounts:
+• Activity A – Mobile Integrated Health (MIH)
+    o Up to $1,000,000 per applicant, depending on project scope.
+    o Expected number of awards: Up to 18.
+
+
+
+
+ Rural Health Transformation Program 2026                                                Page 9 of 49
+•     Activity B - Pre-hospital Whole Blood Administration
+       o Up to $100,000 per applicant, depending on project scope.
+       o Expected number of awards: Up to 12.
+
+•     Activity C – EMS Dispatch and Clinician Triage
+       o Up to $1,000,000 per applicant, depending on project scope.
+       o Expected Number of Awards: Up to five (5).
+
+Note: The Department reserves the right to adjust award amounts and the number of awards
+based on project scope and available funding.
+
+Note: Applicants may apply to one or more activities (Activity A, Activity B, and/or Activity C).
+Separate project and budget submission forms must be submitted for each activity. Refer to
+Appendix F, Appendix G, and Appendix H for corresponding forms.
+
+Note: Applicants may select one or more allowable activities or cost components to include in their
+project, based on their proposed scope. Grant funds may not be used to support services, activities,
+or costs that are reimbursable by Medicaid, Medicare, or private insurance.
+
+Note: Administrative titles such as but not limited to coordinator or manager may not be included
+in personnel costs and are subject to federal funding cap of administrative and indirect costs.
+
+Cost-Sharing/Match Requirements:
+• There are no cost-sharing or matching funds requirements for this program. However,
+   applicants are strongly encouraged to leverage other resources and align with related efforts
+   to promote the long-term sustainability of funded activities.
+
+Enhancement Guidance:
+• Applicants may propose enhancements to existing programs. While overall programs may
+   serve a broader population, grant-funded enhancements must primarily benefit uninsured and
+   underinsured individuals. These may include, but are not limited to, the following:
+     o Staffing enhancements
+     o Service delivery enhancements
+     o Technology enhancements
+     o Education/outreach enhancements
+     o Equipment or supply enhancements
+
+
+
+
+    Rural Health Transformation Program 2026                                           Page 10 of 49
+Scope of Work - Activities A, B, C, D
+Activity A – Mobile Integrated Health (MIH)
+The purpose of Activity A – Mobile Integrated Health funding is to improve health outcomes in
+rural communities by promoting chronic disease management, health education, increasing access
+to care, and increasing compliance with post-hospital discharge care that reduces disease
+progression, supports overall well-being, and decreases repeat hospital admissions with a
+particular focus on uninsured and underinsured populations. Programs should address chronic
+conditions such as diabetes, hypertension, and heart disease, immunizations, mental health,
+substance use disorders, and other preventive services. Funding is intended to support
+community-based approaches that increase access to care, strengthen patient engagement and
+compliance, and foster a healthier population.
+
+Mobile Integrated Health - Example Initiatives
+Funded initiatives may include, but are not limited to, the following:
+      • Health screenings, medication adherence, and disease education for mental health,
+           substance use disorders, and chronic condition management.
+      • Providing same-day in-home urgent assessments as an alternative to low-acuity
+           emergency department utilization.
+      • Conducting post-discharge home visits for high-risk patients to reduce hospital
+           readmissions.
+      • Integrating MIH services with 9-1-1 triage to redirect eligible non-emergent calls to in-
+           home evaluation and care coordination.
+      • Providing crisis intervention, de-escalation, and handoffs to community mental health
+           services.
+      • Deploying MIH services to provide primary care support for rural residents facing
+           transportation and provider access barriers.
+      • Providing MIH follow-up care for frequent EMS users, connecting patients to primary
+           care, housing, food assistance, and social services.
+      • Screening for non-clinical factors affecting patient well-being (e.g., food insecurity,
+           housing instability, transportation barriers) and connecting individuals to community
+           resources or on-site support services.
+      • Hiring staff (e.g., nurses, paramedics, emergency medical technicians, social workers)
+           to deliver screenings, education, and follow-up services.
+
+Mobile Integrated Health - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+      • Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters, cholesterol
+          kits, weight scales, wearable biometric devices).
+      • Point-of-care testing devices for A1C, INR, urinalysis, and infectious disease monitoring.
+      • Personal protective equipment (PPE).
+
+ Rural Health Transformation Program 2026                                          Page 11 of 49
+       •   Educational materials and printed handouts.
+       •   Computers, tablets, or software for HIPAA-compliant telehealth consultations.
+       •   Remote patient monitoring devices.
+
+Activity B – Pre-Hospital Whole Blood Administration
+The purpose of Activity B – Pre-Hospital Whole Blood Administration funding is to increase access
+to pre-hospital whole blood in rural New Jersey communities through licensed mobile intensive
+care and aeromedical programs. Projects should focus on increasing the number of and access to
+these resources across rural New Jersey that carry whole blood for patients suffering from
+significant traumatic injuries.
+
+Note: All programs must comply with all applicable federal and state laws, regulations, and
+standards. Awarded grantees will be responsible for ensuring that all services and products adhere
+to current national guidelines, state-specific requirements, and any future regulatory updates
+throughout the term of the grant.
+
+Pre-Hospital Whole Blood Administration – Example Initiatives
+Funded initiatives may include, but are not limited to, the following:
+      • Supplying mobile intensive care units with whole blood to be administered to patients
+           suffering from significant traumatic injuries.
+      • Equipping supervisor or physician vehicles with whole blood to respond to high acuity
+           requests for service within a given provider area.
+      • Equipping aeromedical units with whole blood to be administered to patients suffering
+           from significant traumatic injuries requiring transport via an aeromedical unit when
+           specialized trauma services are not locally available.
+
+Pre-Hospital Whole Blood Administration - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+      • Autonomous portable refrigeration units (APRU) for storage of whole blood.
+      • Thermometers for monitoring patient reaction(s) to blood administration and
+          monitoring of blood storage.
+      • Fluid warming devices.
+      • Pressure infusion devices.
+      • Software for monitoring of whole blood storage and administration.
+      • Point-of-care testing equipment.
+
+Activity C – EMS Dispatch and Clinician Triage
+The purpose of Activity C – EMS Dispatch and Clinician Triage funding is to advance EMS dispatch
+by coordinating with regional partners to implement and provide training that leads to
+standardization and updates of guide cards, call-taking procedures, and triage algorithms.
+Programs may also seek to advance EMS dispatch by expanding access to primary care for low-
+
+ Rural Health Transformation Program 2026                                          Page 12 of 49
+acuity calls and establishing a process to triage calls to a clinician who can coordinate resources,
+including primary care, prescriptions, and mental health services. Projects may focus on
+addressing low-acuity complaints requesting emergency medical services that could be better
+handled through alternative channels. Projects should prioritize uninsured and underinsured
+populations.
+
+EMS Dispatch and Clinician Triage - Example Initiatives
+Funded projects may include, but are not limited to, the following:
+• Coordinating with multiple dispatch centers in a region to provide training and educational
+   materials that standardize and update guide cards, call-taking procedures, or triage algorithms
+   throughout the region.
+• Integrating online clinician triage for low acuity 9-1-1 medical calls.
+• Establishing telehealth consultations for callers with low acuity medical complaints.
+
+EMS Dispatch and Clinician Triage - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+• HIPAA-compliant telehealth software and hardware to facilitate clinician-based triage.
+• Computer-aided dispatch software that will advance the ability of the center to standardize or
+    regionalize EMS dispatch.
+• Console hardware to allow for expansion related to grant activities.
+
+Activity D – Administrative and Indirect Costs
+
+Due to federal funding caps, administrative and indirect costs are restricted under this grant.
+Applicants interested in requesting these costs must budget them under Schedule B as ‘Other
+Direct Costs’, under Activity D – Administrative and Indirect Costs, as well as include them in the
+applicable section of the Project and Budget Submission Form (Appendixes F, G, H) for Department
+review and consideration.
+
+   •   Including administrative and indirect costs does not guarantee approval, and is awarded at
+       the Department’s discretion and contingent on the availability of funds within the
+       established administrative/indirect cost cap.
+   •   This separate cost category with a defined funding limit was created to support approved
+       administrative and indirect costs.
+   •   The Department reserves the right to modify requirements related to administrative and
+       indirect costs at any time and is not bound by the current guidance.
+
+
+
+
+ Rural Health Transformation Program 2026                                              Page 13 of 49
+Reporting Requirements and Timeline
+Project and Budget Period
+The first annual project and budget period is April 1, 2026 - October 30, 2026.
+
+Note: Although the OBBBA funding period is December 31, 2025 - October 30, 2026, the first
+annual project and budget period for grantees is estimated to be April 1, 2026 - October 30, 2026,
+to allow for posting, application review, and award processing.
+
+Reporting Requirements
+Grantees are required to submit Progress and Expenditure Reports according to the schedule
+established below:
+
+ Report Period*                  Progress/Expenditure             Report Due Date
+                                 Report #
+ April 1 - May 31, 2026          1                                June 12, 2026
+ June 1 - July 31, 2026          2                                August 14, 2026
+ August 1 - October 30, 2026     3 (Final)                        November 30, 2026
+*Applicants shall submit Progress and Expenditure Reports following the above schedule.
+**Supplemental expenditure reports are permitted under this grant. Supplemental expenditure
+reports are submitted in addition to the expenditure reports to be submitted, as per the established
+schedule noted above, and are not intended to be submitted in lieu of. Supplemental expenditure
+reports are intended to provide awardees with an opportunity to request additional
+reimbursement opportunities during the applicable budget period.
+
+IMPORTANT: Timely submission of required reports is a key performance indicator and may
+influence future funding decisions, budget modifications, and grant amendments. Failure to
+submit reports on time may result in payment delays or other administrative action.
+
+If an extension is needed for any report, grantees must submit a written justification to the
+Department's Project Management Officer (PMO) and Grant Management Officer (GMO) at RHT-
+EMS@doh.nj.gov. The extension is valid only upon written approval from the Department.
+
+The final Progress and Expenditure reports must be submitted no later than November 30, 2026.
+
+Note: For projects that utilize the full project and budget period for start-up or implementation, the
+Department reserves the right to continue programmatic and fiscal oversight, monitoring, and
+reporting requirements beyond the grant end date, regardless of whether continuation funding is
+awarded. All grantees remain responsible for required reporting and close-out activities until the
+grant is formally closed.
+
+
+
+ Rural Health Transformation Program 2026                                             Page 14 of 49
+Reporting Procedures and Documentation Requirements
+• Expenditure reporting
+       • Grantees must upload supporting documentation to the expenditure report for any
+          staff positions. This documentation must include:
+              o The name of the individual
+              o The title of the position
+              o % dedicated Time and Salary
+              o If requesting reimbursement for any positions that were listed as vacant in the
+                  grant application and have not been updated in the approved grant via a budget
+                  revision, an attachment MUST be uploaded with the expenditure report
+                  indicating the position, the name of the individual, and the effective date. Other
+                  staffing changes, such as replacements, terminations, and/or resignations, must
+                  also be reported to the Department.
+       • Grantees must upload supporting documentation to the expenditure report for all
+          Schedule B items. Providing clear records helps ensure transparency and supports
+          reimbursement.
+              o The format of this summary document is at the discretion of the grantee, but it
+                  must clearly reflect reimbursable expenses by budget category.
+       • Supporting documentation may include a copy of the agency’s accounting ledger
+          identifying items/costs charged to the grant or copies of invoices/bills. Please be
+          advised that Purchase Orders (POs) are not an acceptable document for
+          reimbursement. In addition, the Department may request supplementary information
+          for review, if needed.
+
+Note: Expenditure reports will only be approved after the corresponding progress report has been
+submitted and any required modifications have been satisfactorily addressed.
+
+•     Progress Reporting
+         • Upon award, the Department will provide grantees with a progress report template
+             and a supplemental data collection tool for submitting quarterly progress reports.
+                • The content and metrics required in each report may change based on program
+                    priorities. Any updates will be communicated directly to the grantee by the
+                    Department’s PMO(s) for the respective activity (Activity A, B, or C).
+
+Programmatic and Administrative Requirements
+Grantees are responsible for ensuring effective program implementation, staff accountability,
+fiscal stewardship, and compliance with all grant requirements. This section outlines key
+operational and administrative expectations under the Rural Health Transformation Program
+2026: Advancing Access to Care, EMS, and Dispatch Capability in Rural New Jersey.
+
+
+
+    Rural Health Transformation Program 2026                                        Page 15 of 49
+Program Staffing and Oversight
+      • The Grantee must appoint a Program Coordinator, who will serve as the Project
+          Director and primary point of contact for the Rural Health Transformation Program
+          2026: Advancing Access to Care, EMS, and Dispatch Capability in Rural New Jersey.
+              o This individual will lead the coordination and implementation of program
+                  activities, ensure progress toward project goals, and provide required program
+                  updates to the Department’s Office of Emergency Medical Services.
+              o Administrative functions are restricted in this role.
+      • Staff funded under this grant must:
+              o Devote time according to the percentage allocations outlined in Schedule A -
+                  Personnel Costs.
+              o Ensure staffing levels and time allocations are aligned with the scope of work.
+              o Be prepared to adjust staff time percentages if the scope of work changes,
+                  subject to review and approval by the Department as appropriate.
+
+Performance and Reimbursement Conditions
+      • Reimbursement is contingent on the Grantee’s ability to:
+              o Meet all grant terms and conditions.
+              o Complete activities by established deadlines.
+              o Demonstrate measurable progress.
+      • Timely submission of required reports is a performance indicator and may affect:
+              o The Grantee’s risk rating.
+              o Eligibility for future funding, budget modifications, or grant amendments.
+      • The Department reserves the right to terminate, reduce, or suspend the grant in whole
+         or in part, under any of the following circumstances:
+      • Unavailability of funds - if anticipated funding becomes unavailable, is reduced, or is
+         withdrawn.
+      • Changes in program priorities - if programmatic priorities, statutory requirements, or
+         organizational strategies change such that continuation of the grant is no longer
+         aligned with Departmental objectives.
+      • Failure to meet performance requirements - if the grantee fails to make satisfactory
+         progress toward stated goals, deliverables, or performance benchmarks, or otherwise
+         fails to comply with the terms and conditions of the award.
+              o Applicants awarded funding under activity A must complete licensure to
+                  provide services for which they were awarded funds no later than August 1st,
+                  2026. Failure to do so will result in immediate termination of the grant with
+                  ineligibility to reapply for future RHT funding opportunities.
+      • Failure to expend funds in a timely manner - if the grantee does not demonstrate
+         adequate fiscal management or fails to draw down or spend funds within the
+         established timelines.
+
+
+
+ Rural Health Transformation Program 2026                                         Page 16 of 49
+Note: In the event of termination, reduction, or suspension, the Department will provide written
+notice specifying the reason and effective date of the action. The grantee may submit final
+reimbursement requests for allowable costs incurred up to the effective date, and the Department
+will issue payment for those allowable final expenditures in accordance with applicable closeout
+requirements.
+
+Reporting and Monitoring Requirements
+       • Grantees must:
+             o Comply with all site visits and program meetings for monitoring and technical
+                assistance.
+             o Submit all required reports and requests for information in accordance with
+                Department deadlines.
+             o Use Department-supplied templates and tools as directed.
+       • The Department reserves the right to withhold, reduce, or deny payment due to:
+             o Delinquent or deficient reporting
+             o Inadequate progress
+             o Poor stewardship of funds
+             o Failure to meet stated goals, objectives, or deliverables
+
+Fiscal Accountability and Procurement
+        • Grantees are responsible for all purchasing and fiscal oversight in accordance with:
+                o The terms and conditions of the Awarding Agency,
+        • The Department’s Terms and Conditions for Administration of Grants, and
+        • 2 CFR 200 (Uniform Guidance) – Code of Federal Regulations as applicable to federal grants
+           - https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200.
+        • Expenses reimbursed under this program must not be submitted for reimbursement
+           through:
+                o Other Department grants
+                o Insurance or other federal/state funding channels
+        • All procurement of professional services, contracts, or vendors must follow:
+                o The grantee’s internal procurement policies, including any competitive bidding
+                    requirements. Grantees are responsible for ensuring that all vendor selections
+                    and agreements comply with applicable state and federal laws, regulations, and
+                    grant requirements.
+                o The Department does not endorse or show preference for specific vendors.
+
+Sub-Grantee and Third-Party Oversight
+      • Any agreements with third-party service providers under this grant must be pre-
+          approved by the Department through the PMO and GMO.
+      • Reimbursement for sub-grantee services will only be authorized if a legal agreement
+          has been submitted to and approved by the Department.
+
+
+ Rural Health Transformation Program 2026                                           Page 17 of 49
+       •   The Grantee must:
+              o Ensure sub-grants are managed in accordance with all primary grant conditions,
+                  deliverables, and requirements specified in Attachment C.
+              o Monitor sub-grantee expenditures and compliance through:
+                       Adequate financial controls
+                       Required audits and performance reviews
+                       Submission of a compliance report to the Department verifying the sub-
+                         grantee has fulfilled all obligations
+
+Allowable Costs and Funding Restrictions
+Allowable Costs
+Allowable expenditures under this grant must directly support the Rural Health Transformation
+Program 2026: Advancing Access to Care, EMS, and Dispatch Capability in Rural New Jersey.
+
+Eligible costs may include, but are not limited to, the following:
+        • Personnel (full-time, part-time, temporary, student workers, and contract staff) and
+            associated fringe benefits.
+                o Positions that require evening or weekend work must have these
+                    responsibilities included in the regular job scope, as overtime is not permitted,
+                    unless specifically reviewed and approved by the Department.
+        • Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters, cholesterol
+            kits, weight scales, wearable biometric devices).
+        • Vaccine-related supplies and equipment (e.g., vaccines, storage and refrigeration units,
+            syringes, personal protective equipment (PPE)).
+        • Educational materials and printed handouts.
+        • Translation of educational materials and program resources for individuals.
+        • Computers, tablets, or software for patient tracking, scheduling, education, and follow-
+            up.
+        • Portable health kiosks, telehealth-enabled stations, or community outreach equipment.
+        • Contracts with organizations that service, support, or treat uninsured and underinsured
+            populations.
+        • Hosting focused workshops, trainings, or continuing education sessions.
+        • Travel costs for grant-funded staff involved in activities.
+        • Purchase or lease of vehicles, subject to review and approval by the Department.
+        • Kiosks, tablets, or computers for registration and scheduling.
+        • Software for electronic health records (EHR) and patient portals, subject to review and
+            approval by the Department.
+                o No more than 5% of the total funding CMS award in a given budget period can
+                    support funding the replacement of an EMR system if a previous HITECH-
+                    certified EMR system is already in place as of September 1, 2025.
+
+ Rural Health Transformation Program 2026                                            Page 18 of 49
+       •   Technical support tools and software for troubleshooting.
+       •   Mobile hotspots to improve connectivity in rural areas.
+       •   AI-enabled analytics platforms or workflow optimization tools.
+       •   Computers, laptops, tablets, or smartphones for video visits.
+       •   Webcams or devices with front-facing cameras.
+       •   Landline phones for areas with unreliable internet.
+       •   Software for video conferencing and telehealth management.
+       •   Marketing materials (brochures, signage, social media ads, etc.)
+       •   AI-powered virtual assistants, chatbots, or triage software.
+       •   Remote monitoring devices (e.g., blood pressure cuffs, glucose meters, cholesterol kits,
+           weight scales, wearable biometric devices).
+       •   Computers, tablets, or devices to integrate monitoring data with EHR systems.
+       •   Software or platforms to collect, analyze, and securely store patient-generated health
+           data.
+       •   Communication tools for provider-to-provider or provider-to-patient data sharing.
+       •   Technical support tools for troubleshooting remote monitoring devices.
+       •   AI-enabled remote patient monitoring platforms or software for predictive analytics
+           and decision support.
+
+Funding Restrictions and Exclusions
+The following restrictions apply to the use of grant funds:
+        • All licensing, application, and processing fees are not reimbursable.
+        • No purchases may be made until the grant period begins and the Department has
+           provided written approval.
+        • Pre-award costs, including salaries or expenditures incurred before the start date of the
+           grant, are not reimbursable.
+        • All sub-awards, professional service agreements (PSAs), and consultant agreements
+           must be submitted for Departmental review and approval before execution.
+               o Exception: Consultants used solely for auditing grant compliance or
+                   expenditures are exempt from this pre-approval requirement.
+               o Once executed, signed agreements must be uploaded to the Shared Documents
+                   folder in SAGE.
+        • Funds may be used to supplement, but not supplant, existing state or federal funding
+           for proposed activities.
+        • Due to federal funding caps, administrative and indirect costs are restricted under this
+           grant. Applicants interested in requesting these costs must budget them under
+           Schedule B as ‘Other Direct Costs’, under Activity D – Administrative and Indirect
+           Costs, as well as include them in the applicable section of the Project and Budget
+           Submission Form (Appendixes F, G, H) for Department review and consideration.
+
+
+
+ Rural Health Transformation Program 2026                                           Page 19 of 49
+Note: Including administrative and indirect costs does not guarantee approval and is contingent on
+the availability of funds within the established cap.
+
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+
+Note: The Department reserves the right to modify requirements related to administrative and
+indirect costs at any time and is not bound by the current guidance.
+
+       •   Funds may not be used for:
+               o Supplanting existing funding: use of grant funds to replace, reduce, or offset
+                  existing or anticipated funding from other sources (including federal, state,
+                  local, private, or third-party reimbursement)
+               o Food, catering, or light refreshments for staff or participants
+               o Fundraising activities or costs
+               o Personal use of goods or services
+               o Lobbying or legislative activities
+               o Repayment of bad debt or interest on loans
+               o Promotional items, memorabilia, gifts, souvenirs, or similar materials
+               o New construction of any kind
+               o Supplanting funding of in-process or planned construction projects, or directing
+                  funding towards new construction builds
+               o Using grant funds to support staff or activities unrelated to the approved
+                  program scope
+               o Offsetting reductions in Medicaid reimbursement or other payer rate cuts
+       •   Replacing payment for clinical services that are reimbursable, or otherwise billable, to
+           Medicaid, Medicare, private insurance, or other third-party payers
+       •   Broadband infrastructure or connectivity efforts
+       •   Payments to employees not tied to specific quality improvements or an initiative within
+           the scope of the RHT Program
+       •   Enhanced payment rates or incentives for currently billable services without ties to
+           outcomes
+       •   Uncompensated care that is not tied to a specific initiative within the Rural Health
+           Transformation Plan
+       •   Student loan or educational loan repayment programs
+       •   Costs related to providing Continuing Education Units (CEUs) for professional or
+           academic purposes.
+
+Note: For a complete list of unallowable expenses, please refer to Public Law 119-21, Section
+71401.
+
+
+
+ Rural Health Transformation Program 2026                                           Page 20 of 49
+Funding Requirements and Non-Compliance
+Failure to comply with grant terms may result in enforcement actions by the Department. If a
+Grantee or sub-grantee materially fails to meet award requirements, the Department may take
+one or more of the following actions:
+
+       •   Temporarily withhold cash payments pending correction
+       •   Disallow costs not in compliance
+       •   Suspend or terminate the grant in whole or in part
+       •   Withhold future funding under the program
+       •   Require the grantee to return funds to DOH
+       •   Implement any other remedies legally available
+
+Hearings and Appeals
+Before taking enforcement action, the Department will provide the Grantee an opportunity for a
+hearing, appeal, or other administrative process, as applicable.
+
+Effects of Suspension or Termination
+Costs incurred during suspension or after termination are not allowable unless:
+        • Specifically authorized in writing by the Department
+        • Result from non-cancelable obligations made before the effective
+            suspension/termination date and would have been allowable if the grant continued
+            normally
+
+Grant Termination
+Grants may be terminated:
+• By the Department with mutual agreement from the Grantee, including negotiated terms and
+   effective date
+• By the Grantee, via written notice including the reason, effective date, and any portion of the
+   project being terminated
+       • If a portion of the project is discontinued after receiving funding, or if equipment is
+           purchased or facility improvements are made but associated program activities are not
+           implemented, the grantee fails to complete state or federal licensure requirements,
+           the grantee must provide a plan for proper use of the completed project or resources
+           to support program goals.
+• By the Department in full if it determines that a partial termination would not fulfill the
+   intended program purpose
+• Due to the unavailability of funds, changes in program priorities, failure to meet performance
+   requirements, or inadequate expenditure of funds
+
+
+
+
+ Rural Health Transformation Program 2026                                         Page 21 of 49
+Budget Revisions and Grant Amendments
+All budget revision and grant amendment requests must receive prior approval from the
+Department before any action is initiated in SAGE.
+
+Submission Process
+• Step 1: Initiation
+      • Upon Departmental approval to proceed, the Grantee must initiate and submit the
+          request in SAGE within three (3) business days, or by the deadline specified by the
+          Department
+• Step 2: Submission
+      • After the Department unlocks the applicable forms or sections in SAGE, the Grantee
+          must complete and formally submit the budget revision or grant amendment request
+          within ten (10) business days, or by the Department-specified deadline
+
+Limitations
+• Grantees are permitted a maximum of two (2) budget revisions or grant amendments during
+   the approved grant period, unless otherwise authorized by the Department.
+• The Department reserves the right to extend submission deadlines or nullify requests not
+   submitted by the designated due date.
+
+Future Funding Consideration
+• Based on program performance, availability of funds, and public health need, Grantees may be
+   invited by the Department to apply for a continuation of funding, in one or more subsequent
+   years, through October 30, 2030.
+
+Review and Evaluation Criteria
+A panel designated by the Department will review grant applications. Applications must be
+complete and fully compliant with all RFA requirements. Please refer to Appendix D for RFA
+Application Guidance.
+
+Applications will be evaluated on the information submitted through the electronic grants system,
+including the required project and budget submission form (see the appropriate appendix for
+Activity A, Activity B, or Activity C). Scoring will be based on the materials submitted and how well
+they align with the criteria outlined in the RFA Application Scoring Guide included in Appendix E.
+
+Note: Applicants may apply to one or more activities (Activity A, Activity B, and/or Activity C).
+Separate project and budget submission forms must be submitted for each activity. Each activity
+must be designed to benefit uninsured and underinsured populations. Refer to Appendix F,
+Appendix G, and Appendix H for corresponding forms.
+
+ Rural Health Transformation Program 2026                                             Page 22 of 49
+Final funding decisions will be based on the application scores, available funding, and alignment
+with the Department’s priorities, including the RHT program priorities, with priority given to
+applications serving areas designated as rural under the federal HRSA definition.
+
+Grant Compliance Requirements
+If awarded funding, the Grantee must comply with the following:
+       • The Terms and Conditions for Administration of Grants issued by the New Jersey
+           Department of Health (Department), available at:
+           www.nj.gov/health/grants/documents/terms conditions.pdf
+       • All applicable federal cost principles, based on the Grantee’s organization type (e.g., 2
+           CFR Part 200 for non-profits and government entities).
+       • The general and specific programmatic compliance requirements as detailed in
+           Attachment C - Program Specifications, which are incorporated into the grant
+           agreement executed by the Department.
+
+Duplication of Efforts
+Applicants must disclose any potential overlap between this application and existing activities,
+other applications, or awards received or submitted to other funding sources within the same
+fiscal year. Overlap can occur in the following ways:
+         • Programmatic Overlap
+             Occurs when substantially the same project or objectives are proposed in more than
+             one application or when funding is awarded from multiple sources. This includes
+             situations where the project design or specific goals are identical or closely related
+             across existing activities, applications, or awards, regardless of the funding source.
+         • Budgetary Overlap
+             Occurs when duplicate or equivalent budget items (e.g., equipment, personnel salaries)
+             are requested in this application but are already covered by other funding sources.
+         • Commitment Overlap
+             Occurs when an individual’s total time commitment across all funded projects exceeds
+             100%, regardless of whether salary support is requested for that time.
+
+Duplication of effort, whether programmatic, budgetary, or commitment overlap, is prohibited.
+Any identified overlap must be resolved with the Department in collaboration with the applicant’s
+Project Coordinator prior to award.
+
+Applicants must upload a detailed report addressing programmatic, budgetary, and commitment
+overlap, and potential supplanting, via the Attachments Form in SAGE. The document should be
+clearly labeled
+        • “Report on Programmatic, Budgetary, Commitment Overlap, and Supplanting.”
+
+ Rural Health Transformation Program 2026                                           Page 23 of 49
+Applicants must also submit a signed certification confirming that grant funds will not supplant
+existing funding from any source.
+
+Completeness and responsiveness criteria
+The Department will review your application to ensure it meets the requirements in Eligibility,
+Application contents and format, and Application submission and deadlines.
+
+The Department will not consider an application that:
+   • Is from an organization/entity that doesn’t meet all eligibility criteria.
+   • Is submitted after the deadline.
+   • Is not submitted through https://dohsage.intelligrants.com/IGXLogin
+   • Does not include all components required in the application checklist.
+
+The Department may allow you to correct minor errors if there is time before our decision
+deadline, but this is not guaranteed.
+
+It is the applicant’s responsibility to ensure the submission is complete and compliant.
+
+
+
+
+ Rural Health Transformation Program 2026                                            Page 24 of 49
+Application Checklist
+ RFA Component
+ ☐ Eligibility                       Ensure entity/organization meets the Eligibility
+                                     requirements for Activity A – Mobile Integrated
+                                     Health (MIH), Activity B – Pre-hospital Whole Blood
+                                     Administration, Activity C – EMS Dispatch and
+                                     Clinician Triage, and if requested, upload any required
+                                     documentation under the SGE Attachments section.
+ ☐ Scope of Work                     Ensure initiatives and allowable costs align with the
+                                     examples provided under each Activity (A, B, and/or C).
+ ☐ Allowable Costs and Funding       Ensure submitted costs meet the eligibility and
+ Restrictions                        restriction criteria.
+ ☐ Funding Restrictions and          Ensure submitted costs do not fall under any funding
+ Exclusions                          restrictions/exclusions.
+ ☐ Duplication of Efforts            Under the SAGE Attachments section, submit a
+                                     detailed report labeled as “Report on Programmatic,
+                                     Budgetary, Commitment Overlap, and Supplanting.”
+ ☐ Duplication of Efforts            Under the SAGE Attachments section, submit a signed
+                                     supplanting certification.
+ ☐ APPENDIX E - RFA Application      Review each section for the scoring elements
+ Scoring Guide                       (application information and point value). If additional
+                                     space is needed for the Needs/Objectives and
+                                     Methods/Evaluation sections, a narrative document
+                                     may be uploaded under the SAGE Attachments section.
+ ☐ APPENDIX F - Project and Budget   Use the Appendix F Attachment form and submit it
+ Submission Form (Activity A)        under the SAGE Attachments section.
+ ☐ APPENDIX G - Project and Budget   Use the Appendix G Attachment form and submit it
+ Submission Form (Activity B)        under the SAGE Attachments section.
+ ☐ APPENDIX H - Project and Budget   Use the Appendix H Attachment form and submit it
+ Submission Form (Activity C)        under the SAGE Attachments section.
+
+
+
+
+ Rural Health Transformation Program 2026                                      Page 25 of 49
+                         APPENDIX D - RFA Application Guidance
+
+Rural Health Transformation Program 2026: Advancing Access to
+    Care, EMS, and Dispatch Capability in Rural New Jersey
+
+Preparing a budget and working with SAGE (System for Administering Grants Electronically) can be one of
+the most confusing aspects of applying for a grant. All forms within the grant application should be
+completed as per the instructions on each page and saved. This document provides guidance and
+additional information for some of the forms. Adherence to this guidance will facilitate timely review and
+approval of a grant application.
+
+NOTE: If you are completing an application for the same grant program(s) for the subsequent year, you
+may select the option to copy the information from your current grant over to the new grant year, when
+initiating, and updating the appropriate forms, as necessary. Please advised that not all of the data
+transfers over, ie: attachments, therefore you will need to review all of the forms for accuracy and
+completeness, as well as RFA requirements for the new grant cycle.
+
+IMPORTANT TO NOTE - NEW FOR FY26: review sections that contain “NEW FOR FY26” information,
+which include updates to select SAGE grant application forms.
+
+General. The “Instructions” that appear at the top of each application form include the most current
+system navigation instructions. Additionally, to improve form load times, for all forms with repeating
+sections, those sections are now limited to 10; additional copies of those forms may still be added to
+applications as necessary.
+
+IMPORTANT NOTE Regarding Personally Identifiable Information (PII): As a general reminder, our SAGE
+manual advises users to redact any confidential/sensitive data from documents uploaded into the system.
+
+Log into SAGE at https://dohsage.intelligrants.com/IGXLogin and search for the DPRE26AED application.
+Please review the details below in each section for recent form updates and for additional form
+instructions.
+
+The Department of Health Terms and Conditions for Administration of Grants, effective for Project
+Periods Beginning on or After July 1, 2025, can be accessed below:
+http://nj.gov/health/grants/documents/terms conditions.pdf
+
+2 CFR 200 (Uniform Guidance) – Code of Federal Regulations can be accessed below:
+https://www.ecfr.gov/current/title-2/subtitle-A/chapter-II/part-200
+
+
+
+
+                                             SAGE FORMS
+
+ Rural Health Transformation Program 2026                                                   Page 29 of 49
+ORGANIZATION PROFILE
+
+***FEDERAL ID REQUIREMENT FOR FEDERALLY FUNDED GRANT RECIPIENTS - ENSURE THE
+ORGANIZATION PROFILE HAS BEEN UPDATED WITH THE UNIQUE ENTITY ID #***
+
+IMPORTANT TO NOTE: The zip codes included under the Organization Information in SAGE must be the
+entities *physical* address only and match the information entered into SAM.gov
+
+     Follow instructions on form. Note item #3 in the instructions directs applicants to make any changes to
+      this form via the ‘click here’ link.
+     IMPORTANT: Ensure changes made under the Organization Details section populate correctly by re-
+      saving the Organization Profile grant application form after the Organization Details form has been
+      updated.
+     Officers and Directors (Current List with Addresses): Provide the most recent Officers and Directors list
+      and revise the “Last Updated” date. The Officers and Directors list must be uploaded under the
+      Organization Details page and will not be accepted as an upload on the Attachment and/or Shared
+      Documents pages.
+     Fiscal Year End (mm/dd): Provide the Organization’s Fiscal Year End not the end year of the grant
+     Accounting System: Provide the Organization’s accounting system. Cash Basis are challenged, so
+      please double-check with your accounting staff if the current basis shows Cash.
+     Annual Audit Report (Most Current): Provide the Organization’s most current Annual Audit Report.
+      The Audit Report must be uploaded under the Organization Details page and will not be accepted as an
+      upload under the Attachment and/or Shared Documents pages.
+     IRS Determination Letter (For Non-profits): Required for not-for-profit 501(c)3 designated
+      organizations only. The IRS Determination Letter must be uploaded under the Organization Details page
+      and will not be accepted as an upload under the Attachment and/or Shared Documents pages.
+     NJ Charities Registration Letter (For Non-profits): Required for not-for-profit 501(c)3 designated
+      organizations only. The NJ Charities Registration Letter must not be expired at the time of application,
+      expired letter will not be accepted, and the expiration date must be updated to show the correct date.
+      The NJ Charities Registration Letter must be uploaded under the Organization Details page and will not
+      be accepted as an upload on the Attachment and/or Shared Documents pages.
+     Tax Clearance Certificate: A current Tax Clearance Certificate is required for all entities, including any
+      government entity. A current certificate may be obtained at
+      https://www.nj.gov/treasury/taxation/busasst.shtml. The valid Tax Clearance Certificate must be
+      shown on the Organization Profile page and is not accepted as an upload on the Attachment and/or
+      Shared Documents pages. The expiration date must be updated to show the correct date for the
+      current certificate and neither a Tax Clearance Certificate application nor an expired certificate will be
+      accepted. The filing fee for government entities is waived; if you are a government entity, complete
+      the application https://www.state.nj.us/treasury/taxation/pdf/busasstTaxClear.pdf and email directly to the
+      following email box for processing: BusinessAssistanceTC.Taxation@treas.nj.gov
+
+
+
+
+    Rural Health Transformation Program 2026                                                    Page 30 of 49
+SCHEDULE A – PERSONNEL COSTS
+
+The Standard Weekly Work Hours, Weekly Work Hours on Project, and Weeks on Project fields that were
+merged onto this form in FY25 are now set as required. An error message will fire if the % of Time on
+Project field has been completed and any of these fields are blank. Applicants are not permitted to submit
+any applications with unresolved errors.
+ Complete one Schedule A form per Activity Code, if applicable.
+ Complete one Schedule A form per Fiscal Year (FY), if grant award exceeds a standard 12-month
+    budget/project period. For example, for an 18-month grant, one Schedule A form will be needed for
+    the 12-month period and a second Schedule A to cover the 6-month period.
+ Executive Level II Compensation: Federal Executive Level II compensation is capped at $225,700. If
+    requesting partial reimbursement, the percent of time spent on grant must be calculated based on the
+    $225,700 federal cap and not the actual salary.
+ If the same position is repeated on another Schedule A, the Position Title should be consistent.
+ Legal First Name, Legal Last Name: The Department gathers statistics from these fields, so they must be
+    shown correctly and consistently across all Activities. Typos will be returned for correction.
+ Annual Salary/Wages: the Annual Salary/Wages field should represent the listed individual’s
+    salary/wages for the annual period aligned with the award, not only the amount being requested for
+    the project.
+         o Note: Administrative titles such as but not limited to coordinator or manager may not be
+             included in personnel costs and are subject to federal funding cap of administrative and
+              indirect costs.
+     % of Time on Project: Enter the percentage of the employee’s total work time, as defined above, that
+      will be devoted to this project. An individual’s time commitment should not exceed 100% across all
+      Activities and should not be duplicated on other grant programs.
+     Position Title: If required by program, effective dates for resignations, terminations, replacements and
+      hire dates must be included in the position title column. This information must be included for
+      temporary employees as well. Review RFA for details.
+     Fringe Benefit Rate: Upload organization’s fringe benefit breakdown. If there are different rates for
+      individuals, include a fringe breakdown for each requested rate.
+     There is no cost sharing or match required. Do not enter anything in the cost sharing/matching
+      column.
+     Standard Weekly Work Hours: Enter number of entity weekly work hours, ie: 35, 40
+     Weeks on Project: Enter the number of weeks accordingly.
+     Weekly Work Hours: Enter the number of weekly hours dedicated to each grant activity accordingly.
+     Role & Responsibilities: State the role and responsibilities of the position, not the incumbent.
+     Minimum Qualifications: State the minimum qualifications of the position, not the incumbent. Briefly
+      stated education/degree, years’ experience, license/certification, etc., fulfills the requirement of this
+      field. Statements such as “see attached resume, on file, previously submitted” will not be accepted.
+
+
+
+
+    Rural Health Transformation Program 2026                                                   Page 32 of 49
+SCHEDULE B – OTHER DIRECT COSTS
+ Complete one Schedule B form per Activity Code, if applicable.
+ Justification/Basis for Cost Estimate: brief narrative justification should be provided for each line item
+   and the total cost must align with the ‘Total Cost Estimate’ & ‘Grant Funds Requested From State’
+   columns
+ Total Cost: Please enter the total cost of the category line
+ Grant Funds Requested from State: Please enter the total cost of the category line
+ Cost Sharing: There is no cost sharing or match required. Do not enter anything in the cost
+   sharing/matching column.
+ Supporting Documents: Please upload corresponding attachments accordingly.
+ Supplies: the Supplies category is for items related to administrative functions of the agency,
+   specifically associated with office use resulting from grant program objectives, not to exceed $1,000
+   per person. All other supplies, materials, or services must be itemized.
+ Other: The Other category is for costs associated directly with program activities or outcomes,
+   including materials, services, communication devices/services or supplies specifically needed to deliver
+   grant program objectives, that do not fit under any other budget line/category.
+        o Administrative/indirect costs: Due to federal funding caps, administrative and indirect costs
+            are restricted under this grant. Applicants interested in requesting these costs must include
+            them in the applicable section of the Project and Budget Submission Form for Department
+            review and consideration as well as include under Schedule B – Other Direct Costs, Activity
+            Code AEDD: Administrative and indirect costs and budgeted under the ‘Other’ line.
+ Use the “If other, specify:” field to describe items, such as IT, Communications, fees, administration
+   costs, indirect costs, etc.
+ Training: The Training category is for grant-funded staff training only. Training of others (such as
+   volunteers) is to be categorized as Other.
+        o For any in-State conferences, seminars, etc., that include training opportunities, the only
+            allowable expenses are registration fees and any specific costs related to the trainings (ie:
+            CEUs, etc.). Lodging and meals are not an allowable cost for attending any in-State training
+            events.
+ Travel: Costs under the ‘Travel’ line are for recipient staff travel only. Travel for consultants should be
+   included under the Professional Service Agreements line and for any other non-recipient staff travel (ie:
+   advisory/committee members), the costs should be placed under the ‘Other’ line. Travel category must
+   show basis of cost estimate. For each travel event, clearly indicate name of conference/event,
+   dates/location, attendee(s), and estimated itemized costs. For mileage, indicate the estimated number
+   of trips planned, by whom, number of miles and cost per mile. Please note: Per diem and other costs
+   (ie: food, incidentals) are not allowable/reimbursable for in-state-travel.
+        o As per Section 200.475 Travel Costs of the Federal Cost Principles and the State of New Jersey,
+            Department of Treasury, Office of Management and Budget, Circular NO.:20-04-OMB, Subject
+            Travel Regulation, travel costs must be considered reasonable, charged consistently and in
+            accordance with organization’s policy
+        o As per State of New Jersey, Department of Treasury, Office of Management and Budget,
+            Circular NO.:20-04-OMB, Subject Travel Regulation
+
+
+ Rural Health Transformation Program 2026                                                   Page 33 of 49
+                   Out-of-State Travel: – “For all official business travel, allowable per diem reimbursement
+                   for lodging and meals will be actual reasonable costs, not to exceed the federal per diem
+                   rates as established in the Federal Register for the current year. If an employee's
+                   destination is somewhere other than the locations listed in the Federal Register, then the
+                   maximum per diem allowance is $55 for meal/incidental expenses and $96 for lodging.”
+                   The federal per diem rates can be found at http://www.gsa.gov
+          o In-State-Travel: ‘No allowance for lodging or meals is permitted for in-State travel.’
+          o Additional information regarding the State’s travel regulation can be found at
+          o NOTE: Applicants/grantees shall review the OMB State Travel Policy for ineligible expenses and
+               prohibited benefits such as:
+                    More than one (1) baggage fee per traveler, per flight,
+                    Overweight/oversized additional baggage fees,
+                    Charges for Business/First Class, provided the exceptions outlined in the Travel Policy
+                        are not met,
+                    Travelers are prohibited from:
+                            • Benefits earned, such as future travel or financial vouchers resulting from flight
+                                delays
+                            • Earning ‘Frequent Flyer’ benefits
+     Equipment: As per the Department Of Health’s’ Terms and Conditions for Administration of Grants,
+      SUBPART A – GENERAL, 1.2 Definitions , “Equipment” means tangible personal property (including
+      information technology systems) having a useful life of more than one year and a per-unit acquisition
+      cost that equals or exceeds the lesser of the capitalization level established by the grantee or
+      subgrantee for financial statement purposes, or $10,000.” As per SUBPART N – REAL PROPERTY,
+      EQUIPMENT, SUPPLIES AND COPYRIGHTS, 14.2 Prohibition against additional requirements,
+      “Grantees and subgrantees may follow their own property management policies and procedures
+      provided they observe the requirements of this subpart. Awarding divisions and grantees may not
+      impose on recipients property requirements (including property reporting requirements) not authorized
+      by this subpart unless specifically approved by the Department Grant Approval Officer.” Items that do
+      not meet the equipment criteria per item must be classified as Supplies or Other. Applicants that elect
+      to use their own policy shall provide a copy of the organizations’ equipment/capital policy. Additional
+      information related to equipment can be found in the Terms and Conditions for Administration of
+      Grants, SUBPART N – REAL PROPERTY, EQUIPMENT, SUPPLIES AND COPYRIGHTS, 14.5 Equipment.
+      Please note: Costs for equipment maintenance or rental fees, is applicable, should be included under
+      the ‘Other’ line.
+
+     Facility costs: costs may include but not limited to building/space rental, heat, light, etc. For rent/lease
+      costs, if applicable, upload lease under “Supporting Documents” column.
+
+     Professional Service Agreements: Agreements/contracts are not required at the time of application,
+      however they must be reviewed and approved by the Department prior to execution, except for
+      auditing. All consultants used for the sole purpose of auditing compliance with the grant/or
+      expenditures funded by the grant are exempt from this restriction. The basis for cost estimate must be
+      clearly stated. If draft (unsigned) agreements are available, upload under the “Supporting Documents”
+
+    Rural Health Transformation Program 2026                                                     Page 34 of 49
+      column for review. Signed/executed contracts are required for reimbursement and must be uploaded
+      by the Grantee to the Shared Documents folder of the grant file in SAGE once available.
+
+     Sub-awards – if applicable under the grant, review the Terms and Conditions for Administration of
+      Grants, SUBPART A for additional information.
+
+     Construction/Alternation & Renovations – if applicable under the grant, review the Terms and
+      Conditions for Administration of Grants for additional information.
+
+COST SUMMARY
+ Indirect Costs
+       o Due to federal funding caps, administrative and indirect costs are restricted under this grant.
+          Applicants interested in requesting these costs must include them in the applicable section of
+          the Project and Budget Submission Form for the Department review and consideration as well
+          as include under Schedule B – Other Direct Costs, Activity Code AEDD: Administrative and
+          indirect costs and budgeted under the ‘Other’ line.
+       o Applicants must budget indirect costs under Schedule B – Other Direct Costs, do not include
+          any indirect costs under the ‘Indirect Costs’ budget line on the Cost Summary form.
+       o Due to the indirect costs restrictions under this grant and limited funds available for these
+          costs, applicants are not required to upload an indirect rate cost agreement, if one exists, or
+          provide attestation that an indirect rate cost agreement does not exist.
+
+Note: Inclusion of administrative and indirect costs does not guarantee approval and is dependent on the
+availability of funds within the established cap.
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+Note: The Department reserves the right to modify requirements related to administrative and indirect costs
+at any time and is not bound by the current guidance.
+
+Requesting / Reporting administrative and/or indirect costs
+Activity Codes – review to ensure the allowable amount/percentage has not been exceeded between all of
+the activity codes.
+Quarterly Reporting – amount requested for reimbursement should be based on the actual costs incurred
+for the reporting period, it should not be divided evenly by the number of quarters in the grant period
+Charging indirect costs – grant recipients electing to use indirect costs must ensure the following:
+             • costs must be consistently charged as direct or indirect across all activity codes.
+             • cannot double-charge - any costs charged as administrative costs, cannot also be charged
+                 as indirect costs.
+
+
+
+
+    Rural Health Transformation Program 2026                                               Page 35 of 49
+  •   The project demonstrates potential for significant change in rural healthcare, including
+      improvements to services or systems, lasting impact, innovative solutions to unmet
+      needs, and scalability or replicability.
+  •   The project includes a clear plan to sustain activities and outcomes beyond the grant
+      period, addressing financial, operational, and community engagement strategies to
+      maintain long-term impact and continued benefits for the rural population.
+
+
+
+
+Rural Health Transformation Program 2026                                           Page 40 of 49
+                          APPENDIX F - Project and Budget Submission Form (Activity A)
+
+                             Rural Health Transformation Program 2026:
+                        Advancing Access to Care, EMS, and Dispatch Capability
+                                          Activity A – Mobile Integrated Health
+Section 1: Applicant Information
+
+1. Organization Name:
+2. Project Director:
+       a. Email:
+       b. Phone:
+3. Fiscal Contact:
+       a. Email:
+       b. Phone:
+Section 2: Project Overview
+
+1. Project Title:
+
+2. Rural counties, Rural Census Tracts (RCTs), and the target rural populations this project will serve. See Appendix A, B, and C for
+   eligible areas:
+
+3. Project Start and End Dates:
+
+4. Provide a summary of the project (2-3 sentences):
+
+5. Describe the project goals and expected outcomes for the grant period. Include whether these goals are expected to be achieved
+   within the proposed timeframe and whether additional funding or time may be needed.
+
+
+
+                    Rural Health Transformation Program 2026                                           Page 41 of 49
+6. Describe the transformational impact of this project on rural health, including how it will improve healthcare, services, or
+   systems, create lasting change, address unmet needs innovatively, and/or be scalable or replicable.
+
+7. Describe how this project is not duplicating existing programs or supplanting other funding. Describe any other projects under
+   RHT funding for which the organization is applying or has applied.
+
+Section 3: Project Activities
+
+1. List the specific activities the project will carry out to achieve the project goals and expected outcomes.
+
+2. Please explain your organization’s readiness to develop the project plan. What is the anticipated timeline for project planning
+   and execution over the 9-month grand period?
+
+
+3. List each collaborating organization and indicate whether the partnership currently exists or will be established upon award. For
+   existing partnerships, describe any current contracts or agreements and include Letters of Collaboration, if available. For new
+   partnerships, include Letters of Collaboration, if available, and provide a timeline for establishing a formal agreement.
+
+4. Describe risks or challenges and how they will be addressed in a timely manner.
+
+Section 4: Staffing
+
+1. Are positions already filled or still to be hired? If hired, describe whether they are new, dedicated, or enhanced.
+
+
+
+
+                  Rural Health Transformation Program 2026                                             Page 42 of 49
+                          APPENDIX G - Project and Budget Submission Form (Activity B)
+
+                             Rural Health Transformation Program 2026:
+                        Advancing Access to Care, EMS, and Dispatch Capability
+                              Activity B – Pre-Hospital Whole Blood Administration
+
+Section 1: Applicant Information
+
+1. Organization Name:
+2. Project Director:
+       a. Email:
+       b. Phone:
+3. Fiscal Contact:
+       a. Email:
+       b. Phone:
+Section 2: Project Overview
+
+1. Project Title:
+
+2. Rural counties, Rural Census Tracts (RCTs), and the target rural populations this project will serve. See Appendix A, B, and C for
+   eligible areas:
+
+3. Project Start and End Dates:
+
+4. Provide a summary of the project (2-3 sentences):
+
+5. Describe the project goals and expected outcomes for the grant period. Include whether these goals are expected to be achieved
+   within the proposed timeframe and whether additional funding or time may be needed.
+
+
+                    Rural Health Transformation Program 2026                                           Page 44 of 49
+6. Describe the transformational impact of this project on rural health, including how it will improve healthcare, services, or
+   systems, create lasting change, address unmet needs innovatively, and/or be scalable or replicable.
+
+7. Describe how this project is not duplicating existing programs or supplanting other funding. Describe any other projects under
+   RHT funding for which the organization is applying or has applied.
+
+Section 3: Project Activities
+
+1. List the specific activities the project will carry out to achieve the project goals and expected outcomes.
+
+2. Please explain your organization’s readiness to develop the project plan. What is the anticipated timeline for project planning
+   and execution over the 9-month grand period?
+
+
+3. List each collaborating organization and indicate whether the partnership currently exists or will be established upon award. For
+   existing partnerships, describe any current contracts or agreements and include Letters of Collaboration, if available. For new
+   partnerships, include Letters of Collaboration, if available, and provide a timeline for establishing a formal agreement.
+
+4. Describe risks or challenges and how they will be addressed in a timely manner.
+
+Section 4: Staffing
+
+1. Are positions already filled or still to be hired? If hired, describe whether they are new, dedicated, or enhanced.
+
+
+
+
+                  Rural Health Transformation Program 2026                                             Page 45 of 49
+                          APPENDIX H - Project and Budget Submission Form (Activity C)
+
+                             Rural Health Transformation Program 2026:
+                        Advancing Access to Care, EMS, and Dispatch Capability
+                                    Activity C – EMS Dispatch and Clinician Triage
+
+Section 1: Applicant Information
+
+1. Organization Name:
+2. Project Director:
+       a. Email:
+       b. Phone:
+3. Fiscal Contact:
+       a. Email:
+       b. Phone:
+Section 2: Project Overview
+
+1. Project Title:
+
+2. Rural counties, Rural Census Tracts (RCTs), and the target rural populations this project will serve. See Appendix A, B, and C for
+   eligible areas:
+
+3. Project Start and End Dates:
+
+4. Provide a summary of the project (2-3 sentences):
+
+5. Describe the project goals and expected outcomes for the grant period. Include whether these goals are expected to be achieved
+   within the proposed timeframe and whether additional funding or time may be needed.
+
+
+                    Rural Health Transformation Program 2026                                           Page 47 of 49
+6. Describe the transformational impact of this project on rural health, including how it will improve healthcare, services, or
+   systems, create lasting change, address unmet needs innovatively, and/or be scalable or replicable.
+
+7. Describe how this project is not duplicating existing programs or supplanting other funding. Describe any other projects under
+   RHT funding for which the organization is applying or has applied.
+
+Section 3: Project Activities
+
+1. List the specific activities the project will carry out to achieve the project goals and expected outcomes.
+
+2. Please explain your organization’s readiness to develop the project plan. What is the anticipated timeline for project planning
+   and execution over the 9-month grand period?
+
+
+3. List each collaborating organization and indicate whether the partnership currently exists or will be established upon award. For
+   existing partnerships, describe any current contracts or agreements and include Letters of Collaboration, if available. For new
+   partnerships, include Letters of Collaboration, if available, and provide a timeline for establishing a formal agreement.
+
+4. Describe risks or challenges and how they will be addressed in a timely manner.
+
+Section 4: Staffing
+
+1. Are positions already filled or still to be hired? If hired, describe whether they are new, dedicated, or enhanced.
+
+
+
+
+                  Rural Health Transformation Program 2026                                             Page 48 of 49
+

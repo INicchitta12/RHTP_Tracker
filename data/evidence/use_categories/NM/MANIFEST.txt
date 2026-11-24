@@ -1,0 +1,8 @@
+file: 2026-11-24_nm_rht_application_package.pdf
+source_url: https://www.hca.nm.gov/sites/default/files/wp/State-of-New-Mexico-RHT-Program-Application-Package-Including-Attachments-and-Other-Required-Forms.pdf
+fetched_utc: 2026-11-24T14:43:46Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 2852363
+sha256: 2072f8fbc09374e1794fb4d61156de87cb149a887392c280d0c433230e7d33e5
+

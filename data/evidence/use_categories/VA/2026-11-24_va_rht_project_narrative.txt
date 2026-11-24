@@ -1,0 +1,2903 @@
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+
+
+
+                    VA Rural Vitality - Project Narrative
+         The Commonwealth of Virginia is home to more than 1.5 million rural residents spread
+
+ across many different geographies, including regions spanning from Appalachia to the Eastern
+
+ Shore and Southside. Governor Youngkin and the Secretary of Health & Human Resources (HHR)
+
+ submit this Cooperative Agreement Funding Application, with the Department of Medical
+
+ Assistance Services (DMAS) as the designated submitting entity, to invest in rural communities
+
+ to innovate, improve health care access, and achieve better health outcomes across the lifespan –
+
+ from infants and children, to their hardworking parents, to older adults who are the bedrock of
+
+ their communities. Virginia proposes the “VA Rural Vitality” a series of transformational
+
+ initiatives to target health and lifestyle challenges in rural communities, implemented in
+
+ collaboration with trusted Commonwealth partners to effectively execute work of this magnitude
+
+ and importance. Initiatives are directly aligned to the CMS Strategic Goals articulated in the Notice
+
+ of Funding Opportunity for the Rural Health Transformation Program (RHTP).
+
+         VA Rural Vitality builds on Virginia’s long-standing commitment to high-quality and
+
+ sustainable rural healthcare, leveraging existing programs and partnerships as its foundation. The
+
+ Commonwealth has strong experience in implementing large-scale health transformation projects,
+
+ as outlined in the example existing state-funded initiatives in Table 1.
+
+ Table 1. Key statewide initiatives made by the Youngkin administration
+
+  Program                   Description
+  Right Help, Right Now:    Governor Youngkin’s ambitious transformation of Virginia’s behavioral health
+  Transforming Behavioral   system that has invested over $1.4B to improve mental health & substance use care
+  Health                    and outcomes. Key achievements include over 100 mobile crisis teams operating
+                            statewide 24/7, and an expansion of crisis-receiving units from 216 to 663 across
+                            crisis receiving centers, stabilization units and therapeutic homes.
+
+
+
+
+                                                      1
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Reclaiming Childhood      Governor Youngkin’s statewide effort to protect children from the addictive
+Taskforce: Improving      effects of social media and excessive screen time, engaging families, educators, and
+Youth Mental Health       experts to develop solutions. Commits to reduce screen time by 25% in 2025.
+It Only Takes One:        A statewide initiative to drive awareness around the risks of fentanyl among
+Preventing Fentanyl       Virginia’s youth. Since implementation in 2024, fentanyl deaths in Virginia are down
+Overdoses                 44% - the largest year-over-year percentage decline in the nation.
+Healthy Moms, Healthy     A series of statewide efforts to enhance maternal health services and supports,
+Families, Healthy         including increased postpartum visits for Medicaid members, expanded access to
+Communities: Enhancing    Doula services, and improved maternal health data and best practices.
+Maternal Health
+
+       The Commonwealth engages closely with rural communities and has made rural-specific
+
+investments, as captured in the Virginia Department of Health (VDH) Virginia Rural Plan 2022-
+
+2026 – but considerable challenges remain. Rural Virginians face barriers to health, including
+
+higher rates of chronic disease and substance use, limited access to services, workforce shortages
+
+and outdated technologies. These challenges were reinforced in twelve listening sessions held
+
+throughout rural Virginia by the Secretary of HHR, DMAS Director, and VDH Director (who is
+
+an OB-GYN residing in rural Southwest VA). In response, Virginia proposes four key initiatives:
+
+CareIQ; Homegrown Health Heroes; Connected Care, Closer to Home; and Live Well, Together.
+
+Figure 1. VA Rural Vitality Initiatives
+
+
+
+
+                                                     2
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+
+Rural Health Needs and Target Population
+         Often referred to as the ‘rural horseshoe,’ Virginia’s 76 rural counties (as defined by the
+
+Federal Office of Rural Health Policy (FORHP)) represent 57% of the total counties in Virginia.
+
+Virginia’s six rural regions include: 1) Southwest, 2) Roanoke/ Alleghany, 3) Southside, 4)
+
+Northern Piedmont, 5) Shenandoah Valley, and 6) Eastern Shore and Northern Neck.
+
+Figure 2. Map of Virginia’s rural regions
+
+
+
+
+         While each region has its own character and history, they share common needs including
+
+broad health care challenges, and decades of economic decline and a shift away from traditional
+
+industries (e.g., mining, farming) driving high poverty rates (typically above the state average of
+
+9%). The table below provides a snapshot of these regions and their unique characteristics.
+
+Table 2. Overview of Rural Virginia Regions
+
+Region                   Description
+Southwest Virginia       Covers the Appalachian Mountains in the southwest corner of the Commonwealth,
+                         bordering West Virginia, Kentucky, and Tennessee. This is Virginia’s most rural region,
+                         with communities that share many characteristics with neighboring Appalachian states.
+                         • Economy: Historically dependent on coal mining, timber, and manufacturing,
+                              economic shifts have tested the resilience of these communities.
+                         • Demographics: Approximately 57,000 people live in poverty, with rates ranging
+                              from 11 percent in Washington County to 27.6 percent in Lee County. Eleven out
+                              of thirteen counties have poverty rates over 15 percent.1
+
+
+                                                      3
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Region                  Description
+                        •    Health status: Low population density and provider shortages contribute to longer
+                             travel times and limited access to care. Rates of chronic disease and premature
+                             mortality remain above the state average.2
+Roanoke/Alleghany       Includes counties surrounding the cities of Blacksburg, Roanoke, and Salem, as well as
+                        Craig and Alleghany counties that border West Virginia.
+                        • Economy: The railroad was historically central to the region’s development.
+                            Today, key industries include education, healthcare, and advanced manufacturing. 3
+                        • Demographics: The area’s median income has increased since 2013, but the 17.5%
+                            poverty rate remains higher than the state average.4 Residents of this region are
+                            more likely to be publicly insured.
+                        • Health status: Residents report more mentally and physically unhealthy days than
+                            the state average. Rates of obesity, depression, and smoking are also elevated.5
+Southside Virginia      Refers to the south-central region of the Commonwealth bordering North Carolina.
+                        • Economy: A historically low-density, agricultural region centered on tobacco. The
+                            economy has diversified but still includes agriculture, timber & manufacturing.
+                        • Demographics: Poverty rates range from 7.7% in Cumberland County to 24.6% in
+                            Charlotte County, with just under 50 thousand people living in poverty.
+                        • Health status: Danville and Martinsville both have life expectancies roughly a
+                            decade shorter than the statewide average (68.3 years and 65.8 years, respectively).
+                            Chronic disease and adult obesity rates remain among the highest in the state. 6
+Northern Piedmont       Represents the rural areas between the urban centers of Richmond and Northern
+                        Virginia, including the Piedmont rural counties around Richmond.
+                        • Economy: The economy includes forestry, manufacturing and warehousing
+                             logistics near the I-64 and route 29 corridors.
+                        • Demographics: Moderate poverty rates range from 5.1% in Fauquier County to
+                             14.4% in Nelson County. Rising housing and living costs create affordability
+                             challenges for lower-income households.
+                        • Health status: Health indicators are generally stronger than in more remote
+                             regions but still lag non-rural regions of the Commonwealth.
+Shenandoah Valley       Represents counties west of the Blue Ridge Mountains.
+                        • Economy: Agriculture, livestock, and light manufacturing are core industries.
+                        • Demographics: Poverty rates in the region range from around 7% in Frederick
+                            County to more than 15% in remote counties, with an aging population driving
+                            higher demand for healthcare services.
+                        • Health status: Health indicators are generally stronger than in more remote
+                            regions but still lag non-rural regions of the Commonwealth
+Eastern Shore &         Comprises remote coastal regions separated from mainland Virginia by the Chesapeake
+Northern Neck           Bay, where distance and broadband limitations affect access to care and employment.
+                        • Economy: Agriculture, poultry, seafood, and tourism play central roles, though
+                             seasonal employment and weather disruptions can affect stability.
+                        • Demographics: Countywide poverty rates range from 9.3% to 18.5%, and
+                             broadband access remains limited (less than ~80% in Accomack and Northampton
+                             counties have broadband access)
+                        • Health status: Uninsured rates range between 15-19% for nonelderly adults and
+                             10-13% for children, as compared to 11% and 5% respective rates statewide.7
+
+
+
+
+                                                      4
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Rural Health Needs Analysis
+       Qualitative Stakeholder Feedback. To design a transformational program and
+
+application that reflects the needs and goals of rural communities themselves, the HHR Secretary,
+
+DMAS, and VDH leadership hosted twelve listening sessions across the Commonwealth in
+
+September 2025. These sessions demonstrated that residents, providers, and other stakeholders are
+
+acutely aware of rural health challenges – ranging from limited access to preventive care to
+
+workforce shortages to outdated technology – and engaged with innovative efforts to address them.
+
+The themes heard in the listening sessions were broadly in line with the challenges the
+
+Commonwealth has sought to address through programs such as the It Only Takes One and Healthy
+
+Moms, Healthy Communities, Healthy Babies described above. The figure below shows the most
+
+common themes heard during these sessions.
+
+Figure 3. Themes from Listening Sessions
+
+
+
+
+                                                   5
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+       These sessions also reinforced the importance of partnerships between rural providers and
+
+community organizations, the need for dignity and respect for rural residents and providers, and
+
+an overall frustration with current state of rural healthcare. This qualitative feedback was combined
+
+with research and quantitative data analysis to inform the overarching goals VA Rural Vitality
+
+seeks to address.
+
+           Demographic Data Relative           Table 3: Virginia Demographics,
+                                               Rural vs Non-Rural1
+to   the    statewide     average,    rural
+                                               Metric                       Rural VA         Non-rural VA
+communities experience lower median            Population size                 1,579,035         7,242,389
+                                                                            (17.9% rural)
+household           incomes,         higher    Median household income             $63,535         $84,654
+
+                                               Uninsured rate (%)                      8.4             7.4
+unemployment, and lower educational
+                                               Unemployment rate (%)                   3.3             3.0
+             2
+attainment. These demographic and              High school completion (%)             87.0            91.3
+                                               Food insecurity (%)                    13.3            11.2
+economic         characteristics     create
+
+heightened vulnerability to health care access challenges as well as health outcomes that lag
+
+statewide measures. In addition, higher uninsurance rates lead to delays in care and increase the
+
+financial burden of uncompensated care on rural safety net providers.
+
+       Chronic          Disease.     The      Table 4. Chronic Conditions Rural Prevalence8
+                                              Metrics                       Rural       Rural        US
+burden of chronic disease is a                                              VA          US
+                                              Adult diabetes                16%         14%          13%
+challenge across the country, in rural
+                                              Adult obesity                 40%         39%          38%
+and non-rural areas alike. However,           Adult high cholesterol        41%         38%          37%
+
+rural Virginia’s rates for diabetes,          Adult high blood pressure     42%         39%          37%
+                                              Children overweight/ obese    26%9        n/a          31%
+high blood pressure, and high
+                                              Children 'flourishing'2       64%10       n/a          66%
+
+cholesterol exceed those in rural counties nationwide. Rural communities in Virginia also struggle
+
+with a pervasive shortage of dental care. Beyond the challenges poor dental care poses for oral
+
+
+                                                    6
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+health, it is also associated with chronic diseases such as diabetes and cardiovascular disease.11
+
+These chronic diseases can be managed and effectively addressed by a combination of behavioral
+
+change (e.g., better diets and more active lifestyles), education and health literacy, and medical
+
+intervention. A 2022 University of Florida study found that life expectancy increased 3.8 years
+
+when someone with poorly controlled diabetes improves their A1c biomarker from an average of
+
+9.9% down to the normal level of 5.9%.12 The American Diabetes Association estimates the total
+
+annual cost of diabetes in the United States to be over $400 billion.13 Given its prevalence, as well
+
+as the potential for health outcome improvements, chronic disease management is a key focus for
+
+this effort.
+
+        Another important focus is Virginia’s rural children. Over 25% of Virginia children are
+
+overweight or obese – potentially setting them up for a lifetime of chronic disease. Also concerning,
+
+fewer Virginia children are noted as ‘flourishing’ than national averages – meaning that they do
+
+not show signs of affection, resilience, curiosity, or interest in learning.14
+
+        Substance Use Disorder (SUD): In Virginia, 17.06% of adults and 8.69% of youth 12-17
+
+were diagnosed with SUD in 2024.15 A recent $1.4 billion investment as part of the Right Help,
+
+Right Now program seeks to increase access to timely SUD care, increase assistance to individuals
+
+experiencing SUD-related crises, and reduce rates of relapse. Further investment and innovation
+
+will help continue improvement for rural communities.
+
+        Maternal and Infant Health: Access to adequate maternal and infant health care was
+
+noted as an issue in all twelve stakeholder listening sessions. Across the Commonwealth in 2023,
+
+13.9% of births had inadequate prenatal care, and 3.2% had no prenatal care.16 Additionally, infant
+
+mortality rates are higher than national averages – rural Virginia has a rate of 6.7 per 1k births,
+
+compared to US average of 6.1.17 Neonatal abstinence rates were also higher than US averages in
+
+
+                                                   7
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+rural Virginia – 8.2 babies were born with NAS in 2022 per 1k births, 39% higher than the US
+
+average of 5.9 18 . Ongoing efforts, such as Governor Youngkin’s 2024 Executive Order re-
+
+establishing Virginia’s task force on maternal health data and quality measures, are supporting the
+
+Commonwealth’s understanding of maternal health needs, but additional investment is needed to
+
+improve and enable access, especially in rural communities. Twenty-two percent of rural
+
+Virginians must drive more than forty minutes to the nearest labor and delivery (L&D) unit, and
+
+in five rural counties, drive times exceed 75 minutes19. Sixty-three percent of Virginia counties
+
+have no OB-GYN.20
+
+          Access to Care. Lack of access is a pervasive challenge and was one of the most frequently
+
+cited issue in stakeholder listening sessions, particularly access to primary, specialty, dental, and
+
+emergency care. Closely tied with the challenges of a constrained health workforce, rural Virginia
+
+only has 163 Primary Care Providers per 100k residents, compared to 252 in non-rural counties, a
+
+difference of ~35%. In 2023, only 44% of all Virginians utilized primary care21. In 2021, the
+
+median drive time for rural Virginians to substance use services was over 51 minutes 22 .
+
+Stakeholders also frequently cited transportation and lack of broadband access as barriers to care.
+
+          Health Workforce. Workforce shortages are an underlying driver of health system
+
+challenges. Primary care shortages are pervasive, with nearly 55% of rural localities in Virginia
+
+designated as Primary Care Health Professional Shortage Areas (HPSAs)23. In addition, 28% of
+
+rural counties had zero behavioral health prescribing practitioners in 202224. Dental providers are
+
+also lacking, with rural Virginia having 40% fewer dentists per capita than non-rural areas25.
+
+Table 5. Healthcare Access Snapshot: Rural vs Non-rural Virginia26
+Metrics                                                            Rural VA        Non-Rural VA
+                         Primary care providers per 100k              163               252
+Access to care
+                         Driving Time ≥ 45 minutes from L&D unit      13%               2%
+
+
+                                                     8
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+                          Dentists per 100k                               23                38
+                          Counties with no OBGYN                        63%                19%
+Workforce challenges
+                          Registered Nurses per 100k                     903               1041
+                          Radiology Technicians per 100k                  49                58
+
+        Financial Solvency. Rural providers are often the main or only access points for care, yet
+
+many operate on narrow margins, reflecting lower patient volume, higher Medicaid patient mix,
+
+and higher uncompensated care burdens. The Center for Healthcare Quality and Payment Reform
+
+noted in an August 2025 report that seven rural Virginia hospitals have reduced services in the last
+
+decade, with an additional two rural hospitals closing altogether.27 The report also states that of
+
+the thirty-one open rural inpatient hospitals in Virginia, nine are at risk of closing, of which six are
+
+at immediate risk of closure. An analysis of 2022 CMS cost reports showed that Virginia’s
+
+hospitals generally operate at lower margins than hospitals in other states. Virginia’s rural hospitals
+
+operate at an average margin of -1.2%, with 26% operating with margins less than -10%28.
+
+Table 6. Comparison of Virginia hospital performance in rural vs non-rural hospitals29
+Financial measure                             Rural VA       Rural US    Non-rural VA    Non-rural US
+Bad debt as % of patient revenue              1.0%           1.0%        1.0%            1.1%
+Operating margin (%)                          -1.2%          -1.7%       -0.9%           2.0%
+Medicaid revenue as % of patient revenue      3.9%           3.1%        3.4%            2.8%
+
+
+Identifying Rural Areas
+        To identify eligible rural areas for subaward funding, the Commonwealth proposes to use
+
+the Federal Office of Rural Health Policy (FORHP) definition. Subrecipients should be located in
+
+rural counties as defined by FORHP, or they must demonstrate that the project being funded will
+
+effectively target residents of rural counties. Additional initiative-specific criteria will be included,
+
+such as a requirement for an on-the-ground implementation partner in FORHP-designated counties.
+
+
+
+
+                                                         9
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Target Populations
+        Consistent with the Governor’s letter, Virginia is committed to improving healthcare
+
+access and outcomes for all rural residents – supported by the broad scope of proposed initiatives
+
+within VA Rural Vitality complementing this broad focus, data and stakeholder feedback highlight
+
+vulnerable populations where targeted interventions will drive greatest impact.
+
+Table 7. Target Populations for VA Rural Vitality
+
+Target Populations                                    Population-Specific Sub-initiative
+Rural adults with/at risk of chronic conditions and   Food as medicine, Consumer tech for education and
+substance use disorders                               lifestyle change, Remote Patient Monitoring (RPM)
+Rural pregnant women and as well as those less than
+                                                      Innovative maternal care
+one year post-partum
+Rural children and adolescents already at risk of
+                                                      Active kids
+chronic conditions & behavioral health challenges
+Low-income rural seniors                              Integrated care for duals
+
+        The Commonwealth will collaborate with rural hospitals, FQHCs, RHCs, free clinics,
+
+federally recognized Tribes, other local providers, innovative health tech partners, community-
+
+based organizations (e.g., AAAs), and others as a critical part of this effort.
+
+Target Geographies
+        Most or all initiatives will provide benefits across Virginia’s rural counties detailed in
+
+Table 2. In the first year, pilot efforts will launch first in a ‘test and learn’ approach prior to scaling.
+
+In years 2-3, competitive grant processes will expand and scale those initiatives to other rural areas
+
+throughout the state. Further detail on initiatives is available in the Proposed Initiatives section of
+
+this application.
+
+Section 2: Rural Health Transformation Plans: Goals and Strategies
+        Virginia proposes a bold vision for rural health transformation where rural Virginians lead
+
+the way to better health through innovative tools, effective prevention strategies, and new care
+
+
+                                                      10
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+delivery models, supported by providers coming from their own communities. This approach
+
+expands access to quality care and equips rural Virginians with tools and information to thrive.
+
+Figure 4. Overarching Goals of VA Rural Vitality
+
+
+
+
+Figure 5. Alignment Mapping of Strategic Goals, Elements, and Initiatives
+
+
+
+
+       As required by statute in 42 U.S.C. 1397ee(h)(2)(A)(i), Virginia’s approach to
+
+transforming rural health responds to the eight required elements that transformation plans must
+
+
+                                                  11
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+address. Virginia’s proposed initiatives are mapped above in Figure 5 to both the Strategic Goals
+
+issued in the Notice of Funding Opportunity as well as the elements outlined in H.R.1.
+
+       1. Improving access. “Connected Care, Closer to Home” will improve access to
+
+preventative and primary care, diagnostics, dental and oral care, and maternal healthcare by
+
+ensuring rural Virginians can access care in their own homes or convenient locations nearby.
+
+Stakeholder discussions consistently reinforced that lack of access to care is a dire issue in rural
+
+communities, with residents often needing to drive hours across county lines for critical services.
+
+This initiative will overhaul the current model, bringing care to people where they are– the grocery
+
+store, church, and school. The “Mobile and Hybrid Care” sub-initiative will utilize mobile vans
+
+and conveniently located kiosks that enable remote and secure connection with providers.
+
+“Community Paramedicine” projects will enable EMS to provide in-home preventative visits to
+
+high utilizers and conduct ‘treat-in-place’ to provide better care and avoid long and costly patient
+
+trips to Emergency Departments. “Innovative Maternal Care” will continue to drive down
+
+Virginia’s maternal and infant mortality rates by enabling prenatal screenings, tele-presence of
+
+specialists for high-risk births, as well as post-partum remote patient monitoring. “Homegrown
+
+Health Heroes” will positively impact access to care by increasing the number of local providers.
+
+       2. Improving outcomes. All initiatives included in this proposal will contribute to the
+
+overarching goal of improving outcomes, whether by expanding access to prevention, enabling
+
+healthy lifestyle changes, improving access to care or leveraging innovative technology. In
+
+particular, the “Live Well, Together” initiative equips rural residents with resources, tools, and
+
+information to lead healthier lifestyles. This will help to reduce the burden of chronic disease –
+
+both by helping those with chronic diseases better manage them, and even more importantly,
+
+enabling rural residents to avoid chronic disease in the first place. The “Food as Medicine” sub-
+
+
+                                                  12
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+initiative will provide the start-up funds and technical assistance for health systems and others
+
+stand up medically tailored meal programs and nutritional education, leading to reduced hospital
+
+readmissions and longer-term health. The “Consumer Tech for Education and Lifestyle Change”
+
+sub-initiative similarly focuses on adults with or at risk of chronic conditions to provide innovative
+
+technology, data, and incentives – including ‘gamification’ of health literacy and lifestyle changes
+
+– that can improve patient self-management and long-term health outcomes.
+
+       3. Technology use and 4. Data-driven solutions. Innovative use of technology and data
+
+is the focus of the “CareIQ” initiative and underpins all other initiatives. Virginia will make
+
+innovative use of data & technology to allow rural areas to ‘leapfrog’ legacy health infrastructure
+
+and enable more targeted and connected care. “CareIQ,” including four sub-initiatives, seeks to
+
+both “nail the basics” in supporting free clinics, FQHCs, RHCs and other providers to improve
+
+their EHR systems and interoperability, while also “raising the bar” by investing in clinic-level
+
+adoption of cutting-edge, AI-enabled decision support and workflow management tools. The
+
+“Tech Innovation Fund” sub-initiative, administered the Virginia Innovation Partnership
+
+Corporation (VIPC), will foster development of Virginia-based consumer health technologies for
+
+prevention and management of disease. The “Remote Patient Monitoring” sub-initiative will
+
+deploy technology for AI-driven monitoring, improving outcomes and lowering readmissions.
+
+       5. Partnerships. Listening sessions reinforced the importance of partnerships in rural
+
+communities – and many communities, such as Eastern Shore, demonstrated a strong ecosystem
+
+of existing partnerships between providers, local officials, and community-based organizations
+
+(CBOs). Virginia has structured initiatives to drive partnerships between different provider types
+
+and stakeholders, catalyzing the impact of each initiative. For example:
+
+
+
+
+                                                  13
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Table 8. Sample initiative partnership models
+
+Sample Sub-Initiative       Partnership model
+Remote Patient Monitoring   Virginia Hospital Research and Education Foundation (VHREF) to facilitate
+                            partnerships between hospitals and FQHCs, RHCs and free clinics
+Food as Medicine            Health systems and rural providers to partner with community-based organizations
+                            (CBOs) (e.g., food banks, AAAs) to deliver services
+Hybrid and Mobile Care      Health systems to partner with small rural providers for virtual consults
+
+
+       6. Workforce. Building the health workforce in rural Virginia is critical to expanding
+
+access to high quality care. Focusing on a “homegrown” workforce is key, since training rural
+
+residents for healthcare careers in their own communities has proven more effective and
+
+sustainable than recruiting professionals from elsewhere, who are often less likely to stay long-
+
+term. Healthcare workers with rural roots are also more likely to understand how to reach people
+
+and build trusted provider-patient relationships. That is why the Commonwealth is proposing
+
+$132M for the “Homegrown Health Heroes” initiative over 5 years. This is a top priority for the
+
+first year of implementation, as the other initiatives will be bolstered by a stronger workforce. This
+
+initiative will increase rural track residency slots, expand in-demand community college health
+
+degrees via innovative learning models, provide grants for paid apprenticeships for desirable and
+
+attainable health career paths, and support high school training programs to create job-ready
+
+pathways for roles like EMTs. Training local talent will also enable economic opportunities for
+
+rural residents to thrive by serving their communities in the health professions.
+
+       7. Cause Identification and 8. Financial Solvency Strategies. Quantitative and
+
+qualitative analyses suggest several causes that make it difficult for rural providers to sustain
+
+traditional models of care. The initiatives in this proposal leverage several different financial
+
+solvency strategies to address these root causes.
+
+
+
+
+                                                      14
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Table 9. Drivers of Provider Financial Solvency Challenges
+
+Cause                               Financial Solvency Strategy                               Applicable
+                                                                                              Initiative
+Payer mix drives lower revenues     Invest in innovative technology improvements that         CareIQ
+and margins                         increase provider efficiency and prevent burnout.
+Workforce shortages can make it     Workforce development programs across all educational Homegrown Health
+difficult to find providers         levels and levels of care. Targeted to rural populations and Heroes
+                                    with post-completion residency requirements.
+Rural providers have insufficient   Mobile and hybrid options bring care closer to where        Connected Care,
+volume and revenue as residents     residents live, and partnerships with larger health systems Closer to Home
+often seek care at large urban      will provide connections to specialists and other
+centers that are better resourced   resources. Additionally, hub and spoke models will allow
+with more specialties               for consolidation of resources to sustain existing
+                                    infrastructures.
+High rates of acute conditions lead Provide supports “outside the four walls” to improve      Live Well Together
+to high costs to the health system overall population health and lowers rates of acute
+                                    conditions, thereby lowering overall costs.
+
+        Healthcare workforce development efforts that raise employment and economic prosperity
+
+in rural areas can help to increase rates of commercial insurance which is favorable to payor mix
+
+and decreases state and federal Medicaid costs. Residents who participate in the training programs
+
+will also qualify as having met the community engagement requirement mandated in H.R.1,
+
+enabling them to maintain coverage while working toward better long-term employment.
+
+Program Key Performance Objectives
+        The objectives of VA Rural Vitality have been developed to address the unique challenges
+
+rural communities face in the Commonwealth. Each initiative has been intentionally designed to
+
+drive lasting improvements in the access and outcomes metrics outlined below.
+
+Table 10. Program Key Performance Objectives
+
+                     Data                                          Baseline Target             Supporting
+Objective                            Metric
+                     Source30                                               (5Y)               Initiatives
+
+                     CDC           % of rural adults diagnosed     15.7%      13.8% (US rural
+                                   with diabetes31                            avg)            Live Well
+Decrease rates of    PLACES,
+                                                                                              Together;
+chronic disease in   survey and    % of rural adults diagnosed     41.7%      38.8% (US rural
+                                                                                              Connected Care,
+rural adults and     claims data   with hypertension32                        avg)
+                                                                                              Closer to Home;
+children             (e.g., DMAS % of rural adults diagnosed       39.9%      38.8% (US rural CareIQ
+                     for Medicaid, with obesity                               avg)
+
+                                                        15
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+                      Data                                         Baseline Target             Supporting
+Objective                           Metric
+                      Source30                                              (5Y)               Initiatives
+                      All Payers                                   26.2%      23.4% (~10%
+                      Database for % of children diagnosed as                 reduction)
+                      Commercial, overweight or obese33
+                      Medicare)
+                                                                   -          -                Connected Care,
+                                                                                               Closer to Home;
+                                  % of rural patients with an                                  Homegrown
+                                                            34
+                    Claims data annual primary care visit                                      Health Heroes;
+Increase access to                                                                             Live Well
+                    (e.g., DMAS
+primary care for                                                                               Together
+                    for Medicaid,
+rural residents
+                    All Payers                                     -          -                Connected Care,
+including number of
+                    Database for                                                               Closer to Home;
+preventative visits
+                    Commercial, % of avoidable emergency                                       CareIQ;
+and screenings
+                    Medicare )    department (ED) visits                                       Homegrown
+                                  among rural patients                                         Health Heroes;
+                                                                                               Live Well
+                                                                                               Together
+Decrease rates of                                                  16.3       14.7 (~10%
+                                    Overdose deaths per 100K                                   Connected Care,
+substance use         VDH data                                                reduction)
+                                    residents                                                  Closer to Home
+disorders
+                      Claims data
+Increase number of    (e.g., DMAS % women with prenatal care              -          -
+prenatal and          for Medicaid,
+                                                                                               Connected Care,
+postpartum visits     All Payers
+                                                                                               Closer to Home
+conducted for rural   Database for % women with post-partum
+mothers               Commercial, follow-up care                          -          -
+                      Medicare)
+Improve maternal                    Rate of maternal mortality     34.5       31.1 (~10%
+and infant health                   per 1,000 births                          decrease)
+outcomes by                         Rate of infant mortality per   6.7        6.4 (~5%
+reducing maternal                   1,000 live births in rural                decrease)
+                      VDH                                                                      Connected Care,
+and infant mortality,               counties
+                      Dashboards                                                               Closer to Home
+as well as neonatal
+abstinence                          Babies with neonatal           8.2        7.4 (~10%
+syndrome in rural                   abstinence syndrome per                   decrease)
+communities                         1,000 births in rural counties
+                                    Ratio of Primary Care          73.5       76.2 (~4%
+                                    physicians per 100k rural                 increase)
+Build a lasting       Virginia      residents
+pipeline of rural     Healthcare                                                               Homegrown
+                                    Rural counties with no         63%        53% (~10 p.p.)
+residents into        Workforce                                                                Health Heroes
+                                    OBGYN
+healthcare careers    Dashboard
+                                    Ratio of dental hygienists per 30.9       38.9 (~25%
+                                    100k rural residents                      increase)
+                                    Ratio of registered nurses per 903.0      923 (~2%
+                                    100k rural residents                      increase)
+                                    Ratio of radiologic            49.1       62.4 (~25%
+                                    technologists per rural                   increase)
+                                    residents
+
+
+                                                       16
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+                     Data                                            Baseline Target            Supporting
+Objective                             Metric
+                     Source30                                                 (5Y)              Initiatives
+                                      % of providers using EHRs      -        -
+                     DMAS and
+                                      or digital workflow tools
+                     VHCF
+Modernize provider reporting;         aligned with CMS Health
+                                                                                                CareIQ
+operations and                        Technology Ecosystem
+                     provider self-
+increase adoption of assessments      criteria and ASTP/ONC
+technology in rural                   criteria
+communities          DMAS /                                          -        -
+                                      Private sector capital
+                     VIPC                                                                       CareIQ
+                                      catalyzed by innovation fund
+                     reporting
+                                      Number of new start-ups        -        -
+                                      with products deployed in
+                                      rural Virginia
+
+
+        For initiative-specific performance measures, please see Tables 15, 20, 25, and 31 in the
+
+“Proposed Initiatives and Uses of Funds” section, and Table 36 in “Metrics and Evaluation.”
+
+State Policies and Legislative and Regulatory Action
+        The Commonwealth of Virginia is committed to a series of policy actions, including
+
+legislative and regulatory, consistent with the areas laid out in the Notice of Funding Opportunity.
+
+The table below demonstrates current policy, planned legislative and regulatory actions, timeline
+
+of actions, and how those actions will impact access, quality, and / or cost of care.
+
+Table 11. State Policy Action Summary
+State Policy Area     Current Policies and Commitments to Action                                        Timeline
+B.2. Health and       Current Policy: Governor Youngkin issued Executive Order 55,                      EO issued
+Lifestyle             “Reestablishing the Presidential Fitness Test in the Commonwealth’s Public        November
+                      Schools.” The Governor directed the Virginia Department of Education to           4th, 2025
+                      adopt and implement the Presidential Fitness Test by the start of the 2026-27
+                      school year, and the Superintendent and Department shall work with local
+                      school divisions to ensure that the Presidential Fitness Test is fully
+                      implemented by July 1, 2027, unless earlier directed by federal guidance.
+
+                      Impact of legislative / regulatory action: Reinstating the President’s Physical
+                      Fitness Test via Governor Youngkin’s Executive Order 55 is intended to
+                      reinvigorate physical education in Virginia schools, helping to motivate and
+                      focus kids of all on the physical and mental health benefits of an active
+                      lifestyle which complements the Active Kids initiative.
+B.3. SNAP waivers     Current Policy: On November 4th, Virginia submitted a waiver to USDA that Virginia
+                      would prohibit the use of SNAP benefits for sweetened beverages, including submitted
+                      those artificially sweetened.                                              waiver on
+
+
+                                                        17
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+State Policy Area     Current Policies and Commitments to Action                                         Timeline
+                      Impact of legislative / regulatory action: The SNAP waiver is intended to set November
+                      targeted boundaries on purchases made by recipients via their SNAP benefits. 4th, 2025
+                      This helps create an environment where rural Virginians have the education,
+                      incentives, information, and structures to support healthy diets and lifestyles.
+B.4. Nutrition     Current policy: On October 30, 2025, the Board of Medicine adopted 1 hour             Nutrition
+Continuing Medical of continuing education in the subject of nutrition for the 2028-2029 renewal         will be a
+Education          cycle for all licenses. This requirement was pursuant to Virginia Code § 54.1-        component
+                   2928.3, created by HB1426 which Governor Youngkin signed into law on                  of CME as
+                   March 23, 2023, which states that the Board can require continuing education          of 1/1/28
+                   on specific topics.
+
+                      Impact of legislative / regulatory action: Taken together, these policy
+                      changes will positively impact health care access and outcomes for rural
+                      Virginians and complement the proposed initiatives in this application.
+C.3. Certificate of   Current Policy: Cicero index listed in the data source definition and source       NA
+Needs                 column is accurate
+D.2. Licensure        Current Policy: VA is part of NLC, EMS, PSYPACT and PA Compact. VA                 NA
+Compacts              is not part of IMLC (physicians). We believe Virginia’s current model more
+                      effectively supports RHTP’s goal of expanding access to health professionals
+                      in rural areas by allowing clinicians to serve patients across state borders.
+
+                      Virginia has not joined the IMLC due to the cost to applicants and length of
+                      time for licensure under the IMLC. Virginia offers much faster and less costly
+                      alternatives for licensure as a physician that are in support of RHTP goals to
+                      increase access to health professionals in rural areas by providing clinicians
+                      with the opportunity to serve patients across states. Physicians may be licensed
+                      through endorsement (having a license in another jurisdiction), reciprocity
+                      (agreements with Maryland and DC), or by military pathway for
+                      servicemembers or spouses. All three options offer significantly faster
+                      timelines to the IMLC, do not require criminal background checks as the
+                      IMLC requires, and cost less than a privilege to practice under the IMLC.
+D.3. Scope of         Current Policy: Virginia is semi-restrictive according to national indices         NA
+Practice              referenced for PAs, pharmacists and dental hygienists.
+
+                      While Virginia is currently categorized as “restrictive” for NPs by the AANP,
+                      we believe this misrepresents the Commonwealth’s policies. Virginia should at
+                      least be classified as a “Reduced Practice” state under the AANP designation.
+                      AANP lists Virginia as only allowing practice by “NPs” (advanced practice
+                      registered nurses in Virginia, or APRNs) under “career-long” supervision or
+                      collaboration. This is not true. Virginia APRNs can practice without oversight
+                      of or collaboration with another healthcare practitioner following various
+                      amounts of practice or in certain practice scenarios. These are detailed in
+                      Virginia Code § 54.1-2957(H), (I), and (J).
+E.2. Dual Eligibles   Current Policy: VA identifies DMAS to manage coordination of dual                  NA
+                      eligibles. VA offers FIDE-SNPs plans: Beginning January 1, 2025, Virginia
+                      mandated that dual eligibles must be enrolled in a D-SNP with a
+                      corresponding Medicaid plan through the same health plan provider
+                      VA is 94.7 percentile of duals enrolled in D-SNPs.
+E.3. Short-term,      Current Policy: VA limits STLDIs to 3-month initial terms and up to 6              NA
+limited-duration      months total duration in a 12-month period.
+insurance
+
+                                                        18
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+State Policy Area   Current Policies and Commitments to Action                                         Timeline
+F.1. Remote Care    Current Policy: VA reimburses live video, Store and Forward and RPM, and NA
+Services            has in-state licensing requirement exceptions. VA currently has no Telehealth
+                    License / Registration process.
+
+Other required information is included below:
+
+Scoring factor         Requested information
+A2. CCBHCs             Virginia has four Community Services Boards (CSBs) that are CCBHCs. Virginia has
+                       invested significantly in CCBHC-like models through its Right Help, Right Now
+                       initiative, including through CSBs and the completion of a CCBHC state planning grant
+                       through SAMHSA in 2018. Building on this foundation, Virginia launched the System
+                       Transformation Excellence and Performance (STEP-VA) initiative, which is modeled on
+                       the national CCBHC framework and aims to ensure that all 40 CSBs deliver a consistent,
+                       high-quality set of core behavioral health services statewide. The full list is included in on
+                       page 15 of Other Supporting Materials (OSM).
+A7. Medicaid DSH       For the most recent state plan rate year, 85 in-state hospitals and out-of-state hospitals
+payments               received DSH payments. A full list of these hospitals is included on page 16 in OSM.
+
+
+Proposed Initiatives and Use of Funds
+       The four proposed initiatives in “VA Rural Vitality” form an innovative, transformational
+
+strategy to dramatically improve healthcare and health outcomes. Technology is our foundation –
+
+the CareIQ initiative [CMS priority: Tech innovation] will introduce cutting edge innovation to
+
+Virginia’s rural providers, while also investing in core building blocks like interoperability. Our
+
+“Homegrown Health Heroes” initiative [CMS priority: Workforce development] will catalyze the
+
+growth of rural physicians and allied health professionals. Investment is front-loaded to kick-
+
+start the workforce growth that will be foundational for the broader strategy. “Connected Care,
+
+Closer to Home” will enable sustainable access [CMS priority: Sustainable access] – turning the
+
+traditional model of care on its head by bringing care to residents in their homes and
+
+neighborhoods, instead of asking them to seek services far from home and with limited
+
+availability. “Live Well, Together” [CMS priority: Make rural America healthy again]
+
+empowers rural residents to live healthy lives and take control of their own health through
+
+effective and innovative consumer facing apps, wearables, and care navigation tools, better
+
+
+                                                       19
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+nutrition, and opportunities for physical activity. Virginia is addressing CMS’s Innovative care
+
+priority by connecting care innovation and payment reform in real time. Through the “Connected
+
+Care, Closer to Home” and “Live Well, Together” initiatives, we are co-designing and testing
+
+mobile, home-based, tech-driven care models with providers, payers, and community partners.
+
+These initiatives will generate the evidence and operational insights needed to craft payment
+
+models that are effective, data-driven, and truly sustainable in rural settings. Through the
+
+“Connected Care, Closer to Home” and “Live Well, Together” initiatives, we are co-designing
+
+and testing mobile, home-based, tech-driven care models with providers, payers, and community
+
+partners. These initiatives will generate the evidence and operational insights needed to craft
+
+payment models that are effective, data-driven, and truly sustainable in rural settings.
+
+Table 12. Overview of VA Rural Vitality initiatives
+
+                      Funding
+Initiative                                                Sub-Initiatives in Scope
+                      Allocated
+CareIQ                $282.6M         •   Tech Innovation Fund            •    Provider Interoperability
+                                      •   Provider Productivity           •    Remote Patient Monitoring
+Homegrown Health      $132.0M         •   Attract and Retain              •    Earn to Learn programs
+Heroes                                    Physicians                      •    Build career pipelines
+                                      •   Allied Health Degrees
+Connected Care,       $412.0M         •   Mobile and Hybrid Care          •    Innovative Maternal Care
+Closer to Home                        •   Community Paramedicine
+Live Well, Together   $124.2M         •   Food as Medicine                •    Active Kids
+                                      •   Consumer Tech for               •    Integrated Care for Duals
+                                          Education and Lifestyle
+                                          Changes
+
+CareIQ
+         Description: CareIQ supports the RHTP goal to advance innovative technologies that
+
+promote efficient care delivery, improved provider satisfaction and enhanced patient outcomes.
+
+The initiative will enable rural providers to ‘leapfrog’ the current models and delivery data-
+
+informed, effective care. CareIQ includes four sub-initiatives that range from supporting rural
+
+
+                                                  20
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+safety net providers in “nailing the basics” of EHRs and cybersecurity to advancing Virginia-
+
+based health technology innovation that can bring cutting-edge care to underserved regions. The
+
+Tech Innovation Fund aims to grow Virginia’s health technology ecosystem and deploy
+
+homegrown innovations that strengthen care delivery in rural communities. The Provider
+
+Productivity sub-initiative is intended to support adoption of decision-support, documentation,
+
+and workflow tools, including AI advances to reduce administrative burden, ease provider
+
+burnout and allow rural clinicians to focus more of their valuable time on patient care. The
+
+Provider Interoperability sub-initiative will support independent rural providers, FQHCs,
+
+RHCs, free clinics and eligible health systems in modernizing their digital infrastructure—
+
+closing the technology gap that often prevents rural providers from keeping pace with EHR and
+
+cybersecurity advancements. The Remote Patient Monitoring sub-initiative will provide health
+
+systems and rural providers with funding to implement remote patient monitoring (RPM) and
+
+continuous care technologies that extend clinical insight beyond the hospital walls, enabling
+
+proactive, coordinated care and better long-term outcomes for patients.
+
+        Where possible, Virginia will establish regional purchasing collaborations with
+
+providers and associations in neighboring states (including West Virginia) to leverage shared
+
+demand, reduce duplication, and acquire technologies at a lower cost. These collaborations can
+
+enhance purchasing power and promote standardization across health systems, allowing rural
+
+providers to access high-quality health technologies and equipment that might otherwise be cost-
+
+prohibitive.
+
+       The Tech Innovation Fund will be led by the Virginia Innovation Partnership Corporation
+
+(VIPC), the operating nonprofit of the Virginia Innovation Partnership Authority (VIPA).
+
+Established by the Commonwealth legislature, VIPC strengthens Virginia’s startup ecosystem by
+
+
+                                                  21
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+accelerating technology commercialization and attracting early-stage investment capital. VIPC
+
+was selected for its proven track record in managing large-scale state and federal innovation
+
+programs and its success in helping more than 300 Virginia startups secure over $2.5 billion in
+
+follow-on private investment. Its experience supporting early-stage technology commercialization
+
+and rural entrepreneurship makes VIPC uniquely positioned to extend these capabilities to
+
+healthcare innovation and consumer-facing health technology. VIPC would provide non-dilutive
+
+grant funds, and potential recipients must present and commit to a compelling long-term strategic
+
+plan, sustainable funding strategy and measurable outcomes that will be reported back to the
+
+Commonwealth. Through these investments, the Commonwealth aims to accelerate Virginia-
+
+based innovations that improve rural health, create jobs and reinvest economic growth within the
+
+state. For further information on oversight and award details for the fund, please see pages 19-20
+
+in OSM.
+
+       The Provider Productivity fund will support independent rural providers, clinics, and
+
+health systems in adopting or upgrading digital tools that improve efficiency and reduce
+
+administrative burden on provider practices. Funded technologies must align with at least one of
+
+three focus areas—clinical decision support, documentation assistance, or workflow automation—
+
+to enhance interoperability, streamline provider operations, and strengthen coordination across the
+
+care continuum. Providers will receive technical assistance to select appropriate tools and vendors.
+
+In addition to improving speed and quality of care delivery, these tools will help alleviate
+
+workforce shortage issues by making nurses, doctors and other support staff more efficient and
+
+reducing burnout. Funding will be distributed through a partnership between DMAS and the
+
+Virginia Health Care Foundation (VHCF), a public–private organization with strong existing
+
+relationships across Virginia’s rural primary care and behavioral health provider networks. VHCF
+
+
+                                                  22
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+will run a competitive process to award grants to rural providers and health systems. The Fund is
+
+expected to reduce provider burnout, increase patient visit volume and availability and bolster
+
+provider financial solvency—ensuring rural practices remain sustainable over time.
+
+       The Provider Interoperability fund focuses on supporting those providers who are at the
+
+earlier stages of incorporating technology into their practices. It will provide targeted funding to
+
+help independent rural providers (incl. federally recognized Tribes), FQHCs, RHCs, free clinics
+
+and eligible health systems to modernize their EHR systems and strengthen cybersecurity
+
+infrastructure. The program will support upgrades to legacy systems, enhance internal data
+
+exchange and reporting, and protect patient information from increasing cybersecurity threats.
+
+These investments are intended to decrease administrative burden, reduce risk of costly data
+
+breaches and privacy issues, and improve care coordination across rural clinics, laying the
+
+groundwork for long-term digital resilience. Funding will be distributed through a partnership
+
+between DMAS and the Virginia Health Care Foundation (VHCF), with VHCF managing the
+
+competitive process to award grants to providers.
+
+       The Remote Patient Monitoring (RPM) fund aims to improve the experience, outcomes,
+
+and long-term recovery of patients who are managing chronic or high-risk conditions. RPM
+
+provides a lifeline for rural Virginians who often live far from hospitals or specialists, helping
+
+them stay connected to their care teams without long travel times or costly readmissions. This fund
+
+will support health systems, hospitals, and rural providers in implementing RPM and continuous
+
+care technologies that enable providers to track patient outcomes both in-facility and at home.
+
+       Technologies funded under this initiative may include wearables, remote monitoring
+
+devices and clinical dashboards integrated with EHR systems to support continuous patient
+
+oversight and early intervention. Technology innovators such as BioIntelliSense, Andor Health,
+
+
+                                                  23
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+and Philips submitted proposals through the stakeholder engagement process, offering potential
+
+solutions for consideration. RPM from such technology companies has been proven to improve
+
+patient safety, engagement, and quality of life while giving providers critical data to better manage
+
+chronic conditions and reduce costly hospitalizations.
+
+        Funding will prioritize scalable solutions that demonstrate strong clinical integration,
+
+patient engagement and measurable improvements in care quality. Funding will be distributed
+
+through a partnership between DMAS and the Virginia Hospital Research and Education
+
+Foundation (VHREF), the 501(c)(3) non-profit affiliate of the Virginia Hospital and Healthcare
+
+Association. VHREF will manage a competitive process to grant awards to providers, beginning
+
+with pilots at hospitals and expanding through partnerships with primary care providers, FQHCs,
+
+RHCs, free clinics and others. DMAS and VHREF will validate technologies identifies by
+
+providers selected technologies to ensure alignment with program goals and national best practices.
+
+This model is designed to promote strong provider participation by offering technical assistance,
+
+implementation support, and coordinated infrastructure to ensure new technologies are smoothly
+
+integrated into clinical workflows. This will enable providers to focus on patient care rather than
+
+bureaucracy, building sustained buy-in across rural practices.
+
+Table 13. Initiative Summary: CareIQ
+Sub-Initiative Design       Uses of Funds                                                                    5Y
+                                                                                                           Budget
+Tech Innovation Fund          Grants provided through innovation fund office to Virginia-based entities.   $31.6M
+VIPC will oversee a grant     Subawards will follow guardrails outlined on pages 19-20 of OSM (e.g., all
+process to provide            grants will be non-dilutive).
+awards of up to $500k to
+promising early stage
+health technology start-
+ups based in Virginia.
+
+Provider Productivity • Procurement of digital productivity and documentation tools, including             $79.3M
+VHCF will administer a     licenses or subscriptions covered for up to two years to support
+fund to support rural      infrastructure development and program start-up for participating providers
+providers in adopting      and health system
+new, pre-selected tools to
+
+                                                         24
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+improve productivity       • One-time hardware or software integration with existing EHR systems and
+through better decision      clinic workflows
+support, documentation • Training, technical assistance, and implementation support:
+automation, and              o Understanding digital offerings and selecting health tech vendors
+workflow efficiency.         o Implementing and optimizing system functionality, including workflow
+                                redesign and interoperability with existing data systems
+                             o Training providers and staff to effectively use new technologies for
+                                documentation, clinical decision support and workflow automation
+                             o Incorporating tech expenses into ongoing operating costs after 5-year
+                                funding from RHTP is complete
+Provider                   • Assessments of current IT, EHR and cybersecurity tech to identify gaps        $92.5M
+Interoperability           • One-time hardware and software integration to support adoption or
+VHCF will administer a       enhancement of EHR and cybersecurity systems
+fund to support rural      • Time-limited (up to two years) support for ongoing EHR and cybersecurity
+providers (incl. FQHCs,      licenses and subscriptions during implementation/startup
+RHCs, and free clinics) • Training, technical assistance, and implementation support:
+in adopting upgraded         o Understanding digital offerings and selecting health tech vendors
+EHR, cybersecurity and       o Optimizing system functionality, interoperability, workflow alignment
+data analytics platforms.    o Training staff on EHR and cybersecurity best practices and tech use
+                           • Incorporating tech expenses into ongoing operating costs after 5-year
+                             funding from RHTP is complete
+Remote Patient             • Purchase and deployment of wearable/RPM devices, patient-facing               $79.2M
+Monitoring                   applications and clinical dashboards
+A fund that is operated • Integration of device data with EHR/data systems to support patient
+under a partnership          management and outcomes tracking
+agreement with VHREF. • Training, technical assistance, and implementation support for:
+Potential to identify 2-3    o Optimizing system functionality, interoperability, workflow alignment
+hospitals to support first   o Training staff on EHR and cybersecurity best practices and tech use
+year deployment, with        o Incorporate and maintain consumer health tech expenses into ongoing
+additional providers            operating costs after 5-year funding from RHTP is complete
+participants coming on       o Explore alternative payment models and reimbursement avenues for
+board in later years as         adopted solutions
+model is tested and ready • Stand-up staffing support (e.g., data analysts) to manage data intake and
+to scale.                    work with clinical staff on patient coordination for first two years
+                           • Continuous evaluation of technology performance and readiness for scale,
+                             including assessment of patient engagement, usability and outcomes
+                           • Contracting with an actuary or data analytics partner to analyze pilot data
+                             and estimate expected savings and financial impact to explore alternative
+                             payment models and reimbursement pathways
+                           • Partner enablement support to build necessary data, claims tracking and
+                             reporting capabilities if alternative payment models / reimbursement
+                             pathways established
+
+For the above sub-initiatives, which have trusted subrecipient partners designated to administer
+
+funding, DMAS will work with these designated entities to ensure funding is allocated via
+
+appropriate award processes, including competitive selection processes. Further detail on
+
+initiative-specific subaward criteria is included in the Budget Narrative.
+
+
+
+                                                        25
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Main Strategic Goal: Tech Innovation
+Uses of Funds: D, F
+Technical Score Factors: B.1, F.1, F.2, F.3,
+Key Stakeholders:
+        Across all sub-initiatives, participating community members, advocacy organizations,
+
+federally recognized Tribes, and provider organizations are important stakeholders to provide
+
+ongoing input in support of the success of this work. Further detail on ongoing stakeholder
+
+engagement efforts is included in the Section “Stakeholder Engagement.”
+
+Table 14. Initiative-Specific Stakeholders: CareIQ
+
+Program                  Key Specific Stakeholders
+Tech Innovation Fund     Health tech start-ups, health systems and providers deploying new technology; VIPC
+Provider Productivity    Full range of providers, including independent rural providers, free clinics, FQHCs,
+                         RHCs, federally recognized Tribes, and health systems; Virginia Healthcare Foundation
+Provider Interoperability Safety net providers including free clinics, FQHC and RHCs, independent rural providers
+                          and federally recognized Tribes; Virginia Healthcare Foundation
+Remote Patient           Health systems with additional participation from free clinics, FQHCs, RHCs and
+Monitoring               independent rural providers and federally recognized Tribes; VHREF
+
+Table 15. Initiative-Specific Metrics: CareIQ
+Sub-Initiative           Metric                                                             Data Source
+Tech Innovation Fund     Number of innovation fund awardees                                 Subrecipient
+                                                                                            reporting
+Tech Innovation Fund     Number of active users of innovation fund awardee products         Subrecipient
+                                                                                            reporting
+Provider Productivity    Incremental number of rural providers by county using tech-        Subrecipient
+                         enabled provider productivity tools by provider type               reporting
+                         Average estimated provider time savings achieved through           Subrecipient
+                         productivity tools                                                 reporting
+                         Average increase in estimated provider revenue or billable services Subrecipient
+                         achieved through productivity tools                                 reporting
+Provider Interoperability Incremental number of rural providers/hospitals on EHR platforms Subrecipient
+                                                                                           reporting
+Remote Patient           Incremental number of rural hospitals and health care settings     Subrecipient
+Monitoring               actively using ≥1 RPM technology                                   reporting
+
+
+
+
+                                                       26
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Table 16. Impact of Initiative on Program Key Performance Objectives
+
+Overall Program Key            Impact of this initiative on Key Performance Objectives
+Performance Objective
+Decrease rates of chronic      Start-ups funded by the Tech Innovation fund will have a focus on reducing chronic
+disease in rural adults and    disease and increase health literacy. The initiative metrics ensure accountability
+children                       toward deployment of that funding and end user adoption
+Modernize provider             The Provider Productivity, Interoperability, and RPM sub-initiatives directly
+operations and increase        contribute to modernization of provider operations and adoption of technology. The
+adoption of technology in      initiative metrics also directly feed into the overall program performance objective
+rural communities              metrics.
+
+Impacted Counties: All rural Virginia counties
+
+FIPS Codes
+51001    51005    51007       51011   51017     51021     51025     51027    51029     51033     51035     51036
+51037    51043    51045       51047   51049     51051     51057     51061    51063     51065     51067     51071
+51077    51079    51081       51083   51089     51091     51097     51099    51101     51103     51105     51109
+51111    51113    51115       51117   51119     51125     51127     51131    51133     51135     51137     51139
+51141    51143    51147       51155   51157     51159     51163     51167    51171     51173     51175     51181
+51183    51185    51187       51193   51195     51197     51530     51580    51590     51595     51620     51640
+51678    51690    51720       51750
+
+Estimated Required Funding:
+Table 17. Sub-initiative 5-year Budgets: CareIQ
+                                Year 1         Year 2         Year 3         Year 4        Year 5        Total
+Innovation Fund                 $10.5M         $5.3M          $5.3M          $5.3M         $5.3M         $31.6M
+Provider Productivity           $10.5M         $10.6M         $15.9M         $21.2M        $21.2M        $79.3M
+Provider Interoperability       $17.0M         $18.9M         $18.9M         $18.9M        $18.8M        $92.5M
+Remote Patient Monitoring       $15.7M         $7.5M          $7.5M          $23.2M        $25.3M        $79.2M
+Total                           $53.7M         $42.3M         $47.6M         $68.5M        $70.6M        $282.6M
+
+Homegrown Health Heroes
+        Description: Homegrown Health Heroes is focused on growing rural provider workforce
+
+while providing career pipelines and economic opportunities for rural Virginians. The
+
+Commonwealth believes that building a homegrown workforce will have a multiplier impact on
+
+rural communities. It will help address acute provider shortages in the near term, as well as in the
+
+
+
+
+                                                        27
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+long term, given the deep roots that these providers will have in their communities. It also creates
+
+positive employment opportunities to improve local economies and help prevent population loss.
+
+       This initiative is comprised of four sub-initiatives covering different provider types and
+
+levels of education: Attract and retain physicians via residency slots in high priority specialties
+
+with wraparound support and retention models, expand Allied health degrees to enable
+
+community college students to enroll in health degree programs that are currently in critical
+
+shortage in rural Virginia due to cost-prohibitive one-time infrastructure needs to stand up
+
+programs, Earn to Learn apprenticeship programs developed in partnership with educational
+
+institutions and committed health care employers and Building career pipelines to stand up high
+
+school training academies, creating opportunities in allied health professions in rural areas.
+
+Virginia will require a 5-year rural commitment for all workforce programs consistent with CMS
+
+guidance. “Attract and retain physicians” and “Earn to learn apprenticeship” sub-initiatives will
+
+have minimum 5-year service requirements for the residencies and apprenticeships created.
+
+“Allied health degrees” and “Build career pipelines” sub-initiatives create funding for overall
+
+infrastructure investment and program expansion instead of specific individuals. Virginia will
+
+engage with CMS on these 'allied' and 'build career' to clarify if a 5-year residency is required.
+
+       The Attract and Retain Physicians sub-initiative will establish a fund via the VHREF to
+
+expand slots for primary care, OBGYN, psychiatry, and nurse midwife residencies in rural areas.
+
+This sub-initiative will also provide wraparound supports, centralize outcomes tracking, and
+
+establish five-year commitments to rural areas to drive rural retention and long-term sustainability.
+
+This approach and $50M funding level could support approximately 80-100 incremental residency
+
+slots across multiple specialties with dire need for new providers, targeted by county-specific
+
+provider type shortages. A 2024 analysis by The Cicero Institute concluded that 32.4 percent of
+
+
+                                                  28
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Virginia physicians are currently within retirement age. The goal of this approach is to begin to
+
+reverse that trend and build a strong provider base in rural Virginia.
+
+       Allied Health Degrees is a sub-initiative to expand access to high-demand allied-health
+
+training programs, including nurses, dental hygienists, diagnostic medical sonographers,
+
+radiologic technologists, physical therapy assistants, and others using a community college hub
+
+and spoke model for virtual and in-person instruction across rural communities. It will leverage
+
+dual-appointed hospital-college instructors to solve faculty gaps and invest in mobile simulation
+
+and training labs to deliver hands-on instruction. This initiative will be executed via a fund and
+
+coordinated effort at the Virginia Foundation for Community College Education Foundation
+
+(VCCS Foundation). Funding will be used to increase enrollment capacity of 2-year health
+
+programs, adding about 1,200 health graduates by 2031 and creating lasting capacity for expanded
+
+enrollment via upfront investment in equipment and partnerships. Additional details on projected
+
+incremental enrollment by degree program are included on page 27 of OSM.
+
+       The Earn to Learn Programs sub-initiative will fund provider-education partnerships to
+
+build apprenticeships for allied health specialties with the goal of bringing new talent to the
+
+healthcare field and upskilling existing workers requiring a combination of education and
+
+experience to advance. This will result in increased job placement into advanced allied health roles
+
+in participating rural facilities. DMAS will partner with Virginia Works, Virginia’s workforce
+
+development agency, to administer employer-directed incentives to establish new healthcare
+
+Registered Apprenticeship programs with multiyear commitments to serve rural areas. Funding
+
+will also provide wraparound supports for participants, and early pipeline development through
+
+youth and pre-apprenticeship opportunities. Additional funding will be directed to rural
+
+intermediaries, including industry/sector regional partnership entities, to build regional ecosystems
+
+
+                                                  29
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+that coordinate employer engagement, recruitment, and supportive services. This initiative will
+
+create 1,500 new Registered Apprentice slots in rural areas over 5 years, a 400% increase in
+
+Virginia’s rural health apprenticeships today,
+
+        The Build Career Pipelines sub-initiative will fund the expansion of healthcare credential
+
+offerings at Career and Technical Education (CTE) centers for high-school students in rural areas
+
+across the Commonwealth. Currently, 25% of high school students enrolled in Health and Medical
+
+Sciences CTE are from rural counties.35 There is a significant opportunity to expand the number
+
+of seats across rural CTE sites to provide critical healthcare credentials, with a focus on nurse aides
+
+(37% rural CTE enrollment), emergency medical technicians and responders (13% rural),
+
+pharmacy technicians (19%), radiologic technicians (0%), and pre-dental students (9%). VDOE
+
+will administer funding to rural CTE centers and school districts for upfront investments, such as
+
+technical assistance, equipment, and other upfront costs, to expand credentials and program
+
+capacity. Note that no funding will be used for construction of new CTE centers.
+
+Table 18. Initiative Summary: Homegrown Health Heroes
+Sub-Initiative Design                 Uses of Funds                                                     5Y Budget
+Attract and Retain Physicians         • Resident salary and benefits (including wraparound               $52.8M
+Fund ~80-100 residency slots across     supports) for residency slots
+rural health systems in priority      • Administrative costs required by health systems to
+specialties, via VHREF. Activate        implement residency slots
+rural clinical rotations, incl. FQHC,
+and retention requirements.
+
+Allied Health Degrees                 • Hub and spoke tech upgrades at community colleges                $31.7M
+Provide funding to VCCS               • Curriculum development and accreditation support
+Foundation to stand up 5+ mobile      • Time-limited personnel to facilitate program rollout
+labs, upgrade colleges tech, and      • One-time purchases of equipment for mobile training labs
+scale dual appointed faculty across   • Rural marketing and recruitment
+community college system              • Technical assistance for program standup
+Earn to Learn Programs                • Incentives to providers to hire, train, and retain healthcare    $21.1M
+Provide funding to Virginia Works       apprentices in partnership with educational institutions
+to select employer led and college    • Grants for wraparound supports such as childcare,
+led ETL programs                        transportation, and other participant needs
+                                      • Funding to rural partners and community organizations for
+                                        recruitment, outreach, and engagement of rural residents
+                                      • Support for youth and pre-apprenticeship programs
+
+                                                        30
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Sub-Initiative Design                    Uses of Funds                                                      5Y Budget
+                                         • Technical assistance for employers and education partners to
+                                           design, launch, and sustain apprenticeship programs
+                                         • Planning grants to develop platforms and processes for
+                                           connecting job seekers with employers
+Build Career Pipelines                   • Equipment and supplies for lab and simulation build-outs,         $26.4M
+Partner with VDOE to provide               safety upgrades, etc.
+funding to rural regional CTE            • Technical assistance for clinical placement coordination and
+centers to expand capacity for             development of curriculum
+existing healthcare credentials and      • Startup costs to build curriculum, onboard faculty (until
+add new credentials                        sustainability)
+
+For the above sub-initiatives, which have trusted subrecipient partners designated to administer
+
+funding, DMAS will work with these designated entities to ensure funding is allocated via
+
+appropriate award processes, including competitive selection processes. Further detail on
+
+initiative-specific subaward criteria is included in the Budget Narrative.
+
+Main Strategic Goal: Workforce Development
+Uses of Funds: D, E, F, K
+Technical Score Factors: C.1. D.1
+
+Key Stakeholders:
+
+Table 19. Initiative Specific Stakeholders: Homegrown Health Heroes
+
+Sub-Initiative                   Key Specific Stakeholders
+Attract and retain physicians    Medical School Graduates, Health systems, VHREF
+Allied Health degrees            VCCS Foundation, Community Colleges
+Earn to Learn programs           Virginia Works, Health systems and community providers, education institutions
+Build career pipelines           Virginia Dept. of Education, CTE centers, high schools
+
+Table 20. Initiative Specific Metrics: Homegrown Health Heroes
+Sub-Initiative                  Metric                                             Data Source
+Attract and retain physicians Number of new residency slots filled per year        Subrecipient reporting
+Attract and retain physicians Physician to patient ratio in rural counties in      Virginia Healthcare Workforce
+                              fields targeted by sub-initiative                    Data Center
+Allied Health degrees           Number of incremental accredited 2-year allied     Subrecipient reporting
+                                health graduates per year
+Allied Health degrees           Allied health professional to patient ratio        Virginia Healthcare Workforce
+                                (measured by county)                               Data Center
+
+
+
+                                                           31
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Earn to Learn programs        Incremental number of apprenticeships               Subrecipient reporting
+                              placements in allied health fields
+Build career pipelines        Incremental number of high school students          Subrecipient reporting
+                              earning industry-read healthcare credentials
+
+Table 21. Impact of Initiative on Program Key Performance Objectives
+
+Overall Program Key           Impact of this initiative on Key Performance Objectives
+Performance Objective
+Increase access to primary    Expanding the healthcare workforce through the Attract and Retain Physicians,
+care for rural residents      Allied Health Degrees, Earn to Learn, and Build Career Pipelines sub-initiatives
+including number of           will directly improve access to care at the program-level by, for example, increasing
+preventative visits and       the availability of primary care providers for preventive visits and paramedics to
+screenings                    reduce emergency utilization.
+Build a lasting pipeline of   Building a lasting pipeline of rural residents into healthcare careers is the core focus
+rural residents into          of the Homegrown Health Heroes initiative. Training rural residents increases the
+healthcare careers            likelihood they will stay and practice locally, while the Rural Residency and Earn to
+                              Learn programs include five-year service commitments to strengthen this
+                              workforce. Residencies and allied health degrees will focus on high-need
+                              professions identified in the program key performance objectives, including primary
+                              care, OBGYNs, dental hygienists, nurses, and radiologic technicians.
+
+Impacted Counties: All rural counties; Please see page 27 for applicable FIPS codes
+Estimated Required Funding:
+Table 22. Sub-initiative 5-year Budgets: Homegrown Health Heroes
+                                Year 1        Year 2           Year 3         Year 4        Year 5         Total
+Attract and Retain
+Physicians                      $10.5M        $14.2M           $17.7M         $7.1M         $3.5M          $52.8M
+Allied health degrees           $6.3M         $7.4M            $7.9M          $5.3M         $4.8M          $31.7M
+Earn to learn programs          $5.2M         $5.3M            $4.2M          $3.2M         $3.2M          $21.1M
+Build career pipelines          $10.5M        $5.3M            $5.3M          $3.2M         $2.1M          $26.4M
+Total                           $32.5M        $32.2M           $35.1M         $18.7M        $13.5M         $132.0M
+
+Connected Care, Closer to Home
+        Description: Access to care was one of the most frequently cited challenges in the listening
+
+sessions, qualitative research and quantitative data analysis. The goal of “Connected Care, Closer
+
+to Home” is to rewire how rural healthcare is delivered by bringing primary, urgent, specialty,
+
+SUD, dental, vision, and maternity care directly into rural communities. Mobile and Hybrid Care
+
+will expand access through mobile units for primary and preventative care and diagnostics,
+
+electronic interprofessional consults, telehealth kiosks, and “clinics in a box.” Community
+
+                                                        32
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Paramedicine will fund pilots and startup costs to enable EMS to provide treat-in-place care,
+
+preventative visits for at-risk patients, and telehealth consults. Innovative Maternal Care tackles
+
+Virginia’s maternal health deserts by expanding rural prenatal and postpartum services through
+
+community hubs, mobile units, and telehealth. It prioritizes mothers with substance use disorders,
+
+enhances remote monitoring, and supports rural hospitals to prevent L&D unit closures.
+
+       Mobile and Hybrid Care. Currently, rural Virginians often need to drive great distances
+
+to get care, especially preventative care, taking time off from jobs or missing school. This sub-
+
+initiative brings needed care directly into rural communities by funding the startup costs of mobile
+
+care units, telehealth kiosks and “clinics in a box,” development of rural care centers to operate as
+
+“hubs” in hub-and-spoke models (e.g., urgent cares), and technology enablers for hub-and-spoke
+
+models, like provider-to-provider e-consults for specialty care. Funding will be disbursed for
+
+upfront physical infrastructure needs (e.g., vans, tele-imaging equipment, telehealth kiosks),
+
+required data infrastructure, technical assistance and training, and other start-up expenses.
+
+Innovative payment models, which may include capitation or shared risk models, will ensure
+
+sustainability of the programs moving forward.
+
+   Mobile clinics present a proven model to accelerate implementation and make a significant
+
+access difference to rural communities in a short timeframe, especially as broadband challenges
+
+limit access to telehealth. This initiative will include primary care, behavioral health/SUD, dental,
+
+vision, and others. In addition, there will be focused investment on specialty equipment required
+
+for mobile screenings. For example, mobile vans for primary care and diagnostics can bring care
+
+to patients through a rotating schedule in community spaces where individuals already spend time,
+
+such as grocery stores and schools. During a listening session in Danville, VA, community
+
+members highlighted a mobile clinic for sports physicals which enabled substantial enrollment in
+
+
+                                                  33
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+middle and high school sports – so much so that four more middle and high school coaches were
+
+hired. This proves the potential of the mobile care model.
+
+   Additionally, remote care delivery sites, like telehealth kiosks and “clinics in a box,” can be
+
+placed in community spaces, including in community pharmacies, enabling patient access to the
+
+requisite secure space and technology connect with their providers, particularly remote specialists.
+
+Innovative startups, like OnMed Care Stations, provide “clinic in a box” solutions which include
+
+equipment for scans, vitals, and other checks that would typically be conducted in a live visit,
+
+increasing the range and quality of care provided remotely.
+
+       The Commonwealth has already heard from several providers including Valley Health,
+
+Lifepoint, the University of Virginia (in conjunction with the Tri-Area Community Health FQHC),
+
+Ballad Health, and Chesapeake Regional that they are willing and ready to deploy mobile care
+
+units for primary and specialty diagnostic care. In addition, there is significant opportunity to
+
+expand dental care availability via mobile care (e.g., expansion of the Rockbridge Area Health
+
+Center’s mobile dental clinics). Aetna has expressed interest in expanding proven provider-to-
+
+provider eConsult models across Virginia, and the Upper Mattaponi Tribe has a potential plan to
+
+integrate behavioral health and substance use treatment services into primary care settings.
+
+       Virginia plans to run a competitive process in the first year of this grant to select strong
+
+projects to provide coverage across a range of rural geographies and specialties. Further detail is
+
+provided in the implementation and sustainability plans. The Commonwealth will partner with
+
+local healthcare providers and an actuarial firm in the final 2 years of the grant to enable ongoing
+
+value-based payment models via technical assistance and data/tech infrastructure funding.
+
+       Community Paramedicine. This sub-initiative focuses on expanding the role of EMS to
+
+preventative services and ‘treat-in-place’ visits to mitigate avoidable ED visits and provide rural
+
+
+                                                  34
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+patients with more timely preventative treatment. Currently, EMS providers in Virginia are only
+
+paid if a patient is transported to a hospital – there is no incentive (or ability) to treat-in-place for
+
+preventive or low-acuity health needs. Through this sub-initiative, Virginia will explore options to
+
+implement a payment model that builds on ET3 (Emergency Triage, Treat, and Transport) models
+
+that have been successful in other states to enable EMS as billing providers for non-transport
+
+services. EMS professionals will be able to practice to the full scope of their licenses and will be
+
+supported by tele-presence consultations with specialists facilitating remote care, reducing overall
+
+costs to the system by reducing unnecessary ED visits. Funded subawards will cover the tech
+
+infrastructure and equipment for screenings, telehealth, and tele-presence communication, as well
+
+as related training for EMTs and paramedics. This sub-initiative will only fund those costs that are
+
+not currently reimbursable via other sources, such as Medicare and Medicaid.
+
+        As part of this sub-initiative, Virginia plans to award fully funded pilots via three EMS
+
+Councils for two years in close partnership with VDH’s Office of EMS, followed by state-wide
+
+expansion and development of self-sustaining payment models in years 3-5.
+
+        Innovative Maternal Care. The Innovative Maternal Care sub-initiative directly
+
+addresses maternal health care deserts in the Commonwealth, including the 60+% of rural counties
+
+without an OBGYN. While available to all rural pregnant women, this program will have a special
+
+focus on supporting expectant mothers who have struggled with substance use, to reduce the very
+
+high rates of neonatal abstinence syndrome currently found in rural Virginia. This sub-initiative
+
+will connect pregnant and postpartum women with community maternal health hubs and mobile
+
+units for pre- and postnatal care (building on existing successful programs), as well as education,
+
+support, and resource navigation. Funding will be allocated for technology for remote patient
+
+monitoring, as well as tele-presence for high-risks births, so that women can safely give birth at a
+
+
+                                                   35
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+rural hospital with an L&D unit while enabling tele-consults with off-site specialists. Lastly, funds
+
+will be deployed for technical assistance to work with maternal health providers on innovative
+
+solutions, including new payment models, to solve the crisis of rural L&D unit closures.
+
+        Example solutions include fostering new partnerships between Maternal-Fetal Medicine
+
+specialists and local providers, establishing birthing centers in maternity deserts, and introducing
+
+innovative technologies to triage high vs. low-risk pregnancies to the best suited providers. Many
+
+Virginia organizations are well-positioned to provide innovative maternal care, including VCU
+
+Health and Urban Baby Beginnings (UBB). The Virginia Health Care Foundation (VHCF) has
+
+also proposed expansion of substance treatment services for expectant mothers. Each interested
+
+organization will be evaluated as part of the competitive initiative implementation process.
+
+Table 23. Initiative Summary: Connected Care, Closer to Home
+
+Sub-Initiative Design                            Uses of Funds                                         5Y Budget
+Mobile and Hybrid Care                           • Equipment (e.g., vans for mobile units, screening   $264.0M
+Grants to rural healthcare providers to fund       equipment, basic diagnostic equipment)
+purchase and build out of mobile care units,     • Initial time-limited personnel costs
+telehealth kiosks, “clinics in a box”, e-        • Data infrastructure needed for mobile units,
+consults, and development of “hubs”.               telehealth kiosks, etc.
+Providers would leverage a “hub and spoke”       • Minor renovations to existing buildings
+model to provide community-based care            • Technical assistance for development of care
+while enabling connection to larger facilities     models and value-based payment models
+and specialists.                                 • Training for physicians and clinical staff
+
+Community Paramedicine                        • Reimbursement of services provided not currently        $84.7M
+Grants to EMS Councils to support local         reimbursable (treat in place)
+EMS in training, staffing, and equipping to   • Training for EMTs and paramedics in preventative
+expand scope of services to include those not   screenings, telehealth, and tele-presence
+currently reimbursable via other means, such • Tech infrastructure and equipment for screenings,
+as in-home preventative care to high-risk       telehealth & tele-presence communication
+community members and treat-in-place          • Technical assistance for new services
+services to prevent unnecessary ED visits and • Technical assistance for payment model
+provide high quality on-site care.              implementation
+Innovative Maternal Care                     • Equipment, technology, and IT infrastructure for         $63.4M
+Grants to collaboratives of maternal and       maternal health providers
+family medicine practices, community-based • Technical assistance for providers to utilize remote
+organizations, and health systems to support   patient monitoring and tele-presence
+an array of pre-natal, L&D, and postpartum • Technical assistance in sustainability to fund go-
+care in rural communities.                     forward costs into operating budgets and expenses
+
+
+                                                          36
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Sub-Initiative Design                       Uses of Funds                                           5Y Budget
+                                            • Technical assistance for development of creative
+                                              L&D closure solutions (as allowable by CMS)
+
+DMAS plans to run competitive selection processes for all subawards within this initiative.
+
+Further detail on initiative-specific subaward criteria is included in the Budget Narrative.
+
+Main Strategic Goal: Sustainable Access
+Uses of Funds: A, B, C, D, F, G, H, I, J, K
+Technical Score Factors: B.1., C.1, C.2, E.1, F.1
+
+Key Stakeholders:
+
+Table 24. Initiative Specific Stakeholders: Connected Care Closer to Home
+Sub-Initiative               Key Specific Stakeholders
+Mobile and Hybrid Care       Health care providers, community areas that will serve as homes to mobile units,
+                             kiosks, “clinics in a box”, etc., mobile health technology companies
+Community Paramedicine       EMS councils & agencies, health systems, mobile health technology companies
+Innovative Maternal Care     Health systems, maternal and family medicine providers, L&D units in rural
+                             hospitals, maternal health technology companies
+
+Table 25. Initiative Specific Metrics: Connected Care, Closer to Home
+Sub-Initiative             Metric                                                   Data Source
+Mobile and Hybrid Care     Number of rural Virginians on Medicaid w/ an annual      All Payers Database
+                           wellness visit per 1k population
+Mobile and Hybrid Care     Number of incremental patients served by mobile and      Subrecipient reporting
+                           hybrid care programs per county
+Community Paramedicine     Number of rural Virginians receiving regular             Subrecipient reporting
+                           preventative visits from community paramedicine
+Community Paramedicine     Rate of avoidable ED admissions by rural Virginians on DMAS clinical efficiencies
+                           Medicaid                                               data, All Payers Database
+Innovative Maternal Care   HEDIS measure PPC: Timeliness of prenatal care and       HEDIS; NCQA as data
+                           completion of postpartum care                            steward
+Innovative Maternal Care   Rate of postpartum hospital readmissions in rural        All Payers Database
+                           Virginians on Medicaid
+
+Table 26. Impact of Initiative on Program Key Performance Objectives
+
+Overall Program Key                 Impact of this initiative on Key Performance Objectives
+Performance Objective
+Increase access to primary care     The Mobile and Hybrid Care and Community Paramedicine initiatives focus
+for rural residents including       on increasing preventive and wellness visits for rural Virginians while
+
+
+
+                                                      37
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Overall Program Key                 Impact of this initiative on Key Performance Objectives
+Performance Objective
+number of preventative visits and reducing emergency department use, with initiative-level metrics ensuring
+screenings                        accountable use of funding to achieve these program-level objectives.
+
+Decrease rates of substance use     The Mobile and Hybrid Care and Community Paramedicine initiatives will
+disorders                           also expand preventive visits to support behavioral health and monitor
+                                    individuals at risk for substance use. In addition, Innovative Maternal Care
+                                    will focus on treating SUD to reduce neonatal abstinence syndrome.
+Improve maternal and infant         Innovative Maternal Care metrics directly align with program-level goals to
+health outcomes by reducing         increase the percentage of women receiving timely prenatal and postpartum
+maternal and infant mortality, as   care and to reduce hospital readmissions. Initiative-level metrics focus on the
+well as neonatal abstinence         quality and effectiveness of programs deployed to improve maternal health
+syndrome in rural communities       outcomes statewide.
+
+Impacted Counties: All rural counties; Please see page 27 for applicable FIPS codes
+Estimated Required Funding:
+Table 27. Sub-initiative 5-year Budgets: Connected Care Closer to Home
+                              Year 1         Year 2          Year 3         Year 4       Year 5        Total
+Mobile and Hybrid Care        $67.7M         $53.6M          $46.6M         $44.5M       $51.6M        $264.0M
+Community Paramedicine        $5.2M          $26.5M          $26.5M         $15.9M       $10.6M        $84.7M
+Innovative Maternal Care      $13.0M         $14.5M          $13.2M         $10.7M       $11.9M        $63.4M
+Total                         $85.9M         $94.6M          $86.3M         $71.1M       $74.1M        $412.0M
+
+Live Well, Together Initiative
+        Description: The “Live Well, Together” initiative focuses on preventing chronic disease
+
+through community-based whole-health sub-initiatives. Food as Medicine funds the infrastructure
+
+and start-up costs for food pharmacy programs. Consumer Tech funds pilots to test and scale
+
+digital health solutions to empower individuals to make sustainable lifestyle and behavioral
+
+changes. Active Kids funds minor renovations and repurposing of existing community spaces to
+
+include multi-use spaces for structured physical activity programs. Integrated Care for Duals
+
+promotes community-based engagement and education for dual-eligible seniors to learn about,
+
+compare, and connect with integrated care plan options.
+
+        Food as Medicine addresses root causes of poor health by improving access to nutritious
+
+food and education. It offers medically tailored meals and “produce prescriptions” for food-
+
+                                                      38
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+insecure patients with or at risk of chronic disease. Health systems and rural providers will lead
+
+projects in partnership with CBOs, ensuring sustainability through clinically integrated food
+
+provision, nutrition education, and disease self-management support. This will strengthen health
+
+literacy, support behavior change, and help break the generational cycle of poor health in rural
+
+communities. Funding will cover infrastructure, distribution networks, and technology for patient
+
+tracking, with options to partner with digital health firms like RxDiet for remote support.
+
+       Virginia will launch pilot projects through a competitive RFP to test and scale effective
+
+models. Strong interest has emerged from Carilion Clinic, Valley Health, Riverside Health, Bon
+
+Secours Mercy Health, the Federation of Virginia Food Banks, and Area Agencies on Aging.
+
+Existing pilots from Anthem and UnitedHealthcare show success connecting high-risk patients
+
+with dietitians and tailored meal programs—laying groundwork for scale via MCO “in lieu of
+
+services” mechanisms.
+
+       To sustain programs, the Commonwealth will enhance data connectivity across hospitals,
+
+health systems, and rural providers for coordinated care and future reimbursement under
+
+alternative payment models. While food procurement won’t be funded directly, it will be supported
+
+through hospital, CBO, and private partnerships. Food as Medicine will also integrate into broader
+
+payment reform under RHTP, potentially within capitated or shared-risk primary care models.
+
+DMAS will work with partners and actuaries to develop effective reimbursement approaches
+
+informed by pilot results.
+
+       Consumer Tech for Education and Lifestyle Change is a complementary sub-initiative
+
+that will focus on deploying consumer-facing digital health tools that empower individuals to make
+
+sustainable lifestyle and behavioral changes. Technologies in scope include mobile and web-based
+
+applications, wearable devices, and digital engagement platforms that promote healthy behaviors
+
+
+                                                  39
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+such as increased physical activity, improved nutrition, stress management, and medication
+
+adherence. DMAS will run a competitive RFP to collect program model designs from health
+
+systems, providers (including FQHCs, RHCs, free clinics and federally recognized Tribes), and
+
+digital health and consumer technology companies. DMAS will select a technical assistance
+
+partner to help support evaluation of technologies proposed and guiding strong programs to best-
+
+in-class technologies. Use cases for consumer tech projects may include:
+
+Table 28. Potential use cases for consumer tech projects
+
+Use case                Description
+Chronic disease self-   Tools that enable patients with conditions such as diabetes to remotely follow care plans
+management              using wearable monitors and integrated digital coaching apps.
+                        Platforms (e.g., Thrive Health) that connect patients to community resources, social
+Care navigation
+                        supports, and health education to strengthen care coordination and self-management.
+Nutrition and weight    Apps that promote healthy behavior change by tracking diet, weight, and activity levels,
+loss management         with personalized goal setting and visual progress dashboards.
+Digital health literacy Gamified tools and digital nudges (e.g., EdLogics, a Virginia-based program) that motivate
+and coaching            users through rewards, challenges and interactive education to build health knowledge and
+                        engagement.
+        Projects will also test the impact of behavioral incentives (e.g., rewards, reminders, or
+
+virtual coaching) on sustained engagement and long-term health outcomes. Additionally, similar
+
+to the Food as Medicine sub-initiative, the Commonwealth will work with local healthcare
+
+providers, vendors, and an actuarial firm to leverage pilot data and success to build consumer
+
+technology programs into innovative payment models that enable ongoing rural access.
+
+        Active Kids will fund rural communities, local governments, and CBOs to expand access
+
+to safe, engaging spaces and programs that promote physical activity for children and youth.
+
+Research shows people with nearby parks or recreation facilities exercise 38% more than those
+
+without easy access.36. Funding will support minor renovations or repurposing of spaces, such as
+
+school gyms, recreation centers, and libraries, into multi-use areas for sports, fitness classes, and
+
+
+
+
+                                                         40
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+wellness education. These projects will revitalize underused spaces, foster lifelong fitness habits,
+
+and encourage kids and families to engage in active play and disconnect from screens.
+
+       The sub-initiative complements the President’s Physical Fitness Test by building local
+
+infrastructure that supports a culture of movement and athletic excellence. It also advances
+
+Governor Youngkin’s Reclaiming Childhood Initiative, focused on reducing screen time,
+
+improving mental health, and promoting healthy lifestyles. Together, these efforts will strengthen
+
+community health, prevent chronic disease, reduce childhood obesity, and make physical activity
+
+more accessible and affordable for rural families. New construction will not be funded via this
+
+initiative, and all minor renovation will be compliant with CMS allowable uses of funds.
+
+       Integrated Care for Duals focuses on seniors in rural areas who are eligible for both
+
+Medicare and Medicaid. Virginia is already a leader in enrolling individuals who are dually eligible
+
+into integrated plans – the Commonwealth is one of thirteen states with dual eligibles enrolled in
+
+Fully-Integrated D-SNPs37. However, there is an opportunity to drive further progress, especially
+
+given the complexity of policy and plans for dually eligible enrollees. Integrated plans are intended
+
+to provide high-quality, coordinated care, while reducing duplication, fragmentation, and
+
+administrative burden on the low-income seniors that comprise many dually eligible individuals.
+
+       This sub-initiative will develop a platform with user-friendly, multilingual educational
+
+modules explaining Medicaid and Medicare coverage, eligibility, and enrollment processes, and
+
+have tools to compare plan options. Individuals will be able to indicate their plan of interest and
+
+securely submit contact information, enabling selected plans to conduct direct outreach to
+
+complete enrollment. Local Area Agencies on Aging (AAAs) and other organizations focused on
+
+the aging population will deploy existing staffing resources into homes and community spaces
+
+
+
+
+                                                  41
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+(e.g., places of worship, grocery stores, rec centers) equipped with a tablet with the platform on it.
+
+These resources will help the senior population utilize the platform and understand their options.
+
+Table 29. Initiative Summary: Live Well Together
+Sub-Initiative                  Uses of Funds                                                               5Y
+                                                                                                           Budget
+Food as Medicine                • Infrastructure and start-up costs to establish food pharmacies           $26.4M
+Food pharmacy pilots            • Coordination with CBOs and providers including training, technical
+offering produce, nutrition       assistance, and technology
+counseling, and medically       • Nutritional counseling and education services (currently non-
+tailored meals for food           reimbursable costs only)
+insecure patients with or at    • Technical assistance for operationalizing sustainability
+risk of chronic disease or      • Technical assistance and planning grants for alt. payment models
+recently discharged from the    • EHR and data system integration
+hospital.                       • Digital health technology partnerships
+                                • Contracting with an actuary or data analytics partner to analyze pilot
+                                  data and estimate expected savings and financial impact to explore
+                                  alternative payment models and reimbursement pathways
+                                • Partner enablement support to build necessary data, claims tracking
+                                  and reporting capabilities if alternative payment models /
+                                  reimbursement pathways established
+Consumer Tech for              • Procurement of consumer-facing health apps, wearables, and digital        $74.0M
+Education and Lifestyle          engagement platforms, including licenses or subscriptions covered
+Changes                          for up to two years to support program stand-up
+Pilot integrated chronic       • Integration of technology with existing provider systems (e.g.,
+disease management               referral networks, care management systems) to support data sharing
+programs to scale approaches     and program tracking
+to monitor and support high • Technical assistance for rural providers and community partners to:
+needs patients with chronic      o Understand digital offerings, select consumer health tech vendors
+disease mgmt.                    o Support patient onboarding and digital health literacy
+Include and evaluation           o Incorporate and maintain consumer health tech expenses into
+behavioral incentives, such as      ongoing operating costs after 5-year RHTP funding is complete
+rewards and gamification         o Explore alternative payment models and reimbursement avenues
+structures, to sustain              for adopted solutions
+engagement and drive           • Program coordination and partnership development among
+lifestyle change                 providers, CBOs and technology vendors
+Active Kids                    • Minor renovation or upgrades to existing recreation centers or            $13.2M
+Fund minor renovation and        community spaces or repurposing of underutilized spaces (e.g.,
+repurposing of community         schools, community halls) into areas suitable for physical activity
+spaces into recreational       • Purchase of sports, exercise, and recreation equipment to support
+spaces for structured physical   youth and family fitness programs
+activity programs, sports, and • Development and delivery of structured youth programs (e.g., after-
+wellness education.              school sports, dance, martial arts or movement-based classes)
+                               • Health and fitness education focused on helping children and
+                                 families understand the importance of activity and healthy routines
+                               • Staffing for instructors, coaches, and recreation coordinators in first
+                                 two years to support stand-up
+                               • Partnerships and community outreach activities to sustain youth
+                                 participation and family involvement
+
+
+
+                                                         42
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Sub-Initiative                Uses of Funds                                                              5Y
+                                                                                                        Budget
+                              • Technical assistance to support local governments, parks and
+                                recreation departments, schools and CBOs to integrate ongoing
+                                program costs into operating budgets
+Integrated Care for Duals     • Development and deployment of supporting technology                     $10.6M
+Provide community-based       • Training for Area Agencies on Aging (AAA) and community staff
+education and engagement to • Technical assistance for AAAs and other community navigators to
+support dual-eligible seniors   understand integrated care plan options and enrollment processes
+in navigation of health care
+coverage and enrollment in
+integrated care plans.
+
+DMAS plans to run competitive selection processes for all subawards within this initiative.
+
+Further detail on initiative-specific subaward criteria is included in the Budget Narrative.
+
+Main Strategic Goal: Make Rural America Healthy Again
+Uses of Funds: A, B, C, D, F, G, I,
+Technical Score Factors: B.1, B.2, C.1, E.1, E.2, F.1, F.3
+
+Key Stakeholders:
+
+Table 30. Initiative Specific Stakeholders: Live Well Together
+Sub-Initiative                   Key Specific Stakeholders
+Food as Medicine                 Health systems and other rural providers, such as FQHCs, RHCs and free
+                                 clinics, in partnership with CBOs (e.g., Federation of Virginia Food Banks)
+Consumer Tech                    Partnerships including digital and technology companies, health systems, CBOs,
+                                 FQHCs, RHCs, free clinics, other rural primary care / specialty providers
+Active Kids                      Local governments, schools, parks and recreation departments, and community-
+                                 based organizations, innovative sports / rec programming partners
+Integrated Care for Duals        Area Agencies on Aging (AAAs), managed care plans, DMAS, community-
+                                 based organizations, and mobile care providers
+        Across all sub-initiatives, participating community members, advocacy organizations,
+
+Tribes, and provider organizations are important stakeholders to provide ongoing input in support
+
+of the success of this work. Further detail on ongoing stakeholder engagement efforts is included
+
+in the Section “Stakeholder Engagement.”
+
+
+
+
+                                                      43
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Table 31. Initiative Specific Metrics: Live Well Together
+Sub-Initiative     Metric                                                                      Data Source [if
+                                                                                               available]
+Food as Medicine Number of incremental patients by county enrolled in food prescription
+                                                                                        Subrecipient reporting
+                 or medically tailored meal services
+Food as Medicine Change in average HbA1c level (for participants with diabetes) or
+                                                                                               Subrecipient reporting
+                 change in blood pressure (for participants with hypertension) after
+                                                                                               (via EHR analysis)
+                 “Food as medicine” participation
+Consumer Tech      Number of participants by county onboarded to consumer digital
+                   health platforms and receiving engagement support (e.g., coaching,          Subrecipient reporting
+                   reminders, or gamified prompts)
+Consumer Tech      % of participants actively engaging with digital health tools after 6       Participant survey or
+                   months of enrollment                                                        tool reporting
+Consumer Tech      % of participants reporting improved digital literacy and confidence in     Participant survey or
+                   managing their health or symptoms                                           tool reporting
+Active Kids        % of youth participants in target areas engaged in regular physical
+                                                                                               Subrecipient reporting
+                   activity or organized sports programs
+Integrated Care
+                   % of dual-eligible population enrolled in integrated care plans             DMAS enrollment data
+for Duals
+Integrated Care    Number of Area Agencies on Aging (or similar) utilizing education /
+                                                                                               Subrecipient reporting
+for Duals          navigation platform
+
+Table 32. Impact of Initiative on Program Key Performance Objectives
+
+Overall Program Key            Impact of this initiative on Key Performance Objectives
+Performance Objective
+Decrease rates of chronic      Food as Medicine, Consumer Tech for Education and Lifestyle Change, and Active
+disease in rural adults and    Kids directly support chronic disease prevention and management by improving
+children                       nutrition, promoting healthy lifestyle behaviors, and increasing health literacy.
+                               Initiative metrics ensure accountability for deploying funds effectively to support
+                               projects achieving these outcomes.
+Increase access to primary     Consumer Tech for Education and Lifestyle Change and Integrated Care for Duals
+care for rural residents       improve care navigation and help rural residents connect to needed services. Metrics
+including number of            assess whether rural patients are receiving these services and how confident and
+preventative visits and        empowered they feel in accessing available care.
+screenings
+
+Impacted Counties: All rural counties; Please see page 27 for applicable FIPS codes
+Estimated Required Funding:
+Table 33. Sub-initiative 5-Year Budgets: Live Well Together
+                      Year 1           Year 2           Year 3         Year 4              Year 5       Total
+Food as Medicine      $2.6M            $6.0M            $6.0M          $6.0M               $6.0M        $26.4M
+Consumer Tech         $10.5M           $10.6M           $10.6M         $21.2M              $21.2M       $74.0M
+Active Kids           $1.3M            $3.0M            $3.0M          $3.0M               $3.0M        $13.2M
+
+
+
+                                                         44
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Integrated Care for
+Duals               $2.1M         $2.1M          $2.1M        $2.1M     $2.1M       $10.6M
+Total               $16.5M        $21.7M         $21.6M       $32.2M    $32.2M      $124.2M
+        The year-over-year funding distribution model reflects up front planning costs, initial
+
+implementation, pilot expansions, and movement toward long-term sustainability. Further detail
+
+on the required funding, cost breakdown, and justification is available in the Budget Narrative
+
+section of this application.
+
+Implementation Plan and Timeline
+Governance and Program Management
+To effectively implement these transformational rural health efforts, the Commonwealth
+
+proposes a governance and management structure that includes a Core Team at DMAS and an
+
+Interagency Steering Committee. Virginia will track progress, share lessons learned, and support
+
+stakeholder engagement through Initiative Learning Consortiums and Regional Advisory
+
+Committees. The governance and program management structure will apply to all initiatives.
+
+Figure 6. VA Rural Vitality Core Team Structure
+
+
+
+
+                                                  45
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+       The VA Rural Vitality Core Team will be an Office in DMAS with thirteen new full-
+
+time employees (FTEs). Senior roles will be hired as soon as possible following award. Remaining
+
+positions are anticipated to be hired by March, 2026. The Core team will have contract support to
+
+ensure rigorous implementation, evaluation, and program integrity.
+
+       The Core Team is overseen by a Program Director and two Deputy Directors, who are key
+
+personnel. The Program Director is the overarching point of accountability. Virginia anticipates
+
+four project managers, one for each initiative, who will be the key personnel to oversee the
+
+subawards and have responsibility for the programmatic implementation, as well as a community
+
+engagement lead, given the importance of collaborating with rural communities. Virginia also
+
+envisions 4 FTE with a shared services focus, who will oversee contracts and grants compliance,
+
+financial management, data, and reporting. DMAS aims to hire all core team FTE in the first
+
+quarter of 2026. In addition, Virginia anticipates three supporting contracts: implementation
+
+support, program integrity, and evaluation. Implementation support contractor(s) will provide
+
+critical support in the early period of the grant award, ensuring that RFPs are developed and
+
+programs can be launched as close to Jan 1, 2026 as possible, even as the full DMAS team is being
+
+onboarded. In the later years, contractor(s) will ramp down to a level where it will complement the
+
+work of the Core team as required, in areas which may include strategic advisory services and
+
+project management support. The program integrity contractor will focus on compliance, early risk
+
+identification and mitigation, and audit support. The evaluation contractor, detailed on Page 58,
+
+will support gathering and analysis of performance metrics, assessing lessons learned, and overall
+
+program impact.
+
+       An VA Rural Vitality Steering Committee will lead interagency governance. The
+
+proposed members of the Steering Committee are the Secretary of HHR (Governor’s
+
+
+                                                  46
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+representative), DMAS Director, VDH Commissioner, VDH Office of Rural Health Director,
+
+Department of Health Professions (DHP) Director, and the RHTP Program Director. This group
+
+will meet no less frequently than quarterly and provide strategic direction, review and approve
+
+major decisions, and monitor program progress and ensure accountability for milestones.
+
+Table 34. RHTP engagement plan for Viginia agencies
+Entity type                              Virginia-specific entity     RHTP engagement plan
+State health agency or department                  VDH                   •    Integrated into VA Rural Vitality
+of health                                                                     Steering Committee
+State Medicaid agency                             DMAS                   •    Leading RHTP grant program
+State office of rural health              VDH Office of Health           •    Integrated into VA Rural Vitality
+                                        Equity, Rural Health Office           Steering Committee
+State tribal affairs office or tribal                                    •    Actively engaged in Regional Update
+                                            Tribal Ombudsman
+liaison, as applicable                                                        and Listening Sessions
+Indian health care providers, as                                         •    Actively engaged in Regional Update
+applicable                                                                    and Listening Sessions (see Page 56
+                                                                              below)
+
+
+Implementation Approach
+         The Commonwealth recognizes the need to balance thoughtful planning and timely
+
+program implementation. Virginia developed its implementation approach with three principles
+
+for initiative phasing, outlined below in Table 35 and Figure 7. These principles are also reflected
+
+in the timelines below, which are designed to adhere to the funding award schedule outlined in the
+
+NOFO. In addition to the implementation plans detailed below, DMAS will also be hiring the VA
+
+Rural Vitality Core Team Project Managers for each initiative by March 2026 to oversee this work.
+
+As it relates to the Policy factors, Virginia does not have any additional legislative or regulatory
+
+actions planned.
+
+Table 35. Implementation approach principles
+Prioritize            Fund and launch programs in Year One that are well-defined, ready to implementation and
+readiness             foundational to future initiatives
+Plan for design       Build in time for programs that need additional development or coordination before launch
+Start early, show     Initiate all initiatives early enough to demonstrate measurable progress within five years
+results
+
+                                                          47
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Figure 7. Implementation Phasing
+
+
+
+
+Key Milestones and Target Dates
+Virginia has developed implementation plans for each initiative, aligned to project stages
+
+referenced in the NOFO. The GANTT charts below show the key milestones of when planning
+
+will be conducted, when subrecipient selection will be determined and funding deployed, and
+
+when programs shift to sustainability for each sub-initiative. Virginia has developed thoughtful
+
+operating frameworks, along with feasible implementation milestones for each component of the
+
+grant – more detail for each can be found in OSM.
+
+
+
+
+                                                  48
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+CareIQ – Key Milestones and Target Dates
+Figure 8. Tech Innovation Fund Implementation
+
+
+
+
+Figure 9. Provider Productivity Implementation
+
+
+
+
+Figure 10. Provider Interoperability Implementation
+
+
+
+
+                                                  49
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Figure 11. Remote Patient Monitoring Implementation
+
+
+
+
+Homegrown Health Heroes – Key Milestones and Target Dates
+Figure 12. Attract and Retain Physicians Implementation
+
+
+
+
+                                                  50
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Figure 13. Allied Health Degrees Implementation
+
+
+
+
+Figure 14. Earn to Learn Program Implementation
+
+
+
+
+Figure 15. Build Career Pipelines
+
+
+
+
+                                                  51
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Connected Care, Closer to Home – Key Milestones and Target Dates
+Figure 16. Mobile and Hybrid Care Implementation
+
+
+
+
+Figure 17. Community Paramedicine Implementation
+
+
+
+
+Figure 18. Innovative Maternal Care Implementation
+
+
+
+
+                                                  52
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Live Well, Together – Key Milestones and Target Dates
+Figure 19. Food as Medicine Implementation
+
+
+
+
+Figure 20. Consumer Tech for Education and Lifestyle Change
+
+
+
+
+                                                  53
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Figure 21. Active Kids Implementation
+
+
+
+
+Figure 22. Integrated Care for Duals Implementation
+
+
+
+
+Stakeholder Engagement
+       The Commonwealth undertook a robust stakeholder engagement process in the
+
+development of this application and remains committed to strong ongoing stakeholder engagement
+
+throughout the lifecycle of this cooperative agreement.
+
+Stakeholder Engagement for Application Development
+       The Office of the Secretary of Health and Human Resources, DMAS, and VDH held twelve
+
+listening sessions attended by over 400 focused invitees in total. Key stakeholders who were
+
+represented in these listening sessions include rural hospitals, EMS providers, physicians, rural
+
+
+                                                  54
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+health clinics, community groups, educational institutions, advocacy groups, local food banks,
+
+county representatives, and more. Figure 23 illustrates some of the more unique ideas that came
+
+out of the various sessions, several of which are incorporated into the innovative proposals. Letters
+
+of support from key entities, including subrecipients named, are included in pages 2-14 of OSM.
+
+Figure 23. Sample of unique ideas in listening sessions
+
+
+
+
+       In addition, the Governor’s office solicited conceptual ideas through a publicly-advertised
+
+inbox, ruraltransformation@governor.virginia.gov. More than 350 ideas and proposals were
+
+received and reviewed. These informed the development of Virginia’s proposed initiatives. In
+
+addition, Virginia also engaged with federally recognized Tribes to solicit both written feedback
+
+and offer the opportunity to meet. UMIT Health Services, a Tribal health clinic serving rural
+
+community members, submitted written feedback and met with members of the Governor’s team
+
+to provide input. The Pamunkey Indian Tribe also provided written comments, and their input
+
+informed the development of this application.
+
+
+
+                                                  55
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Ongoing Engagement Framework
+        Initiative Learning and Accountability Consortiums. The Commonwealth proposes that
+
+each initiative has a Learning and Accountability Consortium, overseen by the initiative’s Project
+
+Manager and including subrecipients, key stakeholders, technical experts, and program participant
+
+representatives where appropriate. These groups will share lessons learned, provide mutually
+
+beneficial technical assistance, keep initiatives on track via dashboards and other tools, and
+
+troubleshoot where needed, all while ensuring stakeholder buy-in and transparency. The
+
+consortiums will meet quarterly and may meet more frequently during the early years of the grant.
+
+        Regional Update and Listening Sessions. The Commonwealth proposes to hold regular
+
+regional Update and Listening Sessions, one for each of the six defined rural regions of the state.
+
+These will be led by the Program Director and supported by Community Engagement Lead and
+
+Project Managers and will focus on the overall impact of the program initiatives in their region.
+
+The VA Rural Vitality Core Team and sub-award recipients will report on progress and next steps,
+
+share learnings across stakeholders, and provide opportunities for the community to ask questions
+
+and offer feedback and input. They will be held twice a year, for a total of twelve meetings annually
+
+(two each across six regions), some virtually on a rotating basis. Potential members could include
+
+but are not limited to local public health agencies, local providers, Tribal leaders, patient advocates,
+
+and local elected officials.
+
+Metrics and Evaluation Plan
+The Commonwealth is committed to a robust performance evaluation and management. The
+
+table below summarizes the initiative-specific metrics that VA will track to measure success. As
+
+specified in the initiative descriptions, subrecipients will be required to report data to DMAS and
+
+its formal evaluation partner.
+
+
+                                                  56
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Table 36. Initiative Specific Metrics
+Initiative(s) Sub-Initiative             Metric
+             Tech Innovation Fund        Number of innovation fund awardees
+             Tech Innovation Fund        Number of active users of innovation fund awardee products
+             Provider Productivity       Incremental number of rural providers using tech-enabled provider
+                                         productivity tools by provider type
+             Provider Productivity       Average estimated provider time savings achieved through productivity
+                                         tools
+CareIQ
+             Provider Productivity       Average increase in estimated provider revenue or billable services
+                                         achieved through productivity tools
+             Provider Interoperability   % of rural providers on certified electronic health record technology
+                                         (CEHRT)
+             Remote Patient Monitoring % of rural hospitals and health care settings actively using ≥1 RPM
+                                       technology
+             Attract and Retain          Number of new residency slots filled per year
+             Physicians
+             Attract and Retain          Physician to patient ratio in rural counties
+             Physicians
+Homegrown
+Health    Allied Health Degrees          Number of accredited 2-year allied health graduates per year
+Heroes    Allied Health Degrees          Allied health professional to patient ratio in rural counties
+             Earn to Learn Programs      Number of apprenticeships placements in allied health fields
+             Build Career Pipelines      Number of high school students earning industry-ready healthcare
+                                         credentials
+             Mobile and Hybrid Care      Number of rural Virginians on Medicaid receiving an annual wellness
+                                         visit per 1k population
+             Mobile and Hybrid Care      Number of patients served by mobile and hybrid care programs
+Connected Community Paramedicine         Number of rural Virginians receiving regular preventative visits from
+Care, Closer                             community paramedicine
+to Home      Community Paramedicine      Rate of avoidable ED admissions by rural Virginians on Medicaid
+             Innovative Maternal Care    HEDIS measure PPC: Timeliness of prenatal care and completion of
+                                         postpartum care
+             Innovative Maternal Care    Rate of postpartum hospital readmissions in rural Virginians on
+                                         Medicaid
+             Food as Medicine            Number of patients enrolled in food prescription or medically tailored
+                                         meals
+             Food as Medicine            Change in average HbA1c level (for participants with diabetes) or
+                                         change in blood pressure (for participants with hypertension) after “Food
+                                         as medicine” participation
+Live Well,
+             Consumer Tech               Number of participants onboarded to consumer digital health platforms
+Together
+                                         and receiving engagement support (e.g., coaching, gamified prompts)
+             Consumer Tech               % of participants actively engaging with digital health tools after 6
+                                         months of enrollment
+             Consumer Tech               % of participants reporting improved digital literacy and confidence in
+                                         managing their health or symptoms
+
+                                                       57
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Initiative(s) Sub-Initiative              Metric
+              Active Kids                 % of youth participants engaged in regular physical activity or organized
+                                          sports programs
+              Integrated Care for Duals   % of dual-eligible population enrolled in integrated care plans
+              Integrated Care for Duals   Number of Area Agencies on Aging (or similar) utilizing platform
+
+Evaluation Plan
+DMAS is partnering with the Virginia Center for Healthcare Innovation (VCHI) to conduct an
+
+evaluation of the program’s impact and lessons learned. Components of the plan are below:
+
+Table 37. VCHI Evaluation Plan Components
+
+Virtual Hub      The virtual hub acts as an intranet and technical assistance platform, offering an accessible space
+                 for participants to engage with program materials and submit required data for program reporting.
+                 It also serves as a knowledge base providing insight into ongoing work for grantees and key
+                 stakeholders.
+Virginia Rural   VCHI will create a scorecard with key indicators for VA Rural Vitality initiatives, combining
+Health Scorecard CMS metrics and Virginia-specific measures using state data and reports from funded projects.
+                 The annual Virginia Rural Health Scorecard Report will review results, track progress, and
+                 recommend changes to improve rural health outcomes statewide.
+Academic         For a subset of initiatives, VCHI will work with academic partners to conduct detailed evaluations
+Evaluation       on effectiveness, outcomes, and impact. These evaluations will generate evidence on what works,
+                 guide program improvements, and inform future funding or policy decisions.
+
+Data collected and insights from VCHI’s program-wide evaluation will be leveraged in “Initiative
+
+Learning and Accountability Consortiums,” part of Virginia’s ongoing stakeholder engagement
+
+plan to engage subrecipients, share insights and drive program improvements. VCHI is a trusted
+
+and experienced measurement partner across several current statewide programs – for example,
+
+they have centralized data availability for the Virginia Primary Care Innovation Hub. The budget
+
+for this program evaluation is reflected in the SF 424-A and accompanying budget narrative.
+
+Sustainability Plan
+        Long-term sustainability is a critical element to enabling lasting change for rural Virginia
+
+patients and communities. As such, we have outlined strategies for each sub-initiative to enable
+
+sustainment beyond the RHTP Program funding expiration (FY 2031), as outlined in Table 38.
+
+
+
+
+                                                        58
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Sustainability approaches will be further developed to incorporate lessons learned from initiative
+
+implementation as well as insights and recommendations from evaluation contractor.
+
+Table 38. Initiative Sustainability Approach
+Initiative   Sub-Initiative Sustainability Approach
+CareIQ       Tech            • Funded companies expected to be self-sustaining post-CMS support by operating
+             Innovation        as independent, revenue-generating businesses that commercialize and scale their
+             Fund              solutions
+CareIQ       Provider        • Health systems and providers will absorb ongoing program costs into operating
+             Productivity      budgets after year 5, supported by technical assistance on budgeting.
+                             • Productivity tools expected to yield time and cost savings, incentivizing
+                               subrecipients to maintain tools long-term
+CareIQ       Provider         • Providers will integrate program costs into budgets after year 5 with technical
+             Interoperability   assistance on budgeting and planning
+                              • EHR and cybersecurity tools expected to generate efficiency and cost savings,
+                                encouraging sustained use. It may also result in increased revenue through more
+                                accurate and timely claims submissions.
+CareIQ       RPM             • Providers will integrate costs into operating budgets after year 5 with technical
+                               assistance on budgeting and planning
+                             • RPM expected to provide a reimbursable ongoing revenue stream for providers,
+                               while reducing cost of care, making it sustainable
+                             • Planning grants will support assessment of long-term reimbursement options and
+                               alternative funding mechanisms, including value-based models; existing MCO
+                               initiatives will inform design of new payment mechanisms and an actuary or data
+                               analytics partner will analyze pilot data and estimate expected financial impact
+                               and savings; RPM benefits may be bundled with additional innovative payment
+                               models built through other programs in this effort (e.g., mobile care)
+                             • In later years of programming, funding may also go towards partner enablement
+                               support to build necessary data, claims tracking and reporting capabilities
+                             • RPM technologies have already demonstrated measurable impact on reducing
+                               long-term healthcare costs. Findings from successful RHTP pilots could help
+                               incentivize payers and providers to reimburse technologies that show proven
+                               effectiveness in rural communities and reduce hospital readmissions
+Homegrown Attract/Retain     • Creating residency spots with 5-year time commitments will bolster Virginia’s
+Health    Physicians           rural provider workforce who will continue to serve beyond the RHTP funding
+Heroes                       • Recruiting physicians with personal and family ties (“homegrown” workforce) to
+                               rural regions will improve retention and long-term sustainability
+Homegrown Allied Health      • Program will bolster rural allied health workforce that will continue to serve
+Health    Degrees              beyond the RHTP funding
+Heroes                       • Mobile lab equipment funded through this program will remain in use by
+                               community colleges, with maintenance built into operating budgets
+Homegrown Earn to Learn      • Creating “earn to learn” programs with 5-year time commitments will bolster
+Health                         Virginia’s rural provider workforce who will continue to serve beyond the RHTP
+Heroes                         funding
+Homegrown                    • Partners will absorb ongoing program costs for Laboratory schools into operating
+          Career
+Health                         budgets after year 5, supported by technical assistance on budgeting and
+          Pipelines
+Heroes                         financial planning
+
+
+
+                                                      59
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+Initiative   Sub-Initiative Sustainability Approach
+Connected    Mobile and      • Vendors will absorb ongoing program costs for into operating budgets after year
+Care, Closer Hybrid Care       5 and providers will absorb costs in years 2-5, supported by technical assistance
+to Home                        on budgeting and financial planning
+
+                             • The Commonwealth will provide planning grants and technical assistance to
+                               support adoption of value-based payment models for primary care (e.g.,
+                               capitation, bundled payments)
+                             • Provider enablement efforts will ensure capacity to manage financial risk and
+                               make data-driven care decisions at the point of care
+Connected    Community       • The Commonwealth will implement a payment model based on the ET3
+Care, Closer Paramedicine      (Emergency Triage, Treat, and Transport) framework, allowing EMS to bill for
+to Home                        all services, including preventive visits, treat-in-place care, and telehealth
+                               coordination with primary care providers
+                             • Technical assistance will be provided to EMS agencies and councils to support
+                               participation in future payment models, including financial, administrative, and
+                               technology support
+Connected    Innovative      • Services provided will continue to be billed by providers through typical
+Care, Closer Maternal Care     channels (e.g., insurance)
+to Home                      • Any additional ongoing program costs required based on new programs (e.g.,
+                               clinical staff for mobile units) will be built into go-forward operating expenses
+                               by providers. The Commonwealth will provide technical assistance to ensure
+                               providers are able to do this successfully.
+Live Well    Food as         • Health systems will integrate costs into operating budgets after year 5 with
+Together     Medicine          technical assistance on budgeting and planning
+                             • Planning grants will support assessment of long-term reimbursement options and
+                               alternative funding mechanisms (e.g., MCO arrangements (e.g., ILOS), risk-
+                               based payment models and private or philanthropic grants) Existing MCO
+                               initiatives will inform design; an actuary/analytics partner may be contracted to
+                               analyze pilot data for expected financial impact/ savings; Food as Medicine may
+                               be bundled with payment models from other initiatives (e.g., mobile care)
+                             • In later years of programming, funding may also go towards partner enablement
+                               support to build necessary data, claims tracking and reporting capabilities
+                             • Food as Medicine services have already demonstrated measurable impact on
+                               reducing long-term healthcare costs. Findings from successful RHTP pilots could
+                               help incentivize payers and providers to reimburse services that show proven
+                               effectiveness in rural communities and reduce hospital readmissions
+Live Well    Consumer        • Health systems and providers will incorporate ongoing program costs into their
+Together     Tech              operating budgets after year 5, with technical assistance provided on budgeting
+                             • Consumer technology companies (e.g., Noom, Thrive Mobile) have already
+                               demonstrated measurable impact on reducing long-term healthcare costs;
+                               findings from successful pilots could help incentivize payers and providers to
+                               reimburse technologies that show proven effectiveness in rural communities
+Live Well    Active Kids     • Entities leading programs will incorporate ongoing program costs into their
+Together                       operating budgets after year 5, with technical assistance provided on budgeting
+Live Well    Integrated Care • Program sustainability will be achieved by enrolling dual-eligible individuals
+Together     for Duals         into integrated care plans, leveraging Virginia’s existing FIDE-SNP
+                               infrastructure to support ongoing operations
+                             • Virginia will explore options for the health plans to fund the platform long-term,
+                               given enrollment benefits they achieve through the system
+
+
+                                                      60
+Virginia Department of Medical Assistance Services
+Rural Health Transformation Program Application: CMS-RHT-26-001
+
+
+1
+  National Institute on Minority Health and Health Disparities - HD Pulse Data Portal
+2
+  Healthy Appalachia Institute - 2023-2024 Blueprint for Health Improvement and Health-Enabled Prosperity
+3
+  Roanoke Valley-Alleghany Comprehensive Economic Development Strategy
+4
+  Roanoke Valley-Alleghany Comprehensive Economic Development Strategy
+5
+  Roanoke Valley Community Health Assessment
+6
+  The Institute for Advanced Learning and Research: A Collaborative, Impactful Approach to Public Health: the
+REACH Partnership. 2024. https://www.ialr.org/a-collaborative-impactful-approach-to-public-health/
+7
+  Eastern Shore Health District Community Health Assessment 2023 – 2024
+8
+  Source: CDC PLACES, County Health Rankings, Virginia Health Information dashboards, HRSA Area Resource
+Files, CDC Birth Files
+9
+  Virginia number is for full state (no rural data available)
+10
+   Virginia number is for full state (no rural data available); Defined as children who show affection, resilience,
+interest and curiosity in learning;
+11
+   D’Aiuto F, Siripaiboonpong N, et. Al. The root of the matter: Linking oral health to chronic diseases prevention.
+International Journal of Cardiology Congenital Heart Disease. 2025; https://doi.org/10.1016/j.ijcchd.2025.100574
+12
+   Kianmehr H, Zhang P, Luo J, et al. Potential Gains in Life Expectancy Associated With Achieving Treatment
+Goals in US Adults With Type 2 Diabetes. JAMA Netw Open. 2022;5(4):e227705.
+doi:10.1001/jamanetworkopen.2022.7705
+13
+   Emily D. Parker, Janice Lin, Troy Mahoney, Nwanneamaka Ume, Grace Yang, Robert A. Gabbay, Nuha A.
+ElSayed, Raveendhara R. Bannuru; Economic Costs of Diabetes in the U.S. in 2022. Diabetes Care 2 January 2024;
+47 (1): 26–43. https://doi.org/10.2337/dci23-0085
+14
+   America’s Health Rankings 2025
+15
+   Mental Health America 2025
+16
+   2023-4 Medicaid and CHIP Maternal and Child Health Focus Study Report, Commonwealth of Virginia
+17
+   CDC Birth Files 2020-2022
+18
+   Virginia Department of Health Neonatal Abstinence Rates 2023; America’s Health Rankings 2021
+19
+   Virginia Health Information 2024 hospital discharge data. Drive time calculated on zip code level, assuming
+driving from geographic center of zip code and with normal traffic patterns.
+20
+   Bath (106 min), Northumberland (93 min), Lancaster (85 min), Dickenson (79 min), Richmond (76 min).
+21
+   Virginia Primary Care Scorecard developed by Virginia Center for Health Innovation
+22
+   Virginia Department of Health Data Commons
+23
+   2025 HRSA Health Professional Shortage Area data
+24
+   2022 Virginia Healthcare Workforce Data Center
+25
+   2024 Virginia Healthcare Workforce Data Center
+26
+   Sources: HRSA Area Health Resource files from 2022 and 2023; Virginia Department of Health Professions
+Healthcare Workforce Data Center 2022; Virginia Center for Health Innovation Primary Care Scorecard Dashboard;
+Federal Office of Rural Health Policy definition of a rural county. 2024 census data.
+27
+   Center for Healthcare Quality and Payment Reform. “Rural Hospitals at Rick of Closing” August, 2025. Available
+at https://chqpr.org/downloads/Rural_Hospitals_at_Risk_of_Closing.pdf
+28
+   Hospitals only include Critical Access Hospitals and Short-Term Hospitals. Data sourced from 2022 CMS cost
+reports.
+29
+   Hospitals only include Critical Access Hospitals and Short-Term Hospitals. Data sourced from 2022 CMS cost
+reports.
+30
+   Data sources to be supplemented by evaluation partner sources, where possible
+31
+   Option to use “Comprehensive Diabetes Care: Hemoglobin A1c (HbA1c) Control (<8.0%) measure, as
+established by data steward NCQA
+32
+   Option to use “Controlling High Blood Pressure (CBP)” measure, as established by data steward NCQA
+33
+   Option to use “Weight Assessment and Counseling for Nutrition and Physical Activity for Children/Adolescents
+(WCC)” measure, as established by data steward NCQA
+34
+   Option to use “Adults’ Access to Preventive/Ambulatory Health Services (AAP)” measure, as established by data
+steward NCQA
+35
+   VDOE Office of Student Pathways and Opportunities – CTE Enrollment 2024-2025
+36
+   American Heart Association Voices for Healthy Kids
+37
+   Justice in Aging D-SNP Issue Brief
+
+                                                        61
+

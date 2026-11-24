@@ -1,0 +1,524 @@
+
+
+State of Idaho Rural Health Transformation Program
+Idaho Department of Health and Welfare
+
+SOLICITATION FOR SUBAWARD APPLICATIONS
+
+Federal Agency
+Centers for Medicare &amp; Medicaid Services
+Federal Award No.
+RHTCMS332084
+ALN No.
+93.798
+Solicitation No.
+RHTPHIS1
+Issue Date
+08/18/2026
+Application Deadline
+09/13/2026
+Estimated Award Range
+No limit or range defined
+Anticipated Project Period
+10/30/2026 – 9/30/2027
+Point of Contact
+IdahoRHTP@DHW.idaho.gov
+
+This document was supported by the Centers for Medicare &amp; Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling $185,974,367.81 with 100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+Section 1: Program Description &amp; Purpose
+1.1 Background 
+The Department will serve as the lead agency for administering the Rural Health Transformation Program (RHT) Grant funding award for the state of Idaho (ID). As such, the Department is committed to removing barriers to treatment, improving health outcomes, and promoting patient-centered care. The RHTP website address is:  https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/about-rural-health-transformation-program-grant  
+As the grant recipient, the Department manages the entire grant award and is responsible for distributing funding to other ID state agencies, contractors, and subgrantees in alignment with the projects awarded by Centers for Medicare &amp; Medicaid Services (CMS). This distribution will be carried out in accordance with both state and federal regulation, specifically procurement rules, to facilitate the execution of RHTP work. The state’s RHTP is a critical mechanism to advance a sustainable, data-driven model of care that enhances access, quality, and outcomes.      
+Idaho’s Rural Health Transformation Plan (RHTP) (Attachment A, ID RHTP Project Narrative) is a multi-year strategic plan including five (5) major initiatives designed to strengthen rural health systems, increase access to care, enhance quality outcomes, expand workforce capacity, and promote financial sustainability. These initiatives address CMS’ strategic goals for this grant to transform healthcare for residents in the state’s rural areas. 
+The five initiatives are: 
+Initiative 1.  Improving rural access to care through technology  
+Facility technology assessments and shared infrastructure  
+Telehealth expansion  
+Digital health  
+Cybersecurity modernization and artificial intelligence (AI) tools  
+Emergency communication systems implementation and enrollment  
+Health management and data analytics tools  
+EHR software and upgrades  
+
+Initiative 2.  Ensuring accessible, quality care through innovative models  
+Diagnostic and care access innovations  
+Health extenders  
+Emergency medical service (EMS) expansion and workforce stabilization  
+Understand opportunities to leverage health extenders and optimize service delivery   
+
+Initiative 3.  Sustaining rural workforce with training, recruitment, and retention.  
+Ladder payments based on priority positions and rural presence  
+Healthcare career exploration and advancement programs  
+Work-based learning  
+Graduate medical education (GME) programs  
+
+Initiative 4.  Implementing population specific, evidence-based projects to Make America Healthy Again  
+Chronic disease prevention and treatment  
+Behavioral health prevention and treatment  
+Maternal and child health efforts    
+
+Initiative 5.  Investing in rural health infrastructure and partnerships  
+Healthcare facility renovations  
+Pharmacy solutions  
+Clinical equipment purchases  
+Vehicles for patient transport and rural mobile health units  
+Healthcare facility federal, state, and local safety code compliance 
+Tribal rural health transformation support  
+
+The state’s RHTP leverages partnerships with state and local agencies, tribal partners, healthcare providers, and community organizations to ensure locally responsive solutions. This program will work to modernize electronic and logistical infrastructure, strengthen community to clinician connections, and further integrate healthcare and community-based services across 
+settings and types of care.
+
+1.2 Project Coordination
+To ensure alignment across the Idaho Rural Health Transformation Program and to prevent duplication or overlap, the selected applicants must, as applicable to the scope of work, coordinate with Department staff, other Rural Health Transformation Program-funded entities, and key stakeholders in conducting assessment, data collection, evaluation, reporting, and development of deliverables. 
+
+1.3  Program Goals &amp; Objectives
+The Department seeks to expand healthcare capacity in rural and frontier Idaho communities by addressing identified facility infrastructure gaps that impede delivery of healthcare to existing and expanded populations. Through this funding opportunity, investments will be made in equipment, technology, connectivity, training, mobile health options, and targeted facility renovations. This opportunity will support shared service and technology models that help smaller facilities reduce IT costs, strengthen interoperability, and improve regional coordination. 
+The expected impact of this funding includes:
+Modernization of healthcare facilities to allow for implementation of innovative care models.
+Decreased travel time for rural residents to receive higher level services closer to home.
+Increased revenue for rural provider entities now able to offer expanded access to existing services or new services and supports.
+Decreased transportation barriers to improve access to healthcare.
+Reduced transfers of care (particularly to hospitals for preventable admissions), improved continuity of care, and increased access to preventive and specialty services for rural residents. 
+Increased early detection of disease, improved medication adherence, and reduced travel barriers for rural residents preventing and managing chronic conditions.
+Enhanced telehealth capacity in rural and frontier communities through hospitals, clinics, and EMS agencies. 
+Improved chronic disease self-management, higher patient engagement, reduced hospital readmissions, and increased appropriate follow up care. 
+Reduced risk of critical safety incidents through improvements to physical healthcare structures and increased compliance with local, state, and federal safety codes.
+ Enhanced role of pharmacies and pharmacists in rural areas.
+Strengthened cybersecurity, reduced risk of data breaches, and improved analytical capacity for patient care. 
+Together, these efforts will modernize rural healthcare infrastructure, expand service delivery capacity, and strengthen continuity of care across Idaho’s most hard-to-reach communities. This supports RHTP Initiatives: 
+1: Improving rural access to care through technology 
+3: Sustaining rural workforce with training, recruitment, and retention
+5: Investing in rural health infrastructure and partnerships
+
+1.4 Scope of Work
+The applicant must complete the Non-Duplication Assessment (Appendix H) and submit the form with application to ensure funds do not support an existing project or plan. RHTP funding cannot be used to replace state, other federal, local, or private funds already set aside for the work.
+
+Applicants may apply for multi-year funding through this application; however, funding is awarded annually and is not guaranteed year after year. Multi-year requests must be supported by the proposed work plan and project timeline. Applicants should consider the annual timeframe of funding when developing plans. 
+
+The applicant must identify one primary contact person with whom the Department will communicate. Upon award, the subgrantee must also identify any additional staff who will support subgrant implementation.
+
+Needs Assessment
+Applicants must support their funding request with a documented assessment of need that identifies deficiencies or improvements necessary to improve access to care in their community or service area. The assessment of need should demonstrate how patient care is impacted by the current state and how improvements will increase access, patient care, and provide stability to the community. This assessment of need must have been completed in the prior 36 months and can include, but is not limited to, the following document types.  
+
+Community Health Needs Assessment
+Comprehensive facility master plan
+IT/cybersecurity assessment (within 12 months)
+Provider succession plan
+CMS Equipment Lifespan document
+Public review, including public hearing
+Capital purchase plan
+Internal resource review committee
+Other documented needs assessments can be used if within the timeframe specified.
+
+The assessment of need is not required to be submitted with the application but must be provided to the Department upon request during the subgrant award or monitoring process.
+
+Applicants can apply for funding from one or more of the following categories. Allowability of specific items or activities will be determined during the review and scoring process. Broad categories of allowable expenses are included for each funding category below. 
+
+Applicants may propose approaches in partnership with non-rural healthcare entities to support access to care through modalities such as telehealth and remote telemonitoring to connect rural Idahoans to services not immediately available in their community.
+
+Cybersecurity Remediation and Advisory Consulting (Total available $6,050,000)   Cybersecurity modernization and AI tools protect Idaho’s healthcare infrastructure and enhance data-driven decision-making. Funding can support investments in updated cybersecurity systems to help protect confidential patient data, maintain care delivery, and avoid unnecessary IT support costs. Funding can also support training activities as well as consultation needed for remediation and planning. 
+Applicants must coordinate with other Department-secured contractors who may be overseeing statewide RHT efforts, as applicable, to avoid duplication of scope, data collection, and deliverables. Awarded entities’ information will be provided to the following Department of Health and Welfare-secured contractors as applicable: Cybersecurity Modernization Assessment, Facility Technology Assessment, and Data Analytics and Evaluation. These contractors serve the department by providing alignment and data collection services as applicable to the RHTP grant. Specific requirements for collaboration will be outlined in the awarded subgrant language but generally include reporting to maintain compliance with RHTP requirements. See Appendix I for interdependence with statewide contractors associated with this funding.
+Allowable categories include but are not limited to:
+Security tools, software, and platforms
+Monitoring and alert triage
+Incident response planning and recovery support
+Regulatory compliance and policy support
+
+
+Technology (Total available $21,954,653) Digital health tools can be used to empower Idahoans to actively prevent and manage chronic disease through consumer-facing apps and online platforms that integrate with Electronic Health Records (EHR). This can support increased access to care and ability to track health information such as vital signs and symptoms leveraging existing broadband and satellite connectivity. Funding in technology can also support investments in AI tools, consumer-facing apps, online platforms, interoperability, upgrades to EHR systems, and new EHR systems (see details below) to enhance healthcare delivery in rural communities. Funding can also support training and technical assistance to facilities and providers to utilize these digital health tools effectively and contain cost, as well as implementation costs supporting patients such as training and communications. 
+Applicants must coordinate with other Department-secured contractors who may be overseeing statewide RHT efforts, as applicable, to avoid duplication of scope, data collection, and deliverables. Awarded entities’ information will be provided to the following Department of Health and Welfare-secured contractors as applicable: Cybersecurity Modernization Assessment, Facility Technology Assessment, and Data Analytics and Evaluation. These contractors serve the department by providing alignment and data collection services as applicable to the RHTP grant. Specific requirements for collaboration will be outlined in the awarded subgrant language but generally include reporting to maintain compliance with RHTP requirements. See Appendix I for interdependence with statewide contractors associated with this funding. 
+
+Allowable categories can include, but are not limited to:
+EHR/Electronic Medical Record (EMR) upgrades and enhancements
+Upgrades or Enhancements: Adding new software, internal or external 
+interfaces, or AI clinical decision support tools. 
+Replacement Limitation: No more than 5% of a state's overall award per budget period can be used to purchase a completely new EMR system to replace an existing HITECH-certified system that was in place prior to September 1, 2025
+Patient Portal
+Telehealth Platforms
+Care Management Software 
+Remote Patient Monitoring
+Scheduling Assistants 
+Patient Education Portals 
+Translation/accessibility technologies
+Computer Hardware
+Infrastructure Components
+Integrated Medical Technology
+Interoperability Tools
+Peripheral Hardware
+Health Information Technology  
+Data Analytic Tools
+Patient Risk Stratification Tools
+Data Sharing Infostructure 
+Quality and Performance Rating Tools
+AI and Predictive Analytic Tools 
+
+Equipment (Total available $21,469,000) This activity supports integration of telehealth into primary care, behavioral health, maternal health, and chronic-disease management through the purchase of clinical equipment to support rural healthcare facilities to expand access to care and generate revenue via telehealth and remote telemonitoring services. Connectivity to specialist services may also be achieved through strategic partnerships between rural provider entities and available providers in non-rural settings via hub and spoke models or alternative approaches. Funding can also support equipment purchases and upgrades to support sustainable and innovative care delivery, including expansion of telehealth and tele-pharmacy, diagnostics, and patient care support.
+
+Allowable categories can include, but are not limited to:
+Mobile clinic (equipment that goes into vehicle)
+Self-Service Kiosk Equipment
+Telehealth Pods and Equipment 
+Medication Adherence Packager
+Laboratory Equipment 
+Healthcare Equipment
+Healthcare-related equipment (general) 
+Incident Response Equipment
+
+Renovation (Total available $35,070,000)Well-equipped and modernized facilities support innovative care delivery, strengthen operational readiness and emergency preparedness, and ensure rural facilities meet life, safety, and regulatory requirements. Activities are limited to minor renovations and alterations, and safety/readiness improvements; no new construction, building expansion, significant retrofits, or cosmetic upgrades will be allowed. Any renovation and alteration work will be submitted for CMS prior-approval as required. Plans are subject to ongoing review. All expenses will be tracked against the Department’s renovation and alteration cap of $35,070,000. 
+
+Applicants must coordinate with other Department-secured contractors who may be overseeing statewide RHT efforts as applicable to avoid duplication of scope, data collection, and deliverables. Awarded entities’ information will be provided to the following Department of Health and Welfare-secured contractors as applicable: Independent Verification (Renovations) and Data Analytics and Evaluation. These contractors serve the department by providing alignment and data collection services as applicable to the RHTP grant. Specific requirements for collaboration will be outlined in the awarded subgrant language but generally include reporting to maintain compliance with RHTP requirements. See Appendix I for interdependence with statewide contractors associated with this funding. 
+
+Allowable categories include but are not limited to:
+Improvements for immediate facility safety and infrastructure risks
+Reconfiguration of spaces to increase utilization
+Minor renovations that sustain access to care
+Renovation consultation to identify gaps in facility infrastructure, deferred maintenance gaps, and prioritization.
+
+Vehicles (Total available $10,670,000) Vehicles for patient transport and rural mobile health units are important to bring services to rural areas with limited healthcare access. Lack of transportation can be a major barrier to healthcare access in rural areas. Funding is available to enhance existing mobile healthcare units in Idaho using new or retrofitted vehicles to deliver full primary, preventive, and basic urgent care services to rural communities, including point-of-care testing and on-board Electronic Health Records capabilities. Other diagnostic and specialty care services, such as mammography, obstetrics, and dialysis can be offered via mobile units. 
+
+Allowable categories include, but are not limited to:
+Vehicles for transport (including ambulances) 
+Mobile Health Units for diagnostic and specialty services 
+Vehicles to support services such as primary care, preventive care, and pharmacy
+Vehicles that support partnerships with volunteer driver programs; shared emergency vehicle partnerships; ride coordination, etc.
+
+Practice Transformation, Consultation, and Training (Total available: $2,000,000) Supports for practice transformation are available for rural provider entities and partner community entities to successfully implement new technologies, comply with state and federal requirements, optimize revenue generation, and efficiently administer healthcare services. Awarded entities’ information will be provided to the following Department of Health and Welfare-secured contractor as applicable: Data Analytics and Evaluation. This contractor serves the Department by providing data collection services as applicable to the RHTP grant. Specific requirements for collaboration will be outlined in the awarded subgrant language but generally include reporting to maintain compliance with RHTP requirements,
+Allowable categories include, but are not limited to:
+Consultation on healthcare administration, billing, best use of technology, security-risk assessments, policy development and compliance, etc.
+Training for staff use of software or technology use (e.g. billing software, Electronic Health Records software), process mapping, policy implementation, etc.
+
+1.5 Target Population &amp; Service Area
+Primary Target Population
+The primary target population for this subgrant opportunity is residents of rural and frontier Idaho communities who face geographic, financial, or structural barriers to accessing timely, high-quality health services. Rural and frontier communities often experience challenges related to long travel distances, limited health care workforce capacity, and economic constraints that can affect access to care. Populations of particular focus include:
+Individuals living in rural and frontier counties, including those with no local hospital, or limited access to occupational care, primary care, or pharmacy services. 
+Individuals in federally designated Health Professional Shortage Areas or Medically Underserved Areas
+Low-income individuals and families, including those on Medicaid or without insurance
+Individuals with chronic health conditions who require regular access to care that is not locally available
+Older adults and individuals with physical disabilities for whom distance and transportation create significant barriers
+Individuals experiencing behavioral health conditions, including substance use disorders, in communities with limited or no local behavioral health services
+American Indian and Alaska Native populations, including members of federally recognized tribes in rural Idaho
+Maternal and child health populations in communities with limited obstetric or pediatric services
+Geographic Service Area
+Eligible service areas are rural and frontier counties within the state of Idaho, as defined by state rural health criteria and federal rural-urban classification systems, including non-metropolitan counties and rural census tracts designated under USDA Rural-Urban Continuum Codes (RUCC) or the Federal Office of Rural Health Policy (FORHP) eligibility criteria. 
+Idaho's rural and frontier communities face unique structural challenges not present in urban settings, including long travel distances to tertiary care, limited broadband and telecommunications infrastructure, a high concentration of Critical Access Hospitals operating on thin margins, and persistent shortages of primary care and specialty providers. This solicitation is designed specifically to address those conditions.
+Applicants must:
+Clearly define the geographic area to be served, including specific counties, zip codes, or census tracts
+Provide local data or a qualifying assessment of need (per Section 1.4) documenting healthcare access gaps in the defined service area
+Demonstrate that the proposed activities are responsive to the specific rural or frontier conditions of the service area, not simply transportable from an urban model
+Multi-county and regional applications are encouraged where a coordinated approach reduces duplication, improves coverage, or better reflects how rural residents access care across county lines.
+See Appendices A and B for the RHTP eligibility map and a list of eligible and ineligible cities by county.
+Section 2: Eligibility Requirements
+2.1 Eligible Applicant Types
+Eligible entities include: public and private healthcare clinics, Federally Qualified Health Centers, hospitals, long-term care facilities, local public health districts and agencies, tribal governments, tribal organizations; nonprofit organizations, including 501(c)(3) community-based organizations; and other healthcare or human service organizations. 
+2.2 Minimum Qualifications
+Minimum qualifications include: active System for Award Management (SAM.gov) registration, valid UEI number, no active federal exclusions, current single audit (if applicable), demonstrated experience in the relevant public health domain, organizational capacity to comply with 2 CFR 200.
+2.3 Exclusions
+The following entities are not eligible to apply for funding under this subgrant solicitation:
+Organizations that are debarred, suspended, or otherwise excluded from participation in federal programs, as verified through SAM.gov
+Applicants that do not maintain active registration in SAM.gov
+Applicants with unresolved audit findings, including outstanding single audit findings or material weaknesses that have not been adequately addressed to the satisfaction of the awarding agency
+Applicants that do not have the financial management systems and internal controls necessary to manage federal funds in accordance with applicable requirements
+Individuals applying in a personal capacity
+
+The Department reserves the right to verify eligibility and disqualify applicants that do not meet federal and state compliance requirements.
+2.4 Cost Sharing / Match Requirements
+No cost share or match is required for this subaward
+
+Section 3: Award Information
+3.1 Funding Details
+Total Available Funding
+$97,213,653
+Anticipated No. of Awards
+Multiple awards anticipated; number will depend on application volume, geographic distribution, and available funding.
+Subaward Type
+Reimbursement
+Period of Performance
+From Date of Award to September 30, 2027 
+Continuation Funding
+No
+
+3.2 Indirect Cost Rate
+As required by the Centers for Medicare &amp; Medicaid Services under Rural Health Transformation, administrative costs, including indirect costs, are limited to 10 percent of the total approved subaward budget. Indirect costs must be calculated on the Modified Total Direct Cost (MTDC) base as defined in 2 CFR 200.1. 
+Together, indirect costs and direct administrative costs may not exceed 10 percent of the total approved budget. This federally required limitation applies to all subawards. Costs exceeding this threshold are not allowable and will not be reimbursed.
+
+Section 4: Application Instructions
+4.1 Required Application Components
+Applicants must submit the following components as a single, consolidated application package:
+
+Table 4.1A
+#
+Component
+Format
+Page Limit
+Required?
+1
+Cover Page / Application Face Sheet
+Template provided
+(Appendix C)
+1
+Yes
+2
+Project Narrative
+PDF or Word
+(Appendix D)
+10 pages
+Yes
+3
+Stage 1 Work Plan 
+Template provided
+(Appendix E)
+3 pages 
+Yes
+4
+Stage 1 Budget 
+Template provided
+(Excel File)
+No limit
+Yes
+5
+Proof of SAM.gov Registration / UEI
+PDF or Image
+N/A
+Yes
+6
+Current Indirect Cost Rate Agreement
+PDF
+N/A
+If applicable
+7
+Most Recent Single Audit (if &gt;$1 million)
+PDF or link
+N/A
+If applicable
+8
+Pre Award Financial Questionnaire
+Template provided
+(Appendix F)
+N/A
+Yes
+
+9
+Required Certifications and Assurances
+Template provided
+(Appendix G)
+N/A
+Yes
+10
+Assurance of Non-Duplication Template provided
+Template provided(Appendix H)
+N/A 
+Yes
+
+4.2 Application and Project Narrative Guidance
+Funding is awarded in two stages. Initial applications (Stage 1) must identify the applicant’s need in detail (see Project Narrative), provide a reasonable workplan to ensure funding can be spent within defined timeframes of the subgrant, and a basic budget that sufficiently identifies the funding need and scope of the project. The Department will evaluate Stage 1 applications to ensure scope and allowability aligns to the CMS RHTP regulations and intent of the funding. 
+
+After Stage 1 applications are evaluated, the Department will issue conditional awards based on application documentation with a requirement to provide a revised budget and workplan within 45 days of the subgrant award (Stage 2). This two-stage approach allows for initial review and screening by the Department to determine allowability of the request and provides time for the applicant to reasonably complete pre-planning steps to ensure successful projects. Stage 2 revisions must include a more detailed workplan (see Appendix Y) and a budget (see Stage 2 
+Excel document). Upon approval documentation in Stage 2, the Department will issue a revised subgrant that releases funds for spending. No subgrant funds can be spent and no costs can be incurred until the revised subgrant is issued. 
+
+
+Stage 1:
+Applicants must submit all required documents listed in Table 4.1A.
+
+The Project Narrative (Appendix D) must address each of the following in sequence: 
+Organizational Reach and Impact: Describe your organization, successes and challenges. Identify partners, health providers, coalitions, local governments, etc. Is there opportunity for shared resources with this project? 
+Statement of Community Need: What specific problem will you address through this investment? This must be supported with a list of completed assessments and description of how the request addresses the identified needs.
+Feasibility and Operational Readiness: What measurable outcomes will be achieved through this procurement? Use Specific, Measurable, Attainable, Relevant, and Time-bound (SMART) criteria. What is the operational readiness of the organization regarding staffing, matching funds (if needed), workforce capacity, and time availability? How will progress be measured?
+Approach, Methods &amp; Innovation Describe how the assessment and remediation services, technology, equipment, vehicles, or renovations will support the Goals and Objectives. 
+Sustainability and Budget Reasonableness Describe financial, operational, workforce, or partnership-based sustainability strategies. 
+
+
+
+Stage 2:
+Upon conditional award, the applicant will have 45 days to submit the required documents listed in Table 4.1B. 
+
+Table 4.1B
+#
+Component
+Format
+Page Limit
+Required?
+1
+Stage 2 Detailed Workplan with Milestones &amp; Timeline
+Template provided
+(Appendix Y)
+5
+Yes
+2
+Stage 2 Detailed Budget and Budget Justification
+Template provided
+(Excel file)
+No limit
+Yes
+
+4.3 Budget &amp; Budget Justification Guidance
+This solicitation uses a two-stage budget process. Stage 1 is a high-level request for eligibility screening. Stage 2, required only upon conditional award, requires a complete, itemized budget.
+
+Stage 1 (submitted with initial application):
+For each item or service requested, applicants must provide:
+Procurement Category or Categories: Consulting, Technology, Equipment, Renovation, and/or Vehicles.
+Description: A brief description of the item or service requested.
+Identified Need: The need this item or service addresses.
+Estimated Cost: A total estimated cost for the item or service.
+Cost Justification: A brief justification supporting the cost estimate.
+
+Stage 2 (due within 45 days of conditional award):
+Upon conditional award, applicants must submit a complete, itemized line-item budget covering the full period of performance, with a budget narrative for each line item. Every cost must be shown to be allowable, allocable, reasonable, and necessary under 2 CFR 200 Subpart E (§200.400–200.476).
+The detailed budget must address the following, as applicable:
+Minor renovation and alteration costs
+Architectural and engineering fees
+Permits and inspections
+Furniture, fixtures, and equipment (&gt;$2,000 per-unit cost, per Idaho statute)
+Technology infrastructure
+A reasonable contingency for unforeseen conditions
+Other Direct Costs
+Indirect Costs
+Any in-kind contributions or other funding sources
+
+No RHTP funds may be expended until the Stage 2 budget is reviewed and approved.
+
+4.4 Submission Instructions
+Submission Method
+Email
+Submit To
+IdahoRHTP@dhw.idaho.gov
+Deadline
+09/13/2026
+Late Policy
+Late applications will not be reviewed
+Questions Deadline
+08/28/2026
+Q&amp;A Publication
+Responses posted to URL by 09/04/2026
+
+Two webinars will be offered (Monday), August 24, 2026, from 12:00 pm – 1.00 pm (MDT) and (Monday), August 31, 2026, from 12:00 pm to 1:00 pm (MDT) to further explain this funding opportunity. The webinar is for all eligible organizations. To participate, please email IdahoRHTP@dhw.idaho.gov no later than 4 pm (MDT) on the Thursday prior to the webinar. Please email your questions to the same address and a Q&amp;A document will be posted 72 hours after the second webinar to https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/funding-opportunities-rural-health    
+Section 5: Application Review &amp; Evaluation Criteria
+Criterion
+Max Points
+Key Considerations
+Organization Reach and Impact 
+15
+
+Patient counts, patient roster demographics, service area, service type,  
+Justification of Need
+20
+
+Community needs well defined, connection to completed assessment, evidence-based, culturally inclusive, measurable, assessment methods and tools utilized, reporting capability, aligned to RHTP notice of funding opportunity (NOFO)
+Feasibility and Operational Readiness 
+15
+Realistic and reasonable infrastructure, staffing, timeline and budget alignment. 
+Approach, methods, innovation 
+25
+Technology, Equipment, Vehicle, Cybersecurity, Renovations or Data Analytics Tool are reasonable and justified. Items are allowable, data driven, aligned with NOFO. 
+ Sustainability
+10
+Realistic approach that can be attained following the funding period.  Does not rely on new state or federal funds. Supports revenue generation for ongoing funding.
+Budget Reasonability
+15
+Alignment to NOFO, budget models, timelines, allowable, reasonable.
+TOTAL
+[100]
+
+Each criterion is scored on the following scale: 
+Does Not Meet, the application omits or inadequately addresses the criterion.
+Partial Credit, the criterion is addressed but with gaps in evidence, feasibility, or alignment. 
+Full credit (High-Value), the criterion is fully addressed with strong supporting data, demonstrated feasibility, and clear alignment to RHTP goals.
+
+5.2 Review Process
+Applications will be screened for completeness and eligibility upon receipt of the application. Complete, eligible applications will be independently scored by a review panel of no fewer than three qualified reviewers. Final funding decisions will be made by the RHTP Program Director based on review panel scores, geographic distribution, and programmatic priorities.
+
+In the event of tied scores, the Department will prioritize applications from Critical Access Hospitals, facilities serving the highest proportion of Medicaid and uninsured patients, or applicants in counties with the fewest existing healthcare resources.
+
+5.3 Pre-Award Risk Assessment
+All recommended applicants will undergo a pre-award risk assessment prior to subaward execution. This assessment will evaluate:
+Prior experience managing federal awards of similar size and scope.
+Results of the most recent Single Audit (if applicable), including the type of opinion, material 
+weaknesses, significant deficiencies, and findings specific to federal programs. This requirement applies to any organization that has spent more than $1,000,000 from a federal source in the prior year.  
+Financial stability indicators, including current ratio, unrestricted net assets, and recent year-over-year revenue trends. 
+Adequacy of the organization’s financial management system, including ability to track costs by funding source per §200.302. 
+Written policies for procurement (§§200.318–327), travel, property management, and time and-effort reporting. 
+History of performance on prior Department subawards or other state/federal awards. 
+New organizations or those with identified risk factors will be designated as “high risk” and subject to enhanced monitoring conditions per §200.208.
+
+The Department reserves the right to require additional documentation, impose specific award conditions, or decline to make an award to an applicant based on the results of the pre-award risk assessment, notwithstanding the applicant's evaluation score.
+
+Section 6: Subaward Terms &amp; Conditions
+6.1 Federal Flow-Down Requirements
+Subrecipients will be subject to all applicable federal requirements that flow down from the prime award, including but not limited to:
+2 CFR Part 200 – Uniform Administrative Requirements, Cost Principles, and Audit Requirements
+45 CFR Part 75 (HHS-specific implementation, if applicable)
+Federal award terms and conditions as specified in the Notice of Award
+CMS/CDC/HRSA program-specific requirements from the Notice of Funding Opportunity (NOFO)
+Single Audit requirements per §200.501 (for entities expending $1,000,000+ in federal awards)
+
+6.2 Reporting Requirements
+Subrecipients will be required to submit the following reports:
+Report
+Frequency
+Due Date
+Operating detail report
+Monthly
+15th day of the following month
+Financial Status Report
+Quarterly
+15th day of the following month
+Program Progress Report
+Quarterly
+30 days after quarter end
+Performance Measures / Data
+Quarterly
+30 days after quarter end
+Equipment Inventory Report (§200.312)
+Annually
+July 31
+Final Financial Report
+End of Period of Performance (POP)
+90 days after POP end
+6.3 Monitoring &amp; Oversight
+The Department will implement a risk-based monitoring strategy consistent with §200.332(d): 
+Standard-risk Subrecipients: Desk review of all financial and programmatic reports; one scheduled monitoring visit (virtual or on-site) per year; annual review of Single Audit report. 
+
+High-risk Subrecipients: Monthly desk reviews; quarterly monitoring calls; one on-site monitoring visit per year; limited to cost-reimbursement payment method (no advance payments); required to submit supporting documentation with each reimbursement request. 
+The subrecipient will receive a monitoring notification letter at least 30 days before a scheduled 
+visit. Monitoring visit reports will be issued within 30 days. The subrecipient must respond to any 
+findings within 30 days of receipt. The Department will issue a management decision on all findings 
+within 6 months per §200.332(d)(3).
+
+6.4 Remedies for Noncompliance
+If a subrecipient fails to comply with the terms of the subaward or applicable federal requirements, the pass-through entity may take one or more of the following actions per §200.339:
+Temporarily withhold payments pending corrective action
+Disallow all or part of the cost of the noncompliant activity
+Wholly or partly suspend or terminate the subaward
+Initiate suspension or debarment proceedings per 2 CFR Part 180
+Withhold further awards or impose additional conditions
+
+6.5 Record Retention
+Subrecipients must retain all financial records, supporting documents, statistical records, and all other records pertinent to the subaward for a period of six (6) years from the date of submission of the final expenditure report, or as otherwise required by §200.334. If any litigation, claim, or audit is started before the expiration of the retention period, records must be retained until all issues are resolved.
+
+6.6 Procurement Standards
+Subrecipients must follow the procurement standards in §§200.318–200.327, including conducting all procurement transactions in a manner providing full and open competition. Subrecipients must maintain written conflict of interest policies and document the procurement process including cost/price analysis.
+
+Section 7: Key Dates &amp; Timeline
+Milestone
+Date
+Solicitation Released
+08/18/2026
+Pre-Application Webinar / Informational Session
+08/24/2026 &amp; 08/31/2026 
+at 1200 (PM) MDT
+Deadline for Questions
+08/28/2026
+Q&amp;A Responses Published
+09/04/2026
+Application Deadline
+09/13/2026 at 11:59 (PM) MDT
+Review Period
+09/14/2026 – 10/02/2026
+Award Notifications for Stage 1
+On or about 10/09/2026
+Anticipated Subgrant Start Date
+10/26/2026
+Due date for revised workplan and budget
+45 days post subgrant start date
+Award Notifications for Stage 2 – Spending can begin
+2 weeks after revised workplan/budget approval
+

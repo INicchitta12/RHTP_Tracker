@@ -1,0 +1,1148 @@
+Rural Health Transformation Program:
+Project ECHO for Maternal and Behavioral
+Health
+GRANT REQUEST FOR PROPOSAL (RFP)
+
+
+Minnesota Department of Health
+PO Box 64975
+St. Paul, MN 55164-0975
+651-201-3838
+grants.ruraltransformation.mdh@state.mn.us
+www.health.state.mn.us
+
+
+
+
+05/04/2026
+To obtain this information in a different format, call: 651-201-3838.
+This RFP is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S.
+Department of Health and Human Services (HHS) as part of a financial assistance award totaling
+$193,090,618.14 with 100 percent funded by CMS/HHS. The contents are those of the author(s)
+and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the
+U.S. Government.
+                           RURAL HEALTH TRANSFORMATION PROGRAM:
+                        PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+
+Table of Contents
+Rural Health Transformation Program: Project ECHO for Maternal and Behavioral Health ......... 1
+    RFP Part 1: Overview .................................................................................................................. 4
+       1.1      General Information ..................................................................................................... 4
+       1.2      Program Description ..................................................................................................... 4
+       1.3      Funding and Project Dates ........................................................................................... 5
+       1.4      Eligible Applicants ......................................................................................................... 6
+       1.5      Questions and Answers ................................................................................................ 6
+    RFP Part 2: Program Details ........................................................................................................ 7
+       2.1      Priorities........................................................................................................................ 7
+       2.2      Eligible Projects............................................................................................................. 8
+       2.3      Estimated Timeline ....................................................................................................... 9
+       2.4      Required Data Collection .............................................................................................. 9
+       2.5      Grant Management Responsibilities .......................................................................... 10
+       2.6      Grant Provisions ......................................................................................................... 11
+       2.7      Review and Selection Process .................................................................................... 14
+    RFP Part 3: Application and Submission Instructions ............................................................... 16
+       3.1      Application Deadline .................................................................................................. 16
+       3.2      Application Submission Instructions .......................................................................... 16
+       3.3      Application Instructions.............................................................................................. 16
+    RFP Part 4: Application Guidance ............................................................................................. 18
+       Section 1. Organization and Applicant Information ............................................................. 18
+       Section 2. Project Information .............................................................................................. 18
+       Section 3. Narrative .............................................................................................................. 18
+       Section 4: Timeline & Work Plan .......................................................................................... 19
+       Section 5: Budget & Budget Narrative .................................................................................. 20
+       Section 6: Required Application Attachments ...................................................................... 21
+       Section 7: Conflict of Interest ............................................................................................... 21
+       Section 8: Certification.......................................................................................................... 21
+    RFP Part 5: Attachments ........................................................................................................... 23
+
+
+2
+                            RURAL HEALTH TRANSFORMATION PROGRAM:
+                         PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+       Attachment A: Application Evaluation Criteria ..................................................................... 24
+       Attachment B: Rural Health Transformation Program Ineligible Expenses ......................... 26
+    Link References ......................................................................................................................... 29
+
+
+
+
+3
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+RFP Part 1: Overview
+1.1 General Information
+    •   Announcement Title: Rural Health Transformation Program: Project ECHO for Maternal
+        and Mental Health
+    •   Minnesota Department of Health (MDH) Program Website: Rural Health
+        Transformation Program - MN Dept. of Health
+    •   Application Deadline: June 3, 2026 4:30 p.m. Central Time
+
+1.2 Program Description
+The federal Rural Health Transformation Program (RHTP) was created by H.R.1 (Section 71401
+of Public Law 119- 21) on July 4, 2025. It is a federal initiative to help state governments
+support rural communities in improving health care access, quality, and outcomes by
+transforming the health care delivery ecosystem. The RHTP focuses on promoting innovation,
+strategic partnerships, infrastructure development, and workforce investment in rural
+communities. The federal program will grant up to $50 billion to states over five budget
+periods.
+The Minnesota Department of Health (MDH) was awarded approximately $193 million by the
+Centers for Medicare & Medicaid Services (CMS) for the first budget period to transform the
+rural health system in Minnesota. Minnesota’s RHTP covers a broad range of initiatives
+designed to advance the overarching goals of improving health outcomes and access to care for
+rural Minnesotans, strengthening partnerships between providers to expand service delivery in
+rural communities, and stabilizing rural provider financial health through strategic investments.
+This RFP seeks proposals from applicants to provide Project Extension for Community
+Healthcare Outcomes (ECHO) on topics that include but are not limited to maternal health
+(inclusive of maternal mental health) and mental/behavioral health for primary care audiences.
+Project ECHOs are virtual, case-based learning and mentorship programs provided by
+organization(s) to build the skills and confidence of rural physicians, nurse practitioners, and
+physician associates who often serve as the main access point for maternal health and
+behavioral health care in rural communities.
+Applicants are expected to provide 12–24 one-hour long sessions (minimum of one time per
+month) in at least one of the topic areas. Applicants are welcome to apply to provide both
+mental health and maternal health series. Project ECHOs should focus on:
+    •   Providing education and networking for participating rural clinicians and their care
+        teams.
+    •   Providing an open participation model.
+    •   Sharing responsive knowledge that is adaptable to rural community and clinician needs
+        in underserved and hard-to-reach patient populations.
+
+
+4
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+    •   Maintaining a focus on case-based learning that is specific to rural populations.
+        Participants will learn from expert-led didactic presentations and discuss their own
+        patient cases to gain new skills and implement evidence-based recommendations.
+
+1.3 Funding and Project Dates
+Funding
+Funding will be allocated through a competitive process. If selected, you may only incur eligible
+expenditures when the grant agreement is fully executed and the grant has reached its
+effective date, whichever is later.
+
+                      Funding                                         Estimate
+Estimated Amount to Grant                                              $330,000
+Estimated Number of Awards                                               1-3
+Estimated Award Maximum                                                $330,000
+Estimated Award Minimum                                                $100,000
+
+
+Future Funding
+The RHTP is a 5-year funding program from CMS. Future funding may be available to selected
+grantees in years 2-5 of Minnesota's program. This funding is dependent on work available and
+CMS’s award to Minnesota. Current grantees will be notified of possible amendments for time
+and additional funds in the future.
+Applicants will submit a detailed work plan and budget for the first budget period. The budget
+periods for the grant are as follows:
+    •   Budget Period 1: Grant Agreement execution date – October 30, 2026 (grantees will be
+        able to spend budget period 1 funds through September 30, 2027; work plans and
+        budgets may reflect that time period)
+    •   Budget Period 2: October 31, 2026 – October 30, 2027
+    •   Budget Period 3: October 31, 2027 – October 30, 2028
+    •   Budget Period 4: October 31, 2028 – October 30, 2029
+    •   Budget Period 5: October 31, 2029 – October 30, 2030
+
+Match Requirement
+There is no match requirement for this program.
+
+Project Dates
+•   Request for Proposal published: May 4, 2026
+•   Applications due: June 3, 2026 4:30 p.m. Central Time
+•   Grant agreements begin (estimated): July 15, 2026
+
+5
+                   RURAL HEALTH TRANSFORMATION PROGRAM:
+                PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+•   Grant Agreements end: October 30, 2030
+
+1.4 Eligible Applicants
+•   Located in Minnesota.
+•   For-profit or not-for-profit entities that demonstrate extensive experience providing in-
+    depth, high-quality education and training and/or developing resources that support rural
+    health care.
+•   Be trained in iECHO, for the Project ECHO model.
+Applicants will be selected based on their ability to complete proposed projects and evidence of
+experience in the proposed subject matter.
+Grant funds are not transferable to any other entity. Applicants that are aware of any upcoming
+mergers, acquisitions, or any other changes in their organization or legal standing, must
+disclose this information to MDH in their application, or as soon as they are aware of it.
+
+Collaboration
+Collaboration is encouraged as partnerships can enhance outreach and improve success.
+
+
+1.5 Questions and Answers
+All questions regarding this RFP must be submitted by email to
+Grants.ruraltransformation.mdh@state.mn.us. Answers will be posted within seven business
+days at Rural Health Transformation Program Funding - MN Dept. of Health
+Please submit questions no later than 4:30 p.m. Central Time on May 22, 2026.
+
+To ensure the proper and fair evaluation of all applications, other communications regarding
+this RFP including verbal, telephone, written or internet initiated by or on behalf of any
+applicant to any employee of the Department, other than questions submitted as outlined
+above, are prohibited. Any violation of this prohibition may result in the disqualification of
+the applicant.
+
+RFP Information Meeting
+An informational meeting about this Request for Proposals will take place on May 13, 2026 at
+11:00 a.m. (Teams). A link will also be provided at Rural Health Transformation Program
+Funding - MN Dept. of Health.
+
+All prospective applicants are strongly encouraged to attend. Materials from the informational
+meeting, including slides and questions and answers, will be posted at Rural Health
+Transformation Program Funding - MN Dept. of Health within seven business days following
+the meeting.
+
+
+
+6
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+RFP Part 2: Program Details
+2.1 Priorities
+Health Equity Priorities
+It is the policy of the State of Minnesota to ensure fairness, precision, equity, and consistency in
+competitive grant awards. This includes implementing diversity and inclusion in grant-making.
+The Policy 08-02 on Rating Criteria for Competitive Grant Review (PDF) establishes the
+expectation that grant programs intentionally identify how the grant serves diverse
+populations, especially populations experiencing inequities and/or disparities.
+Project ECHO is a collaborative model of medical education and care management that helps
+clinicians provide expert-level care to patients wherever they live. Using video-conferencing
+technology to train, advise, and support primary care providers, Project ECHO increases access
+to specialty treatment in rural and underserved areas for a variety of conditions. The grant will
+be focused on Project ECHOs for topic tracks that cover maternal health or mental health and
+behavioral health topics to support practicing rural providers and clinical care teams with
+improving patient care.
+The Project ECHO model is described on the University of New Mexico School of Medicine’s
+Project ECHO website.
+The multidisciplinary team should include family medicine and primary care medical
+provider(s), and other providers related to the education being provided. This could include
+behavioral health, social work, obstetricians, doulas, midwives and other disciplines who
+provide care for mental and/or maternal health. Applicants should consider the unique needs
+of rural Minnesotans. Team members should be excellent teachers and communicators, and
+respectful of the group-based learning environment created within Project ECHO. The lead
+facilitator must have the soft skills and substantive expertise necessary to foster productive
+learning.
+The areas fundamental to Project ECHO are:
+    •   Access to video-conferencing hardware to support virtual training via the internet. Grant
+        funds may be used to purchase such hardware.
+    •   Willingness and ability to extend the reach of high-quality specialty care for mental
+        and/or maternal health via the Project ECHO model.
+    •   Capacity to mentor providers and provide individual case consultation outside of the
+        ECHO structure as needed.
+Grant outcomes will include:
+    •   Providing 12-24 one-hour sessions each year in mental and behavioral health or
+        maternal health.
+
+
+
+7
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+    •   Connecting rural primary care providers and other professionals who would benefit
+        from expanded practice knowledge with specialists in mental health, behavioral health,
+        obstetrics and gynecology, maternal fetal medicine, and other specialties.
+    •   Expanding local expertise and linking providers to regional resources.
+    •   Strengthening regional networks.
+    •   Sustaining health care delivery for people who seek care for mental, behavioral, and/or
+        maternal health care.
+
+2.2 Eligible Projects
+Eligible projects must include:
+    •   Selection of topic of Project ECHO series (maternal health, mental health, or both) with
+        primary focus of selected topic centering on rural practitioner needs for developing
+        further expertise in addressing patient concerns
+            o Primary audience for Project ECHO series is rural health care providers and those
+                who support rural health needs
+    •   Planning for delivery of one or both Project ECHO series comprised of 12-24 one-hour
+        sessions throughout a calendar year to include a description of the proposed topics
+    •   Delivery of one or both 12-24 one-hour Project ECHO series on proposed topics
+    •   A process to engage multidisciplinary providers with expertise in approved topics
+    •   Use of evidence-based practices, trauma-informed care, and culturally responsive
+        approaches in subject matter delivery
+
+Eligible Expenses
+    •   Personnel time for planning and delivery of Project ECHO series
+    •   Hardware and software necessary to deliver Project ECHO series
+    •   Administrative costs, both direct and indirect, not to exceed 6% of your total budget
+        (see the Administrative Costs section in RFP Part 4: Application Guidance for examples
+        of administrative costs)
+
+Ineligible Expenses
+Ineligible expenses include but are not limited to:
+•   Rural Health Transformation Program ineligible expenses outlined in Attachment B
+•   Duplication of existing ECHO program topics available in Minnesota
+•   Solicitating donations
+•   Taxes, except sales tax on goods and services
+•   Lobbyists, political contributions
+•   Bad debts, late payment fees, finance charges, or contingency funds
+
+
+
+
+8
+                       RURAL HEALTH TRANSFORMATION PROGRAM:
+                    PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+    2.3 Estimated Timeline
+    •   Budget Period 1: Grant Agreement execution date – October 30, 2026 (grantees will be able
+        to spend budget period 1 funds through September 30, 2027; work plans and budgets may
+        reflect that time period):
+            o Learning development
+            o Create teams for delivery of one or both of the Project ECHO series
+            o Outreach and engagement to health care professionals on ECHOs
+            o Provide a minimum of four ECHOs annually for each topic area
+            o Collect input on satisfaction with the ECHO for continuous improvement purposes
+    •   Budget Period 2: October 31, 2026 – October 30, 2027:
+            o Outreach and engagement to health care professionals on ECHOs
+            o Provide a minimum of 12 ECHOs annually for each topic area
+            o Collect input on satisfaction with the ECHO for continuous improvement purposes
+    •   Budget Period 3: October 31, 2027 – October 30, 2028:
+            o Outreach and engagement to health care professionals on ECHOs
+            o Provide a minimum of 12 ECHOs annually for each topic area
+            o Collect input on satisfaction with the ECHO for continuous improvement purposes
+    •   Budget Period 4: October 31, 2028 – October 30, 2029:
+            o Outreach and engagement to health care professionals on ECHOs
+            o Provide a minimum of 12 ECHO annually for each topic area
+            o Collect input on satisfaction with the ECHO for continuous improvement purposes
+    •   Budget Period 5: October 31, 2029 – October 30, 2030:
+            o Outreach and engagement to health care professionals on ECHOs
+            o Provide a minimum of 12 ECHOs annually for each topic area
+            o Collect input on the satisfaction with the ECHO.
+
+    2.4 Required Data Collection
+The RHTP has strict reporting requirements with which MDH and subrecipients must comply. Note
+that for the RHTP, rural communities are defined by the U.S. Department of Agriculture’s Rural-
+Urban Commuting Areas (RUCA) classification codes 4-10. A Rural Urban Commuting Area 4-10 by
+Zip Code reference table (Excel) of Minnesota communities considered rural by this definition can
+be found on the Office of Rural Health and Primary Care Funding webpage. The following data will
+be collected in progress reports:
+
+    Regular Programmatic Reporting
+    •   How many ECHO sessions were conducted during this reporting period?
+    •   How many participants attended each session?
+    •   Which zip codes were represented in each session’s attendance?
+    •   Which provider types were represented in each session’s attendance?
+
+
+
+    9
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+2.5 Grant Management Responsibilities
+Grant Agreement
+Each grantee must formally enter into a grant agreement. The grant agreement will address the
+conditions of the award, including implementation for the project. The grantee is expected to
+read the grant agreement, sign, and comply with all conditions of the grant agreement. Grantee
+should provide a copy of the grant agreement to all grantee staff working on the grant.
+No work on grant activities can begin until a fully executed grant agreement is in place.
+A sample grant agreement is linked on MDH’s website: MDH Grant Agreement Template (PDF).
+Applicants should be aware of the terms and conditions of the standard grant agreement in
+preparing their applications. Much of the language reflected in the sample agreement is
+required by statute. If an applicant takes exception to any of the terms, conditions or language
+in the sample grant agreement, the applicant must indicate those exceptions, in writing, in their
+application in response to this RFP. Certain exceptions may result in an application being
+disqualified from further review and evaluation. Only those exceptions indicated in an
+application will be available for discussion or negotiation.
+The funded applicant will be legally responsible for assuring implementation of the work plan
+and compliance with all applicable state requirements including worker’s compensation
+insurance, nondiscrimination, data privacy, budget compliance, and reporting.
+
+Accountability and Reporting Requirements
+It is the policy of the State of Minnesota to monitor progress on state grants by requiring
+grantees to submit written progress reports at least annually until all grant funds have been
+expended and all of the terms in the grant agreement have been met.
+RHTP progress reports will be submitted bimonthly:
+•    August 20
+•    October 20
+•    December 20
+•    February 20
+•    April 20
+•    June 20
+
+Grant Monitoring
+Minn. Stat. § 16B.97 and Policy 08-10 on Grant Monitoring (PDF) require the following:
+
+     •   One monitoring visit during the grant period on all state grants over $50,000
+     •   Annual monitoring visits during the grant period on all grants over $250,000
+     •   Conducting a financial reconciliation of grantee’s expenditures at least once during the
+         grant period on grants over $50,000
+
+
+10
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Technical Assistance
+MDH staff will be available to provide technical assistance as needed to all grant recipients. This
+includes topics such as progress reporting, reimbursement processing, community engagement,
+and addressing project implementation challenges. Please direct all questions related to this
+grant to your grant manager, once assigned, or the Rural Health Transformation Grants Team at
+Grants.ruraltransformation.mdh@state.mn.us.
+
+Grant Payments
+Per State Policy 08-08 on Grant Payments (PDF), reimbursement is the method for making grant
+payments. All grantee requests for reimbursement must correspond to the approved grant
+budget. The State shall review each request for reimbursement against the approved grant
+budget, grant expenditures to-date and the latest grant progress report before approving
+payment. Grant payments shall not be made on grants with past due progress reports unless
+MDH has given the grantee a written extension.
+A reimbursement request (invoice) form will be provided to grantees prior to first reporting
+period. Grantees will submit supporting documentation with each financial report; supporting
+documentation must provide proof of expenses incurred and paid. MDH will provide guidance
+and training to grantees on financial reporting.
+RHTP financial reports will be submitted bimonthly:
+•    August 20
+•    October 20
+•    December 20
+•    February 20
+•    April 20
+•    June 20
+
+2.6 Grant Provisions
+Affirmative Action and Non-Discrimination Requirements for all Grantees
+The grantee agrees to comply with applicable state and federal laws prohibiting discrimination.
+Minnesota’s nondiscrimination law is the Minnesota Human Rights Act (MHRA) (Minn. Stat. §
+363A; See e.g. Minn. Stat. § 363A.02 (https://www.revisor.mn.gov/statutes/cite/363A.02). The
+MHRA is enforced by the Minnesota Department of Human Rights. Some, but not all, MHRA
+requirements are reflected below. All grantees are responsible for knowing and complying with
+nondiscrimination and other applicable laws.
+The grantee agrees not to discriminate against any employee or applicant for employment
+because of race, color, creed, religion, national origin, sex, marital status, status in regard to
+public assistance, membership or activity in a local commission, disability, sexual orientation, or
+age in regard to any position for which the employee or applicant for employment is qualified.
+
+11
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+The grantee agrees not to discriminate in public accommodations because of race, color, creed,
+religion, national origin, sex, gender identity, sexual orientation, and disability.
+The grantee agrees not to discriminate in public services because of race, color, creed, religion,
+national origin, sex, gender identity, marital status, disability, sexual orientation, and status
+with regard to public assistance.
+The grantee agrees to take affirmative steps to employ, advance in employment, upgrade,
+train, and recruit minority persons, women, and persons with disabilities.
+The grantee must not discriminate against any employee or applicant for employment because
+of physical or mental disability in regard to any position for which the employee or applicant for
+employment is qualified. The grantee agrees to take affirmative action to employ, advance in
+employment, and otherwise treat qualified disabled persons without discrimination based upon
+their physical or mental disability in all employment practices such as the following:
+employment, upgrading, demotion or transfer, recruitment, advertising, layoff or termination,
+rates of pay or other forms of compensation, and selection for training, including
+apprenticeship. Minn. Rules, part 5000.3550.
+
+Audits
+Per Minn. Stat. § 16B.98, subd. 8, the grantee’s books, records, documents, and accounting
+procedures and practices of the grantee or other party that are relevant to the grant or
+transaction are subject to examination by the granting agency and either the legislative auditor
+or the state auditor, as appropriate. This requirement will last for a minimum of six years from
+the grant agreement end date, receipt, and approval of all final reports, or the required period
+of time to satisfy all state and program retention requirements, whichever is later.
+
+Conflicts of Interest
+MDH will take steps to prevent individual and organizational conflicts of interest, both in
+reference to applicants and reviewers per Minn. Stat.§ 16B.98 and the Office of Grants
+Management’s Policy 08-01, “Conflict of Interest Policy for State Grant-Making.”
+
+Applicants must complete Applicant Conflict of Interest Disclosure form (PDF) and submit it as
+part of the completed application. Failure to complete and submit this form will result in
+disqualification from the review process.
+Organizational conflicts of interest occur when:
+     •   A grantee or applicant is unable or potentially unable to render impartial assistance or
+         advice.
+     •   A grantees or applicant’s objectivity in performing the grant work is or might be
+         otherwise impaired.
+     •   A grantee or applicant has an unfair competitive advantage.
+Individual conflicts of interest occur when:
+
+
+
+12
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+     •   An applicant, or any of its employees, uses their position to obtain special advantage,
+         benefit, or access to MDH’s time, services, facilities, equipment, supplies, prestige, or
+         influence.
+     •   An applicant, or any of its employees, receives or accepts money, or anything else of
+         value, from another state grantee or grant applicant with respect to the specific project
+         covered by this RFP/project.
+     •   An applicant, or any of its employees, has equity or a financial interest in, or partial or
+         whole ownership of, a competing grant applicant organization.
+     •   An applicant, or any of its employees, is an employee of MDH or is a relative of an
+         employee of MDH.
+
+In cases where a conflict of interest is perceived, disclosed, or discovered, the applicants or
+grantees will be notified and actions may be pursued, including but not limited to
+disqualification from eligibility for the grant award or termination of the grant agreement.
+
+Non-Transferability
+Grant funds are not transferable to any other entity. Applicants that are aware of any upcoming
+mergers, acquisitions, or any other changes in their organization or legal standing, must
+disclose this information to MDH in their application, or as soon as they are aware of it.
+
+Public Data and Trade Secret Materials
+All applications submitted in response to this RFP will become property of the State. In
+accordance with Minn. Stat. § 13.599, all applications and their contents are private or
+nonpublic until the applications are opened.
+Once the applications are opened, the name and address of each applicant and the amount
+requested is public. All other data in an application is private or nonpublic data until completion
+of the evaluation process, which is defined by statute as when MDH has completed negotiating
+the grant agreement with the selected applicant.
+After MDH has completed the evaluation process, all remaining data in the applications is
+public with the exception of trade secret data as defined and classified in Minn. Stat. § 13.37,
+subd. 1(b). A statement by an applicant that the application is copyrighted or otherwise
+protected does not prevent public access to the application or its contents. (Minn. Stat.
+§ 13.599, subd. 3(a)).
+If an applicant submits any information in an application that it believes to be trade secret
+information, as defined by Minn. Stat. § 13.37, the applicant must:
+     •   Clearly mark all trade secret materials in its application at the time it is submitted,
+     •   Include a statement attached to its application justifying the trade secret designation for
+         each item, and
+     •   Defend any action seeking release of the materials it believes to be trade secret, and
+         indemnify and hold harmless MDH and the State of Minnesota, its agents and
+
+
+13
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+         employees, from any judgments or damages awarded against the State in favor of the
+         party requesting the materials, and any and all costs connected with that defense.
+     •   This indemnification survives MDH’s award of a grant agreement. In submitting an
+         application in response to this RFP, the applicant agrees that this indemnification
+         survives as long as the trade secret materials are in possession of MDH. The State will not
+         consider the prices submitted by the responder to be proprietary or trade secret materials.
+MDH reserves the right to reject a claim that any particular information in an application is
+trade secret information if it determines the applicant has not met the burden of establishing
+that the information constitutes a trade secret. MDH will not consider the budgets submitted
+by applicants to be proprietary or trade secret materials. Use of generic trade secret language
+encompassing substantial portions of the application or simple assertions of trade secret
+without substantial explanation of the basis for that designation will be insufficient to warrant a
+trade secret designation.
+If a grant is awarded to an applicant, MDH may use or disclose the trade secret data to the
+extent provided by law. Any decision by the State to disclose information determined to be
+trade secret information will be made consistent with the Minnesota Government Data
+Practices Act (Ch. 13 MN Statutes) and other relevant laws and regulations.
+If certain information is found to constitute trade secret information, the remainder of the
+application will become public; in the event a data request is received for application
+information, only the trade secret data will be removed and remain nonpublic.
+
+2.7 Review and Selection Process
+Review Process
+Funding will be allocated through a competitive process with review by a committee
+representing content specialists with knowledge of rural issues and rural health care. The
+review committee will evaluate all eligible and complete applications received by the deadline.
+MDH will review all committee recommendations and is responsible for award decisions. The
+award decisions of MDH are final and not subject to appeal. Additionally:
+     •   MDH reserves the right to withhold the distribution of funds in cases where proposals
+         submitted do not meet the necessary criteria.
+     •   The RFP does not obligate MDH to award a grant agreement or complete the project,
+         and MDH reserves the right to cancel this RFP if it is considered to be in its best interest.
+     •   MDH reserves the right to waive minor irregularities or request additional information
+         to further clarify or validate information submitted in the application, provided the
+         application, as submitted, substantially complies with the requirements of this RFP.
+         There is, however, no guarantee MDH will look for information or clarification outside of
+         the submitted written application. Therefore, it is important that all applicants ensure
+         that all sections of their application are complete to avoid the possibility of failing an
+         evaluation phase or having their score reduced for lack of information.
+
+14
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Selection Criteria and Weight
+The review committee will review each applicant on a 100-point scale, with 15 additional
+priority points available. A standardized scoring system will be used to determine the extent to
+which the applicant meets the selection criteria.
+Attachment A outlines the evaluation criteria in detail.
+     •   Problem Statement (30 points total)
+     •   Methods (35 points total)
+     •   Work Plan (20 points total)
+     •   Budget and Budget Narrative (15 points total)
+
+Grantee Past Performance and Due Diligence Review Process
+     •   It is the policy of the State of Minnesota to consider a grant applicant's past
+         performance before awarding subsequent grants to them.
+     •   State policy requires states to conduct a pre-award risk assessment prior to a grant
+         award. Additional information may be required for proposed budgets of $50,000 and
+         higher to a potential applicant in order to comply with Policy 08-06 on Preaward Risk
+         Assessment (PDF).
+
+Notification
+MDH anticipates notifying all applicants via email of funding decisions by mid-July 2026.
+
+
+
+
+15
+                   RURAL HEALTH TRANSFORMATION PROGRAM:
+                PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+RFP Part 3: Application and Submission Instructions
+3.1 Application Deadline
+All applications must be received by MDH no later than 4:30 p.m. Central Time on June 3,
+2026.
+
+Late applications will not be accepted. The ORHPC Online Grants Portal will send an automated
+email to the user who submitted the application to confirm the submission of your application.
+Additionally, the application status will change from “Draft” to “Submitted” on the Applicant
+Dashboard and record the date the application was submitted. If the application is still in draft
+status by the application deadline, you will no longer be able to edit or submit the application.
+If you do not receive an automated email confirming submission or encounter any other issues
+with the online application submission, please contact us promptly at
+Grants.ruraltransformation.mdh@state.mn.us.
+If you encounter any issues with the online application submission, please contact us promptly
+at Grants.ruraltransformation.mdh@state.mn.us. We encourage you to submit in advance of
+the deadline to allow time to address any technical issues.
+
+3.2 Application Submission Instructions
+4    ORHPC requires application submissions to be made through an online ORHPC Online
+     Grants Portal. Please reference the ORHPC Grantee Guide (PDF) for information on account
+     creation, password recovery, application creation, and collaboration.
+5    Read RFP Part 4: Application Guidance within this RFP document for instructions on how to
+     address the application questions in the ORHPC Online Grants Portal.
+If you have any questions, please contact us at Grants.ruraltransformation.mdh@state.mn.us.
+
+5.1 Application Instructions
+You must complete all required fields in the online application form in order for your
+application to be considered complete.
+Incomplete applications will be rejected and not evaluated.
+Applications must include all required application materials, including attachments. Do not
+provide any materials that are not requested in this RFP, as such materials will not be
+considered nor evaluated. MDH reserves the right to reject any application that does not meet
+these requirements.
+By submitting an application, each applicant warrants that the information provided is true,
+correct, and reliable for purposes of evaluation for potential grant award. The submission of
+inaccurate or misleading information may be grounds for disqualification from the award, as
+well as subject the applicant to suspension or debarment proceedings and other remedies
+available by law.
+16
+                   RURAL HEALTH TRANSFORMATION PROGRAM:
+                PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+All costs incurred in responding to this RFP will be borne by the applicant.
+
+
+
+
+17
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+RFP Part 4: Application Guidance
+Section 1. Organization and Applicant Information
+Basic information about the applicant entity is requested, including legal and business name,
+address, and tax identification information for contracting purposes.
+This project is funded with federal dollars. Applicants must provide their Unique Entity
+Identifier (UEI) Name and Number.
+
+Section 2. Project Information
+Contact Overview
+This section requests contact information for the organization, including the Authorized
+Organization Representative (AOR). This person is often the CEO of the organization and must
+have the authority to enter a contract with the State. An additional program contact is also
+advised.
+
+Section 3. Narrative
+Organization Overview
+Provide a brief overview of your organization’s history, location, and administrative structure.
+Describe any unique characteristics or circumstances pertaining to your organization.
+
+Organizational Capacity
+Provide a description of your organization’s experience in this subject matter and interaction
+with intended stakeholders.
+
+Project Summary
+Provide a short overview summarizing the project, a high-level description of activities and how
+grant funds will be utilized.
+
+Problem Statement
+Provide a description of the need for this project. The problem statement should demonstrate
+an understanding of mental and/or maternal health needs of rural Minnesotans. The problem
+statement should provide data and context for the project statement and proposed workplan.
+
+Project Methods
+The project methods must clearly explain how the grant funding will be used and what will
+be accomplished. Applicants should provide robust details on how the project will achieve the
+expected outcomes.
+
+18
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Key Personnel Biographical Sketch(es)
+Provide the following information for key personnel who will be involved in the project: name,
+title, role in proposed project, relevant education, and professional experience relevant to the
+proposed project. It is important that all staff that will be funded through this grant are
+included and the FTE correspond to the budget narrative. If the position is currently vacant,
+please provide a brief description of the position that will be involved and any information on
+the vacancy.
+
+Administrative Costs
+Describe your anticipated administrative costs associated with implementing RHTP, including
+both direct and indirect expenses. Please note that your administrative costs may not exceed
+6% of your total budget in budget period 1. Administrative cost limits are subject to change to
+ensure that the entire program stays under the CMS cap on administrative costs.
+Costs generally considered administrative include, but are not limited to:
+     •   Staff time for personnel (such as administrative professionals or executive directors)
+         who support RHTP work but are not directly involved in implementation/delivery of
+         activities.
+     •   Costs related to reporting to MDH, such as staff or contractor time to complete and
+         submit reports.
+             o Note that program evaluation activities that are integral to implementing and
+                  continually improving your program, including collecting and using data to
+                  implement your activities, will generally be considered programmatic costs, not
+                  administrative costs. But costs associated with reporting data to MDH are
+                  administrative.
+     •   Costs associated with grant compliance activities, such as setting up budgets and
+         tracking expenditures, and establishing and carrying out procedures for internal
+         controls.
+     •   Accounting, audits, and similar activities.
+     •   Indirect costs: Costs that support the entire organization and its various programs and
+         operations, such as rent and utilities for the organization’s office space.
+In your work plan and budget, please provide sufficient detail to justify to MDH and CMS why
+costs that you have not categorized as administrative are directly related to
+implementing/delivering activities and thus are programmatic rather than administrative costs.
+
+Section 4: Timeline & Work Plan
+Provide a timeline for the top project activities/tasks. Refer to the Estimated Timeline when
+proposing activities. The timeline should identify the staff position or role involved in each task,
+and the estimated start and completion date for each task. All requests must have at least 1
+project activity defined. Your work plan should include evaluation and reporting activities.
+
+
+
+19
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Section 5: Budget & Budget Narrative
+Provide a detailed justification for each of the expenses to successfully meet the goals of the
+proposed RHTP activity.
+See the list of ineligible expenses in Attachment B.
+Please provide sufficient detail to justify to MDH and CMS why costs that you have not
+categorized as administrative are directly related to implementing/delivering activities and thus
+are programmatic rather than administrative costs.
+When submitting your application and each financial report throughout the grant period, your
+organization will certify that:
+     •   RHTP funds will not be used for any activities that are currently funded, or planned to be
+         funded, by other sources.
+     •   RHTP funds will not be used to provide the same services to the same beneficiaries as
+         other funding sources or programs.
+Identify any other funding sources being used for activities related to the RHTP activities you
+have proposed. For example, if you are proposing an expansion of an existing program, indicate
+the funding source for the current program. In all cases, make clear in your application which
+costs do not have another existing or planned funding source and thus may be covered by RHTP
+funds.
+
+Budget Line Items
+     •   Salaries: This category includes the salary costs of personnel who work directly on the
+         implementation/delivery of RHTP activities. Personnel must be employees who are paid
+         a salary or wage directly from the applicant organization. Salaries can be calculated and
+         described in the Budget Narrative as an hourly wage with total hours estimated to be
+         spent on the project, or an annual salary with the estimated percentage of the total FTE.
+              o Note that staff time for RHTP administrative tasks, such as reporting to MDH,
+                 should be included in the Administrative Costs category.
+              o The CMS annual salary cap for this funding is $225,700 for executive-level staff
+                 (those with a PhD, MD, or similar degree) and $197,500 for non-executive-level
+                 staff. The annual salary cap is the maximum amount that can be billed to RHTP
+                 annually for an individual’s salary. The annual salary cap is subject to change.
+              o All salaries and hourly rates must be reasonable and justifiable.
+     •   Fringe: This category includes the share of payroll tax, health insurance costs,
+         Medicare/Medicaid, etc. for employees billed to this grant under the Salaries category.
+         If the applicant has expenses in this category, they should explain how they were
+         calculated in the Budget Narrative. Fringe is often calculated as a percentage of salary.
+         Example: $50,000 x 25% fringe = $12,500.
+     •   Equipment: This category includes equipment purchased for implementation/delivery of
+         RHTP activities. Equipment has a unit cost of $10,000 or more. Items below $10,000 are
+         considered supplies.
+
+20
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+     •   Supplies: This category includes supplies purchased for implementation/delivery of
+         RHTP activities.
+     •   Travel: This category includes travel expenses necessary to implement/deliver RHTP
+         activities.
+     •   Contracted Services: This category includes expenses for individuals or organizations the
+         applicant contracts with to implement/deliver RHTP activities. Note that the annual
+         salary cap (see the Salaries line, above) applies to contractors as well.
+     •   Other expenses: If costs do not fit into another category and must be placed in this
+         general category, please include a detailed description of the expenses as they relate to
+         the direct operation of the program.
+     •   Administrative Costs: This category includes all anticipated administrative costs – both
+         direct and indirect expenses – associated with implementing RHTP. Please note
+         that your administrative costs may not exceed 6% of your total budget. The costs listed
+         here should match your response to the Administrative Costs question in an earlier
+         section of your application.
+
+Section 6: Required Application Attachments
+Audited Financial Statements
+Please upload a copy of the most recent independent audit into the online application. If the
+audit encompasses multiple entities within a system or umbrella organization, please provide
+additional financial information, such as an income statement, specific to the applicant entity.
+Due Diligence
+Please complete the Due Diligence Form (PDF) and attach to the online application form.
+Community Health Boards and Tribal Nations do not need to submit this form as part of their
+application.
+
+Section 7: Conflict of Interest
+Applicants will complete the Applicant Conflict of Interest Disclosure form (PDF) in the online
+application.
+
+Section 8: Certification
+Applicants will certify the following:
+I certify that the information contained herein is true and accurate to the best of my knowledge
+and that I am authorized to submit this application on behalf of the organization.
+By submitting this application, I certify that:
+     •   RHTP funds will not be used for any activities that are currently funded, or planned to
+         be funded, by other sources, and
+
+21
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+     •   RHTP funds will not be used to provide the same services to the same beneficiaries as
+         other funding sources or programs.
+
+
+
+
+22
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+RFP Part 5: Attachments
+     •   Attachment A: Application Evaluation Criteria
+     •   Attachment B: Rural Health Transformation Program Ineligible Expenses
+
+
+
+
+23
+                       RURAL HEALTH TRANSFORMATION PROGRAM:
+                    PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Attachment A: Application Evaluation Criteria
+A numerical scoring system will be used to evaluate eligible applications. Scores will be used to
+develop final recommendations.
+Applicants are encouraged to score their own application using the evaluation score sheet
+before submitting their application. This step is not required, but may help ensure applications
+address the criteria evaluators will use to score applications.
+The following scoring system will be applied:
+
+    Rating     Description
+    (0-5)
+
+    5          Excellent: Outstanding level of quality; significantly exceeds all aspects
+               of the minimum requirements; high probability of success; no significant
+               weaknesses.
+
+    4          Very Good: Substantial response; meets in all aspects and in some cases
+               exceeds the minimum requirements; good probability of success; no
+               significant weaknesses.
+
+    3          Good: Generally meets minimum requirements; probability of success;
+               significant weaknesses, but correctable.
+
+    2          Marginal: Lack of essential information; low probability for success;
+               significant weaknesses, but correctable.
+
+    1          Unsatisfactory: Fails to meet minimum requirements; little likelihood of
+               success; needs major revision to make it acceptable.
+
+    0          Blank or did not answer: Applicant did not answer the question or
+               offered no response.
+
+Problem Statement (30 points available)
+•       The applicant describes the need for the project. (5 points available)
+•       The applicant provides adequate documentation or data to support the description of
+        need. (5 points available)
+•       The applicant provides a thorough description of the project. (5 points available)
+•       The description of the project clearly demonstrates the project will address the selected
+        strategies. (5 points available)
+•       The applicant clearly describes the target audience of the project. (5 points available)
+•       The applicant thoroughly describes how the proposed project will meet the needs of the
+        intended audience. (5 points available)
+
+
+24
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Methods (35 points available)
+•    The applicant provides measurable and reasonable project objectives. (5 points available)
+•    The applicant clearly describes the program approach and how they will achieve the
+     proposed project objectives. (5 points available)
+•    The applicant clearly describes how grant funding will be used to carry out project
+     objectives. (5 points available)
+•    The applicant provides a reasonable plan to evaluate the impact of the project. (5 points
+     available)
+•    The applicant demonstrates a staffing plan that is consistent with their ability to complete
+     the project. (5 points available)
+•    The applicant demonstrates experience in the proposed subject matter. (5 points available)
+•    The applicant demonstrates experience working with intended stakeholders. (5 points
+     available)
+
+Work Plan (20 points total)
+•    The applicant proposes a work plan that addresses the needs for this project. (5 points
+     available)
+•    The applicant proposes a work plan that is reasonable. (5 points available)
+•    The applicant provides a thorough description of key activities necessary for project
+     completion. (5 points available)
+•    The applicant proposes a work plan that will be completed within the timeframe of the
+     grant period. (5 available)
+
+Proposal Budget and Budget Narrative (15 points total)
+•    The applicant proposes a reasonable budget. (5 points available)
+•    The applicant provides an adequate budget narrative. (5 points available)
+•    The applicant provides a budget narrative that describes all costs in the proposed budget.
+     (5 points available)
+
+
+
+
+25
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Attachment B: Rural Health Transformation Program Ineligible
+Expenses
+Ineligible expenses for all RHTP activities include but are not limited to:
+•    Supplanting existing state, local, Tribal, or private funding of infrastructure or services, such
+     as staff salaries.
+•    Using RHTP funds for any project or initiative that is currently funded (or planned to be
+     funded) by other sources. Using RHTP funds to pay for the same activities or provide the
+     same services to the same beneficiaries as other funding sources or programs.
+         o All grant-funded activities must be either entirely new or expansions of existing
+             activities. When expanding a program or initiative, grantees may only apply RHTP
+             funds to costs associated with the new population and/or new activities. The costs
+             of the original program must continue to be funded by their current funding
+             sources.
+         o For example, if adding a new remote monitoring service to an existing tele-diabetes
+             education program, eligible expenses might include purchasing new continuous
+             glucose monitoring devices and supplies for the new remote monitoring service,
+             and procuring upgraded software that enables secure continuous glucose
+             monitoring data integration, if the cost difference is directly attributable to the
+             upgraded and necessary functionality. Ineligible expenses would include, for
+             example, paying the salaries of existing educators already providing tele-diabetes
+             education, covering the cost of existing software, and replacing office equipment
+             used by the existing staff.
+         o Another example is expanding an existing chronic disease management program to
+             three additional rural counties. Eligible expenses might include hiring and training
+             new community health workers to serve residents of the three additional counties
+             and purchasing new supplies and educational materials for the additional counties.
+             If existing staff work in the newly added counties as well as previously served
+             counties, only their work in the newly added counties would be eligible for RHTP
+             reimbursement. Ineligible expenses would include, for example, any expense
+             currently or previously covered by any other funding source in the counties
+             previously served.
+•    Costs incurred prior to the execution of your grant agreement.
+•    Administrative costs, including direct and indirect costs, exceeding the 6% limit for Budget
+     Period 1. Note that this limit is subject to change.
+•    Payment for direct health care services is unallowable.
+         o This includes, but is not limited to, replacing payment for clinical services that could
+             be reimbursed by insurance or another form of health coverage. This also includes
+             payments for clinical services if they duplicate billable services and/or attempt to
+             change the payment amounts of existing fee schedules.
+•    Clinician salaries or wage supports may be allowable expenses only if directly related to
+     RHTP. RHTP funds may not pay clinicians, clinicians in training, or other employees for work
+     they are already doing. As with all salaries, only the portion dedicated to RHTP work may
+
+26
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+     be paid with RHTP funds. These conditions apply to the salaries of faculty and preceptors
+     who are clinicians teaching in rural residencies, rural rotations, and other health
+     professional training programs. These conditions also apply to stipends or salaries for
+     residents, rotators, and other health professionals in training.
+•    Salary payments exceeding the annual salary cap. The annual salary cap for this funding is
+     $225,700 for executive-level staff (those with a PhD, MD, or similar degree) and $197,500
+     for non-executive-level staff. The annual salary cap is the maximum amount that can be
+     billed to RHTP annually for an individual’s salary. The annual salary cap is subject to change.
+     All salaries and hourly rates must be reasonable and justifiable.
+•    Paying for patient transportation is generally unallowable.
+•    Meals, unless in limited circumstances such as:
+     o Subjects and patients under study
+     o Where specifically approved as part of the project or program activity, such as in
+       programs providing children’s services
+     o As part of a per diem or subsistence allowance provided in conjunction with allowable
+       travel
+•    Long-term housing for students/trainees. Housing may be provided for up to six months for
+     rural clinical rotations or short-term training programs. This means that RHTP funds may
+     only be used to support housing costs incurred during a rotation or training program of
+     fewer than six months.
+•    Construction or building expansion, purchasing or significant retrofitting of buildings,
+     cosmetic upgrades, or any other cost that materially increases the value of the capital or
+     useful life as a direct cost. Funds also may not be used to supplant funding for in-process or
+     planned construction projects or directing funding towards new construction builds. Funds
+     may not be used for demolition.
+     o Funds may be used for minor renovations or alterations if they are clearly linked to
+       program goals and receive MDH and CMS prior approval. For example, minor
+       renovations to repurpose a hotel for short-term trainee housing or a commercial
+       building for a health care training facility may be eligible.
+     o Examples of minor renovations or alterations include, but are not limited to, installing
+       or relocating interior walls and partitions; upgrading lighting to more energy-efficient
+       systems; replacing vents and thermostats for better climate control; installing
+       automatic door openers to enhance accessibility; and converting private offices to a
+       more open office layout.
+     o Minnesota’s RHTP award has an overall cap on infrastructure and capital expenditures.
+       Review of grantee requests for prior approval of minor renovations or alterations will
+       take into account the cap on this type of spending.
+•    Meeting matching requirements for any other funding source.
+•    Services, equipment, or supports that are the legal responsibility of another party under
+     federal, state, or Tribal law, such as vocational rehabilitation or education services.
+
+
+
+27
+                    RURAL HEALTH TRANSFORMATION PROGRAM:
+                 PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+•    Services, equipment, or supports that are the legal responsibility of another party under
+     any civil rights law, such as modifying a workplace or providing accommodations that are
+     obligations under law.
+•    Broadband infrastructure.
+•    Ongoing operating expenses with no path to sustainability. RHTP funds are intended to
+     support transformational investments.
+•    Goods or services not allocable to the project.
+•    Solicitating donations.
+•    Taxes, except sales tax on goods and services.
+•    Lobbyists, political contributions.
+•    Bad debts, late payment fees, finance charges, or contingency funds.
+•    The cost of independent research and development, including their proportionate share of
+     indirect costs. See 2 CFR 300.477
+•    Purchase of covered telecommunications and video surveillance equipment (See 2 CFR
+     200.216) as well as financial assistance to households for installation and monthly
+     broadband internet costs
+•    There are strict limitations on funding the replacement of an Electronic Medical Record
+     (EMR) system if a previous HITECH-certified EMR system is already in place as of
+     September 1, 2025.
+•    Activities prohibited under 2 CFR 200.450 and the HHS Grants Policy Statement, including
+     but not limited to:
+     o Payments related to any activity designed to influence the enactment of legislation,
+       appropriations, regulation, administrative action, or executive order proposed or
+       pending before the Congress or any state government, state legislature, local
+       legislature or legislative body, including but not limited to paying the salary or expenses
+       of any grant recipient or agency acting for such recipient for such activity
+     o Lobbying, but recipients can lobby at their own expense if they can segregate federal
+       funds from other financial resources used for lobbying
+•    None of the funding shall be used for an expenditure that is attributable to an
+     intergovernmental transfer, certified public expenditure, or any other expenditure to
+     finance the non-federal share of expenditures required under any provision of law.
+•    SSA Section 2105(c), paragraphs (1), (7), and (9) apply as funding limitations. These
+     limitations are related to general limitations, limitations on payment for abortions, and
+     citizenship documentation requirements for payments made with respect to an individual.
+
+
+
+
+28
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+Link References
+     •   Rural Health Transformation Program Funding - MN Dept. of Health
+         (https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/grants.html)
+     •   H.R.1 (Section 71401 of Public Law 119- 21) (PDF)
+         (https://www.congress.gov/119/plaws/publ21/PLAW-119publ21.pdf)
+     •   iECHO (https://iecho.org/become-a-partner/iecho-trainings)
+     •   May 13, 2026 at 11:00 a.m. (Teams)
+         (https://teams.microsoft.com/meet/272987819730608?p=1wrQqhBJxAFslZPxpc)
+     •   The Policy 08-02 on Rating Criteria for Competitive Grant Review (PDF)
+         (https://mn.gov/admin/assets/08-
+         02%20Grants%20Policy%20Revision%20September%202017%20final_tcm36-
+         312046.pdf)
+     •   Project ECHO (https://echo.unm.edu/)
+     •   U.S. Department of Agriculture’s Rural-Urban Commuting Areas (RUCA) classification
+         codes 4-10 (https://www.ers.usda.gov/data-products/rural-urban-commuting-area-
+         codes)
+     •   Rural Urban Commuting Area 4-10 by Zip Code reference table (Excel)
+         (https://www.health.state.mn.us/facilities/ruralhealth/funding/grants/docs/mnruca.xls
+         x)
+     •   Office of Rural Health and Primary Care Funding webpage
+         (https://www.health.state.mn.us/facilities/ruralhealth/funding/index.html)
+     •   MDH Grant Agreement Template (PDF)
+         (https://www.health.state.mn.us/about/grants/grantagreement.pdf)
+     •   Minn. Stat. § 16B.97 (https://www.revisor.mn.gov/statutes/?id=16B.97)
+     •   Policy 08-10 on Grant Monitoring (PDF)
+         (https://mn.gov/admin/assets/grants_policy_08-10_tcm36-207117.pdf)
+     •   State Policy 08-08 on Grant Payments (PDF) (https://mn.gov/admin/assets/08-
+         08%20Policy%20on%20Grant%20Payments%20FY21%20_tcm36-438962.pdf)
+     •   Minn. Stat. § 363A (https://www.revisor.mn.gov/statutes/cite/363A)
+     •   https://www.revisor.mn.gov/statutes/cite/363A.02
+         (https://www.revisor.mn.gov/statutes/cite/363A.02)
+     •   Minnesota Department of Human Rights (https://mn.gov/mdhr/)
+     •   Minn. Rules, part 5000.3550 (https://www.revisor.mn.gov/rules/5000.3550/)
+     •   Minn. Stat. § 16B.98 (https://www.revisor.mn.gov/statutes/?id=16B.98)
+
+
+29
+                     RURAL HEALTH TRANSFORMATION PROGRAM:
+                  PROJECT ECHO FOR MATERNAL AND MENTAL HEALTH
+
+
+     •   Applicant Conflict of Interest Disclosure form (PDF)
+         (https://www.health.state.mn.us/about/grants/coiapplicant.pdf)
+     •   Minn. Stat. § 13.599 (https://www.revisor.mn.gov/statutes/cite/13.599)
+     •   Minn. Stat. § 13.37 (https://www.revisor.mn.gov/statutes/cite/13.37)
+     •   Ch. 13 MN Statutes (https://www.revisor.mn.gov/statutes/cite/13/full)
+     •   Policy 08-06 on Preaward Risk Assessment (PDF)
+         (https://mn.gov/admin/assets/Policy%2008-06%20Pre-
+         Award%20Risk%20Assessment%20Revision%20Version%202.1%20-
+         %20Effective%20Date%20July%201%202025_tcm36-695460.pdf)
+     •   ORHPC Online Grants Portal
+         (https://www.grantinterface.com/Home/Logon?urlkey=mdh)
+     •   ORHPC Grantee Guide (PDF)
+         (https://www.health.state.mn.us/facilities/ruralhealth/funding/grants/docs/2022grantg
+         uide.pdf)
+     •   Unique Entity Identifier (UEI) Name and Number (https://sam.gov/entity-registration)
+     •   Due Diligence Form (PDF)
+         (https://www.health.state.mn.us/about/grants/duediligence.pdf)
+
+
+
+
+30
+

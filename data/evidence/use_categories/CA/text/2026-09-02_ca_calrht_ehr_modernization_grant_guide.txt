@@ -1,0 +1,828 @@
+       CalRHT Technology and Tools
+     EHR Modernization Grant Program
+                     Grant Guide
+               For Grant Year 2026-2027
+                                    Finalized 20260710
+                                         Version 1.0
+
+
+
+
+     2020 WEST EL CAMINO AVENUE, SUITE 1222 • SACRAMENTO, CA 95833
+ “A healthier California where all receive equitable, affordable, and quality health care.”
+
+
+If your program requires approval to contract from a coordinating authority, please inform the
+authority of the terms and conditions contained in the sample grant agreement. Applicants must
+agree to the terms and conditions before receiving funds. The Department of Health Care Access
+and Information will not make changes to the terms and conditions specified in the Grant
+Agreement.
+
+
+The CalRHT program is supported by the Centers for Medicare & Medicaid Services (CMS) of the
+U.S. Department of Health and Human Services (HHS) as part of a financial award totaling
+$233,639,308.46 with 100 percent funded by CMS/HHS. The contents are those of CalRHT and
+do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S.
+Government.
+                                                 Table of Contents
+SECTION I: TECHNOLOGY AND TOOLS EHR MODERNIZATION GRANT PROGRAM .......... 3
+   PURPOSE .................................................................................................................................. 3
+   BACKGROUND AND MISSION ....................................................................................................... 3
+   SUBAWARD FUNDING ................................................................................................................. 4
+   ELIGIBILITY REQUIREMENTS ....................................................................................................... 4
+      Eligible Organizational Settings ............................................................................................ 4
+   ALLOWABLE USE OF FUNDS........................................................................................................ 5
+      Allowable uses of funds include:........................................................................................... 5
+      Budget Category Limitations ................................................................................................ 6
+      Unallowable Costs................................................................................................................ 6
+   PROGRAM STRUCTURE: SUBAWARD PROCESS ............................................................................ 7
+      1. EHR Modernization Grant Program Application Phase ..................................................... 7
+   INITIATING AN EHR MODERNIZATION PROGRAM APPLICATION ...................................................... 7
+   ORGANIZATIONAL APPLICATION DOCUMENTATION........................................................................ 9
+      Organizational Application Requirements ............................................................................. 9
+      E-Signature Legal Sufficiency for Tribal and Public-Body Applicants .................................... 9
+   BUDGET AND WORKPLAN ......................................................................................................... 11
+      Budget Format ................................................................................................................... 11
+      Workplan Elements ............................................................................................................ 12
+      Budget Adjustment ............................................................................................................. 13
+      Indirect Costs and Program Costs Allowance ..................................................................... 14
+   EHR MODERNIZATION GRANTS REVIEW, EVALUATION AND SCORING.......................................... 14
+   EHR MODERNIZATION GRANTS SUBAWARD PROCESS ............................................................... 14
+   POST SUBAWARD AND PAYMENT PROVISIONS ........................................................................... 15
+      i. EHR Modernization Grant Program Resources ............................................................... 16
+      ii. Key Dates ....................................................................................................................... 16
+   EHR MODERNIZATION GRANT PROGRAM AND THE MEDIA .......................................................... 16
+      iii. HCAI Department Contact ............................................................................................. 17
+SECTION II: ATTACHMENTS ................................................................................................... 18
+   ATTACHMENT A: EHR MODERNIZATION GRANT APPLICATION SCORING CRITERIA ....................... 18
+     Scoring Framework ............................................................................................................ 18
+   ATTACHMENT B: EHR MODERNIZATION GRANTS MILESTONES AND PAYMENTS SCHEDULE .......... 20
+     Milestone Framework ......................................................................................................... 20
+
+
+
+
+                                                                                                                          Page 2 of 21
+Section I: Technology and Tools EHR Modernization Grant
+Program
+Purpose
+This CalRHT Technology & Tools EHR Modernization Grant Program Grant Guide for
+Grant Year 2026 (Grant Guide) explains what the EHR Modernization Grant Program is
+and what is required to apply. It includes step-by-step instructions for applicants and
+important rules that subrecipients must follow. Every organizational applicant must
+agree to and meet the program requirements to be subawarded any funding. The
+Department of Health Care Access and Information (HCAI) does not allow any changes
+to the rules listed in this guide.
+
+
+Background and Mission
+The CalRHT EHR Modernization Grants established under Initiative 3: Technology and
+Tools, will provide funds to adopt or replace needed Electronic Health Record (EHR)
+systems, with a focus on rural facilities that are currently unable to effectively exchange
+patient data with other health professionals. In 2026, HCAI expects to subaward up to
+18 grants to hospitals, clinics, tribal entities, and other rural health care organizations in
+California. These funds are allocated separately from other technology grants as a
+safeguard to remain within the constraints of the permissible use of funds for EHR
+replacements.
+EHR Modernization Grants will contribute to the overarching goals of the CalRHT
+program by ensuring technology systems, data exchange, and digital tools support
+coordinated, efficient care delivery across rural networks. The grants will primarily
+achieve this by ensuring rural facilities can purchase and sustain modern, secure EHRs,
+and funding is directed to the entities that describe detailed plans to support EHR
+implementation.
+EHR Modernization Grants fund the foundational systems required for basic data
+exchange and will continue through the five years of the program. Allowable uses are
+limited to core EHR modernization, including adoption and configuration of a first-time
+EHR or replacing an existing EHR. The separate Technology and Tools Improvement
+Grants program will begin in Year 2 and run through Year 5 and is intended to fund the
+tools and capabilities enabled by foundational EHR systems. Those tools may include
+telehealth, e-Consult, cybersecurity, population health, consumer-facing technology,
+performance analytics, care coordination, and advanced interoperability.
+
+
+
+
+                                                                                            3
+Subaward Funding
+This grant year, $11,650,000 in CalRHT Budget Period 1 (BP1) funding will be available
+for EHR Modernization Grants. HCAI aims to fund up to 18 grants. Grants will be
+subawarded up to a maximum of $2 million for BP1 subaward cycle, reflecting the
+expected costs of adoption or replacement of EHRs.
+Subrecipients may apply for additional subawards in subsequent cycles provided they
+continue to meet all eligibility requirements, abide by documented caps and maximums
+on a per health professional basis, and submit a new application. As funding permits, a
+subrecipient may apply annually for an additional subaward. HCAI requires a new
+application for any subsequent subaward cycle.
+
+
+Eligibility Requirements
+Eligible Organizational Settings
+To be eligible, an applicant must be categorized as one of the following service site
+types:
+
+ Eligible organization type                 Notes
+
+ Hospital (rural)                           General acute care hospitals, including Critical
+                                            Access Hospitals (CAH) and rural non-CAH
+                                            hospitals, or acute psychiatric hospitals; facility
+                                            must be physically located in a rural area
+
+ Federally Qualified Health Center (FQHC)   HRSA-certified FQHC site or FQHC Look-
+ or FQHC Look-Alike                         Alike, including Tribal FQHC sites; facility must
+                                            be physically located in a rural area
+
+ Rural Health Clinic (RHC)                  CMS-certified rural ambulatory care site
+                                            physically located in a rural area
+
+ Tribal Clinic or Native American Health    Includes Indian Health Service (IHS)-
+ Center                                     designated facilities and Tribal Health
+                                            Organizations
+
+ Other Comprehensive Community Health       Direct-service rural health facility providing
+ Clinic                                     comprehensive community health services
+
+ Health Care District                       District-based rural health professional or
+                                            service site serving qualifying rural
+                                            communities
+
+
+                                                                                 Page 4 of 21
+ Skilled Nursing Facility or Long-Term Care   Certified skilled nursing or long-term care
+ Facility                                     facility located in a rural area
+
+ County-Operated Health or Behavioral         County government-operated outpatient health
+ Health Facility                              or behavioral health facility located in a rural
+                                              area
+
+
+
+CalRHT uses the federal definition of rural established by the Health Resources and
+Services Administration (HRSA). Applicants can determine whether their service areas
+qualify by using the HRSA Rural Health Grants Eligibility Analyzer, available at
+www.data.hrsa.gov/topics/rural-health/rural-health-eligibility, which is the standard tool
+referenced by both CMS and HCAI.
+Each eligible organization may submit only one application per grant cycle, but it may
+use the grant funds for any number of its own facilities or sites to implement the single
+EHR it is adopting or replacing. For example, a health system with multiple hospitals or
+sites may apply to adopt or replace a single EHR. Joint, consortium, and pass-through
+applications are not permitted — each applicant must hold its own grant agreement with
+HCAI.
+Organizations other than those listed above are not eligible, including but not limited to
+technology vendors and health information exchanges.
+
+
+Allowable Use of Funds
+Allowable uses of funds include:
+
+   •   Adopting and configuring a first-time certified EHR
+   •   Replacing an existing EHR with a certified EHR
+
+Applicants will submit a budget across the following allowable cost categories:
+
+A. EHR Software Licensing and Subscription Fees: initial software licenses, first-
+year SaaS subscription fees, and module add-ons required for the funded EHR system.
+B. Implementation and Configuration: vendor or third-party services to configure,
+deploy, and customize the EHR system, including workflow design, template build,
+interface engine setup, testing support, and clinical documentation configuration.
+C. Data Migration: costs for extracting, cleaning, transforming, and loading existing
+patient data into the new EHR, including historical record archival data mapping, and
+post-migration validation.
+D. Interface and Interoperability Development: internal work to configure and activate
+interoperability capabilities within a new or replaced EHR system, including built-in
+                                                                                  Page 5 of 21
+connectivity with labs, imaging, pharmacy, Health Information Exchanges (HIE) or
+Qualified Health Information Organizations (QHIO), national networks and other
+important or required exchange partners. HIE/QHIO onboarding and participation costs
+are not allowable under this grant.
+E. Training and Change Management: training clinical and administrative staff on the
+new EHR, including vendor training, super-user development, training material
+development support, and on-site go-live coaching. Post-go-live stabilization and first-
+year optimization support are allowable.
+F. IT Hardware and Equipment: hardware directly required for the EHR
+implementation, including servers, network equipment, medical devices, workstations,
+and printers.
+G. Program Costs Allowance (up to 10% of total subaward): documented against
+actual staff time spent coordinating the EHR Modernization Grant project, including
+grant administration, vendor management oversight, reporting, and compliance
+activities.
+Budget Category Limitations
+Funds are intended for adopting and configuring a first-time EHR or replacing an
+existing EHR. EHR upgrades that are not full-scale adoption or replacement are not
+eligible uses of funds for the EHR Modernization Grant but may be permissible in future
+CalRHT Technology & Tools grants.
+Supplanting: EHR Modernization Grant funds may not be used to replace (supplant)
+funding from any other state, federal, local, or private source.
+Indirect costs are not an allowable budget category for the EHR Modernization Grant. In
+place of indirect costs, a 'program costs' allowance of up to 10% of the total subaward
+amount may be used to pay for organization staff time directly coordinating the EHR
+Modernization Grant project, including grant administration, vendor management
+oversight, reporting, and compliance activities. The 10% program costs allowance is
+taken from the total subaward amount (it reduces funds available for direct EHR
+implementation costs) and must be documented against actual staff time spent on grant
+coordination.
+Unallowable Costs
+The following costs are not eligible uses of EHR Modernization Grant subaward funds:
+1. Pre-subaward costs incurred before the grant agreement start date.
+2. Construction, renovation, or building improvements.
+3. Promotional items, advertising and public relations promoting the non-federal entity,
+   meals except in limited circumstances allowed by federal cost principles (e.g.
+   outside of approved per diem during relocation), personal entertainment, or gifts.
+4. Lobbying activities or political contributions.
+
+                                                                            Page 6 of 21
+5. Costs covered by any other HCAI program, federal grant, or employer
+   reimbursement (non-supplantation).
+6. Provider Payments (CalRHT Use of Funds Category B) under the CalRHT initiative.
+7. Duplicate payments to the same individual across CalRHT initiatives or HCAI
+   programs, per the Rural Health Transformation Program (RHTP) Terms and
+   Conditions (T&Cs) §14.
+8. Indirect costs are not allowed; a 10% program costs allowance applies in its place,
+   capped at 10% of the total subaward amount and taken from the total subaward.
+9. Any other cost determined by HCAI or CMS to be unallowable under applicable
+   CMS Standard or Program Terms and Conditions, or under 2 CFR Part 200 Subpart
+   E.
+
+
+Program Structure: Subaward Process
+1. EHR Modernization Grant Program Application Phase
+
+      a. EHR Modernization Grant Program Application Timeline
+
+
+      The EHR Modernization Grant Program Application will be open July 20, 2026, to
+      August 21, 2026. Organizations that meet eligibility criteria may apply for EHR
+      Modernization Grant Program funding.
+
+
+      b. EHR Modernization Grant Agreements with HCAI
+      HCAI will enter into grant agreements directly with subrecipient organizations.
+
+
+Initiating an EHR Modernization Program Application
+Applicants must submit their applications by August 21, 2026, at 3:00 p.m., through the
+web-based EHR Modernization Grant Application located at www.calruralhealth.org.
+  1. Applicants with application questions or technical difficulties should contact HCAI
+      staff at info@calruralhealth.org.
+  2. Applicants must submit applications that are complete and accurate. HCAI may
+      reject an application that is incomplete, inaccurate, or conditional.
+      An individual authorized to represent the applicant shall complete and submit the
+      EHR Modernization Grant Program Application.
+  3. HCAI may modify this Grant Guide prior to the final application submission
+      deadline by issuing an addendum at www.calruralhealth.org.
+  4. Applicants are entirely responsible for costs incurred in developing applications in
+      anticipation of a subaward and shall not charge the State of California for these
+      costs.
+                                                                            Page 7 of 21
+   HCAI considers the submission of an application as acceptance of all terms
+   therein. All organizational applicants must agree to the terms and conditions as
+   outlined in Attachment C. CalRHT EHR Modernization Grant Program Sample
+   Grant Agreement.
+   •   HCAI does not accept alternate grant agreement language from a prospective
+       subrecipient. HCAI will consider an application with such language to be a
+       counteroffer and will reject it. HCAI will not negotiate the terms and conditions
+       outlined in Attachment C.
+5. If your program requires approval from a coordinating authority to enter into a
+   grant agreement with HCAI, please inform the authority of the terms and
+   conditions contained in this document and contact HCAI before submitting an
+   application.
+   •   Prospective subrecipients must sign and submit grant agreements by the
+       HCAI due date. The signed grant agreement is due to HCAI within 45-60 days
+       of subaward notifications to allow time to redistribute funds if necessary.
+       Failure to sign and return the grant agreement by the due date may result in
+       denial of a subaward.
+   •     When the prospective subrecipient is a county or other local public body, the
+         prospective subrecipient must include a copy of the resolution, order, motion,
+         ordinance, or other similar document from the local governing body
+         authorizing execution of the grant agreement with HCAI and confirming the
+         prospective subrecipient's authority to accept, receive, and expend the
+         subawarded grant funds, including up to the applicable maximum subaward
+         amount per award funding cycle ($2,000,000), with the signed grant
+         agreement.
+6. Applicants must verify in their submitted application that they understand and
+    accept all funds provided as part of the EHR Modernization Grant must be for
+    qualifying expenses incurred before September 30, 2027.
+    • If, upon reviewing all application deliverables, HCAI finds that the prospective
+         subrecipient has not met all requirements and/or expended all funds, HCAI
+         will withhold payment(s) and/or request the remittance of funds from the
+         prospective subrecipient.
+7. HCAI may waive an immaterial deviation in an application. HCAI’s waiver of an
+    immaterial deviation shall in no way modify the grant guide or excuse the
+    applicant from full compliance with all requirements, if subawarded.
+8. Ownership and Public Records Act: All reports and the supporting documentation
+    and data collected during the funding period which are embodied in those
+    reports, shall become the property of the State and subject to the California
+    Public Records Act (Gov. Code §§ 7920.000 et seq.).
+9. HCAI will not consider any oral understanding or agreement to be binding on
+    either party.
+10. If, in the opinion of HCAI, an application contains false or misleading information,
+    or if provided documentation does not support an attribute or condition claimed,
+    HCAI shall reject the application.
+                                                                           Page 8 of 21
+   11. HCAI reserves the right to reject any or all applications, or to reduce the amount
+       funded to an applicant based on cause (failure to comply with grant agreement)
+       or in any case prior to the grant agreement being signed by both parties.
+
+
+Organizational Application Documentation
+Organizational Application Requirements
+Organizational Information and Standard Compliance Documentation (no scoring
+points associated):
+   •   Organizational identification and authorized representative information (legal
+       name, state and federal identifiers including Unique Entity Identifier (UEI),
+       Employer Identification Number (EIN), National Provider Identifier (NPI) per site;
+       primary site address; all proposed qualifying sites).
+   •   Active SAM.gov registration record and current Unique Entity Identifier (UEI).
+   •   National Provider Identifier (NPI) and Employer Identification Number (EIN) for
+       each proposed practice site, consistent with CMS Std T&Cs §31 Affirmative Duty
+       to Track All Parties to the Subaward.
+   •   Eligibility documentation demonstrating that each proposed site meets one of the
+       eligible organizational settings listed.
+   •   Federal compliance certifications, signed by the authorized representative.
+   •   Single Audit history disclosure if the applicant has expended $1 million or more in
+       federal subawards in any of the three most recent fiscal years.
+   •   Organizational capacity confirmation that the organization has the administrative,
+       technical, and financial capacity to execute and oversee an EHR implementation
+       project and submit required reports through the program reporting endpoint.
+   •   For counties and public-body applicants: governing body resolution, order,
+       motion, ordinance, or other authorizing action, as applicable, authorizing
+       execution of the grant agreement with HCAI and confirming the applicant's
+       authority to accept, receive, and expend the subawarded grant funds, including
+       up to the maximum applicable subaward amount, $2,000,000.
+   •   High-level budget and workplan; detailed budget required after tentative
+       subaward notification.
+   •   Any other documentation requested by HCAI in the published application
+       instructions.
+
+
+E-Signature Legal Sufficiency for Tribal and Public-Body Applicants
+Tribal and public-body applicants using electronic signatures must ensure the signature
+method is legally sufficient to bind the applicant and any required governing authority.
+HCAI may request additional documentation of signature authority before issuing or
+executing a subaward.
+
+                                                                             Page 9 of 21
+Documentation supporting the Baseline Capability Gap scoring criterion (up to 25
+points):
+
+For each proposed site, the following documentation must be supplied:
+Current state EHR status: whether the site currently operates no EHR, a non-certified
+EHR, or a certified EHR; name and version of any existing system; approximate
+implementation year; and a description of the specific functional limitations,
+interoperability gaps, public health reporting gaps, or certification deficiencies driving the
+need for adoption or replacement.
+Technology needs narrative: describing the patient population served, the care
+coordination and data exchange challenges attributable to current EHR status, and how
+adoption or replacement will address those challenges. A strong rationale includes
+innovative approaches such as enabling AI-assisted care, population health
+management, patient engagement, staff efficiency, revenue cycle improvement, or
+QHIO/HIE/national network connectivity.
+
+Documentation supporting the Feasibility and Vendor Readiness scoring criterion
+(up to 30 points):
+
+Proposed EHR solution overview: identifying the procurement approach (first-time
+adoption or full replacement), anticipated vendor or vendor type if known, key
+implementation phases and sequence, and expected timeline from contract execution to
+go-live. Applicants with a named vendor, letters of intent from a vendor, or attestation
+from a vendor will score more competitively.
+Business requirements documentation: summarizing the clinical workflow, reporting,
+and integration requirements the new EHR must meet.
+Complete implementation plan as described below.
+
+Documentation supporting the Regional Network Integration scoring criterion (up
+to 15 points):
+
+Regional integration narrative: describing how EHR modernization at the funded site(s)
+will advance regional health network goals, improve referral and care coordination
+pathways, and contribute to rural health outcomes in the service area.
+California Data Exchange Framework (DxF) connectivity plan: DxF participation is a
+requirement for subrecipients. The plan must describe current Data Sharing Agreement
+(DSA) signatory status, QHIO/HIE connection status or national network participation,
+and planned approach to greater data exchange and connectivity capabilities.
+
+Documentation supporting the Cybersecurity and Privacy Plan scoring criterion
+(up to 5 points):
+
+
+                                                                               Page 10 of 21
+Cybersecurity attestation: confirming that the applicant’s EHR implementation will
+comply with applicable federal cybersecurity requirements, and the organization has, or
+will have by grant agreement execution, a cybersecurity plan consistent with HHS
+Health Industry Cybersecurity Practices (HICP) guidelines.
+
+Documentation supporting the Budget and Sustainability scoring criterion (up to
+25 points):
+
+Budget: demonstrating that the requested amount is consistent with the scope of work
+and that the applicant has accounted for total project cost beyond the grant ceiling, if
+applicable. Detailed budget required after tentative subaward notification.
+Sustainability plan: as part of the budget, describing how the organization will maintain
+and fund EHR operations after grant funds are expended, including: (a) projected
+ongoing costs for licensing, maintenance, IT staffing, and future system updates; (b)
+specific funding sources that will cover those costs; and (c) where total initial
+implementation cost exceeds the $2,000,000 grant ceiling, a credible co-funding plan
+identifying confirmed or anticipated sources and timing. A plan that does not account for
+total project cost will score lower under the Budget and Sustainability criterion.
+
+
+Budget and Workplan
+Budget Format
+Each organizational applicant must submit a budget at application aligned to the EHR
+Modernization Grant cost categories below. After tentative subaward notification,
+organizations selected for subaward will submit a detailed budget with annual
+allocations by funding category. Every budget must, where applicable, disclose the total
+estimated cost of EHR implementation, identify and quantify any gap between the grant
+subaward and total project cost, and explain how the full implementation will be funded,
+including the sources and timing of co-funding. HCAI will not subaward grants where the
+budget does not credibly demonstrate that the project can be completed.
+The budget must include the following cost categories:
+A. EHR Software Licensing and Subscription Fees: initial software licenses, first-
+   year SaaS subscription fees, and module add-ons required for the funded EHR
+   system.
+B. Implementation and Configuration: vendor or third-party services to configure,
+   deploy, and customize the EHR system, including workflow design, template build,
+   interface engine setup, testing support, and clinical documentation configuration.
+C. Data Migration: costs for extracting, cleaning, transforming, and loading existing
+   patient data into the new EHR, including historical record archival data mapping, and
+   post-migration validation.
+                                                                           Page 11 of 21
+D. Interface and Interoperability Development: internal work to configure and
+   activate interoperability capabilities within a new or replaced EHR system, including
+   built-in connectivity with labs, imaging, pharmacy, HIE/QHIO, national networks and
+   other important or required exchange partners. HIE/QHIO onboarding and
+   participation costs are not allowable under this grant.
+E. Training and Change Management: training clinical and administrative staff on the
+   new EHR, including vendor training, super-user development, training material
+   development support, and on-site go-live coaching. Post-go-live stabilization and
+   first-year optimization support are allowable.
+F. IT Hardware and Equipment: hardware directly required for the EHR
+   implementation, including servers, network equipment, medical devices,
+   workstations, and printers.
+G. Program Costs Allowance (up to 10% of total subaward): documented against
+   actual staff time spent coordinating the EHR Modernization Grant project, including
+   grant administration, vendor management oversight, reporting, and compliance
+   activities.
+Additionally, the budget must include:
+Non-Supplantation: confirming no overlap with other HCAI programs, federal grants,
+state, local, private, or other funding sources. Any other federal funding for the same
+activities must be identified and subtracted. Applicants will attest that CalRHT funding
+will not supplant existing funding or result in duplicative funding for the same activities
+from another funding source.
+Sustainability plan: describing how the organization will maintain and fund EHR
+operations after grant funds are expended.
+Total Project Cost and Co-Funding Plan: a statement of the total estimated cost of
+EHR implementation across all funded sites, the amount requested under this grant,
+and the gap between them. For each source of co-funding identified to cover the gap --
+such as operating reserves, capital budget, other grants, financing, or philanthropy --
+the budget narrative must indicate the amount, the funding source, and its confirmed or
+anticipated status. Co-funding that is not yet secured must be clearly identified as
+anticipated, with an explanation of how and when it will be obtained.
+
+Budget must not exceed documented eligible expenses. Other federal funding must be
+subtracted, if applicable. HCAI will not release the first payment until the detailed budget
+is approved.
+
+Workplan Elements
+A workplan is required as part of the application package. EHR Modernization Grant
+subrecipient workplans must align with CalRHT program goals and objectives. Each
+organizational applicant must submit a workplan including the following elements:
+                                                                             Page 12 of 21
+•   Vendor selection and implementation plan: describing the approach to selecting
+    an EHR vendor or implementation partner, including evaluation criteria, procurement
+    process, and expected contract execution date. Applicants with a named vendor,
+    letters of intent from a vendor, or attestation from a vendor will score more
+    competitively.
+•   California Data Exchange Framework (DxF) connectivity plan: DxF participation
+    is a requirement for subrecipients. The workplan must describe: current DSA
+    signatory status, QHIO/HIE connection or national network participation status, and
+    planned approach to implementing the DxF.
+•   Reporting plan aligned to annual financial Reports, annual activity Reports,
+    streamlined quarterly financial and performance reports, and streamlined monthly
+    subrecipient activity and financial reporting.
+•   Cybersecurity and Privacy Plan Attestation — Attest that EHR implementation
+    will comply with applicable federal cybersecurity requirements, and that the
+    organization has (or will have by grant execution) a cybersecurity plan consistent
+    with HHS Health Industry Cybersecurity Practices (HICP). A standardized security
+    risk assessment is required for Milestone 3.
+
+Annual milestones and key activity dates aligned to CalRHT BP1 federal obligation
+October 30, 2026, notice of subaward (NOA) August/September 2026, execute grant
+agreements September/October 2026, and final HCAI payment no later than September
+30, 2027.
+
+Budget Adjustment
+After full review, HCAI intends to issue tentative subawards. Organizations selected for
+tentative subawards will be required to submit a detailed budget that aligns with the
+subaward amount offered by HCAI.
+HCAI may adjust requested amounts based on total available funding, geographic and
+facility type distribution priorities, applicable Tribal set-aside requirements, technology
+need, and application score relative to the eligible applicant pool.
+Once the detailed budget is approved and the grant agreement is issued, the
+subrecipient has seven (7) business days to electronically sign and accept or decline
+the agreement. Agreements not signed within this period may be considered declined.
+Subsequent budget adjustment requests during the subaward period must be submitted
+to HCAI in writing at least 90 days before the grant end date. Adjustments must remain
+within the total approved subaward amount; a budget adjustment may not increase the
+total subaward.
+
+
+
+
+                                                                              Page 13 of 21
+Indirect Costs and Program Costs Allowance
+Policy for EHR Modernization Grant subrecipients:
+Indirect costs are NOT allowed for EHR Modernization Grant subrecipients. The federal-
+level indirect cost recovery is being charged by HCAI against the CalRHT cooperative
+agreement at the 10% de minimis Modified Total Direct Cost (MTDC) rate; EHR
+Modernization Grant subrecipients do not separately charge indirect costs.
+In place of indirect costs, EHR Modernization Grant allows a 'program costs' allowance
+of up to 10% of the total subaward amount. The 10% program costs allowance may be
+used to pay for organization staff time spent coordinating the EHR Modernization Grant
+program.
+The 10% program costs allowance is taken from the total subaward amount (it reduces
+funds available for direct EHR implementation costs, it is not in addition to them).
+Subrecipients must document program costs against actual staff time spent on EHR
+Modernization Grant coordination. Program costs may not be used to bypass the
+Executive Level II salary cap or to fund unallowable activities.
+The 10% program costs election must be documented in the subrecipient's approved
+budget.
+
+
+EHR Modernization Grants Review, Evaluation and Scoring
+HCAI will make final selections using the Evaluation and Scoring Criteria described in
+Attachment A: EHR Modernization Grants Evaluation Criteria.
+HCAI reserves the right to determine the number of grant agreement(s) subawarded
+and to modify the amount subawarded to each subrecipient. Competitive proposals will
+meet the EHR Modernization Grants evaluation criteria and demonstrate commitment to
+fulfill the conditions of the grant.
+During the review process, HCAI staff will verify the presence or absence of required
+information as specified in this grant guide and score applications using only the
+evaluation criteria described in Attachment A: EHR Modernization Grants Evaluation
+Criteria. The most competitive applicants will be those most consistent with the intent of
+this grant opportunity.
+
+
+EHR Modernization Grants Subaward Process
+After full review, HCAI intends to issue tentative subawards. Subrecipients selected for
+tentative subawards will then be required to submit a detailed budget, including annual
+allocations by funding category. This budget must align with the subaward amount
+offered by HCAI. The milestones and timeline table is for planning purposes only, and
+can fluctuate depending on acceptance of grant agreement terms.
+
+                                                                            Page 14 of 21
+ Milestone                                          Timeline
+
+ RFA release date                                   July 20, 2026
+ Application window opens                           July 20, 2026
+ Application window closes                          August 21, 2026
+ Completeness review complete                       August/September 2026
+ Scoring review complete                            August/September 2026
+ Subaward notifications issued                      September 2026
+ Grant agreements executed                          September/October 2026
+ First payment disbursed                            October/November 2026
+ Final payment disbursed                            No later than September 30, 2027
+
+
+
+Post Subaward and Payment Provisions
+Subrecipient agreements will expire on November 30, 2032, or earlier. Under no
+circumstances shall payments to the subrecipient be made after September 30, 2027.
+Subrecipients must submit annual financial Reports, annual activity Reports, a
+streamlined quarterly financial and performance report, and streamlined monthly
+subrecipient activity and financial reporting. Monthly and quarterly reporting captures
+obligation, expenditure, health professional subaward status, and service-obligation
+compliance to support HCAI reporting to CMS.
+HCAI and/or its designee will make prospective payments beginning in 2026 after
+required detailed budgets, financial reports, activity reports, and other required
+documentation have been reviewed and approved by HCAI and/or its designee for
+quality and accuracy. Under no circumstances shall payments be made after
+September 30, 2027.
+Further detail on milestones requirements and payments schedule for subrecipients is
+included in Attachment B: EHR Modernization Grants Milestones and Payments
+Schedule.
+
+
+
+
+                                                                            Page 15 of 21
+i. EHR Modernization Grant Program Resources
+For more information about the resources available regarding the application process,
+visit www.calruralhealth.org, where you can find:
+
+1. Grant Guide: Outlines the requirements, rules, and timeframes between HCAI and
+   its subrecipient.
+2. Technical Assistance Guide: Assists applicants and subrecipients with navigating
+   the web-based Funding Portal and submitting required deliverables.
+   https://fundingportal.hcai.ca.gov/
+3. Webinar: A formal presentation to provide information to prospective applicants.
+
+
+ii. Key Dates
+The key dates for the program year are:
+
+ Key Event                                Dates and Times
+
+ Application Launch                       July 20, 2026, at 3:00 p.m.
+
+ Technical Assistance Webinar             July 2026
+
+ Application Period Ends                  August 21, 2026, at 3:00 p.m.
+
+ Notify Subrecipients                     September 2026
+
+ Grant Agreement Execution                September/October 2026
+
+
+
+EHR Modernization Grant Program and the Media
+As a state department, HCAI is responsible for what it releases to the public and is
+required to provide information to anyone who requests it under and subject to the
+provisions of the California Public Records Act. HCAI reviews all information for
+accuracy, risk, relevancy, and other factors. The office also coordinates timing for all
+HCAI news and press engagements in conjunction with other news coming out from the
+California Health and Human Services Agency (CalHHS) and the Governor’s Office.
+Subrecipient organizations must take this into consideration when preparing media
+statements or press releases about its programs. If an entity is engaging with the media
+to promote its grant award and/or program activities, there are important steps to follow:
+   •   All subrecipient organizations are required to submit press releases for review by
+       HCAI for review and approval a minimum of two weeks in advance of the
+       intended publication date.
+
+
+                                                                            Page 16 of 21
+   •   Subrecipient organizations understand that portions, or the entirety, of its press
+       release may be used by HCAI, CalHHS, or the Governor’s office, and may be
+       changed without notice to the Subrecipient.
+   •   If HCAI, CalHHS, or the Governor’s Office issues a press release or statement
+       about an award the grantee subrecipient received, but does not use the awarded
+       organization’s press announcement, the subrecipient may issue its release after
+       HCAI, CalHHS, or the Governor’s Office issues a statement. The draft release
+       must still be reviewed by HCAI before release.
+   •   For some grants or programs, a pre-approved press release template may be
+       developed in a tool kit for the program, which may reduce the review/approval
+       time by HCAI. (This does not apply to all grants; please contact your program
+       officer for this information at CalRHT@hcai.ca.gov)
+   •   Any discussion regarding media engagements or press releases should only be
+       directed to and approved by HCAI staff.
+   •   Subrecipient organizations should stay in close contact with grant managers and
+       provide any detailed plans related to news media engagement.
+
+Prospective applicants may submit questions to info@calruralhealth.org at any time
+during the application cycle.
+iii. HCAI Department Contact
+For questions related to the EHR Modernization Grant application, please email HCAI
+staff at info@calruralhealth.org.
+
+
+Thank you!
+
+
+We thank you for your interest in applying for the CalRHT Technology and Tools EHR
+Modernization Grant Program.
+
+
+
+
+                                                                           Page 17 of 21
+Section II: Attachments
+Attachment A: EHR Modernization Grant Application Scoring
+Criteria
+
+Scoring Framework
+HCAI will use the 100-point evaluation rubric set forth in Attachment A to score eligible
+applications. The rubric assesses CMS-approved factors including:
+       •   Baseline capability gap,
+       •   Feasibility and vendor readiness,
+       •   Regional network integration value,
+       •   Cybersecurity and privacy plan, and
+       •   Budget and Sustainability.
+HCAI reserves the right to make funding and scoring decisions that account for
+additional factors such as geographic parity, operational readiness (e.g., as
+demonstrated in implementation and workforce plans), and fund availability.
+Scoring Criteria for CalRHT EHR Modernization Grants Program
+
+Core Categories       Guideline                                                   Max
+                                                                                  Points
+                                                                                  Possible
+
+Baseline capability   No EHR, paper-based records, or a non-certified EHR     25
+gap                   with a strong replacement rationale (up to 25 points)
+                          • Certified EHR with a strong replacement rationale
+                              (up to 15 points)
+                          • No EHR, paper-based records, a non-certified or
+                              certified EHR with a weak replacement rationale
+                              (5 points)
+                          • No documented capability gap (0 points)
+
+Feasibility and       Detailed Vendor selection and implementation plan,          30
+vendor readiness      including vendor identification. Plan includes business
+                      requirements and demonstration of identified vendor’s
+                      capacity to support applicant (up to 30 points)
+                      Vendor selection and implementation plan is present,
+                      with some commitment to vendor selection (up to 15
+                      points)
+
+
+                                                                                Page 18 of 21
+                      Vendor Selection and implementation plan includes
+                      identified vendor but with unclear or limited details (up to
+                      10 points)
+                      No Vendor selection and implementation plan or vendor
+                      identification (0 points)
+
+Regional network      Vendor selection and implementation plan details how             15
+integration value     EHR modernization will significantly advance regional
+                      integration and improve rural health outcomes in
+                      applicant’s region (up to 15 points)
+                      No clear plan for regional integration (0 points)
+
+Cybersecurity and        •   Attestation with commitment to developing a       5
+privacy plan                 Cybersecurity and Privacy Plan aligned with HHS
+                             Health Industry Cybersecurity Practices (HICP) (5
+                             points)
+                         •   Absent attestation with commitment to developing
+                             a Cybersecurity and Privacy Plan (0 points)
+
+Budget and            Detailed line-item budget aligned with proposed scope,     25
+Sustainability        credible Total Project Cost and Co-Funding Plan, and
+                      detailed, plausible Sustainability Plan (up to 25 points)
+                      Reasonable, high-level budget identifying Total Project
+                      Cost and Co-Funding Plan, with basic Sustainability Plan
+                      (up to 15 points)
+                      Budget lacks detail and does not adequately address full
+                      funding, insufficient Sustainability Plan (up to 5 points)
+                      Budget and Sustainability plan does not exist or is
+                      inconsistent, incomplete, or contains unallowable uses (0
+                      points)
+
+Total Points                                                                           100
+Possible
+
+
+
+During the review process, HCAI staff will verify the presence or absence of required
+information as specified in this Grant Guide and score applications using only the
+evaluation criteria described in Attachment A.
+
+
+
+
+                                                                                     Page 19 of 21
+     Attachment B: EHR Modernization Grants Milestones and
+     Payments Schedule
+
+     Milestone Framework
+     HCAI will require subrecipients to follow the milestone structure in Attachment B: EHR
+     Modernization Grants Milestones and Payments, with subawarding of funds tied to
+     specific requirements for subrecipient.
+     Milestones and Payments Schedule for CalRHT EHR Modernization Grants
+     Program
+
+Milestone             Requirements                                          Date          Payment
+
+Milestone 0 –         Completed Project Implementation Plan including       Prior to      0%
+Signed Grant          budget and workplan approved by HCAI and adjusted     October 30,
+Agreement             to final grant amount                                 2026
+
+Milestone 1 -            •   Completed Milestone 0                          TBA           40%
+Procurement and
+                         •   Completed Technology Readiness Assessment
+Implementation
+                             with demonstrated feasibility
+Launch
+                         •   Signed contract with EHR vendor dated post-
+                             grant agreement execution
+
+Milestone 2 –            •   Completed Interim Report                       TBA           0%
+Interim Report and
+                         •   Completed Required Baseline Training
+Compliance
+
+Milestone 3 – Final      •   Completed Milestone 2                          Prior to      60%
+Report                                                                      September
+                         •   Completed Final Report, including confirmed
+                                                                            30, 2027
+                             go-live with EHR and percent of health
+                             professionals using new system
+                         •   Confirmed Signatory of DSA
+                         •   Metrics requirements
+                                o   Hospitals: Connection to a national
+                                    network or QHIO
+                                o   Primary care: Reporting data exchange
+                                    capabilities
+
+
+
+
+                                                                                   Page 20 of 21
+o   Completion of standardized security risk
+    assessment
+o   Data managed by technology with a
+    sustained cybersecurity certification
+o   Patient portal access
+
+
+
+
+                                               Page 21 of 21
+

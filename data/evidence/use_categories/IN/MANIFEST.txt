@@ -1,0 +1,32 @@
+file: 2026-11-24_in_rhtp_project_summary.pdf
+source_url: https://www.in.gov/grow-rural-health/files/RHTP-ProjectSummary.pdf
+fetched_utc: 2026-11-24T14:58:27Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 293536
+sha256: a4720ebb5ddda8370918302d4cdc2f94c0397c0773b245e1a1bed84a50367283
+
+file: 2026-11-24_in_grow_regional_grants_request_for_funding.pdf
+source_url: https://www.in.gov/grow-rural-health/files/Request-for-Funding-Growing-Rural-Opportunities-for-Well-being-GROW-Regional-Grants-Program.pdf
+fetched_utc: 2026-11-24T14:58:28Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 960317
+sha256: c37b496fbe8de32e1d632fd84755e039dfc60286020d630256831bc0ff603642
+
+file: 2026-11-24_in_rhtp_narrative.pdf
+source_url: https://www.in.gov/grow-rural-health/files/RHTP-NarrativeIN.pdf
+fetched_utc: 2026-11-24T14:58:47Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 3454063
+sha256: 844560e23b4ffd9b17c00aea6a5fac7b96abeb7745e2bb47a26647b8caeafe89
+
+file: 2026-11-24_in_grow_initiative_7.html
+source_url: https://www.in.gov/grow-rural-health/initiatives/initiative-7
+fetched_utc: 2026-11-24T14:59:20Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 32545
+sha256: 0d4eeff3b267a9fe8db82a6a91a63fb6eb413697ee8000662b6bc9ff55033dd4
+

@@ -1,0 +1,2955 @@
+          NEVADA
+    RURAL HEALTH                             Submitted by:
+                                             Nevada Health
+                                             Authority
+ TRANSFORMATION
+GRANT APPLICATION
+       Opportunity Number: CMS-RHT-26-001
+
+                          November 5, 2025
+                                                       Table of Contents
+
+I.       Project narrative: Introduction ......................................................................................... 2
+II.      Rural health needs and target population ....................................................................... 2
+      A. The Target Population ..................................................................................................... 3
+      B. Rural Health Needs .......................................................................................................... 3
+III. Rural health transformation plan: goals and strategies ................................................. 8
+      A.       Goal 1: Make rural Nevada healthy again ................................................................15
+      B.       Goal 2: Strengthen rural health systems.................................................................15
+      C.       Goal 3: More rural network providers......................................................................15
+      D.       Goal 4: Fill gaps with innovative tech solutions .....................................................16
+IV. Proposed Initiatives and Use of Funds ..........................................................................20
+      A.       Initiative #1: Rural Health Outcomes Accelerator Program ...................................20
+      B.       Initiative #2: Nevada Rural Health System Flex Fund.............................................25
+      C.       Initiative #3: Workforce Recruitment & Rural Access Program .............................29
+      D.       Initiative #4: Rural Health Innovation & Technology (RHIT) Grant ........................34
+V.       Implementation Plan & Timeline .....................................................................................38
+VI. Stakeholder Engagement ................................................................................................45
+VII. Metrics & Evaluation Plan ...............................................................................................48
+VIII. Sustainability Plan ...........................................................................................................53
+
+
+
+
+                                                                                                                                      1
+I. Project narrative: Introduction
+
+Rural Nevadans face significant challenges when trying to access health care. The
+
+state’s vast and remote geography, mountainous and desert terrains, low population
+
+density, and limited number of rural healthcare providers contribute to these
+
+challenges.i Because of these conditions, many rural residents live in what some refer
+
+to as healthcare deserts—meaning they lack adequate access to critical healthcare
+
+services.ii
+
+
+Thanks to the new federal grant opportunity made available through the Rural
+
+Health Transformation (RHT) Program, Nevada has an unprecedented opportunity to
+
+transform its rural healthcare system into one that is more accessible, innovative, and
+
+sustainable. As outlined in the state’s application, Nevada intends to deploy a
+
+coordinated and targeted strategic plan that will be led by the Nevada Health Authority
+
+in collaboration with state and local partners and a steering committee with broad
+
+representation from rural hospitals and providers, healthcare experts, community
+
+stakeholders, rural residents, and state, tribal, and local health officials.
+
+
+II. Rural health needs and target population
+
+Nevada is the 7th largest state in the country, encompassing 110,577 square miles
+
+with two major deserts and the largest number of mountain ranges in the country.iii
+
+According to the U.S. Health Resources and Services Administration (HRSA), only
+
+three Nevada counties are considered urban with three of the remaining counties
+
+labeled as rural and 11 labeled as frontier (i.e., remote areas of wilderness).iv
+
+Although rural and frontier counties make up about 90 percent of the state’s land
+
+mass (at 95,500 square miles), only 10 percent of the state’s population live in these
+
+areas.v
+                                                                                      2
+See Attachment labeled Rural Demographics for a graphic representation of the state’s
+
+rural land mass and Rural-Urban Commuting Areas.
+
+A. The Target Population
+
+The target population consists of about 294,000 residents who live in the 14 counties
+
+designated as rural and frontier by HRSA. vi These counties are also home to 24 of the
+
+state’s 28 federally recognized Tribal nations, bands, and councils. vii Twenty-seven
+
+percent of the state’s prison population are in rural and frontier counties. viii
+
+
+Nevada hospitals and clinics operating in rural and frontier counties will be eligible to
+
+benefit from this new federal grant opportunity. Academic institutions and other state, local
+
+or private entities, non-rural providers and vendors that collaborate with the state and
+
+rural health delivery systems to expand access to care and improve health outcomes in
+
+rural Nevada may also be eligible to benefit from these grant funds – with the requirement
+
+that these funds primarily benefit the rural healthcare system and rural residents.
+
+
+Additionally, all RHT funds must be used for, and stay within, the state of Nevada. The
+
+terms and conditions of federal awards will flow down to subawards and subrecipients
+
+per relevant cost limitations, and subawards or contracts will be consistent with the
+
+requirements specified by CMS and the state’s approved application.
+
+B. Rural Health Needs
+
+Demographics for Nevada’s rural population are as follows in the table below:
+
+Table 1: Rural Demographics
+
+        Statistics        Demographics
+         11.5%            Live in poverty
+          16%             Rural children live in poverty
+
+
+                                                                                           3
+          26%              Enrolled in Medicaid
+          25%              Enrolled in Medicare
+   $40,694 to $92,388      Median household income (2022)
+           9%              Uninsured rate
+          15%              % of state’s total veteran population in rural
+          85%              Graduated from high school
+         18.7%             Hold a bachelor’s degree or higher
+          37%              Receive Social Security and retirement
+          10%              Receive unemployment benefits
+          74%              White/Caucasian residents
+          18%              Hispanic residents
+           4%              Native American residents
+           2%              Asian American and African American
+          58%              Ages 18-64 years old
+          22%              Over age 64
+          18%              Under the age of 18
+          27%              % of state prison population
+Nevada Rural & Frontier Health Data Book, 2025.
+
+
+There are 14 rural and frontier hospitals in Nevada with 20 provider-based rural health
+
+clinics (RHCs). Of these 14 hospitals, six are not-for-profit publicly owned hospitals, four
+
+are not-for-profit privately owned hospitals, three are for-profit privately-owned hospitals
+
+and one is a not-for-profit non-governmental hospital. The state also has 11 federally
+
+qualified health centers (FQHCs) and 3 certified community behavioral health centers
+
+(CCBHCs) that operate in rural and frontier counties. For rural Tribal communities,
+
+Nevada also has 13 Tribal and Indian Health Service (IHS) clinics and health centers. ix
+
+
+Even with this mix of healthcare clinics and facilities, significant gaps in the continuum of
+
+care remain in rural and frontier counties. Rural residents lack local opioid treatment
+
+programs, sole community hospitals (SCHs), rural referral centers, Medicare-dependent
+
+hospitals, low volume hospitals, and rural emergency hospitals (REHs).
+
+
+On average, rural residents must drive approximately 56 miles to access the nearest
+
+hospital or 109 miles to access the nearest tertiary care hospital for specialized
+
+treatment. x These figures highlight the spatial isolation and vast geographic distances
+
+                                                                                           4
+that characterize most rural communities in Nevada.
+
+
+Additionally, over the last two decades, Nevada has experienced health facility closures
+
+across the state—resulting in critical gaps in care and greater inconvenience for rural
+
+Nevadans who relied on these health facilities. These closures included two low-volume
+
+hospitals and two FQHCs that served rural communities. One of these facilities was
+
+located on Tribal land, further compounding the historic health challenges for Tribal
+
+communities in that region of the state. xi
+
+
+These closures emphasize the vulnerability of the essential healthcare infrastructure in
+
+underserved regions of Nevada and highlight the urgent need for targeted investments to
+
+preserve and strengthen rural and Tribal health systems. Furthermore, six of the private
+
+CAHs currently serving rural residents are recipients of supplemental payments under the
+
+state’s private hospital provider tax. xii Due to changes to these tax programs under H.R.
+
+1 (2025), these six CAHs will experience revenue reductions once these changes begin
+
+to go into effect over the next three-to-five years.
+
+
+Every county in Nevada has one or more federal Health Professional Shortage Areas
+
+(HPSAs) designations, with 75 HPSAs for primary care, behavioral health, and dental
+
+services; and of these, 38 are in rural or partially rural counties. xiii Approximately 250,000
+
+people (about 8% of the state’s population) live in rural communities with little to no access
+
+to primary care. xiv And it is not just a rural issue; more than two-thirds of Nevadans (about
+
+2.3 million people) live in areas that do not have an adequate number of primary care
+
+providers (Primary Care HPSA). The state also consistently ranks near the bottom
+
+nationally in the availability and number of physicians and nursing professionals as
+
+
+                                                                                             5
+illustrated in Figure 1 below. xv
+
+Figure 1: Nevada’s National Rankings for Healthcare Provider Access
+
+                     45th           # of Active Physicians                A deeper analysis
+                     48th           # of Primary Care Physicians
+                                                                          of these statistics
+                     49th           # of General Surgeons
+                                                                          reveals substantial
+                     50th           # of Nurses
+gaps in key clinical roles across rural and underserved areas. For example, in urban areas
+
+of the state, there are on average 101.2 primary care physicians per 100,000 residents,
+
+whereas in rural areas, there are only 60 primary care physicians on average per 100,000
+
+residents. xvi The rural nursing care disparity is even more acute, where the ratio falls to
+
+only 6.03 nurses per 1,000 people. xvii
+
+Given these figures, it is no surprise that the state has only met 44 percent of its
+
+healthcare provider capacity needs. xviii According to HRSA, Nevada must attract 156
+
+more providers, including 78 primary care providers, 52 behavioral health professionals,
+
+and 26 dental practitioners, to meet the basic needs of residents. xix Additionally, to meet
+
+national per capita employment rates for nurses, Nevada would need to add 4,913 RNs,
+
+717 APRNs, 3,154 LPNs, and 5,372 CNAs. xx
+
+Table 2: Nevada’s Shortages & Provider Capacity Needs
+
+                           HPSA              Rural-Only      #Providers      % of    Needs
+                           (Shortages)       HPSAs           Needed          Met3
+                                             (Shortages)
+ Primary Care              32                18              78              43.7 %
+ Behavioral Health         27                13              52              41.9 %
+ Dental Services           16                7               26              39.4 %
+ Total/Statewide           75                38              156             44% (avg)
+
+The impacts of these healthcare workforce challenges are evident in Nevada’s health
+
+rankings as compared to other states. Nevada continually ranks in the bottom ten,
+
+
+                                                                                             6
+nationally, in health quality, outcomes, and access, with alarming rates of chronic
+
+conditions, maternal and infant morbidity and mortality, and mental health outcomes. xxi
+
+With respect to specific health statistics in rural Nevada, the leading causes of death
+
+among rural Nevadans are heart disease, cancer, and chronic lower respiratory disease
+
+(CLRD), with age-adjusted CLRD rates being higher in rural regions than urban.
+
+
+Figure 2: Leading Causes of Death in Rural Nevada
+
+
+                                                                  Lower Respiratory
+    Heart Disease                      Cancer
+                                                                      Disease
+
+
+                    1st                            2nd                               3rd
+
+
+
+The following statistics provide a snapshot of other population health indicators:
+
+•   The prevalence of adult diabetes increased over the past decade with rates slightly
+
+    higher in rural versus urban counties.
+
+•   Larger percent of adults in rural counties smoke as compared to urban counties.
+
+•   Over the past decade, the prevalence of adult obesity increased in most counties of
+
+    Nevada with the highest rates in rural counties.
+
+•   About 74% of screened rural and frontier children had tooth decay experience versus
+
+    65% of students screened in Urban areas.
+
+•   Since 2014 several Nevada Rural Counties (Esmeralda County, Lander County,
+
+    Pershing County, and White Pine County) are dental care deserts for Medicaid
+
+    recipients and those with low to no dental insurance.
+
+
+                                                                                           7
+•   Certain rural counties have the highest rates of alcohol consumption and smoking
+
+    during pregnancy and higher rates of premature birth.
+
+•   State data on maternal behaviors and birth outcomes indicate substantial barriers
+
+    faced by women seeking prenatal care in rural areas that translate into low-birth-
+
+    weight babies and premature births.
+
+•   Rural counties in total have higher rates of childhood disabilities than urban
+
+    counties,   specifically   developmental   delays,   speech/language    and   hearing
+
+    impairments and other impairment disabilities.
+
+•   Certain rural counties have the highest all-cause mortality rates in the state.
+
+•   Northern rural Nevadans (22.7 percent) and southern rural Nevadans (24.3 percent)
+
+    have a higher percentage of mental illness as compared to the statewide and
+
+    national averages of 20.2 percent.
+
+•   Rural counties show higher rates among high school students of smoking, vaping,
+
+    binge drinking, and prescription drug use as compared to the state average.
+
+•   Age-adjusted suicide rates in Nevada are higher in rural regions than in urban areas.
+
+III. Rural health transformation plan: goals and strategies
+
+As outlined by Governor Joe Lombardo in his 3-Year Strategic Plan & Policy Matrix,
+
+improving the health and wellness of Nevadans is a core state priority. The federal goals
+
+for the RHT program align with Governor Lombardo’s key goals for improving health and
+
+wellness by attracting talent to address healthcare workforce shortages, improving
+
+access to primary care and public health, reducing the dependency on social services,
+
+addressing mental illness, and ensuring veterans have access to appropriate care.
+
+
+
+
+                                                                                       8
+Building off the Governor’s plan, the Nevada Health Authority intends to focus on four
+
+goals and strategies: (1) making rural Nevada Healthy again; (2) strengthening rural
+
+health systems; (3) creating a robust network of health providers in rural Nevada; and (4)
+
+filling the “unfillable” gaps with innovative tech solutions.
+
+
+Figure 3: Nevada’s Four Core Goals & Specific Strategies
+
+
+
+
+  Goal 1                  Goal 2                 Goal 3             Goal 4
+  • Make rural            • Strengthen           • More rural       • Fill gaps
+    Nevada                  Nevada's               Nevada             with
+    healthier               rural health           network            innovative
+                            systems                providers
+                                                                      tech
+                                                                      solutions
+
+
+
+
+Nevada intends to deploy the strategies outlined in Figure 4 to meet these goals and align
+
+with the federal goals for the RHT Program.
+
+
+
+
+                                                                                        9
+Figure 4: Nevada’s Strategies for Each Goal
+
+
+
+                                   •Support clinical programs and technologies proven to
+                                    address chronic disease and other health outcomes
+    Goal 1 Strategies              •Promote the use of value-based care delivery and clinically
+                                    integrated care models
+
+
+
+
+                                   •Right-size system with telehealth and digital-health
+                                    integration
+    Goal 2 Strategies              •Purchase modern tech and equipment for rural providers
+                                   •Foster shared purchasing, services, mobile care, etc.
+
+
+
+
+                                   •Support provider recruitment and retention programs
+                                   •Fund infrastracture for a rural physician residency program
+    Goal 3 Strategies              • Invest in advanced training, apprenticeships, and other
+                                    education programs for rural providers
+
+
+
+                                   •Invest in new innovative tech-enabled remote care models
+                                   •Bolster data security efforts for rural health systems
+    Goal 4 Strategies              •Make it easier for providers to work together for rural
+                                    patient care via improved access to electronic health
+                                    records
+
+
+
+To make rural Nevada Healthy again, the state must improve access to quality care
+
+through innovative rural delivery systems. This means Nevada must address the historic
+
+service gaps in the rural healthcare continuum through scalable, sustainable, and flexible
+
+virtual care solutions and more modern technology, health data sharing capabilities, and
+
+telehealth infrastructures to support sustainable hybrid systems of care.
+
+
+To improve health outcomes, Nevada will deploy $30 million in year one for
+
+sustainable strategies to promote new innovative hybrid (remote and in-person) care
+
+
+
+                                                                                                  10
+delivery models and multi-payer value-based payment structures. An applicant must
+
+show that the model it will employ is data-driven, meaning there is evidence that it is an
+
+effective method for achieving efficiencies and improving health outcomes in at least one
+
+of the areas identified by the state as a core health focus (i.e., chronic disease, behavioral
+
+health, and maternal/infant morbidity and mortality in rural areas of Nevada).
+
+
+Examples of such efforts consist of projects that create new access points to care in rural
+
+parts of the state, such as remote care options, virtual specialty mentorship programs,
+
+tech-enabled hybrid care models, community paramedicine, community health workers
+
+or other care coordination and service extenders, and mobile health units. The state is
+
+also interested in funding new consumer-facing health technology, including smart phone
+
+apps and other AI chat tools, that provide digital health prevention and chronic condition
+
+management tools for rural patients and their providers.
+
+
+Nevada intends to invest $40 million in year one to stabilize and right-size rural hospitals
+
+and clinics by funding projects that support capital and infrastructure needs and
+
+modernization in addition to service-line optimization. Examples include the purchase of
+
+medical    supplies   and        equipment      (such    as    imaging   equipment),   lab      and
+
+testing technologies, telemedicine infrastructure, and remote monitoring technologies.
+
+The state also seeks        to    incentivize    local    health   systems   to   participate    in
+
+regional   purchasing       arrangements, service/technology sharing programs, and
+
+regional rural medical transport supports               such   ambulances,   regionally   shared
+
+emergency airlift transport, and non-emergency medical transportation vehicles or
+
+ride-sharing programs.
+
+
+
+                                                                                                 11
+For workforce initiatives, Nevada intends to invest $80 million into new programs to
+
+address the state’s provider shortages for rural Nevadans. Nevada’s rural health
+
+workforce strategy is designed to create a sustainable pipeline of qualified clinicians,
+
+address persistent vacancy rates, and ensure long-term retention in medically
+
+underserved regions. The state will prioritize workforce development as the foundation of
+
+its RHTP strategy, addressing immediate gaps with incentive programs to attract
+
+providers, while building long-term capacity with tuition, training, and residency programs;
+
+coupled with rural-living retention requirements for RHT recipients
+
+
+Nevada also intends to infuse about $30 million in year one on the use of technology
+
+to address the challenges facing rural Nevadans with promoting digital-health
+
+advancement and cybersecurity in the state’s rural healthcare system. Examples include
+
+investments in technology upgrades to support data sharing, cybersecurity reinforcement,
+
+and other provider-related incentives and programs that promote integration with the CMS
+
+Health Technology Ecosystem. Additionally, to overcome vast travel distances, Nevada
+
+will prioritize technology solutions that are sustainable, rapidly scalable, and operationally
+
+efficient in low-bandwidth environments.
+
+
+Aside from specific initiatives for workforce development, Nevada’s RHT funding will be
+
+made available for discreet projects, entities, and/or vendors through multiple state
+
+competitive procurement processes, compliant with 2 CFR 200.317–327 and state law,
+
+for proposals that include measurable performance milestones, indicators and
+
+deliverables in addition to clear regular reporting and monitoring requirements for
+
+accountability purposes. The state intends to score certain proposals higher if they foster
+
+or bolster regional partnerships across hospitals or specific health provider systems that
+
+                                                                                           12
+will increase access to quality and affordable care in rural Nevada. A critical factor for
+
+receipt of funds through these competitive state procurements and awards will be the
+
+applicant’s demonstration of the program’s long-term sustainability. To avoid fiscal cliffs
+
+for providers and the state budget, long-term sustainability plans must not include a
+
+significant reliance on new state funding proposals that have not yet been approved by
+
+the state legislature. The terms and conditions of the federal RHT award will flow down
+
+to all subawards and contracts, including cost limitations, and will be consistent with the
+
+requirements specified in the NOFO and the state’s application.
+
+
+Additionally, Nevada recognizes the transformation of the state’s rural healthcare system
+
+depends heavily on the financial stability of small standalone hospitals and clinics that
+
+currently operate on negative or narrow operating margins. The vulnerability of these
+
+hospitals is driven by a complex interplay of financial, demographic, and systemic
+
+challenges. To address these issues, Nevada has a fiscal-sustainability and financial
+
+solvency strategy for rural providers that: (1) integrates value-based payment reform
+
+into the delivery system (see Initiative #1); (2) applies strategies for facility right-sizing
+
+(see Initiative #2); and (3) promotes revenue diversification (see Initiative #2) to ensure
+
+operational solvency beyond FFY 2031.
+
+More details on Nevada’s cause identification findings and its strategies and initiatives
+
+to address this issue are described in the table below:
+
+
+
+       Cause                           Description                         Initiatives/Strategies
+     Low patient     Low population density in NV's rural and frontier    See Initiatives #1 and #2.
+  volume and high-   areas results in low patient volume. However,
+     fixed costs     hospitals must maintain essential, high-fixed-cost
+                     services (such as 24/7 emergency care, trauma
+                     preparedness, and minimum staffing) regardless
+
+
+                                                                                                       13
+                      of patient volume, leading to modest budgets and
+                      negative operating margins.
+
+ Adverse payer mix    Rural and frontier populations often have lower         See Initiatives #1 and #2.
+                      incomes, higher poverty rates, and are more likely
+                      to be covered by Medicare and Medicaid or to be
+                      uninsured. Since federal and state payers often
+                      provide lower reimbursement rates than
+                      commercial payers, and uncompensated care
+                      (including charity care and bad debt) is higher, the
+                      payer mix heavily strains hospital finances.
+
+     Workforce        The remote geographic location makes it difficult       See Initiative #3
+   recruitment &      to recruit and retain clinical staff, particularly
+     retention        specialists, as rural and frontier areas often have
+                      lower salaries, limited professional opportunities,
+                      and fewer amenities for families. Workforce
+                      shortages drive up costs for temporary staff and
+                      limit the ability to provide essential services, such
+                      as obstetrics or behavioral health.
+
+  Resident bypass     Many rural and frontier patients, particularly those    See Initiatives 2, 3 & 4
+  of rural provider   with higher-acuity needs or private insurance, may
+       system         bypass their local hospital for perceived higher
+                      quality or specialized care in urban centers (e.g.,
+                      Las Vegas or Reno), further contributing to low
+                      volume and financial stress for the local facility.
+
+    Capital and       Lean operating budgets make it difficult to invest      See Initiative 4
+    technology        in necessary capital improvements, modern
+    constraints       equipment, and advanced health IT systems
+                      (including robust cybersecurity), leaving facilities
+                      vulnerable and making it harder to meet current
+                      quality and reporting standards.
+
+
+Most strategies and initiatives in the state’s application do not require state legislative or
+
+regulatory action prior to implementation. However, for those that do, the state has
+
+provided more information below in the State Policy Action sections for each initiative. To
+
+receive and expend newly awarded RHT grant funds in January of 2026 prior to the next
+
+full legislative convening in 2027, the Nevada Health Authority must seek approval from
+
+the state’s Interim Finance Committee which is a subgroup of the full state legislature.
+
+
+To expedite this process and avoid delays in processing new RHT funds in January of
+
+2026, the Nevada Health Authority will seek approval at the next regularly scheduled
+
+                                                                                                           14
+meeting for this legislative subgroup in December of 2025. This process is consistent with
+
+the state’s acceptance of other federally awarded grant funds. Because of the stakeholder
+
+engagement conducted over the last 2-to-3 months, the Nevada Health Authority does
+
+not anticipate barriers with such state approval.
+
+
+By the end of Fiscal Year 2031, Nevada will use these funds to achieve the following RHT
+
+program key performance objectives:
+
+A. Goal 1: Make rural Nevada healthy again
+
+Performance Objective: Increased access rates for preventive and primary care.
+
+1. Target: Improve rural performance on core HEDIS metrics for basic health screenings
+
+   and other preventive services for children and adults in rural areas by FY 2031.
+
+   Baseline: 2025 HEDIS scores for Adult Access to Preventive/Ambulatory Health
+
+   Services (AAP) and Child and Adolescent Well-Care Visits (WCV). The Nevada Health
+
+   Authority will use vendor support for calculating baselines from claims data through
+
+   Nevada’s All-Payers Claims Database.
+
+
+B. Goal 2: Strengthen Nevada's rural health systems
+
+Performance Objective: Improved financial sustainability of rural hospitals and clinics.
+
+1. Target: No new closures of rural hospitals (CAHs) due to financial challenges after
+
+   major changes from H.R. 1 go into effect in FY 2028 until FY 2031. Baseline: Number
+
+   of CAHs in 2028 serving rural areas.
+
+
+C. Goal 3: More rural Nevada network providers
+
+Performance Objective: Increase the number of providers serving rural Nevadans.
+
+
+
+
+                                                                                           15
+1. Target: Increase the number of primary care physicians in rural and frontier counties
+
+   by at least 25 percent by FY 2031. Baseline: As of 2024, average number of primary
+
+   care physicians in rural and frontier counties is 60.1 per 100,000 population.
+
+
+2. Target: Increase the number of advanced nurse practitioners in rural and frontier by
+
+   at least 25 percent. Baseline: As of 2024, the average number of APNs in rural and
+
+   frontier counties is 49.1 per 100,000 population.
+
+
+3. Target: Increase the number of physician assistants in rural and frontier counties by
+
+   at least 25 percent by FY 2031. Baseline: As of 2024, the number of PAs in rural and
+
+   frontier counties is 26.9 per 100,000 population.
+
+
+4. Target: Increase the number of registered nurses in rural and frontier counties by at
+
+   least 25 percent by FY 2031. Baseline: As of 2024, the average for rural and frontier
+
+   counties is 603.3 RNs per 100,000 population.
+
+
+D. Goal 4: Fill gaps with innovative tech solutions
+
+Performance Objective: Increase access to virtual or hybrid care solutions for rural
+
+Nevadans.
+
+1. Target: Increase the number of claims paid by Nevada Medicaid for telehealth
+
+   services provided to rural enrollees by at least 25 percent by FY 2031.
+
+   Baseline: Using claims data, the Nevada Health Authority will establish the current
+
+   number of claims paid by Nevada Medicaid for telehealth services provided to rural
+
+   enrollees in FY 2025.
+
+To guide this important work, Nevada will form a Rural Health Transformation Steering
+
+Committee (RHTSC) with members appointed by the Director of the NVHA with approval
+
+                                                                                     16
+from the Governor of Nevada. This group will track progress on all RHT initiatives and
+
+recommend adjustments to ensure the RHT Plan maintains alignment with federal goals
+
+and delivers lasting, transformational impact for rural healthcare in Nevada. The RHTSC
+
+will be composed of a broad array of representatives from rural health systems and
+
+communities in addition to state, local, and tribal health representatives as illustrated in
+
+the table below.
+
+Table 3: RHTSC Membership
+
+   RHTSC Membership
+   1. Director or his or her designee of the Nevada Health Authority
+   2. Director or his or her designee of the Governor’s Office of Economic Development
+   3. Administrator or his or her designee of the Division of Public and Behavioral Health, Nevada
+       Department of Human Services
+   4. Representative from the Nevada Tribal Health Authority
+   5. Representative from the Nevada Rural Hospital Partners
+   6. Representative from the Nevada Primary Care Association
+   7. Representative from the Nevada State Office of Rural Health (SORH)
+   8. Representative from the Nevada Higher System of Education (NSHE)
+   9. Representative from Great Basin College (GBC)
+   10. Rural or frontier county official from the Nevada Association of Counties
+   11. A frontier county consumer representative
+   12. A rural county consumer representative
+   13. Representative from a rural Certified Community Behavioral Health Center
+   14. Representative from a rural emergency medical services (EMS) provider
+   15. Representative with expertise in population health management
+
+The membership reinforces federal expectations for a cross-sector governance structure
+
+for the RHT Program and addresses public input that identified priorities for community
+
+representation and behavioral health integration. Members will be selected through a
+
+transparent application process administered by the Nevada Health Authority. The
+
+Nevada Health Authority will convene the Committee quarterly so members can review
+
+progress, evaluate performance data, and recommend any mid-course adjustments
+
+to ensure alignment with statutory benchmarks.
+
+
+
+                                                                                                17
+Below is Nevada’s current policy, any legislative or regulatory actions the state is
+
+committed to pursuing, proposed timeline for pursuing, and how the specific legislative or
+
+regulatory action will improve access, quality, or cost of care in rural communities – for
+
+each State policy related to the state policy actions and technical score factors (see also
+
+response to factors A.2. in RHTP CCBHC Data Submission Template attached within the
+
+Other Supporting Documents section of the state’s application). Regarding factor A.7.,
+
+the state confirms that 10 hospitals received DSH payments in SFY25.
+
+  Technical Factor            State Policy Action
+
+  B.2. Health and lifestyle   Nevada does not currently require schools to reestablish the Presidential
+                              Fitness Test, however the state is interested in progressing toward
+                              reinstating the Presidential Fitness Test regulation in a way that is aligned
+                              with any announced federal guidance associated with Executive Order
+                              14327, with the following proposed timeline:
+
+                                  •   March 2026: NVHA to connect with all Nevada school
+                                      Superintendents to discuss any challenges or barriers school
+                                      districts may encounter in implementing this requirement, and
+                                      brainstorm solutions to mitigate gaps and overcome barriers; in
+                                      addition to developing a strategy together to implement this
+                                      requirement in Nevada before December 31, 2028.
+
+                                  •   State will provide updates on progress achieved on this technical
+                                      factor throughout the project period in required reporting to CMS.
+
+                              This proposed regulatory action will improve the cost of care in rural
+                              communities by promoting early physical activity among youth, potentially
+                              lowering long-term chronic disease rates and easing demand on limited rural
+                              health infrastructure.
+
+  B.3. SNAP waivers           Nevada has prepared a USDA SNAP Food Restriction Waiver that prohibits
+                              the purchase of non-nutritious items and plans to submit this waiver, with
+                              Nevada Governor support, to USDA on or before October 31, 2025.
+
+                              This proposed regulatory action will lower healthcare costs in rural
+                              communities by decreasing diet-related diseases, easing pressure on
+                              limited medical infrastructure, and promoting long-term public health.
+
+  B.4. Nutrition              The state does not currently have a requirement for nutrition to be a
+  Continuing Medical          component of CME, but is interested in progressing toward a policy initiative
+  Education                   to enact this requirement and is committed to working with relevant
+                              stakeholders to advance this state policy actions factor throughout the
+                              project period, with the following proposed timeline:
+
+                                  •   February 2026: NVHA to connect with Nevada Board of Medical
+
+
+                                                                                                         18
+                                   Examiners (BOME) and the Nevada System of Higher Education
+                                   (NSHE) to discuss openness to a nutrition CME requirement for
+                                   physicians; discuss potential barriers and brainstorm solutions.
+
+                               •   March 2026: NVHA to strategize on potential policy bill for 2027
+                                   Legislature to require nutrition CME.
+
+                               •   April 2026: NVHA to submit policy bill for consideration in the state’s
+                                   2027 Legislative Session to include a nutrition CME requirement;
+                                   request effective date of October 1, 2027.
+
+                           The proposed legislative action will improve quality and cost of care in rural
+                           communities by equipping providers to prevent and manage chronic
+                           diseases more effectively through dietary interventions.
+
+C.3. Certificate of Need   Nevada’s total State CON score as defined in the Cicero report converted to
+                           a 100-point score = 100.
+
+D.2. Licensure             For physician score: Nevada is an Interstate Medical Licensure Compact
+Compacts                   (IMLC) issuing Letters of Qualification (LOQs) & Licenses (see Nevada
+                           Senate Bill 251 (2015).
+
+                           For Nursing score: Nevada is not a member state.
+
+                           For EMS score: Nevada is a licensure compact member of the EMS
+                           Compact (see Nevada Revised Statute (NRS) 450B.145.
+
+                           For Psychology score: Nevada is a PSYPACT participating state (see NRS
+                           641.227)
+
+                           For Physician Assistant (PA) score: Nevada does not have any active
+                           legislation filed to become a PA compact member. Nevada may be
+                           interested in progressing toward a policy initiative to join the physician’s
+                           assistant (PA) compact and is committed to working with relevant
+                           stakeholders to advance this state policy actions factor throughout the
+                           project period, with the following proposed timeline:
+
+                               •   February 2026: NVHA to connect with the Patient Protection
+                                   Commission and the BOME to discuss openness to the state joining
+                                   an interstate PA compact; discuss potential barriers and brainstorm
+                                   solutions.
+
+                               •   March 2026: NVHA to strategize on potential policy bill for 2027
+                                   Legislature to join an interstate PA compact.
+
+                               •   April 2026: NVHA to submit policy bill for consideration in the state’s
+                                   2027 Legislative Session to include the state joining an interstate
+                                   PA compact; request effective date of October 1, 2027
+
+                           The proposed legislative action will improve access to care in rural
+                           communities by accelerating workforce deployment, and attracting more
+                           providers to underserved areas
+
+D.3. Scope of Practice     For PA score: Nevada scores at “reduced”.
+
+
+                                                                                                        19
+                             For nurse practitioner (NP) score: Nevada scores at “full practice”.
+
+                             For the pharmacist score: Nevada scores at a “3” on the Cicero report
+
+                             For the dental hygienists score: Nevada allows 7 of the 8 types of tasks,
+                             scoring at “unrestricted”.
+
+  E.3. Short-term, limited   Nevada does not have any state restrictions in place that limit STLDI plans
+  duration insurance         beyond the latest federal guidance. Nevada’s maximum allowable contract
+  (STLDI)                    term for STLDI is 185 days. Nevada’s maximum allowable total coverage
+                             period for STLDI is also 185 days.
+
+  F.1. Remote care           Medicaid payment for at least one form of live video: Nevada Medicaid
+  services                   Services Manual (MSM) Chapter 3400 Section 3403.3: Nevada Medicaid
+                             reimburses for synchronous telehealth interactions, which are defined as
+                             real-time interactions between a recipient located at an originating site and
+                             a healthcare provider located at a distant site. A provider has direct
+                             visualization of the patient.
+
+                             Medicaid payment for Store and Forward: Nevada MSM Chapter 3400
+                             Section 3403.4: Nevada Medicaid reimburses for asynchronous telehealth
+                             services, also known as Store-and-Forward, which are defined as the
+                             transmission of a patient’s medical information from an originating site to the
+                             healthcare provider distant site without the presence of the recipient.
+                             Nevada Medicaid reimburses for services delivered via asynchronous
+                             telehealth, however, these services are not eligible for originating site facility
+                             fees.
+
+                             Medicaid payment for Remote Patient Monitoring (RPM): Nevada Medicaid
+                             does not currently reimburse for RPM.
+
+                             In-State licensing exception: Nevada Medicaid does not require an in-state
+                             licensure when enrolling individuals and participates in interstate licensure
+                             compacts that facilitate licensure across state lines by providing an
+                             expedited licensure application process, licensure reciprocity, or mutual
+                             license recognition; this exception is in place.
+
+                             Telehealth License/Registration Process (including special licenses):
+                             Nevada Medicaid does not have license or registration process to perform
+                             services through telehealth.
+
+
+IV.    Proposed Initiatives and Use of Funds
+
+As described in this section, Nevada has several key initiatives that align with the federally
+
+permissible uses of RHT funds and the state’s strategic goals.
+
+
+A. Initiative #1: Rural Health Outcomes Accelerator Program
+
+Nevada will establish the Rural Health Outcomes Accelerator Program (RHOAP) that will
+
+be used to fund evidence-based initiatives that will improve rural health in key areas of
+                                                                                                             20
+chronic disease (with an emphasis on preventable cancers, diabetes, CLRD, and heart
+
+disease), primary care (emphasis on access and preventative services), behavioral health
+
+(emphasis on mental illness, suicide, and substance use among pregnant women and
+
+youth), and maternal and infant health (emphasis on prenatal care).
+
+
+Initiatives may include technology (including but not limited to modern digital health and
+
+AI tools, remote patient monitoring, telehealth equipment, and technology for hybrid or
+
+remote care models) in support of innovative care models that will expand access to
+
+primary care and specialty services in rural communities, including behavioral healthcare
+
+services, and collaborative care models that offer rural residents, including children and
+
+families, care management services and direct connection to healthcare and community
+
+resources. Nevada is interested in investments that promote collaborative care models
+
+for connections to diverse resources, community supports, and local/state agencies for
+
+families that will help improve health outcomes for children in foster care system or
+
+children with serious emotional disorders who live in rural areas.
+
+
+The RHOAP will also be used to fund financial incentives for rural hospital and provider
+
+participation in value-based payment (VBP) arrangements (including Accountable Care
+
+Organizations) through a Rural Value Acceleration Network (RVAN), which will aim to
+
+align VBPs benefit program to reward providers for improved health outcomes and
+
+administrative efficiency. Through the RVANs, Nevada will require participating providers
+
+to use a portion of funds awarded to improve their health data sharing and interoperability
+
+functions, including requiring such providers to become a CMS Aligned Network provider
+
+within 12 to 18 months of participation in the RVAN. Nevada will utilize its contractual
+
+
+
+                                                                                        21
+requirements with managed care organizations to build out the long-term financial
+
+infrastructure to support value-based payment expansion and sustainability.
+
+
+Additionally, the RHOAP may be used to fund integrated care models with an emphasis
+
+on leveraging a non-traditional healthcare workforce to supplement the rural healthcare
+
+system to the extent appropriate under scope of practice laws in Nevada. This could
+
+include proposals for formally integrating certified community health workers and peer
+
+support specialists into coordinated care teams to serve certain patient populations, as
+
+well as expanding the scope and capacity of partnerships with county health departments
+
+and FQHCs to deliver behavioral and maternal health services, including prenatal and
+
+postpartum care. This increases clinical workforce capacity and improves patient
+
+outcomes through coordinated, holistic care.
+
+
+The RHOAP will be supported through a competitive state procurement process resulting
+
+in multiple contract awards; the RHOAP Request for Proposals (RFP) will be revised and
+
+updated annually to reflect best practices and lessons learned both within the state and
+
+nationally, aimed to continuously improve the RHOAP initiatives in the state, while
+
+remaining anchored in sustainability.
+
+
+Strategic Goal Alignment: This initiative aligns with the federal strategic goal to “Make
+
+Rural America Healthy Again.” If Nevada is successful with its awards for these funds,
+
+there will be an improvement in health outcomes across rural regions of the state.
+
+
+Use of Funds: Prevention and chronic disease; behavioral health; appropriate care
+
+availability; and innovative care.
+
+
+
+                                                                                      22
+Technical Score      Supporting Details
+Factors
+B.1. Population      Through the RHOAP, Nevada will enhance access to preventative care programs,
+health clinical      supporting early detection and management of chronic diseases, reducing long-term
+infrastructure       healthcare costs and addressing the root cause of disease through supporting
+                     integrative care teams and chronic disease self-management programs. Nevada’s
+                     investment in innovative virtual care options will help bridge the geographic and
+                     provider access gaps in rural areas through funding telehealth platforms and remote
+                     monitoring tools, and training providers in virtual care delivery, etc. The state is
+                     building the operational backbone needed for rural hospitals and providers to
+                     participate in VBP models, reducing administrative burden by streamlining workflows
+                     and compliance with payer requirements, and enhancing financial sustainability for
+                     rural providers by shifting from volume-based to outcome-based reimbursement.
+                     RHOAP projects will help rural providers adopt more efficient care delivery models,
+                     reduce avoidable hospitalizations and emergency visits and improve patient
+                     outcomes. Proposals awarded under this initiative are further intended to support
+                     rural providers to track and manage population health data more effectively, identify
+                     high-risk patients and intervene earlier, and coordinate care across settings. RHOAP
+                     doesn’t just fund programs, it builds the infrastructure and capacity rural providers
+                     need to thrive in value-based payment environment and aligns financial incentives
+                     with health outcomes, essential for long-term rural health system transformation in
+                     Nevada.
+B.2. Health and      The RHOAP can play a transformative role in supporting health and lifestyle
+lifestyle            improvements in rural Nevada by addressing the root causes of poor health and
+                     ensuring sustainable, community-centered, evidence-based solutions with clear and
+                     measurable outcome improvements by enhancing access to preventative care
+                     programs to help people detect and manage chronic conditions early (diabetes,
+                     hypertension, etc.), access lifestyle coaching, nutrition counseling, and physical
+                     activity programs; expanding access to virtual and in-person care which makes it
+                     easier for folks to receive timely care without long travel times, access behavioral
+                     health services, and manage chronic conditions with remote monitoring and
+                     telehealth check-ins. Targeted initiatives under RHOAP in maternal and infant health
+                     can improve prenatal and postnatal care access, support breastfeeding, nutrition
+                     and parenting education, and help reduce disparities in birth outcomes and early
+                     childhood development. By fostering collaboration across public health, hospitals,
+                     providers and academic institutions, RHOAP will build community-based wellness
+                     initiatives and support sustainable school and workplace wellness programs.
+                     Through the RVAN and investment in vendors to support VBP models, RHOAP
+                     rewards providers for helping patients achieve better health outcomes, encourages
+                     care models that focus on prevention, education, and lifestyle change, and support
+                     the financial solvency of rural health systems that prioritize wellness, ensuring
+                     Healthy lifestyles are not only encouraged but supported and sustained by Nevada’s
+                     healthcare system.
+C.1. Rural           RHOAP supported projects, awarded through a state competitive procurement
+provider strategic   process will prioritize proposals highlighting strategic partnerships, where rural
+partnerships         health facilities choose to join clinically integrated care networks with other rural
+                     facilities or partner with larger healthcare systems to share resources and improve
+                     access to services in their communities in a financially sustainable manner, including
+                     those that promote innovative ways to centralize or streamline back-office functions
+                     and resources to create cost savings for participants; or that improve financial
+                     viability of rural providers, preserve independence of rural providers where
+                     appropriate, and strive to keep care local where appropriate. An evaluation
+                     committee comprised of appropriate industry and NVHA representatives (mindful of
+                     any conflict of interest) will evaluate and score all RHOAP proposals. Additional
+                     details will be provided in the official RFP and provided to CMS upon request. All
+                     RHOAP projects must demonstrate long-term sustainability. The terms and
+
+                                                                                                        23
+  Technical Score       Supporting Details
+  Factors
+                        conditions of the federal RHT award will flow down to all contracts, including cost
+                        limitations, and will be consistent with the requirements specified in the NOFO and
+                        the state’s application.
+  E.1. Medicaid         The RHOAP will play a pivotal role in strengthening Medicaid provider payment
+  provider payment      incentives by funding financial rewards for rural hospitals and providers that
+  incentives            participate in VBPs. Through the establishment of the RVAN, RHOAP will help align
+                        VBPs across Medicaid, Medicare, commercial payers, and the state’s employee
+                        benefit program. This alignment ensures that rural providers are incentivized not just
+                        for delivering service, but for achieving measurable improvements in health
+                        outcomes and administrative efficiency. RHOAP proposals addressing VBP must
+                        include a clear pathway to two-sided risk arrangements, encouraging providers to
+                        share in both the savings and the accountability for costs and outcomes. These
+                        proposals must also be grounded in evidence-based models that demonstrate the
+                        ability to change both patient and provider behavior, leading to more proactive,
+                        coordinated, and cost-effective care.
+  E.2. Individuals      The state will consider prioritizing RHOAP competitive RFP proposals that identify
+  dually eligible for   and target Nevada’s rural dual eligible population to improve duals support and
+  Medicare and          resources. In addition, through the passage of Nevada Senate Bill 207 (2025) the
+  Medicaid              state will implement the first Program of All-Inclusive Care for the Elderly (PACE) by
+                        January 1, 2026, in Nevada.
+
+
+
+Key Stakeholders: Strong preference for awards will be given to rural CAHs,
+
+CCBHCs, clinics, FQCHs, school-based health centers (in addition to schools seeking
+
+to offer health services to students) and other rural healthcare providers (including
+
+behavioral health and dental providers) seeking to expand or enhance access to rural
+
+care. Technology vendors or other external entities, including state, local, or Tribal
+
+entities, may be eligible to apply for funds if their application includes a partnership
+
+with one or more providers located in rural areas of the state with a clear nexus
+
+between the technology or innovative solution and the needs of the rural provider(s)
+
+or rural communities impacted by the proposal. Additionally, the state may utilize a
+
+portion of these funds to invest in the necessary vendors to implement value-based
+
+payment models through the new RVAN that benefit the financial solvency of rural
+
+hospitals and providers through more efficient care models and improved population
+
+health outcomes.
+
+
+                                                                                                           24
+Outcomes for Initiative 1:
+  Measurable Outcomes              Baseline Data           Targets
+
+  Reduction in death rates from    2025 death records.     The trend in death rates from heart disease in
+  heart disease in rural Nevada                            rural Nevada plateaus or declines by FY 2031.
+
+  Increased   prenatal  and        2025 claims data        HEDIS PPC scores for rural Medicaid enrollees
+  postpartum care visits by        (Medicaid); HEDIS       show a statistically significant increase in the
+  pregnant women in rural          PPC                     number of prenatal and postpartum care visits
+  Nevada on Medicaid                                       by FY2030.
+
+  Increased care management        2025 claims data        HEDIS FUM and FUA scores show a
+  for treatment of mental health   (APCD if available or   statistically significant increase in the number
+  illness and substance use        Medicaid);    HEDIS     of rural Nevadans receiving follow up after an
+  disorder in rural areas          FUM and FUA             emergency visit for mental illness or substance
+                                                           use disorder within 30 days and 7 days.
+
+  Reduced age-adjusted rates       2025 Nevada Rural &     The trend in age-adjusted rates of suicide by
+  of suicide in rural Nevada       Frontier Health Data    county in rural Nevada plateaus or declines by
+                                   Book                    FY 2031.
+
+
+Impacted Counties:
+
+  County Name                      County FIPS Code                      FIPS Class Code
+  Churchill County                 00858638                              H1
+  Douglas County                   00858643                              H1
+  Elko County                      00857664                              H1
+  Esmeralda County                 00858641                              H1
+  Eureka County                    00858640                              H1
+  Humboldt County                  00863310                              H1
+  Lander County                    00863368                              H1
+  Lincoln County                   00863992                              H1
+  Lyon County                      00858645                              H1
+  Mineral County                   00858644                              H1
+  Nye County                       00863599                              H1
+  Pershing County                  00858646                              H1
+  Storey County                    00858642                              H1
+  White Pine County                00858615                              H1
+
+Estimated Required Funding: $30 million, annually.
+
+
+B. Initiative #2: Nevada Rural Health System Flex Fund
+
+Nevada will establish a flex fund to modernize and enhance existing facilities and
+
+infrastructure for Nevada’s rural healthcare system, including capital and infrastructure
+
+expenditures for rural clinics, hospitals, EMS (air and land transport in rural areas), non-
+
+emergency medical transportation for rural care, community health programs, mobile care
+
+
+                                                                                                        25
+facilities, medical equipment and supplies, lab and testing technologies, etc. Nevada
+
+intends to encourage regional purchasing arrangements for rural facility and infrastructure
+
+needs in addition to sharing agreements for transport, mobile units, and medical
+
+equipment, as appropriate.
+
+
+To offset financial volatility in payer mix for rural hospitals and providers, Nevada intends
+
+to use a portion of these funds to help expand rural and frontier affiliation networks and
+
+shared-services models as encouraged by the NOFO. The goal is for participating
+
+providers to gain access to joint purchasing, tele-specialty contracting, and administrative
+
+cost-sharing, producing measurable margin improvements. The State will also encourage
+
+partnerships with larger health systems under transparent affiliation terms approved by
+
+the RHTSC and the Nevada Health Authority.
+
+
+Nevada also intends to make these funds available for rural hospitals and clinics to
+
+purchase the resources, software, and training needed to improve revenue cycle
+
+management (RCM). The focus will be on accurate charge capture, coding optimization,
+
+and strategic pricing to maximize reimbursement from existing payers, especially in
+
+complex areas like cost-based reimbursement for CAHs. Additionally, the state will invest
+
+in vendor resources to provide technical assistance to facilitate the transition to and
+
+enhancement of REHs where appropriate in the most geographically remote regions of
+
+the state in coordination with interested CAHs.
+
+
+These RHT funds will be available through a state application process for awards,
+
+resulting in multiple subawards. Funds must be used to support self-sustaining models
+
+for delivery of essential health services and improving the reliability of care for rural
+
+
+                                                                                          26
+residents,     consistent       with     CMS         funding     limitations      that     prohibit     new
+
+construction or         supplanting      of    existing      funds.     An     evaluation         committee
+
+comprised       of appropriate industry and NVHA representatives (mindful of any
+
+conflict of interest) will evaluate and score all Nevada Rural Health System Flex Fund
+
+applications. The terms and conditions of the federal RHT award will flow down to
+
+all subawards, including cost limitations, and will be consistent with the requirements
+
+specified in the NOFO and the state’s application.
+
+
+Strategic      Goal       Alignment:          This     initiative     aligns      with      the       federal
+
+strategic goal for “Sustainable Access.” If successful, Nevada will be able to
+
+achieve this goal by improving the quality, capacity and sustainability of the
+
+state’s rural healthcare infrastructure.
+
+
+  Technical Score Factors          Use of Funds: Capital expenditures and infrastructure
+  C.1. Rural provider    The Nevada Rural Health System Flex Fund will support rural provider strategic
+  strategic              partnerships by prioritizing applications which demonstrate sustainable outcomes,
+  partnerships           arrangements that include an exchange of best practices and coordination of care,
+                         and any arrangements that improve financial viability of rural providers, preserve
+                         independence of rural providers where appropriate, and strive to keep care local
+                         where appropriate. Additional details will be provided in the official RFA, provided to
+                         CMS upon request and in subsequent required reporting, if awarded.
+  C.2. EMS               The Nevada Rural Health System Flex Fund will support EMS by prioritizing
+                         applications which support coordination and innovation between EMS and other
+                         provider types, integration with Nevada’s healthcare ecosystem; and that include
+                         quarterly metrics to NVHA to demonstrate measurable benefits in timely access to
+                         emergency services and/or reduction in total cost from emergency care. Additional
+                         details will be provided in the official RFA, provided to CMS upon request and in
+                         subsequently required reporting, if awarded.
+  F.1. Remote care       The Nevada Rural Health System Flex Fund will support remote care services by
+  services               prioritizing applications which support sustainable access through enhancement of
+                         remote care services and infrastructure within Nevada. Additional details will be
+                         provided in the official RFA, provided to CMS upon request and in subsequently
+                         required reporting, if awarded.
+
+
+
+Key Stakeholders: Strong preference for funding awards will be given to rural hospitals
+
+and providers (e.g., CAHs, FQHCs, CCBHCs, School-Based Health Centers (and/or
+
+
+                                                                                                          27
+schools for student health services) and primary care and mental health providers)
+
+that operate in rural areas. The state may entertain applications for funding awards from
+
+other entities if rural provider entities will benefit from the investment and the
+
+applicant has memorandum of understanding (MOU) and letters of support with such rural
+
+providers (e.g., regional hub and spoke infrastructure costs).
+
+Outcomes:
+
+  Measurable Outcomes             Baseline Data                       Targets
+  New regional purchasing         Number of purchasing and            Increase the number of regional health
+  and sharing arrangements        sharing arrangements as of FY       infrastructure purchasing and sharing
+  for rural healthcare            2027, by rural region.              arrangements across rural providers
+  infrastructure as a result of   (State survey tool)                 each FY after FY 2027.
+  RHT grant awards
+  Increase in transport           Claims paid for transport           Increase in utilization of transportation
+  access for non-emergency        services with respect to non-       services for non-emergency and
+  and emergency services in       emergency and emergency             emergency services in rural areas by
+  rural areas                     services in rural areas             county by at least 10 percent by FY
+                                  (APCD, if available or Medicaid     2030.
+                                  claims data)
+  More modern healthcare          Count of purchases of               Each rural region will have at least one
+  infrastructure in rural         equipment and technology            provider or hospital that purchases at
+  Nevada                          under grant program for             least one modern medical equipment or
+                                  infrastructure supports for rural   technology product under this grant
+                                  hospitals and providers             program, annually.
+
+  Increase in the number of       Number of mobile units in rural     Each rural region will have at least one
+  mobile care units in rural      Nevada as of FY 2026.               more active mobile care unit than it did
+  Nevada                          (State survey tool)                 before the RHT Program commenced
+                                                                      by FFY 2030.
+
+Impacted Counties:
+
+  County Name                       County FIPS Code                      FIPS Class Code
+  Churchill County                  00858638                              H1
+  Douglas County                    00858643                              H1
+  Elko County                       00857664                              H1
+  Esmeralda County                  00858641                              H1
+  Eureka County                     00858640                              H1
+  Humboldt County                   00863310                              H1
+  Lander County                     00863368                              H1
+  Lincoln County                    00863992                              H1
+  Lyon County                       00858645                              H1
+  Mineral County                    00858644                              H1
+  Nye County                        00863599                              H1
+  Pershing County                   00858646                              H1
+  Storey County                     00858642                              H1
+
+                                                                                                           28
+    County Name                County FIPS Code               FIPS Class Code
+    White Pine County          00858615                       H1
+Estimated Required Funding: $40 million, annually.
+
+C. Initiative #3: Workforce Recruitment & Rural Access Program
+
+The state will set up the Workforce Recruitment & Rural Access Program (WRRAP) to
+
+attract and retain physicians and other provider types in rural areas of the state with
+
+specific retention strategies to ensure WRRAP recipients serve rural areas. Specific
+
+strategies the state intends to fund in support of rural health systems include:
+
+
+•    Grow-Your-Own Pipeline Strategy – These include rural high-school-to-career
+
+     pathways, local training programs, and rural residencies. Programs that recruit and
+
+     train local students have higher success rates in addressing long-term workforce
+
+     shortages.
+
+•    Tuition & Training Support – Nevada stakeholders support multi-year rural service
+
+     commitments tied to financial incentives for medical students or other students in a
+
+     healthcare professional training program. Respondents to the state’s public online
+
+     RHT survey emphasized the need for flexibility in eligibility and targeting high-need
+
+     specialties (e.g., primary care providers (physicians, physician assistants, and
+
+     advanced practice nurses), OB/GYN or family practice physicians with special
+
+     privileges to provide obstetric care and births, licensed nurse midwives, psychiatry,
+
+     EMS).
+
+•    Community Health Workers (CHWs) & Peer Support Specialists (PSSs) – There is
+
+     strong support in Nevada for scalable, community-based, and cost-effective workforce
+
+     recruitment and training for CHWs and PSSs as a bridge to connect rural residents
+
+     with the health system within rural and frontier communities.
+
+                                                                                       29
+•   Burnout, Isolation, and Retention – Public survey respondents additionally
+
+    emphasized the importance of providing housing assistance, peer networks, and
+
+    behavioral health services to providers to deter burnout, isolation, and improve long-
+
+    term retention among acute EMS, behavioral health providers, physicians, and
+
+    maternal care providers. Nevada’s retention strategies will focus on continuing
+
+    education incentives, career-ladder development within CAHs and FQHCs, and
+
+    apprenticeship networks. Annual retention metrics such as clinician tenure, vacancy
+
+    reduction, and pipeline participation will remain core performance indicators under the
+
+    cooperative-agreement evaluation plan. These actions ensure the state’s rural and
+
+    frontier workforce expansion is an enduring investment that strengthens access,
+
+    quality, and continuity of care statewide.
+
+•   Incentives for New Rural Provider Hires – To address short or acute needs for care in
+
+    rural communities, Nevada intends to deploy funds in Year One to rural hospitals and
+
+    other health systems or clinics to incentivize new provider hires. The focus of this
+
+    program will be on high-need provider types for meeting service gaps in rural
+
+    communities including but not limited to physicians, advanced practice nurses,
+
+    physician assistants, and other specialists that are often hard to attract to serve in
+
+    rural communities due to economic and financial barriers. Incentives will include
+
+    offering financial assistance for housing, relocation and moving costs, signing
+
+    bonuses, annual stipend for continuing medical education expenses, among other
+
+    incentives, tied to the 5-year rural service commitment.
+
+•   Rural Residency Programs – Over half of physicians stay in the state where they
+
+    completed their residency.xxii Physicians who spend more time in rural residency
+
+
+
+                                                                                        30
+training are significantly more likely to choose, and stay in, rural practice. xxiii At least
+
+half of the rural residency openings funded through the RHT Program must be
+
+available to medical school graduates seeking a primary care or family practice
+
+residency or specialty fellowships designed to train front-line rural physicians in
+
+the areas of pediatrics, geriatrics, maternal or behavioral healthcare (mental
+
+health and substance use treatment). This program will be critical for ensuring
+
+medical students have an adequate number of physician residency placements
+
+in rural communities if they receive tuition payments through the RHT Program
+
+with the 5-year rural service commitment requirement.
+
+
+Strategic Goal Alignment: This initiative aligns with the federal strategic goal for
+
+“Workforce Development.” If successful, more healthcare providers will be available in
+
+rural areas of the state to provide services to residents.
+
+
+Use of Funds: Workforce
+
+
+Technical Score Factors:
+
+  Technical Score Factors
+  B.4. Nutrition    Nevada does not have a requirement for nutrition to be a component of continuing
+  Continuing        medical education (CME), but is interested in progressing toward a policy initiative
+  Medical           to enact this requirement and is committed to working with relevant stakeholders to
+  Education         advance this state policy actions factor throughout the project period, with the
+                    following proposed timeline:
+                         • February 2026: NVHA to connect with Nevada BOME and NSHE to discuss
+                             openness to a nutrition CME requirement for physicians; discuss potential
+                             barriers and brainstorm solutions.
+                         • March 2026: NVHA to strategize on potential policy bill for 2027 Legislature
+                             to require nutrition CME.
+                         • April 2026: NVHA to submit policy bill for consideration in the state’s 2027
+                             Legislative Session to include a nutrition CME requirement; request
+                             effective date of October 1, 2027.
+  C.1. Rural        WRRAP directly supports strategic partnerships among Nevada’s rural providers by
+  provider          strengthening the shared workforce pipeline, enhancing collaborative training
+  strategic         infrastructure, and reducing competition for limited clinical talent through: tuition and
+  partnerships      training assistance with services commitments creates a shared pool of committed
+                    providers who agree to serve in rural and frontier areas for at least 5 years, this
+
+                                                                                                           31
+ Technical Score Factors
+                  long-term commitment fosters continuity of care and allows rural providers to plan
+                  staffing needs collaboratively, especially in multi-county or regional care networks.
+                  Additionally supporting expansion of GME infrastructure by ideally strengthening
+                  training consortia among rural hospitals, clinics and academic institutions; these
+                  partnerships allow providers the opportunity to share faculty, clinic rotation sites,
+                  and educational resources, further building a sustainable rural training ecosystem.
+ C.2. EMS         Through stakeholder engagement, the state found large public support for multi-
+                  year service commitments tied to financial incentives, emphasizing the need for
+                  flexibility in eligibility and targeting high need rural specialties, such as EMS.
+                  Additionally, stakeholders noted the importance of providing housing support, peer
+                  networks, and behavioral health services to providers to deter burnout, isolation,
+                  and improve long-term retention among EMS, behavioral health, and maternal care
+                  providers. The state fully supports these additions within the WRRAP initiative and
+                  plans to prioritize applicants addressing these considerations, in addition to those
+                  to improve speed, access, and cost to deliver emergency medical services while
+                  addressing long-term financial self-sustainability.
+ D.1. Talent      The state is interested in WRRAP applications that support grow-your-own pipelines
+ recruitment      such as rural high school-to-career pathways, local training programs, and rural
+                  residencies. Expanding GME infrastructure to fund the new Rural Physician
+                  Residency Program could include partnerships between acute care
+                  hospitals/CAHs, FQHCs, and rural clinics (including Tribal Health Clinics) to support
+                  rural residency rotations, including providing mobile health services, to develop and
+                  sustain a long-standing pipeline of physicians to rural and frontier Nevada.
+                  Retention strategies will focus on continuing education incentives, career ladder
+                  development within CAHs, rural clinics and FQHCs, and potential mentorship
+                  networks coordinated through the NV Health Service Corps. The WRRAP program
+                  supports programs including non-physician healthcare providers, non-hospital
+                  based providers, and allied health professionals in rural and frontier areas.
+ D.2. Licensure   Nevada may be interested in progressing toward a policy initiative to join the
+ compacts         physician’s assistant (PA) compact and is committed to working with relevant
+                  stakeholders to advance this state policy actions factor throughout the project
+                  period, with the following proposed timeline:
+                       • February 2026: NVHA to connect with the Patient Protection Commission
+                             and the BOME to discuss openness to the state joining an interstate PA
+                             compact; discuss potential barriers and brainstorm solutions.
+                       • March 2026: NVHA to strategize on potential policy bill for 2027 Legislature
+                             to join an interstate PA compact.
+                       • April 2026: NVHA to submit policy bill for consideration in the state’s 2027
+                             Legislative Session to include the state joining an interstate PA compact;
+                             request effective date of October 1, 2027.
+ D.3. Scope of    Nevada may be interested in progressing toward a policy initiative to increase the
+ practice         physician’s assistant (PA) scope of practice and is committed to working with
+                  relevant stakeholders to advance this state policy actions factor throughout the
+                  project period, proposing in February 2026 to connect with the BOME to discuss
+                  openness to increasing the scope of practice for PAs; discuss potential barriers and
+                  brainstorm solutions.
+
+
+
+Key Stakeholders: Strong preference for awards related to financial incentives and
+
+tuition/training assistance programs will be given to rural hospitals and healthcare
+
+providers that operate in rural counties (e.g., CAHs, CCBHCs, FQHCs, primary and
+
+                                                                                                     32
+behavioral health providers, school health services programs, school-based health
+
+centers, and other health-related clinics, etc.). The state may entertain proposals from
+
+other entities including academic institutions for funding to support the creation of a Rural
+
+Physician Residency Program and for additional tuition and training assistance programs
+
+that will secure services in rural communities in Nevada.
+
+
+Additionally, the state will consider proposals from other non-rural hospitals and
+
+healthcare systems that seek to support rural training programs for rural provider systems
+
+if such proposals are supported by strong letters of support from local or tribal health
+
+officials, rural hospital(s), and other healthcare providers of services located in the
+
+communities impacted by the proposal. Local, state and tribal entities may also apply if it
+
+aligns with the goals of the WRRAP and there is a clear nexus between the proposal and
+
+rural workforce development.
+
+Outcomes:
+
+ Measurable Outcomes           Baseline Data       Targets
+ Number of primary care        2025 Nevada Rural   Increase the number of primary care physicians in
+ physicians in rural Nevada    & Frontier Health   rural and frontier counties by at least 25 percent
+                               Data Book           by FY 2031
+ Number of nurses in rural     2025 Nevada Rural   Increase the number of nurses (RNs and APNs)
+ Nevada                        & Frontier Health   in rural and frontier by at least 25 percent by FY
+                               Data Book           2031
+ Number of physician           2025 Nevada Rural   Increase in the number of physician assistants in
+ assistants in rural Nevada    & Frontier Health   rural and frontier by at least 25 percent by FY
+                               Data Book           2031
+ Number of behavioral health   2025 Nevada Rural   Increase in the number of various behavioral
+ providers in rural Nevada     & Frontier Health   health provider types by at least 15 percent by FY
+                               Data Book           2031 (e.g., psychologists, clinical professional
+                                                   counselor, youth and family peer supports,
+                                                   licensed clinical social worker)
+
+Impacted Counties:
+
+ County Name                   County FIPS Code                  FIPS Class Code
+ Churchill County              00858638                          H1
+ Douglas County                00858643                          H1
+ Elko County                   00857664                          H1
+
+
+                                                                                                 33
+ Esmeralda County            00858641                        H1
+ Eureka County               00858640                        H1
+ Humboldt County             00863310                        H1
+ Lander County               00863368                        H1
+ Lincoln County              00863992                        H1
+ Lyon County                 00858645                        H1
+ Mineral County              00858644                        H1
+ Nye County                  00863599                        H1
+ Pershing County             00858646                        H1
+ Storey County               00858642                        H1
+ White Pine County           00858615                        H1
+Estimated Required Funding: $80 million, annually.
+
+
+D. Initiative #4: Rural Health Innovation & Technology (RHIT) Grant
+
+Nevada’s rural health transformation strategy relies on real-time, evidence-based
+
+decision-making through data connectivity, analytics, and evaluation. Nevada intends to
+
+develop the use of interoperable technology, standardized health information sharing, and
+
+continuous data reporting to improve clinical quality, population health, and operational
+
+performance across all rural and frontier initiatives. The goal is to make it easier for
+
+healthcare professionals to work together, access electronic health records, and take part
+
+in national health networks, including the CMS Health Technology Ecosystem – while
+
+keeping technology flexible and adaptable to local needs.
+
+
+To support these needs, the state will establish a new rural health innovation and
+
+technology grant program to create a more connected and secure system of care for
+
+consumers and providers and to improve how providers share and coordinate care in
+
+rural areas of the state. These upgrades will help build the necessary infrastructure to
+
+expand the use of innovative telehealth services, including remote healthcare in addition
+
+to provider mentoring programs to support front-line providers who are caring for
+
+providers with complex needs. This can be achieved by funding new tech-enabled hybrid
+
+care solutions and remote patient monitoring. All technology and IT systems procured by
+
+                                                                                       34
+the state for RHT funding must include lifecycle management and cybersecurity plans,
+
+vendor neutral interoperability guarantees, and sustainability budgets beyond FFY31.
+
+Pilot technology that proves cost-effective may transition into Medicaid-covered benefits
+
+through State Plan Amendments.
+
+
+Additionally, a portion of these funds may be used by awardees to fund new consumer
+
+facing technology that utilizes mobile-app-based programs focused on prevention of
+
+prevalent chronic diseases and unique socioeconomic challenges in rural areas of
+
+Nevada. For example, these consumer facing tech tools may be used by awardees to
+
+promote healthy lifestyles (including exercise and physical activity), proper nutrition,
+
+disease management, and adherence to care plans established by providers, while
+
+linking to the patients’ clinical care teams virtually.
+
+
+In alignment with the CMS Health Technology Ecosystem Criteria, app-based
+
+conversational AI can provide coaching, reminders, and education with a personalized
+
+experience that results in the prevention and management of disease states. For an
+
+applicant for an award to receive funding for such AI or other tech-enabled tools, these
+
+technologies must comply with clinical and privacy standards and do not provide clinical
+
+guidance in addition to HIPAA privacy and security standards. No more than half of the
+
+available funds for the RHIT grant can be used annually for these types of consumer-
+
+facing AI tools.
+
+
+Any RHT provider or proposal to receive funds from the state’s RHIT grant program must
+
+include a plan for how these funds will build out the infrastructure needed for participation
+
+in CMS’s interoperability framework—CMS Aligned Networks—to upgrade and
+
+
+                                                                                          35
+modernize the rural healthcare system’s technology infrastructure. Examples include
+
+upgrades that enable digital health innovation (AI health, remote care and consumer
+
+facing tools), real-time population health analytics, maximization of return on investment
+
+by reducing IT spend on legacy programs with scalable platforms used by all payers,
+
+digital support for value-based payment models, standardization of clinical data exchange
+
+across providers and payers to support care coordination, quality reporting, and risk-
+
+based contracting with providers.
+
+Use of Funds: IT advances & consumer tech innovation
+
+Technical Score Factors:
+
+  Technical Score
+  Factors
+  B.1. Population       RHIT offers a powerful mechanism for Nevada to address population health
+  health clinical       clinical infrastructure and strengthen the rural healthcare ecosystem at the
+  infrastructure        community level by building a more connected system of care. By funding
+                        modern digital health and AI tools, RHIT enables providers to seamlessly share
+                        data and coordinate care to be able to track outcomes, identify high-risk patients,
+                        and intervene earlier. Remote patient monitoring (RPM) technologies allow
+                        providers to monitor patients with chronic conditions in real time, reducing
+                        hospitalizations and improving self-management. The RHIT is a targeted
+                        investment in expanding rural participation in CMS Aligned Networks and will
+                        prioritize proposals that fully address this initiative and participation in the CMS
+                        Health Technology Ecosystem. An evaluation committee comprised of
+                        appropriate industry and NVHA representatives (mindful of any conflict of
+                        interest) will evaluate and score all RHIT proposals. Additional details will be
+                        provided in the official RFP, provided to CMS upon request and in subsequently
+                        required reporting, if awarded.
+  C.1. Rural provider   RHIT application priority will also go to those who include an exchange of best
+  strategic             practices and coordination of care, partially facilitated through remote care
+  partnerships          services, and promote regional collaboration among Nevada’s healthcare
+                        ecosystem.
+  F.1. Remote care      RHIT application priority will also go to those who address enhancement of
+  services              remote care services infrastructure within the state and that include strong
+                        sustainability measures.
+  F.2. Data             RHIT applications must align with CMS’s Health Technology Ecosystem criteria
+  infrastructure        and ASTP/ONC as applicable; for technologies that have a cloud-based
+                        alternative compared to on-premises technology, preference for cloud-based,
+                        multi-tenant architecture will be given; investments will be considered only if they
+                        have specific measurable rural benefits. RHIT promotes investments in
+                        electronic health records (EHRs), clinical support, and operational software
+                        infrastructure upgrades that enable participation in data exchange and
+                        interoperability.
+  F.3. Consumer         RHIT will support the development, appropriate usage and deployment of
+  facing technology     various consumer-facing health technology tools for the prevention and
+
+                                                                                                        36
+                            management of chronic disease; supported health technology tools through the
+                            RHIT will be aligned with CMS Health Technology Ecosystem criteria for patient-
+                            facing apps as applicable. All RHIT applications must include a sustainability
+                            plan and features.
+
+
+
+Key Stakeholders: Strong preference will be given to applicants that are rural providers
+
+or clinics or other entities that have strong letters of support from rural health officials or
+
+rural providers that outline how the project would support the goals of the new rural health
+
+innovation and technology grant. Local, state, or tribal entities may apply for funds if such
+
+funds support the goals of the new grant program for rural health innovation and
+
+technology.
+
+Outcomes:
+
+ Measurable Outcomes                        Baseline Data           Targets
+ Telehealth service utilization             APCD, if available,     Increase the number of claims paid for
+                                            or Medicaid claims      telehealth services for rural Nevadans
+                                            data for FY 2026        by at least 25 percent by FY 2031.
+ Rural provider participation in the CMS    CMS data on rural       Increase in the number of rural
+ Health Technology Ecosystem                health provider         providers serving rural Nevadans that
+                                            participants as of      participate in the CMS Health
+                                            January 1, 2027         Technology Ecosystem by 25 percent
+                                                                    by FY 2031.
+ More cybersecure health data systems       Count of grants for     For each rural region, at least one
+ in rural Nevada                            cybersecurity efforts   hospital or provider clinic will
+                                                                    implement       new       cybersecurity
+                                                                    software/technology paid for by the
+                                                                    RHT Program by FY 2030.
+ Use of new AI health tools to support      Count of grants for     For each rural region, at least one AI
+ patient care, remote monitoring,           AI health tools and     health tool grant will be awarded per
+ enhanced diagnostics, or                   HEDIS                   FY, starting FY2027.
+ administrative efficiencies
+                                                                    Among populations using these tools
+                                                                    will    see       health      outcome
+                                                                    improvements depending on the
+                                                                    disease state of focus. State will use
+                                                                    prevention HEDIS metrics to measure
+                                                                    success of individual AI tools funded.
+
+
+Impacted Counties:
+
+ County Name                        County FIPS Code                     FIPS Class Code
+ Churchill County                   00858638                             H1
+ Douglas County                     00858643                             H1
+
+
+                                                                                                         37
+ County Name                 County FIPS Code                FIPS Class Code
+ Elko County                 00857664                        H1
+ Esmeralda County            00858641                        H1
+ Eureka County               00858640                        H1
+ Humboldt County             00863310                        H1
+ Lander County               00863368                        H1
+ Lincoln County              00863992                        H1
+ Lyon County                 00858645                        H1
+ Mineral County              00858644                        H1
+ Nye County                  00863599                        H1
+ Pershing County             00858646                        H1
+ Storey County               00858642                        H1
+ White Pine County           00858615                        H1
+Estimated Required Funding: $30 million, annually.
+
+V.     Implementation Plan & Timeline
+
+The Nevada Health Authority will serve as the lead agency for the RHT program. The
+
+Nevada Health Authority is comprised of the state’s Medicaid agency, state-based health
+
+insurance exchange, and state employee benefit program in addition to the state’s
+
+advisory committee for Graduate Medical Education (GME), Patient Protection
+
+Commission, health facility licensure and inspections, and the office of analytics (which
+
+houses Nevada’s new All Payer Claims Database). In the enabling legislation for the
+
+Department (SB 494, 2025), the Nevada Health Authority is tasked with developing a plan
+
+to transition public health, behavioral health, and maternal health programs to the Nevada
+
+Health Authority from the new Department of Human Services in the 2027 Legislative
+
+Session.
+
+To implement the new RHT federal grant program, the Nevada Health Authority will hire
+
+over a dozen new staff (state and contract employees) in addition to expert vendors to
+
+support grant program development and procurement drafting. This team will be led by
+
+an agency manager (which is a senior level position in Nevada state government), who
+
+will serve as the Rural Health Transformation Program Lead (and serve as Project
+
+
+
+                                                                                       38
+Director (PD) for the award) and report to the Deputy Director of the Nevada Health
+
+Authority’s community engagement and workforce development activities at the
+
+Department who will serve as the interim Project Director until this position is hired. The
+
+Deputy Director reports to the Director at the Nevada Health Authority who is a member
+
+of the Governor’s cabinet.
+
+Project management of this new grant program will be led by the agency manager and
+
+team with external vendor support in collaboration with the Rural Health Transformation
+
+Steering Committee as described in Section III of this application. The agency manager
+
+will be administering this committee, coordinating with sister agencies, meeting with
+
+external stakeholders (public workshops) and hosting other activities each quarter of the
+
+program for continued community engagement. The Project Director will work to ensure
+
+high-level coordination with the Governor’s office, state legislature, CMS, and executive
+
+leadership of state and local agencies and universities with respect to the program.
+
+In total the Nevada Health Authority seeks to fund (with RHT funds) 12 full-time state
+
+employees and 2 contract employees to implement and manage the new RHT program
+
+and initiatives. Eight of these new employees will be responsible for grant management
+
+and oversight activities, one employee will be responsible for program evaluation and
+
+performance monitoring and reporting, another employee will be responsible for data
+
+collection and analytics in addition to dashboard development and management, and the
+
+remaining three employees will manage the fiscal services and accounting activities
+
+associated with the RHT grant program.
+
+The proposed timeline below for the 5-year grant program applies uniformly across all
+
+four of the state's initiatives (except where explicitly stated), ensuring alignment and
+
+
+
+                                                                                        39
+consistency throughout each phase, among all activities.
+
+ Stage            Timelines/Key Milestones
+
+ Stage 0:         Q1 CY 2026
+
+ Planning            •   Establish new state fund or account for program (state interim legislative process)
+ phase               •   Receive interim legislative approval to accept grants and establish new employee
+                         positions
+                     •   Hire new agency manager to lead RHT implementation and operations
+                     •   Update website for the new RHT grant program award description and high-level
+                         timeline of process
+
+                  Q2 CY 2026
+
+                     •   Develop any necessary state policies and procedures for grant fund management
+                     •   Continue hiring of staff for RHT grant management, fiscal services, and contract
+                         monitoring
+                     •   Contract with any necessary vendors through existing master services arrangement
+                         or other direct contract services to support development of request for proposals
+                         (RFPs) for initiatives
+                     •   Draft project plan for RHOAP rollout and stakeholder engagement
+                     •   Establish process for applicants to apply for the RHTSC and appoint members
+
+ Stage 1:         Q3 CY 2026
+
+ Early               •   RHOAP project plan finalized and approved by Director at NVHA
+ implementation      •   Develop any necessary legislative proposals for grant program for the 2027
+                         legislative process (e.g., policy bills for PA state licensure compacts)
+                     •   Host public workshop to outline the state’s RHT programming (high level) and seek
+                         feedback on refinement of programs approved by CMS
+                     •   Host first RHTSC meeting with opportunity for public comment (approve bylaws,
+                         review application/program approvals and work plan, and appoint chair and co-
+                         chair); gather feedback from committee and public about RFP themes for Year 1
+                         (round 1) and 2 (round 2) proposals/solicitations.
+                     •   RHT staff/team works with vendors to draft RFPs/RFAs for each initiative, inclusive
+                         of requirements for grant oversight and accountability (Round 1 will be limited
+                         timeframe to spend due to ramp-up; will prioritize Round 1 RFPs/RFAs)
+                     •   Draft new policies, requirements, and programs for RHT funding funneled through a
+                         non-procurement process (e.g., value-based payment programs)
+
+                  Q4 CY 2026
+
+                     •   Host RHTSC meeting with opportunity for public comment regarding non-
+                         procurement RHT funding programming for feedback prior to initiating activities
+                     •   Issue competitive RFPs/RFAs for each initiative for Round 1 and 2 no later than
+                         December 1, 2026
+                     •   Finalize necessary grant-related legislative proposals through Governor’s office
+                         process
+
+
+
+
+                                                                                                    40
+Stage            Timelines/Key Milestones
+
+Stage 2:         Q1 CY 2027
+
+Full                 •      Conduct RFP proposal evaluation and scoring process (confidential) – 30 days after
+implementation              postings and finalize round 1 and 2 awards and contracts with grantees
+                     •      Begin any necessary state fiscal procedures to begin issuing funds next quarter to
+                            awardees
+                     •      Host RHTSC meeting to announce round 1 and 2 awardees and programs funded
+                            with opportunity for public comment; ask several awardees to present high-level
+                            overviews of their projected program goals and milestones
+                     •      Grant oversight and management activities for CY2027
+                     •      Legislation introduced to fulfill certain technical factor, state policy actions (as
+                            needed)
+
+                 Q2 CY 2027
+
+                     •      Round 1 and 2 grantee kickoff calls with state team
+                     •      Round 1 and 2 grantee project plans submitted for state team review/approval
+                     •      Host RHTSC meeting for updates on progress, early issue identification with grants
+                            etc.
+                     •      Develop public online dashboard of goals/metrics with baseline data for tracking and
+                            transparency purposes
+                     •      Legislation passage for certain technical components (as needed)
+
+Stage 3:         Q3 CY 2027
+
+Grant program    •       Round 1 and 2 grant oversight and management activities
+operations       •       Promotion and communication with media about activities and successes with funds
+                 •       Host quarterly RHTSC meeting with public comment; discuss topics/programs for
+                         Round 3 of RFPs/RFAs for posting depending on CMS grant approvals for year and
+                         funding levels
+                 •       Begin implementation of any legislation passed related to state policy actions
+                 •       Conduct site visits and audits of current grantees as needed to ensure accountability
+                 •       RHT staff/team works with vendors to draft RFPs/RFAs for each initiative, inclusive of
+                         requirements for grant oversight and accountability – for round 3.
+
+                 Q4 CY 2027
+
+                 •       Issue Round 3 competitive RFPs/RFAs for each initiative no later than December 1,
+                         2027
+                 •       Subrecipient/contractor written annual progress reporting due for Round 1 and 2.
+                 •       RHT staff/team draft RHT progress report on grant programs per initiative for public
+                         posting, CMS, and RHTSC review
+                 •       Host quarterly RHTSC meeting with public comment
+                 •       Close out round 1 awarded projects funding.
+
+                 Q1 CY 2028
+
+                 •       Conduct RFP proposal evaluation and scoring process (confidential) – 30 days after
+                         postings and finalize round 3 awards and contracts with awardees
+                 •       Begin any necessary state fiscal procedures to begin issuing funds next quarter to
+                         grantees
+
+
+                                                                                                       41
+Stage   Timelines/Key Milestones
+
+        •   Host RHTSC meeting to announce round 3 awardees and programs funded with
+            opportunity for public comment; ask several awardees to present high-level overviews
+            of their projected program goals and milestones
+        •   Grant oversight and management activities continued for CY2028
+
+        Q2 CY 2028
+
+        •   Round 3 grantee kickoff calls with state team
+        •   Round 3 grantee project plans submitted for state team review/approval
+        •   Host RHTSC meeting for updates on progress, early issue identification with grants
+            etc.
+        •   Collect and analyze data from grantees and other sources to continue measuring
+            performance of grantees and impact on overall metrics for program
+        •   Update public online dashboard of goals/metrics with baseline data for tracking and
+            transparency purposes
+
+        Q3 CY 2028
+
+        •   Close out round 2 awarded projects funding.
+        •   Promotion and communication with media about activities and successes with funds
+        •   Host quarterly RHTSC meeting with public comment; discuss topics/programs for
+            Round 4 of RFPs/RFAs for posting depending on CMS grant approvals for year and
+            funding levels
+        •   Conduct site visits and audits of current grantees as needed to ensure accountability
+        •   Draft performance report summarizing individual grant performance and spending
+            timelines
+        •   RHT staff/team works with vendors to draft RFPs/RFAs for each initiative, inclusive of
+            requirements for grant oversight and accountability – for round 4.
+
+        Q4 CY 2028
+
+        •   Issue Round 4 competitive RFPs/RFAs for each initiative no later than December 1,
+            2028
+        •   Subrecipient/contractor written annual progress reporting due for Round 3.
+        •   RHT staff/team draft RHT progress report on grant programs per initiative for public
+            posting, CMS, and RHTSC review
+        •   Host RHTSC meeting with public comment; discuss topics/programs for Round 5 of
+            RFPs/RFAs for posting depending on CMS grant approvals for year and funding levels
+        •   Host quarterly RHTSC meeting with public comment
+        •   Close out round 2 awarded projects funding.
+
+        Q1 CY 2029
+
+        •   Conduct RFP proposal evaluation and scoring process (confidential) – 30 days after
+            postings and finalize round 4 awards and contracts with awardees
+        •   Begin any necessary state fiscal procedures to begin issuing funds next quarter to
+            grantees
+        •   Host RHTSC meeting to announce round 4 awardees and programs funded with
+            opportunity for public comment; ask several awardees to present high-level overviews
+            of their projected program goals and milestones
+        •   Grant oversight and management activities continued for CY2029
+
+
+
+                                                                                          42
+Stage   Timelines/Key Milestones
+
+        Q2 CY 2029
+
+        •   Round 4 grantee kickoff calls with state team
+        •   Round 4 grantee project plans submitted for state team review/approval
+        •   Host RHTSC meeting for updates on progress, early issue identification with grants
+            etc.
+
+        Q3 CY 2029
+
+        •   Close out round 3 awarded projects funding.
+        •   Host quarterly RHTSC meeting with public comment; discuss topics/programs for
+            Round 5 of RFPs/RFAs for posting depending on CMS grant approvals for year and
+            funding levels
+        •   Conduct site visits and audits of current grantees as needed to ensure accountability
+        •   Draft performance report summarizing individual grant performance and spending
+            timelines
+        •   RHT staff/team works with vendors to draft RFPs/RFAs for each initiative, inclusive of
+            requirements for grant oversight and accountability – for round 5.
+
+        Q4 CY 2029
+
+        •   Issue Round 5 competitive RFPs/RFAs for each initiative no later than December 1,
+            2029
+        •   Subrecipient/contractor written annual progress reporting due for Round 3 and 4.
+        •   RHT staff/team draft RHT progress report on grant programs per initiative for public
+            posting, CMS, and RHTSC review
+        •   Host RHTSC meeting with public comment
+        •   Close out round 3 awarded projects funding.
+
+        Q1 CY 2030
+
+        •   Conduct RFP proposal evaluation and scoring process (confidential) – 30 days after
+            postings and finalize round 5 awards and contracts with awardees
+        •   Begin any necessary state fiscal procedures to begin issuing funds next quarter to
+            grantees
+        •   Host RHTSC meeting to announce round 5 awardees and programs funded with
+            opportunity for public comment; ask several awardees to present high-level overviews
+            of their projected program goals and milestones
+        •   Grant oversight and management activities continued for CY2030
+
+        Q2 CY 2030
+
+        •   Round 5 grantee kickoff calls with state team
+        •   Round 5 grantee project plans submitted for state team review/approval
+        •   Host RHTSC meeting for updates on progress, early issue identification with grants
+            etc.
+        •   Collect and analyze data from grantees and other sources to continue measuring
+            performance of grantees and impact on overall metrics for program
+        •   Update public online dashboard of goals/metrics with baseline data for tracking and
+            transparency purposes
+
+
+
+
+                                                                                          43
+Stage           Timelines/Key Milestones
+
+                Q3 CY 2030
+
+                    •    Close out round 4 awarded projects funding.
+                    •    Promotion and communication with media about activities and successes with funds
+                    •    Host quarterly RHTSC meeting with public comment
+                    •    Conduct site visits and audits of current grantees as needed to ensure accountability
+                    •    Draft performance report summarizing individual grant performance and spending
+                         timelines
+
+                Q4 CY 2030
+
+                    •    Subrecipient/contractor written annual progress reporting due for Round 5.
+                    •    RHT staff/team draft RHT progress report on grant programs per initiative for public
+                         posting, CMS, and RHTSC review
+                    •    Host RHTSC meeting with public comment
+                    •    Close out round 3 awarded projects funding.
+
+                Q1 CY 2031
+
+                    •    Host RHTSC meeting with public comment
+                    •    Grant oversight and management activities continued for CY2031
+
+Stage 4:        Q1 & Q2 CY 2029
+
+Push for        •       Grant oversight and management activities continued for CY2029
+Success Phase   •       Collect and analyze data from grantees and other sources to measure performance of
+                        grantees and impact on overall metrics for program
+                •       Update online dashboard for tracking program success based on overall performance
+                        metrics for state’s RHT program
+                •       Host a grantee summit with multiple stakeholders for the RHT program to energize
+                        awardees for the final stretch of the program; promote wins and address and
+                        troubleshoot issues with stakeholders and grantees for final push through September
+                        2030
+
+                Q3 & Q4 CY 2029
+
+                •       Promotion and communication with media about activities and successes with funds
+                •       Draft performance report summarizing individual grant performance and spending
+                        timelines
+                •       Host meetings with grantees as needed to make any adjustments with grantees to
+                        programming as needed based on performance report
+                •       Conduct site visits and audits of grantees as needed to ensure accountability
+                •       Host RHTSC meeting with public comment
+                •       Assess spending timelines of awardees to ensure obligated funds will be used within
+                        deadlines of grant
+
+                Q1 & Q2 CY 2030
+
+                •       Host RHTSC meeting with public comment
+                •       Grant oversight and management activities continued for CY2030
+
+
+                                                                                                       44
+ Stage            Timelines/Key Milestones
+
+                  •   Collect and analyze data from grantees and other sources to summarize performance of
+                      grantees and impact on overall metrics for program
+                  •   Update online dashboard for tracking program success based on overall performance
+                      metrics for state’s RHT program
+                  •   Announce successes of program; including media activities and press release
+
+                  Q3 CY 2030
+
+                  •   Grant closeout activities with state and CMS
+                  •   Final grantee reporting activities
+                  •   Final steering committee meeting with report on overall successes and lessons learned
+                      from 5-year grant program
+
+ Stage 5:         Q2 CY 2031
+
+ Grant closeout   •    Host RHTSC meeting with public comment
+ Phase            •    Collect and analyze data from grantees and other sources to continue measuring
+                       performance of grantees and impact on overall metrics for program
+
+                  Q3 CY 2031
+
+                  •    Close out round 5 awarded projects funding.
+                  •    Announce successes of program; including media activities and press release
+                  •    Conduct site visits and audits of current grantees as needed to ensure accountability
+                  •    Draft performance report summarizing individual grant performance and spending
+                       timelines
+                  •    Update online dashboard for tracking program success based on overall performance
+                       metrics for state’s RHT program
+                  •    Grant closeout activities with state and CMS
+                  •    Final grantee reporting activities
+                  •    Final RHTSC meeting with report on overall successes and lessons learned from 5-
+                       year grant program
+
+
+VI.      Stakeholder Engagement
+
+Nevada is thrilled to take part in a new federal grant program aimed at improving rural
+
+healthcare. This proposal lays out a clear plan to work hand-in-hand with local
+
+communities, Tribal nations, and regional partners to strengthen primary care, chronic
+
+disease management, support maternal and child health, and expand behavioral health
+
+services.
+
+
+
+
+                                                                                                    45
+Thirty days after the release of the notice of funding opportunity, state officials at the
+
+Nevada Health Authority leapt into action—requesting ideas and feedback from the public
+
+and partners across the state. In this brief time, the state received over 300 public
+
+comments, 90 informal proposals, and many requests for meetings with vendors,
+
+providers, and others eager to help make a difference in Nevada through this new funding
+
+opportunity. The public response was overwhelming; hundreds of Nevadans from dozens
+
+of rural health organizations helped shape this proposal. Nevada commits to continuing
+
+to bring these voices at the forefront as the program moves forward.
+
+
+Mindful of the tight timeline, the Nevada Health Authority deployed online statewide
+
+surveys to gather broad public input on strategies for funding and hosted two widely
+
+attended public workshops in October for targeted feedback on state RHT initiatives. The
+
+Nevada Health Authority also met weekly with rural health leaders—which included
+
+representatives from the Nevada Rural Hospital Partners, the Nevada Primary Care
+
+Association (with a membership that includes FQHCs), the State Office of Rural Health
+
+(housed with a state university), and the State Emergency Medical Services (EMS) Office
+
+at the Division of Public and Behavioral Health; and met with local and state public health
+
+officials on opportunities for bolstering rural health systems and engaged multiple groups
+
+upon their request regarding the new federal funding opportunity.
+
+
+The state also prioritized meeting with Tribal partners at the October Tribal Consultation,
+
+and the Tribal Health Clinic Director’s meeting the following day. State staff also engaged
+
+the Nevada Department of Veteran’s Services and state and local officials within rural jail
+
+and prison systems.
+
+
+
+                                                                                        46
+Figure 5: Stakeholder Engagement Activity Prior to Submission of Application
+
+
+
+
+                                                       Information Gathering
+              Planning                          Meet with Governor's Office of Federal
+Weekly external rural advisory partner                      Assistance
+ meetings commence & continue                   Host 2 working sessions with external
+          through October                              rural advisory partners
+
+
+
+
+                July                     Aug.                  Sept.                     Oct.
+
+
+
+
+                            Public engagement kickoff                           Public Workshops
+                            Release 1st statewide survey                  Host 1st virtual public workshop
+                           Create webpage for RHT fund                        (Oct. 2; 240 attendees)
+                                                                           Release 2nd statewide survey
+                                                                        Met with tribal leaders for feedback
+                                                                          Host 2nd virtual public workshop
+                                                                             (Oct. 15; 124 attendees)
+                                                                       Host 3rd working session with external
+                                                                               rural advisory partners
+
+
+
+
+Nevada is committed to funding transparent, accountable, and community-driven
+
+approach for the RHT Program by establishing a RHT Steering Committee. The RHTSC
+
+will be the primary governance and stakeholder engagement body for Nevada’s
+
+stakeholder engagement framework.
+
+
+The RHTSC will meet quarterly, with each meeting open to the public and including a
+
+dedicated public comment period to provide for public transparency, community input,
+
+
+                                                                                                             47
+and    regular   stakeholder    engagement.          Notices   for   these    meetings      will   be
+
+published    publicly,   and   accessible      for    people    virtually    and   in   person      to
+
+accommodate Nevada’s geographically dispersed population.
+
+As shown in Section III, the membership of the RHTSC includes a broad array of
+
+stakeholders with both rural and frontier patient representative seats, rural health partner
+
+organizations, academia, public health, EMS, Tribal, and county partners—all appointed
+
+by the Director of the Nevada Health Authority. Nevada will coordinate regularly with the
+
+RHTSC on deploying funds, tracking milestones, and assessing impact metrics. The
+
+RHTSC will also include representatives from the state’s public health division,
+
+state Medicaid agency, state office of rural health, and state tribal health authority.
+
+VII.   Metrics & Evaluation Plan
+
+As previously described under each initiative in section IV, the Nevada Health
+
+Authority intends to use the following metrics to evaluate performance of the initiatives
+
+in meeting the goals for the RHT program. Additionally, the Nevada Health
+
+Authority may seek assistance of vendors or academic institutions to bolster its
+
+capacity to assess and track data related to performance based on these metrics.
+
+Nevada Health Authority commits to cooperating with any CMS-led evaluation and
+
+monitoring efforts for the RHT Program.
+
+Initiative #1: Rural Health Outcomes Accelerator program
+ata Source
+  Goal: Make rural Nevada Healthy Again                        Targets
+  Reduction in death rates   Baseline: 2025                    FY2028: At least 2 grantees received
+  from heart disease in                                        awards for initiatives aimed at
+  rural Nevada               Data Source: State death          addressing risk factors for heart
+                             records, grantee award data,      disease in rural Nevada.
+                             and CDC data
+                                                               FY2029: At least 2 new grantees
+                             Metric: Count of grant awards     received awards for initiatives aimed at
+                             focused on health outcomes,       addressing risk factors for heart
+
+                                                                                                    48
+Measurable Outcomes      Baseline Year & Data Source       Targets
+                         heart disease rates, and death    disease in rural Nevada.
+                         rate trend
+                                                           FY2030: The prevalence of heart
+                                                           disease in more than two rural and/or
+                                                           frontier counties is at or lower than it
+                                                           was in FY2025.
+
+                                                           FY 2031: The trend in death rates from
+                                                           heart disease in rural Nevada has
+                                                           plateaued or declined.
+
+Increased prenatal and   Baseline: 2025                    FY2028: At least 2 grantees received
+postpartum care visits                                     awards for initiatives aimed at
+by pregnant women in     Data Source: Grantee award        increasing access to and/or utilization
+rural Nevada on          data and State collected claims   of prenatal and postpartum care in
+Medicaid                 data (Medicaid MMIS);             one or more rural and/or frontier
+                                                           counties.
+                         Metric: HEDIS PPC
+                                                           FY2029: At least 2 new grantees
+                                                           received awards for initiatives aimed
+                                                           at increasing access to and/or
+                                                           utilization of prenatal and postpartum
+                                                           care in one or more rural and/or
+                                                           frontier counties.
+
+                                                           FY2030: HEDIS PPC scores for rural
+                                                           Medicaid enrollees show improvement
+                                                           in at least two rural or frontier
+                                                           counties.
+
+                                                           FY2031: HEDIS PPC scores for rural
+                                                           Medicaid enrollees show a statistically
+                                                           significant increase in the number of
+                                                           prenatal and postpartum care visits.
+
+Increased care           Baseline: 2025                    FY 2028: At least 2 grantees received
+management for                                             awards for initiatives aimed at
+treatment of mental      Date Source: Grantee award        improving access to, and/or utilization
+health illness and       data and state claims data        of mental health and/or substance use
+substance use disorder   (APCD if available or MMIS        treatment in one or more rural and
+in rural areas           Medicaid)                         frontier counties.
+
+                         Metric: HEDIS FUM and FUA         FY 2029: At least 2 new grantees
+                                                           received awards for initiatives aimed
+                                                           at improving access to, and/or
+                                                           utilization of mental health and/or
+                                                           substance use treatment in one or
+                                                           more rural and frontier counties.
+
+                                                           FY 2030: HEDIS FUM and FUA
+                                                           scores for rural Medicaid enrollees
+                                                           show improvement in at least two
+                                                           rural and/or frontier counties.
+
+
+                                                                                                 49
+ Measurable Outcomes         Baseline Year & Data Source      Targets
+                                                              By FY2031: HEDIS FUM and FUA
+                                                              scores show a statistically significant
+                                                              increase in the number of rural
+                                                              Nevadans receiving follow up after an
+                                                              emergency visit for mental illness or
+                                                              substance use disorder within 30 days
+                                                              and 7 days.
+
+ Reduced age-adjusted        Baseline: 2025                   FY 2028: At least 2 grantees received
+ rates of suicide in rural                                    awards for addressing suicide in rural
+ Nevada                      Data Source: Nevada Rural &      Nevada.
+                             Frontier Health Data Book; CDC
+                             data                             FY 2029: At least 2 new grantees
+                                                              received awards for addressing suicide
+                             Metric: Age-adjusted suicide     in rural Nevada.
+                             rates
+                                                              FY 2030: Suicide rate trends in at least
+                                                              two rural and/or frontier counties show
+                                                              a decline.
+
+                                                              FY: 2031: The trend in age-adjusted
+                                                              rates of suicide by county in rural
+                                                              Nevada plateaus or declines.
+
+
+
+
+Initiative #2: Nevada Rural Health System Flex Fund
+
+Goal: Strengthen rural health systems
+
+Measurable Outcomes          Baseline Year & Data Source      Targets
+New regional purchasing      Baseline: 2026                   Increase the number of regional
+and sharing                  Data Source: State survey data   health infrastructure purchasing and
+arrangements for rural                                        sharing arrangements across rural
+healthcare infrastructure    Metric: Number of purchasing     providers each FY after FY 2027.
+as a result of RHT grant     and sharing arrangements as of
+awards
+                             by rural region.
+
+                             Stratified by region
+Increase in transport        Baseline: 2025                   Increase in utilization of
+access for non-                                               transportation services for non-
+emergency and                Data Source: APCD and/or         emergency and emergency services
+emergency services in        Medicaid MMIS claims data        in rural areas by county by at least
+rural areas                                                   10 percent by FY 2030.
+                             Metric: Utilization rates by
+                             service type
+
+                             Stratified by rural region
+
+
+
+
+                                                                                                   50
+Measurable Outcomes          Baseline Year & Data Source          Targets
+More modern healthcare       Baseline: 2025                       Each rural region will have at least
+infrastructure in rural                                           one provider or hospital that
+Nevada                       Data Source: Count of                purchases at least one modern
+                             successful purchases/invoices        medical equipment or technology
+                             for equipment/technology by          product under this grant program,
+                             grantee/rural provider for           annually.
+                             infrastructure supports
+
+                             Stratified by rural region
+Increase in the number of    Baseline: 2025                       Each rural region will have at least
+mobile care units in rural                                        one more active mobile care unit
+Nevada                       Data Source: NVHA mobile unit        than it did before the RHT Program
+                             licensure data                       commenced by FFY 2030.
+
+                             Metric: # of mobile units
+
+                             Stratified by rural region
+More financially             Baseline: 2025                       No new closures of CAHs and
+sustainable CAHs and                                              FQHCs in rural Nevada from
+FQHCs in rural Nevada        Data Source: NVHA licensure          FY2027 to FY2030
+                             data
+
+                             Metric: # of CAHs & FQHCs
+
+                             Stratified by rural region
+
+
+
+Initiative #3: Workforce Recruitment & Rural Access Program
+
+Goal: More rural network providers
+
+Measurable Outcomes            Baseline Year & Data               Targets
+                               Source
+Number of primary care         Baseline: 2025                     Increase the number of primary care
+physicians in rural Nevada                                        physicians in rural and frontier
+                               Data Source: Nevada Rural &        counties by at least 25 percent by FY
+                               Frontier Health Data Book          2031
+Number of nurses in rural      Baseline: 2025                     Increase the number of nurses (RNs
+Nevada                                                            and APNs) in rural and frontier by at
+                               Data Source: Nevada Rural &        least 25 percent by FY 2031
+                               Frontier Health Data Book
+
+                               Metric: # of primary care
+                               physicans
+Number of physician            Baseline: 2025                     Increase in the number of physician
+assistants in rural Nevada                                        assistants in rural and frontier by at
+                               Data Source: Nevada Rural &        least 25 percent by FY 2031
+                               Frontier Health Data Book
+
+                               Metric: # of physician
+                               assistants in rural and frontier
+                               counties
+
+
+                                                                                                         51
+ Measurable Outcomes              Baseline Year & Data               Targets
+                                  Source
+ Number of behavioral health      Baseline: 2025                     Increase in the number of various
+ providers in rural Nevada                                           behavioral health provider types by at
+                                  Data Source: Nevada Rural &        least 15 percent by FY 2031 (e.g.,
+                                  Frontier Health Data Book          psychologists, clinical professional
+                                                                     counselor, youth and family peer
+                                  Metric: # of behavioral health     supports, licensed clinical social
+                                  providers by provider type         worker)
+                                  (available in the data soure)
+
+
+
+Initiative #4: Rural Health Information & Technology program
+
+Goal: Fill gaps with innovative tech solutions
+
+ Measurable Outcomes                       Baseline Data             Targets
+ Telehealth service utilization            Baseline: 2025            Increase the number of claims paid for
+                                                                     telehealth services for rural Nevadans
+                                           Data Source: APCD         by at least 25 percent by FY 2031.
+                                           and/or Medicaid
+                                           MMIS claims data
+
+                                           Metric: Utilization for
+                                           services delivered
+                                           through telehealth
+                                           modalities in rural
+                                           areas
+ Rural provider participation in the       Baseline: 2025            Increase in the number of rural
+ CMS Health Technology Ecosystem                                     providers serving rural Nevadans that
+                                           Data Source: CMS          participate in the CMS Health
+                                           data on participants      Technology Ecosystem by 25 percent
+                                           and State survey          by FY 2031.
+                                           data
+
+                                           Metric: # of
+                                           participants annually
+ More cybersecure health data              Baseline: 2025            For each rural region, at least one
+ systems in rural Nevada                                             hospital or provider clinic will
+                                           Data Source: grant        implement new cybersecurity
+                                           data                      software/technology paid for by the
+                                                                     RHT Program by FY 2030.
+                                           Metric: # of
+                                           successful grants for
+                                           cybersecurity efforts
+ Use of new AI health tools to             Baseline: 2025            For each rural region, at least one AI
+ support patient care, remote                                        health tool grant will be awarded per
+ monitoring, enhanced diagnostics,         Data Source: State        FY, starting FY2027.
+ or administrative efficiencies            survey tool
+
+                                           Metric: # of
+                                           successful grants for
+                                           AI health tools
+
+
+                                                                                                           52
+VIII.   Sustainability Plan
+
+By design, Nevada’s RHT Program will transform a time-limited federal cooperative
+
+agreement into a durable, self-sustaining framework for rural health. The State’s long-
+
+term strategy embeds multiple successful RHT initiatives into permanent state policy,
+
+fiscal mechanisms, and public-private partnerships to help ensure continuity of outcomes
+
+beyond FFY 2031. When federal funding sunsets, the goal is for Nevada’s rural and
+
+frontier communities to continue to benefit from expanded sustainable access to care,
+
+improved health outcomes, and more financially stable systems supported through
+
+existing State appropriations, Medicaid payment structures and coverage, new value
+
+based payment models supported by a statewide purchasing and contracting strategy,
+
+private or local funding sources, and regional partnership reinvestment models.
+
+            Initiative/Program Types                       Long-term funding Strategy
+
+ Initiative #1: Rural Health Outcomes           Managed care contracting requirements for
+ Accelerator Program (RHOAP)                    standardization of VBPs used by RHOAP and
+  • Value-based payment models                  shared savings arrangements
+  • RHOAP grant programs for chronic disease
+                                                NVHA purchasing strategies to align VBPs with
+                                                Medicaid/RHOAP and the state’s public employee
+                                                benefits plan and exchange products through the
+                                                Battle Born State Plan (Nevada’s new state-
+                                                contracted qualified health plans) that leverage the
+                                                RHOAP VBPs for long-term sustainability
+
+                                                Other RHT-grant-funded chronic disease programs
+                                                including those utilizing technology; grantees must
+                                                submit a long-term financing strategy to get original
+                                                award for funds. This could include private or local
+                                                funds in addition to other state grant programs. If
+                                                Medicaid reimbursement is available but not yet
+                                                covered in Nevada, NVHA will seek state and
+                                                federal approval prior to FY2031 to add such
+                                                coverage to the state’s Medicaid benefit set.
+
+ Initiative #2: Rural Health System Flex Fund   All applicants for flex funds must include a
+  • Infrastructure                              reasonable and reliable plan for how the applicant
+  • Technology                                  intends to fund maintenance costs for items
+  • Capital expenditures                        purchased in order to be eligible for an award of flex
+                                                funds. This plan may include funding from private,
+                                                local or state entities (with proof of commitment or
+
+
+                                                                                                   53
+                                                   attestation from private, local or state entity that
+                                                   such funding will be available for long-term
+                                                   sustainability.)
+ Initiative #3: Workforce Recruitment & Rural      The state intends to use future federal; pass-
+ Access (WRRAP) Program                            through funding available to Nevada in 2030 from
+  • Incentive programs to serve in rural Nevada    its 1332 waiver of the Affordable Care Act to
+  • Tuition assistance & other provider training   continue the sustainability of many of the incentive
+       supports (including career pathways         programs and tuition assistance programs. CMS
+       programs)                                   approved a portion of these funds for future uses
+  • Rural Physician Residency Program              under its existing 1332 waiver for workforce
+                                                   expansion.
+
+                                                   The state also intends to work with CMS on how to
+                                                   maximize Medicaid reimbursements to rural
+                                                   providers that host residents and expand access
+                                                   to care while meeting certain quality metrics and
+                                                   outcomes (VBPs) through the new residency
+                                                   program(s) established by the RHT funding.
+ Initiative #4: Rural Health Innovation &          The state will not award funding to an entity under
+ Technology (RHIT) Grant Program                   the RHIT unless the applicant has a reasonable
+  • Data/IT ecosystem upgrades                     and reliable means for future, long-term funding
+  • AI tools                                       and maintenance. The state will not award RHIT
+  • Remote/virtual care infrastructure             grants to entities that rely solely on the “potential
+  • Other tech-enabled tools for health systems    for” future state legislative approval of new state
+                                                   appropriations to fund ongoing costs for the
+                                                   technology.
+
+To achieve the goal of long-term sustainability, Nevada will require all awardees of RHT
+
+funds to have a reasonable and justifiable plan for long-term financial self-sustainability
+
+that does not include sole reliance on new state appropriations to avoid major fiscal cliffs
+
+for the state budget in FY2031 as a result of the RHT program. If state appropriations
+
+already exist for an effective program and these funds will expand and enhance these
+
+efforts (not supplant state investments), Nevada intends to support such requests while
+
+exploring options with the state legislature in 2029 for ongoing enhancement funds after
+
+FY31.
+
+However, the Nevada Health Authority cannot commit the state to future appropriations
+
+for RHT programs beyond FY31 solely on the basis that a program received RHT funding
+
+award. For this reason, awardees must have a funding plan in their proposals in response
+
+to future procurement that does not include a sole reliance on new state appropriations
+
+
+                                                                                                     54
+for long-term sustainability. For one-time funding requests to support infrastructure needs,
+
+the Nevada Health Authority will request that there be a plan for how the entity will address
+
+maintenance expenses on its own without state assistance.
+
+For state employees hired to implement the RHT program, the state intends to utilize
+
+these staff beyond the federal grant period by building out and operationalizing a new
+
+state technical assistance center for rural health systems to support continued expansion
+
+of value-based payment, revenue maximization, and long-term financial sustainability for
+
+the state’s rural healthcare system. The Nevada Health Authority will include a request to
+
+continue to maintain RHT-funded grant staff with state dollars in addition to any necessary
+
+vendor resources to support the rural provider technical assistance center in the
+
+Governor’s budget request for the 2029 biennial legislative session. This new center will
+
+be operationalized by FY2031 at the time of the grant expiration and support the long-
+
+term fiscal challenges for rural providers including the private rural hospitals affected by
+
+the reduction in the provider tax revenue changes under H.R. 1.
+
+By the end of the RHT Program in FY2031, Nevada believes that rural health systems
+
+will have greater fiscal strength than before because of the following achievements under
+
+the RHT Program:
+
+   •   Value-based payment models sustained through state contracts with carriers
+
+       (Medicaid, exchange, and state employee health plan)
+
+   •   Improved access to chronic disease prevention and management tools for
+
+       providers and rural Nevadans results in lower healthcare costs over time and
+
+       improved performance in value-based payment arrangements (e.g., incentive and
+
+       shared risk VBPs)
+
+
+
+                                                                                          55
+   •   Increased access to qualified providers (rural residency program and trained
+
+       workforce) to meet service gaps and reduce workload/burnout of current
+
+       healthcare providers through new providers living in rural Nevada and remote care
+
+       (including provider mentorship programs like Project ECHO)
+
+   •   Modernized infrastructure and upgraded health data systems to reduce costly
+
+       administrative burdens and remove waste in the system
+
+   •   Increased access to care through covered telehealth services and remote/hybrid-
+
+       based care models that can supplement onsite care
+
+   •   Technical Assistance Center for rural health systems to continue support with
+
+       remote care models, value-based payment, revenue maximization, and other
+
+       needs identified by the steering committee (RHSTC) about the ongoing needs of
+
+       rural health systems to sustain the successes of the RHT Program
+
+Altogether, these initiatives stand to make significant improvements in Nevada’s
+
+rural healthcare infrastructure. Over the next five years, RHT funding will help rural
+
+health systems achieve the modernization and innovation of urban health systems in
+
+support of advanced care and treatment for rural residents. This includes new
+
+advancements in technology and AI that will transform the way rural Nevadans
+
+receive healthcare and achieve healthier living.
+
+
+
+
+                                                                                     56
+IX.Citations
+i School of Medicine, University School of Reno. Nevada Rural and Frontier Health Data Book, 12th ed,
+2025. Available at: https://www.nvhealthforce.org/wp-content/uploads/2025/01/DATA-BOOK-2025-
+FINAL-V1-1-10-25-1.pdf; Tackes & Packham, Guinn Policy Center. Moving the Needle: Challenges in
+Meeting Nevada’s Health Workforce needs, 2025. Available at: https://www.guinncenter.org/research/
+moving-the-needle-challenges-in-meeting-nevadas-health-workforce-needs
+
+ii Nguyen, et al. The GoodRx Research Team. Mapping Healthcare Deserts, 2021. Available at:
+https://assets.ctfassets.net/4f3rgqwzdznj/1XSl43l40KXMQiJUtl0iIq/ad0070ad4534f9b5776bc2c41091c32
+1/GoodRx_Healthcare_Deserts_White_Paper.pdf.
+
+iii School of Medicine, University School of Reno. Nevada Rural and Frontier Health Data Book, 12th ed,
+
+2025. Available at: https://www.nvhealthforce.org/wp-content/uploads/2025/01/DATA-BOOK-2025-FINAL-
+V1-1-10-25-1.pdf
+iv HRSA. Overview of the State of Nevada, 2024. Available at:
+
+
+https://mchb.tvisdata.hrsa.gov/Narratives/Overview/9ca66c48-9847-43d0-a789-d1034a7e2c29
+v School of Medicine, University School of Reno. Nevada Rural and Frontier Health Data Book, 12th ed,
+
+2025. Available at: https://www.nvhealthforce.org/wp-content/uploads/2025/01/DATA-BOOK-2025-FINAL-
+V1-1-10-25-1.pdf
+vi HRSA. Overview of the State of Nevada, 2024. Available at:
+
+https://mchb.tvisdata.hrsa.gov/Narratives/Overview/9ca66c48-9847-43d0-a789-d1034a7e2c29
+
+vii Nevada Dept. of Native American Affairs. Tribal Nations: A Map of Native Nations.
+
+
+viii School of Medicine, University School of Reno. Nevada Rural and Frontier Health Data Book, 12th ed,
+
+2025. Available at: https://www.nvhealthforce.org/wp-content/uploads/2025/01/DATA-BOOK-2025-FINAL-
+V1-1-10-25-1.pdf
+ix Nevada Dept. of Native American Affairs. Tribal Nations: A Map of Native Nations.
+
+
+x Nev. HealthForce, Data Book 2025 3 (Jan. 10, 2025), https://www.nvhealthforce.org/wp-content/
+
+uploads/2025/01/DATA-BOOK-2025-FINAL-V1-1-10-25-1.pdf
+xi
+     Gerald Ackerman, Dir., Nev. State Off. of Rural Health, to Stacie Weeks, Dir., Nev. Health Auth., Rural
+Health Facility Closures in NV Over the Past 25 Years (Oct. 14, 2025) (memorandum)
+xii Nevada Health Authority, Division of Nevada Medicaid. Hospital Provider Tax & Payment Program.
+
+
+Available at: https://dhcfp.nv.gov/Providers/PI/Provider_Assessments/
+xiii School of Medicine, University School of Reno. Nevada Rural and Frontier Health Data Book, 12th ed,
+2025. Available at: https://www.nvhealthforce.org/wp-content/uploads/2025/01/DATA-BOOK-2025-
+FINAL-V1-1-10-25-1.pdf
+xiv
+    Citation: Governor’s Office of Workforce Innovation, Health Workforce in NV: A Chartbook – 2023
+Edition 13 (2023), https://gowinn.nv.gov/wp-content/uploads/2023/12/23-HWIN-Chartbook-Final-May-
+ 2023.pdf
+xv
+  Nev. HealthForce, Data Book 2025 3 (Jan. 10, 2025), https://www.nvhealthforce.org/wp-
+content/uploads/2025/01/DATA-BOOK-2025-FINAL-V1-1-10-25-1.pdf
+xvi Nev. HealthForce, Data Book 2025 3 (Jan. 10, 2025), https://www.nvhealthforce.org/wp-ontent/
+
+uploads/2025/01/DATA-BOOK-2025-FINAL-V1-1-10-25-1.pdf
+xvii Nev. HealthForce, Data Book 2025 3 (Jan. 10, 2025), https://www.nvhealthforce.org/wp-ontent/
+
+uploads/2025/01/DATA-BOOK-2025-FINAL-V1-1-10-25-1.pdf
+
+                                                                                                           57
+xviii Health Res. & Servs. Admin., Designated HPSA— Quarterly Statistics (Oct. 1, 2025)
+
+
+xix Nevada Rural and Frontier Health Data Book – Twelfth Edition, at 122
+
+
+(2025), https://www.nvpca.org/_files/ugd/5067d7_e069f66ce8e74f5f8c32b5196b7281cd.pdf
+xx Nev. Governor’s Office of Pub. Policy & Planning, ADA NWIN Report Final 4 (Mar. 13,
+
+2025), https://ppc.nv.gov/uploadedFiles/ppcnvgov/content/Meetings/2025/ADA%20NWIN%20Report%20
+FINAL%20V2%203-13-25.pdf
+xxi Commonwealth Fund, 2025 Scorecard on State Health System Performance. Available at: U.S. Health
+Care Rankings by State 2025 | Commonwealth Fund; America’s Health Rankings: United Health
+Foundation, 2024, Health of Women and Children – State Summaries. Available at:
+ahr_2024hwc_statesummaries-all.pdf; Mental Health America: Data & Rankings, website, 2025. Available
+at: Ranking the States | Mental Health America
+xxii Murphy. American Medical Association, How residency location, training specialty affect where doctors
+
+go after GME, 2015. Available at: https://www.ama-assn.org/medical-residents/transition-resident-
+attending/how-training-location-specialty-affect-where
+xxiii American Association of Family Practice, Rural Practice, Keeping Physicians (Position Paper), 2014.
+
+
+Available at: https://www.aafp.org/about/policies/all/rural-practice-keeping-physicians.html
+
+
+
+
+                                                                                                            58
+

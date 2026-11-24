@@ -1,0 +1,2643 @@
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Version  2: Revised  12/12/2025  to include  C MS  requested  clarification  
+Version  3: Revised  1/30/2026  with  updated  budget.  
+Version  4: Revised  2/26/2026  to include  C MS  requested  clarification.   
+Version 5: Revised 3/30/2026 to include C MS requested clarification.  
+Version  6: Revised 3/31/2026 to include C MS requested clarification.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+2 
+ 
+ 
+ 
+ 
+Rural  De mographics  
+ 
+ 
+ 
+Rural  Arkansas  faces  major  challenges  across  de mography,  health  outco mes,  healthcare 
+access, and  facility sustainability,  all of which the  Rural  Health  Transfor mation (RHT) 
+Progra m  seeks  to address.  The  following  provides  a detailed  overview  of the current  rural 
+health landscape in Arkansas.  
+Rural  Landscape  and  RHT  Progra m  Challenges  
+About  45 %  of Arkansans  live in rural  areas,  making  it one  of the most  rural  states  in the 
+U.S. [1][2] Rural co m munities tend to be older,  lower -inco me,  and  in poorer health than 
+urban  residents,  with  li mited access to medical  services. [3][1] Nearly  half of rural  hospitals 
+(50 %)  are  considered vulnerable  to closure — the  highest  rate  in the nation — with 79 % 
+operating  at a loss  on  patient  services. [4] Rural  providers  face  significant  financial  strain 
+due  to low  rei mburse ment rates,  as Arkansas  ranks in the  botto m  five nationally  in the 
+Medicare Wage Index. [5] 
+Rural  De mographics  
+• Population:  Roughly  1.3 million  rural residents  of a statewide  population  of 3 
+million. [2] 
+• Population  density:  Typically,  fewer  than  30 people  per square  mile  in many 
+counties. [2] 
+• Median  rural  household  inco me:  $50,210,  below  national  medians. [6] 
+RURAL  HEALTH  NEEDS  AND  TAR GET  POPULATION  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+3 
+ 
+ 
+• E mploy ment:  Do minated  by agriculture,  manufacturing,  and  healthcare  support, 
+with  une mploy ment  averaging  4.9 %  in rural counties  co mpared  to 3.4 %  urban.  [6] 
+• Education:  Only  17 %  hold  a bachelor’s  degree  or higher. [6] 
+ 
+ 
+ 
+• Insurance:  Rural  counties  rely heavily  on public  coverage — about  42 %  on Medicaid 
+or Medicare. Over 8 % are without healthcare coverage. [1][2] 
+• According  to the HRSA Federal  Office  of Rural  Health  Policy  (FORHP) listing  of rural-
+eligible  counties,  63  of Arkansas’s 75  counties  are  classified  as fully rural  for C MS 
+progra m eligibility.  
+Health  Outco mes  and  Risk  Factors  
+• Chronic  diseases:  High  rates  of heart  disease  (according  to the CDC,  Arkansas  has 
+the third-highest  rate of heart  disease  mortality  in the nation),  diabetes,  hypertension, 
+and  obesity — each  up to 30 %  higher  than urban county  averages. [1][6] 
+• Maternal  health:  Only  25  of 75 counties  still have  labor  and  delivery  units,  and  rural 
+maternal mortality rates are double urban counterparts. [3][1][4]  
+• Child  health:  Elevated  rates  of low  birthweight  and  childhood  obesity,  especially  in 
+the  Mississippi River  Delta  and  Ozarks  regions.  The  average  of the county -level 
+percentages  of students  classified  as obese  was  25 %  in rural counties  and  22 %  in 
+urban counties. [8] 
+• Ratio  of population  to Other  Pri mary  Care  Providers:  770:1  (AR)  vs. 680:1  (U.S.)  [6] 
+• Ratio  of population  to Mental Health Providers:  360:1  (AR)  vs. 290:1 (U.S.)  [6] 
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+4 
+ 
+ 
+• 23 %  of Arkansans  report  sy mpto ms  of anxiety  or depression  [9] and  more  than  60 %  of 
+adults with mental illness receive no treat ment. [10] 
+• 71.5  opioid  prescriptions  per 100  residents  in 2023. [11] 
+ 
+ 
+Healthcare  Access  
+• Distance  to care:  Rural  Arkansans  travel  an  average  of 25 –35  miles  to reach  the 
+nearest  hospital  or specialty  clinic. According  to the Arkansas  Depart ment  of Health, 
+Rural counties experience longer E MS response  ti mes. [3][1] 
+• Provider  availability:  So me  rural counties  have  fewer  than  one  pri mary  care 
+physician per  2,000  residents  and  severe  dental  and  mental  health  provider 
+shortages.  Arkansas  has  17 %  fewer  mental  health providers  than  the national 
+average, per the Arkansas Whole Health Institute.  [3][1] 
+• Transportation:  Mini mal  or no  public  transit  options  in most rural counties, 
+particularly in the south and Delta regions. [1][2] 
+• Facility  distribution:  47  rural hospitals,  including  27  Critical  Access  Hospitals  and  5 
+Rural  E mergency  Hospitals.  Arkansas  has  154  licensed  rural  health  clinics  and  12 
+co m munity  health  center  organizations  with  179  service locations  in rural  markets. 
+According  to HRSA,  there  are 163  Federally  Qualified  Health  Centers  in rural areas  of 
+the State.  [1][2] 
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+5 
+ 
+ 
+Rural  Facility  Financial  Health  
+ 
+ 
+ 
+• At-risk  hospitals:  30 of 47 rural hospitals  are  at risk of closure,  with  11  in i m mediate 
+risk of insolvency. [4] 
+• Closures:  Four  hospitals  have  closed  since  2015;  several  have  eli minated  obstetrics 
+or inpatient services. [3][4] 
+Target  Populations  and  Geographic  Focus  
+Arkansas’s  RHT  plan  targets:  
+• Rural residents  in high -need counties, particularly in the  Delta,  Ozarks, and 
+southwest  regions,  where  hospital  vulnerability,  poverty,  and  chronic  disease  rates 
+are highest.  
+• All rural hospitals, rural health clinics (RHCs), federally qualified health centers 
+(FQHCs),  and  behavioral  health  or co m munity  health  organizations  operating  in rural-
+designated census tracts statewide.  
+These  interventions  ai m to stabilize  rural healthcare  access,  i mprove  health  outco mes, 
+and ensure sustainability through workforce develop ment and modernized care 
+coordination.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+6 
+ 
+ 
+ 
+ 
+ 
+Vision  
+The  State  of Arkansas  has  designed  a Rural  Health  Transfor mation Progra m  (RHT  Progra m) 
+to support  a strong,  connected  rural health syste m  where  fa milies  can get  the care  they 
+need  close  to ho me.  Our  RHT  Progra m  focuses  on practical  solutions  that strengthen  local 
+co m munities, support rural providers, and use targeted invest ments in technology  and 
+partnerships to i mprove health  
+outco mes  through  preventive  care 
+and healthier lifestyles.  
+Over the next five years, Arkansas 
+ai ms to transfor m rural healthcare 
+into a model  of resilience,  access,  and 
+whole -person  wellness.  The  Arkansas 
+RHT  Progra m  envisions  thriving rural 
+co m munities where health outco mes 
+no  longer  depend  on  ZIP  codes,  where 
+care  is local  yet connected,  and  where 
+every Arkansan fro m the  Delta to  the 
+Ozarks has  the resources  to live well, 
+learn well, and age well.  
+This  transfor mation  will align  public  
+ 
+health  and  clinical  care  through  coordinated  invest ment  in prevention,  workforce  
+RURAL HEALTH TRANSF OR MATI ON PLAN: G OALS AND 
+STRATEGIES  
+When Governor Sarah Huckabee 
+Sanders took office, she pro mised to 
+transfor m  Arkansas  fro m ranking  at the 
+botto m on issues like education,  
+econo mic  growth,  and  public  safety  to moving  to 
+the top. Her ad ministration has invested in 
+Arkansans’ healthcare through the Healthy 
+Mo ms,  Healthy  Babies  Act , which  provides  $45 
+million  in additional  funding  each  year  to i mprove 
+maternal health. She has led on co m monsense 
+refor ms  to move  Arkansans  off the path  of poverty 
+and onto the path to prosperity, like getting 
+candy  and  soft  drinks  off taxpayer -funded  food 
+sta mps , i mple menting a first -in-the-nation 
+Medicaid work require ment, and creating the 
+10:33 Initiative to bring govern ment, nonprofits, 
+and the faith co m munity together to move 
+Arkansans  fro m crisis to career. The Governor 
+and her husband launched the Natural State 
+Initiative to get Arkansans, and especially kids, 
+off screen and  outdoors to pro mote healthy 
+lives and e mbrace Arkansas’s greatest natural 
+resource:  its outdoor  beauty.  The  Governor  seeks 
+to use the Rural  Health  Transfor mation  Progra m 
+to build on those successes and deliver better, 
+sustainable  care  to the  Arkansans  who  need  it 
+most . 
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+7 
+ 
+ 
+develop ment, and digital infrastructure — ensuring financial sustainability and quality 
+outco mes  statewide.  The  goal  is not si mply  to stabilize  rural healthcare but  to redesign it 
+fro m the ground  up  around  prevention,  connected  syste ms,  and  e mpowered  co m munities. 
+Five  years  fro m  now,  Arkansas’s rural co m munities  will be  stronger,  healthier,  and more 
+connected  than  ever.  Local  clinics  will operate  in partnership  with  regional  networks  rather 
+than in isolation. Children will grow up  with real food,  physical activity,  and  routine 
+preventive care. Healthcare professionals will choose to build  their careers in rural 
+Arkansas  because  professional  growth,  co m munity  support,  and  a sense of belonging  are 
+deeply intertwined.  
+Technology  will unite  what  geography  once  divided — linking  hospitals,  schools,  
+ 
+clinics,  churches,  and  ho mes  in a real-ti me web  of care.  Econo mic  resilience  will follow 
+health resilience, as healthier citizens sustain stronger local econo mies.  
+The  Arkansas  RHT  Progra m  is more  than  a financial  invest ment — it is a pro mise  to make 
+every  co m munity a  place  where  healthcare  can  thrive, innovation  can  take root,  and  every 
+Arkansan can live their  best possible  life supported by local care and opportunity.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+8 
+ 
+ 
+Goals  and  Strategic  Align ment  
+ 
+Statute(s)  Focus/Key  Action  Align ment  to RHT  
+Progra m 
+Strategic  Goals  
+Key  Outco mes  
+I mproving 
+Access & 
+Outco mes  
+Expand hospital, pri mary, 
+specialty, behavioral, and 
+e mergency  care.  Keep  EDs  open, 
+expand  maternal  health,  school-
+based health centers, and 
+co m munity wellness progra ms.  
+Make Rural 
+A merica Healthy 
+Again:  evidence -
+based 
+interventions for 
+disease 
+prevention, 
+chronic disease 
+manage ment,  
+behavioral  health, 
+and  prenatal  care.  
+Reduced  chronic 
+disease and 
+maternal 
+co mplications; 
+higher  local 
+utilization.  
+Technology  Use 
+& Data -Driven 
+Solutions  
+Use  telehealth,  conversational  AI-
+enabled monitoring and 
+coaching, dashboards, and HIE 
+integration  to expand  access and 
+i mprove care coordination.  
+Tech  Innovation  & 
+Innovative  Care: 
+foster  innovate 
+technologies  for 
+efficient  care 
+delivery,  data 
+sharing,  and 
+re mote care.  
+Faster access 
+and early 
+detection;  better 
+care 
+coordination; 
+sustainable  use 
+of technology; 
+cost efficiency  
+and  savings.  
+Workforce  Recruit, train, and retain rural 
+clinicians and students; expand 
+residencies  and  preceptorships  in 
+rural settings; expand scopes of 
+practice;  leadership 
+develop ment; co m munity health 
+worker training.  
+Workforce 
+Develop ment: 
+attract  and  retain 
+high  skilled 
+providers;  enable 
+rural providers  to 
+practice  at top of 
+license.  
+Increased 
+provider 
+retention; 
+expanded  access 
+to behavioral  and 
+specialty care;  
+strengthened 
+leadership.  
+Partnerships  For m  Clinically Integrated 
+Networks; share staff, 
+purchasing, data, and best 
+practices; align transport, 
+workforce, and care delivery; 
+establish trau ma -ready  networks 
+and joint capital i mprove ments.  
+Sustainable 
+Access and 
+Innovative  Care: 
+strengthen  rural 
+providers  through 
+networks,  shared 
+resources, 
+coordinated  
+operations.  
+I mproved  care 
+quality, cost 
+efficiency, 
+e mergency 
+preparedness.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+9 
+ 
+ 
+ 
+Statute(s)  Focus/Key  Action  Align ment  to RHT 
+Progra m  
+Strategic Goals  
+Key  Outco mes  
+Financial 
+Solvency 
+Strategies  and 
+Cause 
+Identification  
+Right -size  facilities; transition  to 
+value -based pay ment models; 
+diversify revenue; and share 
+ad ministrative/purchasing 
+services;  reduce  facility bypass.  
+Sustainable 
+Access:  help  rural 
+providers re main 
+long -ter m  access 
+points.  
+Reduced  at-risk 
+hospitals; 
+i mproved 
+margins; 
+sustained  local  
+access  to care  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+10 
+ 
+ 
+Rural  Health  Transfor mation  Initiatives  & Outco mes  
+ 
+Initiative  Progra ms  and  Description  Key  Perfor mance  
+Objectives  
+Healthy Eating, Active 
+Recreation, & 
+Transfor mation  (HEART)  
+Growing  Resilient,  Opti mally  Well  Kids 
+(GR O W Kids ): Progra ms that help  
+Arkansas  children  build  lifelong  health.  
+≥ 12,500  residents 
+engaged  annually 
+across all HEART 
+activities.  
+ 
+≥ 100 for malized 
+partnerships 
+established  by Year  5. 
+ 
+≥ 75 co m munity  sites 
+delivering HEART -
+aligned  progra ms  by 
+Year 5.  
+ 
+≥ 250  providers  and 
+co m munity  health 
+workers trained 
+statewide  by Year  5. 
+Food Access & Regional Markets 
+(FAR M ): “Buy  Local”  produce  initiative 
+supporting SNAP waivers, healthy 
+vending machine refor ms, and 
+integration of food -as-medicine 
+strategies to i mprove nutrition and  
+prevent  chronic  disease.  
+Mobilizing Opportunities for Vital 
+Exercise  (MOVE ): Expanding  access  to 
+fitness trails, modular fitness  
+equip ment,  and  recreation.  
+Faith -based Access, Interventions, 
+Transportation, & Health ( FAITH ): 
+Utilizing faith leaders as trusted 
+advisors, e mphasizing  the  connection 
+between  physical,  mental  and  spiritual 
+well-being.  
+Healthcare Education and 
+Advance ment  for Leadership  (HEAL ): 
+E mbedding nutrition and fitness 
+education in medical, nursing, 
+phar macy,  and  C ME  progra ms;  training 
+providers  on safe opioid prescribing.  
+Integrated Models for Prevention, 
+Access, Care and Transfor mation 
+(I MPACT):  Co mprehensive  chronic 
+disease  prevention  and  manage ment 
+designed  to i mprove  health  outco mes  for 
+Arkansans  with diabetes,  obesity, 
+hypertension, and high cholesterol.  
+Pro moting Access, 
+Coordination,  and 
+Transfor mation  (PACT)  
+Advancing  Care  Capacity,  Engage ment, 
+and Screening Services ( ACCESS ): 
+Bringing specialty care, preventive  
+screenings,  and  telehealth  into 
+underserved areas.  
+≥ 12,500  rural residents 
+served annually via 
+mobile units and  
+telehealth  services by 
+Year 5.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+11 
+ 
+ 
+ 
+Initiative  Progra ms  and  Description  Key  Perfor mance  
+Objectives  
+ Co m munity  Integrated  Networks  for 
+Care ( CINC ): Funding botto m -up, 
+locally driven Clinically Integrated 
+Networks (CINs) that i mprove 
+efficiency, data sharing, revenue 
+opportunities, and regional 
+collaboration.  
+ 
+≥ 15 healthcare 
+facilities or providers 
+participating  in shared 
+networks or 
+partnerships  by Year  5. 
+ 
+≥ 25 rural clinics 
+offering expanded 
+specialty  or preventive 
+services by Year 5.  
+ 
+≥ 75 providers 
+credentialed for 
+expanded scope -of-
+practice  roles  by Year 
+5. 
+ 
+Reduction in facilities 
+at risk of closure, 
+based  on  financial  and 
+operational  metrics  by 
+Year 5.  
+Regional Opti mization of Access, 
+Delivery, Mobility, and Practice 
+(ROAD MAP ): Addressing  transportation 
+barriers and aligning workforce 
+distribution to need.  
+Scope  of Practice  Elevation (Sc OPE): 
+E mpowering  providers  like phar macists 
+and  dental  hygienists  to operate  at the 
+top of their credentials and deliver 
+expanded services such as dietary 
+counseling and chronic disease 
+support.  
+Syste m Align ment & Facility 
+Enhance ment  (SAFE):  Supporting 
+hospital  facility i mprove ments  and 
+integration with larger syste ms to 
+maintain  essential  services  in rural 
+areas.  
+Recruit ment, Innovation, 
+Skills,  and  Education  for 
+AR Healthcare (RISE AR)  
+Leadership  Education,  Advance ment  & 
+Delivery (LEAD) : Establishing a 
+Leadership Acade my for healthcare  
+leaders  focused  on align ment  with  RHT 
+Progra m  objectives.  
+≥ 50 leaders  trained 
+statewide  by Year  5. 
+≥ 100  new  or expanded 
+training  slots by Year  5. 
+ 
+≥ 100 clinicians 
+recruited and retained 
+in rural areas  by Year  5. 
+Preparing  Arkansas  Talent  for Health 
+Workforce Advance ment Yield 
+(PATH WAY ): Expanding  G ME  slots, 
+preceptor  progra ms,  and  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+12 
+ 
+ 
+ 
+Initiative  Progra ms  and  Description  Key  Perfor mance  
+Objectives  
+ new residences/fellowships in 
+specialties  like fa mily medicine,  OB, 
+and lifestyle medicine.  
+ 
+≥ 150 workforce 
+me mbers co mpleting 
+advanced training and 
+certifications  by Year  5. Recruit, Educate, Train, Advise, 
+Integrate, Nurture ( RETAIN ): 
+Recruit ment and retention progra m 
+offering relocation support, signing 
+bonuses,  and  mentorship  incentives.  
+Strategic Knowledge, Innovation & 
+Lifelong Learning for Upward 
+Professionals (SKILL -UP) : Workforce 
+pathways for nurses, PAs, mental 
+health  professionals,  drug  counselors, 
+and  non -credentialed  
+paraprofessionals.  
+Telehealth, Health -
+monitoring,  and  Response 
+Innovation for Vital 
+Expansion (THRIVE)  
+Linking Infrastructure for E mergency 
+Lifesaving and Integrated Network 
+Expansion (LIFELINE) : Modernizing E MS 
+syste ms and ensuring access to  
+e mergency  care.  
+≥ 10 % reduction in 
+average E MS response 
+ti mes  in rural  counties 
+by Year 5.  
+ 
+≥ 2,500 patients 
+actively  monitored  with 
+actionable  data  by Year 
+5. 
+ 
+≥ 12,500  telehealth 
+visits delivered 
+statewide  by Year  5. 
+ 
+≥ 50 rural facilities 
+equipped with 
+standardized 
+telehealth 
+infrastructure  by Year 
+5. 
+Health  Outco mes  through  Monitoring  & 
+Engage ment  (HO ME) : At-ho me  re mote 
+monitoring  pilots  for chronic  conditions 
+such as diabetes, hypertension, 
+obesity,  sleep  apnea,  and  heart  failure,  
+e mphasizing  ROI  and  sustainability.  
+Virtual  Innovation  for Rural  Telehealth, 
+Utilization, Access, and Longevity 
+(VIRTUAL) : Expanding telehealth 
+access,  supporting  capital  invest ments, 
+and integrating virtual specialty care  
+across  CINs.  
+Telehealth, Equip ment, and 
+Connectivity Hub  Fund (TECH  Fund) : 
+Investing  in infrastructure  upgrades  and  
+technology  sustainability.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+13 
+ 
+ 
+Legislative  or Regulatory  Action  
+ 
+Technical  Score  
+Factor  
+Current  Policy  Co m mitted  Action  
+and  Ti meline  
+Expected  I mpact  on  
+Rural  Health  
+B.2  Health  and 
+Lifestyle  
+Arkansas  does  not 
+currently  require 
+the Presidential 
+Fitness Test.  
+ Arkansas will 
+seek to have 
+schools 
+reestablish  the 
+Presidential 
+Fitness Test 
+aligned with 
+federal  guidance 
+associated with 
+Executive  Order 
+14327 by  
+Dece mber  31, 
+2028.**  
+Pro mote physical 
+activity  and  healthy 
+habits.  
+ 
+Support chronic 
+disease  prevention 
+and population 
+health.  
+B.3  SNAP  Waivers   Arkansas has a 
+USDA -approved 
+state waiver in 
+place  prohibiting 
+the purchase of 
+non -nutritious 
+ite ms  with  SNAP 
+benefits.  
+ Reduce rates of 
+chronic diseases 
+such as diabetes, 
+heart  disease,  and 
+obesity.  
+ 
+Pro mote  mental  
+well-being  and  child 
+develop ment.  
+B.4 Nutrition 
+Continuing  Medical 
+Education (C ME)  
+Arkansas  does  not 
+currently  have  any 
+require ments for 
+nutrition 
+education  for 
+Continuing 
+Medical 
+Education.  
+ Arkansas will 
+i mple ment 
+nutrition C ME 
+require ments, 
+along with 
+nutrition 
+education 
+require ments  in 
+Medical  Schools.  
+Pro moting  healthy 
+habits.  
+ 
+Support chronic 
+disease  prevention 
+and population 
+health.  
+C.3  Certificate  of 
+Need  
+ Arkansas has a 
+C ON score of  15 
+per the CICER O 
+report “Ranking 
+Certificate  of Need 
+Laws in All 50  
+States.”  
+Arkansas  has  no 
+further planned 
+action for C ON 
+policy.  
+ 
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+14 
+ 
+ 
+ 
+Technical  Score  
+Factor  
+Current  Policy  Co m mitted  Action  
+and  Ti meline  
+Expected  I mpact  on  
+Rural  Health  
+D.2  Licensure 
+co mpacts  
+ Physician: I MLC 
+me mber  
+legislation  passed, 
+i mple mentation in 
+progress  
+ Nursing:  NLC 
+State  
+ E MS: licensure 
+co mpact me mber 
+of the E MS 
+Co mpact  
+ Psych: PSYPACT 
+participant  
+ PAs:  PA  co mpact 
+me mber  
+ Dietician: 
+co mpact  
+me mber*  
+ Physician 
+Co mpact  expected 
+to be  i mple mented 
+in 2026.  
+ 
+D.3  Scope  of 
+Practice  
+ PA: Advanced 
+Scope  of Practice  
+ NP: Reduced 
+scope  of practice  
+ Phar macists: 
+I mprove ments 
+needed  based  on 
+CICER O report  
+ Dental  Hygienist: 
+Se mi -restrictive 
+scope of practice 
+ Legislation  to 
+expand the scope 
+of practice for 
+phar macists  and 
+other healthcare 
+professionals  will 
+be introduced in 
+the 2027 
+legislative  session, 
+with a target 
+enact ment  date  of 
+Dece mber 31,  
+2027. This 
+proposal has 
+broad support  
+across  the State 
+Legislature.  
+Building  sustainable 
+access, expanding 
+rural  healthcare 
+workforce.  
+E.3  Short -Ter m, 
+li mited  duration 
+insurance  
+ STLDI  plans  are 
+not restricted in 
+Arkansas  beyond  
+the latest  federal 
+guidance.  
+  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+15 
+ 
+ 
+ 
+ 
+ 
+ 
+Technical  Score  
+Factor  
+Current  Policy  Co m mitted  Action  
+and  Ti meline  
+Expected  I mpact  on  
+Rural  Health  
+F.1 Re mote  care 
+service  
+ Medicaid  pay ment 
+for at least one 
+for m  of live video.  
+ Medicaid  pay ment 
+for store and 
+forward.  
+ Medicaid  pay ment 
+for re mote patient 
+monitoring  
+ Li mited  in-state 
+licensing 
+require ment 
+exception.  
+  
+ 
+Certified Co m munity  Behavioral  Health  Clinics  
+As  of Septe mber  1, 2025,  Arkansas  does  not have  any  Certified  Co m munity  Behavioral 
+Health  Clinics  (CCBHCs).  Four  clinics  have  received  a total of five CCBHC  grants,  and 
+several  of the facilities are  interested  in beco ming  certified.  Arkansas  will update  C MS  if 
+any facility beco mes a CCBHC.  
+* While  we  recognize  that the  State  will not  receive  points  for being  a me mber  of the 
+Dietitian  Licensure  Co mpact,  we  have  included  this infor mation  to de monstrate  our 
+ongoing co m mit ment to supporting licensure co mpacts and facilitating workforce 
+mobility.  
+** Governor  Sarah  Huckabee  Sanders  will sign  an Executive  Order  requiring  that vending 
+machines  include  healthy  options,  ensuring  Arkansans  have  better  choices  available. 
+While  this action  does  not receive technical  scoring consideration,  it reflects  the  State’s 
+co m mit ment to e mpowering individuals and co m munities to take ownership of their 
+health and well -being.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+16 
+ 
+ 
+Medicaid  Disproportionate  Share  Hospitals  
+ 
+According  to our 2021  DSH  audit,  Arkansas  provided  DSH  pay ments  to 10  in-state 
+hospitals.  
+PR OP OSED  INITIATIVES  AND  USE  OF  FUNDS   
+ 
+ 
+Initiative  1: Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+Description  The  Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART) 
+initiative  is designed to i mprove health outco mes  and access to 
+preventative care across Arkansas by creating a coordinated, 
+co m munity -driven approach to nutrition, physical activity, and 
+chronic disease manage ment. HEART strengthens rural health 
+syste ms by integrating school progra ms, co m munity -based 
+initiatives, faith organizations, and healthcare education. This 
+initiative supports  the Arkansas  RHT  Progra m’s  goals  of expanding 
+access, i mproving health outco mes, fostering sustainable rural 
+healthcare delivery,  and  building workforce capacity.  HEART is 
+co mprised of the following projects:  
+GR O W  Kids  helps  Arkansas  children  build  lifelong  healthy  habits 
+through preventive education and wellness progra m ming. This 
+initiative tracks child health outco mes and provides direct 
+interventions to prevent and treat physical and mental health 
+conditions.  Key  actions  include : expanding  school, early  childhood 
+center, and daycare -based health and preventive education 
+progra ms; providing direct clinical and behavioral health 
+interventions for children identified with health risks; pro moting 
+physical activity,  nutrition,  and  wellness  habits  in partnership  with 
+local  schools  and  fa milies;  reinstating  the Presidential  Fitness  Test; 
+and tracking health outco mes, preventive screening rates, and 
+behavior  change  metrics.  Potential  uses  of funds  include:  staffing, 
+educational materials, and clinical supplies for school health and 
+mental health progra ms; screening, treat ment, and counseling 
+resources  for children  with  identified  physical  or behavioral  health 
+conditions;  data  collection  and  analysis  for health  tracking,  mental 
+health monitoring, and progra m evaluation; and co m munity 
+engage ment  events  and  coordination  with  schools,  early  childhood 
+centers, daycares, fa milies, and local providers.  
+FAR M  builds  on Arkansas’s  existing  SNAP  waiver  to i mprove  access 
+to healthy  foods  through  local  markets,  vending  machine  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+17 
+ 
+ 
+ 
+Initiative  1: Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+ regulations, and food -as-medicine strategies that prevent chronic 
+disease  and  strengthen  regional  food  syste ms. Key  actions  include : 
+expanding local produce markets to i mprove food access; 
+integrating nutrition progra ms into clinical care and co m munity 
+interventions; partnering with far mers, retailers, and local 
+organizations  to enhance  supply  and  reach;  and  monitoring  nutrition 
+outco mes, chronic disease prevention, and progra m utilization.  
+Potential  uses  of funds  include : grants  for market  develop ment  and 
+progra m ad ministration; nutrition education ca mpaigns and 
+outreach  materials;  and  data  collection  and  reporting  on  population 
+health and food access. ***  
+MOVE:  inspires  and  enables  residents — particularly  those  who  are 
+currently  sedentary — to beco me  more  active  by i mproving  access  to 
+safe, appealing spaces for exercise and recreation. The initiative 
+revitalizes existing facilities and outdoor areas, fostering healthier 
+lifestyles  and  stronger  co m munity  engage ment  without  the need  for 
+new construction. Key actions include: upgrading  and maintaining 
+existing trails, parks, and outdoor fitness spaces; providing 
+equip ment,  signage,  and  progra m matic  support  to maxi mize  facility 
+use by the sedentary  population;  partnering  with  local  organizations 
+to organize co m munity fitness progra ms, events, and wellness 
+challenges;  and  tracking participation  rates,  physical activity  levels, 
+and  related  health  outco mes  to evaluate  progra m  i mpact.  Potential 
+uses  of funds  include : facility enhance ments;  progra m  develop ment 
+and  co m munity  outreach  to encourage  the use  of existing  facilities; 
+data  collection  and  analysis  to monitor  physical  activity  engage ment 
+and  health  i mprove ments;  and  coordination  with  local  govern ments, 
+co m munity organizations, and wellness groups.  
+FAITH  partners  with  faith-based  institutions  to expand  outreach  and 
+connect  rural residents  to health  services.  These  organizations  serve 
+as trusted co m munity points of contact to share infor mation, 
+coordinate screenings, and help residents access preventive and 
+pri mary care. Key actions include: collaborating with faith 
+institutions  to organize  health  education  sessions, wellness  events, 
+and preventive screening opportunities using faith networks to 
+identify residents with transportation or access challenges and 
+linking the m to existing health services; pro moting co m munity 
+awareness of available healthcare progra ms, resources, and 
+telehealth  options; and tracking engage ment metrics, referrals 
+made, and  health outco mes to measure effectiveness of outreach 
+and  access i mprove ments.  Potential  uses  of funds  include:  Staffing 
+and  resources  for mobile  health  units,  screening  events, and  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+18 
+ 
+ 
+ 
+Initiative  1: Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+ outreach  progra ms;  transportation  progra ms  and  patient  navigation 
+support  for rural  residents;  data  collection  and  reporting  to assess 
+reach,  engage ment,  and  i mpact  of co m munity -based  connections; 
+and coordination and co m munication materials to support faith -
+based outreach, establish a marked walking circuit on existing 
+parking lots through surface markings and signage; and modular 
+fitness equip ment.  
+HEAL integrates nutrition, physical activity, behavioral health, and 
+safe opioid prescribing education into professional training 
+progra ms,  strengthening  rural provider  capacity.  Key  actions  include: 
+e mbedding wellness and prevention curricula in medical, nursing, 
+phar macy, and  C ME progra ms; providing continuing education on 
+chronic  disease  manage ment  and  safe  prescribing; and  integrating 
+new education criteria into current monitoring. Potential uses of 
+funds include: develop ment of training curricula and materials; 
+faculty and staff support for educational progra ms, continuing 
+education, and certification activities; and data collection and 
+analysis to evaluate provider and patient outco mes.  
+I MPACT is a co mprehensive chronic disease prevention  and 
+manage ment designed  to i mprove  health outco mes for Arkansans 
+with diabetes, obesity, hypertension, and high cholesterol. By 
+integrating clinical care, behavioral interventions, social support, 
+and value -based pay ment models, the project creates a scalable 
+coordinated, co m munity -infor med  approach to chronic disease 
+manage ment . Key actions include: launching pilot cohorts of 
+e mployer -sponsored  and Medicare covered individuals to test  and 
+refine  interven tions;  providing coordinated clinical,  behavioral,  and 
+social services, including chronic disease manage ment, lifestyle 
+coaching, and mental health support; i mple menting value -based 
+pay ment strategies to incentivize quality care, i mprove outco mes, 
+and  opti mize  resource  use;  building  integrated  data  infrastructure  to 
+enable  analytics, reporting,  risk stratification,  and  outco me  tracking; 
+monitoring milestones, evaluating health outco mes, participant 
+engage ment, and return on invest ment; publishing results and 
+developing a replicable model  for statewide  and  national  adoption. 
+Potential uses of funds include : staffing and operational support; 
+delivery of preventive care, chronic disease interventions, mental 
+health services, and food -as-medicine progra m;  develop ment  and 
+maintenance of technology platfor ms and data analytics 
+infrastructure; progra m evaluation, research, and disse mination; 
+stakeholder  engage ment;  and  creation  of tools  to replicate  and  scale 
+successful interventions across the state.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+19 
+ 
+ 
+ 
+Initiative  1: Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+Main  Strategic  
+Goal(s)  
+Make  Rural  A merica  Healthy  Again  & Innovative  Care  
+Use  of Funds  A. Prevention  & chronic  disease  
+D. Training  and  tech  assistance  
+E. Workforce  
+G. Appropriate  care  availability  
+H. Behavioral  health  
+I. Innovative  care  
+Technical  Score 
+Factors  
+B.1  Population  health  clinical  infrastructure  
+B.2  Health  and  lifestyle  
+C.1  Rural  provider  strategic  partnerships  
+E.1  Medicaid  provider  pay ment  incentives  
+Key  Stakeholders  Heartland Whole Health Institute (H WHI), state govern ment 
+agencies,  e mployers,  hospitals  and  clinics,  schools, co m munity 
+organizations, faith institutions, co m munity health workers,  
+acade mic  and  research  partners,  technology  vendors  
+Potential  Outco mes 
+(not exhaustive)  
+GR O W Kids: I mproved screenings, early identification, and 
+manage ment  of chronic  conditions  in children;  increased  preventive 
+care utilization; enhanced mental and behavioral health; greater 
+physical activity and healthier nutrition habits; strengthened 
+collaboration  between  schools, fa milies,  and  healthcare  providers. 
+FAR M : I mproved  access  to fresh,  local  produce;  increased  adoption 
+of food -as-medicine  approaches;  reduction  of nutrition -related  risk 
+factors  for chronic  disease;  and  greater  awareness  of healthy  eating 
+habits and preventive nutrition practices.  
+MOVE:  Increased  utilization  of existing  fitness  trails, outdoor  gy ms, 
+and  recreational  facilities;  higher  levels  of physical  activity; i mproved 
+physical health  indicators,  including  B MI,  cardiovascular  fitness, and 
+mobility; and enhanced co m munity with wellness progra ms and 
+local recreational infrastructure.  
+FAITH:  Expanded  reach  of preventive  screenings  and  educational 
+progra ms,  increased  awareness  of health  resources  and  services, 
+i mproved care coordination and connection to clinical and 
+behavioral  health services;  strengthened co m munity engage ment 
+and  trust; and  enhanced  disse mination  of wellness  and  prevention 
+messages.  
+HEAL : I mproved  provider  knowledge  and  skills in preventive  care, 
+nutrition,  and  chronic  disease  manage ment;  increased  adoption  of 
+evidenced -based prevention practices across clinical settings; 
+expanded  workforce  capacity  through  training,  C ME  progra ms,  and  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+20 
+ 
+ 
+ 
+Initiative  1: Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+ professional  develop ment;  and  enhanced  integration  of preventive 
+care into routine practice, including opioid stewardship.  
+I MPACT:  I mproved  health  outco mes  for 10,000  participants  with 
+chronic conditions; increased engage ment in preventive and 
+behavioral health services; reduction in healthcare costs and 
+absenteeis m/turnover through better disease manage ment; 
+successful i mple mentation of VBP models and risk -sharing 
+arrange ments;  data -driven  insights  supporting  statewide  policy, 
+progra m  scaling,  and  replicable  healthcare  delivery  models;  and 
+evidence  of syste m  maturity,  integration,  and  coordination  across  
+clinical, behavioral,  and  social  services.  
+I mpacted  Counties  All Rural  Counties  
+Esti mated  Required  
+Funding  
+$151,888,000.00  
+Process  and  Criteria 
+for Selecting 
+Subgrantees  
+The  State  will establish  a transparent  process  to solicit, review,  and 
+award subgrants. Applications will be evaluated based on 
+de monstrated need, service to priority populations, organizational 
+capacity, and co m mit ment to responsible use of funds consistent 
+with RHT  Progra m objectives. Subgrantees will co mply with all 
+reporting  and  accountability  require ments  under  2 CFR  Part  200 , and 
+perfor mance will be monitored to ensure align ment with progra m 
+goals.  If procure ment  is required,  the State will  follow  all applicable 
+state and federal procure ment laws . Our proposed process is  
+detailed  in the Budget  Narrative.  
+ 
+***Arkansas confir ms that no funds, including those allocated to the HEART/FAR M 
+initiative,  will be  used  to purchase  food.  We  have  structured  each  of our  progra ms  to fully 
+co mply with this restriction  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+21 
+ 
+ 
+ 
+Initiative  2: Pro moting  Access,  Coordination,  and  Transfor mation  (PACT)  
+Description  The  Pro moting  Access,  Coordination,  and  Transfor mation  (PACT) 
+initiative is designed to strengthen rural healthcare delivery in 
+Arkansas by expanding access, i mproving care coordination,  and 
+supporting  sustainable,  high -quality  services.  PACT  integrates  pri mary 
+care, specialty care, preventive screenings, and  telehealth services 
+into rural co m munities while fostering locally driven Clinically 
+Integrated  Networks  to i mprove  efficiency, data  sharing,  and  regional 
+collaboration. By aligning workforce distribution,  enhancing provider 
+scope of practice,  and  supporting  strategic  facility invest ments,  PACT 
+ensures  that rural residents  can  access  ti mely, coordinated  care  close 
+to ho me. The initiative leverages partnerships across hospitals, 
+co m munity organizations, clinics, phar macies, E MS providers, and 
+state agencies to create a connected, resilient rural health syste m 
+capable  of meeting  both  current  and  future  needs.  PACT  is co mprised 
+of the following projects:  
+Advancing  Care  Capacity,  Engage ment,  and  Screening  Services 
+(ACCESS)  progra m  expands  specialty  care,  preventive  screenings, 
+and telehealth services into rural areas, ensuring  residents have 
+access to pri mary,  specialty, behavioral,  and  maternal  care.  Through 
+mobile units,  telehealth platfor ms, and e merging  conversational AI-
+enabled tools, ACCESS connects local providers with regional 
+specialists  to coordinate  care,  i mprove  early  detection,  and  manage 
+chronic conditions. ACCESS strengthens patient  engage ment, 
+supports ti mely interventions, and enhances care coordination 
+infrastructure to ensure patients are efficiently directed to the 
+appropriate care setting and provider, i mproving continuity and 
+reducing avoidable delays or  duplication of services. Key actions 
+include:  bringing  specialty  care,  preventive  screenings,  and  telehealth 
+into rural  areas;  expanding  access to pri mary,  specialty,  behavioral, 
+and  maternal  care  through  mobile  units  and  telehealth  platfor ms;  and 
+coordinating care between local providers and regional specialists. 
+Potential uses of funds include: Telehealth platfor ms, mobile 
+screening units, clinical staffing,  patient  navigation,  outreach,  and 
+progra m coordination.  
+Co m munity Integrated Networks for Care (CINC): CINC funds 
+locally  driven  Clinically  Integrated  Networks  (CINs)  that e mpower  rural 
+hospitals and clinics to share data, staff,  and operational resources. 
+By pro moting collaboration and resource sharing, CINC enhances 
+efficiency, revenue  opportunities,  and  regional  coordination  a mong 
+providers. These networks create sustainable partnerships that 
+i mprove  care  quality,  opti mize  service delivery,  and strengthen  the 
+overall  rural  health  infrastructure. Key  actions  include:  Funding  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+22 
+ 
+ 
+ 
+Initiative  2: Pro moting  Access,  Coordination,  and  Transfor mation  (PACT)  
+ botto m -up, locally driven CINs, sharing data, staff, and operational 
+resources across hospitals and clinics; and i mproving revenue 
+opportunities,  efficiency,  and  regional  collaboration.  Potential  uses  of 
+funds include: Governance design and legal for mation of the 
+network; develop ment of data -sharing, analytics, and quality 
+reporting infrastructure; i mple mentation of care manage ment and 
+population health capabilities; establish ment of shared clinical 
+progra ms and standardized care pathways; and invest ments to 
+support contracting readiness for value -based and other network 
+arrange ments.  
+Regional  Opti mization  of Access,  Delivery  Mobility,  and  Practice 
+(ROAD MAP):  ROAD MAP  addresses  transportation  barriers  and  aligns 
+workforce distribution to meet the healthcare needs of rural 
+co m munities.  By  coordinating  regional  delivery  models,  the progra m 
+i mproves  access to pri mary, specialty, and e mergency services.  
+R OAD MAP  ensures  that patients  can  reach  the care  they  need,  and 
+that providers  are  deployed  effectively  to opti mize  healthcare  delivery 
+across the state.  Key  actions  include:  Leveraging  GIS  mapping  and 
+health  workforce  data  to identify  transportation  deserts  and  provider 
+shortage  areas,  infor ming  the place ment  of mobile  clinics,  telehealth 
+hubs, and regional care partnerships; and coordinating regional 
+delivery  models  to opti mize  access. Potential  uses  of funds  include: 
+Developing and maintaining statewide data syste ms to map 
+transportation  deserts,  workforce  shortages,  and  care  access gaps; 
+supporting regional healthcare coalitions, planning bodies, and 
+technical assistance to align transportation, workforce, and service 
+delivery  strategies;  expanding  and  equipping  mobile  health  units  and 
+telehealth hubs  to reach  rural  areas  identified through R OAD MAP 
+analysis;  partnering  with  local  and  regional  transit  agencies,  nonprofit 
+transportation  providers,  and  rideshare  progra ms  and  businesses  to 
+develop flexible medical transport options for rural residents; 
+i mple menting  digital  scheduling,  dispatch,  and  co m munication  tools 
+that connect patients with transportation and providers; and 
+measuring reductions in missed appoint ments, i mproved care 
+coordination, and patient outco mes.  
+Scope  of Practice  Elevation  (SCoPE):  SCoPE  builds  on Arkansas’s 
+ongoing efforts  to expand scope  of practice,  enabling phar macists, 
+dental hygienists, dietitians, and other licensed professionals to 
+practice at the top of their credentials. Expanded services could 
+include prescriptive authority, dietary counseling, chronic disease 
+manage ment,  and preventive care. The progra m supports  these 
+providers with training, telehealth tools. and clinical supervision  
+resources,  enhancing  their ability to deliver  high -quality  care.  By  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+23 
+ 
+ 
+ increasing  provider  capacity  and  diversifying  service offerings,  SCoPE 
+strengthens access and i mproves health outco mes in rural 
+co m munities. Key actions include: Updating scope of practice 
+require ments;  establishing  credential  and  training  progra ms  to ensure 
+quality and consistency; and integration with telehealth platfor ms . 
+Potential uses of funds include: Training, certification support, 
+telehealth  and  digital  tools,  clinical  supervision,  and  patient  education 
+progra ms.  
+Syste m  Align ment  & Facility  Enhance ment  Fund  (SAFE):  SAFE 
+supports  strategic  hospital  and  syste m partnerships  and  affiliations  to 
+maintain essential services in rural areas  and stabilize financially 
+vulnerable facilities. It enables targeted invest ments that enhance 
+operational capacity, encourage shared services, and strengthen 
+regional collaboration. By preserving critical access points and 
+i mproving infrastructure, SAFE en sures that rural co m munities 
+continue  to receive high -quality,  sustainable healthcare.  Key  actions 
+include:  Identifying rural  hospitals  and critical -access facilities at  risk 
+of closure or service reduction through financial analysis and 
+co m munity needs assess ments; facilitating partnerships or 
+affiliations by financially stable health syste ms, nonprofit 
+organizations,  or regional  networks;  providing  technical  assistance  for 
+due diligence, valuation, and integration planning; creating shared 
+service agree ments a mong rural hospitals for ad ministrative 
+functions, billing, purchasing, and supply chain manage ment; 
+facilitating  regional  partnerships  for specialty  coverage,  staff training, 
+and clinical protocols; and integrating data sharing and coordinated 
+reporting syste ms across facilities to monitor quality, perfor mance, 
+and financial stability. Potential uses of funds include: Advisory  
+services  for operational,  clinical,  and  financial  viability;  develop ment  
+and maintenance of  shared ad ministrative and  billing syste ms;  joint  
+procure ment progra ms; i mple mentation of regional staffing models,  
+shared clinical specialists, and workforce cross -training progra ms;  
+data syste ms to enable coordinated reporting, quality monitoring,    
+and  dashboards;  and  rehabilitation  of facilities  that are  underutilized  
+or inefficient.    
+ 
+Main  Strategic  
+Goals  
+Sustainable  Access;  Workforce  Develop ment,  Innovative  Care  
+Use  of Funds  A. Prevention  & chronic  disease  
+E. Workforce  
+G. Appropriate  care  availability  
+H. Behavioral health  
+I. Innovative  care  
+J. Capital  expenditures  and  infrastructure  
+K. Fostering  collaboration  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+24 
+ 
+ 
+ 
+  
+Initiative  2: Pro moting  Access,  Coordination,  and  Transfor mation  (PACT)  
+Technical  Score 
+Factors  
+B.1  Population  health  clinical  infrastructure  
+B.2  Health  and  lifestyle  
+C.1  Rural  provider  strategic  partnerships  
+D.1  Talent  recruit ment  
+F.1  Re mote  care  services  
+Key  Stakeholders  State  agencies,  rural hospitals  and  clinics,  CINs  and  regional  provider 
+groups, E MS providers and trau ma coordinators; co m munity 
+organizations and patient advocacy groups; professional licensing  
+boards  
+Potential  Outco mes 
+(not exhaustive)  
+ACCESS : Increased  specialty  care  and  preventive  screening  access  in 
+rural areas; higher utilization of telehealth and mobile clinical 
+services; i mproved early  detection  and manage ment of chronic  and 
+acute conditions  
+CINC : Greater  efficiency  and  cost  savings  through  shared  operations 
+and collaborative networks; i mproved care coordination and data -
+driven decision -making  
+R OAD MAP : Reduced transportation barriers for rural patients, 
+i mproved  align ment  of workforce  distribution  with  co m munity  needs; 
+enhanced access to care and reduced service bypass  
+SCoPE : Expanded  access  to preventive  and  chronic  disease  care; 
+increased  provider  capacity  and  efficiency  in rural co m munities; 
+enhanced patient engage ment and education  
+SAFE: Stabilized rural hospitals and critical -access facilities; 
+preserved essential healthcare services across rural regions; 
+i mproved syste m  capacity,  operational efficiency,  and collaboration 
+between facilities.  
+I mpacted  Counties  All Rural  Counties  
+Esti mated  Required  
+Funding  
+$403,000,808 .02 
+Process  and  Criteria 
+for Selecting 
+Subgrantees  
+The State will establish a transparent process to solicit, review, and 
+award subgrants. Applications will be evaluated based on 
+de monstrated need, service to priority populations, organizational 
+capacity, and  co m mit ment  to responsible  use  of funds  consistent  with 
+RHT Progra m  objectives. Subgrantees  will co mply  with all reporting 
+and accountability require ments under 2 CFR Part 200 , and 
+perfor mance will be monitored to ensure align ment with progra m 
+goals. If procure ment is required, the State will follow all applicable 
+state  and  federal  procure ment  laws . Our  proposed  process  is detailed  
+in the Budget  Narrative.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+25 
+ 
+ 
+ 
+Initiative  3: Recruit ment,  Innovation,  Skills,  and  Education  for Arkansas  (RISE  AR)  
+Description  The  Recruit ment,  Innovation,  Skills, and  Education  for Arkansas  (RISE 
+AR) is Arkansas’s initiative to build a sustainable, high -skilled 
+healthcare workforce capable  of meeting the unique needs of rural 
+co m munities. By strengthening recruit ment, training, and retention 
+progra ms, the initiative ensures that healthcare providers are 
+distributed  effectively  across the  state,  can  practice at the top of their 
+license,  and  have  opportunities  for professional growth.  RISE AR 
+supports  the RHT Progra m’s goals  of expanding  access, i mproving 
+quality,  and  fostering  long -ter m  provider  engage ment  in rural areas. 
+The  initiative  co mprises  the following  progra ms:  
+LEAD*  establishes  a leadership  acade my  to train healthcare  leaders 
+in rural hospital ad ministration, care coordination, and operational 
+manage ment.  LEAD  enhances  decision -making  capacity  and  prepares 
+leaders to i mple ment innovative care delivery models and  manage 
+regional  networks  effectively.  Participation  in LEAD  will be  required  for 
+organizations  seeking  to qualify  for RHT  Progra m  funding.  Key  actions 
+include:  Establishing  and  operating  a statewide  leadership  acade my 
+for rural health ad ministrators and clinical leaders; developing 
+curriculu m on operational manage ment, care coordination, and 
+innovative  delivery  models;  and  providing  mentorship  and  experiential 
+learning opportunities. Potential uses of funds include: Curriculu m 
+develop ment for rural healthcare leadership training; staffing and 
+operational support for the leadership acade my; mentorship and 
+experiential  learning  progra ms  for ad ministrators  and  clinical  leaders; 
+and technology platfor ms for virtual learning and collaboration.  
+PATH WAY expands medical school rotation slots, preceptor 
+progra ms, stipends, and new residencies and fellowships in 
+specialties  like fa mily  medicine,  obstetrics, and  lifestyle medicine,  as 
+well  as allied  health  professionals.  PATH WAY  ensures  a steady 
+pipeline of physicians, advanced practitioners, and allied health 
+professionals to serve rural co m munities. Key actions include: 
+Expanding G ME slots, creating new medical school rotations, 
+residencies, and fellowships; creating new allied health training 
+progra ms; providing retention awards and preceptor progra ms for 
+high -need occupations. Potential uses of funds include: Progra m 
+ad ministration and staffing; faculty and preceptor co mpensation for 
+teachin g and supervision; trainee support, including stipends, 
+relocation assistance, and benefits; clinical training infrastructure, 
+including rotation sites, si mulation labs, and teaching materials, 
+ca mpaigns  to attract  students  and  clinicians  to rural  place ments;  and 
+tele-education platfor ms for re mote supervision and training.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+26 
+ 
+ 
+ 
+Initiative  3: Recruit ment,  Innovation,  Skills,  and  Education  for Arkansas  (RISE  AR)  
+ RETAIN*  is a recruit ment  and  retention  progra m  providing  relocation 
+support, signing bonuses, mentorship, and integration into rural 
+practice co m munities. RETAIN strengthens workforce stability by 
+incentivizing long -ter m service in rural areas. Key  actions include: 
+Offering  financial  incentives;  pairing  new  hires  with  experienced  local 
+providers;  partnering  with  local  organizations  to help  providers  settle 
+into their co m munities; and providing access to ongoing career 
+support. Potential uses of funds include: Financial incentives; 
+marketing and outreach; stipends for mentors; progra m 
+ad ministration training materials; costs for co m munity engage ment 
+events, networking, and social support initiatives; and access to 
+training, certifications, and leadership progra ms; conference 
+attendance.  
+SKILL  UP*  provides  workforce  develop ment  pathways  for 
+healthcare providers, including nurses, physician assistants, 
+behavioral health counselors, and non -credentialed 
+paraprofessionals. SKILL UP e mphasizes continuing education, 
+skill advance ment, and flexible career ladders to expand the 
+capacity and capa bility of rural health tea ms.  Key  actions  include: 
+Designing  continuing  education  courses and  structured  training 
+pathways tailored  to rural  healthcare  needs; use of tele -education 
+platfor ms, workshops, and si mulation labs to strengthen practical 
+co mpetencies for nurses, PAs, and paraprofessionals; providing 
+credentialing  and certification  support; and pairing trainees with 
+experienced clinicians.  Potential  uses  of funds  include:  Curriculu m 
+develop ment and training progra ms; tele -education platfor ms; 
+funding equip ment, materials, and staffing for hands -on  
+workshops;  and  financial  support  for exa ms,  credentialing fees,  and 
+ad ministrative assistance.  
+Main  Strategic  Goal  Workforce  Develop ment  
+Use  of Funds   
+D. Training  and  tech  assistance  
+E. Workforce  
+K. Fostering  collaboration  
+Technical  Score 
+Factors  
+C.1  Rural  provider  strategic  partnerships  
+D.1  Talent  recruit ment  
+Key  Stakeholders  State  health  agencies,  hospitals,  clinics,  FQHCs,  rural providers, 
+nurses, PAs, behavioral health counselors, non -credentialed 
+paraprofessionals,  higher  education  institutions,  residencies  and  
+fellowship  progra ms,  and  acade mic  medical  institutions.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+27 
+ 
+ 
+ 
+Initiative  3: Recruit ment,  Innovation,  Skills,  and  Education  for Arkansas  (RISE  AR)  
+Potential  Outco mes 
+(not exhaustive)  
+LEAD : Enhanced leadership skills a mong rural healthcare 
+ad ministrators;  i mproved  strategic  decision -making  and  operations 
+oversight in rural facilities; and greater participation of leaders in 
+syste m integration and quality i mprove ment initiatives.  
+PATH WAY:  Increased  nu mber  of medical  school  rotations,  residency, 
+and  fellowship  positions in high -need specialties;  increased  nu mber 
+of allied health professionals: expanded clinical workforce pipeline; 
+and i mproved readiness of trainees to serve rural co m munities.  
+RETAIN: Increased recruit ment and retention of clinicians in rural 
+areas;  enhanced  workforce  stability  and  reduced  turnover;  and  greater 
+provider satisfaction and co m munity integration.  
+SKILL  UP : Strengthened  workforce  capability  and  professional 
+develop ment  in rural areas;  expanded  clinical  co mpetencies  for 
+healthcare  professionals  such  as nurses, PAs,  behavioral  health 
+counselors,  and paraprofessionals;  and increased adoption of 
+preventive care,  chronic  disease manage ment,  and telehealth 
+practices.  
+I mpacted  Counties  All Rural  Counties  
+Esti mated  Required  
+Funding  
+$162,750,000.00  
+Process  and  Criteria 
+for Selecting 
+Subgrantees  
+The State will establish a transparent process to solicit, review, and 
+award subgrants. Applications will be evaluated based on 
+de monstrated need, service to priority populations, organizational 
+capacity, and  co m mit ment  to responsible  use  of funds  consistent  with 
+RHT Progra m  objectives. Subgrantees  will co mply  with all reporting 
+and accountability require ments under 2 CFR Part 200 , and 
+perfor mance will be monitored to ensure align ment with progra m 
+goals. If procure ment is required, the State will follow all applicable 
+state  and  federal  procure ment  laws . Our  proposed  process  is detailed  
+in the Budget  Narrative.  
+ 
+ 
+*LEAD,  RETAIN,  and  SKILL -UP each require a five -year  co m mit ment.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+28 
+ 
+ 
+ 
+Initiative  4: Telehealth,  Health -monitoring,  and  
+Response  Innovation  for Vital  Expansion  (THRIVE)  
+Description  The  Telehealth,  Health -monitoring,  and  Response  Innovation  for Vital 
+Expansion  (THRIVE)  transfor ms  rural healthcare  delivery  by expanding 
+access to telehealth, re mote monitoring, and e mergency response 
+innovation.  By  modernizing  E MS,  integrating  digital care  platfor ms,  and 
+piloting  re mote  patient  monitoring,  THRIVE  ensures  rural co m munities 
+can access ti mely, high -quality  care.  THRIVE  co mprises  the following 
+progra ms:  
+Linking  Infrastructure  for E mergency  Lifesaving  and  Integrated 
+Network  Expansion  (LIFELINE): modernizes  Arkansas’s  rural trau ma 
+and  e mergency  response  syste m by integrating  E MS,  hospitals,  and 
+public  health  services to ensure  ti mely, coordinated,  and  high -quality 
+care. The initiative strengthens trau ma readiness across rural 
+hospitals, standardizes e mergency protocols, and prepares the 
+workforce for rapid, effective response. Through data -driven 
+coordination and syste m -wide modernization, LIFELINE enha nces 
+patient outco mes, reduces response ti mes, and increases the 
+resilience  of Arkansas’s rural  e mergency  care  network. Key  actions 
+include:  Modernizing  trau ma  and  e mergency  care  in rural hospitals; 
+strengthening E MS coordination with hospitals and public health 
+agencies;  standardizing  trau ma  and  e mergency  response  protocols; 
+i mple menting perfor mance dashboards to track response ti mes, 
+patient outco mes, and surge capacity; and conducting workforce 
+training  and  regional  coordination  exercises. Potential  uses  of funds 
+include:  trau ma and  E MS equip ment, vehicles,  and co m munication 
+syste ms;  workforce  training  and  develop ment;  E MS  coordination  and 
+dispatch technology; protocol standardization; and perfor mance 
+tracking tools  to support  continuous  quality  i mprove ment  and  syste m 
+resilience.  
+Health  Outco mes  through  Monitoring  & Engage ment  (H O ME) : 
+H O ME pilots at -ho me re mote monitoring for mental health and 
+chronic conditions such as diabetes, hypertension, obesity, sleep 
+apnea,  and  heart  failure,  e mphasizing  ROI,  patient  engage ment,  and 
+long -ter m sustainability. The progra m also incorporates 
+conversational AI technology to support tech -enabled patient 
+monitoring , using  voice- enabled  tools  to facilitate  daily  health  check-
+ins, reinforce care plan adherence, and i mprove co m munication 
+between patients and care tea ms. Key actions include: Deploying 
+re mote monitoring devices and platfor ms; tracking bio metric and 
+engage ment data;  integrating results  with care  tea ms for proactive 
+interventions;  and  evaluating  health  outco mes  and  financial  i mpact. 
+Potential uses of funds include: Re mote monitoring devices and 
+telehealth  platfor ms;  training  and  support  for patients  and  providers;  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+29 
+ 
+ 
+ 
+Initiative  4: Telehealth,  Health -monitoring,  and  
+Response  Innovation  for Vital  Expansion  (THRIVE)  
+ data  manage ment  and  analytics  tools;  staffing  for care  coordination 
+and monitoring; and progra m ad ministration and evaluation.  
+Virtual  Innovation  for Rural  Telehealth,  Utilization,  Access,  and 
+Longevity  (VIRTUAL):  VIRTUAL  makes  telehealth  available  statewide, 
+integrates  specialty  consults, and  strengthens  care  networks  through 
+virtual  care  models.  Key  actions  include:  Establishing  telehealth  hubs 
+and specialty virtual clinics; connecting rural providers with 
+specialists; providing technical support and telehealth training; and 
+monitoring utilization and patient outco mes. Potential uses of funds 
+include: Telehealth platfor ms and IT support; provider training and 
+technical  assistance; tele-education  and  clinical  supervision;  progra m 
+ad ministration; and monitoring and evaluation syste ms.  
+Telehealth,  Equip ment,  and  Connectivity  Hub  Fund  (TECH Fund): 
+TECH Fund invests  in infrastructure, technology  upgrades, and 
+connectivity to ensure sustainable telehealth and digital health 
+progra ms.  The  progra m  pro motes  the broader  adoption  of AI tools  and 
+upscaling  of digital  health  capabilities  to enhance  care  delivery,  data 
+analytics, and operational efficiency. Key actions  include: Providing 
+grants for telehealth equip ment and cybersecurity; supporting 
+interoperability of health IT syste ms; expanding the use of hu man -
+centered  AI for clinical  decision  support  and  ad ministrative  efficiency; 
+maintaining technology infrastructure for progra m viability; and 
+evaluating  technology adoption and perfor mance. Potential uses of 
+funds include: network upgrades; telehealth and AI -enabled 
+equip ment;  upscaling  digital  health  capabilities;  cybersecurity  and  IT 
+syste ms; staff  and  progra m  ad ministration;  interoperability and data  
+integration  tools;  and  evaluation  and  technical  support.  
+Main  Strategic  Goal  Innovative  Care,  Tech  Innovation  
+Use  of Funds  A. Prevention  & chronic  disease  
+C. Consu mer  tech  solutions  
+D. Training  and  tech  assistance  
+F. IT advances  
+G. Appropriate  care  availability  
+H. Behavioral  health  
+I. Innovative  care  
+K. Fostering  collaboration  
+Technical  Score 
+Factors  
+B.1  Population  health  clinical  infrastructure  
+B.2  Health  and  lifestyle  
+C.1  Rural  provider  strategic  partnerships  
+C.2  E MS  
+E.1  Medicaid  provider  pay ment  incentives  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+30 
+ 
+ 
+ 
+Initiative  4: Telehealth,  Health -monitoring,  and  
+Response  Innovation  for Vital  Expansion  (THRIVE)  
+ F.1  Re mote  care  services  
+F.2  Data  infrastructure  
+F.3  Consu mer -facing tech  
+Key  Stakeholders  State health agencies, rural hospitals, critical access hospitals, 
+pri mary  and  specialty  care  providers,  behavioral  health  providers;  E MS  
+providers;  telehealth  and  health  IT vendors  
+Potential  Outco mes 
+(not exhaustive)  
+LIFELINE:  Reduced  E MS  and  trau ma  response  ti mes  in rural counties; 
+increased  survival rates  for trau ma  and  e mergency cases;  i mproved 
+coordination between E MS, hospitals, and public health services; 
+standardized  e mergency  protocols  across  regional  syste ms;  and  data -
+driven  planning  and  resource  allocation;  integrated  trau ma  protocols 
+across E MS and hospital networks.  
+H O ME:  I mproved  control  of chronic  conditions;  reduced  hospital 
+read missions  and  preventable  co mplications;  and  higher  patient 
+engage ment in self -manage ment progra ms.  
+VIRTUAL : Expanded  access  to specialty  care  in rural areas;  increased 
+utilization of telehealth services; and reduced travel burden; 
+integration  of telehealth  into care  coordination  across  CINs;  i mproved 
+patient satisfaction and health outco mes.  
+TECH Fund:  Enhanced connectivity for  rural  providers; increased 
+adoption and sustainability of telehealth and digital health tools; 
+reduced technology barriers for rural providers and patients; 
+standardized  equip ment  and  technology  platfor ms  to support  clinical 
+integration; and strengthened syste m -wide data collection and 
+interoperability for care i mprove ment.  
+I mpacted  Counties  All Rural  Counties  
+Esti mated  Required  
+Funding  
+$268,450,000.00  
+Process  and  Criteria 
+for Selecting 
+Subgrantees  
+The State will establish a transparent process to solicit, review, and 
+award subgrants. Applications will be evaluated based on 
+de monstrated need, service to priority populations, organizational 
+capacity, and  co m mit ment  to responsible  use  of funds  consistent  with 
+RHT Progra m  objectives. Subgrantees  will co mply  with all reporting 
+and accountability require ments under 2 CFR Part 200 , and 
+perfor mance will be monitored to ensure align ment with progra m 
+goals. If procure ment is required, the State will follow all  applicable 
+state  and  federal  procure ment  laws . Our  proposed  process  is detailed  
+in the Budget  Narrative.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+31 
+ 
+ 
+I MPLE MENTATI ON  PLAN  AND  TI MELINE   
+ 
+ 
+INITIATIVE  1: HEART  
+Dates  Stage  Key  Milestones/Activities  
+FY26  Q1  - Q4  Stage  0 GRO W  Kids:  Planning,  staffing,  partnership  MOUs,  data 
+fra mework design  
+FAR M:  Assess  regional  food  syste ms;  recruit  far mers  and  retail 
+partners  
+MOVE:  Inventory  and  assess  existing recreational infrastructure 
+FAITH:  Identify congregational  partners;  develop  outreach and 
+training materials  
+HEAL:  Develop curricula,  partnerships,  and  accreditation plans  
+I MPACT:  Progra m  design,  staffing,  and  analytics  setup  
+FY27  Q1  - 
+FY28  Q2  
+Stage  1 GRO W  Kids:  Pilot initial school -based  health  centers;  begin 
+preventive education and wellness pilots  
+FAR M:  Launch  “Buy  Local”  markets  and  healthy  vending 
+progra ms  
+MOVE: Begin upgrades and co m munity fitness progra m ming 
+FAITH:  Launch  screening  and  education  progra ms;  build  referral 
+pathways  
+HEAL:  Launch  C ME  and  professional  develop ment  progra ms 
+statewide  
+I MPACT:  Launch  initial pilot cohorts;  begin  care  coordination  
+and  data  collection  
+FY28  Q3  - 
+FY29  Q4  
+Stage  2 GRO W  Kids:  Statewide  progra m  build -out; expand  behavioral 
+and clinical supports; refine interventions  
+FAR M:  Scale  to additional  counties;  integrate  nutrition  and  food -
+as-medicine  progra ms  
+MOVE:  Expand  to additional  sites; enhance  participation 
+through events and outreach  
+FAITH:  Expand  to additional  congregations  and  co m munities 
+HEAL: Expand provider participation and train -the -trainer 
+network  
+I MPACT:  Expand  to additional  populations  and  refine  value -
+based  models  
+FY30  Q1  - 
+FY30  Q4  
+Stage  3 GRO W  Kids:  Integration  with  Medicaid  and  local  health 
+syste ms; data tracking and evaluation  
+FAR M:  Strengthen  logistics,  vendor  networks,  and  outco me 
+measure ment  
+MOVE:  Conduct  outco me  tracking  and  refine  model  for 
+sustainability  
+FAITH:  Evaluate  reach,  referrals,  and  chronic  care  follow -up 
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+32 
+ 
+ 
+ 
+INITIATIVE  1: HEART  
+Dates  Stage  Key  Milestones/Activities  
+  HEAL:  Evaluate  clinical practice  change  and  patient  outco mes  
+I MPACT:  Conduct  ROI  analysis,  refine integrated  delivery  model  
+FY31  Q1  - Q2  Stage  4 GRO W  Kids:  Final  evaluation  and  sustainability  planning  
+FAR M:  Finalize  statewide  food  access  network  
+MOVE:  Consolidate evaluation  data  
+FAITH:  Finalize  replication  fra mework  
+HEAL:  Finalize  curriculu m  updates  and  sustainability  model  
+I MPACT:  Final  evaluation  and  policy  reco m mendations  
+FY31  Q3  - Q4  Stage  5 GR O W Kids: Full statewide operation and reporting 
+FAR M:  Report  long -ter m health  and  econo mics  outco mes 
+MOVE: Publish statewide i mpact report  
+FAITH:  Identify  Fully  scaled  and  reporting  outco mes  
+HEAL:  Full statewide  integration  with reporting  
+I MPACT:  Statewide  scale -up and  public  reporting  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+33 
+ 
+ 
+ 
+INITIATIVE  2: PACT  
+Dates  Stage  Key  Milestones/Activities  
+FY26  Q1  – FY  27 
+Q2  
+Stage  0 ACCESS:  Planning,  staffing,  and  vendor  selection  for mobile 
+units and telehealth  
+CINC:  Identify  hospitals/clinics,  design  CIN  governance  and 
+data -sharing  fra meworks  
+ROAD MAP:  Develop  GIS  and  workforce  mapping  tools; assess 
+transportation deserts  
+SCoPE:  Policy  and  regulatory  planning  with  professional 
+licensing  boards  
+SAFE:  Identify  at-risk hospitals;  develop  an assess ment  and 
+prioritization fra mework  
+FY27  Q3  - 
+FY28  Q4  
+Stage  1 ACCESS:  Deploy  first mobile  screening  units;  launch  telehealth 
+pilots; establish referral pathways  
+CINC:  Launch  pilot CINs;  i mple ment  shared  IT syste ms  and 
+workforce training  
+ROAD MAP:  Launch  pilot regions;  coordinate  with  local  transit 
+and workforce planners  
+SCoPE:  Launch  training/certification  pilots for identified  health 
+professionals  
+SAFE:  Begin  technical  assistance  for partnerships,  and 
+integration planning  
+FY29  Q1  - 
+FY30  Q2  
+Stage  2 ACCESS:  Expand mobile/telehealth coverage statewide; 
+integrate  behavioral  and  maternal  care;  refine  data  syste ms 
+CINC:  Expand  CIN  participation  statewide;  strengthen  data 
+analytics and service coordination  
+ROAD MAP:  Expand  statewide  mobile  health  units, telehealth 
+hubs, and regional care partnerships  
+SCoPE:  Expand  credentialing  and  telehealth  integration 
+statewide  
+SAFE:  I mple ment  facility stabilization  projects  and  shared -
+service  agree ments  
+FY30  Q3  - 
+FY31  Q1  
+Stage  3 ACCESS:  Strengthen  coordination  with  hospitals  and  providers; 
+analyze  utilization  and  outco me  data;  i mple ment  i mprove ments 
+CINC: Evaluate perfor mance metrics; refine financial and 
+governance models  
+ROAD MAP:  Integrate  analytics  into provider  planning;  track 
+access metrics  
+SCoPE:  Evaluate  quality,  utilization,  and  patient  outco mes; 
+refine supervision standards  
+SAFE:  Expand  shared  ad ministrative  syste ms  and  cross -trained 
+workforce models statewide  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+34 
+ 
+ 
+ 
+INITIATIVE  2: PACT  
+Dates  Stage  Key  Milestones/Activities  
+FY31  Q2  – Q3  Stage  4 ACCESS:  Consolidate  lessons  learned;  prepare  statewide 
+sustainability plan  
+CINC: Finalize network integration and reporting syste ms 
+ROAD MAP:  Evaluate  reductions  in missed  appoint ments  and 
+care delays  
+SCoPE:  Finalize  rule updates  and  professional  education  plans  
+SAFE:  Conduct  final financial  and  quality  evaluations  
+FY31  Q4  Stage  5 ACCESS:  Full statewide  operation  and reporting  
+CINC:  CINs  fully operational;  report  efficiency  and  quality 
+outco mes  
+ROAD MAP:  Publish  statewide  outco mes;  e mbed  ROAD MAP  in 
+long -ter m planning  
+SCoPE:  Statewide  i mple mentation  with  full tracking  and 
+reporting  
+SAFE:  Facilities  reporting  i mproved  sustainability,  operational  
+efficiency,  and  care  quality  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+35 
+ 
+ 
+ 
+INITIATIVE  3: RISE  AR  
+Dates  Stage  Key  Milestones/Activities  
+FY26 Q1  – FY27 
+Q3  
+Stage  0 LEAD:  Curriculu m  design,  staffing,  and  virtual learning 
+infrastructure setup; identify pilot cohorts  
+PATH WAY:  Assess  medical  schools,  residency,  fellowship,  and 
+other allied health professional needs, identify training sites, 
+and design preceptor progra ms  
+RETAIN:  Progra m  planning,  incentive  structure  develop ment, 
+and co m munity partner engage ment  
+SKILL  UP:  Develop  continuing  education  curricula,  identify  tele- 
+education  tools,  and  plan  si mulation  labs  
+FY27 Q4  – FY28 
+Q4  
+Stage  1 LEAD:  Launch  pilot leadership  acade my  sessions;  mentorship 
+pairings begin; experiential learning pilots  
+PATH WAY:  Start  initial G ME  slots  and  allied health  professional 
+progra ms;  recruit  faculty  and  preceptors;  launch  trainee  support 
+progra ms  
+RETAIN:  Deploy  signing  bonuses,  retention  incentives,  stipends, 
+relocation  support,  mentorship  matches; begin  integration  into 
+rural practices  
+SKILL  UP:  Launch  pilot training  sessions  for nurses,  PAs,  allied 
+health  professionals,  and paraprofessionals;  begin tele - 
+education  delivery  
+FY29 Q1  – FY30 
+Q1  
+Stage  2 LEAD:  Expand  acade my to  additional  cohorts;  integrate  virtual 
+and in -person learning; evaluate leadership skill gains 
+PATH WAY:  Scale  medical  school,  residency, fellowship,  and 
+allied health training progra ms statewide; expand preceptor 
+network and rotation sites  
+RETAIN:  Expand  financial  incentives  and  mentorship  progra ms; 
+monitor retention outco mes and workforce satisfaction  
+SKILL  UP:  Scale  training  progra ms;  expand  credentialing  and  
+certification  support;  evaluate  skill advance ment  and  clinical 
+i mpact  
+FY30 Q2  – FY30 
+Q4  
+Stage  3 LEAD:  Strengthen  integration  with  rural health  syste ms;  analyze 
+i mpact on operational outco mes  
+PATH WAY:  Refine  trainee  support  and  place ment  strategies; 
+enhance re mote supervision capabilities  
+RETAIN:  Assess  long -ter m retention  metrics;  adjust  progra ms 
+for sustainability  
+SKILL  UP:  Evaluate  workforce  capability  i mprove ments;  
+i mple ment  ongoing  career  ladders  and  continuing  education  
+FY31 Q1  – FY31 
+Q2  
+Stage  4 LEAD:  Finalize  leadership  acade my  evaluation;  plan  statewide 
+sustainability  
+PATH WAY:  Consolidate  medical  school,  residency,  fellowship,  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+36 
+ 
+ 
+ 
+INITIATIVE  3: RISE  AR  
+Dates  Stage  Key  Milestones/Activities  
+  and  allied health professional outco mes;  finalize  pipeline  plans 
+RETAIN:  Evaluate  overall  retention  and  integration  outco mes; 
+develop sustainability fra mework  
+SKILL  UP:  Finalize  evaluation  of training  i mpact;  establish  long - 
+ter m professional  develop ment  plan  
+FY31 Q3  – FY31 
+Q4  
+Stage  5 LEAD:  Full statewide  operation  and  reporting;  publish 
+leadership  outco mes  
+PATH WAY:  Fully  operational  medical  school,  residency, 
+fellowship,  and allied  health  professional pipeline;  report 
+workforce readiness metrics  
+RETAIN:  Progra m  fully scaled;  report  recruit ment  and  retention 
+outco mes  
+SKILL  UP:  Full statewide  adoption;  report  clinical skill 
+i mprove ments  and  workforce  capacity  gains  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+37 
+ 
+ 
+ 
+INITIATIVE  4: THRIVE  
+Dates  Stage  Key  Milestones/Activities  
+FY26 Q1  – FY27 
+Q2  
+Stage  0 LIFELINE:  E MS  and  trau ma  syste m  assess ment;  regional 
+coordination planning; protocol review  
+HO ME:  Design  pilot monitoring  progra ms;  procure  re mote 
+monitoring devices; define metrics  
+VIRTUAL:  Plan  telehealth  hubs;  identify  specialty  services; 
+technical platfor m assess ment  
+TECH  Fund:  Assess  network  and  IT infrastructure  needs;  plan 
+equip ment  grants and cybersecurity support  
+FY27  Q3  - 
+FY28  Q4  
+Stage  1 LIFELINE:  Launch  regional  coordination  exercises;  begin 
+workforce  training;  i mple ment  perfor mance  dashboards; 
+Procure trau ma equip ment  
+HO ME:  Deploy  pilot re mote  monitoring  devices;  begin  patient 
+and provider training; collect baseline engage ment data 
+VIRTUAL:  Launch  initial telehealth  hubs  and  virtual  specialty 
+clinics; train providers and support staff  
+TECH  Fund:  Award  grants  for equip ment  and  connectivity 
+upgrades;  start IT syste m  i mprove ments  
+FY29  Q1  - 
+FY30  Q1  
+Stage  2 LIFELINE:  Launch regional  coordination exercises;  begin 
+workforce  training;  integrate  E MS,  hospital,  and  public  health 
+syste ms; refine protocols  
+HO ME:  Deploy  pilot re mote  monitoring  devices;  begin  patient 
+and provider training; collect baseline engage ment data 
+VIRTUAL:  Launch  initial telehealth  hubs  and  virtual  specialty 
+clinics; train providers and support staff  
+TECH  Fund:  Award  grants  for equip ment  and  connectivity  
+upgrades;  start IT syste m  i mprove ments  
+FY30  Q1  - 
+FY30  Q4  
+Stage  3 LIFELINE:  Continuous  evaluation  of E MS  and  trau ma  response 
+perfor mance; opti mize regional resource allocation; refine 
+coordination and protocol co mpliance  
+HO ME:  Evaluate  progra m  i mpact  on chronic  disease  outco mes 
+and hospital utilization; refine engage ment strategies 
+VIRTUAL:  Refine  virtual  care  model based  on  utilization and 
+outco me data; integrate with CINs  
+TECH  Fund:  Conduct  technical  perfor mance  review;  ensure 
+syste m sustainability and standardization  
+FY31  Q1  - Q2  Stage  4 LIFELINE:  Finalize  statewide  E MS  and  trau ma  coordination 
+protocols; prepare replication and sustainability plan 
+H O ME:  Consolidate  data  and  evaluate  progra m  success; 
+finalize sustainability plan  
+VIRTUAL:  Co mplete  statewide  telehealth  integration;  finalize  
+evaluation  of patient  outco mes  and  access  i mprove ments  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+38 
+ 
+ 
+ 
+ 
+INITIATIVE  4: THRIVE  
+Dates  Stage  Key  Milestones/Activities  
+  TECH  Fund:  Evaluate  full technology  deploy ment  and  
+interoperability;  finalize  technical support  fra mework  
+FY31  Q3  - Q4  Stage  5 LIFELINE:  Full statewide  operation;  report  E MS  and  trau ma 
+response  perfor mance  outco mes;  Finalize  trau ma  syste m 
+certification process  
+HO ME: Full statewide  operation;  report  chronic disease  and 
+engage ment  outco mes  
+VIRTUAL:  Full telehealth  deploy ment  statewide;  publish 
+utilization and health outco me metrics  
+TECH  Fund:  Fully  operational  telehealth  and  digital 
+infrastructure;  report  on  syste m adoption,  connectivity, and 
+interoperability  
+ 
+ 
+STAKEH OLDER  ENGA GE MENT   
+Consulted  and  Prospective Stakeholders  
+The  Arkansas  Depart ment  of Finance  and  Ad ministration,  under  the leadership  of Governor 
+Sarah  Huckabee  Sanders,  her  senior  advisors,  the Depart ment  of Health,  the Depart ment 
+of Hu man  Services,  the State  Cri me  Laboratory,  and  the Arkansas  Surgeon  General,  have 
+developed  a RHT  Progra m  that will produce  real change  to the way  healthcare  is delivered 
+in rural  Arkansas. Beginning  in August,  this tea m  convened  a series  of meetings  with 
+hospitals,  healthcare  providers,  and  rural health  coalitions  to gather  input  and  ensure  the 
+RHT  Progra m  reflects  the priorities  and  needs  of the co m munities  it will serve. To  capture  a 
+broader  range of perspectives,  the State launched a portal to  provide  an opportunity  for 
+stakeholders  beyond  those actively  involved in  the develop ment of  the plan to provide 
+feedback.  The  portal  received more  than  300 sub missions fro m stakeholders,  reflecting 
+strong  engage ment  and  broad  input across  the co m munity.  The  state  analyzed the  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+39 
+ 
+ 
+responses  and  identified  co m mon  the mes,  many  of which  have  been  used  to infor m  the 
+final RHT  Progra m.  The  leadership  tea m  conducted  many  additional  conversations  with 
+stakeholders,  including  Arkansas’s  federal  delegation,  state  legislators,  rural providers, 
+faith-based organizations, and  potential vendor  partners. Best efforts  were made to 
+include  as many  stakeholder  perspectives  as possible,  enabling  the State  to develop  an 
+RHT  Progra m  that will best  serve  the needs  of Arkansas’s rural residents.  
+Engage ment  Fra mework  and  Project  Governance  
+ 
+Arkansas will maintain an open,  transparent, and  structured process for stakeholder 
+engage ment  throughout  the duration  of the RHT  Progra m.  Building  on existing  cross -sector 
+partnerships, the State will establish  a for mal engage ment  fra mework to ensure that 
+stakeholder perspectives directly infor m progra m i mple mentation, oversight, and 
+continuous  i mprove ment.  
+The State will establish a regular  co m munication  cadence with representatives fro m 
+hospitals,  clinics,  co m munity  health  centers, public  health  agencies,  payers,  educational 
+institutions,  local  govern ments,  faith-based  organizations,  and  co m munity -based  groups. 
+Foru ms  will be  held  to encourage ongoing  dialogue,  data  sharing,  and  collaborative 
+proble m -solving  to ensure  that RHT  Progra m  invest ments  reflect  the priorities  and  needs  of 
+rural Arkansans.  
+Progra m  oversight and  coordination  will be  led by the  Depart ment of  Finance  and 
+Ad ministration (DFA)  in close  partnership  with  the Office  of the Governor  and  the 
+Depart ment  of Hu man  Services  (DHS).  These  agencies,  supported  by a qualified  fir m with  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+40 
+ 
+ 
+extensive  experience  in 2 CFR  200  co mpliance,  will jointly manage  progra m  planning, 
+deploy ment of funds, milestone tracking, and perfor mance monitoring.  
+Upon  award,  a regular  meeting  cadence  will be  established  to review  progress,  address 
+i mple mentation challenges,  and  evaluate  progra m  outco mes.  In addition,  the State  will 
+maintain  open  channels  for broader  stakeholder  input  through  public  listening  sessions, 
+online co m ment  opportunities, and engage ment  with regional and local partners. This 
+approach  ensures  that progra m  governance  and  decision -making  re main  grounded  in the 
+voices of providers, patients, and rural  co m munities  served across  rural Arkansas.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+41 
+ 
+ 
+ METRICS  AND  EVALUATI ON  PLAN   
+Metrics  
+ 
+ 
+Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+ 
+ 
+ 
+ 
+ 
+Metric  
+ 
+ 
+# of Arkansans 
+reached through 
+HEART -supported 
+health  education, 
+screening, or 
+wellness events 
+(GR O W, FAITH, 
+MOVE)  
+# of new or 
+expanded 
+co m munity 
+partnerships 
+established to 
+deliver HEART 
+progra ms 
+(schools,  markets, 
+faith 
+organizations, 
+healthcare  
+providers)  
+# of HEART - 
+supported 
+co m munity  sites 
+offering  nutrition, 
+physical activity, 
+or wellness 
+progra m ming 
+(e.g., school -
+based centers, 
+far mers  markets, 
+trails, fitness  
+events)  
+ 
+# of healthcare or 
+co m munity -based 
+providers 
+co mpleting  HEART -
+sponsored  training 
+on  preventive  care, 
+behavioral  health, 
+or chronic  disease 
+manage ment 
+(HEAL)  
+Nu meric 
+Target  
+≥ 12,500  residents 
+engaged  annually 
+across all HEART 
+activities  
+≥ 100  for malized 
+partnerships 
+established by 
+Year 5  
+≥ 75 co m munity 
+sites delivering 
+HEART -aligned  
+progra ms  by Year 
+5 
+≥ 250  providers  and 
+co m munity  health 
+workers trained 
+statewide  by Year  5 
+Data  Source  Event  registration 
+for ms, sign -in 
+sheets, mobile 
+screening logs, 
+progra m 
+attendance  data  
+Me moranda  of 
+Understanding 
+( MOUs),  
+partnership 
+agree ments,  
+stakeholder 
+tracking  lists 
+Progra m 
+i mple mentation 
+reports,  grantee 
+progress  logs, 
+local  health 
+depart ment  
+updates  
+Training  attendance 
+logs, C ME 
+co mpletion  records, 
+participant 
+evaluation for ms  
+Reporting 
+Geography  
+County -level 
+aggregation, 
+rolled up to 
+regional  and 
+statewide 
+reporting  
+County -level 
+aggregation,  rolled 
+up  to regional  and 
+statewide 
+reporting  
+County -level 
+aggregation,  rolled 
+up  to regional  and 
+statewide 
+reporting  
+County -level 
+aggregation,  rolled 
+up to regional and 
+statewide  reporting  
+Update 
+Frequency  
+Quarterly  tracking 
+with annual 
+statewide  
+su m mary  and 
+analysis  
+Quarterly  tracking 
+with annual 
+statewide  
+su m mary  and 
+analysis  
+Quarterly  tracking 
+with annual 
+statewide  
+su m mary  and 
+analysis  
+Quarterly  tracking 
+with annual 
+statewide  su m mary 
+and  analysis  
+Notes  Captures reach  
+and  engage ment 
+across  all HEART - 
+For malized  
+partnerships 
+de monstrate  
+Tracks  active  
+progra m sites 
+delivering HEART - 
+Measures  
+workforce  capacity 
+building, includes  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+42 
+ 
+ 
+ 
+Healthy  Eating,  Active  Recreation,  & Transfor mation  (HEART)  
+ supported 
+progra ms; 
+includes in -
+person,  virtual, 
+and mobile 
+events.  
+expansion  of 
+HEART progra m 
+capacity  and 
+sustainability, 
+includes  schools, 
+faith 
+organizations, 
+markets, and 
+healthcare  
+providers.  
+aligned  services; 
+ensures  
+geographic 
+coverage and 
+accessibility  for 
+target 
+populations.  
+healthcare and 
+co m munity -based 
+providers  trained  in 
+preventive care, 
+behavioral  health, 
+and  chronic  disease 
+manage ment.  
+ 
+ 
+Pro moting  Access,  Coordination,  and  Transfor mation  (PACT)  
+ 
+ 
+ 
+ 
+ 
+Metric  
+ 
+# of rural 
+residents 
+receiving 
+specialty, 
+preventive, or 
+telehealth 
+services  through 
+ACCESS and 
+ROAD MAP  
+progra ms  
+ 
+# of participating 
+hospitals,  clinics, 
+and providers 
+engaged  in data -
+sharing or 
+operational 
+collaboration 
+through  CINC  and 
+SAFE  initiatives  
+Nu mber of rural 
+clinics  providing 
+expanded 
+specialty or 
+preventive 
+services (e.g., 
+behavioral  health, 
+oral health, 
+maternal care) 
+through PACT -
+supported  
+initiatives  
+ 
+ 
+# of phar macists, 
+dental  hygienists, 
+and  other  providers 
+co mpleting 
+advanced  scope -of-
+practice training 
+under SCoPE  
+Nu meric 
+Target  
+≥ 12,000 rural 
+residents served 
+annually via 
+mobile units and 
+telehealth 
+services  by Year  5 
+≥ 12 healthcare 
+facilities  or 
+providers 
+participating  in 
+shared networks 
+or partnerships  by 
+Year  5 
+≥ 25 rural clinics 
+offering  expanded 
+specialty or 
+preventive 
+services  by Year  5 
+≥ 50 providers 
+credentialed for 
+expanded  scope -of-
+practice roles by 
+Year 5  
+Data  Source  Telehealth 
+utilization  reports, 
+mobile unit 
+service logs, and 
+EHR encounter 
+data  
+CIN  me mbership 
+records, MOUs, 
+SAFE  partnership 
+agree ments,  and 
+data exchange 
+tracking  syste ms  
+Clinic service 
+logs, provider 
+rosters,  and  PACT 
+participation 
+reports  
+Board  of Phar macy, 
+Dental Exa miners, 
+and other licensing 
+board’s  training 
+co mpletion  records, 
+provider 
+credentialing  
+databases  
+Reporting  
+Geography  
+County -level  
+reporting  
+County -level  
+reporting  
+County -level  
+reporting  
+County -level  
+reporting  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+43 
+ 
+ 
+ 
+Pro moting  Access,  Coordination,  and  Transfor mation  (PACT)  
+ aggregated to 
+regional  and 
+statewide  levels 
+via the PACT 
+perfor mance 
+dashboard  
+aggregated to 
+regional  and 
+statewide  levels 
+via the PACT 
+perfor mance 
+dashboard  
+aggregated to 
+regional  and 
+statewide  levels 
+via the PACT 
+perfor mance 
+dashboard  
+aggregated to 
+regional  and 
+statewide  levels  via 
+the PACT 
+perfor mance 
+dashboard  
+Update 
+Frequency  
+Quarterly  progress 
+reporting;  annual 
+statewide 
+perfor mance  
+su m mary  
+Quarterly  progress 
+reporting;  annual 
+statewide 
+perfor mance  
+su m mary  
+Quarterly  progress 
+reporting;  annual 
+statewide 
+perfor mance  
+su m mary  
+Quarterly  progress 
+reporting;  annual 
+statewide 
+perfor mance  
+su m mary  
+Notes  Measures  direct 
+access to 
+specialty, 
+preventive, and 
+telehealth 
+services for rural 
+residents; 
+includes both 
+mobile  and  fixed -
+site delivery.  
+Tracks  healthcare 
+facilities  and 
+providers  engaged 
+in collaborative 
+networks;  reflects 
+i mprove ments in 
+care coordination 
+and data sharing.  
+De monstrates 
+expansion  of 
+service capacity 
+and access to 
+specialty or 
+preventive  care  in 
+rural 
+co m munities; 
+highlights 
+transfor mation  of 
+local clinic  
+capabilities  
+Captures  workforce 
+capacity  and 
+expansion  of 
+provider roles 
+through  advanced 
+scope -of-practice 
+training; supports 
+service delivery in 
+underserved  areas.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+44 
+ 
+ 
+ 
+Recruit ment,  Innovation,  Skills,  and  Education  for Arkansas  (RISE  AR)  
+ 
+ 
+ 
+ 
+Metric  
+# of rural 
+healthcare 
+leaders 
+co mpleting  LEAD 
+acade my 
+training, 
+mentorship,  and 
+experiential 
+learning  
+progra ms  
+ 
+# of new  or expanded 
+residency, 
+fellowship,  and 
+preceptor positions 
+in high -need 
+specialties through 
+PATH WAY  
+ 
+# of clinicians 
+recruited and 
+retained  in rural 
+co m munities 
+through RETAIN 
+incentives  and 
+integration 
+progra ms  
+# of nurses, PAs, 
+behavioral  health 
+counselors,  and 
+paraprofessionals 
+co mpleting  SKILL 
+UP continuing 
+education  and 
+credentialing 
+progra ms  
+Nu meric  ≥ 50  leaders  ≥ 100  new  or ≥ 100  clinicians  ≥ 150  workforce  
+Target  trained  statewide  expanded  training  recruited  and  me mbers  
+ by Year  5 slots by Year  5 retained  in rural 
+areas  by Year  5 
+co mpleting 
+advanced  training  
+    and  certifications  
+    by Year  5 
+Data  LEAD  acade my  Residency/fellowship  RETAIN  progra m  SKILL  UP  progra m  
+Source  enroll ment  and 
+co mpletion  
+progra m  records; 
+preceptor  progra m  
+participation 
+records;  
+attendance logs; 
+training  co mpletion  
+ records;  logs;  G ME  expansion  e mploy ment  records;  
+ mentorship  logs;  reports  verification;  credentialing  
+ experiential   retention  tracking  databases  
+ learning     
+ evaluations     
+Reporting  County -level  County -level  County -level  County -level  
+Geography  reporting  reporting  aggregated  reporting  reporting  
+ aggregated  to to regional  and  aggregated  to aggregated  to 
+ regional and  statewide  via RISE  AR  regional  and  regional and  
+ statewide  via perfor mance  statewide  via statewide  via RISE  
+ RISE  AR  
+perfor mance  
+dashboard  RISE  AR  
+perfor mance  
+AR  perfor mance 
+dashboard  
+ dashboard   dashboard   
+Update  Quarterly  Quarterly  progress  Quarterly  Quarterly  progress  
+Frequency  progress  reporting;  annual  progress  reporting;  annual  
+ reporting;  annual 
+statewide  
+statewide  su m mary  reporting;  annual 
+statewide  
+statewide  su m mary  
+ su m mary   su m mary   
+Notes  Captures  
+develop ment  of 
+Tracks  expansion  of 
+graduate  medical  
+Measures  
+effectiveness  of 
+Strengthens  
+professional  
+rural healthcare  education  pipeline  recruit ment  and  co mpetencies  and  
+leadership  for high -need  rural retention  scope -of-practice  
+capacity  and  specialties;  ensures  incentives  in for rural health  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+45 
+ 
+ 
+ 
+Recruit ment,  Innovation,  Skills,  and  Education  for Arkansas  (RISE  AR)  
+ syste m  readiness  of trainees  sustaining  rural tea m  me mbers;  
+integration  skills; for rural practice  healthcare  supports  adoption  
+includes 
+mentorship  and  
+ workforce  of preventive  care 
+and  telehealth  
+experiential     
+learning     
+ 
+ 
+Telehealth,  Health -monitoring,  and  Response  Innovation  for Vital Expansion  (THRIVE)  
+ 
+ 
+ 
+Metric  
+% reduction in 
+E MS response 
+ti mes and 
+i mproved 
+trau ma/e mergency 
+survival rates  
+through  LIFELINE  
+# of patients 
+enrolled  in H O ME 
+re mote  monitoring 
+progra ms for 
+chronic  
+conditions  
+ 
+# of telehealth 
+visits and 
+specialty  consults 
+delivered  through 
+VIRTUAL  progra m  
+# of rural facilities 
+with upgraded 
+telehealth and 
+digital  health 
+infrastructure via 
+TECH Fund  
+Nu meric  ≥ 15 %  reduction  in ≥ 2,500  patients  ≥ 12,500  ≥ 50 rural facilities 
+Target  average  E MS  actively  monitored  telehealth  visits equipped  with  
+ response ti mes  in with  actionable  delivered  standardized  
+ rural counties  by data  by Year  5 statewide  by Year  telehealth  
+ Year  5  5 infrastructure  by 
+Year 5  
+Data  Source  E MS  perfor mance  Re mote  Telehealth  TECH  Fund  grant  
+dashboards;  monitoring  platfor m  reports;  IT inventory  
+hospital  and  platfor m  data;  analytics;  CIN  logs;  connectivity  
+public  health  patient  utilization  reports;  and  interoperability  
+outco me  records;  engage ment  logs;  patient  assess ments  
+regional  EHR  integration  satisfaction   
+coordination  logs  reports  surveys   
+Reporting  County -level  County -level  County -level  County -level  
+Geography  reporting 
+aggregated  to 
+reporting 
+aggregated  to 
+reporting 
+aggregated  to 
+reporting 
+aggregated  to 
+ regional and  regional and  regional  and  regional and  
+ statewide  via statewide  via statewide  via statewide  via 
+ THRIVE  dashboard  THRIVE  THRIVE  THRIVE  dashboard  
+  dashboard  dashboard   
+Update  Quarterly  progress  Quarterly  progress  Quarterly  Quarterly  progress  
+Frequency  reporting;  annual  reporting;  annual  progress  reporting;  annual  
+ statewide 
+su m mary  
+statewide 
+su m mary  
+reporting;  annual 
+statewide  
+statewide  su m mary  
+   su m mary   
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+46 
+ 
+ 
+ 
+Telehealth,  Health -monitoring,  and  Response  Innovation  for Vital Expansion  (THRIVE)  
+Notes  Tracks  E MS  
+modernization,  
+Measures  patient  
+engage ment  and  
+Captures  
+adoption,  reach,  
+Measures  
+infrastructure  
+coordination,  and  clinical  outco mes  and  patient  upgrades,  adoption,  
+clinical  outco mes;  for chronic  i mpact  of and  sustainability  of 
+ensures  data - disease  telehealth  telehealth  and  
+driven  manage ment;  services;  digital  health  tools;  
+i mprove ments  in links monitoring  integrates  ensures  
+e mergency care  data  to proactive 
+interventions  
+specialty  care  and 
+care  coordination  
+interoperability  and 
+standardized  
+   technology  for rural 
+   providers  
+ 
+Evaluation  plan  
+ 
+Arkansas  will fully cooperate  with  any C MS -led evaluation  or monitoring  activities. The 
+State  plans  to engage  a qualified  third-party  fir m with  extensive experience  in 2 CFR  200 
+co mpliance  and  rural  health  progra ms  to provide  co mprehensive  co mpliance,  monitoring, 
+and evaluation services  for the RHT  Progra m.  This  partnership  will include  conducting 
+progra m evaluations, ensuring that i mple mentation re mains aligned with progra m 
+objectives, and identifying opportunities for continuous i mprove ment and enhanced 
+progra m effectiveness.  
+SUSTAINABILITY   PLAN   
+Arkansas  recognizes  that for RHT  Progra m  funds  to achieve  lasting  i mpact,  each  initiative 
+must include a clear path to sustainability beyond the progra m’s funding period.  
+Established  under  President  Tru mp’s  One  Big  Beautiful  Bill Act , this initiative  provides  the 
+foundation for long -ter m invest ment in rural health transfor mation. Our initiatives are 
+designed to  balance  strategic  invest ments  in infrastructure,  technology,  and  workforce  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+47 
+ 
+ 
+develop ment  with  progra m matic  approaches  that de monstrate  measurable  value  and 
+support long -ter m State -level adoption.  
+The  goal  is to: 
+ 
+• Launch progra ms  to Make  Arkansas  Healthy Again,  where  scalable,  replicable 
+models  that i mprove  health  and  wellbeing  prove  the benefit  of continued  state -level 
+funding,  
+• Strengthen the  healthcare  workforce  without  creating  dependency  on RHT  Progra m 
+funds,  
+• Create  new  revenue  strea ms  and  care  delivery  models  while  supporting  provider 
+transition to value -based pay ment models for long -ter m sustainability and,  
+• Provide one -ti me, strategic invest ments in infrastructure and technology to 
+organizations  and  facilities  to help  transfor m  the delivery  of care  in our  rural  market.  
+INITIATIVE  SUSTAINABILITY  PLANS  
+ 
+ HEALTHY  EATIN G,  ACTIVE  RECREATI ON,  & TRANSF OR MATI ON  (HEART)   
+GR O W Kids:  Pilot integrated school  and co m munity -based health models,  tracking 
+student health, attendance, and acade mic i mprove ment. Post -de monstration, eligible 
+progra ms  will transition  to state  education,  and  co m mercial  and  public  payor -supported 
+preventive health funding strea ms.  
+FAR M  (Food  Access  & Regional  Markets) : Test  regional  food -as-medicine  models  tied to 
+SNAP  waivers  and  hospital  dietary  focus  groups.  Successful markets  can transition  into 
+public and private -supported funding.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+48 
+ 
+ 
+MOVE  ( Mobilizing  Opportunities  for Vital  Exercise) : Deploy  trail and  outdoor  facility 
+networks  in 3–5 rural hubs  to measure  exercise  participation,  physical  health  metrics,  and 
+touris m  i mpact.  Municipalities will  assu me repair  and  maintenance costs  after  the initial 
+federal de monstration support ends.  
+FAITH (Faith -based Access, Interventions, Transportation, & Health) : Pilot faith -based 
+screening  and  outreach  collaborations.  Progra ms  de monstrating  cost -effective  outreach 
+will transition to local non -profit and public health co -funding.  
+HEAL  (Healthcare  Education  and  Advance ment  for Leadership) : Seed  new  nutrition 
+curricula  in medical,  nursing,  and  phar macy  progra ms.  Once  effectiveness  is established, 
+continuing education (C ME/CE)  accreditation organizations will  institutionalize  ongoing 
+costs.  
+I MPACT (Integrated  Models  for Prevention,  Access,  Care  and  Transfor mation): Proof -
+of-concept  progra m  to de monstrate  health  cost  savings  and  clinical i mprove ment  a mong 
+10,000  patients.  After  measurable  payback,  public  and  private  chronic  care  manage ment 
+progra ms will finance continuation.  
+ PR O MOTIN G  ACCESS,  C O ORDINATI ON,  AND   TRANSF OR MATI ON  (PACT)   
+ACCESS  (Advancing  Care Capacity,  Engage ment,  and Screening Services) : 
+De monstrate  telehealth  and  screening  expansions  across  underserved  zones.  Sustainable 
+progra ms  will integrate  ongoing  costs into insurer  parity  and  payor  coverage  fra meworks. 
+CINC (Co m munity  Integrated  Networks for Care) : Pilot locally  governed  Clinically 
+Integrated  Networks  (CINs)  with  early  capital  funding  for data  and  ad ministrative  syste ms. 
+Networks  de monstrating  savings  and  enhanced  care  coordination  will transition  to shared -
+risk or capitated -pay ment model.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+49 
+ 
+ 
+ROAD MAP  (Regional  Opti mization  of Access,  Delivery,  Mobility,  and  Practice) : Pilot 
+transportation  and  workforce  align ment  solutions  (ride -share  subsidies, mobile  workforce 
+tools). Successful models  will continue to be  funded through state and local workforce 
+develop ment budgets.  
+SCoPE  (Scope  of Practice  Elevation):  Test  broadened  duties  for medical  providers, 
+including  phar macists  and  hygienists.  If metrics  show  reduced  pri mary  care  wait  ti mes  and 
+i mproved chronic  disease control, licensing boards and payors will integrate new 
+rei mburse ment guidelines.  
+SAFE  (Syste m  Align ment  & Facility  Enhance ment  Fund) : Use  one -ti me capital  for 
+critical facility align ment  and  renovations.  Participating  hospitals  must  show  sustainability 
+via shared overhead, pooled staffing, or consolidated purchasing.  
+ RECRUIT MENT,  INN OVATI ON,  SKILLS,  AND  EDUCATI ON  F OR  ARKANSAS  (RISE  AR)   
+LEAD  (Leadership  Education,  Advance ment,  and  Delivery) : Pilot Leadership  Acade mies 
+in three  hospital regions; prove  i mpact via board  perfor mance  and  quality metrics. After 
+validation, funding transitions to hospital association or si milar organization as self -
+sustaining me mbership model.  
+PATH WAY  (Preparing  Arkansas  Talent  for Health  Workforce  Advance ment  Yield) : 
+ 
+De monstrate  clinical  workforce  training  and residency  progra ms  that achieve  retention 
+bench marks. Successful progra ms  shift to payor -funded G ME  expansion.  
+RETAIN  (Recruit,  Educate,  Train,  Advise,  Integrate,  Nurture) : Pilot rural  service 
+agree ments offering relocation and mentorship stipends, which are additive, not 
+duplicative,  to existing  workforce  incentives.  Once  proven  to reduce  turnover,  continuing 
+funding will co me fro m e mployer cost -sharing.  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+50 
+ 
+ 
+SKILL  UP  (Strategic  Knowledge,  Innovation  & Lifelong  Learning  for Upward 
+Professionals) : Test  stackable  credentialing  progra ms  for nurses  and  co m munity  health 
+workers.  After  de monstration,  sustainable  integration  will occur  through  state -level  and 
+e mployer  funding.  
+ 
+LIFELINE  (Linking  Infrastructure  for E mergency  Lifesaving  and  Integrated  Network 
+Expansion) : Modernizes  Arkansas’s  rural trau ma  and  e mergency  response  syste m  through 
+pilot initiatives. Sustained funding will be  adopted by public  and private payors as  pilots 
+prove econo mically viable.  
+H O ME  (Health  Outco mes  through  Monitoring  & Engage ment) : Significant  portion  of 
+funds  will be  one -ti me re mote  patient  monitoring  equip ment  and  startup  costs  for at-ho me 
+applications  for tracking.  Progra m matically,  evaluate  ROI  of re mote  monitoring  pilots using 
+clai ms  and  hospitalization  data.  Progra ms  achieving  read mission  reductions  transition  to 
+managed care rei mburse ment models.  
+VIRTUAL  (Virtual  Innovation  for Rural  Telehealth,  Utilization,  Access,  and  Longevity): 
+Significant  use  of funds  will be  one -ti me telehealth  infrastructure  and  organizational  start-
+up costs. Long -ter m, successful syste ms will maintain operations via telehealth 
+rei mburse ment pay ments.  
+TECH  Fund  (Telehealth,  Equip ment,  and  Connectivity  Hub  Fund) : Consists  of one -ti me 
+telehealth equip ment, health infor mation technology, and software costs. Benefitting 
+organizations will assu me responsibility for ongoing costs.  
+TELEHEALTH,  HEALTH -MONIT ORING,  AND  RESPONSE  INNOVATION  FOR  VITAL 
+EXPANSI ON (THRIVE)  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+51 
+ 
+ 
+END  NOTES   
+1. Arkansas Depart ment  of Health: Rural Health and  Pri mary Care 
+https://healthy.arkansas.gov/progra ms -services/prevention -healthy -living/rural -
+health -pri mary -care/rural -health/  
+2. Rural Health Infor mation Hub: Arkansas 
+https://www.ruralhealthinfo.org/states/arkansas  
+3. ACHI: Rural Health Access 
+https://achi.net/publications/rural -health -access/  
+4. Chartis: 2025 Rural Health State -by-State 
+https://www.chartis.co m/insights/2025 -rural-health -state -state  
+5. C MS Medicare Wage Index FY 2026 
+https://www.c ms.gov/ medicare/pay ment/prospective -pay ment -syste ms/acute -
+inpatient -pps/wage -index -files/fy-2026 -wage -index -ho me -page  
+6. County Health Rankings, 2025 
+https://www.countyhealthrankings.org/reports/2025 -county -health -rankings -
+national -findings -report  
+7. C MS:  RHT  Progra m  Overview  
+https://www.c ms.gov/priorities/rural -health -transfor mation -rht-progra m/overview  
+8. ACHI:  Arkansas  Student  B MI Report  2023 –2024  
+https://achi.net/wp -content/uploads/2024/12/B MI_Report_2023 -2024.pdf  
+9. CDC: Pulse Survey Mental Health Data 
+https://www.cdc.gov/nchs/covid19/pulse/ mental -health.ht m  
+10.  Mental  Health  A merica:  State  Data  
+https:// mhanational.org/the -state -of-mental -health -in-a merica/data -
+rankings/adult -ranking/  
+11.  CDC:  Opioid  Dispensing  Rates  
+https://www.cdc.gov/overdose -prevention/data -research/facts -stats/opioid -
+dispensing -rate-maps.ht ml  
+12.  ACHI:  Rural Health Transfor mation Progra m Overview 
+https://achi.net/publications/overview -of-the-rural-health -transfor mation -
+progra m -in-arkansas/  
+Arkansas  Rural  Healthcare  Transfor mation  Progra m  
+52 
+ 
+ 
+13.  AZ  Center  for Rural  Health:  RHT  Progra m  N OF O  (PDF) 
+https://crh.arizona.edu/sites/default/files/2025 -09/250915_Rural -Health -
+Transfor mation -Progra m_NOFO.pdf  
+14.  Civitas:  Rural  Health  Transfor mation  Challenges  
+https://civitasforhealth.org/rural -health -transfor mation -challenges -opportunities/  

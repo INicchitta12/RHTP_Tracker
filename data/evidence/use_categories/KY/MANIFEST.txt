@@ -1,0 +1,27 @@
+file: 2026-11-24_ky_rhtp_project_narrative_cms-rht-26-001.pdf
+source_url: https://ruralhealthplan.ky.gov/Documents/KY%20RHTP%20Project%20Narrative_CMS-RHT-26-001.pdf
+fetched_utc: 2026-11-24T14:49:25Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 4898710
+sha256: ffe2cbe738b9fa1f6b558c3f3259d80a464ee5bfcb837bee7d8080feec8b4245
+
+file: 2026-11-24_ky_rhtp_oct_2026_update_cms_approvedv2.pdf
+source_url: https://ruralhealthplan.ky.gov/Documents/RHTP%20OCT%202026%20Update%20CMS%20Approvedv2.pdf
+fetched_utc: 2026-11-24T15:04:21Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 4039248
+sha256: fea994eb9662b1e1e5edce0408ff9fc619123b5a23a0e1ebe87dff507880e57a
+
+file: text/2026-11-24_ky_rhtp_project_narrative_cms-rht-26-001.ocr.txt
+source: tesseract 5.3.4 OCR (--psm 4, 200 dpi) of 2026-11-24_ky_rhtp_project_narrative_cms-rht-26-001.pdf. Its text layer (the .txt beside it) is unreadable: Type 3 fonts with no ToUnicode.
+
+file: text/2026-11-02_KyRHT_Executed_Contract_Tracker_2026.09.08.txt
+source: pdftotext -layout of data/evidence/recheck/2026-11-02/KY/2026-11-02_KyRHT_Executed_Contract_Tracker_2026.09.08.pdf (committed)
+
+file: text/fsrs_KY_subaward_descriptions_2026-11-20.txt
+source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive)
+
+note: the derived .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text. No other change.
+

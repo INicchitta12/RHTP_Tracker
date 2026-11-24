@@ -1,0 +1,16 @@
+file: 2026-11-24_tx_hhsc_approved_bp1_revised_project_narrative.pdf
+source_url: https://pfd.hhs.texas.gov/sites/default/files/documents/rural-hlth-prgm/bdgt-prd-1-rvsd-budgt-narr.pdf
+fetched_utc: 2026-11-24T14:37:24Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 3802195
+sha256: 3aa9ee51e71410fa8171d33fd8382642639ded7aac1a23cbab1528ddcd0a0eda
+
+file: 2026-11-24_tx_hhsc_rural_texas_strong_project_narrative.pdf
+source_url: https://pfd.hhs.texas.gov/sites/default/files/documents/rural-hlth-prgm/rural-txstrong-prjct-narr.pdf
+fetched_utc: 2026-11-24T14:37:24Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 3757892
+sha256: f75544bf6c29a2c7f94a8a0bc8d75199424bca20b04cf524b9fa1227bbbd85c3
+

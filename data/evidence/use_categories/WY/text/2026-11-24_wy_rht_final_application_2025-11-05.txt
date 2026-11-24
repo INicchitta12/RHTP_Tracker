@@ -1,0 +1,3223 @@
+   Rural Health Transformation
+                in Wyoming
+
+              an application
+                submitted to the
+Centers for Medicare and Medicaid Services
+                  pursuant to
+              P.L. 119-21 §71401
+
+
+
+
+          Wyoming Department of Health
+               November 5th, 2025
+W
+yoming is a small town with unusually long streets.
+             —former Governor Mike Sullivan
+Contents
+1 Project summary                                                                                     1
+
+2 Rural health needs and target population                                                             2
+  2.1 Wyoming’s rural and frontier geography . . . . . . . . . . . . . . . . . . . . . . . .           2
+  2.2 Rural demographics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         3
+       2.2.1 Age distribution . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          3
+       2.2.2 Educational attainment, employment, and income . . . . . . . . . . . . . . .              3
+       2.2.3 Health insurance coverage . . . . . . . . . . . . . . . . . . . . . . . . . . .           4
+  2.3 Health outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          5
+       2.3.1 Chronic conditions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          5
+       2.3.2 Behavioral health outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . .          6
+       2.3.3 Maternal and child health outcomes . . . . . . . . . . . . . . . . . . . . . .            6
+  2.4 Healthcare access challenges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       7
+       2.4.1 Ambulance service availability . . . . . . . . . . . . . . . . . . . . . . . . .          8
+       2.4.2 Rural facility financial health . . . . . . . . . . . . . . . . . . . . . . . . . .       9
+       2.4.3 Labor and delivery: maternity deserts . . . . . . . . . . . . . . . . . . . . . .        10
+       2.4.4 Low and variable medical provider density . . . . . . . . . . . . . . . . . . .          11
+  2.5 Target population and geographic area . . . . . . . . . . . . . . . . . . . . . . . . .         12
+
+3 Goals and strategy                                                                                  13
+  3.1 Summary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         14
+  3.2 Increase sustainable access to right-sized and coordinated rural medical care (I., IV., VII.,
+       VIII.) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     15
+       3.2.1 Causes of rural provider financial distress (VIII) . . . . . . . . . . . . . . . .       15
+       3.2.2 Long-term solvency through right-sizing and partnerships (VII., IV.) . . . . .           18
+       3.2.3 Cross-cutting initiatives that will also increase access to care: . . . . . . . . . .    19
+       3.2.4 Key performance objectives . . . . . . . . . . . . . . . . . . . . . . . . . . .         20
+       3.2.5 State policy actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       20
+  3.3 Build a durable rural workforce pipeline (V) . . . . . . . . . . . . . . . . . . . . . .        20
+       3.3.1 State policy actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       21
+       3.3.2 Key performance objectives . . . . . . . . . . . . . . . . . . . . . . . . . . .         22
+  3.4 Improve metabolic, cardiovascular, and behavioral health outcomes (II) . . . . . . . .          22
+       3.4.1 Cross-cutting initiatives that will support healthier outcomes . . . . . . . . .         22
+       3.4.2 State policy actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       23
+       3.4.3 Key performance objectives . . . . . . . . . . . . . . . . . . . . . . . . . . .         23
+  3.5 Use technology and payment models to improve chronic disease management and bring
+       care closer to home (III and VI) . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     24
+       3.5.1 State policy actions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       25
+       3.5.2 Key performance objectives . . . . . . . . . . . . . . . . . . . . . . . . . . .         25
+  3.6 Other required information (A.2. and A.7.) . . . . . . . . . . . . . . . . . . . . . . .        25
+
+4 Proposed initiatives and use of funds                                                               26
+  4.1 Initiative: Access to emergency medical care . . . . . . . . . . . . . . . . . . . . . . .      27
+
+                                             Wyoming Department of Health | November 5th, 2025 | i
+          4.1.1    Establishment of the “Critical Access Hospital - Basic” (CAHB) incentive pro-
+                   gram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    28
+          4.1.2 EMS regionalization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        29
+          4.1.3 Establishment of the “BearCare” public major medical plan . . . . . . . . . .          30
+          4.1.4 Strategic alignment, score factors, outcomes, stakeholders, and funding . . . .        31
+   4.2    Initiative: Rural workforce supply . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
+          4.2.1 Workforce education individual support . . . . . . . . . . . . . . . . . . . .         32
+          4.2.2 Physician post-graduate medical education slots . . . . . . . . . . . . . . . .        33
+          4.2.3 Workforce education start-up . . . . . . . . . . . . . . . . . . . . . . . . . .       33
+          4.2.4 Scope of practice and licensure . . . . . . . . . . . . . . . . . . . . . . . . .      34
+          4.2.5 Strategic alignment, score factors, outcomes, stakeholders, and funding . . . .        34
+   4.3    Initiative: Health technology transformation . . . . . . . . . . . . . . . . . . . . . .     35
+          4.3.1 Technology adoption challenge . . . . . . . . . . . . . . . . . . . . . . . . .        35
+          4.3.2 Statewide tele-specialist platform . . . . . . . . . . . . . . . . . . . . . . . .     36
+          4.3.3 Non-emergency transportation coordination platform . . . . . . . . . . . . .           37
+          4.3.4 Centralized billing capacity . . . . . . . . . . . . . . . . . . . . . . . . . . .     38
+          4.3.5 Strategic alignment, score factors, stakeholders, outcomes, and funding . . . .        39
+   4.4    Initiative: Make Wyoming Healthy Again . . . . . . . . . . . . . . . . . . . . . . . .       40
+          4.4.1 Integrated primary care expansion . . . . . . . . . . . . . . . . . . . . . . .        40
+          4.4.2 Clinically-integrated care coordination for chronic disease . . . . . . . . . . .      41
+          4.4.3 Exercise and healthy diet promotion . . . . . . . . . . . . . . . . . . . . . .        42
+          4.4.4 Strategic alignment, score factors, outcomes, stakeholders, and funding . . . .        43
+
+5 Implementation plan                                                                                  44
+  5.1 Initiative timelines . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     44
+  5.2 State policy timelines . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       44
+  5.3 Governance and project management structure . . . . . . . . . . . . . . . . . . . . .            44
+       5.3.1 Interagency team . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          45
+       5.3.2 Iterative management . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .          45
+       5.3.3 Key personnel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .           46
+       5.3.4 Outside stakeholder advisory committee . . . . . . . . . . . . . . . . . . . .            46
+
+6 Stakeholder engagement                                                                               47
+  6.1 Community rural health priorities . . . . . . . . . . . . . . . . . . . . . . . . . . .          47
+  6.2 Stakeholder meetings and idea solicitation . . . . . . . . . . . . . . . . . . . . . . . .       48
+
+7 Metrics and evaluation plan                                                                          49
+  7.1 Key performance objectives . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         49
+  7.2 Outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .         49
+  7.3 Formal evaluation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        50
+
+8 Sustainability plan                                                                                  51
+  8.1 The problem: risks of “spending it all in one place” . . . . . . . . . . . . . . . . . . .       51
+  8.2 The public recognizes these risks . . . . . . . . . . . . . . . . . . . . . . . . . . . .        51
+  8.3 Sustainability is critical to effective system transformation . . . . . . . . . . . . . . .      52
+
+
+                                             Wyoming Department of Health | November 5th, 2025 | ii
+   8.4    Primary: The Wyoming Rural Health Transformation Perpetuity . . . . . . . . . . .           53
+          8.4.1 Purpose-dedicated shares . . . . . . . . . . . . . . . . . . . . . . . . . . . .      53
+          8.4.2 Ensuring a future stream of benefits . . . . . . . . . . . . . . . . . . . . . .      54
+   8.5    Secondary: Procedural safeguards to ensure sustainability . . . . . . . . . . . . . . . .   55
+   8.6    Tertiary: Policy changes that will help sustain program impacts . . . . . . . . . . . . .   55
+
+Supplemental materials                                                                                 1
+   8.7 Maps, figures and tables . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      1
+   8.8 Public engagement - quantitative results . . . . . . . . . . . . . . . . . . . . . . . .       19
+        8.8.1 Public meeting structured exercises . . . . . . . . . . . . . . . . . . . . . . .       19
+        8.8.2 Online survey . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       19
+   8.9 Provider financial trends . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    21
+        8.9.1 Critical Access Hospitals . . . . . . . . . . . . . . . . . . . . . . . . . . . .       22
+        8.9.2 Prospective Payment System Hospitals . . . . . . . . . . . . . . . . . . . . .          23
+   8.10 Financial health definitions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    24
+
+
+
+
+                                            Wyoming Department of Health | November 5th, 2025 | iii
+1    Project summary
+Wyoming’s proposal for Rural Health Transformation, as developed and submitted by the Department
+of Health (WDH) and the Governor’s Office, is intended to directly address the health care priorities of
+our rural communities.
+We collected those priorities in a series of eleven (11) town hall meetings, and had them ranked by 1,316
+Wyomingites in an online survey. The priorities that came out on top aren’t extravagant. Most center
+on access to the basics: hospitals that can effectively treat emergencies, ambulances that show up quickly
+when you dial 911, and primary care that treats the whole person.
+When combined with the federal objectives articulated in the One Big Beautiful Bill Act, these priorities
+informed the four (4) major goals of our proposal. With supporting components listed under each, these
+are:
+1. To increase sustainable access to right-sized and coordinated rural medical care.
+      Encouraging smaller Critical Access Hospitals to focus on doing the basics well, and creating in-
+      centives for small ambulance services to consolidate around sustainable regional funding bases;
+      Expansion of primary care that integrates behavioral health and preventative medicine;
+      Building an affordable major medical plan for people priced out of health insurance.
+2. To build a durable workforce pipeline.
+      Individual education support for people looking to become nurses, primary care providers, behav-
+      ioral health clinicians and emergency medical technicians;
+      Grants for institutions to build career pipelines in these fields, starting in high school; and,
+      Loosening scope of practice for physician assistants, dental hygienists, and pharmacists.
+3. To improve metabolic, cardiovascular, and behavioral health outcomes.
+      Exercise and diet promotion;
+      Restricting the use of SNAP/food stamps to buy unhealthy food; and,
+      Statewide telepsychiatry and crisis intervention services.
+4. To use technology and payment models to improve chronic disease management and bring care
+closer to home.
+      Clinically-integrated care coordination for people at high risk of chronic disease; and,
+      Non-emergency transportation coordination.
+We were requested to assume a hypothetical $200,000,000 total budget for this proposal. Depending
+on the amount Wyoming actually receives, 48% of the funding will support access to emergency medical
+care, 25% will increase rural workforce supply, 16% is targeted at improving health outcomes, 10% will
+help providers acquire innovative new technology, and less than 1% will cover State administrative costs.
+Although this funding is time-limited, all of our initiatives are intentionally built for the long-term. Ru-
+ral Health Transformation is a once-in-a-generation opportunity to strengthen how care is delivered in
+Wyoming, and we will not let it go to waste.
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 1
+2       Rural health needs and target population
+
+2.1     Wyoming’s rural and frontier geography
+
+With an estimated 587,618 people1 spread over 97,813 square miles, Wyoming is the most sparsely-
+populated state in the lower 48.
+
+This doesn’t mean that 6 people are spread out over every square mile, exactly. As Figure 8 in the Supple-
+mental Materials section shows, our population clusters into a loose network of small cities and towns.
+Only two cities (Cheyenne and Casper) have more than 50,000 inhabitants, and only the next three
+(Gillette, Laramie, and Rock Springs) have more than 20,000 people.2 In this respect, Wyoming resem-
+bles a large archipelago spread out over a vast sea of sagebrush, split up by ranges of forested mountains.
+
+For the purposes of this application, we categorize the State into three major geographic areas, which are
+visualized on Figure 9 in the Supplemental Materials:
+
+        Urban areas, which are those Census Tracts that are not classified as “rural” in the latest iteration
+        of the Federal Office of Rural Health Policy (FORHP) rural area data file.3
+
+        Rural areas, which are those Census Tracts designated as rural by FORHP, but do not meet USDA
+        Frontier and Remote (FAR) Level 2 standards.
+
+        Frontier areas, which are all those 2020 Census Blocks that fall into a rural Tract designated by
+        FORHP and also meet USDA FAR Level 2 standards.4
+    1
+      2024 annual population estimate; Division of Economic Analysis, Department of Administration and Information.
+http://eadiv.state.wy.us/pop/st-24est.htm
+    2
+      http://eadiv.state.wy.us/pop/Place-24EST.htm
+    3
+      https://www.hrsa.gov/rural-health/about-us/what-is-rural/data-files. Note: this classification basically includes the ur-
+ban areas of Cheyenne and Casper, though one Census Tract southeast of Cheyenne encompasses an “urban” area which is
+clearly quite sparsely populated, per the population density map in Figure 8.
+    4
+      See: https://www.ers.usda.gov/data-products/frontier-and-remote-area-codes/documentation. We applied this
+methodology to 2020 Census Block geographies using driving distance matrices calculated with Open Source Routing Ma-
+chine / Open Street Map data. We “rolled our own” methodology here because USPS ZIP codes are collections of post offices
+and routes, change from year to year, and are not intended to be areal. Equivalent Census ZCTAs thus have significant holes
+across the State. 2020 Census Blocks, by contrast, cover the State entirely and can be mapped neatly to the latest Decennial
+Census population counts.
+
+
+
+
+                                                      Wyoming Department of Health | November 5th, 2025 | 2
+2.2     Rural demographics
+
+Wyoming’s frontier areas are its largest, in terms of both area and population. Approximately 253,000
+people, or ~ 44% of the State’s population, live in these cities and towns, followed by ~ 171,000 people
+(~ 30%) in rural areas, and ~ 153,000 (~26%) in the urban cores of Cheyenne and Casper.
+
+
+2.2.1    Age distribution
+
+Figure 7 in the Supplemental Materials shows the distribution of 5-year age groups by these geographic
+areas.5 The pane on the right shows absolute counts (thousands) in urban (green), rural (dark blue) and
+frontier (light blue) areas. The pane on the left translates those counts into the percentage of each area’s
+total population.
+
+The pane on the left shows the most salient geographic differences:
+
+        Frontier areas have a disproportionately older population, which is most evident in the 55-80 year
+        age groups. There are also comparatively fewer younger working-age adults (20-40), compared
+        with urban and adjacent rural areas.
+
+        Urban areas also have higher percentages of the ‘oldest old’, likely due to the more acute medical
+        and long-term care needs of this population.
+
+
+2.2.2    Educational attainment, employment, and income
+
+Wyoming prides itself on the uniformity and equality of its education system, principles which are deeply
+rooted in our State Constitution. And, as Figure 17 in the Supplemental Materials shows, there are little
+meaningful differences in educational attainment by geography.6
+
+Employment figures are similarly uniform across geography. Likely due to age differences, there is a
+slightly higher percentage of people who are not in the labor force in rural and frontier areas, as shown in
+   5
+     Data comes from 2020 Decennial Census data aggregated and cleaned by IPUMS (IPUMS USA, University of Min-
+nesota, www.ipums.org), with block groups categorized per Figure 9.
+   6
+     These data are from 2023 ACS estimates downloaded from data.census.gov. Because these tables are only available at the
+Census Tract level, we cannot distinguish between rural and frontier here.
+
+
+
+                                                     Wyoming Department of Health | November 5th, 2025 | 3
+Table 25 in the Supplemental Materials.7 Some intuitive geographic differences show up in the industry
+breakdown shown in Table 26 in the Supplemental Materials: more people in rural/frontier areas work
+in agriculture, forestry, fishing, and mining than those in urban areas, who tend to work slightly more in
+retail and public administration.
+
+As shown on Figure 18 in the Supplemental Materials, Wyoming’s rural and frontier areas have a slightly
+higher household income than urban areas. This is likely due to being older, on average, per Figure 7 in
+the Supplemental Materials.
+
+
+2.2.3    Health insurance coverage
+
+Table 24 in the Supplemental Materials shows how our estimate8 of primary health insurance coverage
+varies across geography.
+
+Of note:
+
+        Frontier areas tend to have more Medicare and Indian Health Service coverage, due to the older
+        demographics and the location of the Wind River Reservation, as noted on Figure 9.
+
+        The rural areas around urban cores have lower Medicaid and Medicare penetration, and higher
+        employer sponsored insurance (ESI) coverage.
+
+        Warren Air Force Base and the associated military retiree community in Cheyenne increases the
+        urban percentage of VA and TRICARE.
+
+        Directly-purchased insurance on the federally-facilitated marketplace has increased significantly
+        from ~ 25,000 to 45,000 with the expansion of Advanced Premium Tax Credits under ARPA. It
+        is likely that Marketplace enrollment would fall back to previous levels if the APTC expansion is
+        not extended.
+   7
+      As with the educational attainment data, employment information comes from 2023 Census estimates aggregated at the
+Tract level, so breaking out frontier from rural is also not possible.
+    8
+      This comes from Bayesian models applied to ten years of pooled restricted American Community Survey microdata. We
+undertook this effort in partnership with the US Census Bureau and its Rocky Mountain Federal Statistical Research Data
+Center. The associated project number is 2909; estimates by age-group, sex, race/ethnicity, and Census Block Group cleared
+disclosure review and were publicly released in December of 2024 (CBDRB-FY25-0096). We combined these estimates with
+2020 Decennial Census data from IPUMS to produce this post-stratified table.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 4
+2.3            Health outcomes
+
+2.3.1               Chronic conditions
+
+Figure 1 shows the current (2024) estimated burden of 11 self-reported chronic conditions by the same
+rural/frontier/urban divide.9
+
+                                      Figure 1: Chronic conditions - reported prevalence (2024 est.)
+
+
+                                   Stroke
+                                Skin cancer
+                                Other cancer
+        Chronic condition
+
+
+
+
+                               Kidney disease
+                                Heart attack
+                                  Diabetes
+                                                                                                                        Urban
+                             Depressive disorder
+                                                                                                       Frontier Rural
+                            Coronary heart disease
+                                  COPD
+                                  Asthma
+                                  Arthritis
+                                                                              10%
+                                                                                    12%
+                                                                                          14%
+                                                                                                16%
+                                                                                                      18%
+                                                                                                            20%
+                                                                                                                  22%
+                                                                                                                        24%
+                                                                                                                              26%
+                                                                                                                                    28%
+                                                                                                                                          30%
+                                                     0%
+                                                          2%
+                                                               4%
+                                                                    6%
+                                                                         8%
+
+
+
+
+                                                                          Prevalence (% reporting)
+
+
+
+While Wyoming’s burden of chronic disease is comparable to the national average, there are some dispar-
+ities that seem to be largely driven by age: note the increase in cancer, heart attack, stroke, and arthritis
+conditions among the largely older frontier populations, but lower reported depression and asthma.
+
+Socioeconomic status also affects risk. In addition to the figure showing individual chronic conditions,
+we include two maps in the Supplemental Materials section:
+
+            Figure 11 shows metabolic disease risk10 across the Census Block Groups of Wyoming; and,
+   9
+      These estimates come from pooled 2021-2024 Behavioral Risk Factor Surveillance System (BRFSS) microdata, which
+was then used to build a set of hierarchical Generalized Additive Models to predict reported prevalence based on demographic
+factors and geographic location (population-weighted ZIP centroids). We applied these models to the same 2020 Decennial
+Census population model to estimate reported prevalence across Census Blocks, which we then aggregated into the fron-
+tier/rural/urban areas shown on Figure 9.
+   10
+      We represent this on an ordinal scale that comes from adding up reported BRFSS dummy variables for obesity, diabetes,
+
+
+                                                                Wyoming Department of Health | November 5th, 2025 | 5
+         Figure 12 shows cardiovascular disease risk11 over the same areas.
+
+Importantly, on the metabolic risk map, the wealthier areas of the State in the northwest corner (Teton,
+northern Lincoln, Sublette and upper Fremont counties) have significantly lower risk than the central
+areas.
+
+
+2.3.2     Behavioral health outcomes
+
+Wyoming stands out from the rest of the United States on one major concern: our suicide rate is one
+of the highest in the nation, with an age-adjusted 26.3 deaths per 100,000 people.12 Two other major
+behavioral health concerns include:
+
+         Overconsumption of alcohol, with 19.8% of adults reporting binge drinking within the last 30
+         days, making Wyoming the 13th highest state on this measure in 2022.13
+
+         Wyoming’s drug overdose rate is lower than the national average (23.7 deaths per 100,000), but
+         still unacceptably high.14
+
+
+2.3.3     Maternal and child health outcomes
+
+The Department of Health’s most recent Maternal and Child Health Needs Assessment15 revealed both
+bright spots and deficits when it comes to maternal and child health.
+
+One bright spot is preventive care. More mothers, for example, received early prenatal (80%) and post-
+partum (95%) checkups than the national average (77% and 91%, respectively). More Wyoming children
+(84%) also received a preventive dental visit than the national average (79%).
+
+Unfortunately, Adverse Childhood Experiences (ACEs) are a significant deficit: More children under 17
+(24%) have experienced 2 or more ACEs than the national average (18%), and more Wyoming adolescents
+and kidney disease.
+  11
+     Another ordinal scale, adding up angina/CHD, stroke, and heart attack.
+  12
+     CDC WONDER - 2023; https://www.cdc.gov/suicide/facts/rates-by-state.html
+  13
+     CDC BRFSS - https://www.cdc.gov/alcohol/excessive-drinking-data/index.html
+  14
+     CDC WONDER - https://www.cdc.gov/nchs/state-stats/deaths/drug-overdose.html
+  15
+     https://health.wyo.gov/publichealth/mch/mch-needs-assessment-2025/
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 6
+report being bullied (47%) or bullying others (21%), compared with the national average (33% and 12%,
+respectively).
+
+
+2.4     Healthcare access challenges
+
+Our geography and population density make access to care difficult. Health care facilities, as shown in
+Table 23 in the Supplemental Materials section,16 tend to cluster in the larger cities and towns within
+each county.
+
+People therefore expect to drive some distance to reach medical care. As an example, Table 1, below, uses
+SFY24 Wyoming Medicaid claims data to estimate median travel times17 (in minutes) to various provider
+types. As you would expect, people in frontier areas have much longer distances to travel to care than
+those in rural or urban areas. Access is obviously more difficult for people who can’t drive; in Wyoming,
+there is effectively no public transportation outside the “urban” centers of Cheyenne and Casper.
+
+                        Table 1: Median travel times (minutes) - Wyoming Medicaid
+
+                                                                    Geography
+                           Provider Type                   Frontier Rural         Urban
+                           Dental                               34.8      57.1         9.5
+                           FQHC/RHC                              6.9       7.3         7.0
+                           Family Medicine                      26.0      10.2         7.4
+                           Hospital                             27.4       9.2         7.3
+                           Obstetrics & Gynecology              98.6      10.3         8.9
+                           Pediatrics                           44.2      10.9         7.7
+                           Pharmacy                              7.2       7.3         6.5
+
+
+
+Critically, however, our biggest challenge lies in access to basic medical care. These include:
+
+       The availability of ground ambulance services to respond to 911 calls;
+  16
+     We omit smaller provider types like Boarding Homes and ICF/IDs for brevity.
+  17
+     Weighted by each member-provider pairing for Wyoming Medicaid’s population for all paid claims where geocoded ad-
+dress data was available for both member and provider. Driving distances were calculated using the Open Source Routing
+Machine on Open Street Map data for Wyoming and surrounding states.
+
+
+
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 7
+        The viability of small, rural hospitals capable of the basics: e.g., “stabilize and ship” to higher
+        levels of care in case of emergency;
+        Access to labor and delivery services so mothers can have babies safely; and,
+        Low and variable access to primary care and behavioral health providers.
+
+
+2.4.1    Ambulance service availability
+
+Most people expect an ambulance to show up quickly when they dial 911. In Wyoming, we can’t take
+this for granted. Figure 10 in the Supplemental Materials, for example, shows which areas of the State
+have ground EMS responses under 9 minutes, between 9 and 30 minutes, and over 30 minutes.
+
+When we add up the people living in those areas and categorize by urban, rural, and frontier status, we
+end up with Table 2, which intuitively shows that significantly more people in frontier areas live in areas
+with longer EMS response times.
+
+                          Table 2: Percent of people living within response time areas
+
+                                                       Response time (minutes)
+                                      Geography         <9     9-30              30 +
+                                      Frontier         39%      51%              9.8%
+                                      Rural            61%      35%              4.6%
+                                      Urban            88%      11%              0.9%
+
+
+
+This, of course, is the current situation, which is constantly at risk of degrading. Many smaller EMS
+services are operated by volunteers, and volunteerism is declining. Due to the gravity of the situation,
+the Department of Health conducted a thorough analysis of ground EMS around Wyoming earlier this
+year.18 Key findings from this report include:
+
+        44 EMS providers in Wyoming respond to ~ 77,500 calls per year. Of these calls, around 37,300
+        are 911 responses and 12,300 are inter-facility19 transports.20
+  18
+     https://health.wyo.gov/wp-content/uploads/2025/06/WDH-Ground-EMS-primer-6.4.2025.pdf
+  19
+     E.g. hospital to hospital.
+  20
+     These are reimbursable calls, meaning EMS services can be paid for them by most public and private health insurers. The
+remaining ~ 34% of calls are not reimbursable by most payers. Most of these are “lift assists,” where ambulance personnel help
+
+
+                                                      Wyoming Department of Health | November 5th, 2025 | 8
+        The costs of EMS are fixed, because they are based around a need for readiness. Statewide, we
+        estimate that between 71 (off-peak) to 113 (peak) ambulances are required to be on call at any given
+        moment, at a cost of ~ $66.5 million dollars per year. EMS revenue, however, is variable. Where
+        the largest services can expect to get paid for 9,000 - 10,000 calls per year, many smaller services
+        see fewer than 100 calls annually. We estimate that, if all visits were billed, the EMS system could
+        collect ~$36.7 million in revenue. This leaves a significant gap that is filled by existing subsidies
+        like volunteer labor, local tax revenue, and Critical Access Hospital (CAH) reimbursement.
+
+        As shown on Figure 19 in the Supplemental Materials, only the three (3) largest services have uti-
+        lization21 greater than the 30% benchmark that most EMS services need to be sustainable based on
+        volume alone.
+
+
+2.4.2      Rural facility financial health
+
+While Wyoming is fortunate to not have had any hospitals close in recent memory, we have seen reduction
+in services due to financial strain, particularly in labor and delivery.22
+
+Small rural hospital finances remain shaky. The Provider Financial Trends section of the Supplemental
+Materials shows how (e.g., in Table 30) various health and human service providers compare with each
+other on basic financial metrics, averaged over the last five years.
+
+For Critical Access Hospitals in particular, while financial health did improve after COVID due to federal
+subsidies (e.g. CARES and ARPA), it has begun to degrade again, as shown in the Critical Access Hospital
+tables in the Supplemental Materials.23 The root causes of these trends are explored in the relevant Goals
+section.
+someone who has fallen but cannot get up.
+   21
+      I.e., the percent of time the ambulance is actually responding to calls.
+   22
+      This is discussed in detail in a subsequent section.
+   23
+      Unfortunately, the timelines for processing cost report data mean that more recent financial health metrics are not avail-
+able.
+
+
+
+
+                                                       Wyoming Department of Health | November 5th, 2025 | 9
+2.4.3    Labor and delivery: maternity deserts
+
+The precarious position of hospital finances has manifested itself most clearly in the increasing spread
+of maternity deserts in Wyoming. Here, we define a “maternity desert” as a county that simply does not
+have a hospital where babies can be delivered routinely and safely: we do not even consider the absence
+of higher-level care,24 which is a separate concern entirely.
+
+In addition to showing hospitals with labor and delivery units as red dots, Figure 20 in the Supplemental
+Materials shows our current assessment of three different categories of maternity desert:
+
+        Longstanding deserts are counties that have never had a hospital with this capability. Mothers
+        who live in these areas have always had to drive somewhere else for care.
+
+        New deserts are the most concerning. Over the past five years, hospitals in Riverton (2018), Rawl-
+        ins (2022), Kemmerer (2022), Evanston (2024) and Wheatland (2025) have shut down labor and
+        delivery services. In almost all cases, the hospitals have cited financial stress and the relative un-
+        profitability of these services as a rationale.
+
+        Warning areas are where we see declining births25 and counts of OB/GYN providers. While the
+        situation in Gillette appears stable, Lander has shown a precipitous decline.26
+
+The degradation in labor and delivery services has had an observable impact on new mothers. Figure 2
+shows how the median drive time from mothers’ residences to their birthing hospital27 has significantly
+increased for the frontier areas of Wyoming. Rural and urban drive times have only increased slightly over
+the same period.
+
+Limited access and longer distances to maternity care are associated with a range of poorer outcomes, to
+include maternal and infant mortality, severe maternal morbidity, births in hospitals without obstetrics
+  24
+     E.g. Wyoming does not have a Level III NICU.
+  25
+     Figure 21 in the Supplemental Materials shows the trends in births by hospital over time. While Wyoming’s birth rate has
+been declining generally due to demographic shifts, charts like this do give us some indication of where new maternity deserts
+may emerge.
+  26
+     Note, however, that Wheatland, which stopped L&D services last month, was not previously identified as a warning
+county; decisions of corporate owners or hospital boards to reduce maternity services can occur very unexpectedly, and more
+Wyoming facilities may be at risk of reducing maternity services than may be identifiable from this analysis.
+  27
+     Locations taken from Wyoming Vital Statistic Services for all Wyoming births.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 10
+                                     Figure 2: Median drive times for mothers
+
+                                                           40
+                                                           35
+
+
+
+
+                                       Median drive time
+                                                           30                          Frontier
+                                                           25
+                                                           20
+                                                           15
+                                                           10                           Rural
+                                                            5                           Urban
+                                                            0
+
+                                                                2017
+                                                                       2018
+                                                                              2019
+                                                                                     2020
+                                                                                            2021
+                                                                                                   2022
+                                                                                                          2023
+                                                                                                                 2024
+                                                                                      Year
+
+
+units, preterm and low-birthweight infants, and NICU admissions.28
+
+
+2.4.4    Low and variable medical provider density
+
+The difficulty hospitals have in maintaining a group of obstetric providers who can deliver babies29 is one
+reason for the growth in maternity deserts. But low provider density generally is a major rural health care
+challenge in and of itself. Wyoming has one of the lowest provider-to-population ratios in the nation.
+This ratio is also highly variable within the State itself.
+
+Figure 3 on the next page, for example, shows trends in active MDs per capita by county since 1960.30
+The right pane of the figure shows a histogram for all US states in 2020. Note that Wyoming is the second-
+lowest state, after Idaho, on MDs per capita in the nation, but also that disparities inside Wyoming are
+widening. Where counties like Teton have more MDs per capita now than New York State today, other
+counties like Big Horn, Weston and Crook have the same or fewer MDs per capita than they did in 1960.
+  28
+      E.g., Nesbitt TS, Larson EH, Rosenblatt RA, and Hart LG. Access to maternity care in rural Washington: its effect
+on neonatal outcomes and resource use. Department of Family Practice, University of California-Davis, Sacramento 95817,
+USA. American Journal of Public Health 87, no. 1 (January 1, 1997): pp. 85-90. https://doi.org/10.2105/AJPH.87.1.85
+   29
+      Most hospitals need at least three in order to mitigate the strain of being on-call.
+   30
+      Data is from HRSA Area Health Resource Files aggregated from 2014 to 2024. MDs are not the only provider out there,
+but the count appears to be one of the consistently tracked provider types over this long time period. It’s unclear if “active”
+MDs means practicing in-State physically, or merely having an active medical license, but we trust that the HRSA definition
+has remained consistent across time and space.
+
+
+
+
+                                                                       Wyoming Department of Health | November 5th, 2025 | 11
+                                                                              Figure 3: Comparative trends in MDs per capita
+
+                                            500                                                                 500
+
+                                                                                                     Teton
+ Total non-federal MDs per 100,000 people
+
+
+
+
+                                            400                                                                 400                              New York
+
+
+
+
+                                            300                                                                 300
+                                                                                                                                                 Colorado
+                                                                                                      Park                                       Nebraska
+                                                                                                    Natrona                                    South Dakota
+                                                                                                                                                 Montana
+                                                                                                                                                   Utah
+                                                                                                    Laramie
+                                            200                                                     Sheridan    200
+                                                                                                    Fremont                                      Wyoming
+                                                                                                                                                  Idaho
+                                                                                                    Campbell
+                                            100                                                    Sweetwater   100
+                                                                                                    Crook
+                                                                                                    Weston
+                                                                                                   Big Horn
+                                              0                                                                   0
+                                                  1960
+
+                                                         1970
+
+                                                                1980
+
+                                                                       1990
+
+                                                                              2000
+
+                                                                                     2010
+
+                                                                                            2020
+
+
+
+
+                                                                                                                      0
+                                                                                                                      1
+                                                                                                                      2
+                                                                                                                      3
+                                                                                                                      4
+                                                                                                                      5
+                                                                                                                      6
+                                                                                                                      7
+                                                                                                                      8
+                                                                                                                      9
+                                                                                                                       Count of states, 2020
+                                                                       Year
+
+
+
+MD physicians, of course, are not the only providers of interest. Table 27 in the Supplemental Materials
+gives a more comprehensive look at current primary care provider to population ratios across Wyoming
+counties today (2022 being the most recent date in the 2024 Area Health Resources File). When allied
+health professionals like Physician Assistants (PAs) and Nurse Practitioners (NPs) are included, Teton’s
+primary care to population ratio is not nearly as disproportionately high as it is for MDs, but frontier
+counties like Big Horn, Niobrara, Sublette, and Crook are still quite low.
+
+
+2.5                                           Target population and geographic area
+
+The target population for all the initiatives in this program are the ~ 424K Wyomingites who live in
+the rural and frontier parts of the State, where the fundamental access to care problems articulated in the
+previous section are most acute. All providers, however, including the larger hospitals in our two “urban”
+cores, serve this population, so we see Rural Health Transformation as a Statewide effort.
+
+
+
+
+                                                                                                     Wyoming Department of Health | November 5th, 2025 | 12
+3        Goals and strategy
+
+Rural Health Transformation would be pointless, even harmful, if it did not address the priorities of
+Wyoming’s rural communities.
+
+How do we know what these priorities are? We asked, and we listened. As described in the Stakeholder
+Engagement section, we undertook a significant effort to gather feedback from the public during the
+short application window. After 11 town-hall style meetings and a large (over 1,300 complete responses)
+online survey, we arrived at a ranked list of what we call “Community Rural Health Priorities.” The full
+list is shown in that later section, but the top ten (10) are listed in Table 3 below:
+
+
+                           Table 3: Top 10 Community Rural Health Priorities
+
+ Rank      Priority
+    1      Improve the financial viability of small, rural hospitals to provide basic services to their
+           communities.
+    2      Expand affordable health insurance options.
+    3      Recruit and retain primary care physicians, in order to improve access and build longer
+           relationships with patients.
+    4      Train and recruit more nurses and related direct care workforce (e.g. nursing assistants)
+           in order to improve staffing at hospitals and long-term care facilities.
+    5      Strengthen obstetric/gynecological, labor/delivery and related services so women can
+           deliver babies safely.
+    6      Recruit and retain more home health aides, and invest in home- and community-based
+           alternatives to nursing home care.
+    7      Expand the integration of behavioral health and primary care, in order to better treat
+           the whole person.
+    8      Improve access to specialty medical care in local communities (e.g., orthopedics,
+           pediatrics, geriatrics).
+    9      Improve or sustain ambulance availability to ensure timely responses to emergencies.
+    10     Recruit and retain more medical support staff for the health care industry (e.g.
+           radiology, laboratory, therapies, medical assistants).
+
+
+Figure 4 gives an overview of how these Priorities (light purple) directly influenced the development of
+our initiative components (colored by overall initiative), which in turn link to our four Goals (orange)
+that address the elements listed in statute (peach).
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 13
+For example, Wyoming’s top Community Rural Health Priority relates to improving the viability of
+smaller hospitals. That informed the first initiative’s Critical Access Hospital - Basic (CAHB) compo-
+nent, which directly supports our Goal of sustainable access to medical care for rural residents, and is tied
+to statutory elements I., IV., VII., and VIII..
+
+                                       Figure 4: Strategic framework
+
+
+
+
+3.1    Summary
+
+As shown on Figure 4, we have four primary goals (orange) for Rural Health Transformation:
+
+       Increasing sustainable access to right-sized and coordinated rural medical care. As we will
+       illustrate, right-sizing and coordination is key to sustainability for rural hospitals, EMS agencies,
+       and primary care practices.
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 14
+        Building a durable rural workforce pipeline. This goal gets at increasing supply over a long
+        period of time, by focusing on: (1) growing our own workforce, starting with young people, not
+        poaching existing nurses and physicians from other states, and (2) building clear pipelines or career
+        ladders within larger domains (e.g., nursing), so people starting off in lower-level occupations can
+        visualize a longer-term career trajectory.
+
+        Improving metabolic, cardiovascular, and behavioral health. These are some of our most press-
+        ing health issues as a State, and we believe sustained focus on them over time can make a dent in
+        what are currently unacceptably-high metrics.
+
+        Using technology and payment models to improve chronic disease management and bring
+        care closer to home. Technology and innovative payment models are means, not ends-in-
+        themselves. This objective ties the use of innovation to two clear and complementary purposes
+        that directly benefit people’s medical care.
+
+Each of these goals is tagged in the sections below with the relevant statutory element as Roman numerals.
+
+
+3.2     Increase sustainable access to right-sized and coordinated rural medical care
+
+        (I., IV., VII., VIII.)
+
+Because sustainable access to care requires providers to be financially viable, we begin with a digression
+on the causes of, and potential solutions to, rural provider financial distress.
+
+
+3.2.1    Causes of rural provider financial distress (VIII)
+
+The epigraph in this application —former Governor Mike Sullivan’s quote about Wyoming being a
+“small town with unusually long streets” —gets at the fundamental reason why access to basic care is so
+difficult here: we require significant fixed health care capacity to provide service over our “long streets”,
+but don’t have the patient volume (i.e., the “small town”) to pay for it.
+
+In some ways, the existing multi-payer system makes things worse by creating perverse incentives:
+
+
+
+                                               Wyoming Department of Health | November 5th, 2025 | 15
+        Small rural hospitals, for example, need to maintain emergency department capacity, along with
+        some ancillary services like stroke- and trauma-related imaging, in order to fulfill basic community
+        needs. Patient volume, however, is rarely sufficient to pay for these services alone, so many have to
+        rely on strategies like encouraging elective surgeries —and associated additional cost structures —
+        to pay the bills. It is well documented, however, that the overall cost is lower and quality is higher
+        in higher-volume settings,31 so this incentive, while logical, is not helpful.
+
+        Similarly, in the case of EMS, interfacility transports are both more predictable and often reim-
+        burse more than 911 responses, but they also take resources out of service for long periods of time.
+
+Some of the biggest initiatives in this proposal are therefore aimed at countering these existing effects,
+using targeted incentives to pay for the fixed cost structure that is so essential to provide, while encour-
+aging regionalization and right-sizing. We believe these “big bets”, if sustained, can lead to true system
+transformation in addressing the problems with current payment models.
+
+
+3.2.1.1 Cause: High fixed costs and low patient volume. The section on ambulance availability
+noted the significant mismatch between fixed costs and patient volume. This also bedevils small hospitals.
+Table 28 in the Supplemental Materials, for example, shows our current list of Critical Access Hospital
+(CAH) and larger Prospective Payment System (PPS) hospitals, with some indicators on size, patient
+volume, and occupancy.32
+
+Note on the table that even the largest PPS hospitals only have occupancy between 40-60%. The smaller
+CAHs are usually below 30%. And yet, the essential services they provide, whether it’s the Emergency
+Department or the ambulance service, still have to be paid for, regardless of volume.
+
+
+3.2.1.2 Cause: Staffing shortages and increasing labor costs. Where the “high fixed cost, low vol-
+ume” problem has always been an issue in Wyoming, a second major issue for rural health care facilities
+  31
+      E.g.: https://www.sciencedirect.com/science/article/pii/S0883540325002529 or https://pubmed.ncbi.nlm.nih.gov/
+39254644/ or https://pmc.ncbi.nlm.nih.gov/articles/PMC10753440/. Generally speaking for surgeons, higher volume con-
+tributes to economies of scale and fewer complications.
+   32
+      HCRIS. Note that this data is from FY 2023. Evanston and Sweetwater Memorial have transitioned to Critical Access
+Hospital designation in the last year. We also have two new hospitals (Saratoga and Pinedale) that are seeking Critical Access
+Hospital designation, and a new community hospital under construction in Riverton.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 16
+is more recent: since the pandemic, the nurse labor market has tightened significantly. Even though it’s
+been five years since COVID-19, many facilities are still relying on exorbitant contracts with traveling
+nurse agencies in order to cover care requirements.
+
+Figure 5 shows trends in both labor supply (right pane) and average hourly wages (left pane) for nurses
+(green), Certified Nursing Assistants (CNAs, in dark blue) and Licensed Practical Nurses (LPNs, in light
+blue).33
+
+                                   Figure 5: Nursing-related workforce trends
+
+                                                                                6,000
+                $48
+                $46                               RN                            5,500                                        RN
+                $44
+                $42                                                             5,000
+                $40                                                             4,500
+                $38
+                $36                                          Total employment   4,000
+ Average wage
+
+
+
+
+                $34                                                             3,500
+                $32                               LPN
+                $30                                                             3,000
+                $28                                                                                                          CNA
+                $26                                                             2,500
+                $24                                                             2,000
+                $22                               CNA
+                $20                                                             1,500
+                $18                                                             1,000
+                $16                                                                                                          LPN
+                $14                                                               500
+                $12                                                                 0
+                      2011
+                      2012
+                      2013
+                      2014
+                      2015
+                      2016
+                      2017
+                      2018
+                      2019
+                      2020
+                      2021
+                      2022
+                      2023
+                      2024
+
+
+
+
+                                                                                        2018
+
+                                                                                               2019
+
+                                                                                                      2020
+
+                                                                                                             2021
+
+                                                                                                                    2022
+
+                                                                                                                              2023
+
+                                                                                                                                     2024
+                               Year                                                                          Year
+
+
+
+Note the dramatic inflection in average wage growth for the nursing sector as a whole since the peak of
+the pandemic (dotted line), while at the same time employment has remained stable, or, in the case of
+CNAs, shrunk. Because nurses make up the vast majority of hospital workforce, this escalation in labor
+cost puts additional strain on hospital finances.
+
+
+3.2.1.3 Cause: Medicare revenue has not kept up with costs for PPS hospitals.                                              With an aging
+population,34 Medicare volume will become more and more critical to hospital viability.
+     33
+      Data on average wages taken from Bureau of Labor Statistics Occupational Employment and Wage Statistics. The mul-
+tiple lines shown for each occupation are trends in the four major MSA and non-MSA regions in Wyoming.
+   34
+      E.g., see the Department of Health’s 2023 report on aging and long-term care trends that complements our most recent
+(pending) Aging in Wyoming 1115 waiver: https://health.wyo.gov/wp-content/uploads/2023/10/Aging-in-Wyoming-
+Part-I-Primer.pdf
+
+
+                                                   Wyoming Department of Health | November 5th, 2025 | 17
+Unfortunately, Medicare revenue for PPS hospitals is not keeping up with Medicare-allowable costs. Fig-
+ure 22 in the Supplemental Materials shows three facets of this problem:
+
+        On the left pane, it’s clear that total hospital costs35 have steadily increased over time, and that
+        CAH costs are approximately half that of the PPS hospitals.
+
+        On the middle pane, there is a clear increase in the Medicare-related costs per discharge, for both
+        hospital types since the COVID-19 pandemic, but most significantly for CAHs.
+
+        The right pane shows how Medicare cost coverage36 has improved slightly for the CAHs (due to
+        cost-based reimbursement), but has degraded from ~ 90% to ~ 85% for the PPS system since the
+        pandemic.
+
+Anecdotally, we have also received reports from hospitals of the difficulty in receiving timely and ade-
+quate payment from Medicare Advantage (MA) plans. Many such plans lean on prior authorization,
+claims denials, and other administrative hassles to cut their payables.37 MA penetration has increased in
+Wyoming from 3% in 2020 to 17% in 2024,38 and as it continues to grow, it will likely create additional
+strain on rural providers.
+
+
+3.2.2    Long-term solvency through right-sizing and partnerships (VII., IV.)
+
+We noted that Figure 22 shows how Medicare cost coverage has remained stable, even increased, for
+Critical Access Hospitals. This fact points to the central thrust of our goal: consolidate and right-size
+Wyoming’s rural hospital and EMS system around sustainable payer sources, such that, by the end of the
+funding period:
+
+        The smallest rural hospitals can focus on doing the basics well (e.g., emergency services, stroke
+  35
+      i.e., Worksheet A totals, HCRIS.
+  36
+      Medicare revenue as a share of allowable Medicare costs, aggregated across Wyoming hospitals.
+   37
+      E.g., this article from ProPublica illustrates some of the more recent practices in this regard: https://www.propublica.
+org/article/cigna-pxdx-medical-health-insurance-rejection-claims. And this article explores the interaction of MA with rural
+hospitals in South Dakota: https://kffhealthnews.org/news/article/rural-hospitals-private-medicare-advantage-contracts-
+reimbursements/
+   38
+      https://www.kff.org/medicare/state-indicator/enrollees-as-a-of-total-medicare-population-by-plan-type/
+?currentTimeframe=0
+
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 18
+        and trauma, EMS, and labor and delivery), leveraging Medicare CAH reimbursement and swing
+        bed occupancy to stay viable, while cutting extraneous cost centers;39
+
+        Elective procedures are funneled to larger (likely PPS) hospitals, to increase their viability by in-
+        creasing service volume —and thus improve economies of scale and quality of care;40
+
+        EMS agencies are interoperable on a regional basis, centered around entities like CAHs and
+        fire departments that have existing bases of funding to support the fixed costs of readiness, and
+        using regional medical dispatch to coordinate resources like Community EMS and interfacility
+        transfers;41 and,
+
+        People have options for affordable health benefits that can cover emergency medical episodes.42
+
+More detail of how these components are designed to accomplish this endstate are described in detail in
+their respective Initiatives sub-sections.
+
+
+3.2.3    Cross-cutting initiatives that will also increase access to care:
+
+While our first initiative focuses on emergency medicine, we have several other initiatives that will simi-
+larly improve access to the basics:
+
+   1. Access to integrated primary and behavioral health care43 will improve by the expansion of
+        FQHCs through existing primary care and hospital spaces. FQHCs, like CAHs, are another ex-
+        ample where sustainability is already greatly assisted by federal revenue.
+
+   2. Access to maternity care44 in particular is strengthened by the workforce supply initiative:
+
+        The increased supply of Family Medicine and other physicians with 5-year service obligations
+        through the post-graduate medical education slots component will add more providers with both
+        primary care and obstetric experience to work in rural communities;
+  39
+     Initiative 1.1.
+  40
+     Initiative 1.1.
+  41
+     Initiative 1.2.
+  42
+     Initiative 1.3.
+  43
+     Community Priority 3 and 7
+  44
+     Community Priority 5
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 19
+         The increased supply of nurse labor from the individual workforce education support component
+         will help hospitals staff labor and delivery units; and,
+
+         The integrated primary care component has the potential to decrease medical malpractice costs
+         for obstetrics using the Federal Tort Claims Act protection that comes with Federally-Qualified
+         Health Centers.
+
+   3. Access to specialty care45 is increased through components like the Statewide tele-specialty and
+         behavioral crisis stabilization pilot, the technology adoption challenge program, and, for people
+         who can’t drive, the non-emergency transportation coordination platform.
+
+
+3.2.4      Key performance objectives
+
+Our KPO for this goal relates to maternity deserts. As discussed above, these are a problem caused by
+the intersection of hospital viability, EMS integration, and rural workforce.
+
+         KPO 1: Decrease the number of counties without a hospital providing labor and delivery services
+         (in one or more county subdivisions) from 10 to 8 by the end of the five-year funding period.
+
+
+3.2.5      State policy actions
+
+The State has already implemented two policy actions relating to increasing access to care:
+
+   1. Short-term limited duration insurance plans (E.3.) The State does not currently restrict these
+         plans beyond federal guidance.
+
+   2. Certificate of need (C.3.) Wyoming should receive the highest score on this policy measure.
+
+
+3.3       Build a durable rural workforce pipeline (V)
+
+As we’ve shown, access to care also depends on workforce. The endstate of this goal is for Wyoming to
+have an increased and steady flow of new graduates from clinical education programs in nursing, EMS,
+family medicine, and behavioral health. We will accomplish this objective through a combination of:
+  45
+       Community Priority 8
+
+
+                                                Wyoming Department of Health | November 5th, 2025 | 20
+        Time-limited capacity grants for Wyoming educational institutions to hire faculty, develop career
+        pipelines (beginning in high school), and otherwise re-tool their operations.
+
+        Individual workforce education awards that will assist people in participating in clinical work-
+        force training programs, in exchange for a five (5) year service commitment. As detailed in our
+        Sustainability Plan, these awards would be sustained in perpetuity. This not only will increase
+        workforce supply permanently for the State, but the revenue from these awards will sustain edu-
+        cational programs who deliver this training capacity.
+
+        Physician Post-Graduate Medical Education slots. Post-graduate medical education is a signif-
+        icant bottleneck in the supply of new practicing physicians. This component would aim to add
+        more slots to our existing accredited programs, likely in new sites, aligned with the Rural Training
+        Track (RTT) model.
+
+
+3.3.1    State policy actions
+
+In addition to these workforce education initiatives, the Executive Branch will commit to exploring two
+State policy actions with our Legislature, both of which should increase supply through deregulation:
+
+   1. Licensure compacts (D.2.). Wyoming should receive full credit for physician, nurse, EMS, and
+        psychology areas, as we participate in the Medical Licensure Compact,46 the Nurse Licensure
+        Compact,47 the EMS Compact,48 and the Psychology Interjurisdictional Compact (PSYPACT).49
+        One area where the State will engage with the Legislature is the Physician Assistant licensure
+        compact.50
+
+   2. Scope of practice (D.3.) While Wyoming scores fairly highly on this measure already, with full
+        marks on the PA and NP Cicero measures, there are two areas that we will raise during the upcom-
+        ing Legislative interim (beginning in April of 2026):
+  46
+     https://imlcc.com/
+  47
+     https://www.nursecompact.com/
+  48
+     https://emscompact.gov/
+  49
+     https://psypact.gov/page/psypactmap
+  50
+     https://www.pacompact.org/#compact
+
+
+
+                                             Wyoming Department of Health | November 5th, 2025 | 21
+        Pharmacist scope of practice. Currently, pharmacists can only prescribe and administer vaccines,
+        epinephrine, and opioid antagonists.51
+
+        Dental hygienist scope of practice. Wyoming presently allows 2 of 8 task categories.52 In order
+        to score full points on this measure, we need to allow at least four additional.
+
+
+3.3.2     Key performance objectives
+
+We have two primary KPOs for the end of the 5-year program period:
+
+        KPO 2: Increase the annual number of new providers with 5-year service commitments from zero
+        to 150.
+
+        KPO 3: Reduce the rolling 2-year average wage increase for RNs from 9.9% to 4%.
+
+
+3.4      Improve metabolic, cardiovascular, and behavioral health outcomes (II)
+
+Shifting gears, this Goal is focused on improving population health. We specifically target three primary
+health care outcomes through a combination of initiatives and State policy actions: (1) metabolic disease,
+(2) cardiovascular health, and (3) behavioral health.
+
+Our primary strategy to improve these health outcomes is the exercise and diet promotion component
+of the Make Wyoming Healthy Again initiative.
+
+
+3.4.1     Cross-cutting initiatives that will support healthier outcomes
+
+Three additional components, however, also support this goal:
+
+    1. Improving the integration of primary care with dental, behavioral health, and preventive medicine
+        by funding the expansion of FQHCs into existing clinical spaces. This will improve the quality of
+        primary care rendered to many low-income rural Wyoming residents.
+   51
+       The policy score rewards states that allow prescribing without reliance on statewide protocols or formularies and admin-
+istering any drug by class. Additionally, the policy score rewards states that allow pharmacists to be able to order and perform
+any lab test based on clinical judgment.
+    52
+       Excluding the following: (1) diagnosis of oral conditions, (2) prescriptive authority, (3) supervision of dental assistants,
+(4) direct Medicaid reimbursement, (5) dental hygiene treatment planning, and (6) provision of sealants.
+
+
+                                                      Wyoming Department of Health | November 5th, 2025 | 22
+   2. The statewide tele-speciality program will begin with tele-psychiatry and crisis stabilization ser-
+        vices, which may prove effective for people with high behavioral health needs.
+
+   3. Rural workforce initiatives will broadly increase the supply and thus access to primary care and
+        behavioral health workforce.
+
+
+3.4.2    State policy actions
+
+In addition to these initiatives, three State policy measures are directly connected at improving diet and
+exercise:
+
+   1. Presidential Fitness Test (B.2.) The Wyoming State Superintendent of Public Instruction has
+        committed to implementing this in its primary and secondary schools. If successful, this should
+        help increase fitness levels and thus metabolic and cardiovascular health in children.
+
+   2. SNAP waiver (B.3.) Wyoming has committed to submitting a SNAP Healthy Choice Waiver.53
+        If successfully implemented, the federal government will cease subsidizing unhealthy food choices
+        for lower-income Wyoming residents, which should decrease the incidence of metabolic disease.
+
+   3. Nutrition continuing medical education (CME) requirements for physicians (B.4.) The De-
+        partment of Health will commit to raising this issue with the Board of Medicine, and possibly with
+        the Legislature during the interim, after the 2026 Budget Session.54 Successful implementation of
+        this initiative should help providers and patients discuss healthier diet options.
+
+
+3.4.3    Key performance objectives
+
+We have two primary KPOs for the end of the 5-year program period:
+  53
+      The Department of Family Services (DFS) has collaborated with the Governor’s Office, the First Lady’s Office,
+and various community partners to develop the waiver aimed at restricting candy and soft drinks. A bill (26LSO-0140
+SNAP benefits-waiver request) has been drafted and passed by the Joint Labor, Health and Social Services Commit-
+tee meeting on October 16, 2025, and will be received for introduction in the 2026 Budget Session in early February.
+See https://wyoleg.gov/InterimCommittee/2025/10-2025101626LSO-0140v0.4.pdf. Additionally, the Governor has is-
+sued Executive Order 2025-07, which directs DFS to submit the SNAP waiver. See https://drive.google.com/file/d/
+12MFHWtNcTy6E25uXAEknaSQW0iSG0qse/view
+   54
+      Current Wyoming CME requirements for physicians are set forth in the Board of Medicine’s Rules, Chapter 3, Section
+7, and do not currently require nutrition education.
+
+
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 23
+       KPO 4: Reduce the prevalence of reported diabetes from a 10.1% baseline to 9%.
+
+       KPO 5: Reduce Wyoming’s age-adjusted suicide rate from 26.3 to 20.7 (e.g., 2014 levels).
+
+On the last objective, while the exact causal connections between suicide and behavioral health are un-
+clear, reducing this measure is so critical to the State that it must be prioritized. There are numerous
+existing suicide prevention programs that have been expanded in Wyoming over the past five years; the
+RHTP initiatives described would complement these activities, not supplant them.
+
+
+3.5    Use technology and payment models to improve chronic disease management
+
+       and bring care closer to home (III and VI)
+
+This goal frames technology and payment models as a means to an end: improving how medical care is
+delivered to rural Wyomingites by giving providers the right tools and the right incentives. Innovation for
+innovation’s sake is not the goal, and we need to be careful to avoid wasting taxpayer dollars on shiny
+objects.
+
+Accordingly, our health technology adoption challenge stresses the importance of building responsible
+procurement guardrails into the process, such as requiring skin in the game for applicants (the “chal-
+lenge”) in order to substantiate their beliefs in the technology’s utility, as well as requiring applicants to
+apply in groups, in order to promote interoperability but also build confidence that technology has been
+vetted by multiple entities.
+
+Similarly, in our clinically-integrated care coordination pilot project, we will rely on gold-standard
+techniques (randomized controlled trials) to assess likely success or failure of pilot projects in managing
+chronic disease.
+
+In sum, we propose to approach this goal cautiously and with clear eyes on what we know and what we
+don’t, iterating our way towards solutions that work best for patients in rural Wyoming.
+
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 24
+3.5.1    State policy actions
+
+We do note one correction here:
+
+   1. Medicaid telehealth and remote monitoring reimbursement (F.1.) The cited report from CMS
+        incorrectly labels Wyoming as not reimbursing remote monitoring.55
+
+
+3.5.2    Key performance objectives
+
+These KPOs reflect our conservative approach with technology adoption:
+
+        KPO 6: Number of successful56 shared savings chronic disease management programs.
+
+        KPO 7: Percent of tele-specialist costs covered by generated revenue.
+
+
+3.6     Other required information (A.2. and A.7.)
+
+This section doesn’t fit logically or neatly in the goals section, but was requested in the Notice of Funding.
+
+        Certified Community Behavioral Health Centers (A.2.) The State has no CCBHCs.
+
+        Medicaid Disproportionate Share Hospitals (A.7.) Five (5) hospitals in Wyoming received a
+        grand total of $648,279 in DSH payments in SFY24. Table 4, below, is the list:
+
+                         Table 4: SFY24 Disproportionate Share Hospital payments
+
+ Provider No. Hospital                                                City                   County           SFY24 DSH
+ 531307             Community Hospital                                Torrington             Goshen               $326,016
+ 531304             Hot Springs County Memorial Hosp                  Thermopolis            Hot Springs           $96,310
+ 531308             Johnson County Healthcare Center                  Buffalo                Johnson               $79,875
+ 531302             Memorial Hospital of Converse County              Douglas                Converse              $62,323
+ 530008             SageWest Healthcare - Riverton                    Riverton/Lander        Fremont               $83,755
+
+
+
+
+  55
+      Wyoming Medicaid reimburses the following codes: 99453, 99454, 99457, 99458, and our Medicaid HCBS Waivers also
+allow for the following remote monitoring service codes to be delivered via remote monitoring: T2017, T2017UN, T2017UP,
+T2031, T2016, and T2016U7 (all CLS basic through Level 4).
+   56
+      Demonstrating reductions in PMPM and ED with some confidence in the RCT.
+
+
+                                                 Wyoming Department of Health | November 5th, 2025 | 25
+4     Proposed initiatives and use of funds
+
+To achieve these transformative goals, we have developed a series of distinct ideas (“components”)
+grouped into four major initiatives. These components are shown in the dotted box on Figure 4, and
+link to both the Community Rural Health Priorities (purple) they derive from and the Goals (orange)
+they support.
+
+After describing each initiative, we also include tables describing the strategic objectives the initiative
+aligns with, the technical score factors that are impacted, key stakeholders, outcomes metrics, and esti-
+mated required funding.
+
+That estimated required funding across our entire proposal is summarized in Table 5, below.
+
+                                             Table 5: Initiatives
+
+                     Initiative                               Initial budget Percent
+                     Access to emergency medical care           $96,000,000        48.0%
+                     Rural workforce supply                     $50,274,504        25.1%
+                     Health technology transformation           $20,500,000        10.3%
+                     Make Wyoming Healthy Again                 $31,584,525        15.8%
+                     State administrative expenditures           $1,640,971         0.8%
+                     Total                                    $200,000,000
+
+
+
+In developing these proposed initiatives, we were guided by four major principles:
+
+    1. Needs before wants. Many of the Community Priorities reflected modest expectations of the
+       basic standard of care: an ambulance that shows up when you dial 911 and can take you to a local
+       ED. A primary care provider who has a real relationship with you and can treat you holistically.
+       None of the priorities are luxuries or frivolities, nor are any of our initiatives.
+
+    2. Initiatives should be voluntary. There are no “sticks” in this list of proposals, only “carrots.”
+       While we often ask for changes that can be difficult, no provider will be forced to work with the
+       State in implementation.
+
+
+
+                                               Wyoming Department of Health | November 5th, 2025 | 26
+    3. Execution should be decentralized and easily manageable. Even if we had the interest to do so,
+       government does not have the ability to micromanage change from Cheyenne. All the initiatives
+       proposed here use incentive-based structures to naturally encourage providers to work together to
+       improve systems of care.
+
+    4. Initiatives must be sustainable. As described in the Sustainability Plan, there are significant risks
+       with injecting a large amount of funding into Wyoming’s economy over a short period. All initia-
+       tives we propose are either designed to accomplish their purpose within a five year period, or be
+       sustained in perpetuity through program income.
+
+
+4.1     Initiative: Access to emergency medical care
+
+The purpose of this initiative is to shore up rural Wyoming’s access to basic medical infrastructure, to
+include (1) ambulance services, (2) emergency department and (3) labor and delivery services.
+
+Most Wyomingites consider all three of these fundamental requirements for families living anywhere in
+the State —in the same category as water, sewer, and electrical infrastructure. Failure of these services can
+effectively condemn a small rural community. As discussed previously, all three are also under stress from
+the mismatch between the high fixed costs of the infrastructure and the low patient volumes needed to
+pay for it.
+
+The first two components of this initiative seek to address this mismatch, while aligning provider incen-
+tives to improve the efficiency and effectiveness of the emergency medical system by increasing provider
+partnerships and ‘right-sizing’ resources across geography. Both complement the existing multi-payer
+system and allow it to work better for Wyoming.
+
+The remaining component seeks to address financial access to emergency services. It does so by setting up
+a public health benefit plan that offers an affordable alternative to modern comprehensive health insur-
+ance by bringing the concept back to its roots: the “major medical” plans of the 1950s that were intended
+to protect people against the financial ruin caused by serious disease or injury, but not pay for routine medical
+services.
+
+                                               Wyoming Department of Health | November 5th, 2025 | 27
+4.1.1      Establishment of the “Critical Access Hospital - Basic” (CAHB) incentive program
+
+The first idea is to give small CAHs an incentive for them to offer essential community services, but not
+much more. If a CAH elects to participate this program and become a “CAHB,” it would be required
+to:
+
+          Provide a staffed, 24/7 Emergency Department, with stroke and trauma imaging capability;
+          Own and operate the only ground ambulance service within 35 miles;
+          Offer basic labor and delivery services for new moms, if total annual births from that county
+          exceed a designated threshold; and,
+          Use the existing Statewide Health Information Exchange (HIE) to share data electronically.
+
+CAHBs would also be strongly encouraged, in contract, to limit or reduce provision of elective surg-
+eries or ancillary services. Those CAHB that do so would need to maintain an agreement with one or
+more larger hospitals —including a revenue-sharing arrangement —to provide those elective services for
+area residents.
+
+Depending on the level of commitment from the applicant in bucking the existing fee-for-service incen-
+tive structure, the CAHB would receive from the State a set of tiered incentives:
+
+          A 101% cost-based Medicaid reimbursement rate for all services;57
+
+          A one-time swing-bed conversion grant to improve the CAHB’s financial sustainability, as they
+          allow the CAHB to claim cost-based reimbursement, while being able to flex nursing staff across
+          the hospital.
+
+          A one-time long-term liability forgiveness grant, in exchange for writing off all medical debt
+          owed to the facility by Wyoming residents.
+
+          A $1,000,000 per year perpetual incentive payment (See the Sustainability Plan) to cover a por-
+          tion of fixed costs. As shown on Table 28 in the Supplemental Materials, this would represent ~
+          2.5% - 10% of a smaller CAH’s total annual operating expenses.
+  57
+       Note: this would not be paid for by RHTP funds, but would be a State policy shift associated with RHTP.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 28
+4.1.2      EMS regionalization
+
+The second component of this initiative would provide a similar set of incentives to small ambulance
+services in exchange for transforming their operations to be more efficient and effective through region-
+alization.
+
+Eligibility for this component would be restricted to groups of two (2) or more smaller ground EMS
+providers in a contiguous rural and frontier geographic region. These providers must outline a regional-
+ization plan that will:
+
+          Maximize revenue sources like Critical Access Hospital (CAH) cost-based Medicare billing or a
+          local fire department tax base;
+
+          Demonstrate how regionalized medical dispatch will be integrated with existing Public Safety
+          Answering Points (PSAP);
+
+          Demonstrate the use of interoperable equipment and technology across the new, consolidated,
+          service area;
+
+          Demonstrate how administrative overhead will be cut; and,
+
+          Commit to the establishment and active use of community EMS, where ambulance staff can pro-
+          vide care to community members through scheduled visits between emergency responses, as well
+          as tele-crisis stabilization services for people with high behavioral health needs.
+
+In exchange for these commitments, the new EMS region would receive:
+
+          A perpetual incentive payment (again, see the Sustainability Plan) of $250,000 per low-volume
+          ambulance in order to subsidize the fixed costs of availability in smaller locations.58 Regionaliza-
+          tion may economize on overhead cost, but the cost of readiness in smaller areas is not reduced.
+
+          A one-time regionalization equipment grant that would cover costs for new ambulances, other
+          interoperability equipment, and implementation of medical regional dispatch.
+  58
+       This would cover around half the annual cost of a Basic Life Support ambulance.
+
+
+
+                                                     Wyoming Department of Health | November 5th, 2025 | 29
+4.1.3    Establishment of the “BearCare” public major medical plan
+
+Where the previous two components focus on maintaining physical access to care throughout rural
+Wyoming, this final component covers financial access, particularly to emergency services.
+
+As was clear from our public engagement prior to this application, many people in Wyoming find the
+cost of health insurance to be unaffordable.59 This is due in part to the high unit prices insurers pay for
+medical care in Wyoming, but also due to the inclusion of the ten Essential Health Benefits (EHBs) under
+the Affordable Care Act —many of which go unused by generally healthy people.
+
+This component would give individuals and small employer groups the option of buying-in, at cost, to a
+State-operated public benefit plan60 that only covers emergent episodes of care.61
+
+This plan could be offered at a significantly lower price point than comprehensive health insurance,62
+even without subsidies, for three reasons:
+
+        Plan benefits63 would be limited to necessary medical services in an episode of care beginning with
+        an emergency anchor event. If benefits are used, coverage would end with the next health insur-
+        ance open enrollment period. At that point, members would be told that, if they have ongoing
+        medical needs as a result of the original emergency, they need to enroll in a comprehensive health
+        insurance plan.64
+
+        Because the plan would only cover unforseeable episodes, the risk of moral hazard from allowing
+        individuals to buy-in would be reduced. In other words, the plan would generally select for risk-
+        averse but otherwise generally healthy people.
+  59
+      See Table 29. Expanding affordable health insurance options is number 2. It is no coincidence that the average annual
+family employer-sponsored premium rose to $27,000 this year (https://www.kff.org/affordable-care-act/annual-family-
+premiums-for-employer-coverage-rise-6-in-2025-nearing-27000-with-workers-paying-6850-toward-premiums-out-of-
+their-paychecks/).
+   60
+      Note: not an insurance product, so it would not be subject to ACA or ERISA regulation as such. It would also not
+qualify as insurance for the purpose of the employer or individual mandates.
+   61
+      E.g., being attacked by a bear. In this way, it brings the idea of health coverage back to its roots.
+   62
+      Note, even today’s “catastrophic” plans are required to provide the 10 EHBs and otherwise comply with the ACA.
+   63
+      I.e., the “bear necessities”
+   64
+      People with pre-existing conditions would similarly be screened out, and directed to purchase comprehensive health in-
+surance.
+
+
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 30
+          Medical rates paid to providers could be set in a public and transparent process to a percentage of
+          of Medicare (e.g., 120%) in order to balance premium cost for individuals against provider income
+          without the administrative overhead of negotiating individual provider rates.
+
+This idea would therefore offer small employers and individuals an affordable benefit plan that is closer
+in spirit to auto insurance: it covers collisions, but won’t pay for oil changes. Members would then have
+the opportunity to buy other medical services (e.g., prescribed drugs, primary care) on a cash basis, with-
+out effectively ‘double-paying’ for it in their health insurance premium. As a consequence, this would
+allows market forces to work more effectively for elective service delivery, as well as allowing room for
+innovations like the direct primary care model.
+
+While initial start-up costs65 would be paid by RHTP funding, the plan would ultimately be self-funded
+from individual monthly enrollment fees. The more liquid portions of the corpus of the Wyoming Rural
+Health Transformation Perpetuity66 could be used as an initial reserve.
+
+
+4.1.4      Strategic alignment, score factors, outcomes, stakeholders, and funding
+
+                                               Table 6: Strategic alignment
+
+   Component                                   Community priority                     Elements        Strategic goals
+   Critical Access Hospital - Basic                              1, 5, 13 I., IV., VII., VIII. Sustainable access
+   EMS regionalization                                                  9         I., IV., VII. Sustainable access
+   Public major medical plan                                            2              I., VII. Sustainable access
+
+
+                                   Table 7: Technical score factors and use of funds
+
+                  Component                                Technical score factors Use of funding
+                  Critical Access Hospital - Basic                    C.1., C.2., F.2.               G, J, K
+                  EMS regionalization                                 B.1., C.2., F.2.                G, K
+                  Public major medical plan                                       E.3.                      I
+  65
+       Benefit design, actuarial pricing and reserving services, marketing and premium collection.
+  66
+       See the Sustainability Plan.
+
+
+
+
+                                                      Wyoming Department of Health | November 5th, 2025 | 31
+                                  Table 8: Access to emergency medical care outcomes
+
+   Outcome                                                     Exp. years for change Baseline   Target
+   Number of CAH-B conversions                                                       2       0 4
+   Percent of EMS response times under 9 minutes                                     2   52.4% 60%
+   Number of smaller EMS agencies that have                                          2       0 5
+   consolidated
+   BearCare premium (25 year olds)                                                   2   $589   < $200
+
+
+          Key stakeholders: Wyoming Hospital Association, County governments, Wyoming EMS Asso-
+          ciation.
+          Impacted counties: All Wyoming counties.
+          Estimated required funding: $96,000,000 out of $200,000,000 (48%)
+
+
+4.2        Initiative: Rural workforce supply
+
+The purpose of this initiative is to grow the supply of essential health care workers in Wyoming using
+a combination of individual education support awards, educational capacity grants, and the 5-year re-
+quired service periods.
+
+
+4.2.1      Workforce education individual support
+
+In this component, the State would fund, in perpetuity67 an annual number of awards to cover educa-
+tional costs for individuals interested in joining one of four clinical pipelines:
+
+          Nursing (CNA, LPN, RN, APRN)
+          Emergency Medical Services (ED tech, EMR/EMT, Paramedic)
+          Behavioral Health (clinical)
+          Physician (i.e., medical school for undergraduates).
+
+Awards would follow the person, who would have the option of enrolling in a list of pre-approved pro-
+grams. This would allow the State to maximize its options, allow choice for individuals, and encourage
+  67
+       See Sustainability Plan.
+
+
+
+                                                   Wyoming Department of Health | November 5th, 2025 | 32
+competition across educational providers.
+
+After completing their program, graduates would be required to work for Wyoming health care providers
+for a minimum of 5 years.
+
+
+4.2.2    Physician post-graduate medical education slots
+
+Similar to the previous component, we would establish, on a perpetual basis, new post-graduate medical
+education (GME) slots that would allow the State to produce more family medicine68 physicians at sites
+like the existing Rural Training Track (RTT) residency program in Thermopolis, or otherwise get more
+exposure to obstetrics and other high-demand specialities. Graduates from these programs would incur
+a 5-year service commitment for underserved counties.69
+
+
+4.2.3    Workforce education start-up
+
+While the previous two components provide funding to individuals, this component provides time-
+limited and competitive funding to educational institutions so that they can build up their workforce
+training programs.
+
+Workforce education providers who apply would need to commit to establishing a set number of slots for
+future nurses, EMS personnel, physicians, and clinical behavioral health providers. In the RFA criteria,
+we would emphasize:
+
+        Focusing on the basics; e.g., widening the base of entry-level professions into healthcare vs. adding
+        higher-level practitioners;
+
+        Development of integrated pipelines for workforce; e.g., the career ladder from CNA to RN to
+        APRN; and,
+
+        Outreach into primary and secondary education in order to develop interest in health care profes-
+        sions (and a clear picture of career development) at early ages.
+  68
+      We focus on Family Medicine here because it is both a primary care specialty but also includes obstetric training, which
+will help improve access to maternity care.
+   69
+      We define underserved counties as those that have fewer active MDs per capita than the national average.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 33
+4.2.4    Scope of practice and licensure
+
+This last component is made up of the two State Policy actions detailed previously in the Goals section.
+In the interest of brevity, we won’t repeat ourselves on what they involve.
+
+        Licensure compacts (D.2.)
+        Scope of practice (D.3.)
+
+
+4.2.5    Strategic alignment, score factors, outcomes, stakeholders, and funding
+
+                                      Table 9: Strategic alignment
+
+ Component                                   Community priority               Elements              Strategic goals
+ Workforce education individual support                       4, 5, 6 V., VII., VIII.    Workforce development
+ Physician post-graduate education                               3, 5       V., VII.     Workforce development
+ Workforce education startup                                     3, 4             V.     Workforce development
+ Scope of practice and licensure                               3, 10              V.     Workforce development
+
+
+                           Table 10: Technical score factors and use of funds
+
+          Component                                  Technical score factors Use of funding
+          Workforce education individual support                          D.1.                  E
+          Physician post-graduate education                               D.1.                  E
+          Workforce education startup                                     D.1.                  E
+          Scope of practice and licensure                           D.2., D.3.
+
+
+
+
+                              Table 11: Rural workforce supply outcomes
+
+   Outcome                                               Exp. years for change Baseline         Target
+   Number of new annual Family Medicine                                          3          0   3
+   physicians with service obligations
+   Number of new annual RNs graduating with                                      2          0   50
+   RHTP service obligations
+   Number of new annual behavioral health                                        2          0   25
+   clinicians with RHTP service obligations
+   Primary care provider to population ratio by                                  3       334    340
+   county
+
+
+                                            Wyoming Department of Health | November 5th, 2025 | 34
+        Key stakeholders: University of Wyoming, Wyoming Community College Commission,
+        Wyoming Center for Nursing, Wyoming Medical Society
+        Impacted counties: All Wyoming counties.
+        Estimated required funding: $50,274,504 out of $200,000,000 (25.1%)
+
+
+4.3     Initiative: Health technology transformation
+
+The purpose of this initiative is to leverage sensible technology investments that can reasonably be ex-
+pected to help groups of rural health providers in their ability to:
+
+        Care for people closer to home;
+        Better manage chronic diseases and improve treatment outcomes;
+        Increase access to clinical consults;
+        Deepen the patient-provider relationship; and,
+        Improve efficiency and effectiveness of healthcare through collaboration;
+
+There are four components to this initiative. The first is a general purpose challenge program for tech-
+nology adoption, and the last three are centralized platforms for specialized services that can start small
+but also be expanded and scaled as need demands.
+
+
+4.3.1    Technology adoption challenge
+
+This component is a competitive grant process for technology procurement that promises to improve care
+delivery closer to home, build interoperability across providers, and cut wasteful administrative activity.
+
+Because government is in a uniquely poor position to assess the feasibility or effectiveness of any one
+technology, we have structured this component with some guardrails that are intended to provide some
+assurances that technology will be effectively used:
+
+        The grant would be open to groups of two (2) or more providers applying together. The larger
+        the group of providers applying, the more favorably the application would be received. Providers
+        would have to demonstrate how the technology would improve either interoperabilty or coordi-
+
+
+                                                Wyoming Department of Health | November 5th, 2025 | 35
+        nation between them.
+
+        Applicants must have skin in the game, in the form of challenge funds: the State would only
+        contribute part of the purchase price. Revealed preference, in terms of money on the table, com-
+        municates to the State that applicants have thoroughly researched the technology and believe any
+        return on investment is credible.
+
+        Applicants must demonstrate how continued operations and maintenance costs after the initial
+        purchase will be sustainable (e.g., paid for from projected revenue) past 2031.
+
+        Applicants must also demonstrate how any technology project aligns with the rightsizing and
+        ‘back-to-basics’ effort of the first initiative, particularly for smaller hospitals.
+
+Technology projects the State will specifically emphasize in its RFA process include:
+
+        Home dialysis, with nephrologist support provided via telehealth, potentially through the
+        Statewide tele-specialty network;
+        Remote patient monitoring programs for chronic disease management;
+        Diabetes prevention and management programs that improve patient engagement and
+        self-efficacy;
+        Enhancing patient-provider interaction, e.g. by eliminating communication barriers and deep-
+        ening the provider-patient relationship; and,
+        Consolidation of back office functions and meaningful reduction of administrative work.
+
+
+4.3.2    Statewide tele-specialist platform
+
+Providing MD-level specialist care to patients across Wyoming’s geography has been a struggle. While the
+patients who need it require significant support, volume is low and sporadic, and resources are expensive.
+Because of this, it often makes little sense to try and recruit a specialist to a physical location.
+
+This component would procure a centralized tele-specialty hub that could schedule and deliver consults
+to various provider types around the State. Initially, we would focus on procuring psychiatry and other
+
+
+
+                                                Wyoming Department of Health | November 5th, 2025 | 36
+behavioral health services, to include a crisis stabilization telehealth capacity for emergencies. Target
+providers include:
+
+        Emergency departments;
+        Law enforcement and jails;
+        Psychiatric residential treatment facilities;
+        Residential treatment centers, group homes;
+        Long-term care facilities; and,
+        Primary care providers.
+
+Centralizing this service would create economies of scale for the State as a whole, which potentially could
+be funded sustainably through a subscription model (e.g., flat monthly fee for participating providers)
+once it gets off the ground and value can be demonstrated.
+
+The State has already piloted the telepsych project with a hub in Casper and proven the concept in con-
+junction with the Laramie County Detention Center in Cheyenne.
+
+
+4.3.3    Non-emergency transportation coordination platform
+
+A second area where centralized procurement could pay dividends is in the scheduling, coordination, and
+billing of non-emergency transportation. Getting to medical appointments has long been a concern for
+seniors and people with disabilities. The problem is bad enough in Wyoming’s “urban” cities, but it is
+even more concerning in our rural and frontier cities and towns.
+
+This component would bridge the gap between people who need rides (who also may not have smart-
+phones or be technologically savvy) and people who can give rides (ranging from established transit ser-
+vices to ride-share drivers), using technology to glue together existing resources like Senior Centers, 211,
+and ride-sharing platforms. Important requirements in this procurement include:
+
+        Integrating local ride-sharing with established transit services in a seamless user experience that
+        gives people choices on convenience and cost.
+        Capability of third parties (e.g. Senior Centers or 2-1-1) to schedule rides on people’s behalf across
+
+                                               Wyoming Department of Health | November 5th, 2025 | 37
+        the region or State.
+        Payment to the ride provider from the person or that third party. Having local entities like Senior
+        Centers responsible for the initial payment could create incentives to provide oversight over the
+        quantity and necessity of the rides provided, as well as encourage revenue collection on a sliding
+        fee scale. It also reduces moral hazard compared with directly subsidizing the rides from a ride-
+        sharing application.
+        Reimbursement invoice generation for payers like Medicaid and Title III OAA.
+
+
+4.3.4    Centralized billing capacity
+
+This component begins with small EMS agencies. While most already bill, the overhead involved can be
+a significant lift. The idea here is to explore the use of a competitively-procured billing contractor(s) who
+would use existing data in the Wyoming Ambulance Trip Reporting System (WATRS) to generate health
+insurance claims, submit them to payers, collect on the bills, and then remit revenue back to voluntarily-
+participating EMS agencies. If successful, this would:
+
+        Cut administrative costs by de-duplicating work of EMS agencies reporting to WATRS and then
+        having to generate bills;
+
+        Obtain more competitive pricing for billing services through volume, compared with smaller
+        services trying to procure this themselves;
+
+        Lower barriers to entry for entities like fire departments that do not currently bill for services (or
+        even have this administrative overhead); and,
+
+        Improve the data quality of WATRS. Since complete and accurate information will be necessary
+        to bill, there are strong incentives for participating entities to be thorough in their WATRS reports.
+
+Once established, this model may be able to be scaled to hospitals or other participating providers, par-
+ticularly if they are in distress. Being able to quickly take over revenue cycle management in the case of
+an imminent closure or financial emergency would assist greatly in stabilizing a chaotic situation.
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 38
+4.3.5    Strategic alignment, score factors, stakeholders, outcomes, and funding
+
+                                      Table 12: Strategic alignment
+
+ Component                                        Community priority         Elements      Strategic goals
+ Technology adoption challenge                              8, 15, 23, 31      III., VI. Tech innovation
+ Statewide tele-specialty consult network                   8,12, 20, 23 I., IV., VI. Tech innovation
+ Nonemergency transportation coordination                          15, 19        I., VI. Sustainable access
+ Centralized billing capability                                     9, 17 I., IV., VII. Sustainable access
+
+
+                           Table 13: Technical score factors and use of funds
+
+        Component                                        Technical score factors Use of funding
+        Technology adoption challenge                             B1., F.1., F.2.          C, D, F
+        Statewide tele-specialty consult network                             F.1.                F
+        Nonemergency transportation coordination                 B.1., C.1., F.2.             F, K
+        Centralized billing capability                           B.1., C.2., F.2.             F, K
+
+
+
+
+                        Table 14: Health technology transformation outcomes
+
+   Outcome                                                 Exp. years for change Baseline      Target
+   Number of counties with hospital or other                                    3       N/A 4
+   provider offering home dialysis
+   County jails and law enforcement agencies                                    1          1   7
+   participating in telepsych and crisis stabilization
+   services
+   Number of hospitals adopting common                                          2          0   5
+   technology platforms for backend functions
+   Number of EMS agencies participating in                                      2          0   10
+   centralized billing
+
+
+        Key stakeholders: Wyoming Hospital Association, Wyoming Medical Society, Wyoming EMS
+        Association.
+        Impacted counties: All Wyoming counties.
+        Estimated required funding: $20,500,000 out of $200,000,000 (10.25%)
+
+
+
+
+                                             Wyoming Department of Health | November 5th, 2025 | 39
+4.4     Initiative: Make Wyoming Healthy Again
+
+As noted in the Goals section, this initiative is focused on improving people’s metabolic, behavioral, and
+cardiovascular health through a set of clinical and non-clinical interventions.
+
+
+4.4.1    Integrated primary care expansion
+
+This component would expand the number and geographical reach of Federally Qualified Health Centers
+(FQHCs) around the State, with a focus on improving the integration of primary care with behavioral
+health, obstetric and gynecological care, as well as dental and preventive health services.
+
+FQHCs have several baseline advantages as primary care providers:
+
+        Sustainable operational financing through grants, 340B pharmacy revenue, and relatively high
+        Medicare and Medicaid encounter rates;
+        A focus on serving lower-income and high-needs people based on their ability to pay; and,
+        Federal Tort Claims Act (FTCA) malpractice coverage which can lower the cost of doing business
+        for primary care and obstetric providers.
+
+In this component, we would competitively fund FQHCs costs in converting existing clinical spaces and
+practices to an integrated primary care model. Applicants would be required to demonstrate:
+
+        How behavioral health care, dental care, and preventive medicine (e.g., to include teaching
+        kitchens for patient nutrition education) would be provided and coordinated in the new
+        locations;
+
+        How physicians and other providers who deliver babies will be coordinated to assist local hospitals
+        in maintaining labor and delivery services under FTCA malpractice protection; and,
+
+        How they will coordinate with the workforce development, chronic care coordination, and tech-
+        nology initiatives in this application.
+
+
+
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 40
+4.4.2    Clinically-integrated care coordination for chronic disease
+
+This component aims to improve the clinical coordination of care for dual Medicare/Medicaid eligibles
+who are at high risk of chronic disease.
+
+We would initially open a competitive Request for Applications to hospitals, providers, and other rural
+health facilities for care coordination initiatives in each Wyoming county. Each provider model might
+vary —the intent is to ‘let a hundred flowers bloom’ —but each successful bidder for that particular
+county or counties would submit a proposal illustrating their coordination model and the causal logic
+on how it will effectively manage chronic disease in a high-risk population.
+
+In its RFA, the State will prioritize applications that:
+
+        Leverage the use of Community Health Workers, Community EMS, and other lower-level health
+        professionals to coordinate care;
+        Demonstrate cooperation with other providers; and,
+        Use technology like remote patient monitoring and home dialysis that will help patients receive
+        care closer to home.
+
+Once successful bidders are established, the State would use its Medicaid claims data to:
+
+        Identify a list high-risk dual eligibles with unmanaged chronic conditions;
+        Randomize that list;
+        Provide the ‘treatment group’ to the successful bidder for that county;
+        Track outcomes for the ‘control group’, who would not be given to any bidder; and,
+        Compare outcomes from claims data (e.g. ED visits, inpatient stays, overall Medicare + Medicaid
+        PMPM costs) to evaluate success or failure of each model.70
+
+The State would then pay, using RHTP funds:
+
+        A capped amount of start-up costs for each program;
+  70
+    We will use Bayesian methods to wring as much information from this design as possible, while communicating parameter
+uncertainty, recognizing that panels in some counties may not be sufficiently powered to detect small effects.
+
+
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 41
+        A per-member per-month fee for care coordination of designated individuals; and,
+
+        A share of identified71 annual savings.
+
+Results from the pilot would be communicated to CMS, so Medicare might make its own decision to
+continue funding the pilot after five years based on its results.
+
+
+4.4.3    Exercise and healthy diet promotion
+
+This component is designed to encourage people to eat better, exercise, and take advantage of one of
+Wyoming’s greatest resources —the outdoors. As with many of these initiatives, this would be an an-
+nual competitive Requests for Applications process, open to any Wyoming-based entity, with the goal of
+demonstrating quantifiable increases in people engaging in healthy behavior.
+
+Examples might include partnerships with:
+
+        Local non-profits to defray their operational costs for organizing runs, walks, hikes, and other
+        evidence-based activities in their communities.
+
+        The Wyoming Department of Transportation to extend its Transportation Alternatives Program
+        and help rural towns become more walkable and connected through the development, repair, and
+        connection of sidewalks, pathways, and pedestrian routes to improve accessibility and promote
+        physical activity in rural and frontier areas.
+
+        Department of Family Services to continue funding for its Cent$ible Nutrition program, which
+        offers cooking classes and nutrition education.
+
+        Wyoming’s extractive and transportation industries to improve the diet and exercise of its work-
+        force.
+
+This component also contains three State Policy Actions previously detailed in the Goals section:
+
+        The Presidential Fitness Test (B.2.)
+  71
+     I.e., within some uncertainty tolerance, the difference in PMPM costs between the applicant’s treatment list and the
+Statewide control group, times the number of member-months in the panel, times the sharing percentage.
+
+
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 42
+        The SNAP waiver (B.3.)
+        Nutrition Continuing Medical Education (B.4.)
+
+
+4.4.4    Strategic alignment, score factors, outcomes, stakeholders, and funding
+
+                                     Table 15: Strategic alignment
+
+ Component                                 Community priority           Elements                    Strategic goals
+ Integrated primary care expansion                           3, 5, 7           I., II. Make rural America healthy
+ Clinically-integrated care management                        6, 15    II., III., VI.              Innovative care
+ Exercise and diet promotion                                     29                II. Make rural America healthy
+
+
+                           Table 16: Technical score factors and use of funds
+
+          Component                                 Technical score factors Use of funding
+          Integrated primary care expansion                           B.1., F.2.          A, H, J
+          Clinically-integrated care management     B.1., E.1., E.2., F.1., F.3.             A, I
+          Exercise and diet promotion                               B.2., B.3.,               A
+
+
+
+                          Table 17: Make Wyoming Healthy Again outcomes
+
+   Outcome                                                Exp. years for change Baseline         Target
+   Duals with chronic conditions - average difference                              2     N/A TBD
+   in ED visits per 100,000 MM - treatment vs
+   control group
+   Duals with chronic conditions - average difference                              2     N/A TBD
+   in Medicare allowable PMPM costs - treatment vs
+   control group
+   Percent of population with obesity - by county                                  4    33.3% 30%
+   Number of FQHCs with integrated behavioral                                      3     N/A TBD
+   health on-site
+
+
+        Key stakeholders: Wyoming-based non-profit philanthropic organizations, Wyoming counties
+        and local governments, industry partners.
+        Impacted counties: All Wyoming counties.
+        Estimated required funding: $31,584,525 out of $200,000,000 (15.8%)
+
+                                            Wyoming Department of Health | November 5th, 2025 | 43
+5      Implementation plan
+
+5.1         Initiative timelines
+
+You’ll note that virtually all of our initiatives are based around various procurement activities (i.e., RFAs
+and RFPs). Because these are standardized under State rules and policies, the timelines look similar. The
+key milestones include: (1) development and issuance of the RFA, (2) awarding the RFAs; and (3) on-
+going monitoring and reporting. We expect all initiatives to be set up within two years, with ongoing
+annual RFA/RFP renewals issued in subsequent years. Figures 13, 14, 15, and 16 in the Supplemental
+Materials are the detailed Gantt charts for our four initiatives.
+
+
+5.2         State policy timelines
+
+We described these in the narrative of the Goals section, but Table 18 summarizes these below. As with
+RHTP as a whole, many of these will require statutory changes made by our State Legislature. Milestones
+are thus related to when we begin engagement with the Legislature (before the 2026 Budget Session, in
+most cases), and when we expect any final policy enactment.
+
+                                           Table 18: State policy timeline
+
+ Factor       Component                   Requirement          Actor          Engagement start   Est. enactment
+     B.2      Presidential Fitness Test     Policy       Dept. of Education             Jan 26          Dec 26
+     B.3      SNAP Waiver                   Statute         Legislature                 Oct 25           Jul 26
+     B.4      Nutrition CME                  Rules       Board of Medicine              Jan 26           Jul 27
+    D.2       Compacts (PA)                 Statute         Legislature                 Jan 26           Jul 27
+    D.3.a     Scope (pharmacist)            Statute         Legislature                 Jan 26           Jul 27
+ D.3.b        Scope (dental hygenist)       Statute          Legislature                Jan 26           Jul 27
+
+
+
+
+5.3         Governance and project management structure
+
+The Wyoming Department of Health (WDH) will serve as the lead agency for the Rural Health Trans-
+formation Program (RHTP) implementation, under the direct oversight of its Director. The WDH is
+a “superagency” with almost 1,400 employees in four operating divisions —Aging, Behavioral Health,
+
+                                                  Wyoming Department of Health | November 5th, 2025 | 44
+Healthcare Financing (Medicaid/CHIP), and Public Health —and thus is well-equipped and staffed to
+handle this additional responsibility.
+
+
+5.3.1      Interagency team
+
+The Interagency Team will serve as the steering committee for RHTP implementation and will include
+the Director (executive oversight), Deputy Director and Business Operations Administrator (program
+coordinators), Healthcare Financing Senior Administrator and State Medicaid Agent (Medicaid initia-
+tives), Medicaid Medical Director (clinical oversight), Medicaid Chief Policy Officer (policy develop-
+ment), Public Health Division Senior Administrator (public health initiatives), and Governor Gordon’s
+Senior Policy Advisor on Health (gubernatorial coordination).
+
+
+5.3.2      Iterative management
+
+Members of the Interagency Team will meet, monitor progress, and address issues on a quarterly ba-
+sis. Prior to each quarterly meeting, coordinators and staff will prepare and distribute an overall Rural
+Health Transformation performance report, summarizing trends in objective metrics and KPOs across
+the various initiatives, as well as providing status updates on milestones, and any feedback received from
+stakeholders.
+
+Similar to the Department’s existing HealthStat performance management process,72 the Interagency
+Team will use the report to focus on analyzing program deficits and proposing corrective actions to en-
+sure initiatives remain on track. Corrective actions may include providing technical assistance to RFA
+grantees, re-allocating staff effort to lagging initiatives, refining RFA and other procurement guidelines
+for the next funding cycle, and highlighting any remaining barriers that require Director or cabinet-level
+attention. All major decisions, such as significant changes to initiatives or budget re-allocations between
+initiatives, will be raised with CMS program staff for prior approval, in accordance with the cooperative
+agreement terms.
+  72
+       See the 2024 Final Report here: https://health.wyo.gov/wp-content/uploads/2025/02/2024-HealthStat-Final-Report.
+pdf
+
+
+
+
+                                                   Wyoming Department of Health | November 5th, 2025 | 45
+5.3.3   Key personnel
+
+The Business Operations Administrator and Deputy Director will serve as the Program Coordinators
+and manage day-to-day Rural Health Transformation activities.
+
+The Healthcare Financing Senior Administrator/State Medicaid Agent and Public Health Division Se-
+nior Administrator will oversee implementation within their respective divisions. Existing staff from
+Healthcare Financing and Public Health will provide day-to-day program management, to include RFA
+development and awards. Director’s Office staff will provide overall contracting and data support.
+
+The 15 new FTE at-will employment contractors required for administering the RHTP initiatives are
+outlined in the budget narrative; we will not utilize outside project management for overall program
+administration.
+
+
+5.3.4   Outside stakeholder advisory committee
+
+A Rural Health Transformation Advisory Committee will be established with semi-annual meetings to
+provide input and guidance on program implementation. Membership will include representation from
+the following stakeholder groups: hospitals, EMS, FQHCs, behavioral health, public health, long-term
+care, Tribal governments, county governments, higher education. Patient and community voices will
+be added by drawing on community volunteers already serving on Community Services Block Grant
+(CSBG) tripartite boards around the State.
+
+The Advisory Committee will provide any formal written recommendations to the Interagency Team,
+timed to inform the Team’s quarterly performance reviews. The Team will then be required to review all
+committee recommendations and provide a documented response that details which recommendations
+are being adopted, which are not and why, and any resulting actions. This will ensure that stakeholder
+feedback is addressed in a transparent fashion.
+
+
+
+
+                                             Wyoming Department of Health | November 5th, 2025 | 46
+6         Stakeholder engagement
+
+Despite the short timeline to develop this application, we made a significant commitment to gather public
+input on both rural health priorities and potential solutions.
+
+
+6.1         Community rural health priorities
+
+This began in mid September with a series of eight in-person and three virtual meetings around the State,
+shown in Table 19.
+
+                             Table 19: Rural Health Transformation - Public Meetings
+
+                                     City                    Date        Participants
+                                     Newcastle            9/12/2025                  24
+                                     Wheatland            9/12/2025                  16
+                                     Buffalo              9/18/2025                  20
+                                     Powell               9/18/2025                  40
+                                     Virtual meeting      9/23/2025                  74
+                                     Virtual meeting      9/25/2025                  99
+                                     Evanston             9/30/2025                  17
+                                     Lander               9/30/2025                  32
+                                     Saratoga             10/1/2025                  31
+                                     Laramie              10/2/2025                  62
+                                     Virtual meeting 10/9/2025                       24
+                                     Total                                          439
+
+
+
+After an initial briefing on the Rural Health Transformation Program, we began each meeting with struc-
+tured exercises asking attendees to consider broad health policy questions. After the structured exercises
+(results are in the Supplemental Materials), we prioritized most of the meeting time for qualitative feed-
+back from the audience.
+
+We recorded and transcribed each meeting, then generated a list of summarized bullet points along each
+of these themes.73 After the last public meeting, we consolidated all the feedback we heard into 33 distinct
+    73
+         Summaries are available at https://health.wyo.gov/admin/rural-health-transformation-program/
+
+
+
+                                                     Wyoming Department of Health | November 5th, 2025 | 47
+priorities. We then set up an online survey to ask the public to rank these priorities over a week (10/8/25
+to 10/15/25).
+
+In total, we received 1,316 unique responses from this survey. The results of the pair-ranking exercise are
+shown in Table 29, in the Supplemental Materials. As demonstrated in the Goals section, these commu-
+nity priorities have driven virtually all the initiatives we propose in this application.
+
+
+6.2    Stakeholder meetings and idea solicitation
+
+In parallel with the community meetings, we sent a letter out to Wyoming’s health associations and other
+stakeholders on 9/9/25, asking them to submit ideas for this application no later than 10/10/25. The
+Department received a total of 34 proposal from stakeholders, which we ranked using a rubric grading:
+(1) the clarity of the idea, (2) how well the idea nested within the strategic priorities and Community
+Rural Health Priorities, and (3) if the proposals included ideas for sustainability moving forward. Many
+of these ideas informed our initiatives, as well as providing cost estimates for our budget narrative.
+
+We also held various stakeholder meetings, shown in Table 20, to walk through our understanding of the
+program and help stakeholders brainstorm and refine ideas.
+
+                     Table 20: Rural Health Transformation - Stakeholder Meetings
+
+            Stakeholder group                                      Location                 Date
+            Hospital CEOs                                          Virtual meeting     9/16/2025
+            Long-term care facilities                              Virtual meeting     9/23/2025
+            Eastern Shoshone and Northern Arapaho Tribes           Riverton            9/30/2025
+            Hospital CEOs                                          Casper              10/8/2025
+            EMS agencies                                           Virtual meeting     10/7/2025
+            EMS agencies                                           Virtual meeting 10/9/2025
+
+
+
+The State intends to continue this rigorous process of public and stakeholder engagement after the award,
+through the project governance committees as discussed in the previous section.
+
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 48
+7     Metrics and evaluation plan
+
+7.1    Key performance objectives
+
+Table 21, below, shows the consolidated list of key performance objectives from the Goals section. We
+do not duplicate the baseline and target information, but show the data source and a column indicating
+whether or not sub-state (e.g. county) data will be reported.
+
+
+                                  Table 21: Key performance objectives
+
+ KPO                                                                       Source          Substate
+ Counties without a hospital providing labor and delivery                  WDH                Yes
+ services to a large county subdivision
+ Annual number of new providers with 5-year service                    Program data           No
+ commitments
+ 2-year average RN wage growth                                         BLS OEWS               No
+ Prevalence of diagnosed diabetes                                        BRFSS                Yes
+ Age-adjusted suicide rate                                           CDC WONDER               No
+ Number of successful shared-savings chronic disease                   Program data           Yes
+ management programs
+ Percent of tele-specialist costs covered by generated revenue         Program data           No
+
+
+
+7.2    Outcomes
+
+Similarly, Table 22, below, shows the consolidated list of metrics from the Initiatives section.
+
+
+                                  Table 22: Initiative outcomes metrics
+
+ Outcome                                                                     Source           Substate
+ Number of CAH-B conversions                                           Program data                 Yes
+ Percent of EMS response times under 9 minutes                       WDH Office of EMS              Yes
+ Number of smaller EMS agencies that have consolidated                 Program data                 Yes
+ BearCare premium (25 year olds)                                           TPA                      No
+ Number of new annual Family Medicine physicians with                  Program data                 No
+ service obligations
+ Number of new annual RNs graduating with RHTP service                   Program data               No
+ obligations
+
+                                             Wyoming Department of Health | November 5th, 2025 | 49
+ Number of new annual behavioral health clinicians with                 Program data           No
+ RHTP service obligations
+ Primary care provider to population ratio by county                       AHRF                 Yes
+ Number of counties with hospital or other provider offering            Program data            Yes
+ home dialysis
+ County jails and law enforcement agencies participating in             Program data            Yes
+ telepsych and crisis stabilization services
+ Number of hospitals adopting common technology platforms               Program data            Yes
+ for backend functions
+ Number of EMS agencies participating in centralized billing          Program data              Yes
+ Duals with chronic conditions - average difference in ED visits    Medicaid claims data        Yes
+ per 100,000 MM - treatment vs control group
+ Duals with chronic conditions - average difference in Medicare     Medicaid claims data        Yes
+ allowable PMPM costs - treatment vs control group
+ Percent of population with obesity - by county                            BRFSS                Yes
+ Number of FQHCs with integrated behavioral health on-site              Program data            Yes
+
+
+
+7.3    Formal evaluation
+
+We confirm we will cooperate with any CMS-led evaluation or monitoring.
+
+In addition, because of its randomized design, Wyoming Medicaid, with support from the Director’s
+Office, will conduct a formal evaluation by the end of each year (i.e., based on the RFA award dates)
+on the success or failure of the chronic disease management program in order to distribute any demon-
+strated shared savings. As noted previously, this evaluation will compare ED visits and Medicare allowable
+PMPM across the randomized treatment and control dual-eligibles. We are happy to share results from
+this evaluation with CMS in order to inform any continuation of these programs by Medicare after the
+award period.
+
+
+
+
+                                            Wyoming Department of Health | November 5th, 2025 | 50
+8        Sustainability plan
+
+Sustainability is more than a buzzword: being able to spread the benefits of Rural Health Transformation
+over a longer time horizon is central to our proposal.
+
+
+8.1      The problem: risks of “spending it all in one place”
+
+Rural Health Transformation represents significant opportunity, but responsibly spending almost a bil-
+lion dollars over a short period of time will be a challenge. We will need to avoid multiple pitfalls:
+
+         Waste or revert. The pressure to rapidly expend this magnitude of funds in a small State will put
+         us in the horns of a dilemma: either risk wasting funds on ill-conceived projects in a rush to “get the
+         money out the door,” or risk reverting funds if a thorough vetting of a limited pool of proposals
+         reduces what can be spent.
+
+         Maintenance of effort expectations. As experience with limited provider rate increases using
+         ARPA funds demonstrated, even when the “one-time” nature of funding is made clear, it can
+         create pressure to maintain those expenditures with State General Funds.
+
+         Inflationary effects. While ARPA and CARES helped the health sector recover after the COVID-
+         19 pandemic, they also likely induced significant inflation, particularly in the nurse labor market, as
+         is evident in Figure 5, but also clear in the construction industry.74 Expending a similar magnitude
+         of funds, even if every dollar is spent wisely, may induce a similar effect.
+
+
+8.2      The public recognizes these risks
+
+The importance of spreading the benefits of Rural Health Transformation over time came up over and
+over again during our public meetings. And in the final online survey, we specifically asked people to rate
+their temporal preference: if they’d prefer funding to focus on more immediate needs, they chose a 1 out
+of 5. If they preferred funding to be spread out over time, they’d chose a 5 out of 5. While the average
+    74
+    For example, the Non-residential construction producer price index for the West Census region exploded after the federal
+pandemic response: https://fred.stlouisfed.org/series/PCU23640023640014
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 51
+was around 3.5, the distribution, shown in Figure 6, shows a mixture of people who thought a balanced
+approach (3) was best, and a group of people heavily skewed towards longer-term approaches.
+
+                                     Figure 6: Online survey results - time preference
+
+
+
+                         Survey responses
+                                            500
+                                            400
+                                            300
+                                            200
+                                            100
+                                              0
+                                                  1
+
+
+                                                         2
+
+
+                                                                 3
+
+
+                                                                         4
+
+
+                                                                                  5
+                                              Time preference (immediate to long-term)
+
+
+
+
+8.3    Sustainability is critical to effective system transformation
+
+In addition to mitigating these risks, sustainability will improve the odds of achieving federal objectives
+for true system transformation. Consider:
+
+      Given the necessary ramp-up, two to three years of turning out new nurses or clinical behavioral
+      health workers is just not enough time in order to truly make a difference with workforce sup-
+      ply. Similarly, the one-time investments we’re making in educational capacity depend on future
+      revenue from these individual awards being sustainable.
+
+      In order to take risks in transforming their business models, health care providers like hospitals
+      need certainty: clear and unambiguous signals that the new rules of the game will stick around
+      for longer than five years. This is particularly important when facing the headwinds of existing
+      incentives —like the use of elective procedures to pay the bills in small hospitals —which won’t be
+      going away any time soon.
+
+We simply can’t expect the system to right-size, or payment models to improve how care is delivered,
+unless the incentives in this proposal are made durable.
+
+
+
+                                                       Wyoming Department of Health | November 5th, 2025 | 52
+8.4     Primary: The Wyoming Rural Health Transformation Perpetuity
+
+The answer to these challenges, and the core of our sustainability plan, is the establishment of a dedicated,
+purpose-driven, and actively-managed Wyoming Health Transformation Perpetuity. This vehicle would:
+
+        Harness the power of the American economy to generate returns from a variety of investments,
+        using a fixed 3-5% annual withdrawal rate75 to fund specific health transformation initiatives in
+        perpetuity, while re-investing any surplus back into the perpetuity corpus. This allows us to con-
+        tinue the work of health transformation without additional debt-financed federal outlays.
+
+        Be irrevocably established for designated purposes, with an ironclad guarantee that federal ex-
+        penditures would accomplish statutory purposes and strategic priorities;
+
+        Be managed by the Wyoming State Treasurer,76 leveraging Wyoming’s unique sovereign wealth
+        management expertise at low administrative cost.
+
+
+8.4.1    Purpose-dedicated shares
+
+Once established in law, we would expend Rural Health Transformation funds to purchase certain quan-
+tities of purpose-dedicated shares that would support each initiative over a long time horizon. We propose
+four major share types to support these initiatives:
+
+        Healthcare Workforce - Perpetual Award Shares
+           – Cost: $1,000,000 per share
+           – Product: 1 ×$50,000 award for nursing-related, EMS, physician, or behavioral health work-
+               force training costs. Due to cost, some (e.g., medical school) may require more than one
+               share per person per year. Others may require fractional shares.
+        Physician Post-Graduate Medical Education - Perpetual Award Shares
+           – Cost: $5,000,000 per share
+  75
+      With options to either to adjust dedicated share returns for inflation (e.g., increasing the annual nurse scholarship from
+$50,000 to $55,000), or to expand the number of shares (e.g. adding another nurse scholarship slot). The objective is to ensure
+incentive payments and individual awards remain predictable over time.
+   76
+      The Wyoming Department of Health would be responsible for tracking funding allocated to specific purposes, and would
+provide the Treasurer recommendations on required liquidity, risk, and return.
+
+
+                                                     Wyoming Department of Health | November 5th, 2025 | 53
+           – Product: 1 ×$250,000 annual slot.
+        Critical Access Hospital - Basic (CAHB) - Perpetual Incentive Payment Shares
+           – Cost: $20,000,000 per share
+           – Return: 1 ×$1,000,000 annual incentive payment per CAHB for fixed cost coverage.
+        EMS Regionalization - Perpetual Incentive Payment Shares
+           – Cost: $5,000,000 per share
+           – Return: 1 ×$250,000 annual incentive payment per low-volume ambulance.
+
+As noted previously, growth in the perpetuity’s returns over time would allow these to be either adjusted
+for inflation or multiplied into additional slots. The Department of Health would be responsible for
+continuing to fund these awards and incentive payments past the five-year program period.
+
+
+8.4.2    Ensuring a future stream of benefits
+
+Consider something that would be a holy grail in long-term care: a direct care robot that could au-
+tonomously assist people to age in their homes. This technology, of course, does not yet exist. But if did,
+it would fit perfectly within the RHTP framework and would almost certainly be approved by CMS
+as an appropriate and sustainable use of funds.
+
+The Wyoming Rural Health Transformation Perpetuity is a similar instrument: a significant capital in-
+vestment that will provide a dedicated stream of purpose-driven benefits well into the future.77
+
+In many ways, it is a superior instrument. It will not depreciate or require maintenance. It will not charge
+expensive subscription fees or require bloated software updates. It mitigates the risk of buying the wrong
+brand of robot. Importantly, it also allows the State and federal governments to address future healthcare
+needs: it hedges risk across time, even giving future generations the ability to invest in solutions to solve
+new problems that arise.
+  77
+     Note that the dedicated nature of the proposed instrument ensures that it will not “earn or keep any profit”, per 2 CFR
+200.400 (g), for the State. All program income from these investments will directly fund approved RHT initiatives. The State
+is willing to work with CMS to ensure any statutory language establishing the Perpetuity reflects this guarantee.
+
+
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 54
+8.5    Secondary: Procedural safeguards to ensure sustainability
+
+While the Perpetuity is the central vehicle for sustaining transformational change over time, we also take
+pains to ensure that benefits from the time-limited components are not dissipated after five years.
+
+Some of these are structured in the RFAs:
+
+       We require multiple providers to apply together, in order to build credibility in the proposal and
+       to ensure interoperability.
+
+       We will require a demonstrated plan on how provider revenue will fund future O&M costs.
+
+       In the case of educational capacity, initial investments in new faculty and secondary school out-
+       reach are intended to be funded with individual education award revenue.
+
+In other areas where centralized services are set up (e.g., tele-specialty, non-emergency transportation),
+we will find ways to use program income or payer revenue to sustain them moving forward.
+
+Finally, in the case of the chronic disease care management pilot, we will share results of success or failure
+with CMS, in case Medicare is interested in funding promising chronic disease care coordination models.
+
+
+8.6    Tertiary: Policy changes that will help sustain program impacts
+
+This last example, working with Medicare to sustain any successful chronic disease management models,
+is a hypothetical policy change that could sustain or expand any observed benefits.
+
+Others, like our implementation of the SNAP waiver and Presidential Fitness Test, will likely remain in
+place and provide sustainable benefits as long as there is a similar federal commitment to do so.
+
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 55
+Supplemental materials
+
+8.7   Maps, figures and tables
+                               Figure 7: Population pyramid by geography
+
+                                                   85+
+
+                                                   80-84
+
+                                                   75-79
+
+                                                   70-74
+
+                                                   65-69
+
+                                                   60-64
+
+                                                   55-59
+
+                                                   50-54
+
+                                                   45-49
+
+                                                   40-44
+
+                                                   35-39
+
+                                                   30-34
+
+                                                   25-29
+
+                                                   20-24
+
+                                                   15-19
+
+                                                   10-14
+
+                                                    5-9
+
+                                                    0-4
+8%
+
+      7%
+
+           6%
+
+                 5%
+
+                       4%
+
+                             3%
+
+                                   2%
+
+                                         1%
+
+                                              0%
+
+
+
+
+                                                           0
+                                                               2
+                                                                   4
+                                                                       6
+                                                                           8
+                                                                               10
+                                                                                    12
+                                                                                         14
+                                                                                              16
+                                                                                                   18
+
+           Percent of total population                             2020 Population (thousands)
+
+
+
+
+                                               Wyoming Department of Health | November 5th, 2025 | 1
+                              Table 23: Health facility counts by county
+
+ County        ALF    ASC    CAH     ESRD      FQHC     HHA     HOSP     HSPC    NH     PRTF     RHC
+ Albany           1      1                1         1       4        1       1      1
+ Big Horn                        2                  1                        1      2                3
+ Campbell         1      4                1                 5        1       2      1
+ Carbon                          2                          1                       1                1
+ Converse         1              1                                                  1                2
+ Crook            1              1                                                  1                3
+ Fremont          2      2                2         4       6        1       2      4                1
+ Goshen           1              1                                                  1        1       1
+ Hot Springs      1              1                          1                       1                2
+ Johnson          3              1                          2                1      2
+ Laramie          5      4                2         3       8        1       4      3                1
+ Lincoln          1              2                          3                1      2                1
+ Natrona          5      4                1         4       8        2       3      3        1
+ Niobrara                        1                                                                   1
+ Park             2      1       2        1         4       3                1      2                1
+ Platte           1              1                                                  1                3
+ Sheridan         1      1                1         1       4        1       1      3
+ Sublette                                                            1              1
+ Sweetwater       2      2       1        1         1       3        1       2      2                2
+ Teton                   1                                  3        1       1      1
+ Uinta            2      1       1        1         1       4                2      1               4
+ Washakie                        1                  1       1                       1               1
+ Weston           1              1                          1                       1               2
+ Total           31     21      19       11        21      57      10       22     36        2     29
+
+
+
+The facilities in columns include: Assisted Living Facilities (ALF), Ambulatory Surgical Centers (ASC),
+Critical Access Hospitals (CAH), End-Stage Renal Dialysis (ESRD), Federally-Qualified Health Cen-
+ters (FQHC), Home Health Agencies (HHA), PPS hospitals (HOSP), hospice (HSPC), nursing homes
+(NH), Psychiatric Residential Treatment Facilities (PRTF) and Rural Health Clinics (RHCs).
+
+
+
+
+                                              Wyoming Department of Health | November 5th, 2025 | 2
+Figure 8: Wyoming population density (2020)
+                                              Wyoming Department of Health | November 5th, 2025 | 3
+Figure 9: Rural/frontier/urban definition
+                                            Wyoming Department of Health | November 5th, 2025 | 4
+                                                        Figure 10: Emergency Medical Services (EMS) response times
+Wyoming Department of Health | November 5th, 2025 | 5
+Figure 11: Metabolic disease risk map
+                                        Wyoming Department of Health | November 5th, 2025 | 6
+Figure 12: Cardiovascular disease risk map
+                                             Wyoming Department of Health | November 5th, 2025 | 7
+                                                        Figure 13: Access to emergency medical care initiative timeline
+Wyoming Department of Health | November 5th, 2025 | 8
+                                                        Figure 14: Rural workforce supply initiative timeline
+Wyoming Department of Health | November 5th, 2025 | 9
+Figure 15: Health technology transformation timeline
+                                                       Wyoming Department of Health | November 5th, 2025 | 10
+                                                         Figure 16: Make Wyoming Healthy Again initiative timeline
+Wyoming Department of Health | November 5th, 2025 | 11
+                                                Table 24: Primary health insurance coverage
+
+                                                                                 Geography
+Insurance                                                     Frontier                       Rural                   Urban
+Directly purchased                                    9.0% (8.4% - 9.5%)    7.5% (6.9% - 8.0%)     5.8% (5.4% - 6.4%)
+Dual                                                  2.2% (2.1% - 2.4%)    1.7% (1.5% - 2.0%)     2.7% (2.4% - 2.9%)
+Employer sponsored                                43.4% (42.5% - 44.3%) 55.2% (54.3% - 56.5%) 45.2% (44.3% - 46.2%)
+Indian Health Services                                1.5% (1.3% - 1.6%)    0.4% (0.3% - 0.6%)     0.3% (0.1% - 0.4%)
+Medicaid                                          10.8% (10.2% - 11.1%)     8.6% (8.0% - 9.4%) 11.1% (10.6% - 11.7%)
+Medicare                  21.2% (21.0% - 21.4%) 14.1% (13.9% - 14.3%) 17.0% (16.8% - 17.2%)
+TRICARE & VA                  2.1% (1.9% - 2.3%)    4.0% (3.6% - 4.3%)    8.5% (8.1% - 9.1%)
+Uninsured (low income)        4.5% (4.2% - 4.8%)    4.3% (4.0% - 4.6%)    4.2% (3.9% - 4.6%)
+Uninsured (higher income)     5.4% (5.2% - 6.1%)    4.2% (3.8% - 4.5%)    5.1% (4.6% - 5.5%)
+
+
+                                             Figure 17: Educational attainment by geography
+
+
+                                                Graduate or professional degree
+            Educational attainment
+
+
+
+
+                                                              Bachelor's degree
+                                                              Associate's degree
+                                                        Some college, no degree
+                                     High school graduate (includes equivalency)             Rural/frontier
+                                                                                             Urban
+                                                  9th to 12th grade, no diploma
+                                                            Less than 9th grade
+                                                                                   0%
+                                                                                        5%
+                                                                                             10%
+                                                                                                   15%
+                                                                                                         20%
+                                                                                                               25%
+
+
+
+                                                                           Percent of people over 25 years old
+
+
+                                                Table 25: Employment status by geography
+
+                                                                           Geography
+                                                  Employment status      Rural Urban
+                                                  Employed               61.8%      61.9%
+                                                  Armed Forces            0.2%       2.2%
+                                                  Unemployed              2.4%       2.3%
+                                                  Not in labor force     35.5%      33.6%
+
+
+
+
+                                                             Wyoming Department of Health | November 5th, 2025 | 12
+                                                    Table 26: Industry by geography
+
+                                                                                                                  Geography
+Industry                                                                                                        Rural Urban
+Information                                                                                                      1.5%      1.5%
+Wholesale trade                                                                                                  1.5%      2.1%
+Finance and insurance, and real estate and rental and leasing                                                    4.4%      5.5%
+Manufacturing                                                                                                    4.5%      4.1%
+Other services, except public administration                                                                     4.9%      4.6%
+Public administration                                                                                            5.9%      8.0%
+Transportation and warehousing, and utilities                                                                    6.1%      6.3%
+Professional, scientific, and management, and administrative and waste management services                       7.1%      8.0%
+Construction                                                                                                     8.9%      8.1%
+Arts, entertainment, and recreation, and accommodation and food services                                         9.3%      9.0%
+Retail trade                                                                                                     9.9%     13.6%
+Agriculture, forestry, fishing and hunting, and mining                                                          11.3%      4.5%
+Educational services, and health care and social assistance                                                     24.8%     24.5%
+
+
+                                               Figure 18: Household income by geography
+
+
+                                        $200,000 or more
+                                     $150,000 to $199,999
+            Household income group
+
+
+
+
+                                     $100,000 to $149,999
+                                       $75,000 to $99,999
+                                       $50,000 to $74,999
+                                       $35,000 to $49,999
+                                       $25,000 to $34,999                        Rural/frontier
+                                                                                 Urban
+                                       $15,000 to $24,999
+                                       $10,000 to $14,999
+                                                            0%
+
+
+
+                                                                        5%
+
+
+
+                                                                                  10%
+
+
+
+                                                                                              15%
+
+
+
+                                                                                                       20%
+
+
+
+
+                                                                         Percent of households
+
+
+
+
+                                                                 Wyoming Department of Health | November 5th, 2025 | 13
+                                       Figure 19: Est. EMS utilization by service
+
+                              American Medical Response
+                           Campbell County Health EMS
+                                       Frontier Ambulance
+                                 Wyoming Medical Center
+         Castle Rock Hospital District-Emergency Services
+                              Cody Regional Health EMS
+                                 Laramie Fire Department
+                   Memorial Hospital of Converse County
+                                  Uinta County Fire/EMS
+                                     Sublette County EMS
+                                   Star Valley Health EMS
+              Hot Springs County - Mortimore Ambulance
+                                      Carbon County EMS
+         Banner Health Paramedic Services - Platte County
+                       Powell Hospital Ambulance Service
+                                  Jackson Hole Fire/EMS
+                  Torrington Emergency Medical Services
+                                Johnson County - Buffalo
+           South Central WY Emergency Medical Services
+                                                 Lusk EMS
+             Crook County Medical Services District EMS
+Agency
+
+
+
+
+                                       South Lincoln EMS
+                           Evansville Emergency Services
+                     North Big Horn Hospital Ambulance
+                                    Mills Fire Department
+                                Eden Farson Fire District
+                                      Sheridan Fire-Rescue
+                                          Pine Bluffs EMS
+                                 Rawlins Fire Department
+                                    Moorcroft Ambulance
+                                Johnson County - Kaycee
+                                              Albin Rescue
+                                          Wamsutter EMS
+                                         Little Snake River
+                            Ten Sleep Ambulance Service
+                                                Hulett EMS
+                                         Hawk Springs-FD
+                                   Lingle Fire Department
+                                    BHFD #4 Ambulance
+                                    Bridger Coal Company
+                    Glendo Volunteer Ambulance Service
+                                    LaGrange Fire Rescue
+                              Town of Pine Haven - EMS
+                           Salt Creek Emergency Services
+                                                 Upton-FD
+                                                              0%
+
+                                                                   5%
+
+                                                                        10%
+
+                                                                              15%
+
+                                                                                    20%
+
+                                                                                          25%
+
+                                                                                                30%
+
+                                                                                                      35%
+
+                                                                                                            40%
+
+                                                                                                                  45%
+
+                                                                                                                        50%
+
+
+
+
+                                                              Average ambulance utilization at 99th percentile of demand
+
+
+
+
+                                                       Wyoming Department of Health | November 5th, 2025 | 14
+Figure 20: Current maternity deserts
+
+
+
+
+Figure 21: Hospital delivery trends
+
+
+
+
+          Wyoming Department of Health | November 5th, 2025 | 15
+                   Table 27: Primary care providers (2022)
+
+County        PCP MD/DO    PA/APRN/NP Total PCP              Providers per 100,000
+Albany                29               127          156                     410.2
+Big Horn               4                11           15                     126.5
+Campbell              28                99          127                     269.9
+Carbon                 8                22           30                     206.3
+Converse               8                34           42                     304.7
+Crook                  3                11           14                     188.0
+Fremont               31               103          134                     339.5
+Goshen                10                23           33                     262.7
+Hot Springs            6                 8           14                     305.1
+Johnson               12                11           23                     263.5
+Laramie               70               338          408                     405.1
+Lincoln               12                35           47                     227.5
+Natrona               59               267          326                     409.5
+Niobrara               2                 2            4                     168.1
+Park                  38                96          134                     439.1
+Platte                 4                10           14                     161.9
+Sheridan              21               102          123                     383.2
+Sublette               3                 9           12                     136.9
+Sweetwater            15                71           86                     208.0
+Teton                 23                88          111                     476.7
+Uinta                 13                39           52                     251.1
+Washakie               8                16           24                     310.9
+Weston                 2                14           16                     233.2
+
+
+
+
+                              Wyoming Department of Health | November 5th, 2025 | 16
+       Table 28: Current Wyoming hospital volume (HCRIS - FY 2023)
+
+Type         City      Beds Patient days Occupancy       Total cost (M)
+CAH         Basin      10     526                  14%           $11.28
+CAH       Newcastle    12     1,746                40%           $27.16
+CAH        Lovell      14     1,854                36%           $26.93
+CAH       Kemmerer     14     668                  13%           $24.59
+CAH      Thermopolis   15     1,514                28%           $38.60
+CAH        Sundance    16     1,014                17%           $14.57
+CAH        Worland     18     1,539                23%           $29.94
+CAH         Buffalo    20     2,187                26%           $32.98
+CAH         Afton      22     1,889                23%           $96.19
+CAH          Lusk      24     6,413                73%           $10.01
+CAH        Douglas     25     2,519                28%           $80.69
+CAH       Wheatland    25     1,837                20%           $28.32
+CAH       Torrington   25     3,141                34%           $42.17
+CAH         Powell     25     2,066                23%           $79.36
+CAH         Cody       25     4,192                46%          $122.35
+CAH   Rawlins          25     1,373                15%           $39.31
+PPS   Casper           16     91                    3%           $14.21
+PPS  Evanston          32     1,238                11%           $33.03
+PPS   Jackson          48     6,824                39%          $195.19
+PPS Rock Springs       58     5,734                27%          $125.71
+PPS         Gillette   66     9,155                38%          $231.68
+PPS         Laramie    76     6,107                22%          $122.44
+PPS        Sheridan    88     12,169               38%          $143.30
+PPS        Riverton    133    6,693                14%           $74.98
+PPS        Cheyenne    159    33,112               57%          $369.30
+PPS         Casper     249    36,868               41%          $249.05
+
+
+
+
+                             Wyoming Department of Health | November 5th, 2025 | 17
+                                         Figure 22: Hospital costs and Medicare cost coverage
+
+                                                                                 $100,000                                                120%
+                        $1,500
+                        $1,400                                                    $90,000                                                110%
+                                                                                                                                                 CAH
+                        $1,300     PPS                                                                                                   100%
+                                                                                  $80,000
+                        $1,200
+                                                   Medicare cost per discharge
+
+
+
+
+                                                                                                                                         90%
+
+
+
+
+                                                                                                                Medicare cost coverage
+                        $1,100                                                    $70,000                                                         PPS
+Total cost (millions)
+
+
+
+
+                                                                                                                                         80%
+                        $1,000
+                          $900                                                    $60,000                                                70%
+                          $800                                                    $50,000                                                60%
+                          $700                                                                     CAH
+                                                                                  $40,000                                                50%
+                          $600    CAH
+                          $500                                                                                                           40%
+                                                                                  $30,000
+                          $400                                                                                                           30%
+                          $300                                                    $20,000          PPS
+                                                                                                                                         20%
+                          $200
+                                                                                  $10,000                                                10%
+                          $100
+                            $0                                                        $0                                                  0%
+                                 2011
+                                 2012
+                                 2013
+                                 2014
+                                 2015
+                                 2016
+                                 2017
+                                 2018
+                                 2019
+                                 2020
+                                 2021
+                                 2022
+                                 2023
+
+
+
+
+                                                                                            2011
+                                                                                            2012
+                                                                                            2013
+                                                                                            2014
+                                                                                            2015
+                                                                                            2016
+                                                                                            2017
+                                                                                            2018
+                                                                                            2019
+                                                                                            2020
+                                                                                            2021
+                                                                                            2022
+                                                                                            2023
+
+
+
+
+                                                                                                                                                2011
+                                                                                                                                                2012
+                                                                                                                                                2013
+                                                                                                                                                2014
+                                                                                                                                                2015
+                                                                                                                                                2016
+                                                                                                                                                2017
+                                                                                                                                                2018
+                                                                                                                                                2019
+                                                                                                                                                2020
+                                                                                                                                                2021
+                                                                                                                                                2022
+                                                                                                                                                2023
+                                  FY                                                              FY                                             FY
+
+
+
+
+                                                                                       Wyoming Department of Health | November 5th, 2025 | 18
+8.8       Public engagement - quantitative results
+
+8.8.1     Public meeting structured exercises
+
+On the first question —asking participants to allocate 100 points across the access-cost-quality tradeoff
+—our adjusted78 model-based estimate of the resulting priorities put them in the following order:
+
+        Cost: 40% [34 - 46%]
+        Access: 32% [24 - 40%]
+        Quality: 28% [22 - 35%]
+
+On the second question, we used a similar model-based estimate to arrive at the following ranking of
+“brick and mortar” providers: (1) Emergency room, (2) Primary care provider, (3) Ambulance, (4) Hos-
+pital inpatient, (5) Pharmacy, (6) Labor and delivery, (7) Mental health / substance abuse treatment, (8)
+Specialty physicians, (9) Dental, (10) Long-term care / home health, (11) PT/ST/OT (therapies), (12)
+Vision.
+
+
+8.8.2     Online survey
+
+
+                             Table 29: Ranked Community Rural Health Priorities
+
+ Rank       Score Priority
+    1        0.25     Improve the financial viability of small, rural hospitals to provide basic
+                      services to their communities.
+    2        0.21     Expand affordable health insurance options.
+    3        0.00     Recruit and retain primary care physicians, in order to improve access and
+                      build longer relationships with patients.
+    4       -0.14     Train and recruit more nurses and related direct care workforce (e.g.
+                      nursing assistants) in order to improve staffing at hospitals and long-term
+                      care facilities.
+
+
+  78
+     Recognizing that meeting participation was certainly not random or representative of Wyoming’s population, we did try
+to adjust results to match Wyoming’s age distribution, the ‘not a medical provider’ category, and included varying effects for
+meeting location and respondent city.
+
+
+                                                    Wyoming Department of Health | November 5th, 2025 | 19
+5    -0.23   Strengthen obstetric/gynecological, labor/delivery and related services so
+             women can deliver babies safely.
+6    -0.24 Recruit and retain more home health aides, and invest in home- and
+           community-based alternatives to nursing home care.
+7    -0.30 Expand the integration of behavioral health and primary care, in order to
+           better treat the whole person.
+8    -0.36 Improve access to specialty medical care in local communities (e.g.,
+           orthopedics, pediatrics, geriatrics).
+9    -0.41 Improve or sustain ambulance availability to ensure timely responses to
+           emergencies.
+10   -0.42 Recruit and retain more medical support staff for the health care industry
+           (e.g. radiology, laboratory, therapies, medical assistants).
+11   -0.49   Improve nursing home quality and sustainability, and increase capacity for
+             people with higher needs (e.g., locked dementia units).
+12   -0.50   Expand inpatient behavioral health care, to include crisis stabilization,
+             psychiatric facilities, residential addiction, and recovery services.
+13   -0.61   Improve hospital accountability to cities and counties so they provide
+             services reflecting the needs of their communities.
+14   -0.62   Build out mobile health care units to bring basic primary and preventive
+             care to where people live.
+15   -0.69   Improve the coordination and referral of existing community services for
+             patients and people in need of assistance.
+16   -0.80   Expand options for behavioral health care for high-needs children, so they
+             can be safely served closer to home.
+17   -0.81   Streamline paperwork and administrative burdens on healthcare providers
+             in order to improve their focus on patient care.
+18   -0.86   Expand licensure reciprocity and scope of practice across-the-board in
+             order to increase access to different levels of providers and telehealth.
+19   -0.96   Add transportation options so people can get to and from medical
+             appointments, senior centers, and other activities.
+20   -1.02   Assist county jails and hospitals in stabilizing and managing people with
+             high behavioral health needs.
+21   -1.06   Invest in suicide prevention activities.
+22   -1.16   Keep more medical care in-State, as opposed to it ’leaking’ out-of-State.
+23   -1.21   Improve physician access to consults with specialists via telemedicine.
+24   -1.24   Improve palliative and hospice care for people at the end of life.
+25   -1.26   Increase Emergency Medical Services (EMS) training in order to improve
+             quality of care in ambulances.
+26   -1.40   Improve diabetes care by increasing access to dialysis, nutrition, podiatry,
+             and other specialty services.
+27   -1.60   Improve prescription drug / pharmacy availability.
+28   -1.61   Improve access to healthy foods and nutrition education.
+
+
+                                       Wyoming Department of Health | November 5th, 2025 | 20
+  29       -1.64   Encourage exercise, access to physical activity, and healthy lifestyle choices.
+  30       -1.84   Recruit and retain more dentists and hygienists in order to improve access
+                   to dental care.
+  31       -1.88   Assist people with technology so they can better use telehealth options.
+  32       -1.98   Reduce [State] regulations on healthcare providers, particularly in
+                   long-term care settings.
+  33       -2.53   Limit federal money and associated regulations in Wyoming’s healthcare
+                   system.
+
+
+
+8.9    Provider financial trends
+                     Table 30: Cross-sector financial benchmarks (WY, 2018-2023)
+
+      Sector                                    Margin Current ratio          Days cash Debt ratio
+      Behavioral Health Center                    5.3%            5.6           115.6           0.10
+      Critical Access Hospital                    3.7%            3.4           105.9           0.15
+      Early Intervention                          1.5%            6.4           100.2           0.08
+      Intellectual/Developmental Disability       4.6%            4.8           138.2           0.12
+      Nursing Home                                5.0%            2.3           33.1            0.18
+      Prospective Payment System Hospital         5.7%            2.4           58.1            0.05
+      Senior Center                               5.9%           14.5           163.8           0.04
+
+
+                     Table 31: Cross-sector financial benchmarks (WY, 2018-2023)
+
+          Sector                                     Age of plant       Net capital     Employees
+          Behavioral Health Center                        13.0           $3,752,890        85
+          Critical Access Hospital                        12.4          $19,862,183       179
+          Early Intervention                              12.3           $2,147,805       124
+          Intellectual/Developmental Disability           17.1           $2,603,146       202
+          Nursing Home                                     5.7           $1,745,456        64
+          Prospective Payment System Hospital             13.1          $95,987,669       645
+          Senior Center                                   15.9            $489,671         28
+
+
+
+
+                                             Wyoming Department of Health | November 5th, 2025 | 21
+8.9.1   Critical Access Hospitals
+
+                       Table 32: State and regional financial benchmarks (CAH)
+
+                         Margin           Current ratio           Days cash           Debt ratio
+            Year      WY       Region     WY    Region      WY        Region     WY          Region
+            2013      6.2%      4.2%      4.1     2.9       105.0       82.0         0.1       0.2
+            2014      3.7%      4.0%      4.3     3.1       110.2       83.1         0.2       0.2
+            2015      6.9%      5.6%      4.2     3.0       105.5       91.8         0.2       0.2
+            2016      4.1%      3.6%      2.9     3.0        78.2       90.5         0.2       0.2
+            2017      1.5%      4.3%      3.2     2.8        81.1       88.5         0.2       0.2
+            2018   0.6%          3.4%     3.8     3.0        80.1      96.9          0.2       0.2
+            2019   1.0%          4.9%     3.5     2.4        88.9      83.4          0.2       0.2
+            2020   2.6%          7.4%     2.1     1.8       141.1      165.0         0.2       0.2
+            2021   12.5%        17.7%     2.8     2.1       129.9      169.2         0.1       0.2
+            2022   3.0%          3.2%     3.9     2.3       111.6      123.4         0.1       0.2
+            2023      2.4%      4.6%      4.2     3.4       83.7       105.6         0.2       0.2
+
+
+                         Table 33: State and regional size benchmarks (CAH)
+
+                             Employees                  Capital                 Age of plant
+               Year     WY       Region         WY            Region           WY          Region
+               2013     152.2     108.4     $13,279,225      $9,774,520        9.0           9.1
+               2014     155.8     109.7     $13,354,159     $10,276,734        9.4           9.2
+               2015     154.0     110.4     $15,398,915     $11,202,617        9.5           9.2
+               2016     160.3     112.5     $19,472,041     $11,536,111        8.5           9.6
+               2017     159.2     116.5     $19,821,469     $12,081,512        9.1          10.3
+               2018     169.5     120.3     $19,352,331     $12,521,015         9.8         11.3
+               2019     171.2     127.5     $18,588,933     $13,168,793        12.0         11.6
+               2020     176.6     125.6     $18,703,634     $13,416,706        12.8         11.5
+               2021     180.4     124.2     $20,382,598     $14,911,946        13.7         11.8
+               2022     185.4     124.8     $20,470,645     $15,367,075        13.7         11.5
+               2023 193.0         128.4     $21,674,957     $16,238,825        12.6         11.8
+
+
+
+
+                                            Wyoming Department of Health | November 5th, 2025 | 22
+8.9.2   Prospective Payment System Hospitals
+
+                     Table 34: State and regional financial benchmarks (PPS)
+
+                       Margin         Current ratio        Days cash       Debt ratio
+            Year    WY       Region   WY    Region    WY       Region    WY    Region
+            2013    10.1%     8.0%    2.8      2.8    67.7      40.1     0.1      0.2
+            2014     8.4%    10.9%    3.0      2.9    67.3      63.3     0.1      0.2
+            2015     7.3%    10.9%    3.3      3.0    70.2      35.0     0.1      0.2
+            2016     5.4%     9.5%    3.7      2.4    88.1      38.2     0.1      0.2
+            2017    -4.6%    10.0%    3.8      2.7    73.8      36.7     0.1      0.2
+            2018     3.6%    10.8%    3.5      3.0    59.6      42.9     0.1      0.2
+            2019     6.2%    11.8%    2.9      3.2    47.3      48.2     0.1      0.2
+            2020     6.0%    11.1%    2.0      2.3    91.1      74.9     0.0      0.2
+            2021    15.3%    18.6%    1.7      2.0    62.1      59.4     0.0      0.2
+            2022    -0.9%     2.0%    2.3      2.5    50.8      43.2     0.1      0.2
+            2023    3.8%      8.0%    2.0      2.3    38.0      50.7     0.0      0.2
+
+
+                        Table 35: State and regional size benchmarks (PPS)
+
+                       Employees                 Capital                 Age of plant
+             Year    WY      Region         WY             Region       WY     Region
+             2013    559.1   1121.0    $66,658,274    $106,855,759      12.1    12.4
+             2014    612.3   1187.1    $83,384,468    $118,168,719      10.9    13.8
+             2015    621.6   1228.1    $86,496,395    $126,024,361      11.2    14.2
+             2016    652.1   1226.4    $87,228,577    $131,854,268      11.6    15.8
+             2017    614.5   1317.4    $79,329,725    $143,503,827      11.0    14.7
+             2018    751.6   1333.4   $100,357,388    $149,205,794      14.2    16.0
+             2019    667.6   1318.5    $91,334,555    $158,400,266      12.7    16.8
+             2020    667.2   1279.3    $92,750,091    $159,329,191      12.6    17.2
+             2021    610.2   1262.1    $92,611,071    $160,187,334      11.4    18.1
+             2022    558.2   1280.7    $94,517,239    $172,771,695      13.5    18.0
+             2023    617.4   1277.6   $104,355,668    $179,466,893      14.1    20.9
+
+
+
+
+                                        Wyoming Department of Health | November 5th, 2025 | 23
+8.10    Financial health definitions
+                    Net income
+Total Margin =
+                 Total expenditures
+                  Current assets
+Current ratio =
+                 Current liabilities
+                                  365 × Cash on hand
+Days cash on hand =
+                      Total expenditures − Depreciation expense
+                     Financial debt
+Debt ratio =
+              Financial debt + Total assets
+                Accumulated depreciation
+Age of plant =
+                  Depreciation expense
+
+Net capital = Fixed assets (gross) − Accumulated depreciation
+
+Employees FTE (hospitals) = Interns and residents FTE + Employees FTE + Unpaid employees FTE
+
+
+
+
+                                         Wyoming Department of Health | November 5th, 2025 | 24
+

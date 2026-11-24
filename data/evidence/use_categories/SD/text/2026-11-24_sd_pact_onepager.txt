@@ -1,0 +1,91 @@
+INITIATIVE SUMMARY
+
+
+                          Medicaid Primary Accountable
+                           Care Transformation (PACT)
+Overview
+PACT is an alternative payment model that shifts the focus from fee-for-service volume to value-based care while also investing in
+case management and population health. The PACT model replaces primary care E&M billing with a monthly Prospective Primary
+Care Payment, a more flexible and reliable way for primary care practices to tailor their care delivery to meet patient’s needs and
+adds yearly value-based payments to incentivize both providers and patients for outcomes. This promotes shared accountability
+for appropriate utilization and bends the curve of steeply rising health care costs by emphasizing preventative health.
+
+
+
+Key Activities
+    Provider Infrastructure Support: Offer transformation grants for care coordination, care managers, population health tools,
+    and technology enhancements.
+    Enhanced Payments for Quality and Quality Payment System: Incorporate annual quality incentive and deploy a vendor-
+    supported platform for real-time performance dashboards, HEDIS tracking, and year-end bonus calculations.
+    Data Analytics Infrastructure: Implement population health tools to identify high-risk patients, track care gaps, and enable
+    reporting and data exchange across value-based arrangements.
+    Payer Alignment Coordination: Align payment methodologies across Medicare, commercial insurers, and tribal health
+    programs, including systems coordination for dually eligible populations.
+    Practice Support & Training: Provide technical assistance on care coordination, chronic disease management, behavioral
+    health integration, and value-based operations.
+
+
+
+Anticipated Timeline for Implementation
+2026: Planning and Design
+   Secure technical assistance and actuarial support for PMPM/sub-capitation; begin methodology review
+   Model development and design, relying on input from provider workgroups
+   Make grants available to providers for infrastructure investment, IT upgrades, and to procure care coordination & population
+   health tools
+
+2027: Pilots and Preparation
+   Enhance quality payments made in support of providers that have demonstrated readiness
+   Finalize methodology and rate-setting
+   Policy and regulatory prep; state plan and waiver submissions to CMS
+   Begin transition of current SD Medicaid’s existing primary care physician (PCP) program
+   Launch readiness: begin provider recruitment/enrollment and training
+
+January 1, 2028: PACT Model Launch
+   Learn with providers: identify common challenges, develop solutions 2029 – 2030: Broaden participation
+   Continuous improvement of quality metric reporting and analytics
+   Inclusion of dual populations, multi-payer alignment
+
+
+
+Partners & Stakeholders
+Medicaid-Enrolled Primary Care Clinics, RHCs, FQHCs, Tribal Partners, Medicaid Recipients, Other Payers in South Dakota,
+Professional Medical and Quality Improvement organizations.
+    Funding and Sustainability
+          A total of $62,735,000 over five years in grant funding is budgeted for this initiative. This one-time grant funding will be
+          used to create the model, assist in the provider readiness and transition, and accelerate focus on quality and outcomes.
+          Implementation of tools and system upgrades will be maintained through the restructured capitation payments
+          (providers) or system funding at enhanced federal match rates (state infrastructure).
+          Approximately $73 M is currently spent by SD Medicaid on primary care services as part of the existing allocated
+          Medicaid budget. The new model changes the way those same dollars are paid. Sub-capitation amounts will be
+          established at levels that can be sustained without grant funding.
+          Investing in primary care has been demonstrated to provide long-term gains in overall health care costs over time.
+          Increased investment in primary care comes through redirecting savings from improved coordination and preventative
+          health behaviors that reduce unnecessary or extended hospitalizations and emergency visits. These savings will be
+          reinvested into the continuation of the quality bonus payments.
+          Creating this alternative payment model in primary care promotes predictable income for providers decoupled from fee-
+          for-service volume, which allows for a fundamental transformation of the workflow. Physicians will be able to create
+          workable change when creating a supported team-based model that allows clinicians to stay in their communities and
+          care for patients locally.
+          Involving other payers and aligning their payment methodology to PACT also provides improved sustainability of true
+          transformation in primary care since providers would achieve critical mass of contracts/payers to sustain value-based
+          methodology in practice.
+          The sustainability of case management and team-based primary care will also be supported through the annual
+          Medicaid case management/social work workshop that was launched in October 2025 and will be used in future years to
+          share best practices across the state regardless of provider affiliation.
+
+
+
+    Why This Matters
+    Transforming the payment methodology for primary care in South Dakota will ultimately lead to financial sustainability for providers,
+    better outcomes for patients, and alignment of outcomes and payment. It supports workforce retention for primary care physicians
+    and clinical care teams working in rural areas, allowing them to focus on patient health and wellbeing rather than whether an
+    interaction is billable under fee-for-service. This model will also help the South Dakota Medicaid program improve predictability of
+    primary care expenditures and decrease utilization/costs of unnecessary and costly services such as excessive ER visits.
+
+
+
+
+This document is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of the Rural Health Transformation
+Program, a financial assistance award totaling $189,477,607.26, with 100% funded by CMS/HHS. The contents are those of the SDDOH and SD DSS and do not necessarily represent the
+official views of, nor an endorsement by, CMS/HHS, or the U.S. Government.
+

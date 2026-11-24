@@ -54,7 +54,10 @@
 # Usage:
 #   Rscript R/08_year1_summary.R --build    # data/reference/year1_summary_<date>.csv AND
 #                                           # output/year1_summary_<date>.xlsx (Overview,
-#                                           # Detail, Definitions, Notes and caveats, Sources)
+#                                           # Detail, Vendor spending, By use category,
+#                                           # Definitions, Notes and caveats, Sources) AND
+#                                           # data/reference/year1_use_categories_<date>.csv
+#                                           # (session 123; needs R/11 --apply first)
 #   Rscript R/08_year1_summary.R --report
 
 suppressPackageStartupMessages({
@@ -66,6 +69,7 @@ source(here::here("R", "utils_summary_calls.R"))
 source(here::here("R", "07_summary_calls.R"))
 source(here::here("R", "03aw_year1_completion_status.R"))
 source(here::here("R", "utils_spend_category.R"))
+source(here::here("R", "11_use_categories.R"))   # session 123: the use-category layer
 
 YS_ALLOT  <- "data/reference/cms_fy2026_allotments.csv"
 YS_STATUS <- "data/reference/year1_completion_status.csv"
@@ -706,7 +710,7 @@ ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, co
   openxlsx::freezePane(wb, sheet, firstActiveRow = 2, firstActiveCol = 2)
 }
 
-ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows)) {
+ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows), u = ys_use_build(s)) {
   miss <- setdiff(names(s), YS_DEFINITIONS$column)
   extra <- setdiff(YS_DEFINITIONS$column, names(s))
   if (length(miss) || length(extra)) {
@@ -739,6 +743,8 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows)) {
                  bold_rows = which(so$state %in% YS_NATIONAL), styles = styles)
 
   de <- ys_detail(s, rows)
+  # SESSION 123: the hospital best estimate by use group (task 4d), appended.
+  de <- ys_detail_use(de, u)
   ys_table_sheet(wb, "Detail", de,
                  usd_cols = which(grepl("_usd$", names(de))),
                  pct_cols = which(grepl("_pct$", names(de))),
@@ -757,18 +763,23 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows)) {
     for (r in vs_nm) openxlsx::writeData(wb, "Vendor spending", YS_NM, startCol = which(names(vs) == "hospital_share_of_awards_pct"), startRow = r + 1)
   }
 
+  # SESSION 123: the "By use category" sheet.
+  ys_use_sheet(wb, u, styles)
+
   defs <- dplyr::bind_rows(
     YS_OVERVIEW_DEFINITIONS %>% dplyr::transmute(sheet = "Overview", term = column, definition),
     YS_STATUS_LABELS %>% dplyr::transmute(sheet = "Year 1 status label", term = label, definition),
     YS_DEFINITIONS %>% dplyr::transmute(sheet = "Detail", term = column, definition),
-    YS_VENDOR_DEFINITIONS %>% dplyr::transmute(sheet = "Vendor spending", term = column, definition))
+    YS_VENDOR_DEFINITIONS %>% dplyr::transmute(sheet = "Vendor spending", term = column, definition),
+    YS_USE_DEFINITIONS %>% dplyr::transmute(sheet = "By use category", term = column, definition))
   openxlsx::addWorksheet(wb, "Definitions")
   openxlsx::writeData(wb, "Definitions", defs, headerStyle = hdr)
   openxlsx::setColWidths(wb, "Definitions", cols = 1:3, widths = c(22, 36, 120))
   openxlsx::addStyle(wb, "Definitions", wrap, rows = 2:(nrow(defs) + 1), cols = 3, stack = TRUE)
   openxlsx::freezePane(wb, "Definitions", firstRow = TRUE)
 
-  n <- dplyr::bind_rows(ys_notes(s, date, rows), tibble::tibble(note = ys_vendor_notes(vt)))
+  n <- dplyr::bind_rows(ys_notes(s, date, rows), tibble::tibble(note = ys_vendor_notes(vt)),
+                        tibble::tibble(note = ys_use_notes(u)))
   openxlsx::addWorksheet(wb, "Notes and caveats")
   openxlsx::writeData(wb, "Notes and caveats", n, headerStyle = hdr)
   openxlsx::setColWidths(wb, "Notes and caveats", cols = 1, widths = 160)
@@ -909,6 +920,251 @@ ys_vendor_notes <- function(vt) {
            " sits on MIXED lines that also cover state staff or agencies (e.g. NH, KS), so not all of it is contractor money; it is shown separately and never added to the headline. Context only; each line and its quote is in cms_unnamed_contractor_lines.csv."))
 }
 
+# -- SESSION 123: USE CATEGORIES (owner direction 11-24) ---------------------------
+#
+# Every Year 1 award dollar in award_total_usd, by the RHTP activity it funds
+# (CMS's uses of funds A-K, grouped; R/utils_use_category.R, written by
+# R/11 --apply). ys_build() is NOT touched: this is a separate table, the "By use
+# category" sheet and its own CSV, and it is asserted to sum, state by state, to
+# award_total_usd (groups, MULTIPLE and NOT_STATED included) and, for the
+# HOSPITAL split, to hospital_summary_usd. So no total can move.
+#
+# ITEMS. (1) every Year 1 award row (the Accenture-flag row held out, as in
+# ys_build), at its own category, HOSPITAL where R/07 calls it HOSPITAL and it
+# is not SOURCE_SUSPECT; (2) every pool-level amount (rhtp_use_pool_items(): the
+# round figures, Georgia's initiative residuals, the R/07 pools outside the
+# files, South Dakota's in-round contracts netted at their own categories) at
+# its ROUND's category, HOSPITAL only where R/07 calls that pool HOSPITAL; (3)
+# each R/07 component, which moves its dollars from NOT_HOSPITAL to HOSPITAL
+# inside its parent row's category (a component is never re-categorised: an
+# award's dollars are never divided across categories).
+YS_USE_OUT <- function(date) file.path("data", "reference", paste0("year1_use_categories_", date, ".csv"))
+YS_USE_GROUPS <- names(RHTP_USE_GROUP_LABELS)
+YS_USE_CAPS <- c(B = 0.15, J = 0.20)
+
+ys_use_items <- function(s, files = sc_state_files(), components = NULL) {
+  if (is.null(components)) {
+    components <- readr::read_csv(here::here(YS_COMPONENTS), col_types = readr::cols(.default = "c"), progress = FALSE)
+  }
+  r <- uc_rows(files) %>% dplyr::filter(!ys_has(flag_reason, YS_EXCLUDED_FLAG)) %>%
+    dplyr::mutate(suspect = ys_has(flag_reason, "SOURCE_SUSPECT"),
+                  call = dplyr::if_else(call == "HOSPITAL" & !suspect, "HOSPITAL", "NOT_HOSPITAL"),
+                  usd = dplyr::coalesce(amount, 0), kind = "row", n_rows = 1L,
+                  item = paste0(file_key, " row ", row_no))
+  p <- rhtp_use_pool_items(files) %>%
+    dplyr::mutate(kind = "pool", n_rows = 0L, item = paste0(file_key, " pool: ", pool_key))
+  cp <- components %>% dplyr::mutate(component_usd = as.numeric(component_usd)) %>%
+    dplyr::left_join(r %>% dplyr::select(file_key, awardee, parent_call = call, use_category_primary,
+                                         use_group_primary, use_categories_all, use_category_basis),
+                     by = c("file_key", "awardee"))
+  if (any(is.na(cp$use_group_primary))) stop("[use] an R/07 component reaches no award row.", call. = FALSE)
+  if (any(cp$call == "HOSPITAL" & cp$parent_call == "HOSPITAL")) {
+    stop("[use] a HOSPITAL component sits on a HOSPITAL row; R/08 would count it twice.", call. = FALSE)
+  }
+  cp <- cp %>% dplyr::filter(call == "HOSPITAL")
+  comp <- dplyr::bind_rows(
+    cp %>% dplyr::mutate(call = "HOSPITAL", usd = component_usd),
+    cp %>% dplyr::mutate(call = "NOT_HOSPITAL", usd = -component_usd)) %>%
+    dplyr::mutate(kind = "component", n_rows = 0L, item = paste0(file_key, " component ", component_id))
+  keep <- c("state", "file_key", "kind", "item", "n_rows", "usd", "call", "use_category_primary",
+            "use_group_primary", "use_categories_all", "use_category_basis")
+  it <- dplyr::bind_rows(r[, keep], p[, keep], comp[, keep])
+  # THE ASSERTIONS: groups sum to awards published; HOSPITAL to the hospital figure.
+  chk <- it %>% dplyr::group_by(state) %>%
+    dplyr::summarise(all = sum(usd), hosp = sum(usd[call == "HOSPITAL"]), rows = sum(n_rows), .groups = "drop") %>%
+    dplyr::right_join(s %>% dplyr::filter(!state %in% YS_NATIONAL) %>%
+                        dplyr::select(state, award_total_usd, hospital_summary_usd, award_rows), by = "state") %>%
+    dplyr::mutate(dplyr::across(c(all, hosp, rows), ~ dplyr::coalesce(.x, 0)))
+  bad <- chk %>% dplyr::filter(abs(all - award_total_usd) > 0.01 | abs(hosp - hospital_summary_usd) > 0.01 |
+                                 rows != award_rows)
+  if (nrow(bad)) {
+    stop("[use] use-category items do not sum to the Year 1 table for: ",
+         paste0(bad$state, " (items $", format(bad$all, nsmall = 2), " vs awards $", format(bad$award_total_usd, nsmall = 2),
+                "; hospital $", format(bad$hosp, nsmall = 2), " vs $", format(bad$hospital_summary_usd, nsmall = 2), ")",
+                collapse = "; "), call. = FALSE)
+  }
+  it
+}
+
+ys_use_label <- function(g) unname(RHTP_USE_GROUP_LABELS[g])
+
+#' The four tables of the "By use category" sheet, and the Detail breakdown.
+ys_use_build <- function(s, items = ys_use_items(s)) {
+  allot <- s %>% dplyr::filter(!state %in% YS_NATIONAL) %>% dplyr::select(state, state_name, allotment_usd, award_total_usd)
+  classified <- function(g) !g %in% "NOT_STATED"
+  grp <- items %>% dplyr::group_by(use_group_primary) %>%
+    dplyr::summarise(rows = sum(n_rows), rows_hospital = sum(n_rows[call == "HOSPITAL"]),
+                     rows_not_hospital = sum(n_rows[call != "HOSPITAL"]),
+                     usd = sum(usd[TRUE]), .groups = "drop")
+  hs <- items %>% dplyr::group_by(use_group_primary, call) %>% dplyr::summarise(v = sum(usd), .groups = "drop") %>%
+    tidyr::pivot_wider(names_from = call, values_from = v, values_fill = 0)
+  for (cc in c("HOSPITAL", "NOT_HOSPITAL")) if (!cc %in% names(hs)) hs[[cc]] <- 0
+  national <- tibble::tibble(use_group_primary = YS_USE_GROUPS) %>%
+    dplyr::left_join(grp, by = "use_group_primary") %>% dplyr::left_join(hs, by = "use_group_primary") %>%
+    dplyr::mutate(dplyr::across(-use_group_primary, ~ dplyr::coalesce(.x, 0))) %>%
+    dplyr::transmute(use_group_primary, use_group = ys_use_label(use_group_primary),
+                     letters = vapply(use_group_primary, function(g) {
+                       l <- names(rhtp_use_groups())[rhtp_use_groups() == g]; if (length(l)) paste(l, collapse = ", ") else ""
+                     }, ""),
+                     rows, rows_hospital, rows_not_hospital,
+                     award_usd = usd, hospital_usd = HOSPITAL, not_hospital_usd = NOT_HOSPITAL,
+                     share_of_classified_pct = ifelse(classified(use_group_primary),
+                                                      award_usd / sum(award_usd[classified(use_group_primary)]), NA_real_),
+                     hospital_share_of_classified_pct = ifelse(classified(use_group_primary),
+                                                               hospital_usd / sum(hospital_usd[classified(use_group_primary)]), NA_real_),
+                     not_hospital_share_of_classified_pct = ifelse(classified(use_group_primary),
+                                                                   not_hospital_usd / sum(not_hospital_usd[classified(use_group_primary)]), NA_real_),
+                     share_of_awards_pct = award_usd / sum(award_usd))
+  national <- dplyr::bind_rows(national, national %>% dplyr::summarise(
+    use_group_primary = "TOTAL", use_group = "Total (awards published)", letters = "",
+    dplyr::across(c(rows, rows_hospital, rows_not_hospital, award_usd, hospital_usd, not_hospital_usd), sum),
+    share_of_awards_pct = 1))
+  tot <- national[national$use_group_primary == "TOTAL", ]
+  us <- s[s$state == "US", ]
+  if (abs(tot$award_usd - us$award_total_usd) > 0.01 || abs(tot$hospital_usd - us$hospital_summary_usd) > 0.01) {
+    stop("[use] national use-category totals differ from the Year 1 table.", call. = FALSE)
+  }
+  # Coverage by basis (rows count award rows; dollars include pool-level items).
+  basis <- items %>% dplyr::mutate(use_category_basis = factor(use_category_basis, RHTP_USE_BASES)) %>%
+    dplyr::group_by(use_category_basis, .drop = FALSE) %>%
+    dplyr::summarise(rows = sum(n_rows), award_usd = sum(usd), hospital_usd = sum(usd[call == "HOSPITAL"]),
+                     .groups = "drop") %>%
+    dplyr::mutate(use_category_basis = as.character(use_category_basis),
+                  confidence = dplyr::coalesce(unname(RHTP_USE_CONFIDENCE[use_category_basis]), ""),
+                  row_share_pct = rows / sum(rows), award_share_pct = award_usd / sum(award_usd)) %>%
+    dplyr::select(use_category_basis, confidence, rows, row_share_pct, award_usd, award_share_pct, hospital_usd)
+  # Coverage by state.
+  bs <- items %>% dplyr::group_by(state) %>%
+    dplyr::summarise(rows = sum(n_rows), rows_classified = sum(n_rows[use_category_basis != "NOT_STATED"]),
+                     award_usd = sum(usd),
+                     award_source_usd = sum(usd[use_category_basis == "AWARD_SOURCE"]),
+                     crosswalk_usd = sum(usd[use_category_basis == "INITIATIVE_CROSSWALK"]),
+                     purpose_text_usd = sum(usd[use_category_basis == "PURPOSE_TEXT"]),
+                     not_stated_usd = sum(usd[use_category_basis == "NOT_STATED"]), .groups = "drop") %>%
+    dplyr::mutate(classified_usd = award_usd - not_stated_usd,
+                  classified_share_pct = ifelse(award_usd != 0, classified_usd / award_usd, NA_real_),
+                  rows_classified_share_pct = ifelse(rows > 0, rows_classified / rows, NA_real_))
+  cov_state <- allot %>% dplyr::select(state, state_name) %>% dplyr::left_join(bs, by = "state") %>%
+    dplyr::mutate(dplyr::across(c(rows, rows_classified), ~ dplyr::coalesce(.x, 0L)),
+                  dplyr::across(c(award_usd, award_source_usd, crosswalk_usd, purpose_text_usd, not_stated_usd, classified_usd),
+                                ~ dplyr::coalesce(.x, 0))) %>%
+    dplyr::select(state, state_name, rows, rows_classified, rows_classified_share_pct, award_usd, classified_usd,
+                  classified_share_pct, award_source_usd, crosswalk_usd, purpose_text_usd, not_stated_usd)
+  # By state: dollars by group (wide), and the two capped letters.
+  wide <- items %>% dplyr::group_by(state, use_group_primary) %>% dplyr::summarise(v = sum(usd), .groups = "drop") %>%
+    dplyr::mutate(use_group_primary = factor(use_group_primary, YS_USE_GROUPS)) %>%
+    tidyr::pivot_wider(names_from = use_group_primary, values_from = v, values_fill = 0, names_expand = TRUE)
+  by_state <- allot %>% dplyr::select(state, state_name, award_total_usd) %>% dplyr::left_join(wide, by = "state") %>%
+    dplyr::mutate(dplyr::across(dplyr::all_of(YS_USE_GROUPS), ~ dplyr::coalesce(.x, 0)))
+  names(by_state)[match(YS_USE_GROUPS, names(by_state))] <- paste0(tolower(YS_USE_GROUPS), "_usd")
+  has <- function(x, l) grepl(paste0("(^|;)", l, "(;|$)"), x)
+  caps <- items %>% dplyr::group_by(state) %>% dplyr::summarise(
+    b_primary_usd = sum(usd[use_category_primary == "B"]), b_any_usd = sum(usd[has(use_categories_all, "B")]),
+    j_primary_usd = sum(usd[use_category_primary == "J"]), j_any_usd = sum(usd[has(use_categories_all, "J")]),
+    .groups = "drop")
+  caps <- allot %>% dplyr::select(state, state_name, allotment_usd) %>% dplyr::left_join(caps, by = "state") %>%
+    dplyr::mutate(dplyr::across(dplyr::ends_with("_usd"), ~ dplyr::coalesce(.x, 0)),
+                  b_primary_share_of_allotment_pct = b_primary_usd / allotment_usd,
+                  b_cap_pct = YS_USE_CAPS[["B"]],
+                  b_any_share_of_allotment_pct = b_any_usd / allotment_usd,
+                  j_primary_share_of_allotment_pct = j_primary_usd / allotment_usd,
+                  j_cap_pct = YS_USE_CAPS[["J"]],
+                  j_any_share_of_allotment_pct = j_any_usd / allotment_usd) %>%
+    dplyr::select(state, state_name, allotment_usd, b_primary_usd, b_primary_share_of_allotment_pct, b_cap_pct,
+                  b_any_usd, b_any_share_of_allotment_pct, j_primary_usd, j_primary_share_of_allotment_pct, j_cap_pct,
+                  j_any_usd, j_any_share_of_allotment_pct)
+  # The Detail breakdown: each state's hospital best estimate by use group.
+  hg <- items %>% dplyr::filter(call == "HOSPITAL") %>% dplyr::group_by(state, use_group_primary) %>%
+    dplyr::summarise(v = sum(usd), .groups = "drop") %>%
+    dplyr::mutate(use_group_primary = factor(use_group_primary, YS_USE_GROUPS)) %>%
+    tidyr::pivot_wider(names_from = use_group_primary, values_from = v, values_fill = 0, names_expand = TRUE)
+  names(hg)[match(YS_USE_GROUPS, names(hg))] <- paste0("hospital_", tolower(YS_USE_GROUPS), "_usd")
+  list(national = national, basis = basis, coverage_state = cov_state, by_state = by_state, caps = caps,
+       hospital_by_group = hg, items = items)
+}
+
+#' The CSV record of the sheet (long form).
+ys_use_csv <- function(u) {
+  long <- function(d, section, id) tidyr::pivot_longer(d %>% dplyr::mutate(dplyr::across(-dplyr::all_of(id), as.character)),
+                                                      -dplyr::all_of(id), names_to = "measure", values_to = "value") %>%
+    dplyr::mutate(section = section) %>% dplyr::rename(key = dplyr::all_of(id[1]))
+  dplyr::bind_rows(
+    long(u$national %>% dplyr::select(-use_group, -letters), "national_by_group", "use_group_primary"),
+    long(u$basis, "coverage_by_basis", "use_category_basis"),
+    long(u$coverage_state %>% dplyr::select(-state_name), "coverage_by_state", "state"),
+    long(u$by_state %>% dplyr::select(-state_name), "by_state_group", "state"),
+    long(u$caps %>% dplyr::select(-state_name), "provider_payments_capital_vs_caps", "state")) %>%
+    dplyr::select(section, key, measure, value)
+}
+
+YS_USE_DEFINITIONS <- tibble::tribble(
+  ~column, ~definition,
+  "use_group_primary / use group", "The owner group of the CMS use of funds (NOFO letters A-K, Section 71401 of Public Law 119-21) that the award's evidence supports: Prevention and chronic disease (A); Direct provider payments (B); Health IT and technology (C, D, F); Workforce (E); Service lines and care availability (G); Behavioral health (H); Care delivery and payment transformation (I); Capital and infrastructure (J); Partnerships and regional networks (K). MULTIPLE: the evidence spans more than one group and no source points to one. NOT_STATED: no source states the activity closely enough. Read from the ACTIVITY the award funds, never from the recipient. An award's dollars are never divided across categories.",
+  "use_category_basis", "AWARD_SOURCE (HIGH): the award document states the CMS category for the award or its round. INITIATIVE_CROSSWALK (MEDIUM): the award belongs to a named state initiative or round that the state's own plan (project abstract, budget narrative, project narrative, NOFO) ties to CMS letters (config/initiative_use_crosswalk.csv, each line quoted and archived). PURPOSE_TEXT (LOW): the award's own description, hand-read against the NOFO definition, one call per description (config/use_category_cases.csv). NOT_STATED: none applies.",
+  "award_usd / rows", "Award dollars in award_total_usd (priced rows plus pool-level round figures, each pool at its ROUND's category) and award rows. Rows count award rows only; pool-level dollars have no row. The groups, MULTIPLE and NOT_STATED included, sum to awards published (asserted state by state).",
+  "hospital_usd / not_hospital_usd", "The award dollars split by R/07's summary call, exactly as hospital_summary_usd is built: a row called HOSPITAL (not SOURCE_SUSPECT), a pool R/07 calls HOSPITAL, an R/07 HOSPITAL component (counted in its parent row's category). The HOSPITAL column sums to hospital_summary_usd (asserted).",
+  "share_of_classified_pct", "The group's dollars over all CLASSIFIED dollars (every group except NOT_STATED; MULTIPLE is classified). The hospital and non-hospital shares use the same denominator restricted to that call.",
+  "classified_share_pct (coverage)", "Classified award dollars (basis not NOT_STATED) over the state's award dollars. A low share is a statement about what the state published, never about how it spends.",
+  "b_primary / j_primary share of allotment", "PUBLISHED AWARDS ONLY, NOT THE STATE'S BUDGET. Award dollars whose primary category is B (provider payments) or J (capital), over the state's FY2026 allotment, beside the NOFO caps (B 15%, J 20% of the budget period award). b_any / j_any count every award whose evidence includes the letter, even where primary is another letter or MULTIPLE. These are not a test of compliance and no state is over a cap on this basis: caps apply to the state's whole budget, most money is not yet published, and an award carrying J among other letters is not all capital.",
+  "hospital_<group>_usd (Detail)", "The state's hospital best estimate (hospital_summary_usd) by use group, on the same items; the eleven columns sum to hospital_summary_usd.")
+
+ys_use_notes <- function(u) {
+  f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
+  b <- u$basis; n <- u$national
+  cls <- sum(b$award_usd[b$use_category_basis != "NOT_STATED"]); tot <- sum(b$award_usd)
+  c(paste0("USE CATEGORIES (session 123, owner direction 11-24). ", f(cls), " of ", f(tot), " in awards published (",
+           sprintf("%.1f%%", 100 * cls / tot), ") carry a CMS use-of-funds category on a quoted, archived source: ",
+           paste0(b$use_category_basis[b$use_category_basis != "NOT_STATED"], " ", f(b$award_usd[b$use_category_basis != "NOT_STATED"]), collapse = "; "),
+           ". The rest is NOT_STATED, which is an answer, not a gap filled by guesswork."),
+    "Use categories read the ACTIVITY an award funds, never the recipient: a hospital award is not 'service lines' because a hospital received it. Most classifications rest on the state's plan crosswalk (MEDIUM): an initiative the plan ties to several CMS letters is MULTIPLE unless the award's own text points to one. An award's dollars are never divided across categories, so MULTIPLE is a real share of the money.",
+    "Provider payments (B) and capital (J) as a share of the allotment are PUBLISHED AWARDS ONLY, not the state's budget; no state is called over a cap on this basis.")
+}
+
+ys_use_sheet <- function(wb, u, styles) {
+  sh <- "By use category"
+  openxlsx::addWorksheet(wb, sh)
+  r <- 1
+  put <- function(title, d, usd_cols, pct_cols, bold_last = FALSE) {
+    openxlsx::writeData(wb, sh, title, startRow = r)
+    openxlsx::addStyle(wb, sh, styles$bold, rows = r, cols = 1)
+    openxlsx::writeData(wb, sh, d, startRow = r + 1, headerStyle = styles$hdr)
+    rr <- (r + 2):(r + 1 + max(1, nrow(d)))
+    if (length(usd_cols)) openxlsx::addStyle(wb, sh, styles$usd, rows = rr, cols = usd_cols, gridExpand = TRUE, stack = TRUE)
+    if (length(pct_cols)) openxlsx::addStyle(wb, sh, styles$pct, rows = rr, cols = pct_cols, gridExpand = TRUE, stack = TRUE)
+    if (bold_last) openxlsx::addStyle(wb, sh, styles$bold, rows = max(rr), cols = seq_along(d), stack = TRUE)
+    r <<- max(rr) + 3
+  }
+  uc <- function(d) which(grepl("_usd$", names(d))); pc <- function(d) which(grepl("_pct$", names(d)))
+  nat <- u$national %>% dplyr::select(-use_group_primary)
+  put("1. National: award dollars and rows by use group, HOSPITAL vs NOT_HOSPITAL (R/07 summary call). Groups sum to awards published.",
+      nat, uc(nat), pc(nat), bold_last = TRUE)
+  put("2. Coverage by basis: share of award dollars and rows classified, by evidence class.", u$basis, uc(u$basis), pc(u$basis))
+  put("3. Coverage by state.", u$coverage_state, uc(u$coverage_state), pc(u$coverage_state))
+  put("4. By state: award dollars by use group (sums to the state's award_total_usd).", u$by_state, uc(u$by_state), pc(u$by_state))
+  put(paste("5. Provider payments (B) and capital (J) as a share of the FY2026 allotment, beside the NOFO caps.",
+            "PUBLISHED AWARDS ONLY, NOT THE STATE'S BUDGET: never read as a state over a cap."),
+      u$caps, uc(u$caps), pc(u$caps))
+  openxlsx::setColWidths(wb, sh, cols = 1:16, widths = c(34, 30, rep(17, 14)))
+  openxlsx::freezePane(wb, sh, firstRow = FALSE, firstCol = TRUE)
+  invisible(sh)
+}
+
+#' Append the hospital-by-use-group columns to the Detail table. The national
+#' row is the sum over the states; the US_GE50 subset row is built on state
+#' award sources only (session 111b) and carries no breakdown (empty).
+ys_detail_use <- function(de, u) {
+  hg <- u$hospital_by_group
+  cols <- paste0("hospital_", tolower(YS_USE_GROUPS), "_usd")
+  us <- hg %>% dplyr::summarise(dplyr::across(dplyr::all_of(cols), sum)) %>% dplyr::mutate(state = "US")
+  out <- de %>% dplyr::left_join(dplyr::bind_rows(hg, us), by = "state") %>%
+    dplyr::mutate(dplyr::across(dplyr::all_of(cols), ~ ifelse(state == "US_GE50", NA_real_, dplyr::coalesce(.x, 0))))
+  chk <- out %>% dplyr::filter(state != "US_GE50")
+  if (any(abs(rowSums(chk[, cols]) - chk$hospital_summary_usd) > 0.01)) {
+    stop("[use] Detail's hospital-by-group columns do not sum to hospital_summary_usd.", call. = FALSE)
+  }
+  out
+}
+
 ys_write <- function(date = format(Sys.Date(), "%Y-%m-%d")) {
   rows <- ys_rows()
   s <- ys_build(rows)
@@ -917,7 +1173,9 @@ ys_write <- function(date = format(Sys.Date(), "%Y-%m-%d")) {
   vt <- ys_vendor_build(s, rows, unnamed = unnamed)
   readr::write_csv(vt, here::here(YS_VENDOR_OUT(date)), na = "")
   readr::write_csv(unnamed, here::here(YS_UNNAMED_OUT), na = "")
-  ys_workbook(s, rows, date, here::here(YS_XLSX(date)), vt = vt)
+  u <- ys_use_build(s)
+  readr::write_csv(ys_use_csv(u), here::here(YS_USE_OUT(date)), na = "")
+  ys_workbook(s, rows, date, here::here(YS_XLSX(date)), vt = vt, u = u)
   n <- s[s$state == "US", ]
   message(sprintf("[year1 summary] wrote %s and %s: award total $%s; hospital best estimate $%s (CODED $%s + BEST_JUDGMENT $%s); strict NAMED $%s.",
                   YS_OUT(date), YS_XLSX(date), format(n$award_total_usd, big.mark = ",", nsmall = 2),

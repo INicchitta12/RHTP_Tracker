@@ -1,0 +1,2608 @@
+Project Narrative
+Rural Health Transformation Program
+Rural health needs and target population ................................................................................................................. 3
+Rural health transformation plan: Goals and strategies .......................................................................................... 7
+    Program key performance objectives .................................................................................................................... 9
+    Other required information .................................................................................................................................. 10
+        State policies ..................................................................................................................................................... 10
+        Data factors ....................................................................................................................................................... 12
+Proposed initiatives and use of funds ...................................................................................................................... 13
+    Initiative 1: Ignite innovation in Washington’s rural hospitals .......................................................................... 13
+    Initiative 2: Prevent disease and manage care in community settings ............................................................. 16
+    Initiative 3: Invest in the health of Native families ............................................................................................. 19
+    Initiative 4: Adopt technology and data solutions to enable health improvements ....................................... 20
+    Initiative 5: Develop Washington’s rural workforce to support rural communities ........................................ 22
+    Initiative 6: Expand and sustain Washington’s rural behavioral health system .............................................. 26
+Implementation plan and timeline........................................................................................................................... 29
+Stakeholder engagement .......................................................................................................................................... 36
+Metrics and evaluation plan ...................................................................................................................................... 38
+Sustainability plan ..................................................................................................................................................... 42
+Conclusion .................................................................................................................................................................. 44
+
+
+
+
+                                                                    Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                               February 2026
+
+                                                                                                                                                                    Page | 2
+Rural health needs and target population
+Washington is made up of many rural communities with a range of cultures, geographic features, needs, and
+strengths. Over 85% of Washington’s land is rural, ranging from the cluster of islands only accessible by ferry
+that make up San Juan County to the highland desert farmland of Okanogan County. 1 Washington’s rural
+communities support robust agriculture, forest products, and energy industries that bring economic vitality to
+the region. These communities and the 1.1 million people living in them, including some of the 29 federally
+recognized Tribes and their reservation lands, face persistent and growing challenges that threaten access to
+health care, system sustainability, and the overall health and wellbeing of residents. The Rural Health
+Transformation (RHT) Program offers Washington an exceptional and timely opportunity to address the pressing
+health care access and system sustainability needs of these communities and to make rural Washington healthy
+again. It is the state’s endeavor to ensure every rural resident has reliable access to quality health care in their
+communities and make rural Washington a desirable place for residents to consider home across their lifespan.
+For a summary of Washington’s rural facility and population score factors (A.1–A.7), see Table 1 in the Other
+Supporting Materials (OSM) attachment. Throughout this narrative and other supporting materials,
+Washington relies on two definitions of rural: the Federal Office of Rural Health Policy (FORHP) and the state’s
+Office of Financial Management.2 Citations make clear the definitions used to describe rural communities
+throughout.
+
+Rural Demographics
+Over one million Washingtonians live in rural areas (14.5% of the state’s population). The population-weighted
+density in rural areas is 19.75 people per square mile, compared to 662.68 people per square mile in
+Washington’s urban areas. Rural Washingtonians are older and face greater health, social, and economic
+challenges compared to their urban counterparts. By 2030, more than one in five Washington residents will be
+65 or older; this is compared to one in seven in urban areas. The trend will continue to 2040 and beyond, shown
+in OSM Figure 1. This demographic shift means rural residents are more likely to experience multiple chronic
+conditions, require long-term care, and depend on Medicare and Medicaid for coverage. Rural residents are
+more likely to lack health insurance coverage, with 8.5% of rural residents uninsured (compared to 6% in urban
+areas when population weighted). Rural Washingtonians have lower median income levels, and the most
+common employment sectors are agriculture, manufacturing, and transportation. 3 For a summary of
+demographic indicators in rural Washington, see OSM Table 2.
+
+Tribes in Washington
+Washington works in government-to-government partnership with the 29 federally recognized Tribes 4 within the
+boundaries of Washington state on topics ranging from education and health care to economic development
+and natural resource management. Tribes oversee and manage approximately 6 million acres of reservation and
+trust land across the state, with lands located in Washington’s geographically diverse rural and isolated areas.
+American Indians/Alaska Natives (AIs/ANs) experience significantly poorer health outcomes, including a
+persistent life expectancy gap, compared to the state’s general population, due at least in part to chronic
+
+
+
+
+1
+    U.S. Census Bureau. 2020 Decennial Census. U.S. Census Bureau. 2020.
+2
+ Washington Office of Financial Management: Population density and land area criteria used for rural area
+assistance and other programs
+3
+    AWB: Rural Jobs Outlook
+4
+    Tribes in Washington
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                               Page | 3
+underfunding.5 This situation necessitates strong partnerships between the state and Tribes; currently, over
+80,000 AI/AN individuals are enrolled in Washington Apple Health (Medicaid), maintaining Indian Health Service
+(IHS) as the payer of last resort.6 Importantly, the Portland IHS area (Washington, Oregon and Idaho) does not
+have any Tribal or IHS-operated hospitals, requiring reliance on non-Tribal specialty care outside of the
+reservation. Indian health care providers (IHCPs) function as indispensable anchors of the broader rural health
+system by offering comprehensive, culturally congruent care. All federally recognized Tribes in Washington are
+public health authorities,7 reinforcing their essential role as government-to-government partners in driving
+transformational rural health access.
+
+Health outcomes
+Rural residents consistently experience poorer health outcomes than their urban peers. Nearly 80% of older
+adults have at least one chronic condition, and over 75% live with two or more.8 Among rural Medicare home
+health beneficiaries, 35% manage seven or more chronic conditions, driving heavy use of hospital and
+emergency services. In all adults, those in Washington’s non-metro counties experience higher rates of
+hypertension, diabetes, cardiovascular disease, and chronic obstructive pulmonary disease; and there are
+modest differences in asthma, kidney disease, and cancer (OSM, Table 3).9
+Washington’s support of maternal and child health reflects both strengths and continued challenges. Infants
+and neonatal mortality remain relatively low (4.4 and 2.8 deaths per 1,000 live births, respectively), however
+maternal mortality rates in Washington are higher in rural than urban areas. From 2014–2020, the maternal
+mortality rate in rural Washington was 23 pregnancy-related deaths per 100,000 live births (compared to 15
+pregnancy-related deaths per 100,000 live births in urban areas).10
+Behavioral health needs in rural Washington remain urgent and unmet, with limited psychiatric providers and
+inpatient beds forcing patients to wait in emergency departments or jails. Substance use disorders, overdose
+deaths, food insecurity, lack of healthy foods, and housing shortages are also more common in rural areas,
+compounding health risks. In 2024, the statewide rate of emergency department (ED) visits for non-fatal drug
+overdose was 347 per 100,000 population. In North Central Washington (made up of the rural Okanogan, Chelan,
+Douglas, and Grant Counties), the rate was 418 per 100,000 population. 11 Overdose deaths rose in Washington
+from 2013 through 2019, and some of the highest death rates and largest increases are seen in rural counties,
+such as Mason, Yakima, Okanogan, Whitman, Franklin, Klickitat, and Kittitas, each with over a ten-fold
+increase.12 For a summary of health outcome data in Washington, see OSM Table 3.
+
+Health care access
+Rural Washington’s widely dispersed population depends heavily on a network of 39 Critical Access Hospitals
+(CAHs, many of which are public hospital districts), 3 Sole Community Hospitals, 127 Rural Health Clinics (RHCs),
+
+5
+ Northwest Portland Area Indian Health Board. American Indian & Alaska Native Community Health Profile:
+Washington State. Issued October 2024.
+6
+    42 CFR 136.61 - Payor of last resort
+7
+    45 CFR § 164.501 and WAC 246-101-010(38)
+8
+ Watson KB, Wiltz JL, Nhim K, Kaufmann RB, Thomas CW, Greenlund KJ. Trends in Multiple Chronic Conditions Among
+US Adults, by Life Stage, Behavioral Risk Factor Surveillance System, 2013–2023. Preventing Chronic Disease. 2025
+9
+ Centers for Disease Control and Prevention. Behavioral Risk Factor Surveillance System (BRFSS): Washington metro
+vs non-metro tabulations. CDC. 2023.
+10
+     Washington State Maternal Mortality Review Panel: Maternal Deaths 2017-2020
+11
+     WA Department of Health Opioid and Drug Use Data Dashboard
+12
+     UW Addictions, Drug, and Alcohol Institute. Opioid Trends Across Washington State
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                               Page | 4
+70 rural Federally Qualified Health Centers (FQHCs) and 13 rural community mental health centers (CMHCs),
+along with Indian health care providers, emergency medical services, and long-term care settings (OSM, Table
+4). Rural Washingtonians travel farther distances than their urban counterparts to access health care. A recent
+study found that rural Washington patients with Alzheimer’s traveled three times as far to see a primary care
+provider as comparable patients in metropolitan areas.13 Likewise, 61.5% of women live over 30 minutes from a
+birth hospital (compared to 15.3% in urban areas).14 Only 38.5% of CAHs currently provide obstetric services,
+and 24 of 39 no longer deliver babies. Of Washington’s 1,260 inpatient psychiatric treatment beds, only 191
+(15.6%) are located in rural counties.
+Workforce shortages make bridging these geographic gaps difficult—every county in Washington is at least
+partially considered a Health Care Professional Shortage Area (HPSA) for primary care and mental health care
+and 37 of 39 are HPSAs for dental care.15 Shortages are not slowing down given the aging nature of rural
+communities with many providers approaching retirement. Washington currently supports 465 family medicine
+residencies, but less than 10% of graduates are participating in rural communities. There are also shortages
+among nurses, behavioral health providers, and emergency medical responders.
+Lack of transportation can cause challenges for patients in rural areas to access care. For example, a 2024 report
+to the State Legislature highlighted that transportation is a significant challenge in accessing behavioral health
+and crisis services. This was especially challenging for patients and their families who needed to travel out of
+their home region because inpatient behavioral health beds were unavailable locally. 16 In our stakeholder
+engagement process, numerous providers expressed that transportation, including non-emergency
+transportation, is a hindrance to patient care and expressed interest in purchasing vehicles to provide patient
+rides and to better leveraging Emergency Medical Service (EMS) transportation service.
+
+Rural facility financial health
+Consistent with national trends, many of Washington’s rural providers are under financial strain. Between 13
+and 17 of Washington’s 39 CAHs are currently experiencing distress based on Flex Monitoring Team profitability
+indicators.17 High turnover, reliance on traveling staff, and strained emergency services threaten continuity and
+quality of care. Community Health Centers (CHCs), that are central to preventive service access for rural
+communities and low-income populations face unique challenges related to their high volumes of patient care
+and heavy public payer mix. Sixteen of Washington’s 28 CHCs operate primarily in rural counties. These served
+over 570,000 patients in 2024, of which over 75% were uninsured or insured by Medicare, Medicaid, or Children’s
+Health Insurance Program (CHIP).
+Rural hospitals face a challenging dynamic: they see a lower volume of patients relative to higher-density areas;
+the day-to-day demand for services may be low (therefore generating limited revenue on a fee-for-service basis),
+but the capacity to provide emergency labor and delivery, and other services remains integral. On average, 67%
+of patients treated at Washington’s CAHs are enrolled in Medicaid or Medicare, and a quarter of CAH’s have a
+patient mix reaching nearly 75% Medicare and Medicaid.18
+Washington’s hospitals face a mounting uncompensated care burden that continues to impact financial
+stability, especially in rural facilities with thin margins. In 2024, Washington hospitals reported $2.38 billion in
+
+13
+  Amiri S, Keffeler JI, Crain DR, Denney JT, Buchwald D. Alzheimers Dement. 2024 May;20(5):3671-3678. Epub 2024 Mar
+20. Distance to physicians among decedents with Alzheimer's disease and related dementias in Washington State.
+14
+     March of Dimes: Maternity Care in Washington
+15
+     Washington Department of Health: Data, Maps, and Other Resources
+16
+     Rural Access Study, Report to Legislature. November 2024.
+17
+     Flex Monitoring Team. CAH Financial Indicators Primer and Calculator Resources. May 2025.
+18
+     Washington State Discharge Dataset, calendar year 2024. Payer mix summary statistics for 39 Critical Access Hospitals.
+                                                 Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                            February 2026
+
+                                                                                                                   Page | 5
+uncompensated care ($838M of bad debt and $1.55B in charity care). This equaled nearly 7% of operating
+expenses and marked a 22% increase from 2023, with further growth of uncompensated care expected in 2025.
+
+Target population
+The RHT Program will help Washington’s 1.1 million rural residents across 30 counties. Particularly, the focus of
+the state’s RHT plan and funding are on the following populations:
+• Residents of rural, high need counties, aligned with the FORHP definition.
+• Frontier communities and EMS agencies in sparsely populated areas.
+• Adults in all rural areas who are aging and/or have multiple chronic conditions and face high obstacles to
+  care.
+• Families who need maternal and child health services.
+• Tribal populations who face longstanding health and access challenges.
+
+
+
+
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                            Page | 6
+Rural health transformation plan: Goals and strategies
+Vision
+We want to make rural Washington a desirable place for our residents to consider home across their lifespan. We
+endeavor to ensure every rural Washingtonian has reliable access to quality health care in their rural
+communities. The RHT Program funds will enable targeted investments aligned explicitly with the goals and
+strategies of the RHT Program: make rural Washington healthy again, sustainable access, workforce
+development, innovative care, and tech innovation. Washington will achieve rural health transformation
+through five strategic pathways.
+
+Strategy 1: Create opportunities for health in rural Washington
+Addressing improving access, improving outcomes
+RHT Program goal alignment: make rural America healthy again, sustainable access, workforce development, and
+tech innovation.
+Access to preventive care, disease management, and other health care services is central to maintaining the
+health and productivity of the state’s rural communities. To expand how and where services can be accessed,
+Washington will utilize RHT Program funding to support a range of programs:
+• Embedding health care resources in community settings (Initiative 2).
+• Investing in community workforce development for Tribes (Initiative 3).
+• Expanding access to remote services and telehealth through technology (Initiative 4).
+• Investing in nursing and family medicine education programs, including new investments in Washington’s
+  two major medical schools (Initiative 5).
+• Expanding mobile behavioral health services (Initiative 6).
+
+Strategy 2: Foster partnerships across the rural health care delivery
+system
+Addressing partnerships, financial solvency strategies, cause identification
+RHT Program goal alignment: sustainable access, innovative care, and tech innovation.
+Local and regional strategic partnerships will enable rural Washington’s health care system to thrive. Such
+partnerships can increase operational efficiency, create forums to share best practices, and identify the right
+size of health care resources in each community. Washington will tap into the expertise of existing rural health
+partnerships (The Rural Collaborative, State Office of Rural Health) to serve as a starting point for maximizing
+regional-level strategic planning, and for disseminating technologies and best practices. The state will create an
+advisory committee comprised of rural community members and providers who can lend their expertise
+towards recommendations for investments in future years of the program. Example activities under this strategy
+include:
+• Expanding the capacity and capabilities of a rural health network of independent hospitals (Initiative 1).
+• Co-designing a new payment model for low-volume rural hospitals with providers, community organizations,
+  and payers (1).
+• Expanding inter-facility EMS tracking and coordination (2).
+• Enhancing care coordination between Tribes and rural hospitals (3).
+• Building partnerships between clinical settings and educational institutions with grow-your-own training
+  programs and embedding nurse faculty into rural care settings (4).
+• Expanding multidisciplinary teams for mobile behavioral health crisis response care (6).
+
+
+
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                            Page | 7
+Strategy 3: Grow Washington’s workforce
+Addressing workforce
+RHT Program goal alignment: sustainable access, workforce development, and tech innovation.
+A robust rural health workforce is the backbone of the rural health care system. Throughout stakeholder
+engagement, Washington heard particular concern for the following essential health care providers: maternity
+services, primary care, behavioral health, long-term care workers, tribal providers, dental hygienists, and other
+mid-level providers that can help right-size the rural workforce. Washington has a history of training providers
+locally, and will build on multiple approaches to growing, supporting, and retaining rural workforce across the
+state. RHT Program investments will bolster preventive and behavioral health care access, ensure maternity
+services can be accessed within rural communities, and will leverage technology to bring high-acuity specialty
+care to rural settings that have insufficient patient volumes to retain certain provider types. These investments
+include:
+• Growing the community health and long-term care workforce (Initiative 2).
+• Supporting tribal workforce development and the Tribal Community Health Provider Program (3).
+• Increasing funding for new family medicine residencies that support Washington, Wyoming, Alaska, Montana
+  and Idaho through the University of Washington WWAMI program (5).
+• Expanding rural nurse education (5).
+• Providing recruitment and retention funds for rural opioid treatment providers (6).
+
+Strategy 4: Deploy technology and data-driven solutions to empower
+communities with healthy opportunities, increased efficiencies, and
+connectivity
+Addressing technology use, data-driven strategies
+RHT Program goal alignment: make rural America healthy again, sustainable access, and tech innovation.
+Technology and data can create opportunities to transform the rural health care delivery system and empower
+individuals to manage their personal health. Washington will use RHT Program to invest in new and emerging
+technologies to close geographic gaps in access and modernize rural health care. Investments will help support
+providers with up-front capital that is necessary and often lacking in rural communities, to transform care
+delivery and connect care settings. Each investment will translate to more efficient and higher quality patient
+care by increasing patient monitoring, bringing more specialty care access, and freeing up the time and capacity
+of rural providers to use data tools to target interventions to highest or rising risk patients. This will include
+funding for:
+• Quality performance monitoring tools and technical assistance from a rural health network to promote
+  shared learning across hospitals (Initiative 1).
+• Artificial Intelligence (AI), new data platforms, telehealth technology, cybersecurity, and remote patient
+  monitoring that can keep a patient in their home and community (1).
+• Remote care specialty services through Project Extension for Community Healthcare Outcomes (ECHO) (4).
+• AI tools to increase provider efficiency and decrease provider burden for non-hospital settings (4).
+• Consumer-facing wearables, patient monitoring and diagnostic kits (4).
+• Population health tools that allow providers to monitor quality of care and increase chronic disease
+  management (4).
+
+Strategy 5: Improve financial solvency
+Addressing financial solvency strategies, cause identification
+RHT Program goal alignment: sustainable access, innovative care.
+
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                            Page | 8
+Many independent rural hospitals across Washington state are at risk of reducing service lines or closure, in line
+with national trends. This is driven by low volume of patients, high fixed costs, payment methodologies built to
+reward volume of care, payer mix, and other challenges unique to rural areas. To address these root
+causes, Washington will use RHT funding to invest in the following:
+•   Building the capacity of a rural health network to offer shared services (Initiative 1).
+•   Co-designing a new payment model for low-volume rural hospitals (1).
+•   Using technology to increase hospital and provider cybersecurity and operational efficiencies (1 and 4).
+•   Building health care career pathways for rural residents to sustain the workforce (2 and 5).
+•   Planning to transition behavioral health facilities to the Certified Community Behavioral Health Clinic
+    (CCBHC) payment model (6).
+These critical investments will help address the root causes of financial instability in rural health care settings.
+Co-design and implementation of innovative value-based payment models will address the unique needs of low-
+volume providers and promote long-term sustainability of a transformed system beyond the five-year RHT
+Program. Likewise, technologies that enable efficiency gains and decrease administrative burden will help
+retain a highly skilled workforce.
+
+Program key performance objectives
+Washington seeks to achieve measurable progress in sustaining and advancing the rural delivery system by the
+end of the RHT Program. The state’s initiatives focus on growing the rural workforce, deploying technology,
+driving participation in innovative payment models, and increasing the ways that residents can access care.
+Washington will evaluate progress based on utilization patterns, provider uptake of new technologies,
+workforce deployment, payment model adoption, among other considerations. Tracking these metrics will
+provide unique insights into the value and effectiveness of RHT funding and help the state redistribute funding
+within the RHT plan in years three, four, and five of the program to ensure tangible improvement of health and
+access.
+The state’s measurable performance outcomes from RHT Program investments will include:
+• Drive 50% of rural hospitals to engage in an advanced payment model co-design process and 25% of rural
+  hospitals to participate in the value-based advanced payment model before the end of the RHT Program,
+• Ensure no additional rural hospitals close their obstetric units,
+• Increase mobile health utilization by 5% per year beginning in year 2 of the program,
+• Enroll 5% more community health workers per year in training to increase CHW deployment and the care
+  coordination these providers’ support,
+• Add four new clinical residencies in Washington before 2030, and
+• Support at least two new behavioral health clinics in changing to the CCBHC payment model.
+Where baseline data is unavailable or was inaccessible during the RHT application development process,
+Washington will use year one of RHT Program to develop measurable targets for the state to pursue prior to FFY
+2031. This work will include:
+• Assessing current levels of provider adoption of integrated AI and population health management analytic
+  tools and establishing a target for increased utilization to measure success of primary care and other
+  provider-side technology investments.
+• Assessing current utilization of consumer-facing wearables amongst rural patient populations and
+  establishing targets for measurable increases in utilization; and
+• Establishing measurable targets for increasing utilization of telehealth services for at least three service
+  types before the end of 2029, to assess provider-uptake of telehealth following behavioral health and
+  technology related investments.
+
+
+                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                        February 2026
+
+                                                                                                             Page | 9
+By the end of the RHT Program, through metrics tracking and reporting, the state will be able to show how the
+investments in Washington bolstered the rural workforce, advanced the deployment of technology, sustained
+access to tribal health care, increased mobile supports, and increased access to behavioral health services. The
+state will seek to ensure these funds allow people to stay in their rural communities through their lifespans and
+sustain the vitality of Washington’s rural economy.
+
+Other required information
+State policies
+Washington has made numerous commitments to creating expansive access to health care and a flexible
+regulatory environment for providers and patients. The state has taken or is contemplating the following
+regulatory steps that align with the RHT Program’s state policy action technical scoring factors.
+
+B.3. SNAP Waivers
+Washington restricts using SNAP benefits for certain items that may meet the RHT Program’s definition of “non-
+nutritious,” such as tobacco products, alcoholic beverages, food or drinks with controlled substances, and hot
+ready-to-eat foods such as hot dogs or pizza. Since 2015, the state has partnered with the U.S. Department of
+Agriculture and local and private entities to administer a Fruit and Vegetables Incentives Program, which helps
+Washington families afford healthy produce. The program includes:
+• Match funding for shoppers at participating farmers markets and farm stands,
+• Prescriptions at select health care sites which patients use to buy fruits and vegetables, and
+• Distribution of coupons to save on fruit and vegetable purchases when a SNAP customer purchases fresh
+  produce at a participating grocery store.19
+
+B.4. Nutrition Continuing Medical Education
+Physicians licensed in Washington must complete 200 hours of continuing medical education (CME) every four
+years.20 The state has no current requirements that CME include nutrition as a component but is exploring
+regulatory steps to incorporate nutrition into CME requirements in future years.
+
+C.3. Certificate of Need
+Washington values the role of Certificate of Need (CON) in controlling costs while supporting access to critical
+facilities and services. The appropriate score for Washington based on the Cicero State Rankings Report is
+60. Cicero gives Washington a score of 100 in its report5 based on a 2013 small business economic impact
+analysis related to CON definitions, which contains several factual inaccuracies for Washington:
+• Washington CON does not regulate outpatient behavioral health facilities.
+• Washington CON does not regulate ancillary services.
+• Washington CON does not regulate imaging services.
+• Washington CON does not regulate substance addiction treatment centers, clinical labs, central services, and
+  acquisition of major medical equipment. WA discontinued regulation of major medical equipment in the
+  1990s.
+• Washington CON does not regulate day services for home health agencies.
+Of note, Washington factors in nursing-home-comparable home and community based long-term care capacity
+in determining unmet need for additional nursing home beds. This ensures that access to community residential
+and in-home care are a part of determining when additional nursing home beds are needed in the state. In
+
+
+
+19
+     Washington State Department of Health. Washington’s Fruit and Vegetable Incentives Program.
+20
+     Washinton State Department of Health. Physician and Surgeon (MD) Continuing Education Requirements.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                             Page | 10
+addition, Washington just completed a comprehensive review of the CON program in July 2025 with
+recommendations to enhance and improve the program in future years. 21
+
+D.2. Licensure Compacts
+Washington was an early adopter of interstate licensure compacts. The state actively participates in several
+compacts, including:
+•     Interstate Medical Licensure Compact—RCW 18.71B
+•     Interstate Nurse Licensure Compact—RCW 18.80
+•     Psychology Interjurisdictional Compact—RCW 18.83A
+•     Physician Assistant Licensure Compact—RCW 18.71C
+•     Physical Therapy Licensure Compact—RCW 18.74.500
+•     Social Worker Licensure Compact—RCW 18.321
+•     Occupational Therapy Licensure Compact—RCW 18.59.180
+While Washington does not currently participate in the EMS Compact, the state recognizes that compacts
+improve provider mobility and patient access to critical services. The state will continue to explore participation
+in additional compacts in future years.
+
+D.3. Scope of Practice
+Washington believes in allowing health care providers to practice to the bounds of their training, when
+supported by their education and skills. Washington’s national leadership in this space has broadened access to
+services in rural communities, lowered costs of care, and freed capacity of the most skilled professionals to
+serve higher-acuity patients. Washington’s scope of practice for individual professions is as follows:
+• Physician Assistants—Advanced, according to AAPA7
+• Nurse Practitioners—Full Scope of Practice, according to AANP8
+• Pharmacists—Score of 4, according to Cicero Institute9
+      o While pharmacists do not have the ability to independently prescribe in Washington, they do have
+        prescriptive authority for legend drugs and controlled substances through collaborative drug therapy
+        agreements.10
+• Dental Hygienists—Can provide five of eight allowable tasks, according to the Oral Health Workforce
+  Research Center (OHWRC)11
+      o OHWRC lists Washington as one of only 10 states with an Excellent rating.
+      o Washington has taken other steps to expand access to dental services such as licensure of Dental
+        Therapists.
+• Long-Term Services and Supports workers can be delegated 21 of 21 health maintenance tasks under
+  training and supervision of registered RNs according to AARP LTSS Scorecard.
+
+E.3. Short-term limited duration insurance
+Washington permits short-term health plans. Current rules went into effect in January 2019 and limit the total
+duration, including renewals, to three months.22
+
+
+
+
+21
+  Washington State Department of Health. Certificate of Need Program Health Systems Quality Assurance. Report to
+the Legislature: “Certificate of Need Modernization.” July 2025. Chapter 376, Laws of 2024, Sec.222(138).
+22
+     Washington Office of the Insurance Commissioner. What you need to know about short-term medical plans.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                             Page | 11
+F.1. Remote care services
+Washington is broadly supportive of expanding access to remote care and telehealth services. Washington
+reimburses (and has required commercial insurers reimburse) live video, store-and-forward, remote patient
+monitoring, and audio-only telehealth.23
+
+Data factors
+Factor A.2. Certified Community Behavioral Health Clinics
+Washington has 12 active Certified Community Behavioral Health Clinics as of September 1, 2025. A complete
+list of entities is in OSM, Table 5.
+
+Factor A.7. Disproportionate Share Hospital (DSH) payments
+Washington had 43 hospitals receive Disproportionate Share Hospital (DSH) payments in SFY2023 (measured in
+FY2025). A complete list of the hospitals is in OSM, Table 6.
+
+
+
+
+23
+     Center for Connected Health Policy
+                                          Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                     February 2026
+
+                                                                                                         Page | 12
+Proposed initiatives and use of funds
+Initiative 1: Ignite innovation in Washington’s rural hospitals
+Under the RHT Program, Washington has a unique opportunity to work with rural hospitals to develop new and
+innovative business models. New technology, new forms of cooperation, and payment models that align
+incentives to health and wellbeing will enable sustainable access to hospital care. This initiative will help
+support rural facility financial health and improve access.
+
+Activities
+1.1 Expand a rural health network.
+Washington proposes utilizing $5–6 million per year of RHT Program funds to strengthen a rural health network.
+The Rural Collaborative (TRC) is a network of 30 independent public hospitals in Washington. Formed in 2003,
+TRC has a shared governance model that allows its members to act collectively while maintaining local
+autonomy—independence through interdependence. TRC supports shared staffing, peer learning, group
+purchasing, joint contracting, and quality improvement initiatives. 24 Funds from RHT Program will help TRC
+create greater efficiencies and broaden the pathway for hospitals to participate in value-based care
+arrangements.
+TRC will use sub-awarded RHT Program funds to invest in three critical areas of network development that TRC
+member hospitals have declared are necessary to more effectively serve their patients. First, TRC will build
+capacity to support improved revenue cycle management, including leveraging common revenue cycle
+technology and providing root cause analysis and benchmarking to achieve improved revenue cycle outcomes
+across all network members. TRC will also develop a peer-to-peer learning network to cultivate partnerships
+across the network. Second, TRC will create more access to care and improve the value of clinical care by
+enabling TRC members to adopt new technology such as tools for remote patient monitoring, point-of-care
+imaging and decision-making, and shared diagnostic tools, and AI tools to reduce administrative burden (like
+charting and scheduling). Third, TRC will implement shared tools and resources that allow the rural health
+network to act like an integrated system and increase operational efficiencies. These include the following:
+quality reporting tools, payer performance monitoring, business development analysis, analyzing and
+disseminating best practices, and shared staff in key operational and clinical roles (billing and coding
+professionals, information technology support, and certain clinical specialists).
+
+1.2. Co-design a payment model for long-term sustainability.
+Washington proposes to use $2–3 million per year in RHT Program funds to bring payers and providers together
+to co-design value-based payment (VBP) models that promote long-term sustainability of essential services,
+improvements to health outcomes, quality, and efficiency of care. Such payment models will require payers and
+providers to more intentionally share financial risk and accountability to ensure rural residents can access high
+quality care within a sustainable rural health infrastructure.
+The state has significant experience striving towards value-based care. For nearly a decade, HCA has
+incentivized VBP adoption for both Medicaid managed care organizations (MCOs) and commercial carriers that
+cover state employees. Roughly 80% of the state’s health care spending for these clients is tied to some kind of
+quality performance expectation.25 The state participated in the Center for Medicare and Medicaid Innovation’s
+Community Health Access and Rural Transformation (CHART) Model and the Making Care Primary Model.
+Washington’s payers and providers know that alternative payment models have the potential to financially
+
+
+24
+     The Rural Collaborative.
+25
+     HCA, Tracking success of value-based purchasing.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                             Page | 13
+sustain services and improve clinical provider satisfaction by aligning incentives towards maximizing health
+instead of service volume.
+Washington proposes engaging the Rural Health Redesign Center (RHRC) to support the payment model
+design.26 RHRC supported the design and implementation of the Pennsylvania Rural Health Model (PARHM), a
+two-sided risk model. RHRC will facilitate payers and providers to define essential services, shared goals, and
+alternative payment frameworks to ensure sustainability.
+RHRC will support hospitals to evaluate their financial performance under an alternative payment model to
+assess the best options for their sustainability, as well as define community-driven transformation approaches.
+Washington aims to have the co-designed payment model fully developed and adopted for Medicaid clients
+before the end of the RHT Program. Additionally, the state would explore incentives for commercial payers to
+adopt the model within the RHT period.
+Additionally, RHRC will help hospitals assess alternative organizational structures, like the Rural Emergency
+Hospital (REH) designation, to see if this federal designation would sustain hospitals with low inpatient
+utilization. Washington will work with RHRC to assess if there is an opportunity for a fixed payment
+infrastructure for non-Medicare beneficiaries like what the Medicare REH program provides to hospitals seeking
+this designation.
+
+1.3 Invest in critical technology infrastructure and maintenance needs.
+Low-volume, rural hospitals often struggle to make investments in expensive infrastructure that require
+significant one-time expenditures or ongoing time and cost. Some rural hospitals have begun investment in
+ambient artificial intelligence (AI), clinical data intelligence, and bot automation AI usage, through support of
+vendors that include Spheregen, Oracle, and Microsoft. However, in a 2025 survey conducted by the Washington
+State Hospital Association, over 80% of rural providers reported that insufficient funding prevents them from
+upgrading IT infrastructure or investing in new technologies. Under this initiative, Washington proposes to use
+$32–42 million per year in RHT Program funds to support critical investments in AI, cybersecurity, revenue cycle
+management, and governance to sustainably improve hospitals’ efficiency and capacity.
+Washington proposes to create an infrastructure fund to invest in enabling technologies and critical
+maintenance needs. The fund will focus on technological advancement. Hospitals may use funds to invest in AI
+tools, data platforms, population health tools, improved telehealth and remote patient monitoring tools, and
+cybersecurity technologies, services, and training (like Microsoft’s Rural Health Resiliency program27). Adopting
+burgeoning technologies like AI can help hospitals streamline operations, reduce administrative burden, and
+improve their revenue and cost management. Hospitals may also use infrastructure funds to support critical
+facility maintenance that addresses aging infrastructure and ensures long-term sustainability of these essential
+community buildings.
+The Washington State Hospital Association (WSHA) will administer the infrastructure fund. WSHA is best
+positioned to support hospitals to identify critical infrastructure needs that RHT Program funds can address.
+WSHA can also, when appropriate, negotiate favorable business arrangements for the purchase of technologies
+and technical assistance. The state will direct the allowable uses of funds, program expectations, monitoring,
+and reporting requirements in alignment with the RHT Program Cooperative Agreement and NOFO.
+
+1.4. Sustain and strengthen maternal, emergency, and specialty services at risk in
+rural areas.
+Washington proposes to use approximately $10–12 million per year in RHT Program funds to incentivize
+hospitals to develop comprehensive strategies to sustain and maintain essential services—including maternity
+
+26
+     The Rural Health Redesign Center.
+27
+     Microsoft. Rural Health Resiliency.
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                           Page | 14
+and obstetrics care, emergency services, and other specialty care. For example, a hospital may request funds to
+support developing remote monitoring capabilities for low-risk pregnancies, paired with capacity payments for
+midwives and birth centers located in rural areas. Incentive funds would support start-up and implementation
+costs for hospitals and would require a long-term sustainability plan. Multiple sub-awardees will be selected
+through a request for proposals and a competitive review process, as described in the implementation plan.
+Awards will be based on financial and community need, readiness, sustainability plans, alignment with value-
+based care, community partnerships, and innovation. All awards will adhere to federal and state procurement
+and reporting requirements.
+
+Other considerations
+As described in the background section, Tribes in Washington are central to the state’s rural regions. Washington
+will ensure that Tribes have an opportunity to engage in activities of The Rural Collaborative and the payment
+model design efforts, and the state will ensure that the activities in this initiative benefit Tribal members.
+Washington will also ensure rural hospitals that serve a higher percentage of Native Americans engage in
+Initiative 1 activities.
+Infrastructure funds (primarily technology investments) in Initiative 1.3 will focus on rural hospitals. Washington
+will be mindful of the interactions between the infrastructure fund used for this initiative and the provider
+technology fund (4.2) to coordinate and maximize investments. Infrastructure fund spending (1.3) will comply
+with all funding limitations specified in the NOFO. Infrastructure spending will be limited to permissible
+renovations or alterations and will not exceed spending limit. The process for selecting subcontractors is
+described in the implementation plan.
+Washington intends to offer financial incentives to improve access to maternity care and obstetric services
+(Initiative 1.4). This incentive program will be supported by our workforce recruitment and retention efforts
+(Initiatives 5.1 and 5.5). The program will be compliant with limits to provider payments specified in the NOFO.
+
+Table 1: Initiative 1 supporting detail
+ Main strategic goal          Make rural America healthy again, sustainable access, innovative care, tech
+                              innovation
+ Uses of funds                D, F, G, I, J, K
+
+ Technical score factors      B1, C1, C2, E1, F1, F2
+ Key stakeholders and         Washington’s rural hospitals, sovereign Tribal nations, the WSHA, TRC, State
+ partners                     Office of Rural Health, Microsoft
+ Outcomes                     • Increase hospital operating efficiency
+                              • Increase availability of maternity and obstetric services
+                              • Increased participation of Washington’s rural payers and providers in value-
+                                 based payment models
+                              • Increased participation of Washington’s rural hospitals in regional provider
+                                 collaboratives or integrated care networks
+ Impacted counties            • Washington will offer these activities for all providers in a rural area, following
+                                 the guidance of the Federal Office of Rural Health Policy (FORHP).
+                              • FORHP designates 22 Washington counties that are “fully rural,” and 17
+                                 counties that are “not fully rural.” The list of counties is in OSM, Table 7.
+ Estimated required           $60–61 million per year
+ funding
+
+
+
+
+                                                 Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                            February 2026
+
+                                                                                                                Page | 15
+Initiative 2: Prevent disease and manage care in community
+settings
+Under this initiative, Washington will use RHT Program investments to build and expand programs and
+workforce in settings outside the walls of clinical systems. Rural residents will be able to access the right level of
+care at the right time, delivered by the right provider in cost-effective ways that take pressure off clinical
+systems. The state will augment community-based mobile health, technology, community-based workforce,
+and emergency medical services to engage people in prevention early, connect them to services for social
+needs, care for them as they age, and transport them efficiently to clinical settings when they need acute care.
+
+Activities
+2.1. Expand the community-based workforce.
+Through the RHT Program, Washington will invest resources to increase opportunities and remove obstacles for
+workforce to support rural residents outside of clinical settings.
+First, Washington proposes using $2–4 million per year of RHT Program funds to increase training and hiring
+opportunities for community health workers (CHWs). Washington will add modules for training related to rural
+health, telehealth, and digital navigation to the existing CHW learning management system (LMS). Digital
+navigation services can provide support to community members in accessing their virtual appointments,
+completing any tech-related set-up, and accessing low-cost internet services. Washington will expand capacity
+in the CHW LMS to increase the number of training slots available and recruit staff like pharmacy technicians to
+receive CHW training. The state will provide stipends to rural hospitals to include CHWs and digital navigators in
+care planning. Washington will also embed this community-based workforce into an existing infrastructure that
+includes rural social care networks, a WA 211 call center, and a developing community information exchange
+(CIE) system. Washington may consider opportunities to support this burgeoning CIE system, which is slated to
+launch in 2027 under the Medicaid Transformation Project 2.0 (via 1115 waiver authority). The state will consider
+using RHT Program funds to target technical assistance and training for rural providers and community-based
+workers to maximize the use of the CIE to document patient encounters and to enable coordination across the
+health care system.
+Second, Washington proposes using $4 million per year of RHT Program funds to invest in removing obstacles
+for aspiring long-term care workers (LTCWs) to complete testing after training by embedding testing into
+training sites in rural areas. Currently, only 21% of the total long-term care workforce in Washington (including
+personal care aides, home health aides, and nursing assistants) are in rural counties. Aligning training and
+testing sites will reduce rural workers’ need to travel long distances to complete certification steps. It will also
+increase completion rates, reducing vacancies and turnover of these essential workers. The state successfully
+piloted the embedded testing and will use funding to expand to all training sites statewide. Washington will also
+invest in CareLearn, a LMS platform that allows LTCWs to take continuing education classes so they can
+maintain certification in a way that is convenient for them, improving staff retention.
+
+2.2 Expand dementia resources and build dementia capable communities.
+Washington recognizes that rural areas are experiencing the steepest aging trends in the state. The state
+proposes investing $3–4 million per year of RHT Program funds in the Building Dementia Capable Communities
+(BDCC) program, developed as a pilot by Area Agencies on Aging (AAA) to enhance the support network for
+people living with dementia and their caregivers.28 A recent evaluation of the BDCC pilot identified positive
+impacts such as expansion of early-stage dementia support availability, enhanced professional knowledge and
+capacity, and strengthened community partnerships. These resources will broaden the services currently
+offered in three existing AAAs and expand the availability of dementia support services and competencies to ten
+
+28
+     Building Dementia Capable Communities.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                              Page | 16
+new AAAs, develop professional training programs, create new community partners, and increase community
+awareness around dementia resources (like Amy’s Place).29
+
+2.3 Expand EMS inter-facility transport and support for trauma designated facilities
+in rural communities.
+Washington proposes using $3–4 million per year of RHT Program funds to modernize EMS and transport
+services and strengthen regional transfer agreements, reducing delays for trauma, cardiac, stroke, and other
+time-sensitive emergencies. Increased funding would allow the state to leverage the Washington Medical
+Coordination Center (WMCC) infrastructure and existing data systems (WA Health, WATrac) to support bed
+tracking and coordination and a statewide interfacility (IFT) component. The strategy builds capacity within
+rural EMS systems by exploring a statewide EMS contract to reimburse long-distance rural transfers, define
+qualifying criteria, and establish funding models that strengthen rural EMS sustainability through contracts with
+EMS agencies.
+
+2.4. Triage individuals, families and caregivers in rural areas to the appropriate level
+of services and care in their neighborhoods.
+Guiding residents to what they need, when they need it, close to home is a cost-effective way to improve health
+in rural communities. Washington proposes using $6–7 million per year of RHT Program funds for this initiative’s
+activities.
+First, the state will use RHT Program funds to expand mobile health services to promote prevention,
+disseminate critical health information, and conduct outreach, providing access to isolated communities and
+helping individuals better prevent or manage chronic conditions. Washington will expand current mobile health
+capacity (Department of Health’s Care-A-Van (CAV) program, DSHS’s AAA Mobile Assistance Van program) to
+connect residents with chronic disease screening and self-management programs, naloxone and opioid
+prevention education, mental health screening, dental services, telehealth referrals, and consumer wearables.
+Increasing the number of vans in rural communities will allow for expansion to additional services such as
+maternity supports, meal delivery, or transportation of residents to appointments.
+Second, Washington will use existing community gathering spaces like senior centers, churches, schools and
+libraries into family and community engagement hubs to support health. These organizations can serve as
+places for people to:
+• Learn and receive support on health issues via evidence-based programs such as falls prevention; Chronic
+  Disease Self-Management Education; Program to Encourage Active, Rewarding Lives; and Silver Sneakers;30,31
+• Receive support on using technology from a company like GetSetUp to support senior health and wellness;32
+• Receive health screenings, digital wearables, and social services from care coordinators;
+• Access providers in person or via telehealth or mobile health; and
+• Receive caregiver supports and address social isolation.
+These spaces offer strong collaboration and programing opportunities with infrastructure to recruit and train
+volunteers and to establish places for medical, rehabilitative, and behavioral health professionals to monitor
+and work with community members creating sustainable funding sources for rural providers. Funding will
+
+
+
+
+29
+     Amy’s Place | Dementia Support NW
+30
+     Evidence-Based Chronic Disease Self-Management Education Programs.
+31
+     Program to Encourage Active Rewarding Lives (PEARLS)
+32
+     Live classes for older adults- GetSetUp
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                              Page | 17
+purchase technology to connect to telehealth and supply and support use of small digital devices; outreach and
+engagement; education materials; and workshop facilitation.
+Third, the state will increase access to WA 211 for rural counties. WA 211 is a free, confidential helpline that
+connects individuals and families to local community services and operates in concert with 988 (for behavioral
+health services), 911 (for emergency services) and Community Care Hubs in Accountable Communities of
+Health33 for care coordination. Funding will increase rural counties’ access to WA 211 services to triage callers to
+the right services and level of care before issues become crises. This includes increasing knowledge in
+communities about the service through engagement and communications; strengthening the digital resource
+directory entries for rural counties; and recruiting, hiring and training community resource specialists from rural
+counties to reach people who may experience challenges to accessing services. Capturing this data about calls
+from rural county residents will help provide an early indicator of community needs and gaps.
+
+Other considerations
+Sub-awardees for Initiatives 2.1, 2.3, and 2.4 will be selected through a competitive review process, as described
+in the implementation plan. Awards will be based on community need and partnerships, evidence-based
+activities, readiness, and sustainability plans. All awards will adhere to federal and state procurement and
+reporting requirements.
+Community workforce recruitment and training (2.1) will focus primarily on CHWs and digital navigators. We will
+be mindful of interactions between this initiative and other workforce recruitment efforts (5.4, 5.5). The process
+for selecting subcontractors is described in the implementation plan. RHT Program funding for CHWs (2.1) will
+not replace insurance coverage or increase payment amount from source of insurance coverage; rather, funding
+will focus on recruitment and training. In addition, RHT Program funds used to add digital navigation-specific
+training to CHW training modules (2.1) will only cover the development of specific, new content. They will not
+duplicate existing Department of Health (DOH) funding sources. Washington will work closely with its advisory
+committee and community-based worker associations to ensure RHT Program funds match community needs.
+
+Table 2: Initiative 2 supporting detail
+     Main strategic goal       Make rural America healthy again, tech innovation
+     Uses of funds             A, C, E, G, I, K
+
+     Technical score factors   B2, C2, E2, F1, F2, F2, F3
+     Key stakeholders and      State agencies, sovereign Tribal nations, State Office of Rural Health, local health
+     partners                  departments, community-based workers (community health workers, long-term
+                               care workers, home health aides, community health aides), schools, libraries,
+                               senior centers, community members, family caregivers, social care organizations,
+                               Area Agencies on Aging, SEIU 775 Benefits Group, health care delivery system
+                               partners and payers, EMS providers, WA 211
+     Outcomes                  • Increase the number of trained community-based providers
+                               • Reduce testing wait times and increase certification pass rates for Long Term
+                                 Care Workers
+                               • Increase health outcomes for people living with dementia and support for their
+                                 caregivers
+                               • Increase the number of preventative and telehealth services delivered through
+                                 mobile health
+                               • Increase utilization of WA 211
+
+
+33
+     HCA. Community Care Hub Referral Pathways.
+                                                  Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                             February 2026
+
+                                                                                                                 Page | 18
+                              • Reduce wait times for EMS through modernization and strengthened regional
+                                 transfer agreements
+     Impacted counties        Systems approaches such as access to training for community-based staff,
+                              augmentation of WA 211, CAV and EMS will scale up to impact all rural counties.
+                              Investments into community-based settings and programs will be made in limited
+                              counties, to be determined.
+     Estimated required       $18–19 million per year
+     funding
+
+
+Initiative 3: Invest in the health of Native families
+The state will reserve a portion of the RHT Program funds for sovereign Tribal Governments to make critical
+investments to improve the health and wellbeing of Native families. Washington proposes using $19 million per
+year in RHT Program funds to invest in the health of Tribes.
+
+Activities
+3.1. Invest in Native workforce.
+Individual Tribes in Washington have begun providing Native support for Native families, especially as they must
+navigate non-Tribal health systems off reservation. RHT Program funds would support training and hiring of
+Community Health Representatives (CHRs), doulas, care coordinators/case managers, behavioral health
+aides/practitioners (BHA/P) or community health aides/practitioners (CHA/P) based on the individual needs of
+each Tribe.34 A home-grown workforce is vital for Native communities, as providers unfamiliar with the
+community and the complex Indian health care delivery and payment system, the challenges of pregnancy and
+birthing in rural Washington, or navigating specialty care from a reservation often fail to meet the needs of
+Native families. RHT Program funds will expand these workforce programs, such as the Tribal Community Health
+Provider Program, systematically, so every Tribe has the opportunity to develop a program to support Native
+families through accessing care on and off the reservation.35
+
+3.2 Establish care coordination agreements as the foundation for strategic
+partnerships.
+State Health Official Letter #16-002, Re: Federal Funding for Services “Received Through” an IHS/Tribal Facility
+and Furnished to Medicaid-Eligible American Indians and Alaska Natives, provides the opportunity to build
+strategic partnerships between Tribes and local hospitals with written care coordination agreements. This is
+critical to Tribes, as there are no IHS hospitals or hospitals owned by Tribes in Washington, Idaho or Oregon (IHS
+Portland Area). Per the referenced SHO letter, there are specific requirements regarding care coordination
+agreements and, under the RHT Program, Tribes and rural hospitals, with support from Washington, will go
+beyond those requirements. Written care coordination agreements between the Tribes and rural hospitals will
+create clear expectations around discharge planning, follow-up care, exchange of health information and
+expectations should there be an emergency. Funds would support the expansion of these care coordination
+agreements so that every Native encounter at a hospital in the state falls under such an agreement. The
+relationships built between Tribes and hospitals in developing these written care coordination agreements will
+also serve as the foundation for Tribes to be engaged in Initiative 1 of Washington’s RHT Program, as
+Washington discusses alternative payment methodologies involving Tribes and hospitals.
+
+
+
+34
+     Health Aides of Alaska
+35
+     Tribal Community Health Provider Program
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                           Page | 19
+3.3. Investments to support health information exchange (HIE).
+Part of successful and meaningful care coordination is the ability to electronically exchange information. Tribes
+across the state are constantly contending with different electronic health record (EHR) and HIE programs, some
+of which are proposing new EHR solutions, such as the IHS Health IT Modernization Program, and some of which
+are about exchanging information, such as Washington’s community information exchange efforts. RHT funding
+will augment initiatives already underway, as well as advance new technology related to remote care or provide
+needed investment for Tribes to access additional technological support.
+
+Other considerations
+Tribes are central to delivery of rural health care services in Washington, as there are parts of the state where the
+Tribe is the only primary care provider. This makes investment in Tribes critical to the overall success of
+Washington’s RHT Program. Tribes will be engaged as partners throughout Washington’s RHT Program and may
+be eligible for funding under other applicable initiatives. Washington will partner with the Tribes to ensure that
+funding is not duplicated across existing programs or across initiatives. The process for selecting subcontractors
+is described in the implementation plan.
+
+Table 3: Initiative 3 supporting detail
+ Main strategic goal          Make rural America healthy again, sustainable access, workforce development,
+                              innovative care, tech innovation
+ Uses of Funds                B, E, F, K
+
+ Technical score factors      C.1, D.1, F.2
+ Key stakeholders and         Tribal Nations, Indian health care providers, health care providers that serve
+ partners                     Native American/Alaska Native clients, Governor’s Indian Health Advisory Council
+                              (GIHAC), American Indian Health Commission (AIHC), Northwest Portland Area
+                              Indian Health Board (NPAIHB).
+ Outcomes                     • Increase Tribes with the appropriate staff to support Native families through
+                                 accessing care off reservation, including working with hospitals during
+                                 inpatient stays
+                              • Increase the number of Tribes participating in the Tribal Community Health
+                                 Provider Program
+                              • Increase the number of care coordination agreements between Tribes and
+                                 hospitals to support discharge planning and follow-up visits
+                              • Increase care coordination through expanded utilization of electronic
+                                 information exchanges
+ Impacted Counties            • Washington will offer these activities for all providers in a rural area, following
+                                 the guidance of the FORHP.
+                              • FORHP designates 22 Washington counties that are “fully rural,” and 17
+                                 counties that are “not fully rural.” The list of counties is in OSM, Table 7.
+ Estimated required           $19–20 million per year
+ funding
+
+
+Initiative 4: Adopt technology and data solutions to enable
+health improvements
+The technology investment initiative will provide start-up funding and technical assistance for new, emerging,
+and proven technologies that can increase efficiency, access, and quality in Washington’s rural health care
+system.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                             Page | 20
+Activities
+4.1. Project ECHO.
+Washington proposes to use $4 million per year of RHT Program funds to expand existing remote care service
+and provider mentorship/education offered through Project ECHO.36 The University of Washington (UW) School
+of Medicine’s Project ECHO program offers a multidisciplinary tele-monitoring and education platform for
+Washington clinicians. UW Project ECHO currently offers health care ECHO programs that help providers deal
+with complex and specialized patient issues (dementia, chronic disease, etc.), infectious diseases, psychiatry
+and behavioral health, and intellectual and developmental disabilities. RHT Program funds will enable the
+expansion of existing ECHO programs (e.g., implementation in additional clinics or health care facilities) and the
+addition of new ECHO programs, such as perinatal psychology, chronic kidney disease, and chronic respiratory
+disease.
+
+4.2. Provider technology fund.
+Washington proposes using $15 million per year of RHT Program funds to create a provider technology fund
+under the RHT Program that will enable providers to sustainably expand access to high quality care. Providers
+may qualify for funds to purchase new technologies (or to obtain technical assistance for those technologies) to
+improve operational efficiencies, enable remote services (including telehealth and remote patient monitoring),
+and achieve improvements in population health via data and analytics.
+First, the technology fund will support rural practices investing in up-front costs for integrating technology that
+support sustainable operational improvements. For example, providers could use funds to integrate AI tools into
+the administrative components of hospital and clinic workflows. This may include ambient listening, charting,
+appointment scheduling, note generation, claims processing, communication, and generating reports. AI-
+powered analytics will also promote financial stability by enabling hospitals to identify and recover
+underpayments and support proactive contract modeling and forecasting. Washington may leverage the
+experience of The Rural Collaborative members to recommend vendors and services that have proven effective
+and will use regional collaboratives to disseminate learnings about best practices during the RHT Program.
+Second, the technology fund will invest in strategic, state-wide telehealth and remote monitoring services that
+bring expertise to rural communities, regardless of provider location. Telehealth expansion will enable
+accessible specialty care, including behavioral, perinatal, and palliative care. This may involve hub-and-spoke
+models and technical assistance for providers and non-clinical staff on telehealth best practices, such as Link to
+Care WA.37 Potential partners will include the University of Washington Medicine’s eConsult program and private
+telehealth companies, many of which have experience with Washington’s providers and in rural areas. The
+targeted technology fund will also support rural practices investing in the up-front costs to enable remote
+patient monitoring, including consumer-facing technologies like wearable devices and home diagnostic
+screening and testing kits. These technologies will promote chronic disease prevention and escalation,
+monitoring of OB patients, proactive provider intervention, family caregiver support, and increased awareness
+of health status.
+Lastly, the provider technology fund will invest in providers’ data infrastructure to enhance population health
+analytics, quality performance measurement, and monitoring. This data infrastructure will also support closed-
+loop referrals and improve partnerships between the health care system and community organizations (like the
+Family Caregiver Learning Portal).38
+
+
+
+36
+     University of Washington Medicine. UW Medicine Project ECHO. UW Medicine. 2025.
+37
+     Link to Care WA
+38
+     Family Caregiver Learning Portal
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                             Page | 21
+Other considerations
+The provider technology fund (4.2) will focus on non-hospital rural health providers, unless the funds support a
+collaborative of providers that may include a hospital. Washington will be mindful of interactions between the
+technology fund used for this initiative and the hospital infrastructure fund (1.3) to coordinate and maximize
+investments. Technology funds may be used for up-front costs of purchasing and licensing technology tools,
+technical assistance to support use of and billing for services with new technology, and other coordination. If
+technical assistance is delayed, it is possible that providers' ability to leverage technology effectively will be
+slowed. Provider technology funding (4.1) will be in compliance with all NOFO requirements, including specified
+limitations for EHR systems, purchase of covered telecommunications and video surveillance equipment, and
+spending similar to the “Rural Tech Catalyst Fund Initiative.” Sub-awardees will be selected through a
+competitive review process, as described in the implementation plan. Awards will be based on financial and
+community need, readiness and capacity to maximize use of technology, sustainability plans, alignment with
+value-based care, community partnerships, and innovation. All awards will adhere to federal and state
+procurement and reporting requirements.
+
+Table 4: Initiative 4 supporting detail
+ Main strategic goal            Make rural America healthy again, sustainable access, workforce development,
+                                tech innovation
+ Uses of funds                  C, D, E, F, H
+
+ Technical score factors        B1, C1, F1, F2, F3
+ Key stakeholders and           Hospitals and other rural health providers, the University of Washington and
+ partners                       other medical centers, health technology vendors and other private
+                                companies, community organizations, State Office of Rural Health, and
+                                sovereign Tribal nations.
+ Outcomes                       •   Improve access to specialty care for rural communities through increased
+                                    use of telehealth and increased Project ECHO offerings
+                                • Increase number of clinics using AI tools to support operations and reduce
+                                    administrative burden
+                                • Increase number of clinics adopting population health management
+                                    analytic platforms to improve analytics and expand closed-loop referrals
+                                • Increase use of wearables and other consumer-facing technologies to
+                                    support patient monitoring
+ Impacted counties              • Washington will offer these activities for all providers in a rural area,
+                                    following the guidance of the FORHP.
+                                • FORHP designates 22 Washington counties that are “fully rural,” and 17
+                                    counties that are “not fully rural.” The list of counties is in OSM, Table 7.
+ Estimated required             $19–20 million per year
+ funding
+
+
+Initiative 5: Develop Washington’s rural workforce to support
+rural communities
+Rural hospitals, Rural Health Clinics and other rural health care providers are increasingly unable to recruit and
+retain qualified health care professionals, posing a significant threat to the stability of care in these
+communities. Data from the Washington Sentinel Network highlights registered nurses as the most urgently
+
+
+                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                           February 2026
+
+                                                                                                               Page | 22
+needed, with prolonged vacancy periods that hinder service delivery. 39 Washington is projected by the Health
+Resources and Services Administration (HRSA) to face the most severe nursing shortage in the nation by 2037.40
+Other rural workforce shortages include primary care practitioners, maternity care providers, behavioral health
+care, dental hygienists, and long-term care and community-based workers.41 As a result, many rural facilities rely
+on locum tenens providers to fill staffing gaps, an expensive solution that disrupts continuity of care, impacts
+quality and prevention of health care crises and strains limited resources.
+
+Activities
+Under the RHT Program, Washington will launch a comprehensive strategy to strengthen the rural health
+workforce, focusing on key health roles such as nurses, primary care providers, maternity care providers
+(including midwives and doulas), dental hygienists, long-term care workers, and community-based care
+professionals. Tailored approaches will be deployed based on specific regional needs.
+
+5.1 WWAMI Rural Family Residency Network.
+Washington proposes to use $5–6 million per year to support the broader Washington, Wyoming, Alaska,
+Montana, and Idaho regional collaborative (WWAMI). There are currently 465 family medicine residents in
+training across Washington State, spanning all three years of residency. Of these, 48 residents (10%) are enrolled
+in Rural Training Tracks. Among the 157 residents who graduated in 2024, 15 (9.5%) are now practicing in rural
+Washington communities, and only 4 of those 15 (26%) completed a Rural Training Track.42 The WWAMI Family
+Medicine Residency Network (FMRN) supports the development, growth and sustainability of family medicine
+residency programs across Washington State and the greater WWAMI region, including guiding students towards
+rural workforce participation. WWAMI FMRN strengthens the rural primary care workforce by developing well-
+trained physicians who are prepared to practice full-spectrum family medicine in rural communities. Funding
+will support the development of four new rural family practice residency programs to include a combination of
+financial assistance, consultation, faculty development, and accreditation guidance.
+
+5.2. Washington State University (WSU) rural practitioner training programs.
+Washington proposes to use $2.3 million annually of RHT Program funds to support WSU’s rural health
+education programs. WSU has established numerous training programs with rural providers in Eastern
+Washington. These funds would support WSU to expand its development of a rural health curriculum—including
+its Indigenous Health Perspectives program co-developed with elders from local Tribes. The funds would also
+support expanding the rural nursing pathway program in which medical assistants and other professionals can
+continue their clinical roles while remotely studying for a bachelor’s in nursing. Further, WSU would invest in
+expanding nursing faculty in rural clinical settings to grow additional health care practitioners.
+
+5.3 The Rural Nursing Education Program (RNEP).
+Washington proposes to use $3–$4 million of RHT Program funds to support RNEP. RNEP is a place-based
+nursing education initiative that helps students live, work, and learn in their rural communities while training to
+become registered nurses. RNEP addresses the critical nursing shortage in rural Washington by fostering
+partnerships between rural health care facilities, schools, and future nurses. Its vision is to establish a grow-
+your-own remote nursing program grounded in a transformative model of community-based collaboration,
+reducing obstacles for rural students by providing support for childcare, transportation, and more. RNEP
+currently has eight students from four rural communities participating in this innovative education model with
+
+39
+     Washington Sentinel Network. (2025, Spring). Findings brief: Nursing occupations [PDF]
+40
+     Health Resources and Services Administration. Health Workforce Projections.
+41
+  WWAMI Rural Health Research Center. (2024, October). Trends in the health workforce supply in the rural U.S.
+[PDF]. University of Washington
+42
+     Washington State Department of Health. Family Medicine Residency Report: Report to the Legislature. 2024.
+                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                           February 2026
+
+                                                                                                               Page | 23
+one community college acting as the academic partner. Funds will expand the program to sixty additional
+students.
+
+5.4. Grow-your-own training programs.
+Washington proposes using $11–12 million per year of RHT Program funds to establish a fund for innovative,
+grow-your-own training programs established by rural providers or community organizations such as
+apprenticeships, on-the-job training and other strategies as outlined in DOH’s Rural Grow Your Own Toolkit and
+the Rural Healthcare Partnership Toolkit.43, 44 Training programs would focus on expanding rural programs
+including: hybrid dental hygiene, pharmacy, Advanced Practice Nurse, community paramedicine, and
+midwifery. For example, NEW Health, a Community Health Center located in northeastern Washington, launched
+NEW Health University in partnership with local high schools, universities, and school board.45 This community-
+based program provides on-the-job training that is accessible to low-income and rural students, including a
+Medical Assistant Apprenticeship, Pre-Apprenticeship, and Dental Assistant Training Program, and dedicated
+monthly education time for all employees. A strong advantage of apprenticeships and other grow-your-own
+programs is that the training provided is community-based and tailored to the clinic or health care facility,
+which increases the likelihood of the trainee staying in those settings.
+Washington’s grow-your-own workforce fund will also support the development and scaling of health career
+exploration programs targeting rural middle and high school students. These initiatives will provide early,
+hands-on exposure to health care professions that offer living-wage employment, with a focus on establishing
+health-related Career and Technical Education (CTE) tracks and/or Health Occupation Students of America
+(HOSA) chapters in rural high schools.
+Washington will invest in a pilot project to establish a state-registered long-term care worker (LTCW)
+apprenticeship in rural counties. The pilot program will build a skilled and resilient workforce to systematically
+address critical workforce shortages in specialized fields of care such as intellectual development disabilities,
+geriatric care, chronic disease management, and challenging behaviors among others. This effort would position
+successful LTCWs for career advancement through employer-sponsored pipelines to build a vibrant and stable
+workforce.
+
+5.5 Rural workforce incentive programs.
+Washington proposes using $9–10 million per year of RHT Program funds to establish a financial incentives fund
+for health professionals who commit to a minimum five-year service obligation in rural communities.
+Approximately 50–100 incentives will be awarded in year one. This total includes incentives for individual
+recipients as well as for rural communities located in Health Professional Shortage Areas (HPSAs), maternity,
+housing, and childcare deserts.
+
+Individual incentive awards are expected to range from $15,000 to $100,000. Incentives will prioritize providers
+working in areas of highest need determined by data collected for HPSA, the Washington State Health Plan
+assessment, and the state’s Primary Care Needs Assessment. The state will use existing program staff to ensure
+fiscal integrity and program accountability, enforcing the required five-year service commitment, preventing
+duplication of services, and the issuance of multiple incentives to the same individual. Commitment agreements
+will be developed in collaboration with our agency’s Assistant Attorney General. The contractual obligations will
+be modeled on existing obligation contracts used by the state health workforce loan repayment program.
+
+This two-pronged approach is designed to address Washington’s rural workforce scarcity by supporting both
+workforce recruitment, retention, and the community conditions that enable workers to remain in rural areas.
+
+43
+     DOH’s Rural Grow Your Own Toolkit
+44
+     Rural Healthcare Partnership Toolkit
+45
+     NEW Health University
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                           Page | 24
+This opportunity will be broadly disseminated to individuals and communities. Outreach will leverage existing
+state communication channels, state agency networks, partner organizations, webinars, and other established
+channels. Selection will be informed by data-driven criteria, workforce shortages, and community need.
+
+Other considerations
+In all workforce strategies under Initiative 5, Washington will find opportunities to maximize funding, such as
+regional sharing of resources and information. Funds may be used for technical assistance on implementing
+workforce strategies (Initiative 5.5), expansion of existing successful programs (5.1, 5.2, 5.3, 5.4), and costs
+associated with the development of new programs (5.1, 5.4). Building capacity through training (5.1, 5.2, 5.3,
+5.4), providing financial support through rural workforce incentive programs (5.5), and lowering obstacles to
+training (5.3, 5.5) can help reduce risk of provider burnout and reinforce the rural workforce. Washington will
+monitor that incentives in Initiative 5 are not duplicative and do not supplant any existing state programs.
+Likewise, Washington will distinguish the incentives in Initiative 5 from the community-based workforce
+programs (Initiative 2.1), the Community Health Aide Program (3.1), and opioid treatment provider program
+(6.4). The process for selecting subcontractors is described in the implementation plan.
+Sub-awardees for Initiatives 5.4 and 5.5 will be selected through a competitive review process, as described in
+the implementation plan. Awards will be based on documented workforce needs, geographic distribution,
+financial and community need, readiness for implementation (including established partnerships between
+employer and educational institutions when required), sustainability plans, and innovation. All awards will
+adhere to federal and state procurement and reporting requirements.
+
+Table 5: Initiative 5 supporting detail
+ Main strategic goal            Making Rural Healthy Again, sustainable access, and workforce development.
+ Uses of funds                  D, E, G, K
+
+ Technical score factors        B.1, C.2, D.1
+ Key stakeholders and           Sovereign Tribal nations, Washington’s rural hospitals, Rural Health Clinics,
+ partners                       Federally Qualified Health Centers, rural long-term care facilities, other rural
+                                health care facilities and providers, the State Office of Rural Health, health
+                                professional associations, health professions training programs, Educational
+                                Service Districts, and Area Health Education Centers.
+ Outcomes                       •    Increase the number of rural medical residencies training physicians in
+                                     rural Washington
+                                •    Expand the Rural Nursing Education Program to decrease the number of
+                                     nurse vacancies in rural hospitals and clinics.
+                                •    Increase the number of health care graduates prepared for rural practice
+                                     produced by Washington State University by addressing rural students’
+                                     obstacles to accessing education.
+                                •    Expand grow-your-own training programs to increase rural middle and
+                                     high schoolers’ exposure to health careers.
+                                •    Increase the use of provider incentives to encourage long-term
+                                     commitment to serving Washington’s rural communities.
+                                •    Increase availability of LTCW with skills and competencies to serve
+                                     individuals with special long-term care needs.
+                                •    Increase ability of older adults and individuals with disabilities to receive
+                                     care in their communities by reducing service wait times, staff turnover
+                                     and increasing worker competence in serving those with complex needs.
+
+
+                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                           February 2026
+
+                                                                                                               Page | 25
+     Impacted counties            •   Washington will offer these activities for all providers in a rural area,
+                                      following the guidance of the FORHP.
+                                  • FORHP designates 22 Washington counties that are “fully rural,” and 17
+                                      counties that are “not fully rural.” The list of counties is in OSM, Table 7.
+     Estimated required           $32–34 million per year
+     funding
+
+
+Initiative 6: Expand and sustain Washington’s rural behavioral
+health system
+Behavioral health challenges, which are pervasive around the country and throughout Washington, are
+particularly acute in rural communities. Despite significant investment in recent years, there remain limitations
+on providers, available beds, and mobile services. A 2025 Rural Behavioral Health Access Study found that
+Washington’s rural communities have documented wait times for many services, particularly for inpatient and
+youth services, and that demand for mobile crisis services exceeds staffing capacity.46 The rate of overdose
+deaths in rural Washington is over 10% higher than the statewide average (54.28% for FORHP rural communities
+compared to 41.9% statewide).47 In the state’s solicitation of feedback as part of the RHT Program application
+process, respondents focused on needs to invest in workforce development, payment reform (including the
+Certified Community Behavioral Health Clinic (CCBHC) model), expansion of mobile crisis and non-emergency
+transportation, and investment in telehealth.
+
+Activities
+6.1. Expand mobile crisis supports.
+Washington proposes utilizing $10–11 million per year of RHT Program funds to invest in mobile crisis response
+and mobile stabilization services, in alignment with Substance Abuse and Mental Health Services
+Administration’s (SAMHSA) National Behavioral Health Crisis Care Guidance framework.48, 49 This would include
+investment in EMS which would provide mobile support for behavioral health crisis by establishing
+Buprenorphine Administration programs (based on the Everett Fire Department Pilot Program), purchasing and
+distributing naloxone for EMS use, and funding training for EMS providers on evidence-based opioid response
+practices.50 HCA would award subgrants and contracts to leverage and expand multidisciplinary teams, such as
+Program for Assertive Community Treatment, to enhance the quality of patient care.51 These efforts are targeted
+to improve rural behavioral health outcomes and reduce the strain on rural hospitals from emergency room
+utilization from behavioral health crisis.
+
+
+
+
+46
+     Rural Behavioral Health Access Study. HCA. 2025
+47
+  Department of Health Death Registry, county-level 2023 data. Age-adjusted rate of any drug and overdose deaths per
+100,000.
+48
+     Mobile Response and Stabilization Services
+49
+  National Behavioral Health Crisis Care Guidance. Substance Abuse and Mental Health Services Administration.
+2025.
+50
+     Everett Fire Department Pilot Program
+51
+     Programs for Assertive Community Treatment
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                               Page | 26
+6.2. Supporting providers to transition to the CCBHC model.
+Washington proposes utilizing $3–4 million per year of RHT Program funds to support transition of behavioral
+health clinics to the CCBHC model.52 HCA will offer increased resources and technical assistance to increase
+CCBHC participation. Clinical participation in the model will support access to care, strengthen care
+coordination, and help sustain behavioral health providers who may see fluctuating patient volumes with
+varying needs within their rural community. Supporting investment in this innovative reimbursement model will
+help transform how behavioral health services are paid for in rural Washington.
+
+6.3. Supporting youth in rural communities.
+Washington proposes utilizing $5–6 million per year of RHT Program funds to improve access to school-based
+behavioral health care services to better support rural youth. In 2022–23, there were 62 schools and school
+districts participating in Washington’s Medicaid School-Based Health Services program and billing for
+behavioral health services. RHT funding would support technical assistance to schools to build capacity to bill
+insurance, inclusive of Medicaid and commercial insurance, and in alignment with Washington’s work under the
+CMS Implementation, Enhancement, and Expansion of Medicaid and CHIP School-Based Services (SBS) grant
+that continues through 2027.53 The funding would allow Washington to increase technical assistance to school
+districts, starting support for those with system readiness and expanding to school districts that build out
+capacity to bill through state facilitated technical assistance. These funds would support technical assistance for
+billing and contracting and would also be available to support schools in need of recruiting and hiring school-
+based providers. Investment in school and school district capabilities will leverage existing settings to expand
+access to services in a manner that can be sustained beyond the 5-year duration of the RHT Program.
+
+6.4 Rural Opioid Treatment Provider recruitment and retention.
+Washington proposes utilizing $6–7 million per year of RHT Program funds to establish a workforce incentive
+program for rural opioid treatment providers (OTPs). OTPs are a specific substance use disorder behavioral
+health agency (SUD BHA) setting type defined in federal law under 42 CFR Part 8, and Washington state law
+under RCW 71.24.590. OTPs are central to supporting patients who are in need of medications for the treatment
+of opioid use disorder, and these funds will help stabilize and grow the provider workforce and ensure access to
+essential OTP services in rural Washington. The program would fund recruitment bonuses, relocation support,
+childcare stipends, capacity payments, and other approved incentives tied to a five-year service commitment.
+Rural OTP clinicians that would be eligible to apply for funding include: substance use disorder (SUD)
+counselors, mental health counselors, nurses, perinatal providers, medical prescribers (e.g., physicians, NPs,
+PAs), pharmacists, SUD peers allowed to provide Medicaid covered services in an OTP setting, and any other
+member of an OTP multidisciplinary medical treatment team.
+
+Other considerations
+Sub-awardees for Initiatives 6.1–6.4 will be selected through a competitive review process, as described in the
+implementation plan. Awards will be based on financial and community need, documented need for behavioral
+health care access, readiness for implementation, sustainability plans, community partnerships, and
+innovation. All awards will adhere to federal and state procurement and reporting requirements.
+RHT Program funds will not replace or duplicate funding for existing behavioral health programs. Funds will
+create and grow avenues for rural communities to receive behavioral health coordination and treatment and
+will align with rules limiting the amount of RHT Program funds used for provider payments. Technology funds in
+this initiative will focus on rural behavioral health. Washington will be mindful of the interactions between
+technology funding used for this initiative and Initiative 4.
+
+
+52
+     Certified Community Behavioral Health Clinics
+53
+     CMS, CMS Announces $50 Million in Grants to Deliver Critical School-Based Health Services to Children
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                              Page | 27
+If hiring is slower than anticipated, it could slow expansion of mobile crisis supports and multidisciplinary teams
+(Initiative 6.1). This can be mitigated through expanding the community-based workforce (2.1) and the broader
+rural practitioner workforce (5).
+
+Table 6: Initiative 6 supporting detail
+ Main strategic goal            Make rural America healthy again, workforce development
+ Uses of funds                  A, C, E, G, H
+
+ Technical score factors        C.1, D.1, E.1, E.2, F.1
+ Key stakeholders               Rural hospitals, Federally Qualified Health Centers, Rural Health Clinics,
+                                community mental health centers, Behavioral Health Agencies, rural Certified
+                                Community Behavioral Health Clinics, Schools, School Based Health Centers,
+                                State Office of Rural Health, and sovereign Tribal nations.
+ Outcomes                       •   Increased access to mobile crisis and stabilization services
+                                •   Increase level of follow-up after emergency department visits for mental
+                                    health or SUD treatment
+                                • Increased access to behavioral health care, including counseling, in school
+                                    settings
+                                • Supporting at least two new clinics in transitioning to the CCBHC payment
+                                    model to sustain financing and expand comprehensive care access
+                                    through rural behavioral health providers
+ Impacted counties              •    Washington will offer these activities for all providers in a rural area,
+                                    following the guidance of the FORHP.
+                                • FORHP designates 22 Washington counties that are “fully rural,” and 17
+                                    counties that are “not fully rural.” The list of counties is in OSM, Table 7.
+ Estimated required             $25–27 million per year
+ funding
+
+
+
+
+                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                           February 2026
+
+                                                                                                               Page | 28
+Implementation plan and timeline
+Washington will begin implementation of the six initiatives immediately upon receipt of RHT Program funds. A detailed Gantt chart in Table 7 (below)
+includes the timeline for each initiative activity’s five project stages. Specific milestones for each initiative are included in the metrics and evaluation plan.
+Considerations for legislative and regulatory actions are described in the state policies section.
+
+Table 7: Implementation Gantt chart
+       Program/
+#      Project              2026                  2027                  2028                   2029                   2030                   2031
+                            Q1     Q2   Q3   Q4   Q1     Q2   Q3   Q4   Q1     Q2   Q3   Q4    Q1     Q2   Q3   Q4    Q1     Q2   Q3   Q4    Q1     Q2   Q3   Q4
+1      Ignite Innovation in WA's rural hospitals
+1.1    Expand a rural
+       health network
+1.2    Co-design a
+       payment model
+       for long-term
+       sustainability
+1.3    Invest in critical
+       technology
+       infrastructure
+       and
+       maintenance
+       needs
+1.4    Sustaining and
+       strengthening
+       maternal,
+       emergency, and
+       specialty
+       services at risk
+2      Prevent Disease and Manage Care in Community Settings
+
+
+                                                                                           Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                                      February 2026
+
+                                                                                                                                                           Page | 29
+      Program/
+#     Project            2026          2027   2028      2029                   2030                   2031
+2.1   Expand the
+      community-
+      based
+      workforce
+2.2   Expand
+      dementia
+      resources and
+      build dementia-
+      capable
+      communities
+2.3   Expand EMS
+      Inter-facility
+      Transport and
+      Support for
+      Trauma
+      Designated
+      Facilities in
+      Rural
+      Communities
+2.4   Triage residents
+      to appropriate
+      level of care in
+      their
+      neighborhoods
+3     Invest in the Health of Tribes
+3.1   Invest in Native
+      workforce
+3.2   Care
+      Coordination
+      Agreements
+
+                                                     Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                February 2026
+
+                                                                                                                    Page | 30
+      Program/
+#     Project           2026              2027                 2028             2029                   2030                   2031
+3.3   Investments to
+      support health
+      information
+      exchange
+4     Adopt Technology and Data Solutions to Enable Health Improvements
+4.1   Project ECHO
+4.2   General fund:
+      Provider
+      technology fund
+5     Developing Washington's Rural Workforce to Support Rural Communities
+5.1   WWAMI Rural
+      Family Medicine
+      residency
+      programs, and
+      WSU
+5.2   WSU rural
+      practitioner
+      training
+      programs
+5.3   RNEP
+5.4   General fund:
+      Grow-your-own
+      training
+      programs
+5.5   General fund:
+      Rural workforce
+      incentive
+      programs
+
+                                                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                        February 2026
+
+                                                                                                                                            Page | 31
+      Program/
+#     Project           2026                 2027                  2028                    2029                   2030                   2031
+6     Expand and Sustain Washington's Rural Behavioral Health System
+6.1   Expand mobile
+      crisis supports
+6.2   Planning to
+      transition
+      facilities to
+      CCBHC model
+6.3   Supporting
+      youth in rural
+      communities
+6.4   General fund:
+      Rural OTP
+      recruitment and
+      retention
+
+
+Gantt chart key
+ Stage 0    Project planning is underway, but no work on executing the project plan and implementing the initiative has begun.
+ Stage 1    The project plan has been created, and staff have been assigned. Initial work on implementing the initiative has begun.
+ Stage 2    The implementation of the project plan and goal achievement are underway. The original project plan has been refined and adjusted.
+ Stage 3    The implementation of the project plan and goal achievement are halfway complete and continuously being worked on.
+ Stage 4    Deliverables are being finalized, and proposed goals are nearly achieved.
+            The initiative is fully implemented, the initiative’s goals have been completely achieved, and the initiative is producing measurable outcomes
+ Stage 5    that can be reported on.
+
+
+
+
+                                                                                        Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                                   February 2026
+
+                                                                                                                                                       Page | 32
+Key implementation steps
+Q1 2026: Hire staff and establish governance.
+Washington’s governance plan for the RHT Program is described in detail below. Prior to RHT Program fund
+allocation, the state will prepare job descriptions to recruit RHT Program positions, recruit advisory committee
+members, and begin drafting scopes of work for identified subcontractors. Once funds are allocated, the state
+will hire staff, establish advisory committee meetings and project charter, and establish executive and consulted
+leadership team governance committees. The state will engage its advisory committee to help prioritize
+initiative activities following the budget reconciliation process and for activities that require competitive bid
+processes.
+
+Q2 2026: Rapid contract execution.
+Where appropriate, Washington will leverage existing state programs or contracts to rapidly execute initiative
+activities (see Table 8).
+
+Table 8: Activities and subcontractors that will expand upon existing programs
+ Initiative activity                                        Subcontractor
+ 2.1 Embed LTCW testing at training sites                   SEIU Training Benefit Group
+ 2.2. Expand dementia resources                             AAAs
+ 2.4 Triage residents to appropriate care setting           Mobile Care-A-Van, WA 211, AAA Mobile Assistance
+                                                            Van Program
+ 4.1 Project ECHO                                           University of Washington
+ 5.3 Expand Rural Nursing Education Program (RNEP)          RNEP
+ 6.4 Expanding opioid treatment provider capacity           Opioid treatment providers identified by HCA
+
+
+Likewise, the state will rapidly execute contracts with sub-contractors identified in its initiative activities,
+including: the Rural Collaborative (Initiative 1.1), the Rural Health Redesign Center (1.2), Washington State
+Hospital Association (1.3), University of Washington WWAMI (5.1), and Washington State University (5.2).
+
+Q2 2026 (repeated annually as funding allows): Competitive bid process.
+The state will roll out a competitive bid process for the funds described in the initiatives (see Table 9).
+
+Table 9: Initiative activities executed via a competitive bid process
+ 1.4 Incentive program to establish or grow OB care or other essential service lines
+ 2.1 Recruitment and placement of community-based workers
+ 2.3 Expand EMS inter-facility transport
+ 2.4 Community-based mobile services and care coordination hubs
+ 4.2 Provider technology fund
+ 5.4 Grow-your-own workforce programs
+ 5.5 Workforce incentive programs
+ 6.1 Expand EMS opioid treatment capabilities
+ 6.2 Supporting providers to transition to CCBHC model
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                              Page | 33
+ 6.3 Pilot program for school districts to expand school-based services
+ 6.4 Opioid treatment provider recruitment and retention incentives
+
+
+The state will post detailed requests for proposal (RFP) following state law for requirements for RFP processes,
+as well as NOFO and Cooperative Agreement requirements for the RHT Program. Health care facilities and
+community organizations will apply for funds in these initiatives with detailed plans about implementation,
+monitoring, and potential risks and challenges. Scoring criteria will include rurality, need, readiness to
+implement, community partnerships, sustainability, and data reporting capacity. Some programs will be
+selected for multiple years of funding, while some may be one-time. Depending on availability of funds, the
+competitive bid process may be repeated each year. The state will post RFPs prior to the start of the Federal
+Fiscal Year to ensure timely distribution of funds and activities. For RHT Program Year 1, the state will post the
+RFPs in the first calendar quarter of 2026 after funds are distributed. For the provider technology fund (Initiative
+4.2), the state may consider soliciting an administrator for the fund, pending further discussions with
+professional associations and other key stakeholders. That engagement will occur in November-December of
+2025 and be rapidly executed after fund allocation.
+Throughout RHT Program: Respecting Tribal sovereignty. Washington expects that the Governor’s Indian
+Health Advisory Council (GIHAC) will decide how Initiative 3 funding will be divided between the state’s 29
+sovereign Tribal nations. This council—whose members include representatives from the Tribes, state agencies,
+state legislators and the Governor’s office– is a decision-making body that addresses health-related policy and
+funding concerns facing Tribal nations. For the Tribes that GIHAC selects to receive RHT funds, HCA will
+incorporate these amounts into their existing Sovereign Nation Agreements (SNA). The progress and
+performance of these agreements will be monitored and managed by the Tribal Liaison.
+Throughout RHT Program: Ongoing monitoring/collaboration. As described in the monitoring and evaluation
+plan, Washington will maintain ongoing communication with funding recipients, conduct monitoring, and
+collaborate with CMS and state stakeholders to ensure that initiatives are producing measurable outcomes and
+goals are achieved.
+
+Governance
+Washington State has developed a governance structure that leverages existing rural health care expertise
+amongst multiple executive branch agencies and external partners. The Washington State Health Care
+Authority (HCA) will serve as the lead agency. However, the state’s governance and staffing approach
+includes oversight from partners at the Governor’s Office, Department of Health (DOH), and Department of
+Social and Health Services. (DSHS). OSM, Table 8 summarizes the governance structure for the RHT Program.
+• HCA serves as Washington’s Medicaid Agency and Behavioral Health Authority.
+• DOH oversees public health, licensing, scope of practice, and facility regulation. The State Office of Rural
+  Health is embedded at DOH.
+• DSHS oversees and administers long-term services and supports, food assistance, housing, employment
+  supports, and various other social services programs.
+
+Staffing model
+Washington envisions hiring a minimum of 37 FTE to support administration of the RHT Program, detailed in the
+budget narrative. HCA will hire a program lead to oversee a project team made up of policy analysts, fiscal
+analysts, contract managers, project manager, and data/evaluation analysts, outlined in OSM Table 9. The
+program lead will be responsible for coordination across agencies. State agencies will craft specific job
+descriptions during CMS’s application review period (November-December 2025) and will begin hiring staff as
+soon as funding is available. Within the parameters permitted for administrative expenditure, staffing plans are
+subject to change pending funding and as needs shift during the RHT Program. Washington will contract with a
+
+                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                        February 2026
+
+                                                                                                            Page | 34
+strategic consultant to provide administration and project management support. Additional details are in the
+budget narrative.
+
+Advisory committee
+Washington will establish an advisory committee made up of representatives from the state executive branch,
+Tribes, rural health professionals, and communities (OSM Table 9). DOH will manage and staff the committee, in
+alignment with its function to lead the planning of the State Health Improvement Plan. The committee
+will provide recommendations on prioritizing projects and funding for Washington’s RHT Program plan and will
+make recommendations to the state Legislative and Executive branches about opportunities for policy and
+regulatory alignment with RHT Program learnings.
+
+
+
+
+                                           Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                      February 2026
+
+                                                                                                          Page | 35
+Stakeholder engagement
+Following passage of H.R. 1, the state executive branch engaged the public, Tribes, key delivery system
+stakeholders, and state lawmakers in planning for the RHT Program. This included two dozen stakeholder
+meetings, multiple listening sessions and formal Consultation with Tribes, hosting three public webinars, and
+briefings for state legislators. In August 2025, HCA posted a Request for Information (RFI) to allow stakeholders
+and members of the public an opportunity to provide written comments to the state, including priorities for
+rural health needs. The following table outlines the types of groups that have participated to date:
+     Submitter types
+     Nonprofit organizations                              Rural hospitals and hospital districts
+     Non-hospital health care provider groups             Health care education programs
+     State and national associations                      State agencies
+     Interested individuals                               Colleges and universities
+     School districts                                     Tribes
+     EMS and firefighters                                 Public Health Departments
+
+
+From August 8 to September 26, the state received 310 written responses. The public’s feedback shared local
+needs and suggested funding priorities for rural communities. Stakeholders placed emphasis on provider
+shortages, technology needs, geographic challenges to access, and the need for infrastructure and other
+financial supports in their communities. They also suggested unique opportunities for funding to address these
+challenges that are reflected in the initiatives.
+Using the DOH’s Community Engagement Continuum framework (Table 10 below),54 Washington will continue
+to engage with rural communities, Tribes, and providers regularly. To maintain community support and ensure
+program flexibility to adapt with community needs, the state will also be incorporating rural community
+members, providers and patients, into an ongoing Washington RHT Program Advisory Committee. See the
+Governance section for details about staff and the structure of the advisory committee.
+
+Table 10: RHT Program Community Engagement Framework
+     Category                    Engagement Methods
+     Inform                      • Post information on webpages and social media regularly
+                                 • Host webinars to inform the public and request feedback
+     Update communities and
+                                 • Distribute emails to stakeholders
+     providers
+                                 • Make communication materials publicly available, including RHT Program
+                                   annual status reports
+     Consult                     • Conduct surveys and RFIs to gather new ideas and public feedback on
+                                   progress and impact
+     Receive and consider
+                                 • Hold focus groups and interviews for in-depth discussions
+     feedback
+     Involve                     • Advisory committee provides guidance and recommendations
+                                 • Host a public listening session at least once per year
+     Ensure community
+                                 • Hold individual and group stakeholder meetings for feedback
+     interests are included
+
+
+54
+     Washington Department of Health Community Engagement Guide.
+                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                           February 2026
+
+                                                                                                               Page | 36
+Collaborate                • Establish partnership agreements with subject matter experts
+                           • Co-design projects and collaborate on monitoring and evaluation with
+Partner in planning and
+                             stakeholders
+sharing in the decision-
+                           • Host virtual convenings for information and best practice sharing across
+making
+                             stakeholders
+Empower                    • Provide resources and templates based on best practices and lessons
+                             learned
+Support and follow the
+                           • Offer technical assistance and client support
+community’s lead and
+                           • Encourage community mobilization for long-term adoption and
+support implementation
+                             sustainability of RHT Program initiatives
+                           • Engage in Tribal listening sessions and formal Tribal Consultations
+
+
+
+
+                                       Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                  February 2026
+
+                                                                                                      Page | 37
+Metrics and evaluation plan
+Washington state intends to utilize a mixture of existing data and reporting infrastructure and new reporting
+mechanisms to evaluate the performance of RHT Program investments. The state will primarily be leveraging
+data and analytics experts under the Chief Data Officer at HCA and with the Research and Data Analysis (RDA)
+division of DSHS, supplemented by external contractor support where necessary. HCA’s Data Division has
+expertise engaging with claims data and other provider and payer data in support of the Medicaid program. HCA
+staff also support operations for Washington’s All Payer Claims Database. RDA provides data, analytics, and
+decision support tools in support of multiple Washington clients and has worked extensively in development
+and tracking of health care and human services related metrics. The state may also employ external consultants
+and contemplate engagement with institutions of higher education such as the University of Washington or
+Washington State University, if additional expertise or capacity becomes necessary throughout the duration of
+the RHT Program.
+For each of the six initiatives, Washington has identified at least four metrics to develop and utilize for
+evaluation. The metrics support alignment of proposals for funding with the RHT Program goals set out by CMS
+and established in this application. Where possible, the state intends to leverage existing data, such as Medicaid
+claims or federal and state facility reporting, and will supplement with contractor reporting (on an annual basis
+unless otherwise specified) as deliverable requirements attached to receipt of funds. The tables below outline
+the metrics, data sources, and plan for evaluation for each initiative.
+
+Initiative 1: Ignite innovation in Washington’s rural hospitals
+ Metrics                         Data source         Milestones                                     Measurement
+ Number of rural providers       Agency              Measure in Years 1–3. By Year 3, 50% of        Statewide
+ participating in co-design      reporting           rural hospitals in the state will engage in
+ process                                             the payment model co-design process.
+ Number of rural providers       Payer reporting     Measure in Years 4 and 5. By Year 5, have      Statewide
+ participating in VBP models     (on provider        participation of at least 25% of rural
+                                 network)            hospitals in VBP model.
+
+
+ Number of rural hospitals       Agency              By end of year 1, set target for number of     Regionally
+ participating in regional       reporting           hospitals participating in regional
+ provider collaboratives.                            provider collaboratives or integrated care
+                                                     networks.
+
+ Number of hospitals             Hospital            WA currently has 25 rural hospitals with       By county
+ without obstetric units (no     Reporting           no L&D unit. Maintain or improve upon
+ labor and delivery)                                 baseline level throughout duration of the
+                                                     RHT Program.
+
+
+
+
+Initiative 2: Prevent disease and manage care in community settings
+ Metrics                        Data source         Milestones                                Measurement
+
+
+
+
+                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                        February 2026
+
+                                                                                                            Page | 38
+ Number of community             Contractor           Offer 20 new community gatherings          By service setting
+ gathering events held,          reporting            in rural communities within first two      (Ex. senior living,
+ focused on supporting use                            years of the RHT Program.                  schools, churches,
+ of technology and                                                                               etc.)
+ receiving health
+ screenings.
+
+
+ Number of preventive and        Claims data,         Starting in Year 2, increase services      By county
+ telehealth services             contractor           delivered via mobile health by 5%
+ delivered via mobile health     reporting, DOH       each year.
+                                 reporting
+
+ Increased utilization of WA     WA 211 call          By the end of year 2026, establish         By county
+ 211                             center data          baseline of WA 211 utilization by
+                                                      rural communities and increase call
+                                                      volume by 3% per year in 2027-
+                                                      duration of the RHT Program.
+ Increase training for           Contractor and       Increase by 5% per year the number         Statewide
+ community-based                 agency reporting     community health workers, long-
+ providers.                      on # of people       term care workers, or other
+                                 trained              community providers in rural
+                                                      communities across each year of the
+                                                      RHT Program.
+
+
+Initiative 3: Invest in the health of Native families
+ Metrics                              Data source          Milestones                             Measurement
+ Number of Tribes with specific       Contractor           By year 5, all Tribes who want         By Tribe
+ staff to support relationships       reporting            one, will have the staff to support
+ with hospitals                                            relationships with hospitals
+                                                           across the state.
+ Number of care coordination          Agency               Increase the number of care            Statewide
+ agreements in place                  reporting            coordination agreements by 20%
+                                                           each year of the RHT Program.
+
+ Number of Tribes with access to      Contractor           By Year 5, increase number of          Statewide
+ HIE tools                            reporting            Tribes using HIE tools by 30%.
+
+ Number of hospital encounters        Contractor           By end of year 1, set target for       Statewide
+ for AI/AN persons that Tribes        reporting            improving discharge information
+ receive discharge information                             sharing.
+
+
+
+Initiative 4: Adopt technology and data solutions to enable health improvements
+ Metrics                       Data source          Milestones                                         Measurement
+
+
+
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                               Page | 39
+     Number of rural             Hospital and           By end of 2027, establish baseline utilization         Statewide
+     hospitals and primary       Provider               of AI by rural hospitals and primary care
+     care providers adopting     contract               clinics and establish measurable target for
+     integrated AI tools         deliverable            increased utilization by end of the RHT
+                                 reporting              Program, based on funding available for
+                                                        these projects.
+     Number of primary care      Provider               By end of 2027, establish baseline utilization         Statewide
+     clinics adopting            contract               of population health management analytic
+     population health           deliverable            platforms for primary care clinics and
+     management analytic         reporting              establish measurable target for increased
+     platforms                                          utilization by end of RHTP, based on funding
+                                                        available for projects.
+     Project ECHO Utilization    Contractor             By end of 2026, establish baseline annual              By county
+                                 reporting              utilization of Project ECHO by rural providers
+                                                        and set measurable target for increasing
+                                                        annual utilization in every rural Washington
+                                                        county by end of 2028.
+     Deployment of wearable      Contractor             Measure the number of new consumer-facing              By county
+     technology                  reporting              wearables or other tools deployed to rural
+                                                        residents through RHT funding, by county by
+                                                        end of 2028.
+     Increased telehealth        Medicaid claims        By end of 2027, establish a baseline of                Statewide
+     access55                    data and               telehealth utilization amongst Medicaid
+                                 contractor             clients in rural communities by service-type
+                                 reporting              and establish measurable target for
+                                                        increasing utilization across at least three
+                                                        service types by end of 2029.
+
+
+Initiative 5: Develop Washington’s rural workforce to support rural communities
+     Metrics                     Data source             Milestones                                            Measurement
+     Expansion of the Rural      Contractor              By end of the RHT Program, will graduate at           By county
+     Nursing Education           reporting               least 60 Associate Degree Nurses to support
+     Program                                             rural communities through support of
+                                                         RNEP.
+     Increase number of rural    Contractor              Will add at least 4 new clinical residencies          Statewide
+     medical residencies         reporting               in rural Washington by end of 2029.
+
+
+
+
+55
+  This metric is used cross Initiatives 4 and Initiative 6. In Initiative 4, the metric will look at all service types and will
+set targets for three specific service types (one of which will be behavioral-health focused). Performance targets will
+account for this metric representing two initiatives.
+                                                  Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                             February 2026
+
+                                                                                                                        Page | 40
+ Number of providers       Contractor           Will track the number of providers directly      Statewide
+ retained through          reporting            supported by retention bonuses as part of
+ workforce incentive                            workforce incentive programs.
+ programs
+
+ Documented rural          Workforce Council    Track documented rural workforce                 By ACH region
+ workforce challenges      Sentinel Network     challenges through employer surveying and
+                           Reporting            report on any changing or increasing
+                                                challenges faced in rural communities.
+
+
+Initiative 6: Expand and Sustain Washington’s rural behavioral health system
+ Metrics                Data source       Milestones                                       Measurement
+ Increase mobile        Contractor        Increase the number of mobile crisis units       By county
+ crisis units           reporting         in rural Washington by end of 2027, scaled
+                                          to level of funding.
+ Increased telehealth   Claims data and   By end of 2027, establish a baseline of          Statewide
+ access                 contractor        telehealth utilization in rural communities
+                        reporting         by service-type and establish measurable
+                                          target for increasing utilization across at
+                                          least three service types by end of 2029.
+
+ Increase clinic        HCA Reporting     By end of 2028, support two new clinics          Statewide
+ participation in                         participating in CCBHC payment model in
+ CCBHC payment                            rural communities.
+ model
+
+ Follow-up after ED     HEDIS FUA and     Track trends in behavioral health follow-up      Statewide and by
+ visit for mental       FUM metrics       visits following ED visit for mental health or   region
+ health or SUD                            SUD treatment
+ treatment
+
+ Schools and school     Medicaid Claims   Currently, 62 schools or school districts in     By Educational
+ districts              Data              rural counties are billing Medicaid. By end      Service District and
+ participating in                         of 2026, set measurable target for               County
+ Medicaid billing for                     increasing participation by end of the RHT
+ behavioral health                        Program based on available funding.
+ services
+
+
+
+
+                                          Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                     February 2026
+
+                                                                                                         Page | 41
+Sustainability plan
+Health care systems will become sustainable in rural areas because people want to and can stay in rural areas,
+for their care and for their lifespan. Washington’s RHT plan combines investments in modernizing the traditional
+health care delivery system, in broadening how and where rural residents can access care, and in increasing the
+capacity and reach of community supports. The combined power of these components will enable new
+opportunities for health and wellbeing in rural Washington.
+First, the state’s RHT plan will expand opportunities for individuals and families to stay in and move to rural
+Washington. Initiative 5 includes meaningful health care career pathways. Rural residents will be able to attain
+advanced degrees (often remotely) and then stay to practice in rural areas. Likewise, Washington’s plan builds
+opportunities for people without a four-year degree to become employed in the community-based workforce, to
+care for people in their homes and in their towns. Further, the state’s plan will embed technologies into
+consumer homes, community settings, and provider settings so that people do not have to move to other places
+to access the health care they need (Initiatives 1 and 4). As rural Washingtonians age, the RHT plan offers new
+and improved opportunities to age in place with support from community health workers (Initiative 2), more
+access to telehealth and personal health monitoring (Initiative 4), and additional long-term caregivers
+(Initiatives 2 and 5). Rural health systems strengthen and become more sustainable because rural communities
+strengthen and become more sustainable.
+Second, Washington’s RHT plan will support rural communities with the start-up costs that can set them up for
+sustainability through service reimbursement. Washington’s investments under Initiatives 2, 3, 5, and 6 will
+cover costs for recruitment, training, and equipment. With that seed funding, providers will be able to establish
+a sustainable business model with private and public payer reimbursement for services. For example,
+community health workers (CHWs) are reimbursed for services rendered to Apple Health (Medicaid) clients,
+including assessments, care coordination and health system navigation, facilitating behavior change, and health
+education and promotion.56 Washington will work with other state payers to expand coverage policies for CHW
+services, particularly in rural areas, to sustain those prevention and workforce investments. Likewise, start-up
+investments in mobile health and expanding EMS capacity will create pathways towards sustainable service
+reimbursement—particularly when paired with the strategic planning of The Rural Collaborative and payment
+model design efforts under Initiative 1.
+Third, Washington’s RHT Program initiatives also focus on building an infrastructure for long-term operational
+improvements and financial solvency (Initiatives 1 and 4). The technology fund will guide hospitals to adopt
+innovative technologies that improve the efficiency of clinical workflows and revenue cycle management—
+technologies that will enable financial returns to sustain the cost of the programs after the RHT Program.
+Expanding the capacity of a rural health network will create savings through shared services and peer learning. A
+new value-based payment model, co-designed by and for rural providers, will address the long-standing
+challenges of a low-volume delivery system, including high fixed costs to sustain essential services and
+misaligned incentives that fail to keep people out of the hospital. New payment models will account for the
+workforce and technologies needed to prevent chronic conditions from forming or advancing, ensure efficient
+operations, and improve quality of care. The transformation activities will create rural hospitals that have
+capacity and sustainable funding mechanisms that reflect the needs of their communities. As such, residents
+will be less likely to bypass their local hospital because it will provide the care they need when they need it.
+Finally, the RHT Program will catalyze new forms of engagement across the state to build evidence about what
+works to sustainably transform rural health in Washington. Through the RHT Program’s monitoring plan,
+governance structure, cooperative agreement with CMS, and ongoing community and stakeholder engagement,
+Washington will build shared learnings about what is most effective to improve health for rural residents. The
+
+
+56
+     Washington State Health Care Authority. Community Health Workers (CHW). HCA. 2025.
+                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                        February 2026
+
+                                                                                                            Page | 42
+Washington RHT advisory committee will make recommendations to the state legislature regarding changes to
+state statute, regulations, and investments that could align with the RHT Program and lessons learned from it.
+
+
+
+
+                                           Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                      February 2026
+
+                                                                                                          Page | 43
+Conclusion
+The Washington RHT Program will build a healthier, more resilient, and financially sustainable rural health
+system. The state’s initiatives will ignite innovation in rural hospitals, prevent disease and manage care in
+community settings, invest in the health of Native families, increase provider adoption of technology and data
+solutions, develop Washington’s rural workforce, and expand and sustain Washington’s rural behavioral health
+system.
+
+
+
+
+                                           Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                      February 2026
+
+                                                                                                          Page | 44
+Appendix: Other Supporting Materials
+Table 1. Summary of Washington’s rural facility and population score factors (A1–
+A7)
+Table 1 summarizes the weighting factors (A1–A7) used in the rural facility and population score factors, following
+the Notice of Funding Opportunity (NOFO) requirements. Each factor was derived from statewide or national
+datasets and standardized methodology to ensure alignment with federal review criteria.
+ Factor (NOFO Reference)                   Metric Description                                Value / Estimate
+                                                                                             (Washington State)
+ A1. Absolute Size of Rural                Total rural population (WA)                       1,115,886
+ Population57
+ A2. Proportion of Rural Health            Proportion of health facilities located in        0.40
+ Facilities58                              rural areas
+ A3. Uncompensated Care59                  Total uncompensated care (in $ millions)          $2,385 million
+ A4. Percent of State Population in        Share of population living in rural-              14.48%
+ Rural Areas60                             designated census tracts
+ A5. Metrics Defining Frontier Areas       Percent of population residing in frontier        2.1%
+ (Population)61                            Level 2 areas
+ A5. Metrics Defining Frontier Areas       Percent of total land area classified as          26.8%
+ (Land Area)62                             frontier Level 2
+ A6. Area of State in Total Square         Total geographic area of Washington State         66,456.59 sq. miles
+ Miles63
+
+
+
+
+57
+  U.S. Census Bureau. (2021). 2020 Census population estimates by census tract. Derived using the Federal Office of
+Rural Health Policy (FORHP) rural designation. Washington, DC: U.S. Department of Commerce.
+58
+  Washington State Department of Health. (2024). Health Systems Quality Assurance (HSQA) Licensing Data. Combined
+with Rural-Urban Commuting Area (RUCA) codes (version 3.1) to identify licensed facilities in RUCA 4–10 regions.
+59
+  Washington State Department of Health. (2023). Washington State Hospital Financial Reports, 2022. Olympia, WA:
+Office of Hospital and Patient Data Systems.
+60
+  U.S. Census Bureau. (2021). 2020 Decennial Census, population by census tract. Weighted analysis based on Federal
+Office of Rural Health Policy (FORHP) rural designation.
+61
+  U.S. Census Bureau. (2021). 2020 Decennial Census population and land area by census tract. Frontier Level 2 areas
+defined as <6 persons per square mile, computed using tract-level land area and population data.
+62
+  U.S. Census Bureau. (2021). 2020 Decennial Census population and land area by census tract. Frontier Level 2 areas
+defined as <6 persons per square mile, computed using tract-level land area and population data.
+ U.S. Census Bureau. (2020). TIGER/Line shapefiles: Washington State (2020). Land and inland water area calculations.
+63
+
+Washington, DC: Geography Division.
+                                              Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                         February 2026
+
+                                                                                                              Page | 45
+ A7. Percent of Hospitals Receiving          Hospitals receiving Medicaid                      0.43 (43%)
+ Medicaid DSH Payments64                     Disproportionate Share Hospital (DSH)
+                                             payments
+
+Table 2. Rural demographics in Washington65
+Includes population, income, education, education, employment, and insurance comparisons between rural
+and urban areas in Washington.
+ Indicator                                                               Rural areas in        Urban areas in
+                                                                         Washington            Washington
+ Total population size                                                   1,115,886             6,589,395
+                                               % of total population     14.48%                85.52%
+ Total population size for males                                         564,174               3,279,598
+                                    % of total population for males      14.68%                85.32%
+ Total population size for females                                       551,712               3,309,797
+                                  % of total population for females      14.29%                85.71%
+ Total population size for 62 years and over                             297,945               1,237,748
+                        % of total population for 62 years and over      19.40%                80.60%
+ Total population size for 65 years and over                             246,723               1,005,705
+                        % of total population for 65 years and over      19.70%                80.30%
+ Land area (square miles)                                                56,511.50             9,943.50
+                                      % of Land area (square miles)      85.04%                14.96%
+ Simple average census tract density (average density across all         614.10                5,089.67
+ census tracts)66
+ Population-weighted density (people per square mile)67                  19.75                 662.68
+ “Typical tract’s” Median                                                $74,837.64            $107,093.30
+ Income (each tract counts equally; Unweighted tract averages)
+ Population-weighted median income (average tract-level                  $75,406.32            $108,505.61
+ median household income, weighted by population)
+
+
+
+64
+  Washington State Health Care Authority. (2024). Medicaid Disproportionate Share Hospital (DSH) payment reports,
+State Fiscal Year 2024. Olympia, WA: HCA Division of Hospital Finance.
+65
+  U.S. Census Bureau. (2023). 2020 Decennial Census population and land-area data; 2022 American Community Survey
+(ACS) 1-Year Estimates, analyzed by rural and urban designation using Federal Office of Rural Health Policy (FORHP)
+census-tract classifications. Washington, DC: U.S. Department of Commerce.
+66
+  This tells you something like “what is the typical tract density?”, but it doesn’t represent how the average resident
+experiences density.
+67
+  This tells you “How many people per square mile live in urban vs rural areas overall.” It reflects the density as
+experienced by the population, not just the geography.
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                                 Page | 46
+Number of unemployed (civilian labor force)                         29,181                169,179
+Number of employed (civilian labor force)                           472,012               3,309,320
+Unemployment rate                                                   5.82%                 4.86%
+% High school degree or higher (25 years and over)                  89.21%                92.72%
+% Bachelor’s degree or higher (25 years and over)                   27.07%                40.78%
+% uninsured (unweighted)                                            8.32%                 6.04%
+% uninsured (population-weighted mean)                              8.48%                 5.99%
+
+
+
+Figure 1: Age 65+ population in Washington
+
+
+
+
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                           Page | 47
+Table 3. Health outcomes by rurality in Washington68,69,70,71,72,73,74,75,76
+Includes chronic condition, maternal child and child health, and substance use-related health outcomes.
+ Indicator                 Notes on Indicator                                                         Topic             WA        WA Metro      WA Non-        US
+                                                                                                                        State     Counties      Metro          Value
+                                                                                                                                                Counties
+                           Percentage of adults who reported ever being told by a health              Chronic           24.4%          23.5%         31.9%      26.3%
+ Arthritis
+                           professional that they had some form of arthritis                          Conditions
+                           Percentage of adults who reported ever being told by a health              Chronic             8.2%          8.0%         10.4%       8.4%
+ Cancer                    professional that they had any form of cancer other than non-              Conditions
+                           melanoma skin cancer
+                           Percentage of adults who reported ever being told by a health              Chronic             3.3%          3.3%           3.9%      3.7%
+ Chronic Kidney
+                           professional that they had kidney disease (excluding kidney                Conditions
+ Disease
+                           stones, bladder infection and incontinence)
+
+
+
+68
+  Centers for Disease Control and Prevention. (2023). Behavioral Risk Factor Surveillance System (BRFSS), 2021–2023 data. Atlanta, GA: U.S. Department of Health
+and Human Services.
+69
+  Centers for Disease Control and Prevention. (2023). CDC WONDER Online Database, 2020–2022 data. Atlanta, GA: U.S. Department of Health and Human Services.
+https://wonder.cdc.gov
+70
+  Health Resources and Services Administration, Maternal and Child Health Bureau. (2022). Federally Available Data, 2018–2022. Rockville, MD: U.S. Department of
+Health and Human Services.
+71
+     U.S. Census Bureau. (2023). American Community Survey (ACS), 1-Year Estimates, 2022. Washington, DC: U.S. Department of Commerce.
+ Centers for Disease Control and Prevention. (2023). National Immunization Survey–Child, 2020–2021 birth cohorts. Atlanta, GA: U.S. Department of Health and
+72
+
+Human Services.
+73
+  Health Resources and Services Administration, Maternal and Child Health Bureau. (2023). National Survey of Children’s Health, 2022–2023 data. Rockville, MD: U.S.
+Department of Health and Human Services.
+74
+     Washington State Department of Health (2025). Opioid and Drug Use Data.
+75
+     Centers for Disease Control and Prevention (2025). DOSE-DIS Dashboard: Nonfatal Overdose Emergency Department and Inpatient Hospitalization Discharge Data.
+76
+     National Center for Health Statistics (2024). Drug Overdose Deaths in the United State, 2003-2023.
+                                                                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                                           February 2026
+
+                                                                                                                                                               Page | 48
+Indicator          Notes on Indicator                                                     Topic             WA        WA Metro      WA Non-        US
+                                                                                                            State     Counties      Metro          Value
+                                                                                                                                    Counties
+                   Percentage of adults who reported ever being told by a health          Chronic             9.6%          9.3%         12.1%      11.5%
+Diabetes           professional that they had diabetes (excluding prediabetes and         Conditions
+                   gestational diabetes)
+                   Percentage of adults who reported having their cholesterol             Chronic           36.2%            N/A         39.8%      36.9%
+High Cholesterol
+                   checked and being told by a health professional that it was high       Conditions
+                   Percentage of adults who reported ever being told by a health          Chronic           10.7%          10.6%         11.5%      10.3%
+Asthma
+                   professional that they have asthma                                     Conditions
+                   Percentage of adults who reported ever being told by a health          Chronic             7.1%          6.7%         10.6%       8.5%
+Cardiovascular
+                   professional that they had angina or coronary heart disease, a         Conditions
+Disease
+                   heart attack or myocardial infarction, or a stroke
+                   Percentage of adults who reported ever being told by a health          Chronic             4.5%          4.3%           6.5%      6.4%
+COPD               professional that they had chronic obstructive pulmonary disease,      Conditions
+                   emphysema or chronic bronchitis
+High Blood         Percentage of adults who reported being told by a health               Chronic           30.6%          29.9%         37.0%      34.0%
+Pressure           professional that they had high blood pressure                         Conditions
+                   Percentage of adults who have three or more of the following           Chronic             9.6%          9.1%         14.2%      10.7%
+                   chronic health conditions: arthritis, asthma, chronic kidney           Conditions
+Multiple Chronic   disease, chronic obstructive pulmonary disease, cardiovascular
+Conditions         disease (heart disease, heart attack or stroke), cancer (excluding
+                   non-melanoma skin cancer), depression or diabetes
+
+                   Percentage of adults who have a body mass index of 30.0 or higher      Chronic           30.6%          30.3%         33.6%      34.3%
+Obesity
+                   based on reported height and weight                                    Conditions
+                   Number of infant deaths (before age 1) per 1,000 live births           Maternal and          4.4           4.3            4.8       5.5
+Infant Mortality                                                                          Child Health
+                                                                                          Outcomes
+
+
+
+
+                                                                                    Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                               February 2026
+
+                                                                                                                                                   Page | 49
+Indicator           Notes on Indicator                                                      Topic             WA        WA Metro      WA Non-        US
+                                                                                                              State     Counties      Metro          Value
+                                                                                                                                      Counties
+                    Number of deaths per 100,000 children ages 1-19                         Maternal and         25.4          N/A            N/A       29.0
+Child Mortality                                                                             Child Health
+                                                                                            Outcomes
+                    Number of deaths during first 28 days of life (0-27 days) per 1,000     Maternal and          2.8          N/A            N/A        3.5
+Neonatal
+                    live births                                                             Child Health
+Mortality
+                                                                                            Outcomes
+                    Number of deaths related to or aggravated by pregnancy                  Maternal and         18.0          N/A            N/A       23.2
+Maternal            (excluding accidental or incidental causes) occurring within 42         Child Health
+Mortality           days of the end of a pregnancy per 100,000 live births (5-year          Outcomes
+                    estimate)
+                    Percentage of children younger than 18 years who live in                Maternal and      11.4%            N/A            N/A     16.3%
+Children in
+                    households below the poverty threshold                                  Child Health
+Poverty
+                                                                                            Outcomes
+                    Percentage of infants exclusively breastfed for six months              Maternal and      31.9%            N/A            N/A     25.4%
+Breastfeeding                                                                               Child Health
+                                                                                            Outcomes
+                    Percentage of children who received by age 24 months all                Maternal and      72.4%            N/A            N/A     66.9%
+                    recommended doses of the combined seven-vaccine series:                 Child Health
+                    diphtheria and tetanus toxoids and acellular pertussis (DTaP)           Outcomes
+Childhood           vaccine; measles, mumps and rubella (MMR) vaccine; poliovirus
+Immunizations       vaccine; Haemophilus influenzae type b (Hib) vaccine; hepatitis B
+                    (HepB) vaccine; varicella vaccine; and pneumococcal conjugate
+                    vaccine (PCV)
+
+                    Percentage of children ages 0-17 who received one or more               Maternal and      79.2%            N/A            N/A     78.8%
+Well-Child Visits   preventive visits in the past 12 months (2-year estimate)               Child Health
+                                                                                            Outcomes
+
+
+
+
+                                                                                      Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                                 February 2026
+
+                                                                                                                                                     Page | 50
+ Indicator               Notes on Indicator                                                        Topic             WA        WA Metro      WA Non-        US
+                                                                                                                     State     Counties      Metro          Value
+                                                                                                                                             Counties
+                         Percentage of women ages 18-44 with a preventive medical visit in         Maternal and      66.2%          66.2%         66.6%      71.2%
+ Well-Women
+                         the past year                                                             Child Health
+ Visits
+                                                                                                   Outcomes
+                         Percentage of women ages 40-74 who reported receiving a                   Maternal and      68.1%          68.6%         64.3%      72.1%
+ Breast Cancer
+                         mammogram in the past two years                                           Child Health
+ Screening
+                                                                                                   Outcomes
+                         Percentage of children ages 0-17 who have ever experienced two            Maternal and      13.7%            N/A            N/A     14.5%
+                         or more of the following: parental divorce or separation;                 Child Health
+                         household with an alcohol or drug problem; neighborhood                   Outcomes
+ Adverse
+                         violence victim or witness; household with mental illness;
+ Childhood
+                         domestic violence witness; parent served jail time; treated or
+ Experiences
+                         judged unfairly due to race/ethnicity, sexual orientation, gender
+                         identity, or a health condition or disability; or death of a parent (2-
+                         year estimate)
+                         Percentage of children ages 0-17 who currently have asthma (2-            Maternal and        5.0%           N/A            N/A      6.6%
+ Asthma in
+                         year estimate)                                                            Child Health
+ Children
+                                                                                                   Outcomes
+                         Number of deaths due to intentional self-harm per 100,000                 Maternal and         13.7          N/A            N/A       10.5
+ Teen Suicide            adolescents ages 15-19                                                    Child Health
+                                                                                                   Outcomes
+                         Percentage of infants weighing less than 2,500 grams (5 pounds, 8         Maternal and        7.0%           N/A            N/A      8.6%
+ Low Birth Weight        ounces) at birth                                                          Child Health
+                                                                                                   Outcomes
+ ED Visit for Non-       Age-adjusted rate of non-fatal suspected drug overdose ED visits          Substance use     347.43        344.42         357.24    125.177
+ Fatal Drug              per 100,000 population (2023). Based on WA OFM Rural definition.
+ Overdose
+
+
+77
+     Not age adjusted.
+                                                                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                                        February 2026
+
+                                                                                                                                                            Page | 51
+Indicator           Notes on Indicator                                                    Topic             WA        WA Metro      WA Non-        US
+                                                                                                            State     Counties      Metro          Value
+                                                                                                                                    Counties
+Hospitalization     Age-adjusted rate of all drug and opioid overdose hospitalizations    Substance use      69.55         77.26          58.01    49.477
+for Drug Overdose   per 100,000 population (2023). Based on WA OFM Rural definition.
+                    Age-adjusted rate of any drug and overdose deaths per 100,000         Substance use        41.9        40.16          35.44       31.3
+Overdose deaths
+                    population (2023). Based on WA OFM Rural definition.
+
+
+
+
+                                                                                    Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                               February 2026
+
+                                                                                                                                                   Page | 52
+Table 4. Number of facilities in Washington by urban/rural distribution78, 79, 80, 81, 82
+ Hospitals                                                                            Rural         Urban        Total
+
+ Number of Critical Access Hospitals (CAHs)                                                   33            6            39
+
+ Number of Sole Community Hospitals                                                            3            1             4
+
+ Number of Medicare Dependent Hospitals                                                        0            0             0
+
+ Number of Low Volume Hospitals                                                                0            1             1
+
+ Number of Rural Emergency Hospitals                                                           0            0             0
+
+ Number of other rural hospitals in FORHP                                                                                 0
+
+ Number of other rural hospitals classified or reclassified                                                               0
+
+ Total                                                                                        36            8            44
+
+
+ Non-Hospitals                                                                         Rural        Urban        Total
+ Number of Rural Health Clinics (RHCs)                                                      110             17       127
+ Number of Federal Qualified Health Centers                                                    70        230         300
+ Number of Community Mental Health Centers                                                     13           39           52
+ Number of Opioid Treatment Facilities                                                          5           40           45
+ Number of Certified Community Behavioral Health Clinics                                        2           10           12
+
+ Total                                                                                      196          340         536
+
+
+
+
+ Washington State Department of Health. (2024). WA Health hospital capacity and utilization data system. Olympia,
+78
+
+WA: Office of Hospital and Patient Data Systems.
+79
+  Washington State Department of Health, Office of the Assistant Secretary for Health Systems Quality Assurance.
+(2024). Health Systems Quality Assurance (HSQA) data and licensing records. Olympia, WA.
+ Washington State Department of Health, Office of Community Health Systems. (2024). Data provided by the Office of
+80
+
+Community Health Systems. Olympia, WA.
+81
+  Washington State Department of Health, State Office of Rural Health. (2024). Program data provided by the State
+Office of Rural Health. Olympia, WA.
+82
+  Centers for Medicare & Medicaid Services. (2024). Provider of Service File – Hospital & Non-Hospital Facilities. CMS
+Data, Washington, DC: U.S. Department of Health and Human Services.
+                                               Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                          February 2026
+
+                                                                                                                  Page | 53
+Table 5. Factor A.2. Certified Community Behavioral Health Clinic (CCBHC) entities, site locations and addresses
+
+
+
+
+                                                                                                        Demonstration
+
+
+
+                                                                                                                        State-certified
+
+
+
+
+                                                                                                                                                       HRSA Rurality
+                                                                                    Corresponding
+
+
+
+
+                                                                                                                                          SAMHSA
+                                                                          ZIP       CCBHC Entity/
+
+
+
+
+                                                                                                                                                          (Y/N)
+ Active Site of Care Name   Street Address           City         State
+                                                                          Code      Institution
+                                                                                    Name
+
+ Cascade Community          2428 West Reynolds       Centralia     WA     98531                                                                    Y            Y
+ Healthcare                 Ave.
+ Columbia River Mental      6926 NE Fourth Plain     Vancouver     WA     98661                                                                    Y            N
+ Health Services            Blvd.
+ Columbia Wellness          921 14th Avenue          Longview      WA     98632                                                                    Y            N
+ Community Health           5901 N. Lidgerwood St.   Spokane       WA     99208                                                                    Y            N
+ Association of Spokane     Suite 223
+ (CHAS)
+ CHAS Lewiston              1534 Idaho St.           Lewiston      ID     83501     CHAS                                                           Y            N
+ Comprehensive              402 S. 4th Ave.          Yakima        WA     98902                                                                    Y            N
+ Healthcare
+ Confederated Tribes and    401 Fort Road            Toppenish     WA     98948                                                                    Y            Y
+ Bands of the Yakama
+ Nation
+ CORE Health                1105 Broadway Street     Longview      WA     98632                                                                    Y            N
+
+ Excelsior Youth Center     3910 W Indian Trail Rd   Spokane       WA     99208                                                                    Y            N
+ Kitsap Mental Health       5455 Almira Drive NE     Bremerton     WA     98311                                                                    Y            N
+ Services
+ Lake Whatcom               3600 Meridian St.        Bellingham    WA     98225                                                                    Y            N
+ Residential Treatment
+ Center
+
+
+                                                                                  Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                             February 2026
+
+                                                                                                                                                             Page | 54
+Sound Health (SH)       13555 Bel-Red Rd. Suite   Bellevue   WA   98005                                                      Y            N
+                        228
+SH Auburn               4238 Auburn Way N.        Auburn     WA   98002     Sound Health                                     Y            N
+SH Capitol Hill         1600 E. Olive St.         Seattle    WA   98122     Sound Health                                     Y            N
+Volunteers of America   1440 N Haven St           Spokane    WA   99202                                                      Y            N
+Spokane
+
+
+
+
+                                                                          Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                     February 2026
+
+                                                                                                                                         Page | 55
+Table 6. Factor A.7. Hospitals in Washington that received Disproportionate Share
+Hospital (DSH) payments (SFY2025 using FY2023 data)
+Medicare Number        Hospital Name
+Critical Access Hospitals
+501330                 Astria Sunnyside
+501334                 Chelan County Public Hospital District No.2 D/B/A Lake Chelan Community Hospital
+501308                 Coulee Medical Center
+501323                 Jefferson Healthcare
+501333                 Kittitas Valley Healthcare
+501336                 Mason General Hospital and Family of Clinics
+501314                 Ocean Beach Hospital
+501328                 Okanogan County Public Hospital District No. 3 d/b/a Mid Valley Hospital
+501318                 Othello Community Hospital
+501312                 Prosser Public Hospital District dba PMH Medical Center
+501326                 Providence Mount Carmel Hospital
+501331                 Pullman Regional Hospital
+501338                 Snoqualmie Valley Hospital
+501335                 St. Elizabeth Hospital
+501304                 Summit Pacific Medical Center
+501332                 Tri-State Memorial Hospital
+501327                 Whitman Hospital and Medical Center
+Non-Critical Access Hospital
+500139                 Capital Medical Center
+500124                 Evergreen Health Kirkland
+500039                 Franciscan St. Michael Medical Center (FKA: Harrison)
+500011                 Franciscan St. Anne Medical Center (FKA: Highline)
+500141                 Franciscan St. Francis Hospital
+500108                 Franciscan St. Joseph Medical Center
+500058                 Kadlec Regional Medical Center
+503301                 Mary Bridge Children's Hospital
+500015                 MultiCare Auburn Medical Center
+500044                 MultiCare Deaconess
+500079                 MultiCare Good Samaritan Hospital
+500129                 MultiCare Tacoma General Hospital
+500119                 MultiCare Valley Hospital
+500041                 PeaceHealth St. John
+500030                 PeaceHealth St. Joseph
+500050                 PeaceHealth Southwest
+500019                 Providence Centralia Hospital
+500077                 Providence Holy Family Hospital
+
+                                            Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                       February 2026
+
+                                                                                                           Page | 56
+500014                 Providence Regional Medical Center Everett
+500054                 Providence Sacred Heart Medical Center and Children's Hospital
+500033                 Samaritan Hospital
+503300                 Seattle Children's Hospital
+503302                 Shriners Hospitals for Children - Spokane
+500026                 Swedish Edmonds
+500152                 Swedish Issaquah
+500027                 Swedish Medical Center (First Hill)
+Border City
+380007                 Legacy Emanuel Hospital and Health Center
+
+
+Table 7. List of Washington counties defined as “fully rural” or “not fully rural” using
+HRSA’s Federal Office of Rural Health Policy (FORHP) County and Census Tract
+county eligibility data.83
+ County                  FORHP County Eligibility
+ Adams County            Fully FORHP Rural
+ Asotin County           Not Fully FORHP Rural
+ Benton County           Not Fully FORHP Rural
+ Chelan County           Not Fully FORHP Rural
+ Clallam County          Fully FORHP Rural
+ Clark County            Not Fully FORHP Rural
+ Columbia County         Fully FORHP Rural
+ Cowlitz County          Not Fully FORHP Rural
+ Douglas County          Not Fully FORHP Rural
+ Ferry County            Fully FORHP Rural
+ Franklin County         Not Fully FORHP Rural
+ Garfield County         Fully FORHP Rural
+ Grant County            Fully FORHP Rural
+ Grays Harbor County     Fully FORHP Rural
+ Island County           Fully FORHP Rural
+ Jefferson County        Fully FORHP Rural
+ King County             Not Fully FORHP Rural
+ Kitsap County           Not Fully FORHP Rural
+
+
+83
+  Health Resources & Services Administration’s Federal Office of Rural Health Policy County and Census Tract
+Excel File.
+                                             Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                        February 2026
+
+                                                                                                            Page | 57
+Kittitas County       Fully FORHP Rural
+Klickitat County      Fully FORHP Rural
+Lewis County          Fully FORHP Rural
+Lincoln County        Fully FORHP Rural
+Mason County          Fully FORHP Rural
+Okanogan County       Fully FORHP Rural
+Pacific County        Fully FORHP Rural
+Pend Orielle County   Fully FORHP Rural
+Pierce County         Not Fully FORHP Rural
+San Juan County       Fully FORHP Rural
+Skagit County         Not Fully FORHP Rural
+Skamania County       Fully FORHP Rural
+Snohomish County      Not Fully FORHP Rural
+Spokane County        Not Fully FORHP Rural
+Stevens County        Fully FORHP Rural
+Thurston County       Not Fully FORHP Rural
+Wahkiakum County      Fully FORHP Rural
+Walla Walla County    Not Fully FORHP Rural
+Whatcom County        Not Fully FORHP Rural
+Whitman County        Fully FORHP Rural
+Yakima County         Not Fully FORHP Rural
+
+
+
+
+                                          Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                     February 2026
+
+                                                                                                         Page | 58
+Table 8. RHT Program governance structure including primary roles and resolution pathways
+
+ Group             Primary roles                                                                                  Resolution pathway
+
+ Executive         • Receives quarterly briefings, otherwise brought in for oversight ad-hoc.
+                   • Participates on Advisory Committee directly, or through delegate.                            HCA Director may raise critical
+ Governance
+                   • Provide strategic direction and oversee any major decision making.                           issues to Governor if necessary.
+
+
+ Coordinator       • Directly oversee development of procurements and contracts, as necessary.
+                   • Ensure deliverables with Centers for Medicare & Medicaid Services (CMS) and state            Raise unresolved issues with
+                     Legislature are timely.                                                                      the Executive Governance
+                   • Escalate decisions to executive team as necessary via monthly meetings.                      group.
+                   • Organize staff teams and manage any RHTP program hires at HCA.
+
+
+ Consulted         • Support consultation.
+ Leadership Team   • Ensure success of Project Team.                                                              Raise issues to Coordinator for
+                   • Meet every other week.                                                                       resolution, as necessary.
+
+
+ Project Team      •   Develop and score procurements.
+                   •   Draft and execute contracts.                                                               Raise issues with Coordinator
+                   •   Produce reporting for federal and state officials.                                         and Consulted Leadership
+                   •   Staff Advisory Committee.                                                                  Team at bimonthly check-ins.
+                   •   Report to Leadership Team on progress.
+
+
+ Advisory          • Staffed by DOH                                                                               Brings recommendations to
+ Committee         • Support recommendations on priorities for funding, within Washington’s major                 Project Team and Coordinator.
+                     initiatives outlined in its Rural Transformation Plan and RHTP application.
+                   • Review reporting from awardees of funds and suggest changes in prioritization of
+                     funding to Project Team throughout five-year duration of RHTP.
+                   • Make recommendations to the Legislature on statutory changes or state investments
+                     that could align state investments and policies with the Rural Transformation Plan.
+
+
+
+                                                                                Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                           February 2026
+
+                                                                                                                                               Page | 59
+Table 9. RHT Program project members including executive governance, acting staff, and advisory committee
+representatives
+
+ Group                  Members
+
+ Executive Governance   Ryan Moran, HCA Dir.                                    Angela Ramirez, DSHS         Dennis Worsham, DOH
+                                                Caitlin Safford, GOV
+                        (Lead organization)                                     Secretary                    Secretary
+
+ Coordinator            TBD, Program Lead
+                        _____________
+
+ Consulted Leadership                           Aren Spark, HCA                 Rich Pannkuk, DSHS
+                        Teesha Kirshbaum, HCA
+ Team                                           Kahlie Dufresne, HCA            Bea Rector, DSHS             Maria Courogen, DOH
+                        Catrina Lucero, HCA
+                                                (acting)                        Cynthia Holliman,            Lacy Fehrenbach, DOH
+                        Mich’l Needham, HCA
+                                                Evan Klein, HCA (acting)        OFM
+
+ Project Team           Health Care Authority   Department of Health,           Department of Social
+                        -Policy analysts        including the State Office      and Health Services
+                        -Data analysis and      of Rural Health                 -Program staff (for
+                        monitoring              -Program staff (for             initiative
+                        -Financial analysts     initiative implementation)      implementation)
+                                                -Advisory Committee
+                                                support staff
+
+ Advisory Committee     GOV, HCA, DOH, DSHS,    Federally Qualified Health      State Council on Aging or Area Agency on Aging
+ One representative     OFM                     Centers (FQHCs)                 Three community representatives from rural
+ from each group.       Tribes (2 reps)         Behavioral health               Washington
+                        Rural hospitals         providers                           • Two from eastern Washington, one from
+                        Local public health     Medical association                     western Washington
+                                                Labor organizations                 • Seeking experience in health care
+
+
+                                                                       Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                                                  February 2026
+
+                                                                                                                                      Page | 60
+Publication note
+This document contains the third version of Washington’s project narrative for the Rural Health Transformation
+Program. The Health Care Authority submitted the third version to The Centers for Medicare & Medicaid Services
+(CMS) of the U.S. Department of Health & Human Services (HHS) in February 2026, and CMS accepted this
+version.
+This document was reformatted from the submitted version so it’s easier to read. All wording matches the
+original document.
+Disclaimer: This program is supported by CMS/HHS as a financial assistance award totaling $181,257,515.06 with
+100 percent funded by CMS/HHS. The contents are those of the author and do not necessarily represent the
+official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+
+
+
+                                           Project Narrative v. 3 | Rural Health Transformation Program Application
+                                                                                                      February 2026
+
+                                                                                                          Page | 61
+

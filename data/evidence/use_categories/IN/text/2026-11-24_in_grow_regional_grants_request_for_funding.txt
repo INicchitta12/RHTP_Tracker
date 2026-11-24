@@ -1,0 +1,1501 @@
+2026
+Request for Funding
+Opportunity
+Growing Rural Opportunities for Well-being (GROW) Regional
+Grants Program
+Growing Rural Opportunities for Well-being
+(GROW) Regional Grants Program
+Request for Funding
+
+Applications due 11:59 p.m. Eastern Time on July 1, 2026
+
+
+
+
+The Growing Rural Opportunities for Well-being (GROW) Regional Grants Program is
+supported by the Centers for Medicare & Medicaid Services Human Services (HHS) as part
+of a ﬁnancial assistance award, with 100 percent funded by HHS. The contents herein do
+not represent the official views of, nor an endorsement, by CMS, HHS, or the U.S.
+Government.
+
+
+                                                                                         1
+Table of Contents
+
+Growing Rural Opportunities for Well-being (GROW) Regional Grants Program .................. 0
+1. Indiana’s Rural Health Transformation Program .......................................................... 3
+   1.A. Introduction and Background............................................................................... 4
+2. Indiana Regional Grants ............................................................................................. 5
+   2.A. Introduction ....................................................................................................... 5
+   2.B. Funding Approach .............................................................................................. 6
+   2.C. Unallowable Costs .............................................................................................. 8
+   2.D. Funding Categories ........................................................................................... 10
+   2.E. Eligibility ........................................................................................................... 13
+      2.E.1. Regions ...................................................................................................... 13
+      2.E.2. Regional Coalitions ..................................................................................... 14
+      2.E.3. Primary Subrecipients ................................................................................. 15
+      2.E.4. Technical Assistance Providers .................................................................... 16
+3. Funding Overview .................................................................................................... 16
+   3.A. Budget Overview ............................................................................................... 16
+   3.B. Determination of Regional Grant Award .............................................................. 18
+      3.B.1. Overview of Funding Structure ..................................................................... 19
+      3.B.2. Base Funding Allocation Methodology .......................................................... 19
+      3.B.3. Evaluation Criteria ...................................................................................... 20
+      3.B.4. Projected Regional Awards .......................................................................... 23
+   3.C. Payment Methodology ....................................................................................... 25
+   3.D. Sustainability ................................................................................................... 25
+4. Application Requirements ........................................................................................ 25
+   4.A. Application Overview ........................................................................................ 26
+   4.B. Needs Assessment Template ............................................................................. 30
+   4.C. Logic Model Template ....................................................................................... 31
+   4.D. Workplan Template ........................................................................................... 32
+
+                                                                                                                                2
+  4.E. Budget Workbook Templates.............................................................................. 32
+     4.E.1. Budget Preparation Guidance ...................................................................... 32
+  4.F. Initiative Narrative Response Template ................................................................ 32
+5. Regional Grants Requirements ................................................................................. 33
+  5.A. Primary Subrecipient Responsibilities ................................................................ 33
+     5.A.1. Statewide Initiative-speciﬁc Regional Coalition Responsibilities .................... 34
+  5.B. State of Indiana Responsibilities ........................................................................ 40
+
+
+
+
+                                                                                                                   3
+1. Indiana’s Rural Health Transformation
+Program
+1.A. Introduction and Background
+Rural Indiana represents the heart of the state, rooted in strong agricultural
+traditions and close-knit communities. As the ninth (9th) largest farming state in the
+country, Indiana’s rural areas contribute billions of dollars in agricultural products
+to national and global markets. Despite their strengths, many rural communities
+face serious challenges when it comes to healthcare access and overall health
+outcomes. The goal of Indiana’s Rural Health Transformation
+Program (RHTP) (“Indiana’s Program” or “Indiana’s RHTP”) is to ensure that rural
+Hoosiers have the same opportunity to live healthy, thriving lives as residents in
+urban areas.
+
+Indiana responded to the federal RHTP authorized in July 2025 and administered by
+the Centers for Medicare and Medicaid Services (CMS) with a plan to address rural
+healthcare challenges. Indiana’s Program, including the Regional Grants, is 100%
+federally funded.
+
+Indiana’s RHTP focuses on the following priorities:
+
+   •   Improve access to care by strengthening coordination, technology,
+       preventive services, and emergency care. This includes using data and digital
+       systems to make rural healthcare more eﬃcient and sustainable.
+
+   •   Expand the use of innovative technology to support prevention and
+       chronic disease management. Indiana’s Program will strengthen IT systems in
+       rural facilities and address long-standing gaps in interoperability and
+       cybersecurity.
+
+   •   Improve outcomes for chronic conditions and reduce barriers to
+       preventive and post-acute care. Eﬀorts include enhancing pediatric and
+       obstetric readiness in emergency departments, improving cardiometabolic
+
+
+
+                                                                                         4
+       care, expanding timely access to prescription medications, and increasing the
+       use of telehealth and teleconsult service.
+
+   •   Strengthen the rural healthcare workforce by investing in early career
+       pipelines, reducing credentialing and training barriers for community health
+       workers and peers, and incentivizing rural practice.
+
+   •   Build strong local partnerships and support rural health innovation.
+       Regional Coalitions will work together to reduce duplication, improve
+       ﬁnancial sustainability, and address root causes of low patient volume and
+       provider bypass, particularly in chronic disease, maternal health, and
+       behavioral health.
+
+Indiana’s Program includes a total of twelve (12) initiatives. Eleven (11) are statewide
+and focus on broad, system-level issues such as workforce development and
+coordinated resource use. An overview of Indiana’s eleven (11) statewide initiatives
+can be found on Indiana’s Program website. The 12th initiative, Growing Rural
+Opportunities for Well-being (GROW) Regional Grants (“Regional Grants”), uses
+a community-driven approach. Through these ﬁve (5)-year Regional Grants, local
+stakeholders identify shared opportunities and design solutions tailored to their
+speciﬁc community needs.
+
+By combining statewide coordination with locally driven solutions, Indiana is
+creating a comprehensive strategy for rural health transformation. This approach
+ensures consistency across the state while allowing ﬂexibility for regional
+diﬀerences. Together, the twelve (12) initiatives serve as the foundation for
+meaningful, sustainable reform in rural healthcare.
+
+2. Indiana Regional Grants
+2.A. Introduction
+In alignment with CMS priorities, the State of Indiana, with its lead agencies, the
+Indiana Family and Social Services Administration (“FSSA”) and the Indiana
+Department of Health (“IDOH”), under Indiana Health and Family Services (“HFS”,
+
+
+                                                                                       5
+“State”, or “Indiana”), is proud to launch the Growing Rural Opportunities for Well-
+being (GROW) Regional Grants (“Regional Grants”).
+
+The ﬁve (5)-year Regional Grants replicate the intent and structure of the federal
+RHTP structure at the state level. Like the federal program’s approach, Indiana
+recognizes that local communities have unique insights into their needs and are
+best positioned to design and implement eﬀective local solutions.
+
+The remainder of this document details who is eligible to apply for the ﬁve (5)-
+year Regional Grants, what can be funded, and how potential applicants should
+submit their Regional Grants application. In addition to reviewing this document,
+potential applicants should review the linked federal Notice of Funding Opportunity
+(“NOFO”) as well as all attachments to this document to ensure full understanding
+of the Regional Grants and support application development.
+
+2.B. Funding Approach
+Indiana is seeking applications for funding from rural areas of the state to address critical
+health and health infrastructure needs. The State will allocate funding across
+eight (8) regions to bolster rural health innovations, foster collaboration for shared cost
+savings across entities, increase access points to promote preventive health, support
+outcomes-driven chronic disease prevention and management, and grow a trained and
+ready rural workforce.
+
+The State will accept one (1) application per region, submitted by the Regional Coalition.
+This application should describe a uniﬁed vision for improving the health of rural
+residents and contain the collective strategies, activities, and budget requirements of all
+participating organizations over the course of the ﬁve (5)-year grant term and how these
+strategies and activities will be maintained beyond the grant term.
+
+Using the application documents (listed as “Templates” below), Regional Coalitions will
+propose Initiatives for the ﬁve (5)-year grant term that address the health needs
+of rural residents as identiﬁed through the Needs Assessment (Template B), which
+is the cornerstone of the Regional Grants and ensures that Initiatives are responsive to
+the most immediate and pressing need within each region. An Initiative describes an
+overarching goal that Regional Coalitions would like to address (please see Appendix 2 for
+examples of Initiatives) and will likely contain several activities that address the
+overarching Initiative. The State expects that several organizations across the
+
+                                                                                                6
+region will work together to implement each Initiative over the course of the
+ﬁve (5) years and expects organizational partnership on individual activities within the
+broader Initiative.
+
+This is a one-time funding opportunity. After the initial application is approved for the
+ﬁve (5)-year grant term and Grant Agreements are executed for Budget Period 1 funding,
+Regional Coalitions will submit continuing applications to request funding
+for subsequent Budget Periods.
+
+As described in Section 4.A., Regional Coalitions and Primary Subrecipients are required
+to provide in Template E. 1 – Primary Subrecipient Budget Workbook, E.2. Regional
+Coalition Grant Budget Workbook, and Template D –
+Implementation Workplan proposed budgets and initiative workplans for the ﬁrst two
+Budget Periods. Though Regional Coalitions may provide additional grant-period budget
+information beyond Budget Periods 1 and 2, Regional Coalitions are not required
+to provide this information as part of a complete application. All other Templates,
+including the Needs Assessment, Logic Model, and Project Narrative, should be provided
+for Years 1-5.
+
+Regional Coalitions’ proposed Initiatives and associate activities should address one or
+more of the ﬁve (5) Funding Categories described in Figure 1. Examples
+of approved, evidence-based activities will be available on the GROW Regional
+Grants website and through the regional Technical Assistance providers. Coalitions need
+not be limited to these examples and should identify solutions that work for their unique
+needs and circumstances.
+
+Within the Workplan Template (Template D), Regional Coalitions should
+clearly identify which Primary Subrecipient (deﬁned in Section 2.E.3. below) is responsible
+for implementing every aspect of the activities under each Initiative. Although
+one (1) application is being submitted, IDOH will make individual awards to each Primary
+Subrecipient, which are individual providers and/or organizations receiving Regional Grant
+funding to implement approved Initiatives and associated activities within the broader
+Regional Coalition.
+
+Successful applications center the needs of individuals and families within each region,
+as demonstrated throughout the Workplan (Template D) and Initiative Narrative Response
+(Template F). While it is understood that individual organizations will have needs such as
+equipment, supplies, staffing, software, etc., applicants should describe the impact of
+those requirements on the ultimate health outcomes for the patients in their region.
+
+                                                                                             7
+Competitive applications will prioritize collaborative Initiatives that strengthen
+coordination across partners, including enhancements to technology infrastructure such
+as electronic medical record integration, shared data systems, and interoperable referral
+platforms. Where appropriate, proposals may include strategic capital investments that
+advance healthcare access, quality, or capacity —such as equipment facility
+improvements, or technology upgrades — provided such expenditures are allowable under
+the funding restrictions detailed in Section 2.C and Appendix 4. All capital requests must
+be clearly justiﬁed, directly tied to proposed activities, and demonstrate long-term
+sustainability beyond the ﬁve (5)-year grant period. Regional coalitions are encouraged to
+advance strategies that build on existing work and align seamlessly with ongoing efforts
+and should avoid proposing new programs that cannot be sustained after the conclusion of
+the grant.
+
+2.C. Unallowable Costs
+Regions shall not propose any unallowable costs in their application. Below are
+several key types of unallowable costs. However, applicants should review the full
+list of Allowable and Unallowable expenses in Appendix 4 before putting together
+application materials.
+
+Supplanting existing State, local, tribal, or private funding of infrastructure or
+services, such as staﬀ salaries.
+
+Duplicate payments. Funds may not be used to replace payment for clinical
+services that could be reimbursed by insurance. Funds also may not be used for
+payments to clinical services if they duplicate billable services and/or attempt to
+change the payment amounts of existing fee schedules. If the Recipient plans to
+fund direct health care services, the Recipient must justify why they are not already
+reimbursable, how the payment will ﬁll a gap in care coverage (such as
+uncompensated care or services not covered by insurance), and/or how they
+transform the current care delivery model. CMS will have ﬁnal approval of whether
+proposed services are allowable.
+
+Funds may not be used for clinician salaries or wage supports if clinicians work
+for facilities that subject clinicians to non-compete contractual
+limitations. Funds may go towards clinician salaries and wage supports if the
+
+
+                                                                                         8
+clinician is not subject to a non-compete agreement and the salary/wage support is
+being funded as part of an approved Initiative.
+
+Funding used for provider payments, deﬁned by CMS as providing payments to
+health care providers for the provision of health care items or services, cannot
+exceed 15% of the total funding awarded to the Recipient in a given budget
+period. Please see Appendix 4 for region-speciﬁc provider payment maximums for
+Budget Period 1.
+
+Funds may not be used for new construction. Funds also may not be used to
+supplant funding for in process or planned construction projects or directing
+funding towards new construction builds. Construction or building expansion,
+purchasing or signiﬁcant retroﬁtting of buildings, cosmetic upgrades, or any other
+cost that materially increases the value of the capital or useful life as a direct cost.
+
+Funds may be used for minor renovations or alterations if they are clearly
+linked to program goals and receive CMS prior approval. Funding used for
+renovation or alterations cannot exceed 20% of the total funding awarded to the
+State in each budget period.
+
+Of Indiana’s $206.9 million Budget Period 1 award, a maximum of
+$41.3 million can be allocated across all regions to allowable capital
+expenditures. Please see Appendix 4 for region-speciﬁc capital expenditure
+maximums for Budget Period 1.
+
+No more than 5% of total funding awarded to the State in a given Budget Period can
+support funding the replacement of an EMR system if a previous HITECH certiﬁed
+EMR system is already in place as of Sept. 1, 2025.
+
+Of Indiana’s $206.9 million Budget Period 1 award, a maximum of
+$10.3 million can be allocated across all regions to EMR replacement expenditures
+meeting the above criteria. Please see Appendix 4 for region-speciﬁc EMR
+replacement expenditure maximums for Budget Period 1.
+
+Applicants may propose costs to support administration of grant funds, but the
+sum of all administrative costs must not exceed 10% of total proposed
+costs in a given Budget Period.
+                                                                                           9
+For example, if a region’s Budget Period funding amount is $3,000,000, and
+administrative costs are three staﬀ members, the sum of those staﬀ members’
+costs for Budget Period 1 cannot exceed $300,000.
+
+Applicants may not include any Indirect Costs in their proposed budgets. All
+proposed costs must be categorized under one of the CMS Cost Categories as
+Direct Costs.
+
+All proposed costs must be tied to an identiﬁed Initiative. As a condition of
+approval, applications must reﬂect that awarded funds will be used to invest in
+activities identiﬁed as permissible uses that are described in Section 71401 of Public
+Law 119-21. Please review Appendix 4 for more detail on allowable/unallowable
+costs and associated Subrecipient requirements.
+
+2.D. Funding Categories
+The Regional Grants will support proposed initiatives and associated activities that
+fall under the ﬁve (5) funding categories identiﬁed below. Regional Coalitions are
+not required to address all ﬁve (5) funding categories but must address at least one
+(1) in each proposed Initiative.
+
+Figure 1: Overview of the Five (5) Funding Categories
+
+Funding Category   Deﬁnition
+Tech Innovation     Foster use of innovative technologies that promote efficient
+                    care delivery, data security, and access to digital health tools
+                    by rural facilities, providers, and patients.
+                   Support access to remote care, improve data sharing,
+                   strengthen cybersecurity, and invest in emerging
+                   technologies.
+Sustainable Access Help rural providers become long-term access points for care
+                   by improving eﬃciency and sustainability. With Indiana
+                   Program support, rural facilities work together or with high-
+                   quality regional systems to share or coordinate operations,
+                   technology, primary and specialty care, and emergency
+                   services.
+
+
+
+                                                                                       10
+Innovative Care         Spark the growth of innovative care models to improve
+                        health outcomes, coordinate care, and promote flexible care
+                        arrangements.
+                       Develop and implement payment mechanisms incentivizing
+                       providers or Accountable Care Organizations (ACOs) to
+                       reduce healthcare costs, improve quality of care, and shift
+                       care to lower cost settings.
+Workforce               Attract and retain a high-skilled healthcare workforce by
+Development             strengthening recruitment and retention of healthcare
+                        providers in rural communities.
+                       Help rural providers practice at the top of their license and
+                       develop a broader set of providers to serve a rural
+                       community’s needs, such as community health workers,
+                       pharmacists, and individuals trained to help patients navigate
+                       the healthcare system.
+Make Rural Indiana     Support rural health innovations and new access points to
+Healthy Again          promote preventive health and address root causes of
+                       diseases. Initiatives will use evidence-based, outcomes-driven
+                       interventions to improve disease prevention, chronic disease
+                       management, behavioral health, and prenatal care.
+
+
+Regional Grants applicants are required to address the following health
+outcomes either through a) newly proposed Initiatives and associated activities as
+part of the Regional Grants application OR b) regions may forgo addressing these
+health outcomes ONLY if they can provide strong justiﬁcation within the narrative
+that their Regions are already eﬀectively addressing these outcomes through
+existing eﬀorts and/or interventions within their region:
+
+   •   Pre and postnatal care;
+
+   •   Chronic disease prevention and management; and
+
+   •   Needs Related to Access (e.g., transportation, access to aﬀordable healthy
+       food, health education and literacy, etc.).
+
+These issues represent some of Indiana's most pressing and persistent health
+challenges. Indiana continues to experience poor maternal and infant health
+
+
+                                                                                     11
+outcomes, with some areas of the state having an infant mortality
+rate (IMR) of 13.2 deaths per 1,000 live births (2020-2024). Overall, Indiana's
+statewide IMR of 6.3 deaths per 1,000 live births exceeds the national average
+reported by CDC of 5.6 deaths per 1,000 live births in 2023. Over two
+thirds (69.9%) (2023) of Indiana adults are overweight or obese, contributing to
+preventable morbidity and mortality and signiﬁcant healthcare costs.
+The Needs Assessment (Template B) conducted by the
+Regional Coalitions should also highlight region-speciﬁc needs related to access to
+care, such as transportation and/or access to food.
+
+Applicants are not limited to only addressing these priority outcomes and are free
+to identify other health challenges through their needs assessment. Regions may
+choose as many Initiatives as deemed necessary to address their identiﬁed needs;
+however, all Initiatives must somehow address the State’s Key Performance
+Objectives (KPOs) as listed below. The KPOs are the anchor grounding Indiana’s
+RHTP Program as they are the overall program performance objectives that
+Indiana is working toward through the implementation of the 12 initiatives.
+
+   •   Reducing preventable ED visits,
+
+   •   Improving rural workforce stability,
+
+   •   Timeliness and access to care,
+
+   •   Data interoperability,
+
+   •   Improve system integration and cross sector collaboration,
+
+   •   Maternal and infant care,
+
+   •   Chronic disease indicators, and
+
+   •   Expand Telehealth and Teleconsult to increase healthcare access.
+
+
+
+
+                                                                                      12
+2.E. Eligibility
+2.E.1. Regions
+The Regional Grants divide the state into eight regions, which collectively serve all
+rural and partially rural counties in the state. The State created the regional
+structure to facilitate the planning and implementation of initiatives
+by identifying service gaps, reducing duplication, ﬁnding opportunities for shared
+cost savings, and proposing innovative ways to deliver care.
+
+Figure 2: Indiana’s Eight (8) Regions
+
+
+
+
+                                                                                        13
+   •   Shaded counties indicate a full rural designation by the Health Resources
+       and Services Administration (HRSA), and entities in these counties may
+       fully participate in the receipt of funding from the Regional Grants.
+
+   •   Striped counties are designated as partially rural counties per HRSA, and
+       entities in these counties may be eligible to receive funding from the
+       Regional Grants. Counties without a rural designation may be included in this
+       group if there is a Critical Access Hospital (CAH) in that county. Funding,
+       however, should be directed to rural communities within the county, not to
+       metropolitan areas.
+
+   •   Unshaded counties are not designated as rural counties per HRSA’s Rural
+       Health Grants Eligibility Analyzer tool. Entities in these counties may be
+       eligible for funding if they demonstrate how they’re providing services for
+       individuals within a fully or partially rural county.
+
+2.E.2. Regional Coalitions
+The State expects for providers and stakeholders in each region to organize
+themselves into a singular Regional Coalition — a broad network of entities that
+serve Hoosiers in the rural counties within each deﬁned
+region — that submits one (1) comprehensive regional application
+and administers a coordinated, regional program with awarded funds over the
+ﬁve (5)-year grant term.
+
+The Regional Grants structure requires intentional collaboration and coordination
+among healthcare entities and community organizations in the Regional
+Coalition. Regional Coalitions must demonstrate how investment in their
+proposed Initiatives will serve the greater needs of Hoosiers in their region, rather
+than individual organizational interests. The relationships established through the
+Regional Coalitions are intended to outlast the grant period, serving as a durable
+foundation for ongoing regional health planning and sustained impact. In the
+Narrative Response, each Regional Coalition must specify how they will ensure
+continued collaboration, decision-making, and accountability throughout
+the duration of the grant period.
+
+
+                                                                                        14
+Eligible entities that may participate in a Regional Coalition include, but are not
+limited to, local health departments (LHDs), Federally Qualiﬁed Health Centers
+(FQHCs), rural hospitals, critical access hospitals, dentists, and Indiana Health
+Coverage Programs (IHCP) enrolled providers. Key Stakeholders that may be
+consulted during application development include, but are not limited to:
+
+   •   Healthcare Delivery Organizations (CAHs, FQHCs, rural health clinics,
+       behavioral health organizations, EMS);
+   •   Local health departments (LHDs) and Community-based Organizations
+       (CBOs);
+   •   Educational and Workforce Development Entities (clinical training programs
+       and preceptorship sites);
+   •   State Agencies and Support Organizations (IDOH, FSSA including Medicaid,
+       Department of Children’s Services, State Oﬃce of Rural Health, Indiana
+       Hospital Association, Indiana Rural Hospitals Association);
+   •   Patients and Community Members (patient advisory councils, community
+       advisory boards, chambers of commerce);
+   •   Medicaid MCOs;
+   •   Commercial payers; and
+   •   Members of the Indiana General Assembly (IGA)
+
+2.E.3. Primary Subrecipients
+The ﬁve (5)-year Regional Grants are structured as
+subawards of Indiana’s federal RHTP award from CMS, eﬀectively positioning
+Indiana as the “pass-through entity” of federal RHTP funds in accordance with 2 CFR
+200.332. Each Regional Coalition will be comprised of individual Primary
+Subrecipients, deﬁned as an eligible entity within the Regional Coalition that will use
+Regional Grant funds to carry out the activities proposed in the application over the
+ﬁve (5)-year grant term. Primary Subrecipients within a region are expected to
+coordinate with one another from application development through the duration of
+the grant. The State will distribute funding directly to each Primary
+Subrecipient within the Regional Coalition to carry out activities in alignment with
+the goals and priorities of the overall federal RHTP, as well as Indiana’s Program. As
+
+                                                                                       15
+such, Indiana will enter into subaward agreements with each Primary
+Subrecipient.
+
+The number of Primary Subrecipients will vary per region and will be dependent on
+the identiﬁed healthcare gaps, proposed activities, and organizational structure in
+each region. As such, the State will not put a cap on the number of Primary
+Subrecipients per region.
+
+2.E.4. Technical Assistance Providers
+The Indiana Hospital Association (IHA), the Indiana Primary Health Care Association
+(IPHCA) and the Indiana Rural Health Association (IRHA) comprise the Rural Health
+Transformation Technical Assistance Network (RHT-TAN), which serves as a
+statewide technical assistance providers and administrative support model across
+the eight Regional Coalitions.
+
+The RHT-TAN will assist Coalitions in organizing regional stakeholders, developing
+proposed activities, and assembling all ﬁve (5) required application components as
+detailed in Section 4.
+
+Once Subrecipient Agreements are fully executed, RHT-TAN will
+provide ongoing implementation support, technical assistance, and cross-regional
+learning support.
+
+Additional details on the RHT-TAN are provided in Appendix 5 – Governance
+Structure.
+
+3. Funding Overview
+3.A. Budget Overview
+All eight (8) regions will receive funding, but award size will vary. The State
+will determine funding level based upon the criteria described
+in Section 3.B Determination of Regional Grant Award.
+
+Expected total funding: $120 million per budget period, totaling $600 million over
+ﬁve (5) budget periods, is available for all eight regions combined. This is a one-time
+
+
+                                                                                      16
+application opportunity. This funding opportunity does not have a cost-share
+requirement, meaning regions are not required to contribute to the
+implementation costs of approved initiatives. Regions’ annual reporting
+requirements will be further deﬁned in Primary Subrecipients’ Grant Agreements.
+
+Funding Timeline: Indiana will provide funding in ﬁve (5) Budget Periods of 23
+months for each Budget Period (note the ﬁrst Budget Period is shorter), and for
+each Budget Period funding release, Primary Subrecipients will have until the end
+of the following ﬁscal year to spend awarded funding. See Figure 3 below for the
+estimated dates, by Budget Period, that Primary Subrecipients have to start
+and stop spending funds.
+
+Awarded Primary Subrecipients will be able to begin spending their Budget
+Period 1 funds in September 2026 following the execution of Subrecipient
+agreements. Budget Period 1 funds must be spent by the end of Budget Period 1
+(September 30, 2027) as highlighted in Figure 4 below.
+
+Any funds unexpended by their associated Budget Period spending deadlines, as
+listed below, will be returned to CMS and redistributed to other
+states in accordance with 42 U.S.C 1397ee(h)(1)(B).
+
+Figure 3: Regional Grant Funding Budget Periods
+
+Budget Period       Funding Start Date (estimated)    Deadline to Spend Funds
+1                   9/1/2026                          9/30/2027
+2                   11/1/2026                         9/30/2028
+3                   11/1/2027                         9/30/2029
+4                   11/1/2028                         9/30/2030
+5                   11/1/2029                         9/30/2031
+
+
+
+
+                                                                                    17
+Figure 4: Regional Grant Funding Timeline
+
+
+
+
+3.B. Determination of Regional Grant Award
+The State will review each Regional Coalition’s application for completion to ensure
+it meets the basic requirements summarized in 3.B.2. Base Funding Allocation
+Methodology and 3.B.3. Evaluation Criteria, and is compliant with all State and
+federal rules.
+
+The State retains the right to adjust award amounts based
+on inadequate applications (e.g., lack of sustainability, improper use of funds) or
+failure to comply with State and CMS requirements. Additionally, CMS
+will evaluate Indiana’s RHTP progress annually and the State and CMS may adjust
+allocations each project year.
+
+The State may re-calculate each approved region’s funding amount for
+each subsequent Budget Period based on the information and data the region
+provides in annual reporting, as well as the total amount of funding the State
+receives each year. Indiana will focus on assessing progress towards the goals and
+commitments that an approved region makes as documented in the Subrecipient
+Agreement with each Primary Subrecipient in the Regional
+Coalition. The methodology for calculating future Budget Periods will remain the
+same as described in this RFF.
+
+
+                                                                                      18
+3.B.1. Overview of Funding Structure
+The Regional Grant Awards will be determined by two (2) factors: a Base Funding
+Allocation and funding awarded on Evaluation Criteria.
+
+Figure 5: Allocation Summary
+
+Category     Approximate Total % of Regional Determination Method
+             Amount, Budget Grants Budget
+             Period 1
+Base Funding $96,000,000       80%           Population, health need, and
+Allocation                                   current availability of
+                                             care. See Section
+                                             4.A.2. below for speciﬁc
+                                             criteria.
+
+Funding        $24,000,000           20%               Application Evaluation
+Awarded on                                             Criteria.
+Evaluation
+                                                       See Section 4.A.3. below for
+Criteria
+                                                       speciﬁc criteria.
+
+
+Regions will receive 100% of their portion of the Base Funding Allocation based on
+the Determination Method listed in Figure 6.
+
+Regions should develop their budget assuming they receive one-eighth (⅛) ($3
+million per region) of the total funds awarded based on the Evaluation
+Criteria listed in Section 3.B.2.’s Figure 6: Criteria for Base
+Allocation and Figure 7: Application Evaluation Criteria.
+
+Please see Section 3.B.4. below for each region’s projected Budget Period 1 award
+amount.
+
+3.B.2. Base Funding Allocation Methodology
+Base allocations for the Regional Grant Awards were calculated using a weighted,
+multi-data scoring approach, each of which was assigned a speciﬁc weight in the
+
+
+                                                                                      19
+overall allocation formula. Within each category, individual data elements were also
+weighted to calculate the overall category measure.
+
+Figure 6: Criteria for Base Allocation
+
+Criteria                                                           Factor Weight
+Population of Region                                               80%
+Population was used as the primary data point for base funding
+to ensure allocations reﬂect the number of people being served
+within each region.
+Access to Healthcare                                               10%
+The access to healthcare category incorporates federally
+recognized measures of workforce shortages and medical
+underserved areas.
+   • These two measures were combined to create the regional
+       access score, with higher scores indicating there is a need
+       for more healthcare access.
+   o Health Professional Shortage Area (HPSA) designation –
+        60%
+   o Medically Underserved Area/Population (MUA/P)
+       designation – 40%
+Health Indicators                                                  10%
+These ﬁve (5) measures were combined to create a regional
+health score.
+   • Percentage of the regional population enrolled in Medicaid
+       – 25%
+   • Infant mortality rate – 25%
+   • Type II diabetes prevalence – 20%
+   • Adult obesity prevalence – 15%
+   • Life expectancy – 15%
+
+3.B.3. Evaluation Criteria
+Please refer to Figure 7 below for the Application Evaluation Criteria, which
+will determine a portion of the Regional Grant Award in alignment with
+the methodology described in Section 3.B.1.
+
+Figure 7: Application Evaluation Criteria
+
+
+                                                                                   20
+Category        Weak               Acceptable        Strong             Exceptional
+                Response           Response          Response           Response
+Strategy        Investments wo Investments           Major Investme Robust
+                uld lead           would modestly nts with signiﬁca investment
+                to small, increm support measur nt transformativ plan to
+                ental              able changes      e potential        structurally tran
+                changes            to rural health for rural health sform
+                to existing        care delivery.    care delivery.     rural health
+                rural health                                            care delivery.
+                are delivery
+                system
+                and facilities.
+Workplan        Timeline,          Detailed workpl Workplan reﬂect In addition
+and Collaborati milestones, and an that reﬂects s a considered, to prior
+ve Structure    budget breakdo serious thought Thoughtful oper points categorie
+                wn are not         about obstacles ating and            s, workplan incl
+                clear,             and potential     Strategic frame udes creative
+                feasible, or       delays. Explanat work with clear and
+                directly linked to ion of            and feasible       clear approache
+                initiative.        stakeholder       timelines, milest s to maximizing
+                Explanation of engagement            ones, and          the
+                stakeholder        and Initiative ov budget             immediate impa
+                engagement         ersight           breakdown.         ct of the ﬁve (5)-
+                and Initiative ov is provided but Explanation           year additional f
+                ersight            does not have of stakeholder ederal
+                is unclear.        details.          engagement         funds. Explanati
+                                                     and                on
+                                                     initiative oversig of stakeholder e
+                                                     ht is clear        ngagement and
+                                                     and implementa Initiative oversig
+                                                     ble.               ht
+                                                                        is detailed, impl
+                                                                        ementable, and
+                                                                        thoughtful.
+Outcomes        Outcomes to be Outcomes              Outcomes           Outcomes
+                tracked            are reasonable are well-             are ambitious,
+                are vague,         and speciﬁc, can supported           well
+
+
+                                                                                        21
+               cannot be         be                by credible       supported
+               readily measure reliably measur literature,           by credible liter
+               d, and/or do not ed, and/or         are speciﬁc,      ature,
+               support           support Improv and can be           and speciﬁc.
+               improvement of ement of             reliably measur They can be
+               patient           patient outcome ed. They directly reliably measur
+               outcomes,         s,                relate to improv ed. They directly
+               access to care, access to care, ement of              relate to a
+               and/or            and/or            patient outcome variety
+               reduction of      reduction of      s,                of improvement
+               healthcare costs healthcare costs access to care, s in
+               .                 .                 and/or            patient outcome
+                                                   reduction of      s, access to
+                                                   healthcare costs care, and/or
+                                                   .                 reduction of
+                                                                     healthcare costs
+                                                                     .
+Projected      Impact on         Impact on         Impact on         Impact on rural
+Impact         rural residents i rural residents i rural Residents i residents is
+               s limited.        s fair. Feasible s signiﬁcant.      structurally
+               Unclear           how Initiative an Clear explanatio transformative.
+               how Initiative an d outcomes        n on how          Clear explanatio
+               d outcomes        impact rural      initiative and    n
+               impact            residents, but outcomes Direct on how Initiative
+               rural residents. the explanation ly impact rural and
+                                 is not            residents.        outcomes direct
+                                 substantiated or                    ly impact rural
+                                 clear.                              residents across
+                                                                     the State, and
+                                                                     how scale of
+                                                                     impact is
+                                                                     transformative.
+Sustainability Sustainability is Sustainability is Sustainability is Sustainability is
+of Initiative  not               somewhat plaus clearly              planned in
+Beyond         suﬃciently supp ible but without plausible but        detail or is not
+RHTP Funding orted or            a detailed plan. without            needed
+Period         plausible.                          a detailed plan.
+
+
+                                                                                    22
+                                                                    given the
+                                                                    nature
+                                                                    of the Initiative.
+
+3.B.4. Projected Regional Awards
+Based on the criteria described above, the State has calculated projected Budget
+Period 1 award amounts for each region. Figure 8 details the Regional Base
+Allocations determined based on the data factors listed in Figure 6. Figure 9 details
+Projected Total Award Amounts for each region based on the Base Allocation
+amounts listed below and the assumption that each region receives one eighth of
+the funds awarded on evaluation criteria. The exact amount of funds awarded to
+each region based on evaluation criteria may not equal the values in Figure 10 and
+will be based on application evaluation. Applications should utilize the Budget
+Period 1-2 Projected Award Amounts in Figure 9 when completing the Budget
+Workbook Templates.
+
+Figure 8: Regional Base Allocations
+
+Region    Allocation
+
+1         $9,774,250
+2         $19,853,219
+3         $8,483,059
+4         $14,937,322
+5         $8,991,431
+6         $12,189,931
+7         $10,967,488
+8         $10,803,299
+Total     $96,000,000
+
+
+
+
+                                                                                     23
+Figure 9: Projected Award Amounts – Budget Period 1
+
+                                                       Projected
+                        Projected    Projected
+       Base                                            Regional       Projected Five
+Regio                   Evaluation   Regional
+       Allocation                                      Award,         - Year Region
+n                       Criteria     Award per Bu
+       Funding                                         Budget         al Awards
+                        Funding      dget Period
+                                                       Periods 1-2
+1      $9,774,250      $3,000,000    $12,774,250 $25,548,500           $63,871,250
+2      $19,853,219 $3,000,000        $22,853,219 $45,706,438           $114,266,095
+3      $8,483,059      $3,000,000    $11,483,059 $22,966,118           $57,415,295
+4      $14,937,322 $3,000,000        $17,937,322 $35,874,644           $89,686,610
+5      $8,991,431      $3,000,000    $11,991,431 $23,982,862           $59,957,155
+6      $12,189,931 $3,000,000        $15,189,931 $30,379,862           $75,949,655
+7      $10,967,488 $3,000,000        $13,967,488 $27,934,976           $69,837,440
+8      $10,803,299 $3,000,000        $13,803,299 $27,606,598           $69,016,495
+Total $96,000,000 $24,000,000 $120,000,000 $240,000,000 $600,000,000
+Data Note: Totals may not match sums of individual values due to rounding. The
+projected funding in the Periods 3-5 columns is provided in this RFF for planning
+purposes only and is subject to change based on CMS approvals for future grant budget
+periods.
+
+The projects for permissible expenses as described in Appendix 4. Allowable and
+Unallowable Uses of Funds.
+
+
+
+                                                                                    24
+3.C. Payment Methodology
+Grant payments will be disbursed directly to Primary Subrecipients per the terms of
+each entity’s grant agreement. It is each Primary Subrecipient’s responsibility to
+distribute the funding to any contractors. Please note that only eligible entities
+may utilize grant funding to support their proposed Initiatives. All funding must be
+used to fulﬁll the objectives of Indiana’s RHTP.
+
+Funds from the grant will be provided as reimbursements for approved grant
+budget items. Funds will not be disbursed via up-front payments.
+
+3.D. Sustainability
+A key focus of the federal RHTP opportunity is the sustainability of initiatives
+beyond the ﬁve (5)-year grant period. In determining the initiatives to include in
+Indiana’s application to CMS, the State selected Initiatives that would be sustainable
+after federal funding was exhausted and the State described its sustainability plans
+in its application.
+
+Similarly, Regional Coalitions must propose Initiatives and uses of funding that the
+regions will be able to sustain beyond the grant period. The State may deny any
+funding requests it determines will not be sustainable. Regional Coalitions must
+clearly describe their sustainability plan for each proposed Initiative in the Project
+Narrative Response (Template F) as well as the
+overall approach to Sustainability across all proposed Initiatives.
+
+4. Application Requirements
+Regional Coalitions must submit their application no later than 11:59 p.m. Eastern
+Time (ET) on July 1, 2026, to be eligible for award. Any Regional Coalition that
+does not submit a complete and timely grant application may not be
+considered. Your Technical Assistance Provider will provide guidance on how
+to submit your completed application. Figure 10 below provides an overview of key
+dates.
+
+
+
+
+                                                                                         25
+The State will verify that applications meet the requirements speciﬁed in this
+RFF. The State will not consider an application that:
+
+   •   Is submitted after the deadline.
+   •   Is not submitted via approved methods.
+   •   Does not include all components required in the application checklist.
+   •   Does not use the formatting requirements, including spacing, font size, etc.
+
+Minor error corrections may be submitted if there is time before the decision
+deadline but not guaranteed.
+
+Figure 10: Indiana’s Regional Grants Application Timeline
+
+Date                    Milestone
+March 2, 2026           Request for Funding applications released to public
+March – July 1, 2026    Technical Assistance Providers are available for Coalition
+                        formation and application development
+May 22, 2026            Letters of Intent are due to the State
+July 1, 2026            Applications are due to the State
+July – September        Applications under review; Scoring and award
+2026                    determinations under way, State developing
+                        Subrecipient Grant Agreements to
+                        support timely distribution of funds once the Grant period
+                        begins
+September 1, 2026       Grant agreement period begins; Funding distribution to
+                        individual entities commences
+Regional Coalitions will be required to submit the following components, further
+detailed in the Application “checklist” in Figure 11.
+
+4.A. Application Overview
+The Regional Grants Application consists of ﬁve (5) templates, all of which
+are required for a complete and fulsome Regional Grants application. Figure
+11 provides an overview of each required element of the Regional
+Grants application and Appendix 6 provides a recommended approach for
+
+
+                                                                                      26
+completing all required elements. Figure 11 provides an overview of each required
+element of the Regional Grants application and Appendix 6 provides a
+recommended approach for completing all required elements. It is
+imperative that Regional Coalitions review the directions in this document as well as
+the directions within each template to ensure a correct and complete submission. It
+is the responsibility of the Regional Coalitions that proposed Initiatives and activities
+are labeled consistently across all ﬁve (5) templates to track budget,
+implementation workplan, outcomes, and narrative responses by the
+same Initiative.
+
+Prior to the submission of the Regional Grants Application on July 1,
+2026, each Regional Coalition must submit a Letter of Intent no later than May 22,
+2026. Your Technical Assistance Provider will provide guidance on how
+to submit this document. The purpose of the Letter of Intent is to demonstrate sign-
+oﬀ from key stakeholders and partners indicating a commitment to regional
+collaboration, including documentation that all counties in the region are
+accounted for. Please see Template A for full instructions on how to complete the
+Letter of Intent.
+
+Figure 11: Regional Grants Application Overview
+
+Template Name                         Purpose                  How to Complete
+Due by May 22, 2026
+
+A            Letter of Intent         Provide                Complete the yellow
+             Template                 documentation          boxes in Template A.
+                                      of Primary
+                                      Subrecipients who will
+                                      be engaged in the
+                                      Regional Coalition,
+                                      and rural
+                                      regions throughout
+                                      the full, 5-year grant
+                                      period.
+
+Due by July 1, 2026
+
+
+
+                                                                                       27
+B   Needs Assessment       Demonstrate how         Complete Section 1
+    Template               proposed activities are in Template B. Optional
+                           responsive to           ly complete tables in
+                           documented needs. Section 2.
+
+C   Logic Model            Provide an overview of Complete one Logic
+    Templates              process metrics and Model per Initiative
+                           intermediate-term       in Template C.
+                           outcomes to measure
+                           success by
+                           each Initiative for the
+                           full, 5-year grant
+                           period.
+
+D   Implementation Work Provide a detailed    Complete the tables
+    plan Template       breakdown of the      in Template D.
+                        implementation plan
+                        for each
+                        proposed Initiative,
+                        for Budget Period 1
+                        and
+                        2 (through 9/30/2028)
+                        .
+
+E   Budget Workbook        Provide all proposed Complete the tables
+                           costs across the      in Template
+    Templates
+                           Regional Coalition,   E.1. and Template
+                           and for each Primary E.2., which will require
+                           Subrecipient, for     budgets per Primary
+                           Budget Period 1 and Subrecipient and across
+                           2 (through 9/30/2028) the full Regional
+                           .                     Coalition.
+
+F   Initiative Narrative   Provide an overview of Complete the yellow
+    Response Template      all grant activities,  boxes in Template F.
+                           outcomes,              Regional Narrative
+                           collaboration and      Responses shall not
+                           sustainability plans,  exceed 30 pages.
+                           and explanation for
+
+
+                                                                         28
+                                     how the budget was
+                                     made for the
+                                     full ﬁve (5)-
+                                     year grant.
+
+To support build-up of all required components, the State is also including for
+reference a number of Appendix items, which are intended
+to help facilitate completion of the Regional Grants Application. Figure 12 provides
+a breakdown of how each tool can be used to inform the corresponding Application
+Template deliverable.
+
+Figure 12: Supporting Appendix Documents for Reference
+
+Appendix Name             Purpose                 Use Case
+1        CMS Rural Health This is the source of   Please read carefully to
+         Transformation truth for the Rural       understand the Regional
+         Program Notice Health Transformation Grants opportunity and
+         of Funding       Program                 Indiana’s obligations to CMS
+         Opportunity
+2        Example          Provides a few          Inform Initiatives and
+         Initiatives and  examples of how         associated activities as
+         Associated       Regional Coalitions     proposed in
+         Activities       could approach          the Initiative Narrative
+                          proposing Initiatives   Response, Workplan
+                          and activities          Template, and Budget
+                                                  Workbook
+                                                  Templates and in response to
+                                                  the Needs Assessment
+3        Outcome          Provides pre-approved Inform the process metrics
+         Measures         outcome measures and and Intermediate-Term
+                          metrics for             Outcomes in the Logic
+                          consideration           Models
+4        Allowable and    Provides an overview of Inform Initiatives as
+         Unallowable      federal statue as it    proposed in
+         Uses of Funds    relates to what funds the Initiative Narrative
+                          can and cannot be used Response, Workplan
+                          for                     Template, and Budget
+                                                  Workbook Templates and in
+
+                                                                                   29
+                                                        response to the Needs
+                                                        Assessment
+5           Governance        Provides an overview of Inform the Project Narrative
+            Structure         the Governance            Response, which calls for the
+                              Structure for oversight Regional Coalitions to
+                              and monitoring of the outline how they will
+                              Regional Grants and       collaborate internally, as well
+                              overall Program           as overall awareness on
+                                                        touchpoints with the State
+6           Regional Grants Provides a                  Consult at the beginning and
+            Recommended recommended                     end of the application
+            Completion Flow completion ﬂow for          development period
+            and Checklist     how to complete the
+                              Regional Grants
+                              application, as well as a
+                              checklist
+Instructions are provided on how to build a Regional Application, including
+document formats in the following sections.
+
+4.B. Needs Assessment Template
+A Regional Coalition’s proposed activities must be rooted in documented
+community needs and aligned with opportunities for meaningful transformation,
+particularly addressing a region’s most pertinent rural health challenges. To ensure
+direct connection between your region’s rural health needs, proposed activities,
+and State-mandated KPO outcomes, a complete Needs Assessment Template must
+be submitted. The Needs Assessment should be completed ﬁrst (see Appendix 6 for
+a checklist with recommended order of applicant activities). Applicants are
+strongly encouraged to begin working on the Needs Assessment early in the
+process of preparing an application. As the foundational assessment that
+will determine prioritization of activities to meet regional gaps, the Needs
+Assessment focuses on deﬁning the Regional Background and unique health
+landscape, assets, and readiness. This assessment encourages a synthesis of the
+state-provided Rural Health Regional Data summaries and local community health
+needs assessments. The State identiﬁed pre and postnatal care, chronic disease
+
+
+                                                                                     30
+prevention, and access to care as the most critical levers for regional change. In the
+Narrative Response (Template F), Regional Coalitions must explain how these
+issues impact regional health outcomes and this should inform the Initiatives and
+associated Activities that will comprise the Regional Proposals. Please
+see Template B for full instructions on how to complete the Needs Assessment.
+
+4.C. Logic Model Template
+The Regional Grants, receiving approximately 60% of Indiana’s total RHTP funding,
+are a critical mechanism for achieving Indiana’s Key Performance Objectives (KPOs).
+Regional Coalitions serve as the on-the-ground partners driving critical progress
+toward KPOs. Regional Coalitions should build their proposed Initiatives to
+contribute meaningfully to advancing the KPOs, and proposals must clearly describe
+how proposed activities, investments, and partnerships will advance progress
+toward the KPOs.
+
+Additionally, Regional Coalitions must also show Initiative-speciﬁc outcomes,
+including how success will be measured throughout the duration of the ﬁve (5)-
+year grant. To that end, Regional Coalitions must submit one (1) logic model per
+proposed Initiative, with all known Primary Subrecipients and associated activities
+included.
+
+Please note the optional activity and Indiana RHTP KPO Alignment Matrices are
+included if helpful to support tying together identiﬁed needs, Initiatives and
+associated activities, and Indiana RHTP KPO targets. While these Matrices are
+not required for application submission nor Logic Model completion, they may be
+helpful to complete prior to Logic Model population.
+
+The purpose of the Logic Models is to provide a 5-year view of
+the Regional Coalition’s plan, connecting a region’s identiﬁed needs, proposed
+Initiatives and associated activities, and
+projected outcomes to demonstrate progress towards the State’s goals for
+improving health outcomes. Regional Coalitions will be
+required to demonstrate progress on Initiative-speciﬁc outcomes, as well as how
+the Initiative will help advance the overall KPOs. The Logic Model should provide a
+
+                                                                                      31
+ﬁve (5)-year view connecting identiﬁed needs, activities, projected outcomes, and
+linked to the State's goals for improving health outcomes. Please
+see Template C for full instructions on how to complete the Logic Model Template.
+
+4.D. Workplan Template
+The Workplan Template is intended to capture Budget Period 1 (through
+9/30/27) and Budget Period 2 (through 9/30/2028) activities by Initiative, which
+will support each Region’s planning eﬀorts, the State’s review of applications
+and subsequently, the development of Subrecipient Agreements. A
+Workplan must be submitted for each Initiative. Please see Template D for full
+instructions on how to complete the Workplan Template.
+
+4.E. Budget Workbook Templates
+Regional Coalitions must include a completed Regional Grant Budget
+Workbook (Template E.2.) with budget details for proposed Initiatives and
+associated activities across the entire Regional Coalition. The Regional Grant Budget
+Workbook must include budget details for all Primary Subrecipients for Budget
+Period 1 and 2 (through 9/30/2028).
+
+Regional Coalitions must also include completed Primary Subrecipient Budget
+Workbooks (Template E.1.) for each Primary Subrecipient in their Regional
+Coalition. Regional Coalitions should collaborate with Technical Assistance
+Providers to ensure that each Primary Subrecipient’s budget details are accurately
+reﬂected in the Regional Grant Budget Workbook.
+
+4.E.1. Budget Preparation Guidance
+Regions should build their budgets assuming they receive the Projected Regional
+Awards detailed in Section 3.B.4.
+
+Costs will be reimbursable once Primary Subrecipient grant agreements start
+on September 1, 2026 (projected start date). As noted above, pre-award costs prior
+to this date are not allowable.
+
+4.F. Initiative Narrative Response Template
+
+                                                                                     32
+The Narrative Response is one of the most important components of the
+application, as this will include the details of the Regional Coalition’s proposed
+activities, sustainability plan, collaboration plan, and budget narrative. The
+Narrative Responses must address the following health outcomes either
+through (a) newly proposed Initiatives and associated activities as part of
+the Regional Grants application OR (b) regions may forgo addressing these health
+outcomes ONLY if they can provide strong justiﬁcation within the narrative that
+their Regions are already addressing these outcomes through existing eﬀorts
+and/or interventions within their region: pre- and post-natal care, chronic disease
+prevention and management, and needs related
+to access (e.g. transportation, access to aﬀordable healthy food,
+health education and literacy, etc.). Please see Template F for full instructions on
+how to complete the Initiative Narrative Response.
+
+5. Regional Grants Requirements
+5.A. Primary Subrecipient Responsibilities
+The State will work with each Primary Subrecipient once the Indiana Notice of
+Award to Subrecipients has been shared with each Primary Subrecipient following
+the application review period, as well as on an ongoing basis, to provide guidance
+on all State and CMS-mandated grant requirements. This may include the
+following:
+
+   1. Comply with the terms and conditions of CMS’ Notice of Award to the State of
+      Indiana. Please see Appendix 4 for important provisions contained within
+      the CMS Notice of Award. The State will provide further
+      guidance on CMS requirements that impact Subrecipients.
+
+   2. Comply with the terms and conditions
+      of the Primary Subrecipient Grant Agreement.
+
+   3. Collaborate with the State to implement and monitor approved Initiatives.
+
+
+
+
+                                                                                       33
+   4. Collaborate with the State to implement statewide initiatives at the regional
+      level, as deﬁned initially in Section 5.A.1. and as further clariﬁed by the
+      State once statewide Initiatives are rolled-out.
+
+   5. Collaborate with the State in alignment with the Regional Grants Governance
+      Structure (see Appendix 5) and as further identiﬁed by the State.
+
+   6. Submit the performance measures agreed upon in
+      respective Subrecipient Agreement, Indiana Notice of Award (NOA) to
+      Subrecipients, and subsequent revisions to the workplan as approved by the
+      State.
+
+   7. Submit all required performance assessments, evaluations, and ﬁnancial
+      reports required for reporting to CMS.
+
+   8. Participate in calls with the Regional Grant State Contractor to
+      discuss Subrecipient’s Initiative progress and challenges, and other staﬀ as
+      needed as designated by the State.
+
+   9. Understand the State’s overall goals and implementation plan as it relates to
+      all twelve (12) initiatives, including how the State’s eleven (11) statewide
+      initiatives impact the Regional Coalitions. Please refer to the oﬃcial state
+      narrative describing the twelve (12) initiatives, or Indiana's Program website.
+
+   10. Participate in TA Provider- led in-person or virtual meetings.
+
+5.A.1. Statewide Initiative-speciﬁc Regional Coalition
+Responsibilities
+Regional Coalitions and individual Subrecipients, where applicable, will be
+asked to participate in the implementation of Statewide Initiatives as deﬁned
+below initially, as continually directed by the State once the implementation
+of statewide initiatives are underway.
+
+Funding Category 1: Tech Innovation
+
+Statewide Initiative 3: Growing Improved Patient Outcomes through Enhanced
+Interoperability and Technology
+
+                                                                                      34
+Subrecipients are encouraged to collaborate with the state-implemented health
+information exchange (HIE) vendor(s) to support provider engagement and uptake
+eﬀorts and actively participate in the statewide HIE Environment Needs Assessment
+which will evaluate resource capacity and the current state of technology in use at
+provider facilities today to identify gaps and determine needed improvements
+(e.g., infrastructure upgrades and system integrations) to participate in health data
+exchange. The outcomes of this HIE Environment needs assessment
+may impact the implementation of Initiative 7 and Initiative 8. This assessment
+will be critical to support the onboarding of new providers to the State's HIE,
+by identifying priority rural communities and eﬀective strategies for HIE integration.
+Collaboration for this eﬀort may include but is not limited to:
+
+   •   Involvement in interviews,
+
+   •   Qualitative meetings, and
+
+   •   Sharing detailed information about resources and current systems in use
+       with the feasibility study vendor and HIE vendor(s).
+
+Each Subrecipient’s speciﬁc level of engagement and participation (e.g., data
+requested and data collection protocols) in the Needs Assessment may diﬀer
+depending on the interoperability and technology infrastructure currently in place.
+
+Subrecipients are encouraged to explore opportunities to leverage AI for
+collaborative quality improvement eﬀorts, ensuring that regional strategies
+contribute to statewide goals for better outcomes and system eﬃciency.
+
+Given the participation expectations for the technology statewide initiatives
+(Initiatives 3, 7, and 8), a high level of collaboration between the Subrecipient and
+the State is encouraged. Subrecipients should expect outreach from the vendor(s)
+supporting Initiative 3 to attend Regional Grant Initiative planning and information
+sessions such as monthly virtual coordination meetings, quarterly workshops, and
+joint planning sessions with state vendors and regional IT leads to ensure alignment
+and progress. Additionally, to ensure sustainability, Subrecipients are
+encouraged to foster long-term adoption of telehealth
+
+
+
+                                                                                        35
+solutions, monitor performance metrics, and participate in continuous
+improvement eﬀorts that align with statewide goals for quality and accessibility.
+
+Funding Category 2: Sustainable Access
+
+Statewide Initiative 1: Growing Care Coordination: Medical Operations Coordination
+Center and Alternate Payment Model Feasibility Study
+
+Subrecipients are encouraged support Indiana’s Medical Operations Coordination
+Center (MOCC) implementation by ensuring that continuum of care partners – from
+pre-hospital to rehabilitation:
+
+   a. Are aware of the MOCC, and
+
+   b. Understand how to utilize it for purposes of care coordination across
+      the region and state.
+
+Subrecipients will participate and remain engaged with MOCC implementation
+activities as they are identiﬁed.
+
+Statewide Initiative 2: Growing Community Connections through Indiana 211
+
+Regional Coalitions will participate in 211 expansion and utilization for social
+needs as the primary referral platform for connecting patients and clients to social
+needs, community services, and non-medical supports, unless another platform is
+already in use. Use of Indiana 211 would help ensure referrals are made to veriﬁed,
+up to date, and geographically appropriate resources, supporting consistent access,
+reduced duplication, and improved care coordination across regions.
+
+To utilize Indiana 211, hospital Subrecipients are encouraged to integrate the
+Indiana 211 into referral workﬂows, discharge planning, and community navigation
+processes. Further, integrations into EMRs will evolve in Year One (1) and Year
+Two (2) of the Indiana’s ﬁve (5)-year RHTP, and regions should consider necessary
+enhancements to EMRs to integrate 211 referrals, as builds, implementations, or
+enhancements of EMRs occur. If EMR integration is not available, Subrecipients are
+encouraged to integrate to a HIE where Indiana 211 resource data is available.
+
+Funding Category 3: Innovative Care
+
+
+                                                                                     36
+Statewide Initiative 4: Growing Pediatric & Obstetric Readiness in Rural Emergency
+Departments
+
+Subrecipients who are hospitals are encouraged to assist the State in the
+development of training materials in collaboration with Initiative 4’s vendor(s), and
+once ﬁnalized, utilize training materials to enhance pediatric and obstetric clinical
+competencies and readiness. Training may include regional simulation-based
+opportunities. As part of this eﬀort, Subrecipients are also encouraged to promote
+and recruit regional clinicians to participate in the training modules.
+
+Statewide Initiative 5: Growing Cardiometabolic Health Standards of Care in Rural
+Indiana
+
+Subrecipients will work closely with Initiative 5’s vendor(s) and may support the
+State in identifying potential implementation sites within their region to stand up as
+a Cardiometabolic Center of Excellence. The vendors will provide training, peer
+support, all proprietary and evaluation materials associated with the model, and
+ongoing TA support.
+
+Statewide Initiative 6: Growing Access to Hospital Post-Discharge Medications
+
+Hospitals and pharmacies within the Subrecipient’s region are encouraged to work
+collaboratively to implement the statewide Meds to Beds initiative speciﬁc to the
+needs and infrastructure in the region. As part of this eﬀort, within Year One of
+their ﬁve (5)-year grant agreement, Subrecipients are encouraged to assist the State
+in identifying hospitals and pharmacies within their region that are well-positioned
+to participate in Meds to Beds implementation.
+
+Statewide Initiative 7 & Initiative 8: Growing Specialty Provider Access through
+Expanded Teleconsult Capabilities and Growing Telehealth Access and Infrastructure
+
+Subrecipients will play a key role in implementing statewide telehealth initiatives by
+actively participating in the initial Telehealth Feasibility Study
+and Teleconsult Network Needs Assessment conducted by the vendor(s)
+under statewide Initiative 7 and Initiative 8, and providing detailed documentation
+of the current patient-to-provider telehealth solutions in their region. This
+includes identifying gaps such as teledentistry or remote biometric monitoring
+
+                                                                                        37
+or highlight use cases with known return on investment to inform statewide
+planning and ensure equitable access. Each participating entity’s level of
+engagement and participation in the feasibility study and needs assessment may
+diﬀer depending on the telehealth infrastructure currently in place.
+
+Funding Category 4: Workforce Development
+
+Statewide Initiative 9: Growing our Rural Health Paraprofessional Workforce
+
+In support of statewide Initiatives 9 and 11, Subrecipients are encouraged to build
+connections with rural healthcare academies to serve as a pipeline for healthcare,
+behavioral and oral health credentialing, apprenticeships, and employment for rural
+students completing the academy. Subrecipients who are regional healthcare
+employers are encouraged to support identifying community health worker (CHW)
+integration opportunities in clinical and community-based care pathways.
+
+Subrecipients who are regional healthcare employers are also encouraged
+to support identifying certiﬁed peer recovery specialist (CPRS) integration
+opportunities in clinical and community-based care pathways.
+
+Statewide Initiative 10: Growing Clinical Training and Readiness
+
+Subrecipients may support the State in identifying locations (hospital, clinic, or other
+facility) to establish a new rural residency rotation within their region.
+
+Subrecipients may also support the State in identifying at least 10 clinicians willing
+to serve as community-based preceptors for their region for the State’s
+consideration.
+
+Statewide Initiative 11: Growing our Rural Behavioral Health Workforce
+
+In support of statewide Initiatives 9 and 11, Subrecipients are encouraged to build
+connections with rural healthcare academies to serve as a pipeline for
+apprenticeships and employment for rural students completing the academy.
+
+Subrecipients who are regional healthcare employers are also encouraged
+to support identifying certiﬁed peer recovery specialist (CPRS) integration
+opportunities in clinical and community-based care pathways.
+
+
+                                                                                         38
+Funding Category 5: Make Rural Indiana Healthy Again
+
+Statewide Initiative 12: Growing Rural Opportunities for Well-being Regional Grants
+
+Initiative 12 is the initiative under this RFF and is the initiative for which applicants
+are applying through this application. Regional Coalitions are expected to
+propose Initiatives and associated activities within their uniﬁed application that
+align with the GROW goals of preventing and reducing the burden of obesity and
+chronic disease in rural communities.
+
+Figure 13: Funding Category Participation Checklist
+
+Funding         Encouraged Support for Statewide Initiatives
+Category
+Tech Innovation    • Collaborate with the state-implemented health
+                     information exchange (HIE) vendor(s) to support provider
+                     engagement and uptake eﬀorts and actively participate in
+                     the statewide HIE Environment Needs Assessment
+                     (Initiative 3)
+Sustainable        • Support Indiana’s MOCC implementation by ensuring
+Access               partners are aware of the MOCC and understand how
+                     to utilize it (Initiative 1)
+                   • Integrate and utilize the Indiana 211 database as the
+                     primary referral platform unless another platform is
+                     already in use. (Initiative 2)
+Innovative Care    • Assist the State in the development of training materials
+                     in collaboration with the Pediatric and Obstetric
+                     Readiness vendors (Initiative 4)
+                   • Utilize training materials to promote and recruit regional
+                     clinicians to participate in training (Initiative 4)
+                   • Propose potential implementation sites within their
+                     region to stand up as a Cardiometabolic Center of
+                     Excellence (Initiative 5)
+                   • Assist the State in identifying hospitals and pharmacies
+                     within their region that are well positioned
+                     to participate in Meds to Beds implementation (Initiative
+                     6)
+
+
+
+                                                                                        39
+                      •   Implement statewide telehealth initiatives by
+                          actively participating in the initial Telehealth Feasibility
+                          Study and Teleconsult Network Needs Assessment
+                          conducted by the vendor(s) (Initiative 7 & 8)
+Workforce             •   Build connections with rural healthcare academies to
+Development               serve as a pipeline for healthcare, behavioral and oral
+                          health credentialing, apprenticeships, and employment
+                          (Initiatives 9 and 11)
+                      •   Identify Community Health Worker (CHW) integration
+                          opportunities in clinical and community-based care
+                          pathways (Initiative 9)
+                      •   Propose new locations (hospital, clinic, or other
+                          facility) within your region to establish a new rural
+                          residency rotation (Initiative 10) for the State’s
+                          consideration
+                      •   Propose at least ten (10) clinicians willing to serve as
+                          community-based preceptors for your region for the
+                          State’s consideration
+                      •   Support identifying Certiﬁed Peer Recovery Specialist
+                          (CPRS) integration opportunities in clinical and
+                          community-based care pathways (Initiatives 9 and 11)
+Make Rural            •   Meet all requirements outlined in this RFF
+Indiana Healthy
+Again
+
+5.B. State of Indiana Responsibilities
+  •   Monitor the Regional Coalitions’ performance and progress according to the
+      processes outlined in Post-Award Requirements and Administration.
+
+  •   Collaborate with Regional Coalitions and provide
+      substantial Initiative planning and implementation input.
+
+  •   Provide substantial input in evaluation activities.
+
+  •   Make recommendations for continuing the Initiative.
+
+
+
+
+                                                                                         40
+   •   Maintain up-to-date website and appropriate
+       earned media for public transparency to ensure Regional Coalitions are aptly
+       informed.
+
+   •   Review and approve all key personnel.
+
+   •   Maintain regular communication with Regional Coalitions through at least
+       monthly conference calls along with technical assistance and consultation.
+
+   •   Review and provide feedback on all required performance assessment
+       reports.
+
+   •   Review and approve all required submitted data.
+
+   •   Provide a structured approach to sharing, integrating, and actively applying
+       improvement concepts, tactics, and lessons learned amongst approved
+       award recipients.
+
+   •   Evaluate changes to proposed activities in region speciﬁc workplans in
+       extenuating circumstances. The State will evaluate the regional rural
+       health transformation plan amendments as needed to approve use of
+       funding for alternative activities not originally agreed upon in your
+       application and annual reporting. The intent is not to change
+       a region’s allocated funding amount, but to accommodate funding of
+       alternative activities not originally envisioned in rare and extenuating
+       circumstances with existing allocated funding. Extenuating circumstances
+       may include:
+
+       o   Drastic changes in the State healthcare delivery system that would make
+           original activities not reasonably practicable nor beneﬁcial to implement.
+
+       o   Catastrophic events that are not foreseeable when at time of application.
+
+   •   Substantial State Initiative involvement relates to programmatic involvement,
+       not administrative oversight.
+
+At each stage of the planning and implementation process, Indiana will
+ensure Primary Subrecipients are compliant with all Regional Grant application
+
+
+                                                                                        41
+terms and any future updates and/or CMS
+guidance regarding allowable/unallowable expenses, expenditure timelines, and
+sub-grantee reporting, as well as all State rules pertaining to grant agreements. The
+State will provide public data reporting through dashboards and KPO tracking to
+foster transparency and community accountability for the success of each region’s
+activities.
+
+Cooperative agreements require substantial CMS project involvement with the
+State after an award is made. The
+same is required for Indiana's Regional Grants. There are speciﬁc roles for both the
+State and regions as described here. The State may be in contact at least once a
+month, and more frequently when appropriate.
+
+
+
+
+                                                                                   42
+

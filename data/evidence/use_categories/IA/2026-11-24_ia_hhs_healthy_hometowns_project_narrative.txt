@@ -1,0 +1,2918 @@
+Iowa Rural Health Transformation Program (Healthy Hometowns) Project Narrative
+
+Iowa HHS’s mission is to provide high quality programs and services that protect and improve
+
+the health and resiliency of individuals, families, and communities. The agency’s societal vision
+
+is that individuals, families, and communities are safe, resilient, and empowered to be healthy
+
+and self-sufficient. Its organizational vision is that Iowa HHS is a trusted leader and partner in
+
+protecting health and providing high quality services. In line with its mission, Iowa HHS
+
+proposes the following comprehensive plan to meet the health needs of rural Iowans through the
+
+Rural Health Transformation Program (RHTP). Iowa HHS’s plan emphasizes promoting
+
+innovation, strategic partnerships, and infrastructure development to support rural population
+
+health care, promote preventive care, and address root causes of disease.
+
+Rural health needs and target population
+
+Significant portions of Iowa’s population live in rural census tracts. According to the most recent
+
+Goldsmith Modification, 47.5% of the state’s population resides in rural areas. The proportion is
+
+even higher among older adults, with 50.1% of Iowans aged 65 and over living in rural census
+
+tracts. For comparison, only about 17% of the total U.S. population and 20% of the elderly
+
+population live in rural areas. This relatively high rural population presents major challenges in
+
+delivering sustainable, high-quality health care, contributing to differences in health outcomes
+
+between rural and urban residents. These differences carry substantial economic costs, including
+
+both direct medical expenses and indirect costs from morbidity and mortality, such as lost
+
+productivity and future earnings [1].
+
+Chronic diseases, the leading causes of illness, disability, and death, account for an estimated
+
+90% of the nation’s $4.9 trillion in annual health care expenditures [2]. In Iowa, the inflation-
+
+adjusted direct and indirect costs of chronic diseases are projected to reach $13.82 billion and
+
+
+
+                                                                                                     1
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+$32.24 billion, respectively, in 2025 [3]. Rural communities face disproportionately higher rates
+
+of chronic disease and preventable deaths from leading causes, further exacerbating these costs
+
+[4]. Addressing the barriers that drive these differences could yield significant economic benefits
+
+and improve quality of life. Achieving sustainable change at scale will require a transformation
+
+in how rural Iowans engage in healthy behaviors, access preventive and primary care, manage
+
+chronic conditions, and receive treatment for acute and emergency needs.
+
+Governor Kim Reynolds has outlined Iowa’s strategy through a hub-and-spoke model of care.
+
+This approach encourages inter-organizational partnerships, allowing patients to remain in their
+
+communities for most care and be transferred only when necessary [5] [6]. It supports new
+
+access points for preventive care and promotes healthy behaviors to address root causes of
+
+disease. The model also expands health information exchanges and emergency medical services
+
+to improve interoperability and care coordination. Crucially, the hub-and-spoke framework
+
+enables Iowa to make targeted investments, foster partnerships, and optimize care delivery. By
+
+leveraging economies of scale and market forces, the state aims to drive long-term sustainability
+
+and improve health outcomes for rural Iowans.
+
+                                    Population Characteristics
+
+Understanding the characteristics of Iowa’s rural population and health care landscape is
+
+essential for implementing transformational change. Rural Iowans face economic disadvantages
+
+compared to those in metropolitan areas, with median household incomes nearly 20% lower at
+
+$71,714 versus $85,950 [7]. Twelve of the thirteen Iowa counties where more than 15% of
+
+households live below the poverty line are rural [8]. Similar differences appear in employment.
+
+While Iowa’s average unemployment rate is 3.3%, below the national average of 4%, this masks
+
+significant variation [9]. All counties with the highest unemployment rates (ranging from 5.4% to
+
+
+
+                                                                                                    2
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+8.8%) are rural [9]. Insurance coverage also varies geographically. Although 93% of Iowans are
+
+insured, above the national average of 89%, every county with coverage rates below the national
+
+average is rural [10]. Educational attainment follows the same pattern. Thirteen of the fourteen
+
+counties with the highest percentage of residents lacking a high school diploma are rural,
+
+affecting 10–20% of their populations [8]. The gap widens at the bachelor’s level: all 30 counties
+
+with the lowest rates of bachelor’s degree attainment are rural [8]. Employment differences
+
+between rural and urban areas are most pronounced in agriculture and manufacturing. For
+
+example, 6% of the rural workforce is employed in agriculture, compared to just 1% in urban
+
+areas [11]. The time-sensitive nature of agricultural work, especially during peak seasons,
+
+combined with longer travel times to access care, can result in significant labor losses or
+
+operational disruptions for rural farmers [12].
+
+Understanding the insurance mix is also critical to Iowa’s transformation plan. Most Iowans
+
+(71.8%) have private insurance, while 37.8% have public coverage. Two in five (42%) Medicaid
+
+recipients live in rural areas, including those enrolled in traditional Medicaid, the Iowa Health
+
+and Wellness Plan (IHAWP), or Healthy and Well Kids in Iowa (Hawki) [13]. Rural Medicaid
+
+enrollees often face access challenges, as not all providers accept Medicaid. Children under 17
+
+make up the largest share of rural Medicaid members (46.2%), followed by working-age adults
+
+22–64 (40.1%) [13]. Additionally, 15% of Medicaid enrollees have three or more chronic
+
+conditions, higher than the general population [14]. Demographic trends further complicate care
+
+delivery. Iowa’s fastest-growing age group over the past decade is adults 65 and older, increasing
+
+from 14.9% in 2010 to 18.6% in 2023 [15]. Seniors now make up 21% of the rural population,
+
+compared to 15.5% in non-rural areas. This growing share of rural Medicare-eligible residents,
+
+
+
+
+                                                                                                    3
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+combined with the high proportion of rural Medicaid recipients, has serious implications for
+
+reimbursement, chronic disease burden, and care demand.
+
+These rural population characteristics pose significant challenges to achieving positive health
+
+outcomes. Lower incomes and higher poverty rates create economic barriers to preventive care
+
+and healthy behaviors. Lower educational attainment may limit residents’ ability to make
+
+informed health decisions. The high share of seniors in rural areas also reduces provider margins,
+
+as Medicare reimburses at lower rates than commercial insurers [16], potentially threatening
+
+long-term financial stability. The hub-and-spoke framework outlined in Iowa’s Rural Health
+
+Transformation Plan offers a promising framework. It supports rural Iowans in investing in their
+
+health and accessing appropriate care, while helping rural providers remain financially viable.
+
+                                Access to Infrastructure and Care
+
+Although rural households in Iowa are less likely than urban ones to have internet access,
+
+approximately 89% still do and thus expanding telehealth services is feasible [8]. Access to
+
+vehicles is similar across rural and urban households, but public transportation options are
+
+limited in rural areas. Iowa estimated each block group’s driving distance and time to the nearest
+
+healthcare provider or facility using the road network across the entire state. The results
+
+demonstrated that travel distance and time remain significant barriers to in-person care for rural
+
+populations. On average, rural residents drive 30 minutes to the nearest hospital, more than twice
+
+the time for urban residents. The average drive to the nearest primary care physician is 24
+
+minutes in rural areas, over three times longer than in urban areas.
+
+Access to specialists is even more limited. Most rural census tracts are more than 60 minutes
+
+from the nearest cardiologist or urologist, and at least 40 minutes from OB-GYN care. Primary
+
+care providers attend 58% of births in rural counties [17], underscoring the shortage of obstetric
+
+
+
+                                                                                                     4
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+specialists. Cancer care is also difficult to access: residents in 38 and 45 counties must drive over
+
+90 minutes to reach the nearest practicing radiation oncologist or medical oncologist,
+
+respectively. In emergencies, rural Iowans wait an average of 43 minutes longer than urban
+
+residents to reach the most appropriate hospital. These longer travel times impose higher direct
+
+and indirect costs on rural residents, including transportation expenses and lost productivity.
+
+Access challenges are also reflected in patterns of rural bypass and emergency department (ED)
+
+overuse. Rural bypass occurs when patients travel to metropolitan hospitals instead of using local
+
+rural facilities [18]. Iowa’s 2024 hospital encounter data shows this is common across both acute
+
+and chronic conditions. For example, rural patients are treated for heart attacks at urban hospitals
+
+at four times the per capita rate of rural hospitals. Similarly, urban hospitals see two and a half
+
+times more rural patients per capita for colorectal and respiratory cancers. Iowa also analyzed
+
+avoidable ED visits by mapping admitting diagnoses to ambulatory care-sensitive conditions,
+
+those typically preventable with proper primary care [19]. In 2024, rural residents in Iowa had
+
+significantly higher ED utilization for these conditions, with some rates more than double those
+
+of urban populations (see Appendix 2 for details).
+
+Clearly, geographic and transportation barriers limit rural Iowans’ access to critical health care
+
+infrastructure. Iowa’s hub-and-spoke framework is well-positioned to address these challenges
+
+through strategic partnerships, workforce expansion, and care coordination [20]. Identifying
+
+which areas will serve as specialty care hubs, and which will operate as spokes for primary and
+
+secondary care, will be key to transforming rural health care and improving access across the
+
+state.
+
+                             Provider and Workforce Characteristics
+
+
+
+
+                                                                                                      5
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Understanding Iowa’s health care market is essential to developing and implementing a
+
+sustainable rural health transformation plan. The health care industry employs 210,700 people,
+
+10% of the state’s workforce, and contributes $14.3 billion (6%) to Iowa’s Gross Domestic
+
+Product [21]. While Iowa has a relatively low uninsured rate, this masks important economic
+
+dynamics within the insurance market. Health care providers negotiate reimbursement rates with
+
+both commercial and public insurers, and the competitiveness of this market directly affects
+
+provider payments. Iowa’s insurance market is highly concentrated: the top two firms control
+
+93% of the market, giving them significant leverage to set lower reimbursement rates [22]. This
+
+disproportionately affects smaller rural providers, who lack the bargaining power of larger
+
+systems to negotiate better terms [23].
+
+Iowa’s analysis of CMS Hospital Cost Reporting data (2011–2022) highlights the financial strain
+
+on rural hospitals. The median operating margin for rural hospitals was nearly -7%, compared to
+
++0.4% for non-rural hospitals. These differences are partly driven by higher overhead and salary
+
+costs per patient day, 2.2 and 2.6 times higher, respectively, than in non-rural hospitals. Rural
+
+hospitals also face 1.6 times more bad debt per patient day. Their financial position is further
+
+weakened by patient mix: 64% of inpatient days in rural hospitals are covered by Medicare,
+
+compared to 45% in urban hospitals. Given that commercial payments can be 143% higher for
+
+physician services and 199% higher for inpatient care than Medicare rates [24], this payer mix
+
+places a disproportionate financial burden on rural hospitals. Workforce data from the Bureau of
+
+Labor Statistics (2020–2024) shows significant provider income disparities. Even after adjusting
+
+for occupation and geography, rural primary care and specialty physicians earn $24,000 and
+
+$14,000 less, respectively, than their urban counterparts. This suggests that substantial financial
+
+incentives and strategic partnerships are needed to recruit and retain providers in rural areas.
+
+
+
+                                                                                                      6
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Provider distribution further illustrates access challenges. According to the Rural Health
+
+Information Hub, rural Iowa has 11 physicians per 10,000 residents, below the national rural
+
+average of 13 and far below Iowa’s urban average of 34. Age distribution compounds the issue:
+
+27% of rural physicians are 75 or older, compared to 17% in metro areas. Lower wages, an aging
+
+workforce, and persistent shortages all point to limited access to care for rural Iowans,
+
+underscoring the urgent need for transformational change.
+
+                                          Health Outcomes
+
+Chronic disease places a significant burden on Iowa’s population, contributing to 8 of the 10
+
+leading causes of death [25]. Heart disease and cancer are the top two. These conditions are not
+
+evenly distributed across the state; many disproportionately affect rural residents. While
+
+statewide averages suggest similar rates – diabetes at 9% in urban counties and 10% in rural,
+
+obesity at 34% and 32%, respectively – these figures obscure important variation [26]. Nine of
+
+the ten counties with the highest diagnosed diabetes prevalence (~12%) are rural, as are eight of
+
+the ten counties with the highest obesity rates, where over 38% of residents are considered obese
+
+[26].This disproportionate burden likely contributes to higher ED utilization in rural areas. All
+
+ten counties with the highest age-adjusted ED visit rates for heart attacks and chronic obstructive
+
+pulmonary disease (COPD) are rural [27]. This aligns with earlier findings of elevated ED use
+
+for ambulatory care-sensitive conditions related to chronic disease management.
+
+According to the Iowa Cancer Registry, Iowa has the second-highest cancer incidence rate in the
+
+U.S. [28] Among the six states with rising rates, Iowa’s is increasing the fastest, driven largely by
+
+lung, skin, breast, and prostate cancers [28]. From 1990 to 2019, Iowa reduced its age-adjusted
+
+lung cancer incidence by only 5%, compared to a 23% national decline [28]. The most common
+
+cancers, breast, prostate, lung, and colorectal, account for over 10,000 new cases annually, or
+
+
+
+                                                                                                    7
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+half of all new diagnoses. Lung cancer is the leading cause of cancer-related death, responsible
+
+for nearly 25% (1,420 deaths), followed by colorectal cancer at 9% (540 deaths) in 2023 [29].
+
+Screenings for colorectal, cervical, and breast cancers are widely recognized as cost-effective
+
+secondary prevention strategies [30]. Yet, rural Iowans have significantly lower screening rates.
+
+Iowa’s analysis of CDC PLACES data confirms this: nine of the ten counties with the lowest
+
+colorectal and breast cancer screening rates are fully rural. In these counties, nearly 50% of
+
+eligible residents have not received a colorectal screening, and 30% have not received a breast
+
+cancer screening [31]. Improving screening rates in these areas could yield substantial health and
+
+economic benefits. Additionally, the prevention of lung cancer and melanoma, both with well-
+
+known causes, is among the most cost-effective strategies for reducing incidence [30]. A
+
+combined approach that promotes preventive behaviors and expands access to screening and
+
+treatment is likely to generate significant health gains for rural Iowans while reducing cancer-
+
+related health care costs.
+
+Healthy Hometowns – Iowa’s Rural Health Transformation Plan: Goals and strategies
+
+Iowa has developed a Rural Health Transformation Plan that meets all requirements of statute in
+
+42 U.S.C. 1397 ee(h)(2)(A)(i). Through the Iowa HHS Strategic Plan and Strategic Plan in
+
+Action, Iowa HHS has committed to elevate organizational health, advance operational
+
+excellence, and help Iowa thrive. The Iowa Rural Health Transformation Plan, Healthy
+
+Hometowns, is in direct alignment with those goals by promoting access to health and human
+
+services resources and helping individuals, families, children, and communities thrive.
+
+Iowa Governor Kim Reynolds set the foundation for Healthy Hometowns via House File 972 of
+
+the 91st Iowa General Assembly. This legislation, enacted July 1, 2025, establishes a multi-prong
+
+strategy for improving rural health care access and health outcomes for rural Iowans. This plan
+
+
+
+                                                                                                    8
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+revolves around the concept that Iowa describes as Health Hubs, often referred to as hub-and-
+
+spoke models of care. The vision for Healthy Hometowns is to implement a robust hub-and-
+
+spoke framework that supports long-term, sustainable and high-quality health care for Iowans
+
+living in rural areas.
+
+Healthy Hometowns has three primary goals:
+
+1. Iowans will be able to get health care within their rural communities at the most appropriate
+
+    locations for type and level of care thanks to support from newly developed partnerships,
+
+    more rural primary care physicians and specialists, and upgraded equipment.
+
+2. Iowans living in rural areas will have improved health outcomes with similar rates of
+
+    morbidity and premature mortality to those living in Iowa’s more populous areas.
+
+3. Iowa will invest in the development and utilization of innovative technology and data
+
+    infrastructures to support sustainable care options close to home, seamless care partnerships,
+
+    and data sharing throughout the state.
+
+The strategies Iowa will use to implement this plan address each mandatory element.
+
+                                         Improving Access
+
+Iowa will improve access to primary care, preventive care, specialty care, behavioral health
+
+care, hospital care, and social care for rural residents. Iowa will achieve this through strategies
+
+aimed at enhancing care in rural locations, implementing innovative transport solutions when
+
+necessary, and co-locating different types of care for ease of access.
+
+Iowa’s primary strategy for improving access is Hometown Connections. Iowa will enhance
+
+hospital centers of excellence that share resources within a network of health systems and care
+
+sites. By formally pairing hospitals together to solve access, revenue, and sustainability
+
+problems, rural residents can receive primary and preventive care close to home while receiving
+
+
+
+                                                                                                      9
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+access to specialized care at a nearby Health Hub. These formalized partnerships will improve
+
+health outcomes, reduce costs for rural Iowans, and be supported through the use of
+
+technology, including the Health Information Exchange Initiative and telehealth solutions.
+
+Hometown Connections is supported by the Health Information Exchange Initiative, an
+
+innovative data-driven solution. The Health Information Exchange Initiative allows sharing of
+
+patient records between health care providers across unaffiliated systems and diverse electronic
+
+health record systems. This seamless transfer of records removes barriers for both patients
+
+seeking care and providers performing referrals, representing a data exchange partnership
+
+between providers committed to improving care for rural Iowans.
+
+Iowa will increase access in rural areas by bringing care directly to where people live, work, and
+
+congregate. The EMS Community Care Mobile project upskills Emergency Medical Services
+
+(EMS) crews to deliver mobile prenatal care, postnatal care, and chronic disease management.
+
+This strategy uses technology to outfit existing mobile care units with telehealth capabilities and
+
+upskills the Iowa EMS workforce by providing specialized training in obstetrics and chronic
+
+disease management.
+
+Iowa will also increase access to care by co-locating multiple types of healthcare (different
+
+service lines) in rural areas. This effort, titled Communities of Care, provides incentives and
+
+technical assistance to co-locate public health services, chronic disease care providers, nutrition
+
+services, behavioral health providers, Federally Qualified Health Centers (FQHCs), Area
+
+Agencies on Aging, and/or other community care providers to allow clients to access multiple
+
+types of services in one location. These partnerships will involve innovative care models to
+
+allow for these services to occur on the same visit. The model also prioritizes scheduling so
+
+multiple family members can receive care during one visit, designed to alleviate transportation
+
+
+
+                                                                                                  10
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+barriers and reduce access costs for rural patients. Through the use of technology, telehealth
+
+services allow these sites to participate in Health Hubs to access specialized care (part of the
+
+Hometown Connections). Additionally, the Health Information Exchange Initiative allows these
+
+co-located providers to share records about patients, when legal, appropriate, and desired by the
+
+client. These co-location sites will employ community health workers to assist with complicated
+
+and comprehensive scheduling, service navigation, specialist care referrals, nutrition counseling,
+
+and social care. These sites will also provide enhanced services aimed at cancer prevention and
+
+early intervention in rural Iowa (Combat Cancer: Prevent and Treat).
+
+Iowa will also employ strategies to transport patients from rural hospitals to specialists in Health
+
+Hubs. An example is the High-risk OB and Neonatal Transport Project, a project described in the
+
+EMS Community Care Mobile section. In concert with Hometown Connections, this project
+
+transports high-risk maternal or infant cases from spokes in rural areas to an appropriate setting
+
+with specialized care (for example, a hub) and then back to spokes when possible. This project
+
+outfits ambulances with required equipment, including telehealth capabilities, and provides
+
+training for the EMS workforce. Records for patients will follow patients via the Health
+
+Information Exchange Initiative. This intervention improves access and improves outcomes for
+
+rural residents.
+
+Finally, Iowa will increase access to primary and preventive care for rural children via care
+
+proposed for school-based services in the Hometown Connections project using telehealth, an
+
+innovative use of technology. Iowa will work to pursue policy solutions and conduct outreach to
+
+increase uptake of these strategies and provide care in schools, when appropriate and consented
+
+to by parents.
+
+                                       Improving Outcomes
+
+
+
+                                                                                                   11
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Healthy Hometowns improves outcomes for rural residents through reduced travel to care,
+
+fewer emergency department visits, reduced inpatient stay days, reduced chronic disease,
+
+increased preventive care and screening uptake, and more primary care visits. While these will
+
+take several years to fully realize, Iowa has created an evaluation plan to track proxy measures
+
+that are directly related to health outcomes, such as access, utilization, and enrollment in chronic
+
+disease management. Some measures, such as avoidable ED visits or maternal inter-facility
+
+transfers, will show improvements within five years. Given the scale of Iowa’s planned
+
+transformation and the necessary implementation duration, the precise measurement and
+
+estimation of broad health and financial improvements will continue beyond the five-year grant.
+
+Iowa will improve outcomes through Combat Cancer: Prevent and Treat. This project will focus
+
+on prevention, screening and early detection, and treatment for lung, colorectal, breast, skin, and
+
+prostate cancer – the most impactful to rural Iowans. Iowa will also improve outcomes by
+
+providing tools to Iowans in rural areas for improved self-management of chronic disease. Iowa
+
+will provide remote glucose monitoring (a use of consumer facing technology) and blood
+
+pressure cuffs for home management through existing partnerships with local health
+
+departments and other contractors. Through simple contract amendments, these strategies can
+
+begin improving the health of rural Iowans immediately. Iowa will also deploy these strategies
+
+through Hometown Connections, Community Care Mobile’s Mobile Integrated Health Care, and
+
+Communities of Care.
+
+                                           Technology Use
+
+The use of emerging technologies will be essential to Healthy Hometowns. Iowa will implement
+
+telehealth, remote glucose monitoring, and the Health Information Exchange Initiative to
+
+advance rural health outcomes. Facilities may invest in state-of-the-art artificial intelligence (AI)
+
+
+
+                                                                                                   12
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+tools, such as for diagnosis, treatment, or revenue cycle management under Hometown
+
+Connections.
+
+                                            Partnerships
+
+Iowa will promote partnerships among providers through Hometown Connections and
+
+Communities of Care by incentivizing agreements and contractual relationships between non-
+
+affiliated organizations to improve health outcomes in rural areas. The Health Information
+
+Exchange Initiative encourages providers to build data and information sharing partnerships
+
+that prioritize patients and lower the cost of care.
+
+                                             Workforce
+
+Iowa has made many improvements and commitments to recruiting and retaining healthcare
+
+providers. House File 972 of the 91st Iowa General Assembly outlined Iowa Governor Kim
+
+Reynolds’s vision for transforming health care workforce recruitment and retention in Iowa. The
+
+consolidation of grant funds from previous programs, creation of the Health Care Professional
+
+Incentive Fund, and vision for Supplemental Enhanced Payment for Graduate Medical Education
+
+to increase residency spots in Iowa all work to improve Iowa’s rural health care workforce.
+
+These strategies are outside the scope of this funding opportunity. Iowa will also support
+
+workforce needs via the new Healthy Hometowns supported project, Best and Brightest. Iowa’s
+
+rural hospitals will have the opportunity to recruit exceptional healthcare talent to Iowa and
+
+invest in state-of-the-art health equipment that will make these providers want to stay. Iowa will
+
+also invest in the EMS workforce to allow clinicians to practice at the top of their licenses, as
+
+described within EMS Community Care Mobile.
+
+
+
+
+                                                                                                    13
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+                                       Data Driven Solutions
+
+Iowa’s strategy to improve data sharing for the benefit of rural Iowans is the Health Information
+
+Exchange Initiative. Iowa’s rural providers must be connected to this data network to share
+
+records between care locations with different electronic health record systems.
+
+                                    Financial Solvency Strategy
+
+The initiatives described within this application will contribute toward financial solvency for
+
+rural Iowa providers. Hometown Connections will establish referral agreements, inclusive of
+
+telehealth reimbursement terms, that are mutually beneficial to all participants and work to right-
+
+size facilities with low utilization. Rural facilities participating across Hometown Connections
+
+and Communities of Care will be able to invest in minor space renovations and retrofits,
+
+increasing the economic efficiency. These partnerships will also provide enhanced primary and
+
+preventive care in rural areas, reducing both emergency department overcrowding in metro areas
+
+and length of inpatient stays. The EMS Community Care Mobile will provide care close to home
+
+and open bed space in metro areas. The co-location strategies of the Communities of Care will
+
+reduce overhead costs and modify the service offerings in rural facilities. Sharing data via the
+
+Health Information Exchange Initiative will reduce duplicative care, increase care coordination,
+
+and move people through the health care system expediently. As part of Healthy Hometowns, the
+
+state is committed to strong evaluation of the health care system. In summer of 2025, Iowa hired
+
+the first health economist for the state. Iowa plans to invest in additional high quality, specialized
+
+data support to understand and solve rural health care issues.
+
+                                       Causes Identification
+
+Iowa is committed to learning more about the causes of hospital closures. A recent report
+
+identified two hospital closures and openings in Iowa from 2008-2023 and over 43 labor and
+
+
+
+                                                                                                   14
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+delivery units have closed since 2000 in Iowa. According to the Center for Healthcare Quality
+
+and Payment reform, 18 hospitals in Iowa have low financial reserves and net losses on patient
+
+services, indicating a potential risk of closure. Of those 18, three hospitals have reported negative
+
+profits over a multi-year period and have more debt than assets, indicating an immediate risk of
+
+closure. Generally, hospitals report low patient volumes, staffing challenges, and the inability to
+
+recruit and retain nurses and physicians as some reasons for closure. The initiatives described
+
+within this application work to address low patient volumes, the bypass of rural facilities, and
+
+recruitment and retention. Multiple initiatives provide significant investments to address
+
+underutilized facility space, thereby decreasing overhead costs per patient. Employing hub-and-
+
+spoke models of care that leverage telehealth integration is expected to reduce rural bypass, with
+
+local rural patients having access to virtual specialist expertise at hub facilities, enabling rural
+
+patients to receive most care at their local rural facility.
+
+                                  Program Key Performance Objectives
+
+Healthy Hometowns will reduce travel time to access care and the length of inpatient stays while
+
+increasing uptake of preventive care and the number of providers in rural areas. These objectives
+
+work to reduce health care costs. Iowa will require data sharing agreements with participating
+
+facilities to supplement existing state health data. The metrics and evaluation plans describe all
+
+performance measures for our initiatives. Iowa’s program will achieve the following by 2031:
+
+ Significant reduction in ED hospital visits for ambulatory care sensitive conditions (ACSCs) in rural areas.
+ Increase in the number of rural residents receiving care locally through new or expanded service lines.
+ Increase provider to population ratios in rural Iowa.
+ Increase in the number of telehealth consultations delivered to rural residents.
+ Increase in the number of rural providers or facilities participating in HIE with active data exchange.
+
+
+
+
+                                                                                                                15
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Strategic goals alignment
+
+Iowa is committed to aligning all strategies and goals with the following components of the
+
+federal Rural Health Transformation Program:
+
+ •   Make rural America healthy again: Iowa will develop new and support existing access
+
+     points for preventive care, chronic disease management, cancer screening and treatment,
+
+     prenatal care, other primary care, and specialty care. This work is described within
+
+     Hometown Connections, Communities of Care, and EMS Community Care Mobile. Iowa
+
+     will prevent disease and support chronic disease management through Combat Cancer:
+
+     Prevent and Treat, Communities of Care, and EMS Community Care Mobile.
+
+ •   Sustainable access: Hometown Connections and Communities of Care both form
+
+     partnerships that allow rural health providers to become long-term access points. The
+
+     Health Information Exchange Initiative supports sustainability by sharing patient records.
+
+ •   Workforce Development: Hometown Connections and Combat Cancer: Prevent and Treat
+
+     support the recruitment and retention of providers through the Best and Brightest project.
+
+     Several pieces of the EMS Community Care Mobile, including Mobile Integrated Health
+
+     Care and the High-risk OB and Neonatal Project support EMS clinicians practicing at the
+
+     top of their licenses. Communities of Care will utilize community health workers and care
+
+     coordinators to help patients navigate care.
+
+ •   Innovative Care: Iowa commits to innovative models of care through Hometown
+
+     Connections and the Communities of Care. This project is designed to serve rural Iowans in
+
+     rural areas whenever possible. The projects are strategically designed to shift care to the
+
+     lowest cost setting and meet patient needs through telehealth. The policy-focused staff
+
+     person hired will explore potential policy changes for Medicaid billing to support additional
+
+
+                                                                                                   16
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+      services in schools, reimbursement of care by EMS clinicians, and billing strategies for
+
+      same-day services provided at co-location sites through Communities of Care.
+
+ •    Tech Innovation: The Health Information Exchange Initiative and the use of telehealth
+
+      within Hometown Connections, Communities of Care, and EMS Community Care Mobile
+
+      all align closely with the program’s goal to foster innovative technologies. Iowa will also
+
+      explore remote patient monitoring smart benefit cards, and advanced medical equipment
+
+      that leverages robotics and artificial intelligence add-ons to advance the state.
+
+                                      Legislative or Regulatory Action
+
+Iowa wishes to address 4 policy scoring factors. Iowa commits to reestablishing the Presidential
+
+Fitness Test in a way aligned with Executive Order 14327 prior to December 31, 2028 (B.2).
+
+Iowa also commits to including nutrition within continuing medical education requirements for
+
+physicians by December 31, 2028 and requests 100 points for this category (B.4) to improve the
+
+quality of care provided by physicians in the state. Iowa is participating in all compacts described
+
+within this funding opportunity except the PSYPACT compact for psychologists. Iowa commits
+
+to joining this network to increase access to and supply of rural health mental health providers.
+
+Iowa requests 100 points for this category (D.2). In 2024, via Iowa Senate File 2385, Iowa
+
+legislation required the production of a CON report by December 31, 2025. Iowa commits to
+
+legislative change for Certificate of Need (CON) (C.3) to remove outpatient behavioral health
+
+care from review requirements introduced in early 2026 and enacted prior to December 31, 2026.
+
+The implementation plan and timeline for cross-cutting grant activities, including policy
+
+changes, can be found on page 60.
+
+                                         Other required Information
+
+ A.2. Proportion of Health Facilities: Hospital Facilities = 98; Other Rural Facilities = 343. List of Certified
+ Community Behavioral Health Centers has been submitted as an attachment.
+ A.7. No hospitals in Iowa receive DSH payments due to state directed payment programs.
+
+                                                                                                                   17
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+ B.2. Health and Lifestyle                                                                         100
+ B.3. SNAP waivers                                                                                 100
+ B.4. Nutrition Continuing Medical Education                                                       100
+ C.3. Certificate of Need (CON)                                                                    50
+ D.2. Licensure Compacts-Physician(100), Nurse(100), EMS(100), Psych(100), PA(100)                 100
+ D.3. Scope of Practice-PA(100), NP(100),PharmD(100),RDH(50)                                       87.5
+ E.3. Short-term, limited-duration insurance (STLDI)                                               100
+ F.1. Remote care services-live video(100), store/forward(100),RPM(100),in-state excep (100),reg   80
+ process(0)
+
+                                  Proposed initiatives and use of funds
+
+Iowa’s Rural Health Transformation Program application contains five primary initiatives. Each
+
+of these initiatives has multiple sub-projects. The visual of the complete program is below.
+
+
+
+
+Initiative 1: Hometown Connections
+
+Description: Iowa will implement Hometown Connections, a statewide initiative designed to
+
+strengthen care coordination and service delivery in rural areas through strategic partnerships
+
+                                                                                                         18
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+among healthcare providers. This initiative is grounded in the evidence-based hub-and-spoke
+
+model of care, which Iowa refers to as Centers of Excellence and Health Hubs. This model,
+
+widely supported in healthcare literature, has demonstrated effectiveness in improving access
+
+[32] [33] [34] [35] [36] [37] [38], reducing costs [33] [39] [40] [40] [37] [38], improving hospital
+
+financial performance [41] [40] [37], and enhancing health outcomes [6] [40] [37], particularly
+
+in rural settings [42] [37] [38]. In this framework, centralized hub facilities offer comprehensive
+
+and specialized services, while spoke sites extend access to care within communities. Iowa will
+
+utilize RHTP funds to support the development and expansion of Health Hubs, addressing
+
+persistent gaps in care coordination and access across Iowa. This initiative exemplifies rural
+
+provider strategic partnerships (C.1), talent recruitment (D.1), and remote care services (F.1).
+
+Elements of population health clinical infrastructure (B.1), dually eligible services (E.2), health
+
+and lifestyle (B.2), data infrastructure (F.2), and consumer facing technology (F.3) are also
+
+incorporated. A crosswalk of scoring factors and initiative activities is in the other supporting
+
+documentation of this submission.
+
+To maximize the immediate impact of this five-year initiative, Iowa will build on prior
+
+investments. In 2021, Governor Kim Reynolds awarded Centers of Excellence grants to two
+
+regional hospitals to enhance maternal care coordination across rural counties. These efforts,
+
+examples of rural strategic partnerships (C.1), aimed to ensure adequate staffing and
+
+technology, establish referral networks, and promote local utilization of services. In 2023, three
+
+additional networks received funding to support maternal care, general surgery, and geriatric
+
+services. These networks have demonstrated early success, serving 8,629 individuals and
+
+establishing 92 new partnerships. One site has already reported a measurable reduction in rural
+
+bypass within three years. To accelerate progress, Iowa will issue immediate amendments to
+
+
+
+                                                                                                    19
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+existing contracts upon receipt of funds, enabling sites to expand service lines and reach new
+
+beneficiaries. Iowa certifies that these funds will not supplant existing resources and that all
+
+activities will be novel to this grant. Iowa will also re-release the competitive procurement
+
+for Centers of Excellence to fund up to ten additional centers. These awards will support either
+
+new service lines or the geographic expansion of existing services. The application process will
+
+require formalized referral agreements, community investment strategies, enhanced outreach,
+
+and integration of wraparound social services to increase coordination among existing rural
+
+community providers (population health clinical infrastructure, B.1). Eligible service areas
+
+include maternal/child health, cancer, cardiovascular health, mental/behavioral health, and
+
+chronic disease prevention and management.
+
+To further accelerate and maximize immediate impact in the first year, Iowa will launch
+
+competitive grant opportunities focused on workforce development (talent recruitment, D.1)
+
+and medical equipment acquisition via the novel Best and Brightest Program. In a 2025 survey of
+
+Iowa hospitals conducted by the Iowa Hospital Association, clinical workforce recruitment and
+
+retention was described as the number one need for investment. Workforce grants will support
+
+one-time recruitment and retention incentives, including relocation assistance and bonuses, for
+
+positions not subject to non-compete agreements. Recipients must commit to a five-year service
+
+term in a rural Iowa community. Equipment grants will fund the acquisition and installation of
+
+advanced medical technologies, such as robotic surgical systems, radiotherapy units, CT/PET
+
+scanners, and cardiac catheterization equipment. Allowable costs include equipment and minor
+
+facility modifications necessary for service delivery, in compliance with all infrastructure and
+
+capital expenditure requirements. Based on recent Certificate of Need applications, the average
+
+cost for equipment procurement and installation is approximately $3.32 million. Iowa anticipates
+
+
+
+                                                                                                   20
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+up to 150 workforce grants in year 1, followed by 17 in years 3 and 4 and 24 in year 5. Iowa will
+
+fund up to 34 equipment grants in the first year, 7 grants in years 3 and 4, and 5 in year five.
+
+Iowa recognizes that developing and implementing new models of care require specialized
+
+expertise in partnership building, agreement negotiation, payment model development, and
+
+business planning. To identify this expert knowledge, Iowa will release a competitive grant
+
+opportunity in year one to contract with a technical assistance provider. This provider will
+
+jumpstart system development by assessing the needs in Iowa’s communities and offering
+
+personalized assistance to healthcare systems in identifying potential partners, developing draft
+
+agreements, and preparing for application for these funds. This contractor will be essential for
+
+stakeholder engagement within this initiative and provide the necessary technical assistance for
+
+rural facilities with limited resources to navigate the grant process.
+
+After initial planning and expertise provided by the technical assistance provider through the
+
+year-one contract, Iowa will significantly scale up the Health Hub model through additional
+
+competitive grants that provide substantial start-up funds for large-scale service delivery change.
+
+These robust investment plans to transform rural health care delivery must include one or
+
+more of the following service lines: maternal/child health, cancer, cardiovascular care,
+
+mental/behavioral health, or chronic disease prevention and management. Some flexibility is
+
+required to accommodate the different clinical, infrastructure, and workforce needs across these
+
+different service lines under the Health Hub project within the Hometown Connections initiative.
+
+The implementation includes early governance and readiness, infrastructure buildout, workforce
+
+and telehealth integration, and full program deployment and evaluation.
+
+Iowa commits to using competitive procurement and contracting strategies within Hometown
+
+Connections to advance the strategic goals of the federal Rural Health Transformation Program.
+
+
+
+                                                                                                   21
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+In addition to requiring compliance with all terms of the funding opportunity, Iowa will also
+
+require that successful applicants connect to and exchange data with the Iowa Health Information
+
+Exchange (data infrastructure, F.2) and collect and report data on dually eligible beneficiaries
+
+seen within their practice (E.2). This dual eligibility data will be analyzed by Iowa health
+
+economists to identify opportunities to improve care.
+
+Under the initial phase of the Health Hub project, the technical assistance contractor has already
+
+aided with community assessments and grant preparation. Thus, Health Hub awardees will be
+
+expected to have made initial progress in designating the hub and spoke sites, drafting
+
+preliminary Memoranda of Understandings, and forming the necessary steering committees.
+
+Using cardiovascular as an exemplary service line, a tertiary hospital with existing cardiology,
+
+catheterization lab, and surgical capacity may propose to partner with critical access hospitals,
+
+rural health clinics, or FQHCs to service as local spoke facilities. RHTP funds are expected to be
+
+used to support consultant fees for the drafting and execution of provider service agreements,
+
+telehealth service agreements (remote care, F.1), and transfer/referral protocols. Iowa will
+
+require any provider service agreements to explicitly address Stark Law and Antikickback
+
+Statutes. RHTP funds may also be used to establish shared quality metrics and any shared-
+
+savings models participants wish to pursue, as well as a systematic evaluation of service-line
+
+capacity, equipment, and workforce inventories and limitations.
+
+The next phase’s objective of the Health Hub project includes infrastructure upgrades and
+
+equipment procurement. Spoke facilities will need the physical and digital infrastructure needed
+
+to perform routine service-line care and link to hubs for advanced services. For example, a
+
+cardiovascular project may require the purchase and installation of 12-lead electrocardiograph
+
+(ECG) machines, echocardiogram units, Holter and event monitors, point-of-care troponin
+
+
+
+                                                                                                    22
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+testing, and blood pressure monitors. Contractors may invest in consumer-facing technology
+
+(F.3) to aid patients with self-management. A maternal/infant project will require different
+
+investments, such as the purchase and installation of fetal monitors, portable ultrasound
+
+machines, point-of-care hemoglobin and glucose testing devices, neonatal resuscitation
+
+equipment, and telehealth-enabled exam rooms for remote consultations (F.1) with obstetric
+
+specialists. This phase will also include the implementation of telehealth and EHR
+
+interoperability through HIE connections. Iowa will allow some RHTP funds to be used for
+
+minor building renovations when necessary to provide care along the eligible service lines.
+
+Allowable costs may include, for example, refurbishing an existing room for cardiovascular
+
+evaluations, installing remote monitoring dashboards, upgrading electrical conduits to support
+
+new screening equipment, or necessary upgrades to support advanced HVAC systems for
+
+improved infection control. These must be minor, necessary renovations or retrofits that utilize
+
+existing underutilized facility space.
+
+In parallel to the infrastructure phase, participating networks will use RHTP funds to build the
+
+necessary human capital to provide consistent, quality care for the designated service line. Funds
+
+are expected to be used for the recruitment and retention of necessary staff (talent recruitment,
+
+D.1), including salary costs up to the specified salary cap. Positions that require salaries above
+
+the cap will need to be supplemented with a different funding source. Funding staff training will
+
+also be crucial, such as for new telehealth systems, EHR modules, and remote patient monitoring
+
+setup and training. Clinical pathways will need to be finalized, such as for acute coronary
+
+syndromes, heart failure, and arrhythmia management in the case of a cardiovascular model.
+
+Participating facilities are expected to begin operationalizing care delivery within a hub-and-
+
+spoke framework in the next phase of implementation. For example, spoke sites begin
+
+
+
+                                                                                                     23
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+scheduling routine and urgent remote care tele-consults with hub specialists. In the case of a
+
+cardiovascular project, this may include implementing real-time ECG transmission for
+
+emergency cases and remote specialist interpretation. With guidance from hub specialists, local
+
+management for hypertension, heart failure, and arrhythmia begins and expands as local patient
+
+volume increases. RHTP funds may be used, for example, for rehabilitation and education
+
+programs for post-event patients or for establishing and refining rapid transfer protocols for acute
+
+events to hub hospitals. In a maternal and infant health project, for example, spoke sites may
+
+begin scheduling routine prenatal and postpartum remote care teleconsultations with hub-based
+
+obstetricians, maternal-fetal medicine specialists, or lactation consultants. This may include
+
+remote fetal monitoring interpretation, virtual high-risk pregnancy assessments, and real-time
+
+consultation during labor triage. With guidance from hub specialists, local providers begin
+
+managing gestational hypertension, diabetes, and postpartum complications, expanding services
+
+as patient volume grows. RHTP funds may be used to support start-up investments in remote
+
+patient monitoring, childbirth education classes, postpartum depression screening and referral
+
+workflows, or to establish and refine emergency transfer protocols for obstetric or neonatal
+
+complications requiring higher-level care at hub hospitals. These transfer protocols could be
+
+done collaboratively with EMS clinicians participating in the EMS Community Care Mobile
+
+Initiative described below.
+
+In the final stage, full implementation is achieved, and changes to health and financial outcomes
+
+are expected to begin accruing. Iowa will allocate up to $20 million annually for individual
+
+Health Hub projects under the Hometown Connections initiative. The heavy subsidization of the
+
+start-up costs is expected to free up internal cash flows, enabling rural facilities to expand
+
+capacity and right-size their care delivery among affected service lines. One study found
+
+
+
+                                                                                                 24
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+significant cost savings of over $350,000 for the facilities participating in a hub-and-spoke
+
+network [37], implying the investment in such models for rural providers is likely to improve
+
+financial sustainability. The impact on rural residents is also expected to be structurally
+
+transformative. Some recent studies have found cost savings from reduced travel costs and
+
+recovered labor productivity between $147 and $187 per visit for patients utilizing telehealth
+
+[43]. If Iowa’s rural population with atherosclerotic cardiovascular disease were to substitute an
+
+in-person visit for a telehealth visit, this population could save $17-$21 million for each
+
+substituted visit. Other research has found significant increases in treatment initiations among
+
+hub-and-spoke programs and extrapolating to the rural Iowa population implies 95% more
+
+patients may see treatment started for chronic diseases [44].
+
+To further expand access and improve outcomes for Iowa’s youth, the State will also implement
+
+a targeted school-based services strategy under the Hometown Connections initiative. According
+
+to 2025 data from the Iowa Department of Education, nearly 42% of the student population
+
+attends school in a rural area, underscoring the potential for significant and transformational
+
+impact. Expanding school-based health services offers evidence-based benefits, including
+
+increased access to care, early identification and intervention for chronic conditions, improved
+
+school attendance, and enhanced continuity of care. Partnerships between rural clinical providers
+
+and schools provide examples of both population health clinical infrastructure (B.1) and
+
+rural provider strategic partnerships (C.1).
+
+These outcomes are particularly critical in rural areas, where limited access to comprehensive
+
+care can have long-term implications for both childhood and adult health. Iowa will issue
+
+a Request for Proposals to hospitals, rural health centers, FQHCs, local public health
+
+departments, and community health centers to establish partnerships with schools for the
+
+
+
+                                                                                                   25
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+delivery of clinical services. Funding may be used to support staffing, mobile health units,
+
+telehealth infrastructure, training, medical equipment and supplies.
+
+Eligible expenses include telehealth-enabling technologies (remote care, F.1), electronic health
+
+record modules tailored for school-based care, and tools that facilitate remote parental
+
+engagement. Applicants must demonstrate a formal partnership with at least one rural school
+
+district and commit to providing regularly scheduled clinical services. Contractors may
+
+subcontract with schools to fund minor infrastructure modifications necessary to accommodate
+
+healthcare delivery. They may offer grants or supply health-related equipment to incentivize
+
+school participation. To further support health and lifestyle (B.2), Iowa will require school-
+
+based contractors to incorporate evidence-based nutrition and physical activity education into
+
+their care delivery. Contractors can use limited funds to provide physical activity equipment to
+
+schools as incentives for participation.
+
+Main Strategic Goals of the Hometown Connections initiative:
+
+Improving access: Iowa will develop Health Hubs to provide care within rural communities to
+
+address cardiovascular health, cancer, mental and behavioral health, maternal and child health,
+
+and chronic disease prevention and treatment. Iowa will increase providers in rural areas,
+
+leverage telehealth, and identify transportation solutions to enhance access to care.
+
+Improving outcomes: Iowa will improve outcomes by increasing access to preventive care, care
+
+coordination, screenings for earlier detection or disease, and visits to manage chronic disease.
+
+Technology use: Iowa will use telehealth services and remote patient monitoring to support care.
+
+Partnerships: Iowa will prioritize partnerships between healthcare systems (rather than within
+
+existing affiliations) to ensure patients receive the right care, at the right time, in the right place,
+
+while preserving patient choice.
+
+
+
+                                                                                                      26
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Workforce: Iowa plans salary enhancements, workforce recruitment strategies, and rural facility
+
+equipment upgrades to entice providers to join rural practices as part of Best and Brightest.
+
+Data-driven solutions: Iowa will connect rural providers to the Health Information Exchange.
+
+ Use of funds: A,B,C,D,E,F,G,J,K     Technical score factors: B.1, B.2, C.1, D.1, E.2, F.1, F.2, F.3
+ Key stakeholders                    Hospitals (including rural, critical access, and large systems), tertiary care
+                                     hospitals, rural clinics, primary care providers, federally qualified health
+                                     centers, community-based organizations, colleges and universities
+ Outcomes                            These can be found within the Metrics and Evaluation Plan section below.
+ Impacted Counties                   For existing Centers of Excellence: FIPS: 001, 003, 007, 009, 025, 027,
+                                     029, 047, 051, 073, 095, 099, 101, 107, 111, 117, 123, 125, 127, 135, 137,
+                                     157, 161, 171, 177, 179, 183. For new grants, unknown (competitive).
+ Est. Required Funding               $535,538,157 over 5 years
+
+
+Implementation plan and timeline:
+
+
+
+
+ Stage      Milestone              Description                                                              Timing
+ Stage 0    Program launch and     Staff hired (see page 58 for complete details), RFPs released for        FY26
+            planning complete      all sub-projects; feasibility studies completed; governance
+                                   structures established; TA contract executed;CoE contracts signed
+ Stage 1    Initial awards and     Contracts signed for Centers of Excellence expansion, Best and           FY27
+            contracts executed     Brightest, and Hometown Connections; workforce recruitment
+                                   begins
+ Stage 2    Infrastructure and     Majority of COEs operational; transformational tech equipment            FY28
+            workforce readiness    installed; spoke sites identified and telehealth buildout underway
+ Stage 3    Service delivery       Telehealth services launched at spoke sites; new services                FY29
+            initiated              operational at COEs; workforce fully deployed
+ Stage 4    Network integration    Hub-spoke referral pathways active; specialty services available         FY30
+            and scale-up           locally; data-sharing and cybersecurity protocols in place
+ Stage 5    Full implementation    All sub-projects fully implemented; measurable outcomes accrue           FY31
+            and evaluation         (e.g., telehealth consults, local care delivery, financial
+                                   sustainability indicators)
+
+
+
+
+                                                                                                                      27
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Stakeholder Engagement: Iowa is committed to engaging rural stakeholders throughout the
+
+RHTP initiative. Stakeholder input began in July 2025 through weekly partner meetings and
+
+hospital roundtables with Iowa’s congressional delegation. These sessions helped identify the
+
+needs of rural Iowans and healthcare providers. Key contributors to the planning process
+
+included the Iowa Hospital Association (IHA), which conducted a statewide hospital needs
+
+survey; the Iowa Primary Care Association (IPCA), which supports health centers and safety net
+
+providers; two major health systems; the University of Iowa College of Public Health; and the
+
+Iowa Insurance Division. Iowa HHS assembled a cross-divisional planning team with leadership
+
+from Medicaid, Public Health, Compliance and Administration, the State Office of Rural Health,
+
+Data Strategy, Health Economics, Communications, Government Relations, and Fiscal teams.
+
+This team will continue to guide implementation throughout the grant period.
+
+Stakeholder engagement within this initiative will be maximized by leaning on the expertise of
+
+the technical assistance vendor described above. The statement of work for this vendor will
+
+include hosting in-person and virtual collaboration sessions, implementing robust communities
+
+of practice for problem solving, and connecting state staff and policy makers to the feedback of
+
+providers giving care in rural communities.
+
+Iowa will also leverage its extensive network of local contractors and service providers,
+
+including public health agencies, EMS programs, WIC clinics, community action agencies, Area
+
+Agencies on Aging, and university partners, to support implementation and evaluation. These
+
+partners, along with advisory committee members, will help assess community needs and
+
+monitor program success. As a unified Health and Human Services agency, Iowa brings deep
+
+internal expertise across public health, chronic disease management, data analytics, Medicaid
+
+policy, rural health, EMS, and lifespan-focused services.
+
+
+
+                                                                                                28
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Iowa will build on existing governance frameworks to support stakeholder engagement.
+
+The Healthy Iowans initiative, a statewide health improvement plan, provides a strong
+
+foundation through its steering committee, which includes payers (e.g., Wellmark Foundation,
+
+Iowa Medicaid), providers (e.g., IPCA, Iowa Rural Health Association), nonprofits (e.g., Food
+
+Bank of Iowa), government agencies (e.g., Iowa Department of Education), and academic
+
+institutions (e.g., University of Iowa, Iowa State University).
+
+In addition, Iowa has convened targeted workgroups, such as those focused on behavioral health
+
+access, that include representatives from payers, providers, community health programs,
+
+advocacy organizations, local governments, and rural policy experts. Iowa will also engage with
+
+an existing partner, the Great Plains Tribal Epidemiology Center, to ensure that evaluation work
+
+on this grant considers the unique needs of Iowa’s tribal-affiliated residents. These groups offer
+
+established venues for collaboration, information sharing, and coordinated implementation.
+
+Many of these partnerships are already formalized through contracts or agreements, which can be
+
+amended to incorporate RHTP-specific workplans and deliverables. This structure ensures that
+
+stakeholder input remains central to the initiative’s success.
+
+Metrics and Evaluation Plan: Hometown Connections includes three sub-projects that each
+
+contribute to the overall goal of improving access, financial sustainability, and health outcomes
+
+of rural populations. The selected performance metrics reflect this initiative’s phased
+
+implementation strategy, with early infrastructure and workforce investments aimed at increasing
+
+service delivery over a short time. In these early stages, the initiative will track the first
+
+performance metric: (1) the percentage of Centers of Excellence that have launched new services
+
+and hired workforce positions, such as OB navigators, midwives, or mental health providers.
+
+Simultaneously, the second performance metric, (2) the percentage of equipment that has been
+
+
+
+                                                                                                 29
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+installed and is operational across participating facilities, will be monitored. These two metrics
+
+demonstrate early progress in expanded workforce, diagnostic, and treatment capacity at rural
+
+facilities. As Health Hubs mature, metric (3) will report on the percentage of rural spoke
+
+facilities with telehealth infrastructure operational and connected to hub specialists, ensuring
+
+readiness for virtual care delivery and access to advanced specialist expertise. Finally, metric (4),
+
+the number of telehealth consultations delivered between hub specialists and spoke facilities will
+
+be reported to demonstrate increased utilization of specialist services provided to rural patients.
+
+This metric will be calculated at the county-level. Overall, these metrics can be reliably
+
+measured and illustrate the initiative’s trajectory from early implementation to impact. The data
+
+sources for these metrics include a combination of reporting requirements and required data
+
+sharing agreements to be conditional on being awarded RHTP funds. Reporting requirements
+
+will provide the data for metrics (1), (2), and (3). Encounter data will be submitted to Iowa HHS
+
+at least monthly for evaluation by internal Health Economists for metric (4). The milestones are
+
+given in the implementation table above.
+
+Sustainability Plan: The Hometown Connections initiative is designed to create long-term
+
+impact through strategic, one-time investments that build rural healthcare capacity. Start-up
+
+funding for major medical and telehealth equipment will enable rural providers to offer services
+
+that would otherwise be cost-prohibitive. Once operational, these services can generate
+
+sustainable revenue through reimbursements, while also attracting more patients and providers to
+
+rural facilities. Similarly, recruitment and retention incentives are structured to establish long-
+
+term provider presence. As providers and their families integrate into rural communities, many
+
+are expected to remain beyond the incentive period, contributing to workforce stability. The
+
+business partnerships developed and solidified by legal agreement will last long beyond this
+
+
+
+                                                                                                      30
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+funding. The technical assistance provider will offer this assistance to all rural hospitals, not just
+
+those involved in forming Health Hubs. This will further enhance sustainability. Iowa will embed
+
+a robust evaluation framework into the RHTP initiative to monitor improvements in rural health
+
+outcomes and population health. This data-driven approach will help identify effective strategies
+
+for continued investment and scale. Anticipated cost savings, such as reduced emergency
+
+department use, improved chronic disease management, and earlier disease detection, will further
+
+support sustainability. These savings, realized through improved care coordination and
+
+contractual provider partnerships, can be reinvested to strengthen rural healthcare delivery
+
+statewide. Iowa acknowledges that these outcomes and cost savings are more likely to be
+
+realized after these programs reach maturity.
+
+                         Initiative 2: Combat Cancer: Prevent and Treat
+
+Description: Cancer is the second leading cause of death in Iowa, following heart disease, and
+
+remains a critical concern for rural communities. As Iowa’s rural population continues to age, the
+
+burden of cancer, particularly lung, breast, colon, and skin cancers, is expected to increase.
+
+The Combat Cancer: Prevent and Treat initiative will invest in prevention, screening, and
+
+treatment strategies to reduce this burden, with a focus on expanding access to care through a
+
+statewide Health Hub model. Similar to Initiative 1 above, Combat Cancer advances rural
+
+provider strategic partnerships (C.1), talent recruitment (D.1), and remote care services (F.1). It
+
+also incorporates the exchange of data with the Iowa Health Information Exchange (data
+
+infrastructure, F.2), strategies to address the health and lifestyle related risk factors for cancer
+
+(B.2), collection of data on dually eligible beneficiaries within practice sites (E.2), population
+
+health clinical infrastructure improvements (B.1), and consumer facing technology (F.3).
+
+
+
+
+                                                                                                       31
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+To maximize the immediate impacts of this award, Iowa is prepared to release a competitive
+
+grant application for cancer-focused Hometown Connections sites within the first year of
+
+funding. Development work is already underway, guided by experienced Iowa HHS leadership
+
+with deep procurement expertise. In addition, Iowa will competitively procure a technical
+
+assistance vendor to support hospitals and rural providers throughout the application and
+
+implementation process. The initiative will address longstanding gaps in rural cancer care by
+
+establishing a hub-and-spoke network. Regional hub hospitals will offer advanced services such
+
+as radiation therapy, surgical oncology, and subspecialty care. Local spoke facilities will provide
+
+diagnostics, chemotherapy and infusion services, and follow-up care, all under shared clinical
+
+protocols. This model, made up of rural provider strategic partnerships (C.1), expands access
+
+while avoiding the high costs of duplicating full oncology services at each site. Credible
+
+literature has shown that hub-and-spoke networks providing cancer care results in increased
+
+access, particularly to specialists [45]. Additionally, research shows that reduced travel time to
+
+cancer care improves outcomes and getting care closer to home and existing social networks may
+
+also reduce risk for cancer mortality [46] [47]. Thus, Iowa expects this initiative to be
+
+structurally transformative and of high projected impact [48].
+
+Implementation will follow a phased approach, beginning with Stage 0, which focuses on
+
+governance, planning, and partnership development. Participating providers will form inter-
+
+organizational steering committees to define service areas, establish referral protocols, and
+
+develop data-sharing agreements. Legal and regulatory frameworks will be established to address
+
+telehealth licensure (including for out-of-state providers), pharmacy compliance, provider
+
+credentialing, and electronic health record interoperability. Iowa anticipates that some oncology
+
+practices may partner with Critical Access Hospitals to renovate underutilized space for
+
+
+
+                                                                                                 32
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+outpatient infusion clinics. These partnerships may also include tertiary cancer centers to support
+
+shared savings models and coordinated care delivery. RHTP funds will support the legal and
+
+operational infrastructure needed to formalize these sustainable collaborations.
+
+In Stage 1, rural hospitals and clinics will assess and prepare physical spaces to support cancer
+
+care delivery. This includes renovations to accommodate infusion services, tele-oncology consult
+
+rooms (remote care, F.1), and pharmacy infrastructure retrofits that meet USP 797/800
+
+standards. RHTP funds may be used to purchase infusion chairs, pumps, temperature-controlled
+
+storage, and other essential equipment. Telehealth infrastructure, including hardware, software
+
+licenses, and cybersecurity upgrades, will also be supported to enable early tele-oncology
+
+consultations and virtual tumor boards.
+
+Stage 2 will focus on workforce planning and talent recruitment (D.1), which will begin early
+
+and may overlap with infrastructure development. Iowa recognizes that oncology workforce
+
+shortages, non-compete agreements, and competition from neighboring states may pose
+
+challenges. RHTP funds will be used to recruit and retain medical and radiation oncologists,
+
+oncology-certified advanced practice providers and nurses, oncology pharmacists, and
+
+technicians. Funding will also support the hiring and training of local navigators and community
+
+health workers to coordinate care (population health clinical infrastructure, B.1). In addition,
+
+Iowa will support training and certification for existing staff to expand local capacity for
+
+oncology care. Tele-oncology agreements and chemotherapy supply chain logistics will be
+
+formalized during this stage.
+
+Once infrastructure and staffing are in place, Stage 3 will initiate service delivery. Patients will
+
+begin receiving diagnostic testing, chemotherapy, follow-up care, and tele-oncology
+
+consultations at participating rural sites. RHTP funds may support the implementation of
+
+
+
+                                                                                                       33
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+oncology-specific EHR modules, scheduling software, and AI-enabled diagnostic tools. To
+
+reduce barriers to early utilization, limited transportation assistance may be provided. Iowa will
+
+monitor key metrics such as reduced travel burden, increased rural cancer screenings, and tele-
+
+oncology visit volumes to evaluate early impact.
+
+In Stage 4, the network will mature and expand its scope of services. Referral agreements will be
+
+executed for advanced treatments such as radiation therapy and surgical oncology at hub
+
+facilities. RHTP funds may support minor renovations to diagnostic and operating rooms, as well
+
+as the purchase or upgrade of advanced medical equipment. Rural providers will also begin
+
+developing survivorship and palliative care programs in collaboration with hub specialists. This
+
+final stage ensures that the network becomes fully operational and sustainable, with improved
+
+access, better outcomes, and more efficient use of resources. Proposals that include the formation
+
+of Accountable Care Organizations (E.1) will be prioritized for funding, as these models support
+
+long-term financial sustainability and coordinated care delivery.
+
+In addition to supporting the development of Health Hub partnerships focused on rural cancer
+
+care, Iowa will invest in prevention and screening efforts for lung, colorectal, and skin cancers
+
+with broader geographic impact. Iowa will enlist the assistance of a contractor to conduct cancer
+
+screening outreach, purchase and distribute screening tests and equipment. Because 1 in 5
+
+cancers are linked to obesity, physical inactivity, poor diet, and alcohol consumption [49], this
+
+contractor will provide outreach and marketing materials specific to the health and lifestyle
+
+(B.2) factors that increase risks for certain cancers. Iowa rural areas have some of the highest
+
+radon levels in the country, radon being the second leading cause of lung cancer. To address this
+
+preventable risk, Iowa will fund 30,000 radon tests annually, subsidize mitigation for 500 rural
+
+homes per year, and support the training of additional radon mitigation professionals to expand
+
+
+
+                                                                                                    34
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+service availability in rural areas. Iowa will also evaluate the program’s effectiveness, including
+
+rural residents’ willingness to invest in mitigation without public subsidies.
+
+To increase colorectal cancer screening, Iowa will expand access to FIT testing via existing
+
+contractors and the Communities of Care initiative. Funding will also support follow-up
+
+diagnostic colonoscopies for uninsured rural adults with positive FIT results. This represents a
+
+significant expansion beyond Iowa’s current programming. Iowa certifies that no funds will be
+
+used to replace reimbursable clinical services.
+
+Skin cancer, one of the most prevalent cancers in Iowa, will be addressed through the purchase
+
+and distribution of dermatoscopes to rural providers. These handheld devices use polarized light
+
+to reveal skin structures not visible to the naked eye, improving early detection of melanoma and
+
+other skin cancers. Providers will receive training and educational materials to support early
+
+identification and referral to dermatology specialists.
+
+To further expand access, Iowa will distribute telehealth-enabled tablets to pharmacies and
+
+libraries across rural counties to advance remote care services (F.1) and consumer-facing
+
+technology (F.3). These devices will support virtual cancer screening appointments and integrate
+
+FIT testing into telehealth workflows, allowing patients to order tests, complete them at home,
+
+and review results online. This builds on Iowa’s telepharmacy regulations and successful pilots,
+
+such as the Storm Lake Public Library’s telehealth room (Telehealth Room | Storm Lake, IA -
+
+Official Website), positioning trusted community spaces as access points for preventive care.
+
+As described above within Hometown Connections, Iowa will also require successful applicants
+
+connect to and exchange data with the Iowa Health Information Exchange (data infrastructure,
+
+F.2) and collect and report data on dually eligible beneficiaries seen within their practice ore
+
+
+
+
+                                                                                                   35
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+receiving screening or other services (E.2). This dual eligibility data will be analyzed by Iowa
+
+health economists to identify opportunities to improve care.
+
+Iowa will also partner with the University of Iowa to conduct a study examining environmental,
+
+diagnostic, and genetic risk factors contributing to cancer in Iowa. The study will use statistical
+
+modeling and spatiotemporal analysis to evaluate population-level interventions and tailor
+
+behavioral and educational strategies for rural populations. Findings will inform future
+
+messaging, screening efforts, and potential policy or legislative changes to reduce cancer burden.
+
+Additionally, Iowa’s university partner will identify three clusters of rural counties, each with
+
+elevated cancer rates and multiple risk factors, to receive intensive cancer prevention and control
+
+consultation. Each five-county cluster will engage in participatory planning with university
+
+consultants and local stakeholders to implement evidence-based screening and intervention.
+
+Finally, Iowa will expand support for the Iowa Cancer Affiliate Network (I-CAN), which
+
+currently assists seven rural hospitals in delivering high-quality cancer care. I-CAN provides
+
+strategic planning and technical assistance to enhance services such as survivorship care,
+
+nutrition, rehabilitation, palliative care, and psychosocial support. RHTP funds will be used to
+
+expand I-CAN’s reach to additional rural facilities and may connect to any Hometown
+
+Connections or Center of Excellence site. All work with the University of Iowa can begin in the
+
+first year of funding due to an existing contractual relationship, maximizing immediate impacts
+
+of the funds. No funds will supplant existing costs. These robust investment plans into cancer
+
+prevention and treatment will be structurally transformative for the 21,200 Iowans [50] expected
+
+to have been diagnosed with cancer in 2025 and to prevent future cancer.
+
+Main strategic goals of the Combat Cancer: Prevent and Treat:
+
+
+
+
+                                                                                                    36
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+   •     Make rural America healthy again: Providing cancer prevention and screening are
+
+         evidence-based approaches for improving disease prevention and treatment. Expanding
+
+         access to cancer care will enable rural Americans to receive the care they need for cancer
+
+         through treatment to survivorship.
+
+   •     Sustainable Access: Providing investment capital to fund start-up and implementation
+
+         costs for oncology Health Hub partnerships, investing in telemedicine expansion, and
+
+         increasing interoperability through the HIE will result in sustainable access to cancer care
+
+         by subsidizing start-up costs and operational efficiencies.
+
+   •     Workforce Development: Workforce education and credentialing in oncology care,
+
+         recruitment and retention of oncology workforce, and training radon mitigators.
+
+   •     Tech innovation: Oncology care modules, telemedicine (tele-oncology, tele-pharmacy)
+
+ Use of funds: A,B,C,E,F,G,J,K         Technical score factors: B.1,B.2,C.1,D.1,E.2,F.1,F.2,F.3
+ Key stakeholders                      Hospitals (including rural, critical access, and large systems), tertiary care
+                                       hospitals, rural clinics, primary care providers, federally qualified health
+                                       centers, community-based organizations, and universities
+ Outcomes                              These can be found within the Metrics and Evaluation Plan section below.
+ Impacted Counties                     Unknown, competitive procurements
+ Est. Required Funding                 $183,052,239 over 5 years
+
+
+Implementation plan and timeline:
+
+ Stage      Milestone                       Description                                                     Timing
+ Stage 0    Program planning and RFPs       Hire staff (see page 58 for full details), RFPs for             FY26
+            released                        screening, prevention, and oncology hub-spoke networks
+                                            released; governance and implementation planning
+                                            initiated; and University of Iowa partnership
+ Stage 1    Contracts executed and early    Awards made for screening and hub-spoke infrastructure;         FY27
+            implementation begins           workforce recruitment begins; screening tools and
+                                            outreach materials developed; University begins data
+                                            analysis and county cluster identification
+ Stage 2    Screening and infrastructure    FIT, radon, and dermatoscope screenings launched; spoke         FY28
+            buildout underway               site renovations and equipment procurement initiated; I-
+                                            CAN expansion planning begins
+ Stage 3    Treatment infrastructure and    Infusion chairs installed; tele-oncology consults initiated;    FY29
+            referral pathways operational   tumor boards established; radon mitigation underway; I-
+                                            CAN services expanded to new sites
+
+
+
+                                                                                                                   37
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+ Stage 4   Integrated cancer care          Local cancer treatment available at spoke sites; screening    FY30
+           delivery in rural communities   data integrated into prevention strategy; referral networks
+                                           fully functional
+ Stage 5   Full implementation and         All sub-projects fully implemented; measurable outcomes       FY31
+           measurable outcomes             available (e.g., local cancer care delivery, screening
+                                           follow-up rates)
+
+
+
+
+Stakeholder Engagement: As described above, the RHTP core planning team and external
+
+engagement sessions also contributed toward this initiative and will continue to meet quarterly
+
+throughout the duration of this funding opportunity. The existing steering committees and
+
+advisory councils described within Hometown Connections above will also provide input on the
+
+implementation of this initiative. Iowa will leverage existing partnerships with the State Health
+
+Registry of Iowa (cancer registry), the University of Iowa College of Public Health, and the
+
+internal Iowa HHS Comprehensive Cancer Control Program and their local contractors already
+
+located within Iowa rural communities to implement this work.
+
+Metrics and Evaluation Plan: Combat Cancer: Prevent and Treat combines three
+
+complementary projects, prevention and screening, Health Hubs for oncology care, and a data-
+
+driven cancer prevention strategy. Performance metric (1) reports the number and percentage of
+
+cancer screenings, including radon tests, FIT tests, and dermatoscope screenings at the county-
+
+
+
+                                                                                                                38
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+level, demonstrating progress in early detection and prevention for the rural population. The
+
+second metric (2) will monitor the percentage of high radon test results that result in subsidized
+
+and non-subsidized radon mitigation installations at the county-level, highlighting the
+
+effectiveness of radon testing on environmental risk reduction. As treatment infrastructure is
+
+developed, the third (3) performance metric will include the percentage of rural spoke facilities
+
+with outpatient chemotherapy infusion infrastructure progress, including renovation progress,
+
+equipment procurement and installation, and staffing. The final performance metric (4) to be
+
+reported will be the number of tumor boards or tele-oncology consultations conducted between
+
+rural spoke facilities and hub specialists, indicating increased access to specialist cancer care for
+
+rural patients. Iowa’s complete Healthy Hometowns Implementation Plan can be found above.
+
+Iowa will require data-sharing agreements with the awarded contractors to provide the necessary
+
+data for Iowa HHS to calculate and report these metrics.
+
+Sustainability Plan: Combat Cancer: Prevent and Treat has been intentionally designed to be
+
+sustainable as it aligns improved access to cancer care with efficient resource utilization and
+
+allocation. By developing routine chemotherapy, diagnostic, screening, and follow-up services to
+
+outpatient hospital centers already located in rural areas, rural facilities can generate high-margin
+
+encounters while improving the utilization of any underused clinical space. Cancer treatments,
+
+including chemotherapy, have high reimbursement rates and can improve the financial viability
+
+of rural facilities. Partnerships between different providers and facilities can also create
+
+opportunities to leverage 340B drug pricing once provider service agreements are in place and
+
+cost reports have been submitted. Thus, participating CAHs and affiliated rural hospitals may
+
+acquire oncology pharmaceuticals at significantly lower costs while maintaining standard
+
+reimbursement rates. These savings can be reinvested in the facility, such as in additional staff
+
+
+
+                                                                                                    39
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+recruitment, equipment, or enhanced patient navigation or survivorship programs. The initiative’s
+
+design also generates additional revenue via increased volume of telehealth encounters for both
+
+the spoke and hub locations. The upfront capital investment provided through the RHTP funds
+
+effectively removes some of the financial barriers of innovation, including renovation, IT
+
+upgrades, and equipment procurement. Participating rural hospitals can then free up existing
+
+operating cash flows to be directed toward efficiency investments, such as AI-enabled revenue
+
+cycle management or claim denial tools to further improve financial performance. Additionally,
+
+the services of the TA provider will be available for all Iowa rural hospitals. The resulting
+
+partnerships and legal agreements will survive beyond the five-year grant period.
+
+The sustainability of the other cancer projects within this initiative is based on initial investments
+
+and informing policy decisions. Distributing and tracking radon tests will allow Iowa HHS to
+
+understand the distribution of indoor radon risk and the rural population’s willingness to
+
+mitigate. Mitigating homes will create long-lasting lung cancer prevention. Purchasing telehealth
+
+tablets and dermatoscopes are one-time costs intended to improve cancer screening and care
+
+coordination. These supplies will likely be used for several years and generate sufficient revenue
+
+to cover replacements. Funding the cancer study at the University of Iowa will result in
+
+actionable insights into the determinants of cancer and help inform necessary policy changes
+
+while the work to identify cancer clusters will allow Iowa to effectively target cancer
+
+interventions among the rural populations with the highest cancer burden.
+
+                                Initiative 3: Communities of Care
+
+Description: Rural Iowans face persistent challenges in accessing coordinated, person-centered
+
+care. Health and social services are often limited and geographically dispersed, and chronic
+
+disease remains a significant burden. To address these issues, Iowa will implement a structural
+
+
+
+                                                                                                   40
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+transformation strategy centered on two core activities: (1) piloting co-located service delivery
+
+sites and (2) embedding Community Health Workers (CHWs) to enhance care coordination and
+
+chronic disease prevention. This initiative exemplifies an investment in population health
+
+infrastructure (B.1) and rural provider strategic partnerships (C.1), while also incorporating
+
+elements to contribute toward health and lifestyle improvements (B.2), assistance for dually
+
+eligible beneficiaries (E.2), remote care services (F.1), data infrastructure enhancements (F.2),
+
+and consumer facing technology strategies (F.3).
+
+Through a competitive grant process, Iowa will fund up to seven geographically diverse projects
+
+that co-locate at least three distinct provider types at a single rural site (population health
+
+clinical infrastructure, B.1 and rural provider strategic partnerships, C.1). These may
+
+include local public health agencies, Federally Qualified Health Centers, hospitals, behavioral
+
+health providers, substance use treatment programs, pharmacists, oral health providers, aging and
+
+disability service organizations, and other healthcare or social service entities committed to
+
+reducing chronic disease. Co-locating providers together has been shown to improve provider
+
+communication and patient outcomes, and depending on the types of services located together
+
+could reduce hospitalizations, lengths of stay, and hospital readmission [51] [52]. Iowa will take
+
+this concept, often used to co-locate primary care and specialty care, to structurally transform
+
+care provision in rural Iowa to combat chronic disease [51].
+
+RHTP funds may be used for a range of allowable and sustainable investments, including:
+
+•   Shared technology infrastructure (e.g., telehealth equipment, scheduling systems, data-
+
+    sharing tools),
+
+•   Consumer-facing tools (F.3) (e.g., blood pressure monitors, glucose monitors, fitness
+
+    trackers),
+
+
+
+                                                                                                    41
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+•   Workforce costs (e.g., CHW salaries, training, cross-training for integrated care),
+
+•   Non-reimbursable service delivery for uninsured individuals,
+
+•   Preventive screening materials and patient engagement incentives (e.g., transportation
+
+    vouchers),
+
+•   Partnership development and coordination (C.1) (e.g., stakeholder convenings, outreach
+
+    materials),
+
+•   Sustainability planning (e.g., shared savings model design, reimbursement alignment, billing
+
+    workflow development).
+
+Co-location offers operational efficiencies and improved patient experience. Shared facilities
+
+reduce overhead costs and allow for joint use of administrative, janitorial, and IT staff. Cross-
+
+training enables staff to coordinate both clinical and social care, reducing duplication and
+
+improving continuity. For patients, co-location allows for multiple appointments across service
+
+lines in a single visit, reducing travel time and time away from work or school. This convenience
+
+is expected to increase uptake of preventive services and chronic disease management.
+
+The model also builds on existing infrastructure. In FY 2024, 30 rural county boards of health
+
+contracted with hospitals or health systems, often co-locating public health offices within
+
+healthcare facilities. These hospitals, which averaged over 33,000 patient visits annually,
+
+represent strong candidates for pilot sites. Embedding preventive and chronic disease services
+
+into these high-traffic locations could yield transformative health outcomes.
+
+Each site will also employ Community Health Workers to support care coordination, system
+
+navigation, and chronic disease prevention. CHWs will manage complex scheduling across co-
+
+located services and provide real-time referrals (B.1). At least one CHW per site will receive
+
+specialized training in Medicare and Medicaid benefit enrollment to support dually eligible
+
+
+
+                                                                                                    42
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+individuals (E.2), a population that stands to benefit significantly from integrated care. Sites will
+
+be required to collect and report data on the number of dually eligible individuals served through
+
+the program and information regarding their unique needs.
+
+These co-located sites will maintain a strong focus on chronic disease prevention and
+
+management, with primary prevention efforts targeting cardiovascular disease, obesity, diabetes,
+
+and cancer. Early intervention services will address emerging health concerns to prevent
+
+progression and reduce long-term health impacts. These may include referrals, cancer screenings,
+
+and diabetes management services. Credible literature has identified that co-located care
+
+reduces appointment wait times, increases outpatient visits, reduces costs, improves life quality,
+
+and improves access to services and equipment for management of chronic disease [53] [54].
+
+Successful applicants will be required to offer or refer clients to a broad range of evidence-based
+
+preventive services that focus on chronic disease and health and lifestyle factors (B.2),
+
+including Diabetes Self-Management Education and Support (DSMES), the National Diabetes
+
+Prevention Program (NDPP) [55], Chronic Disease Self-Management Education [56], Walk With
+
+Ease (WWE) [57], Self-Measured Blood Pressure (SMBP) Monitoring [58], and Fecal
+
+Immunochemical Test (FIT) screening with follow-up colonoscopy [59]. Clients will also be
+
+eligible for subsidized radon testing and mitigation, as outlined in Combat Cancer.
+
+In addition to clinical services, applicants must promote healthy lifestyle (B.2) changes.
+
+Required offerings include nutrition education [60], lactation support [61], and access to donor
+
+milk for breastfed infants [62]. Sites must also provide no-cost or discounted gym memberships
+
+(if not already available), on-site exercise classes, or walking groups [63]. To support self-
+
+management, patients may receive home blood pressure monitors, continuous glucose monitors,
+
+or smart benefit cards (e.g., Evermore) to encourage healthy decision-making. Credible
+
+
+
+                                                                                                   43
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+literature has found that cash benefits, such as through smart benefit cards, have reduced ED
+
+visits that result in an inpatient stay, reduced ED visits related to behavioral health and substance
+
+abuse, and increased access to subspecialists [64].
+
+To maximize immediate impact, Iowa will amend existing contracts with statewide vendors to
+
+expand chronic disease-related services. For example, Iowa will purchase 18 portable dental x-
+
+ray units and related equipment to support school-based dental care. Dentists will review x-rays
+
+remotely via telehealth and refer children for restorative care as needed. Iowa will also expand its
+
+contract with the University of Iowa’s Child Health Specialty Clinics to provide telehealth
+
+equipment for managing chronic conditions in children with special healthcare needs in rural
+
+counties. Additional contract amendments with Title V-funded agencies will support cancer
+
+prevention services, including colonoscopies, mammograms, high-density MRIs, and prostate
+
+cancer screenings for uninsured individuals.
+
+This initiative will also align with other components of Healthy Hometowns. Co-located sites
+
+will be equipped with telehealth infrastructure (remote care, F.1) and serve as both community
+
+hubs and satellite sites within the broader Health Hub network described in Hometown
+
+Connections. When appropriate and with client consent, records will be shared across providers
+
+through the Iowa Health Information Exchange (data infrastructure, F.2), enabling robust care
+
+coordination without requiring new electronic health record systems.
+
+Main Strategic Goals of the Communities of Care initiative:
+
+•   Make rural America healthy again: This initiative supports rural health innovations
+
+    through co-located access points to promote preventive health, address root causes of
+
+    diseases, and provide wrap around social care. It implements evidence-based, outcomes-
+
+
+
+
+                                                                                                  44
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+      driven interventions to improve chronic disease prevention and management through
+
+      community-based access points offered in a community care Health Hub system.
+
+•     Sustainable access: This initiative provides innovative funding and support to encourage co-
+
+      location models for providers in rural areas for multiple service lines at one location.
+
+•     Innovative care: Rural health care co-location partnerships will involve innovative care
+
+      models to allow for these services to occur on the same visit if preferred by the patient. Iowa
+
+      will expand innovative care by creating these rural chronic disease prevention and
+
+      management hubs to improve health outcomes, coordinate care, promote flexible care
+
+      arrangements and provide greater access to chronic disease prevention for rural Iowans.
+
+    Use of funds: A,B,C,E,F,G,I, J,K   Technical score factors: B.1, B.2, C.1, E.2, F.1, F.2, F.3
+    Key stakeholders                   Local public health, Federally Qualified Health Centers, hospitals and
+                                       healthcare systems, substance use providers, mental and behavioral health
+                                       providers, social care providers, pharmacies, oral health providers, aging
+                                       and disability service providers, community action agencies, and other
+                                       healthcare providers.
+    Outcomes                           These can be found within the Metrics and Evaluation Plan section below.
+    Impacted Counties                  Unknown, competitive procurements
+    Est. Required Funding              $175,935,156 over 5 years
+
+
+Implementation plan and timeline:
+
+
+
+
+    Stage      Milestone               Description                                                    Timing
+    Stage 0    Program planning and    Hire staff (see page 58 for full details), RFPs for co-        FY26
+               RFP release             location sites developed and released with technical
+                                       assistance; governance and implementation planning initiated
+    Stage 1    Site selection and      Co-location sites identified; legal agreements executed;       FY27
+               workforce recruitment   CHW recruitment and training begins
+
+
+                                                                                                               45
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+ Stage 2    Infrastructure and IT   Renovations and upgrades completed at initial sites;               FY28
+            readiness               telehealth and cybersecurity infrastructure installed
+ Stage 3    Service integration     Co-location sites begin offering multiple lines of service;        FY29
+            begins                  CHWs deployed and care coordination workflows
+                                    operational
+ Stage 4    Program expansion and   Additional service lines added; workflows refined; outreach        FY30
+            optimization            and patient engagement scaled
+ Stage 5    Full implementation     All co-location sites fully operational; measurable outcomes       FY31
+            and measurable          available (e.g., service utilization, care coordination metrics)
+            outcomes
+
+Stakeholder Engagement: As described above, the RHTP core planning team and external
+
+engagement sessions also contributed toward this initiative and will continue to meet quarterly
+
+throughout the duration of this funding opportunity. The existing steering committees and
+
+advisory councils described within the Hometown Connections above will also provide input on
+
+the implementation of this initiative. Iowa will also leverage existing partnerships with local
+
+boards of health in areas where public health and hospital care are co-located and the expertise of
+
+the Iowa HHS Chronic, Congenital and Inherited Conditions Bureau to achieve success.
+
+Sustainability: Iowa anticipates that the Communities of Care initiative will have a lasting
+
+impact on rural healthcare delivery. Many of the upfront costs, such as relocating services and
+
+establishing legal agreements for shared staffing and space, are one-time investments. Over time,
+
+cost savings from co-location and shared staffing models can be reinvested into sustaining the
+
+rural healthcare workforce and expanding services. Most direct services offered through this
+
+initiative are already reimbursable by insurance. However, Iowa recognizes that multiple same-
+
+day visits across providers can create reimbursement challenges. To address this, Iowa will
+
+contract with subject matter experts in the first year to explore solutions. The Iowa Health
+
+Economist will analyze denied claims data from participating sites, and Iowa HHS leadership
+
+will use these findings to engage with the Iowa Insurance Division, Medicaid, and private
+
+insurers to inform potential policy changes. All competitive procurement applicants will be
+
+required to submit sustainability plans. Proposals with more detailed and actionable strategies
+
+                                                                                                              46
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+will receive higher scores. One recommended approach is to map payer responsibilities, across
+
+Medicare, Medicaid, commercial insurance, grants, and philanthropy, and develop shared
+
+savings agreements and value-based care pathways to support long-term viability.
+
+A core sustainability mechanism is the reduction in disease burden. By increasing access to
+
+preventive care and early intervention, the initiative reduces the need for costly treatment of
+
+advanced conditions. This shift allows healthcare systems to reallocate resources more
+
+efficiently, supporting ongoing operations and reducing overall expenditures.
+
+To further support sustainability, Iowa HHS will coordinate a community of practice among
+
+funded sites. This forum will facilitate peer learning, sharing of best practices, and collaborative
+
+problem-solving to strengthen the long-term durability of these new care models.
+
+Metrics and Evaluation Plan: Communities of Care is designed to reduce administrative
+
+duplication and increase access to coordinated care and preventive services in rural areas by
+
+leveraging co-location to provide services in one location. This initiative invests in workforce
+
+development, focused on the recruitment and training of CHWs to support care coordination and
+
+chronic disease management. Our performance outcomes/metrics reflect the implementation
+
+trajectory, beginning with infrastructure and workforce development and ending with integrated
+
+services being delivered. Early in the implementation, the first performance metric will report (1)
+
+the percentage of co-location sites that have completed space renovations/retrofits and
+
+technology infrastructure (shared data systems, telehealth infrastructure), demonstrating progress
+
+towards site readiness. Simultaneously, this initiative will monitor and report (2) the number and
+
+percentage of CHW positions filled, reflecting progress towards building the necessary care
+
+coordination workforce. As the initiative progresses and co-location sites become operational,
+
+the third performance metric will report (3) the percentage of sites offering multiple lines of
+
+
+
+                                                                                                   47
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+service, capturing the extent of care integration. Finally, as patient volume increases the final
+
+performance metric will capture (4) engagement and utilization by reporting the percentage of
+
+patients participating in chronic disease management programs at co-location sites by county of
+
+residence and county of service. These metrics are selected for their feasibility, with the
+
+initiative’s goals, and ability to demonstrate both early implementation progress and long-term
+
+impact on access and care coordination. Iowa will require detailed data-sharing agreements
+
+between contractors and Iowa HHS to report on these metrics. The Milestones are provided
+
+under the implementation section above.
+
+                      Initiative 4: Health Information Exchange Initiative
+
+Description: Iowa proposes to sustain and expand the Iowa Health Information Exchange as a
+
+foundational strategy to structurally transform rural healthcare delivery. Established in 2008,
+
+Iowa’s HIE has onboarded 115 of the state’s 118 hospitals, along with a limited number of other
+
+provider types, including behavioral health providers, Federally Qualified Health Centers
+
+(FQHCs), local health departments, payers, laboratories, and physician clinics. Currently, 94% of
+
+hospitals use the HIE to submit electronic public health lab reports, and 97% use it for syndromic
+
+surveillance reporting. This initiative highlights Iowa’s commitment to data infrastructure
+
+(F.2), while supporting rural provider strategic partnerships (C.1) and population health
+
+clinical infrastructure (B.1) by allowing providers to share information and coordinate care.
+
+Despite this robust infrastructure, only 25% of hospitals use the HIE to access longitudinal
+
+patient records for care coordination. Recent reductions in federal funding, including cuts from
+
+the CDC, have left Iowa without a funding source to maintain and expand this critical system.
+
+Through Healthy Hometowns, Iowa will preserve existing HIE functionality, expand
+
+connectivity to rural providers, and increase provider access to longitudinal patient data.
+
+
+
+                                                                                                    48
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Effective rural healthcare requires seamless information sharing across hospitals, specialists,
+
+primary care providers, and other care settings. A 2023 U.S. Government Accountability Office
+
+report found that only 26.6% of rural hospitals nationwide receive patient records via electronic
+
+exchange, while over half still rely on mail or fax [65]. This gap undermines care coordination
+
+and increases costs. Credible literature has shown that HIE use reduces hospital admissions
+
+[66], reduces inpatient length of stay [67], especially for patients with chronic conditions [67],
+
+and lower costs by avoiding duplicate procedures and imaging [68] [69].
+
+RHTP funding will support Iowa’s ability to connect rural providers to patient data across
+
+disparate systems, regardless of their electronic medical record platform. This investment will
+
+enhance care coordination across all major initiatives, Hometown Connections, Combat Cancer:
+
+Prevent and Treat, and Communities of Care, by enabling providers to access complete patient
+
+histories, reducing duplication, and improving outcomes.
+
+Iowa will engage a vendor to maintain the HIE’s core infrastructure, including cloud-based data
+
+hosting, clinical data repositories, data standardization services, interoperability support, data
+
+quality review, security, and governance. A competitive procurement was released in September
+
+2025, with an anticipated start date of February 2026, pending funding, positioning Iowa to act
+
+quickly and maximize the impacts of this funding in the first year. Additional RHTP-supported
+
+enhancements will include:
+
+•   Longitudinal patient record exchange, enabling access to comprehensive patient data (e.g.,
+
+    history, medications, labs, imaging).
+
+•   Bed availability dashboard to support EMS Community Care Mobile and patient flow.
+
+•   Electronic lab reporting to meet public health requirements and reduce provider burden.
+
+•   Syndromic surveillance reporting for near real-time emergency department monitoring.
+
+
+                                                                                                     49
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+•     Public health registry reporting to automate legally required submissions.
+
+•     Admission, Discharge, and Transfer (ADT) notifications to improve care coordination and
+
+      reduce readmissions for Medicaid members.
+
+•     Direct secure messaging to replace fax and email with secure, electronic communication.
+
+•     Fee offsets for providers that actively use the HIE to improve care quality and reduce costs.
+
+•     Expanded connectivity to additional rural provider types, including primary care, long-term
+
+      care, behavioral health, FQHCs, local health departments, durable medical equipment
+
+      providers, home health agencies, and independent practices. These provider types often
+
+      operate on different electronic systems. By enabling comprehensive data sharing and
+
+      interoperability, Iowa will improve care coordination, reduce duplication, and support better
+
+      health outcomes across rural communities.
+
+Main Strategic Goals of the Health Information Exchange Initiative:
+
+•     Make rural America Healthy Again: The health information exchange (HIE) supports
+
+      innovations and new access points by providing a mechanism to provide health records
+
+      across care providers. This is particularly impactful in Communities of Care and Hometown
+
+      Connections.
+
+•     Sustainable Access: The HIE helps rural providers become long term access points by
+
+      allowing for record sharing with other providers when needed. Rural facilities are better able
+
+      to work together when they use coordinated technology.
+
+•     Tech Innovation: The ability to securely share data across provider types and care settings
+
+      promotes efficient care delivery.
+
+    Use of funds: D, F, K        Technical score factors: B.1, C.1, F.2
+    Key stakeholders             Primary care providers, nursing homes, long term care facilities, skilled
+                                 nursing facilities, behavioral health and mental health providers, federally
+                                 qualified health centers, local health departments, durable medical equipment
+
+
+                                                                                                                 50
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+                                  providers, home health agencies, independent medical practices, hospitals,
+                                  rural health clinics, FQHC/CHC, CCBHC, Iowa HHS, EMS clinicians, and
+                                  dentists.
+ Outcomes                         These can be found within the Metrics and Evaluation Plan section below.
+ Impacted Counties                All
+ Est. Required Funding            $56,926,944 over 5 years
+
+
+Implementation plan and timeline:
+
+
+
+
+ Stage      Milestone                   Description                                                          Timing
+ Stage 0    Planning and vendor         Hire staff (see page 58 for full details), vendor selected,          FY26
+            selection complete          contracts executed, and outreach strategy finalized
+ Stage 1    Initial onboarding and      First wave of rural facilities onboarded; HIE infrastructure         FY27
+            infrastructure setup        installed and tested at pilot sites
+ Stage 2    Expansion to priority       Majority of target rural hospitals and clinics connected; training   FY28
+            rural facilities            and onboarding complete
+ Stage 3    Active data exchange        Longitudinal patient records in use; dashboards operational;         FY29
+            and dashboard use           providers accessing and using HIE data
+ Stage 4    Full rural integration      All target facilities connected; interoperability scores improve;    FY30
+            and optimization            duplicate testing reduced
+ Stage 5    Evaluation and              Utilization metrics reported; HIE supports care coordination and     FY31
+            sustainability planning     quality improvement; sustainability plan in place
+
+Stakeholder Engagement: As described above, the RHTP core planning team and external
+
+engagement sessions also contributed toward this initiative and will continue to meet quarterly
+
+throughout the duration of this funding opportunity. Additional partnership work for this
+
+initiative is mandated in Iowa statute. In chapter 135D of the state code, Iowa is mandated to
+
+provide a health information network that is patient-centered and market-driven (135D.4 1.a),
+
+represents the interests and meet the needs of consumers and the health care sector (135D.3 1.d),
+
+and constitutes a public and private collaborative effort to promote the adoption and use of health
+
+information technology of the state to improve health care quality, increase patient safety, reduce
+
+health care costs, enhance public health, and empower individuals and health care professionals
+
+                                                                                                                    51
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+with comprehensive, real-time medical information to provide continuity of care and make the
+
+best health care decisions (135D.6 3.d). This chapter also mandates the convening of a
+
+stakeholder advisory council that includes at least one member who is a consumer of health
+
+services and a majority of voting members representative of participants in the health
+
+information network.
+
+Metrics and Evaluation Plan: The Health Information Exchange (HIE) initiative is designed to
+
+expand interoperability across rural and underserved healthcare providers, enabling timely access
+
+to patient information and improving care coordination. The selected performance metrics reflect
+
+the initiative’s progression from onboarding new provider types to demonstrating use of the HIE
+
+infrastructure. Early in the implementation, the (1) number of new HIE agreements signed (by
+
+county of provider site) with non-hospital providers, including clinics, behavioral health, home
+
+health, and specialty care, will be tracked to demonstrate the expansion beyond traditional
+
+hospital systems that have participated in Iowa. As onboarding progresses, the (2) percentage of
+
+rural facilities (based on county) with active HIE accounts will be monitored and reported to
+
+assess readiness and system engagement. To capture actual system utilization, the initiative will
+
+report (3) the number of rural facilities (based on county) provisioned to use the longitudinal
+
+health record and (4) the number of queries made to the longitudinal health record each month,
+
+in rural counties and all counties, reflecting how often providers are accessing comprehensive
+
+patient data to inform care. These metrics are selected for their feasibility, alignment with the
+
+initiative’s goals, and ability to show both infrastructure maturity and clinical impact, while
+
+ensuring that progress is measurable and non-duplicative across initiatives. Milestones are above.
+
+Sustainability Plan: Investing in Iowa’s HIE aligns with the economic principle of addressing
+
+under-provisioned goods, where large-scale coordination can overcome market limitations.
+
+
+
+                                                                                                    52
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+RHTP funding will be used to strategically expand HIE access, particularly in rural areas, while
+
+enabling Iowa to evaluate the impact of expanded connectivity on patient outcomes and potential
+
+cost savings for payers and providers. To ensure long-term sustainability, Iowa will pursue
+
+multiple strategies. This includes identifying cost-sharing opportunities across Iowa HHS
+
+programs that rely on HIE functionality or data and demonstrating the system’s value to payers
+
+and providers to encourage broader adoption. Iowa will also work to integrate additional HIE use
+
+cases into Medicaid operations, further embedding the exchange into routine care delivery.
+
+Evaluation activities supported by RHTP funding will quantify cost savings and care
+
+improvements, strengthening the case for continued investment. Iowa HHS will use stakeholder
+
+feedback to identify and prioritize new functionalities that add value to users. These insights will
+
+inform future pricing models and ensure that the HIE remains a cost-effective, high-value tool
+
+for providers, payers, and patients across the state.
+
+                           Initiative 5: EMS Community Care Mobile
+
+Description: Iowa will implement a robust strategy to transform prehospital care through three
+
+coordinated sub-initiatives: (1) EMS System Development and Sustainability Assessment, (2)
+
+Mobile Integrated Health Care, and (3) High-risk OB and Neonatal Transport Project. Together,
+
+these efforts will strengthen the EMS workforce, integrate telehealth and home-based care, and
+
+reduce unnecessary ED visits and hospital transports. In 2024, over 320,000 Iowans interacted
+
+with the EMS system, with approximately 35% residing in rural areas. These initiatives will
+
+structurally transform rural health care delivery with a large projected impact on rural. This
+
+initiative primarily addresses EMS (C.2), remote care services (F.1), and improvements to
+
+population health clinical infrastructure (B.1), while also containing components of data
+
+
+
+
+                                                                                                 53
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+infrastructure improvements (F.2), data collection for dually eligible individuals (E.2), rural
+
+provider strategic partnerships (C.1), and talent recruitment (D.1).
+
+Iowa will conduct a statewide EMS system assessment to inform the development of a district-
+
+based hub-and-spoke model for prehospital care. The assessment, beginning early in the first
+
+budget year to maximize the immediate impact of this work, will include coverage mapping, call
+
+volume analysis, workforce distribution, and financial modeling. Predictive analytics and
+
+scenario testing will identify opportunities to optimize deployment, improve coordination, and
+
+ensure each district can support efficient operations. While implementation of the hub-and-spoke
+
+EMS model is outside the scope of this funding, the assessment will guide future system design,
+
+workforce strategies, payer engagement (including Medicaid and MCO reimbursement), and
+
+technology investments. The assessment will be paired with data infrastructure system upgrades,
+
+quality improvement dashboards, and annual evaluations. A reassessment in Year 4 will measure
+
+progress toward sustainability and system efficiency goals.
+
+Iowa will also establish Mobile Integrated Health (MIH) demonstration projects to deliver care
+
+directly to rural Iowans through home visits and community-based services. This community-
+
+based care initiative will outfit ambulances and existing vehicles with the technology needed for
+
+telehealth and direct care provision (remote care services, F.1), particularly in chronic disease
+
+prevention and management. MIH teams will provide post-discharge follow-up, chronic disease
+
+and cancer management, acute care, and preventive services. The services provided use
+
+expanded scopes of practice for EMS clinicians to improve the population health clinical
+
+infrastructure (B.1) in rural Iowa by focusing on technological innovation, primary care, and
+
+chronic disease prevention and management. MIH is an evidence-based strategy to reduce ED
+
+
+
+
+                                                                                                    54
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+utilization and hospital readmissions by addressing health concerns before they escalate [70].
+
+Services provided will be entered within the Iowa HIE (data infrastructure, F.2).
+
+At least one MIH project will serve a three-county rural area, fostering regional collaboration
+
+and rural provider strategic partnerships (C.1). Services will include treatment-in-place,
+
+resource navigation, and chronic disease management for conditions such as diabetes, COPD,
+
+and heart failure. MIH teams will also integrate prenatal and postpartum care, using telehealth to
+
+close maternal health gaps in rural areas. These services are supported by strong evidence and
+
+have been shown to reduce costs and improve outcomes [71], though they are not currently
+
+reimbursable in Iowa. Data from these projects will support efforts to establish treat-in-place
+
+services as a reimbursable benefit (remote care, F.1).
+
+Iowa will use this opportunity to further advance the goals of the Rural Health Transformation
+
+Program by collecting data on individuals receiving services from MIH units to determine how
+
+many beneficiaries are dually eligible (E.2). This data, following analysis by Iowa’s Health
+
+Economist, will help Iowa develop future strategies to improve care for this population. This
+
+project also supports a path for non-physician health care in rural areas and provides enhanced
+
+training for EMS clinicians (talent recruitment, D.1).
+
+Iowa will fund demonstration projects to enhance maternal and neonatal transport capacity.
+
+Existing ambulances and helicopters will be upgraded with OB-specific equipment, monitoring
+
+devices, and telehealth connectivity (remote care, F.1) to enable specialist-guided care during
+
+transport. EMS clinicians will receive advanced training (talent recruitment, D.1), including
+
+high-fidelity simulation, to manage complex deliveries and neonatal emergencies. This
+
+intervention, often referred to as teletransport, has been shown through early trials to improve
+
+outcomes for critical neonatal cases [72].
+
+
+
+                                                                                                   55
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+These transport projects will integrate with the Hometown Connections network as part of rural
+
+provider strategic partnerships (C.1), ensuring timely access to perinatal hubs while
+
+preserving continuity of care by returning patients to local facilities when appropriate. This
+
+approach maximizes existing EMS assets, avoids the cost of new fleet purchases, and supports a
+
+scalable, cost-effective system for improving maternal and neonatal outcomes.
+
+Main Strategic Goals of the EMS Community Care Mobile:
+
+•     Make rural America healthy again: Support rural health innovations through new care
+
+      access points with mobile integrated health care units serving patients in their homes or at
+
+      other community sites. Implement evidence-based, outcomes-driven interventions to improve
+
+      chronic disease prevention and management through MIH units.
+
+•     Sustainable access: Help rural hospital OB units remain operational by providing access to
+
+      High-Risk OB and Neonatal transport when needed. Offer tele-health through Mobile
+
+      Integrated Health units within High-risk OB and Neonatal transport vehicles.
+
+•     Workforce Development: Expand training for EMS clinicians, creating career pathways and
+
+      improving retention.
+
+•     Innovative care: High-risk OB and Neonatal Transport involve coordinated care and flexible
+
+      care arrangements. High-risk OB and Neonatal Transport and Mobile Integrated Health
+
+      projects make EMS providers a larger part of the care team and allow them to practice at the
+
+      top of their licenses.
+
+    Use of funds: A,C,D,E,F,G,K   Technical score factors: B.1, C.1, C.2, D.1, E.2, F.1, F.2
+    Key stakeholders              EMS Service Programs, Hospitals, Public Safety, Department of
+                                  Transportation, Iowa Homeland Security and Emergency Management,
+                                  Telehealth Providers, EMS Training Programs
+    Outcomes                      These can be found within the Metrics and Evaluation Plan section below.
+    Impacted Counties             Unknown, Competitive Procurements
+    Est. Required Funding         $44,924,208 over 5 years
+
+
+
+                                                                                                             56
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Implementation plan and timeline:
+
+
+
+
+ Stage     Milestone                          Description                                           Timing
+ Stage 0   Program planning and RFP           Hire staff (see page 58 for full details), Internal   FY26
+           release                            EMS staff hired; RFPs for MIH, OB, and assessment
+                                              sub-projects released
+ Stage 1   Statewide registry and initial     Patient registry launched; contracts awarded for      FY27
+           awards                             demonstration programs
+ Stage 2   Equipment and staffing readiness   Vehicles equipped; staff hired and trained; MIH and   FY28
+                                              OB programs begin setup
+ Stage 3   Service delivery begins            Community visits and transports begin; EMS teams      FY29
+                                              operational in rural areas
+ Stage 4   Expansion and integration          Geographic coverage expands; EMS integrated with      FY30
+                                              telehealth and hospital systems
+ Stage 5   Evaluation and impact reporting    Utilization and outcome metrics reported; reduced     FY31
+                                              readmissions and improved maternal outcomes
+                                              documented
+
+Stakeholder Engagement: As described above, the RHTP core planning team and external
+
+engagement sessions also contributed toward this initiative and will continue to meet quarterly
+
+throughout the duration of this funding opportunity. Iowa is well-equipped to deploy RHTP with
+
+rural stakeholders through an existing network of contractors and local EMS providers.
+
+Metrics and Evaluation Plan: The EMS initiative is designed to modernize and expand
+
+emergency medical services in rural areas through a combination of internal capacity-building,
+
+demonstration program deployment, and expanded service delivery. The selected performance
+
+metrics reflect this phased approach, beginning with foundational administrative and planning
+
+activities and progressing toward infrastructure readiness and measurable service impact. Early
+
+in the program, the time required to hire internal EMS staff and release RFPs for sub-projects
+
+will be tracked to demonstrate administrative readiness and the ability to launch key components
+
+                                                                                                           57
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+of the initiative. As demonstration programs are awarded and implemented, the percentage of
+
+EMS programs that are fully equipped and staffed will be monitored, capturing progress in
+
+vehicle procurement, equipment installation, and workforce deployment. Once operational, the
+
+initiative will report the number of community visits and non-emergency transports conducted
+
+per month (at the county level), reflecting the volume and reach of expanded EMS services. To
+
+ensure equitable access, the geographic distribution of EMS services will also be tracked (at the
+
+county level) relative to rural population coverage, helping to demonstrate alignment with the
+
+initiative’s access for rural residents. These metrics are selected for their feasibility, alignment
+
+with the initiative’s objectives, and ability to show both early implementation progress and long-
+
+term service delivery outcomes. The Milestones are given in the implementation section above.
+
+Sustainability Plan: Iowa’s sustainability plan ensures that the investments made in the EMS
+
+Community Care Mobile create a long-lasting, self-sustaining prehospital care system for the
+
+State. Investments in telehealth equipment and project-specific upgrades to existing emergency
+
+transport vehicles are one-time costs. The Iowa EMS Program will work collaboratively with
+
+Iowa Medicaid to add Mobile Integrated Health treat-in-place services as reimbursable benefits.
+
+Iowa HHS will also partner with birthing hospitals, health systems, and insurers to co-fund OB-
+
+capable transport teams as part of maternal health quality initiatives. Costs can be integrated into
+
+regional perinatal quality collaboratives to share expense burdens. Iowa will implement a robust
+
+evaluation component to explore improvements in population-level health and rural health
+
+outcomes throughout the grant award period and demonstrate cost savings from this initiative.
+
+                  Iowa HHS Governance and Project Management Structure
+
+The Iowa Department of Health and Human Services (Iowa HHS) will serve as the lead agency
+
+for this initiative, with the Medicaid Division partnering with the Compliance and
+
+
+
+                                                                                                       58
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Administration Division to coordinate implementation. The authorizing official is Lee Grossman,
+
+Iowa Medicaid Director, and the Principal Investigator is Kelsey Feller, Chief Data Officer and
+
+Division Administrator for Data Privacy and Strategy. Mr. Grossman has multiple years of
+
+experience leading Medicaid programs, and Ms. Feller has over ten years of grant management,
+
+procurement, contracting, quality improvement, and data project oversight experience.
+
+A cross-sector steering committee will guide implementation and includes leadership from Iowa
+
+HHS divisions, including Public Health, Compliance and Administration, Communications, and
+
+Government Relations, as well as external partners such as the Iowa Hospital Association and the
+
+Iowa Primary Care Association. Iowa’s strategies will have foundations in the fields of both
+
+public health and health economics, with expertise from both disciples on the planning
+
+committee and within project leadership roles.
+
+Iowa will dedicate 14 full-time equivalent (FTE) positions to support this work. These positions,
+
+along with associated fringe, supplies, in-state travel, and indirect costs, represent a 0.98%
+
+administrative rate retained by the state. Iowa will hire initiative leads for each of the six major
+
+components of the proposal, as well as a coordination lead to ensure alignment across initiatives.
+
+Three additional staff will manage contracting and budgeting. The EMS Community Care
+
+Mobile initiative will include a staff member focused on policy, system development, and
+
+outreach. Iowa will hire a policy specialist to support long-term system change and two data
+
+analysts to work with the Chief Data Officer and Health Economist on continuous evaluation and
+
+system assessment. No staff funded through this project will participate in any lobbying activities
+
+or do any work to influence the enactment of legislation, appropriations, regulations, or
+
+administrative actions before Congress or any state legislature or other governing body.
+
+
+
+
+                                                                                                   59
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+Senior Iowa HHS leadership members have been assigned to oversee each initiative and will
+
+manage early implementation and hiring. These leaders will reassign existing staff as needed to
+
+ensure timely launch of each initiative. Leadership assignments are below and can be viewed on
+
+the organizational tables submitted within the other supporting documents section:
+
+   •   Lee Grossman – Medicaid Director, Overall project oversight
+
+   •   Kelsey Feller – Chief Data Officer, Principal Investigator
+
+   •   Dr. Lachlan Watkins – State of Iowa Health Economist, Hometown Connections Lead
+
+   •   Marisa Roseberry and Jill Lange – Division Administrators for Performance and
+
+       Operations and Public Health Promotion and Prevention, Communities of Care Leads
+
+   •   Kelsey Feller – Chief Data Officer, Health Information Exchange Lead
+
+   •   Margot McComas – Division Administrator for Public Health Protection, Community
+
+       Care Mobile Lead
+
+   •   Jill Lange – Division Administrator for Public Health Promotion and Prevention, Combat
+
+       Cancer: Prevent and Treat Lead
+
+   The implementation plan and timeline for cross-cutting grant activities is below.
+
+
+
+
+                                                                                              60
+Iowa – RHTP Application CMS-RHT-26-001 – Project Narrative
+

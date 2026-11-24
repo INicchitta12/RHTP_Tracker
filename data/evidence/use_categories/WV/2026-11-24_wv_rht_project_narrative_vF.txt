@@ -1,0 +1,3101 @@
+Project Narrative
+
+
+
+
+A) Rural health needs and target population
+           West Virginia is an amazing gem: home to unmatched energy resources; gorgeous
+
+landscapes that make our state one of the most attractive tourism destinations in the United
+
+States; and a hard-working and indomitable spirit among our people who have great pride in our
+
+state. Today, West Virginia has a new discipline to improving the fundamentals of our economy
+
+that the state has never seen before.
+
+           West Virginia is forging its comeback story. However, to truly transform our state and
+
+standard of living to much higher levels, the Mountain State must dramatically reverse the poor
+
+healthcare outcomes that serve as a major barrier to high workforce participation and economic
+
+strength. The West Virginia Rural Health Transformation (WV RHT) Program represents a one-
+
+of-a-kind opportunity to drive major healthcare improvement in West Virginia and become a
+
+catalyst for revitalization and growth.
+
+           West Virginia faces some of the nation’s most challenging health outcomes, ranking
+
+49th in overall health status.1 As one of the nation’s most impoverished and hard-to-traverse
+
+states,2 the State has struggled to establish stable employment opportunities and private
+
+healthcare coverage. High rural healthcare costs and poor outcomes constrain the state’s growth
+
+and its workforce participation rate—which is the lowest in the U.S.3 West Virginia cannot
+
+afford to let poor rural health remain a drag on its economy.
+
+           The WV RHT program will revitalize rural communities by activating an integrated
+
+set of robust rural initiatives – a “flywheel” – that generates health and economic
+
+prosperity, connecting prevention, recovery, technology, and workforce innovation. WV
+
+leads in advancing several Make America Healthy Again (MAHA) priorities, as one of the first
+
+states in the nation to secure a Supplemental Nutrition Assistance Program (SNAP) waiver for
+
+
+1
+Project Narrative
+
+
+
+soda, banning several food dyes, prioritizing work for SNAP and Medicaid recipients, and
+
+launching the Mountaineer Mile program to encourage active lifestyles. This transformative
+
+investment is critical to expanding these state-initiated efforts to create the structural changes
+
+needed to improve health outcomes for the long term, which will help citizens get back to work,
+
+get healthier, and reduce reliance on public coverage. Investing in innovations that prevent poor
+
+health is essential to reducing public costs. An ounce of prevention is worth a pound of cure.
+
+Health Outcomes and Rural Disparities
+
+           Rural West Virginians experience significantly worse health outcomes compared to
+
+metropolitan areas and national averages. Life expectancy in rural WV is six months lower
+
+than in-state metro areas and approximately 2.5 years below the national average—with
+
+McDowell County’s life expectancy being 11 years lower than the national average. 4 West
+
+Virginia has the nation’s highest adult obesity rate (41% vs. 37% nationally) and the highest
+
+smoking rate (20% vs. 12% nationally).5 Chronic disease rates are among the highest in the
+
+nation—and significantly worse in rural areas—and the state has the deadliest overdose crisis in
+
+the country, with rural overdose rates twice the national average.6
+
+Prevalence of chronic disease/health conditions by rural and metro regions (2022)7
+
+
+
+
+2
+Project Narrative
+
+
+
+           The MAHA framework helps address these challenges through coordinated prevention
+
+(Food-is-Medicine, movement, and prevention programs), connected-care technology (remote
+
+patient monitoring (RPM), telehealth follow-up), and recovery-to-work initiatives. Aligned with
+
+MAHA’s ambition, Governor Patrick Morrisey launched his “Healthy West Virginia” initiative
+
+this year with four pillars—Clean Up the Food; Find Purpose, Find Health; Move Your Body,
+
+Change Your Life; and Reward Healthy Choices—to improve nutrition, promote daily physical
+
+activity, and realign incentives toward healthier living statewide. This RHT effort will build on
+
+this work to catalyze investment to drive transformative change in rural communities.
+
+The Inseparable Link between Poor Health and Economic Well-Being in West Virginia
+
+           Poor health is a barrier to economic growth,
+
+especially in rural areas. Poor health and disability
+
+is the #1 reason that West Virginians cite for not
+
+working.8 The state’s workforce participation rate
+
+is 54.3% versus 62.4% nationally. Only 5% of
+
+those not working indicate they do not want to
+
+work (below the national average of 8%). While
+
+unemployment is relatively low,9 workforce participation remains constrained by health
+
+challenges that sideline working-age adults. With an aging population and high rates of health
+
+challenges and disability, we must create conditions that help residents recover, stay healthy, and
+
+rejoin the workforce.
+
+           The most common health-related reasons keeping working-age adults out of the labor
+
+force include arthritis, depression, asthma, chronic obstructive pulmonary disease (COPD),
+
+diabetes (with obesity as a driver)—along with substance use disorder (SUD), which Request for
+
+
+
+3
+Project Narrative
+
+
+
+Information (RFI) submissions and stakeholder interviews consistently identified as a major
+
+barrier to employability and family stability. Over 20% of West Virginians suffer from three or
+
+more of these types of chronic conditions, highlighting the need for improved management and
+
+prevention.10 Each of these conditions could be better managed or prevented, helping to engage
+
+more in the workforce for a better quality of life.
+
+           This interplay between work and health creates a negatively reinforcing cycle: poor
+
+health restricts employment which contributes to higher rural poverty rates (18% of rural West
+
+Virginians live below the poverty line11 and rural households have a median income of only
+
+$53.4k, 16% lower than the $62.2k in metro counties).12
+
+Key Health System Challenges in Rural West Virginia
+
+           Insights from over 50 state agency and community group discussions and 250 RFI
+
+responses—over 3,000 pages—underscore the depth and breadth of the rural healthcare crisis:
+
+           High prevalence of mental illness and SUD: Addiction is the leading driver of
+
+preventable mortality and community strain. West Virginia’s overdose death rate is nearly twice
+
+the U.S. average,13 with limited recovery supports and high rates of readmission and overdose
+
+recurrence. Stakeholders emphasized that SUD touches every part of life in West Virginia and
+
+that the path to community stability includes coordinated recovery-to-work programs, peer-
+
+coaching, and employer partnerships that help maintain sobriety and regain employment.
+
+     High chronic disease burdens: With rates of COPD, cardiovascular disease, and diabetes
+
+20-45% above the national average, rural communities face higher costs and needs. Many RFI
+
+respondents highlighted struggles with missed visits and adherence that amplify risks—not
+
+because of lack of care about health, but because of access issues. Diabetes management was
+
+
+
+
+4
+Project Narrative
+
+
+
+highlighted as a top priority, calling for expanded prevention, glucose-monitoring, remote
+
+monitoring, and nutrition access through clinics, grocers, and pharmacies.
+
+     Maternal & child health gaps: Nearly half (49.1%) of counties are maternity care “deserts,”
+
+exceeding the national average (32.6%). 14 Child mortality rates are significantly higher in rural
+
+areas (72 deaths per 100,000 children vs. 55 deaths in metro areas). 15 Several RFI respondents
+
+cited instances of families traveling 1-2 hours for obstetric or pediatric care, contributing to poor
+
+outcomes. Community partners urged expansion of mobile obstetric teams, postpartum wellness
+
+programs, and maternal nutrition supports through hospitals, schools, and county health depts.
+
+     Geographic isolation & transportation barriers: Many communities face significant
+
+transportation barriers to access care. One provider highlighted this reality, noting that many
+
+“live in communities of fewer than 2,500 people connected by winding mountain roads with no
+
+public transportation between isolated towns.” Stakeholders proposed county-based networks
+
+and integration of non-emergency medical transportation (NEMT) with local emergency medical
+
+services (EMS) and volunteer drivers to reduce missed appointments.
+
+     Food insecurity: West Virginia’s food insecurity rate is around 14%,16 which exacerbates
+
+chronic disease risk factors (e.g., diabetes, COPD, hypertension). Stakeholders noted food
+
+insecurity as a challenge, highlighting for many families “the nearest grocery store is miles away,
+
+leaving them reliant on convenience stores with limited nutritional options,” calling for
+
+coordinated food-access programs, produce-prescription models, and nutrition-incentive pilots.
+
+     Broadband/digital divide: West Virginia ranks 50th nationally in internet availability. 17
+
+Many RFI responses emphasized that access is essential for modernizing healthcare. Telehealth
+
+sites placed in locations such as libraries, schools, pharmacies, and community centers can help
+
+improve digital access—along with basic digital-skills training.
+
+
+
+5
+Project Narrative
+
+
+
+     Health workforce shortages: All rural West Virginia counties are Health Professional
+
+Shortage Areas as of June 2025. 18 Healthcare capacity is very low, with ~20% of counties having
+
+a population to healthcare worker ratio greater than 40:1 (&gt; 2 times as the national average). 19 In
+
+rural counties, 22% of healthcare practitioners and technical workers are aged 55 or older,
+
+including ~5% (1k individuals) aged 65 and above who could retire at any time.20 These age
+
+distributions indicate that a substantial portion of the state’s experienced healthcare workforce is
+
+nearing or already at retirement age. Without targeted recruitment, training, and retention
+
+strategies, West Virginia will continue to face workforce shortages in critical healthcare
+
+occupations over the next decade, including in the home care and long-term care sectors.
+
+Stakeholders urged faster credentialing, financial support tied to rural service, and structured
+
+“return-to-home” incentives for West Virginians trained in health professions elsewhere.
+
+     Limited access to specialty services: Access to specialty services is limited, with network
+
+adequacy rates &lt;90% in rural counties for Medicaid managed care organizations (MCOs). Key
+
+shortages include OBGYN specialists (85% adequacy), cardiologists (70% adequacy),
+
+pulmonologists (45% adequacy), and oncologists (40% adequacy). 21 RFI respondents
+
+recommended expanding tele-specialty coverage through academic-medical partnerships and
+
+creating regional rotation schedules so specialists can serve multiple counties efficiently.
+
+     Provider sustainability amidst a declining population: Rural providers (including EMS
+
+providers) and hospitals face significant financial challenges as rural populations decline (-8.9%
+
+since 2010).22 Stakeholders urge programs to modernize billing, streamline administrative
+
+requirements, and test new payment approaches that reward outcomes.
+
+     System fragmentation: Many rural providers operate on Electronic Health Record (EHR)
+
+systems that are not fully integrated with the WV Health Information Network (WVHIN), EMS,
+
+
+
+6
+Project Narrative
+
+
+
+behavioral health, and hospital systems. As an RFI respondent noted, “bidirectional data sharing
+
+is currently limited…resulting in delays in care, information gaps, and suboptimal care.”
+
+Providers and payers stressed that better data infrastructure (e.g., shared data spine to integrate
+
+multiple systems) is needed for care coordination and tracking population outcomes.
+
+Target Populations & Geographic areas
+
+           The WV RHT Program will serve residents, providers, and communities across all rural
+
+counties, prioritizing early implementation efforts on regions where working adults with poor
+
+health, elevated chronic diseases, healthcare workforce shortages, and access challenges are most
+
+acute. Specific target populations include:
+
+•    Working-age adults experiencing health-related barriers to employment, including
+
+     chronic illness, recovery needs, and transportation constraints.
+
+•    High-cost, high-need patients, including the top 1% of utilizers, represent the cases that
+
+     most significantly benefit from integrated care management and prevention supports.
+
+•    Adults and at-risk children with priority chronic conditions (e.g., behavioral health,
+
+     SUD, diabetes, obesity, hypertension, cardiovascular disease, COPD, asthma).
+
+•    Rural mothers, children, and older adults lacking access to care that need support
+
+     through diverse access options, prevention, nutrition, and efforts.
+
+•    Rural healthcare providers and systems (e.g., Federally Qualified Health Centers
+
+     (FQHCs), Community Health Centers (CHCs), EMS, clinics, home healthcare) that would
+
+     benefit from modernization, data, and payment-reform pilots.
+
+•    Students, trainees, and practicing clinicians recruited, trained, and placed in key shortage
+
+     areas to strengthen the state’s rural workforce pipeline and retention.
+
+
+
+
+7
+Project Narrative
+
+
+
+Multi-State Collaboration
+
+           The state will collaborate with neighbors on holistic solutions for rural populations, as
+
+~40% of the WV rural population lives in a county that borders a neighboring state, and a large
+
+portion of care is provided out-of-state for these residents.23 During the application process,
+
+Governor Morrisey held calls with the Virginia Governor, Ohio Governor, and New Hampshire
+
+Governor to discuss joint efforts to serve their people regardless of state boundaries. A number of
+
+the states have agreed to explore the potential for a multi-state consortium to facilitate shared
+
+purchasing power, volume discounts, and coordinated access to innovative healthcare
+
+technologies and rural solutions. This type of collaboration will promote the exchange of best
+
+practices, joint evaluation of outcomes, and align efforts to strengthen rural health infrastructure
+
+and capacity across states. In addition, Governors DeWine and Morrisey have committed to
+
+exploring collaborative models to provide workforce development opportunities, extend
+
+reciprocity for healthcare licensure, and leverage innovative technology and remote care for rural
+
+residents. WV will continue discussions during the pre-award and implementation phases and
+
+coordinate activities with border states and many others to deliver care in a way that reflects need
+
+and not artificial borders.
+
+Case for Transformation
+
+           The resilience, work ethic, and determination of West Virginians have carried our
+
+state through every hardship. Today, that same strength will power a new era of health and
+
+prosperity. The state’s success depends on turning illness into employability, and dependency
+
+into self-sufficiency. Without significant intervention, West Virginia’s rural communities will
+
+continue to see declining health outcomes, worsening economic stagnation, and further
+
+destabilization of the healthcare delivery system. Our plan seeks to improve outcomes and make
+
+
+
+8
+Project Narrative
+
+
+
+healthcare more affordable for our residents that struggle with high costs. Hospitals, payers, and
+
+community groups warned that “we are at the breaking point” without coordinated investment.
+
+           The WV RHT Program is the intervention needed to change these dynamics. By
+
+targeting high-need populations that could benefit from targeted interventions and investing in
+
+the community systems that support them, West Virginia will not only improve health outcomes
+
+but reignite economic participation, strengthen families, address affordability, and build resilient
+
+rural health infrastructure. Stakeholder feedback reinforces the central mission: a locally driven,
+
+data-informed system that rewards results and restores dignity through work and wellness.
+
+
+B) Rural health transformation plan: Goals and strategies
+Program Vision
+
+           West Virginia’s vision is to dramatically improve our healthcare outcomes to facilitate the
+
+creation of a larger, more productive, and healthier workforce. Enabled by strategic investments
+
+in technology and unprecedented collaboration within our rural communities, improved
+
+healthcare outcomes will underpin West Virginia’s new economic strength and comeback effort.
+
+West Virginia will build upon the indomitable spirit of its people and ignite transformational
+
+opportunities to grow our workforce, strengthen rural health, and improve our standard of
+
+living—overcoming decades of barriers to productivity. With weak health inextricably linked to
+
+poor economic outcomes in rural West Virginia, this program represents a once-in-a-generation
+
+opportunity to break this cycle. The state will leverage technology, private-sector
+
+partnerships, and local leadership to improve health outcomes and drive economic
+
+participation. By helping more West Virginians return to work, reduce dependency on public
+
+insurance, and extend life expectancy, this approach delivers measurable and sustainable results.
+
+
+
+
+9
+Project Narrative
+
+
+
+Strategic Priorities and Flagship Initiatives
+
+To deliver health and prosperity for rural residents, we propose three connected strategies:
+
+           1. Address health-related barriers to workforce participation. Poor health and
+
+disabilities are the largest drivers of West Virginia’s lowest-in-the-country labor force
+
+participation (50th).24 The state will attack these health-related barriers that hold back workforce
+
+participation by targeting interventions at working-age adults with chronic conditions –
+
+especially obesity, diabetes, cardiovascular disease, and addiction recovery – using prevention,
+
+treatment, and return-to-work programs. Expanding recovery and chronic care solutions (e.g.,
+
+innovative SUD treatment, remote monitoring technologies), preventative personal health and
+
+onsite employee wellness programs, and flexible care access options will keep more West
+
+Virginians in the workforce longer for sustained access to employer-sponsored coverage that
+
+improves long-term health outcomes. This approach restores self-sufficiency and reduces
+
+reliance on government assistance while strengthening families and local economies.
+
+           2. Establish WV as a center for rural health technology innovation and partnership.
+
+WV will commit its resources to focusing on innovation to improve rural health, becoming a
+
+leader in healthcare system transformation. The state will partner with universities,
+
+entrepreneurs, and investors to test and scale technologies that make care accessible and
+
+affordable in rural settings. Successful models attract sustained private co-investment and
+
+position WV as a national model for transformation. Care will focus on where individuals are,
+
+including schools and faith communities.
+
+           3. Improve access to care and sustainability of the healthcare system. Access will
+
+expand through better transportation, telehealth, and targeted workforce incentives – while
+
+
+
+
+10
+Project Narrative
+
+
+
+payment reforms promote quality, value, affordability, and sustainability. These efforts ensure
+
+rural facilities remain viable anchors for care and employment, strengthening the WV ecosystem.
+
+           This vision and these strategies will be operationalized through seven flagship initiatives:
+
+Initiative                     Description
+ Connected Care Grid            Build the infrastructure to bring virtual and in-person care access to
+                                people on-demand
+ Rural Health Link              Transport vulnerable rural West Virginians to care when they need it
+ Mountain State Care            Recruit, train, and retain the healthcare workforce of the future
+ Force
+ Smart Care Catalyst            Support transformative tech-enabled innovation, streamlined
+                                operations, and paying for healthcare value & quality
+ Health to Prosperity           Help West Virginians rebuild health, rejoin the workforce, and thrive
+ Pipeline                       in their communities
+ Personal Health                Empower healthy living through food-is-medicine programs,
+ Accelerator                    education and rewards for exercise and wellness activities
+ HealthTech Appalachia Incubate leap-frog innovations that unlock healthcare outcomes and
+                       economic growth
+
+           Each initiative reinforces the others: technology facilitates access; infrastructure ensures
+
+reach; workforce builds capacity; payment reforms sustain progress; and prevention keeps
+
+people healthy enough to participate in prosperity. These initiatives advance CMS’s strategic
+
+goals and the statutory requirements:
+
+
+
+
+11
+Project Narrative
+
+
+
+
+Statutory           Key Initiatives
+Requirement
+Improving           •   Connected Care Grid expands access points and chronic disease mgmt.
+Access &            •   Rural Health Link supports transports to create access and reduce no-shows
+Improving           •   Mountain State Care Force builds local capacity for care delivery
+Outcomes            •   Smart Care Catalyst ties payment models to quality outcomes
+                    •   Personal Health Accelerator promotes nutrition and exercise to improve
+                        obesity, diabetes, hypertension, cardiovascular disease, COPD, and asthma
+                    •   Health to Prosperity Pipeline helps residents return to work
+                    •   HealthTech Appalachia seeds innovations for sustainable health outcomes
+Partnerships        •   Smart Care Catalyst creates provider partnerships to improve efficiency
+                    •   Mountain State Care Force fosters rotational staffing and training programs
+Workforce           •   Mountain State Care Force develops homegrown pipelines; rotational and
+                        shared-practice models augment capacity and reduce burnout
+                    •   Connected Care Grid incentivizes virtual care delivery (e.g., for specialists)
+Technology          •   Connected Care Grid enhances telehealth/RPM capabilities while building a
+Use & Data-             data spine for interoperability, predictive analytics, and performance tracking
+Driven              •   Personal Health Accelerator supports referral pathways to nutrition and
+Solutions               aging-at-home programs
+                    •   HealthTech Appalachia represents a cornerstone in WV technology strategy to
+                        incubate and deploy solutions that improve access, quality, and costs
+Financial      •        Smart Care Catalyst will support technology and collaboratives to improve
+Solvency                productivity and efficiency, addressing pressures of population decline, out-
+Strategies &            of-state referrals, and high rates of chronic disease
+Cause          •        Smart Care Catalyst will also transition providers to payment models that
+Identification          focus on improving health to lower utilization and reduce costs
+               •        Rural Health Link and Health to Prosperity Pipeline mitigate access and
+                        payer-mix challenges that lower patient volume or reimbursement
+
+
+Building a Sustainable Flywheel
+
+           These initiatives create a self-sustaining rural health–economy “flywheel”: Community
+
+Care Grids and Rural Health Link bring care to people; Mountain State Care Force and Smart
+
+Care Catalyst stabilize and upskill providers; Health to Prosperity Pipeline helps adults return to
+
+employment while Personal Health Accelerator expands prevention and nutrition; and
+
+HealthTech Appalachia catalyzes private co-investment and leapfrog tools.
+
+
+
+
+12
+Project Narrative
+
+
+
+
+                                 West Virginia RHT flywheel of impact
+
+
+
+
+           As access expands and outcomes improve, rural residents regain health, labor force
+
+participation rises and more adults move to employer-sponsored coverage, and stable care
+
+networks attract further private and employer investment – creating a reinforcing loop of health
+
+and prosperity. This drives an enduring case for change to sustainably improve health outcomes
+
+for rural West Virginians. Short-term investments catalyze long-term independence, making
+
+rural West Virginia a national example of sustainable, locally led transformation.
+
+Policy Commitments and Initiative Priorities Against Technical Score Factors
+
+           West Virginia already has a strong rural health policy foundation, anchored by broad
+
+participation in national licensure compacts, modern telehealth laws, and healthy lifestyle
+
+reforms (e.g., SNAP waivers, activity programs). Building on its national leadership in
+
+advancing MAHA priorities, WV will adopt policies in 2026 to advance health outcomes:
+
+Technical Factor WV Policy Foundations and Key Initiatives (not exhaustive)
+B.1 Population Personal Health Accelerator builds wellness infrastructure and empowers
+Health Clinical residents to take actions today to reduce need for future healthcare services.
+Infrastructure Connected Care Grid advances health by expanding access points. Smart
+                 Care Catalyst supports provider collaboration.
+
+
+
+13
+Project Narrative
+
+
+
+
+B.2 Health &        Policy: WV will require the Presidential Fitness Test with the target of having
+Lifestyle           this policy passed in 2026 and no later than Dec 31, 2028.
+                    Personal Health Accelerator will advance nutrition, movement, and
+                    prevention programs to improve lifestyle solutions.
+B.3 SNAP            Policy: WV has secured a SNAP waiver to exclude soda from eligible SNAP
+Waivers             purchases (effective Jan 1, 2026). 25 WV also has a SNAP stretch program to
+                    support fruit and vegetable consumption.26
+B.4 Nutrition       Policy: WV will pass legislation that mandates continuing medical education
+Continuing          (CME) for nutrition for physicians no later than Dec 31, 2028. WV will also
+Medical             aim to include nutrition for other providers (e.g. NPs, PAs). Two of West
+Education           Virginia’s medical schools (WVU School of Medicine, WV School of
+                    Osteopathic Medicine) already lead with nutrition integrated into core
+                    curricula.27
+C.1 Rural           Smart Care Catalyst will enable rural provider collaboration to create
+Provider            administrative efficiencies through shared purchasing and support functions.
+Strategic           Connected Care Grid will build provider partnerships and capabilities for
+Partnerships        telehealth and RPM.
+C.2 EMS             SB 533 (2024) enabled EMS to remotely triage – up to and including treat-in-
+                    place – and route to appropriate care sites or alternative destinations.28
+                    Connected Care Grid integrates EMS into telehealth services and builds
+                    infrastructure for treatment-in-place and aging-at-home solutions. Rural
+                    Health Link integrates EMS with platforms to improve transit coordination
+                    and reduce avoidable, emergency department (ED) visits, and preventable
+                    admissions. Smart Care Catalyst can promote EMS treat-in-place through
+                    value-based care collaboration.
+C.3 Certificate     Policy: West Virginia has made recent progress in CON reform, including SB
+of Need             613 (2023), which raised the capital-expenditure minimum from $5 million to
+                    $100 million for projects triggering CON and added and clarified exemptions
+                    including birthing centers and physician MRI/diagnostic imaging. 29
+D.1 Talent          Mountain State Care Force expands rural capacity by funding residencies and
+Recruitment         return-to-home programs to attract clinicians. Personal Health Accelerator
+                    and Health to Prosperity Pipeline create new community health, behavioral
+                    health, and peer-recovery roles.
+D.2 Licensure       Policy: WV has full licensure compacts through SB 458 (2025), which
+Compacts            establishes the “Universal Professional and Occupational Licensing Act.” 30
+                    As a complementary policy action, the State has passed legislation to allow
+                    qualified military medics to receive recognition for paramedic licensure in
+                    West Virginia, expanding the EMS workforce.31
+D.3 Scope of        Policy: Earlier this year, WV expanded pharmacist scope of practice to
+Practice            include test and treat for numerous conditions. Nurse practitioners and
+                    physician assistants/associates have received the ability to prescribe Schedule
+                    II narcotics. Nurse practitioners have enjoyed the ability to practice
+
+14
+Project Narrative
+
+
+
+
+                    independently, with collaborative practice environment requirements reduced
+                    to 3 years. Dental hygienists were approved to use certain lasers in
+                    periodontal therapy. In light of WV’s severe and ongoing SUD impacts, the
+                    state will maintain adherence to its laws limiting opioid prescribing (i.e.,
+                    physician-only prescription).
+E.1 Medicaid       Smart Care Catalyst creates value-based care payment models that reward
+Provider           quality and lower cost. Health to Prosperity Pipeline offers outcome-based
+Payment            incentives to providers and MCOs for helping residents return to work.
+Incentives
+E.2 Dual eligibles Connected Care Grid improves outcomes for dual-eligibles by increasing
+                   telehealth access points (e.g., at senior centers), RPM (e.g., discharges,
+                   avoiding readmission), and data analytics for continuous improvement. Smart
+                   Care Catalyst supports shared analytics and payment alignment for these
+                   populations (e.g., PACE, VBC in Medicaid). The state will strengthen its D-
+                   SNP contract to enhance care coordination with CO-only plans. Personal
+                   Health Accelerator will provide a resource hub for duals to help them connect
+                   to resources.
+E.3 STLDI           Policy: WV does not have restrictions that limit STLDI plans beyond federal
+                    guidance with a maximum allowable initial contract term for STLDI of 3
+                    months and total coverage period of 4 months, aligned with federal practice.
+F.1 Telehealth /    Policy: WV permits interstate telehealth registration, Medicaid
+Remote Care         reimbursement at parity, and recognition of licensure compacts in telehealth. 32
+Policies            WV will continue to strengthen its telehealth reimbursement policies to
+                    increase use of RPM and provider-to-provider e-consult with implementation
+                    no later than 2028 and with a target of 2026.
+                    Connected Care Grid operationalizes these capabilities, linking providers
+                    statewide through the WVHIN data spine.
+F.2 Data            Connected Care Grid modernizes statewide health data systems through an
+Infrastructure      integrated data spine, creating interoperability, and launching an integrated
+                    claims database. Personal Health Accelerator will integrate nutrition and
+                    wellness data through closed loop tracking. Smart Care Catalyst enables rural
+                    providers to upgrade analytics and IT infrastructure to enable efficiency,
+                    innovation, and VBC model adoption.
+F.3 Consumer-       Connected Care Grid deploys RPM tools to empower residents and providers
+facing Tech         in managing chronic disease. HealthTech Appalachia will promote innovation
+                    in consumer health through investments in AI-enabled diagnostics, digital
+                    therapeutics, and mobile wellness applications. Rural Health Link will create
+                    a digital health-mobility platform to enable better access to patient care.
+
+
+
+
+15
+Project Narrative
+
+
+
+Overall Goals & Key Performance Objectives
+
+           West Virginia’s strategic priorities and flagship initiatives are designed to transform the
+
+rural healthcare ecosystem in durable, measurable ways. By 2031, West Virginia will expand
+
+access to prevention and wellness programs, raise labor-force participation, and build
+
+financially stable rural healthcare systems that attract innovation and private investment.
+
+           Overall performance objectives reflect this ambition and will be used to assess progress
+
+towards healthy communities and thriving economies, directly advancing CMS’ strategic goals.
+
+
+
+
+16
+Project Narrative
+
+
+
+           The state will also leverage its existing provider initiatives aimed at improving healthcare
+
+outcomes, setting performance targets against quality metrics for select conditions. Collectively,
+
+these efforts deliver on West Virginia’s goal to achieve improved health status for its rural
+
+communities, driving a better quality of life and enhanced economic opportunity.
+
+           The initiatives compound in their impact to achieve these objectives. Improving provider
+
+access to reduce avoidable ED visits and inpatient stays depends on getting people access to
+
+urgent care virtually or proactively identifying risks with RPM (Connected Care Grid),
+
+developing revolutionary technologies (HealthTech Appalachia), training more clinicians and
+
+providers who can expand provider access (Mountain State Care Force), and incentivizing high-
+
+value provider activities (Smart Care Catalyst). Developing the healthcare workforce by
+
+improving provider retention depends not only on incentives (Mountain State Care Force) but
+
+also on making jobs in rural areas more satisfactory, ensuring providers have the technology and
+
+tools they need to automate workflows and spend more time with patients (Smart Care Catalyst).
+
+           These approaches move the needle for West Virginians. The table below describes how
+
+the WV RHT will support individuals across our state who are impacted by conditions that drive
+
+poor health outcomes and limit economic prosperity.
+
+                          WV RHT Initiatives: Impact on Priority Conditions
+Initiatives referenced: Connected Care Grid (CCG), Rural Health Link (RHL), Mountain State
+Care Force (MSCF), Smart Care Catalyst (SCC), Health to Prosperity Pipeline (H2P), Personal
+Health Accelerator (PHA), HealthTech Appalachia (HTA).
+
+Priority      How the seven initiatives address needs (non-exhaustive)
+Condition
+Substance Use CCG enables tele-SUD care and remote monitoring, including support for
+Disorder      medications for opioid use disorder. SCC funds BH/SUD value-based models.
+              MSCF grows the BH workforce, while RHL improves access to visits. H2P
+              integrates recovery-to-work and wraparound supports that reduce relapse and
+              readmissions. HTA co-invests in breakthrough SUD treatment technologies, and
+              PHA provides peer and community supports.
+
+
+17
+ Project Narrative
+
+
+
+
+Mental health CCG expands access to therapy and medication mgmt. via tele‑behavioral health
+               and mobile units. SCC incentivizes measurement‑based care and integration in
+               primary care and schools. MSCF expands behavioral health workforce. PHA
+               provides peer‑led wellness and self‑management supports. RHL reduces
+               transportation barriers. HTA invests in evidence‑based digital mental health tools.
+               H2P connects individuals to employment and social supports that improve recovery.
+Diabetes and PHA scales food-is-medicine, nutrition, and activity programs that prevent obesity
+obesity        and diabetes. For diabetics, CCG enables RPM and telehealth so teams can track
+               glucose and adjust therapy between visits. SCC aligns value-based payment so
+               clinics are rewarded for better HbA1c control and reducing BMI as a risk factor,
+               while RHL reduces missed visits with transportation support. HTA pilots effective
+               digital tools that promote weight loss and diabetes and obesity prevention.
+Hypertension CCG supports home blood pressure monitoring with care team titration and
+               e‑consults. PHA promotes nutrition, physical activity, and tobacco cessation—key
+               evidence‑based levers for BP control. SCC ties payment to hypertension outcomes
+               and team‑based care; RHL reduces missed chronic‑care visits. HTA brings in
+               proven digital tools, MSCF adds clinicians in shortage areas, and H2P addresses
+               social drivers (e.g., food, stress) that influence control.
+Cardiovascular CCG enables tele‑cardiology, cardiac rehab follow‑up, and RPM to prevent
+disease        readmissions. RHL provides transportation to rehab and specialty visits. MSCF fills
+               cardiology and nursing gaps in underserved areas. PHA scales prevention (nutrition,
+               movement) and secondary prevention adherence, while SCC funds models that
+               reward risk‑factor control and fewer readmissions.
+COPD           PHA funds smoking‑cessation and pulmonary rehab adherence supports, while
+               CCG delivers tele‑pulmonology and RPM to catch exacerbations early. RHL helps
+               patients reach rehab and follow‑ups, reducing preventable ED use. SCC rewards
+               fewer exacerbations and admissions.
+Asthma         CCG enables remote tracking and action‑plan management. SCC pays for outcomes
+               like fewer exacerbations. RHL reduces missed care visits. MSCF expands clinical
+               capacity in schools and clinics.
+
+
+ C) Proposed initiatives and use of funds
+ Initiative 1: Connected Care Grid
+            The Connected Care Grid initiative expands access to healthcare by strengthening
+
+ virtual and local care delivery – bringing care closer to where residents live. As highlighted
+
+ above, most of WV’s rural residents lack ready access to primary or specialty care, with 49% of
+
+ counties defined as maternity care deserts and with gaps in key specialties in rural counties,
+
+ forcing families to travel one to two hours for basic services. EHR use and interoperability
+
+ among independent rural providers and small clinics lags significantly behind national
+
+ 18
+Project Narrative
+
+
+
+benchmarks – creating barriers to effective implementation of VBC, remote monitoring, care
+
+coordination, and population health analytics. Through Connected Care Grid, rural citizens gain
+
+access to primary, preventive, urgent, and specialist care – bridging gaps between those who live
+
+in the state’s urban and rural communities. With West Virginia ranking 50th in broadband
+
+availability, it is critical to implement a blended in-person and virtual access strategy so patients
+
+can receive virtual care from home or community access points. Funds will support access point
+
+expansion, bring more providers into virtual networks, and integrate user-friendly scheduling
+
+platforms to support access across care types. This focused use of funds will strengthen provider
+
+capacity and data infrastructure for services that can be sustained through existing
+
+reimbursement mechanisms.
+
+           Key pillars and activities for this initiative include the following:
+
+Pillar              Key activities
+Build New           Equip hub-and-spoke modelled grid to support telehealth, telemedicine, mobile
+Pathways to         care units, RPM, and paramedicine to serve people closer to home:
+Care                • Use funds to outfit provider “hubs” (e.g., hospitals, FQHCs/CHCs, mobile
+                       care units) & patient access “spokes” (e.g., employer campuses, schools,
+                       libraries, community centers, kiosks 33) with the capabilities and technology
+                       needed to enable provision of carea
+                    • Prioritize schools as key community access points by funding telehealth
+                       enablement, billing capacity, and start-up grants for expanded school-based
+                       clinics and insurance billing
+                    • Approvals based on competitive applications and demonstrated need
+                    • Design funds to prioritize performance and private sector matchingb
+                    • Equip grid to expand specialty and tele-specialty care, connecting rural
+                       residents to services such as tele-maternal health, behavioral health (BH), and
+                       chronic disease management
+                    • Funds can support providers to equip new office locations to expand access to
+                       care in rural areas
+
+
+a
+  Applicants can include healthcare facilities (e.g., FQHCs/CHCs, dental offices, public health, pharmacies),
+community locations (e.g., employer campuses, schools, libraries, senior centers), mobile units, EMS, associations
+(e.g., WV Primary Care Association)
+b
+  The State may design funding awards to best incentivize performance and outcomes (e.g., grants, forgivable loans)
+
+19
+Project Narrative
+
+
+
+
+                    Fund EMS community paramedicine and treatment-in-place programs to deliver
+                    in-home urgent care, reduce avoidable transport, and expand access
+             Catalyze development and uptake of interoperable provider directory and
+             scheduling platform(s) to enable patients to receive real-time, accurate provider
+             availability (e.g., in-person and telehealth schedule) and book appointments
+             across options (i.e., in-person, virtual at access hubs, fully virtual, in-home):
+             • Partner with external vendor to develop directory mgmt. and scheduling
+                 integration (e.g., ZocDoc, Kyruus)
+             • Fund integration with existing provider EHRs and payer scheduling
+                 applications to enable “no wrong door” options
+             • Launch a consumer-facing interface option with AI-empowered navigation of
+                 directory and scheduling to help people find the best care option near them
+RPM          Fund and scale RPM programs by subsidizing both connected devices and
+Enablement service enablement infrastructure – coordinating with care hubs, health systems,
+for Mgmt. of and provider networks for inpatient and outpatient monitoring
+Chronic      • Prioritize RPM with FDA-cleared devices for conditions with strongest
+Disease         evidence of clinical and cost impact (e.g., hypertension, heart failure, COPD,
+                and diabetes), supporting VBC and provider productivity 34
+             • Support RPM service enablement and interoperability by investing in data
+                integration and workflow tools that allow patient-generated data to flow
+                securely into provider systems
+             • Fund RPM for additional conditions according to accumulated evidence (e.g.,
+                SUD care management and intervention)
+             • Integrate comprehensive RPM services by supporting Chronic Care
+                Management and Remote Therapeutic Monitoring models that extend
+                provider oversight, improve patient engagement, and enhance care
+                coordination across chronic and post-acute conditions
+Bring More Provide matching grants to fund telemedicine equipment and technology for in-
+Local WV     state providers, based on competitive application and demonstrated need
+Providers    • Funding for EHR capabilities to monitor RPM data in real time (e.g., for
+Online           WVHIN interoperability), cyber-security upgrades, e-consult capabilities and
+                 interfaces, and training and technical assistance for virtual care
+                    Fund provider incentives, focusing on priority specialties, to go-live with payers
+                    in providing virtual services
+                    • Explore tiered or time-limited incentive models to go live with payers (e.g.,
+                       per-visit or per-virtual-day reimbursement, one-time participation bonuses, or
+                       limited-term e-consult payments 35), with flexibility for the State to adjust
+                       based on provider uptake and demonstrated impact
+
+
+
+
+20
+Project Narrative
+
+
+
+
+Create an     Invest in interoperable digital spine connecting providers and payers, with cloud-
+Enabling Data based platforms for secure and real-time data exchange
+Spine         • Expand WVHIN capabilities to develop shared analytics for tracking access,
+                 outcomes, and costs
+                 • Include AI-enabled reporting and advanced analytics (e.g., for predictive
+                      analytics on early risk factors, alerts and dashboards to care teams,
+                      tracking outcomes across rural populations)
+                 • RPM and telehealth integration to provide Video-Supported Treatment
+                      capabilities for rural clinical networks to facilitate medication assisted
+                      treatment (MAT)/medications for opioid use disorder (MOUD) (includes
+                      enhancing data exchange between clinic EHRs and WVHIN for
+                      monitoring and care management)
+                 • Address PHI and HIPAA data-sharing roadblocks by establishing secure
+                      data-exchange infrastructure to enable coordination across providers,
+                      payers, and community partners
+              • Provide interoperability incentives to equip rural providers with seamless
+                 data exchange capabilities with WVHIN to eliminate data silos and support
+                 lightweight, certified electronic health records (EHRs) where needed
+              • Fund integrated claims database to support data infrastructure & analytic
+                 capabilities (e.g., tracking telehealth, RPM, care hub usage, pharmacy)
+
+           Across these pillars, Connected Care Grid establishes the state’s integrated “any-door”
+
+access network linking clinics, homes, and hospitals through modern technology, data, and
+
+locally staffed care hubs. The initiative will build on existing assets—including the WVHIN,
+
+early telehealth programs, EMS paramedicine programs, and WV Primary Care Association and
+
+FQHC/CHC telehealth investments—by organizing providers into regional hubs that coordinate
+
+specialty access, data exchange, and RPM support. The data spine infrastructure also provides
+
+the critical spine to integrating wellness (part of Personal Health Accelerator) and health-to-
+
+work data integration (part of Health to Prosperity Pipeline).
+
+           Connected Care Grid will explicitly help address dual-eligible beneficiaries by aligning
+
+RPM, data exchange, and Long-Term Services and Supports (LTSS) coordination to improve
+
+continuity of care across Medicare and Medicaid. Through this initiative and Smart Care
+
+Catalyst, West Virginia will explore strategies (e.g., PACE) and shared data infrastructure to
+
+21
+Project Narrative
+
+
+
+improve care for dual-eligible populations. This initiative also strengthens coordination for foster
+
+care populations by linking health records and telehealth services to ensure seamless, continuous
+
+care during placement transitions.
+
+           This work will be supported by other state policy actions, including broadband
+
+expansion. WV will prioritize alignment with the Broadband Investment Plan for the use of a
+
+potential $1B for broadband funding, particularly to support telehealth and last-mile access to
+
+critical healthcare infrastructure. The state’s existing interstate telehealth registration and
+
+Medicaid parity policies support seamless virtual care across county and state lines.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal Sustainable Access
+Use of Funds               B, C, D, F, G, H
+Technical Score Factors        B.1 (Pop health clinical infrastructure), C.1 (Rural provider strategic
+                               partnerships), C.2 (EMS), E.2 (Dual eligibles), F.1 (Remote care
+                               services), F.2 (Data infrastructure), F.3 (Consumer-facing
+                               technology)
+
+Outcomes for Connected Care Grid
+Outcome 1: Expanded access to real-time care by increasing appointment availability
+Metric: Reduce average outpatient wait time for visits or consults among target populations,
+clinics, provider types (e.g., primary care, specialist, behavioral health), and counties
+Data notes: Medicaid and payer claims databases and reporting; secret shopping (Medicaid);
+data from central scheduling platform in later years; at county level
+Preliminary baseline & target: Baseline to be validated during Stage 0; preliminary target to
+reduce wait time by 20% in 5 years
+Outcome 2: Expanded access to primary and urgent care
+Metric: Reduce avoidable ED visit rate in target service areas receiving investment
+Data notes: Medicaid and payer claims, WVHIN encounter data; county level
+Preliminary baseline & target: Baseline to be collected in Stage 0; preliminary target to reduce
+avoidable ED visits by 15-20% in target service areas in 5 years36
+Metric: Decrease average virtual first response time for immediate provider consult
+Data notes: Medicaid and payer claims, WVHIN encounter data, payer reporting, interoperable
+provider directory and scheduling platform (once available)
+Preliminary baseline & target: Baseline to be collected in Stage 0; Preliminary target to
+increase % of responses &lt;30 min from initiation (call/chat/app) to live clinical triage
+Outcome 3: Improved connectivity to virtual care
+
+22
+Project Narrative
+
+
+
+
+Metric: Increase number of telehealth access points in target areas with low broadband access
+Data notes: CMS provider data on certified telehealth providers; county level
+Preliminary baseline & target: Baseline to be collected in Stage 0; Preliminary target to
+increase access points by 50%
+Metric: Increase rate of utilization of virtual care with participating programs in target service
+areas for eligible visits
+Data notes: Medicaid and payer claims data, WVHIN reporting
+Preliminary baseline & target: Baseline to be collected in Stage 0; (current national utilization
+at 8-10% of visits done virtually37); Preliminary target to sustain 10-20% utilization of eligible
+visits by virtual care versus in-person38
+Metric: Increase the number of providers offering virtual care in target service areas
+Data source: State and payer directories and claims databases
+Preliminary baseline & target: Baseline to be collected in Stage 0; Preliminary target of 50%
+of providers offering virtual care for patients in rural areas 39
+Metric: Increase rate of individuals receiving RPM within target populations & service areas
+Data notes: WVHIN reporting, Medicaid & payer claims data; county level
+Preliminary baseline & target: Baseline to be collected in Stage 0; Preliminary target of 10%
+of eligible rural population40
+Outcome 4: Strengthened chronic disease & preventive care management
+Metric: Reduce rate of preventable hospitalizations among recipients of RHT funded RPM
+Data notes: WVHIN and participating provider reporting, Medicaid and payer claims
+Preliminary baseline & target: Baseline to be collected in Stage 0; preliminary target to reduce
+preventable hospitalizations by 10-20% amongst population receiving RPM41
+Outcome 5: Expanded access to behavioral health for children in the state
+Metric: Increase rate of K-12 students with access to BH services for target service areas
+Data notes: WV Dept. of Education BH reporting, Medicaid/MCO claims data; at county level
+Preliminary baseline & target: Baseline to be collected in Stage 0; preliminary target to
+increase availability rate of services to 90% of students 42
+
+Key stakeholders: The Dept. of Health will lead coordination across pillars, with WVHIN as
+
+operational lead for the data spine pillar. Other vendor partners (e.g., device providers, virtual
+
+service enablers) will manage RPM scaling and provider onboarding. Partnerships with
+
+healthcare directory and scheduling connectors will be developed for easy patient scheduling
+
+through the care hubs. Hospitals, health systems, universities, providers (e.g., community
+
+hospitals, pharmacies, FQHCs/CHCs, MCOs), and community centers (e.g., schools, libraries)
+
+
+
+
+23
+Project Narrative
+
+
+
+will recommend priority areas for access points and be implementing partners on-the-ground
+
+(e.g., leverage Marshall University research on school behavioral health needs).
+
+Impacted counties: For initial implementation,
+
+the state will consider the mix of interventions
+
+likely to benefit each county, based on facility
+
+access and broadband coverage (see chart at
+
+right). For instance, counties with weaker
+
+broadband and a limited number of facilities may
+
+benefit from community-based virtual care
+
+locations and mobile telehealth units.
+
+Estimated funding: $174M over five years ($35M per yr)
+
+Implementation plan: Dept. of Health will oversee implementation, selecting additional
+
+technology vendors (e.g., appointment scheduling platforms, telehealth equipment providers),
+
+partnering with local providers to prioritize locations for access points, and coordinating with
+
+WVHIN to build enabling data infrastructure. Within the first 18 months, the first set of
+
+telehealth, mobile, and physical access points will be rolled out with data infrastructure
+
+development underway.
+                                         Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+24
+Project Narrative
+
+
+
+
+Sustainability plan:
+
+Pillar(s)          Description
+Build New Pathways Transition access point costs to providers: Providers that utilize sites
+to Care            will take over costs of ongoing funding and maintenance, sharing costs
+and                based on share of utilization. Some providers can build these access point
+Bring More Local   costs into their cost reports
+WV Providers       Transition interoperable scheduling: Transition directory and
+Online             scheduling infrastructure to payers, providers, and other entities with
+                   share of costs based on utilization of the platform, which provides value
+                   by reducing the overhead for current network management and directory
+                   admin costs.
+                   Leverage VBC: VBC models implemented will further incentivize these
+                   services and outcomes to reinforce sustainability over time.
+RPM Enablement     Embed services into reimbursement and payment models: Beyond
+for Mgmt. of       current coverage for RPM (incl. Medicare), value-based care will enable
+Chronic Disease    support for evidence-based RPM services that support quality and cost-
+                   reduction. The state will also consider making RPM a reimbursable
+                   service for Medicaid, ensuring savings are achieved so that aggregate
+                   Medicaid costs are not increased.
+Create an Enabling Sustain enabling technology through subscription model: WVHIN
+Data Spine         services and ongoing operating costs will be incorporated into WVHIN
+
+
+25
+Project Narrative
+
+
+
+
+                           subscription fees. Ongoing costs for directory and scheduling platform
+                           maintenance will also follow subscription model.
+
+
+Initiative 2: Rural Health Link
+           Rural Health Link addresses transportation barriers, one of the most common and
+
+preventable causes of lack of care in rural WV, as discussed above. c This initiative will enable
+
+citizens to access a unified health-mobility platform to connect to transport options, whether
+
+public buses, rideshare, volunteers, or local community organizations. It will also bring more
+
+public and private transit capacity online, creating options for NEMT, on-demand micro-transit,
+
+and multi-county public transit. A key outcome will be reduction in missed appointments due to
+
+transit barriers. Supporting demand navigation and supply in parallel will help build a self-
+
+sustaining marketplace that can leverage existing NEMT, public transit, and consumer funding to
+
+sustain system capacity after the start-up period. Optimizing and increasing transit utilization
+
+will also improve the effectiveness and efficiency (and generate cost savings) of EMS and
+
+NEMT system to sustainably improve performance.
+
+           Key pillars and activities for this initiative include the following:
+
+Pillar                 Key activities
+Simplify How    Invest in one unified health-mobility platform to dispatch rides across
+Rural Residents transportation options (e.g., NEMT, public transit, rideshare, volunteer).
+Get to Care      • Partner with external vendor to lead development of platform (e.g.,
+                   Modivcare, Roundtrip)
+                 • Transition in later years to an independent, self-sustaining entity or entities
+                   to continue statewide scheduling/dispatch
+
+
+
+
+c
+ Survey data from the Center for Rural Health Development and Mountain Line Transit show 40–50% of missed
+appointments are due to transportation barriers. HealthNet and Mountain Line report 60–90 minute travel times for
+specialty care, and hospitals estimate transport issues cause 25–30% of missed chronic care visits.
+
+26
+Project Narrative
+
+
+
+
+                 Integrate triage capabilities with 911 to ensure non-emergency patients
+                 receive NEMT, not EMS, enabling alternative destination transport (building
+                 on WV’s enabling legislation for alternative destination for EMS)d
+Expand Local     Create targeted investments to address key gaps in supply:
+Mobility Options • Establish multi-county public transport collaborative to pool local transit
+                    resources and coordinate multi-county rides
+                  • Equip EMS agencies to expand capacity regionally and statewide for
+                    scheduled, non-emergency transport and triage services, supported by
+                    flexible reimbursement models
+                  • Support EMS agencies to sign alternative destination transport agreements
+                  • Issue funds to support vehicle acquisition, insurance, driver recruitment,
+                    and expanded service hours in partnership with transit authorities,
+                    providers, community organizations (including startup funds for
+                    community faith-based and nonprofit partners)
+
+           Together, these two pillars transform transportation from a barrier into a core part of West
+
+Virginia’s healthcare infrastructure—linking patients, providers, and payers through a modern,
+
+data-driven mobility network that reduces no-shows, lowers costs, and improves outcomes
+
+statewide. National evidence demonstrates that integrated mobility systems can reduce no-shows
+
+by more than 40% in some cases and can lower per-ride costs by more than 50%.43 Rural Health
+
+Link will build on existing Medicaid NEMT, regional transit, and community ride programs.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal Sustainable Access
+Use of Funds                 F, H
+Technical Score Factors      C.2 (EMS), F.3 (Consumer facing technology)
+
+Outcomes for Rural Health Link
+Outcome 1: Access to reliable, timely transportation is expanded in rural WV counties
+Metric: Increase utilization rate of NEMT rides for eligible participants in target service areas 44
+Data Notes: NEMT vendor reporting; at county level
+
+
+d
+  Potential characteristics include layered clinical triage and tele-navigation so that low-acuity 911 transports can be
+routed to clinic/urgent care with NEMT instead of EMS, or treat-in-place, using standard processes (e.g., DC Right
+Care Right Now; Ethan-Houston; DeKalb County, GA; Miami-Dade Procedure 53). Local EMS could also work
+with a nurse-navigation vendor and a physician to implement treatment-in-place/transport-to-alternate destination
+protocols (e.g., MedStar-Fort Worth, McLennan County, TX).
+
+27
+Project Narrative
+
+
+
+
+Preliminary baseline & target: Preliminary baseline in Medicaid is approx. 3,800 rides per
+1,000 eligible people per year with target to double rides per 1,000 eligible people per year 45;
+baseline and target for other lines of business to be set during Stage 0
+Outcome 2: More rural residents successfully reach scheduled appointments on time
+Metric: Increase rate of requested and on-time health trips (arrival within a 15-min window of
+scheduled appointment)46
+Data Notes: NEMT vendor reporting; transit automatic vehicle location dispatch data; at county
+level
+Preliminary baseline & target: Preliminary baseline is 83.6% completion statewide; Target to
+be set during Stage 047
+Outcome 3: Transportation is less of a barrier to accessing healthcare
+Metric: Decrease appointment no-show rate among target populations in target service areas
+Data Notes: EHR reporting in targeted rural counties among funded entities (incl. disposition
+code for appoint no-show tracking); at county level
+Preliminary baseline & target: To be set during Stage 0; Baseline to be collected during
+application process for funding 48
+Outcome 4: More rural residents avoiding unnecessary ED visits
+Metric: Reduce avoidable ED visit rate for priority cohorts in target service areas49
+Data Notes: Medicaid Claims and hospital encounters; at county level
+Preliminary baseline & target: To be set during Stage 0
+
+Key stakeholders: The Depts. of Health and Transportation will provide leadership for
+
+administration of Rural Health Link, competitively selecting vendors to implement key efforts.
+
+Regional transit authorities, local NEMT/EMS providers, community driver networks, and
+
+mobility tech companies will be engaged to co-design the program attuned to local contexts and
+
+integrate services into the Health Link platforms, as further discussed below.
+
+Impacted counties: All rural counties with phased implementation determined via stakeholder
+
+engagement during planning process
+
+Estimated funding: $46M over five years ($9M per year)
+
+Implementation plan: Depts of Health and Transportation, through selected vendors, will begin
+
+rolling out early versions of the mobility platform in late 2026 with initial versions available in
+
+initial areas by end of 2027.
+
+
+
+
+28
+Project Narrative
+
+
+
+                                       Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+Sustainability plan:
+
+Pillar                    Sustainability Plan
+Simplifying How           Transition platform to subscription model: Maintain platform
+Rural Residents Get       operations through integrated payer/provider subscription model (e.g.,
+to Care                   MCOs, WV Public Employees Insurance Agency (PEIA),
+                          hospitals/health systems), supported through flexible, VBC
+                          arrangements that benefit from reduced no-shows.
+Expanding Local           Use a braided funding mix to continue supporting services: Funding
+Mobility Options          could include Medicaid, hospital ROI reinvestment, FTA 5311 transit,
+                          philanthropic, and modest local contributions.
+
+
+Initiative 3: Mountain State Care Force
+           Mountain State Care Force addresses WV’s persistent health workforce shortages by
+
+developing home-grown talent, attracting providers to the state, and strengthening
+
+retention and staffing models to secure WV’s healthcare future. With all rural WV counties
+
+designated as healthcare shortage areas and 22% of current rural practitioners nearing retirement
+
+age, 50 this initiative will tackle these challenges to transform capacity before further shortages
+
+occur. The State will augment RHT funds with state funds for workforce development, such
+
+
+29
+Project Narrative
+
+
+
+as running targeted marketing and recruitment campaigns to attract healthcare professionals to
+
+live and work in rural WV and provide incentives for relocation. The State’s three medical
+
+schools, the community and technical college system, and the K-12 educational system will be
+
+essential partners in this effort. Outcomes focus on closing shortages across critical disciplines –
+
+medicine, behavioral health, EMS, allied health professions, pharmacy, community health
+
+workers (CHWs), and oral health – while expanding the next generation of local providers.
+
+           Key pillars and activities for this initiative include the following:
+
+Pillar               Key activities
+Grow Local           Fund outreach programs to expose high school students to healthcare careers
+Talent
+                     Co-fund faculty positions with private-sector at regional local colleges and
+Pipelines
+                     technical programs to fill critical faculty shortages
+Recruit and          Fund new rural residency (e.g., medicine, pharmacy) and rural fellowship slots
+Retain Rural         with co-funding between providers, hospitals, universities 51
+Workforcee
+                    Provide targeted incentives tied to a 5-year rural service commitment to attract
+                    and retain healthcare workers in shortage areas:
+                    • Offer multi-year cash incentive grants (e.g., annual income supplements),
+                      similar to South Carolina’s Rural Provider Incentive Program52
+                    • Pair financial incentives with professional support (e.g., rural provider
+                      networking, mentorship, and telehealth training) to strengthen retention
+                    • Coordinate relocation and lifestyle support through concierge services
+                      aligned with WV’s Ascend and other evidence-based programs, including
+                      housing assistance, spouse employment support, and relocation bonuses
+                    • Potential supplemental incentives such as “return-to-home” rebates, deferred
+                      compensation, income tax credits for qualifying practitioners
+                    • Establish annual compliance processes to verify continued rural service
+                      before disbursements, with repayment provisions for early departure
+                    • Offer direct incentives for providers moving into the state to set up practice,
+                      potentially leveraging income tax relief or rebate (e.g., analogous to GA
+                      income tax relief)53
+
+
+
+e
+  Proper controls and data tracking will be put in place to ensure that recruit and retain efforts meet 5-year rural
+service requirements. For all co-funded initiatives, providers must demonstrate a match through new or increased
+recruitment / workforce investments. Matching funds must supplement, not replace, existing activities – requiring
+verified maintenance of effort to ensure non-supplanting of existing healthcare workforce recruitment spending.
+
+30
+Project Narrative
+
+
+
+
+                    • Fund statewide recruitment campaigns to promote WV as a destination for
+                      healthcare professionals (incl., physicians, allied health, nurses, pharmacists,
+                      dentists, dental assistants/hygienists, EMS), highlighting incentive programs,
+                      lifestyle advantages, community impact, and success stories to attract
+                      providers and their families, modeled after Ascend 54 and other programs
+                    Co-fund paid, entry-level healthcare apprenticeship roles (e.g., tech, EMT I
+                    positions) in rural areas, leveraging WV’s Learn & Earn model
+                    Support career-ladder advancement programs with provider cost-sharing to help
+                    workers move into higher-skill roles (e.g., janitor to CNA, CNA to LPN/RN,
+                    paramedic to nurse practitioner)
+Improve             Use start-up grants to create regional rotational staffing pools, fund technical
+Workforce           assistance and other start-up support
+Staffing &
+                    Co-invest in additional training (e.g., Project ECHO, WV Academic Mentoring
+Practice
+                    Partnership) to enable rural clinicians to receive virtual education from
+Models
+                    academic medical centers 55
+
+           Mountain State Care Force strategies build upon existing state workforce programs,
+
+including Area Health Education Centers (AHEC), WV Higher Education initiatives,
+
+FQHC/CHC career ladder and pipeline development efforts, and goes beyond existing Graduate
+
+Medical Education (GME) and loan repayment efforts, to accelerate recruitment and training in
+
+rural communities. Implementation will be led by the WV Higher Education Policy Commission
+
+and the Dept. of Health with a combination of direct management and competitive sub-awards to
+
+academic, health system, and regional training partners. Sub-awards will prioritize partnerships
+
+demonstrating local match funding, data sharing, and measurable rural placement outcomes.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal Workforce Development
+Use of Funds               D, E, F
+Technical Score Factors D.1 (Talent recruitment)
+
+
+Outcomes for Mountain State Care Force
+Outcome 1: Build the education infrastructure for a homegrown workforce pipeline
+Metric: Increase number of WV students enrolled in rural health training tracks from
+participating counties
+
+31
+Project Narrative
+
+
+
+
+Data notes: Initiative data tracking; at county level
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+10,000 high-school age students per year 56
+Metric: Increase number of in-state training slots available by healthcare role
+Data notes: WV Higher Education Policy Commission (HEPC) – Health Sciences Division,
+Medical school partner self-reporting
+Preliminary baseline & target: Preliminary baseline of 15 total rural residency slots per year 57
+– remaining baseline to be collected during Stage 0; preliminary target to double annual
+residency slots available – remaining targets to be set during Stage 0
+Metric: Increase in-state and rural placement rate for WV-trained healthcare workers
+Data notes: WV HEPC, WV medical, and nursing programs
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+77% placement rate58
+Outcome 2: Increase number of physicians & healthcare workers in rural WV
+Metric: Increase number of licensed clinicians per 10,000 rural residents
+Data notes: WV Dept. of Health – Office of Rural Health (ORH)
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary minimum
+target of 2.9 primary care physicians per 10,00059
+Metric: Increase number of rural residents and fellows
+Data notes: WV HEPC – Health Sciences / GME Data Reports
+Preliminary baseline & target: To be set during Stage 0
+Metric: Count of out-of-state healthcare workers placed in rural areas via funded placement
+Data notes: Initiative data tracking
+Preliminary baseline & target: To be set during Stage 0
+Outcome 3: Improve stability of rural systems by reducing workforce churn
+Metric: Percent of RHT funded clinicians and healthcare workforce retained by year
+Data notes: WV Health Care Workforce Report / HEPC Health Sciences Division, Licensure
+renewal data, initiative data tracking
+Preliminary baseline & target: Baseline to be validated during Stage 0; preliminary target of 2/3
+retention over 5 years60
+Outcome 4: Leverage private funds to improve pipeline ownership and sustainability
+Metric: Total private-sector match for RHT funded programs over and above current and planned
+maintenance of ongoing efforts (to be defined for each program and partner)
+Data notes: Initiative data tracking
+Preliminary baseline & target: Preliminary target of 1:0.5-1 match
+
+Key stakeholders: The WV Higher Education Policy Commission will be a key program leader
+
+in partnership with a range of stakeholders, including the Dept. of Health for workforce planning
+
+and prioritization; Dept. of Commerce; WV Ascend Program and other program experts for
+
+alignment with best-practice initiatives (e.g., to add spousal relocation support); universities and
+
+32
+Project Narrative
+
+
+
+community colleges; FQHCs/CHCs; state provider associations; medical schools (e.g., WVU,
+
+Marshall, WV School of Osteopathic Medicine); hospital systems and community providers for
+
+placement and rotational staffing model development; and local education institutions (e.g., high
+
+schools, vocational colleges) for early outreach and engagement.
+
+Impacted counties: Potential initial counties will include those with healthcare workforce
+
+shortagesf and then build throughout the state.
+
+Estimated funding: $167M over five years ($33M per year)
+
+Implementation Plan: The WV Higher Education Policy Commission in collaboration with the
+
+Dept. of Health—and other key stakeholders—will start early outreach, expand rural residencies,
+
+and launch a statewide recruitment campaign within 12 months to kickstart pipeline expansion.
+
+                                           Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+f
+ Counties with low primary care density, for instance, include Mercer (54055), Preston (54077), Logan (54045),
+Jackson (54035), Randolph (54083), Mason (54053), Upshur (54097), Boone (54005), Wyoming (54109), Taylor
+(54091), Barbour (54001), Wetzel (54103), Roane (54087), Monroe (54063), Braxton (54007), Summers (54089),
+Tyler (54095), Tucker (54093), Calhoun (54013).
+
+33
+Project Narrative
+
+
+
+Sustainability plan:
+
+Pillar             Sustainability plan
+Grow Local Talent   Institutionalize training pipelines: Convert training initiatives into
+Pipelines           permanent components of K-12 education and accredited medical,
+                    pharmacy, nursing, and allied health programs.
+Recruit and Retain Focus on provider match: Co-funding in partnership with providers
+Rural Workforce     builds sustainable funding stream to continue workforce development.
+                    Prioritize retention: Rigorously track and promote retention to ensure
+                    that funded workforce initiatives place individuals in rural service areas
+                    far beyond 5 year time horizon.
+Improve Workforce Transition shared staffing pools into self-sustaining networks: After
+Staffing & Practice start-up, regional rotational staffing pools will operate as provider-funded
+Models              cooperative networks.
+
+
+Initiative 4: Smart Care Catalyst
+
+           Smart Care Catalyst helps rural providers reduce administrative burden, modernize
+
+operations, cut waste and abuse, and focus time on patient care. Rural healthcare providers
+
+shoulder higher administrative and clinical fixed costs than metro healthcare providers to support
+
+local access to care for smaller and declining populations. WV hospital services already
+
+represent the second-highest per capita cost in the nation.61 As rural health improves through WV
+
+RHT initiatives, reductions in hospital admissions will challenge the financial sustainability of
+
+hospitals operating under fee-for-service payment models, as reduced utilization erodes revenue
+
+while only modestly reducing resource requirements. To address this, Smart Care Catalyst
+
+supports rural providers in evolving clinical service lines, administrative processes, and payment
+
+models to improve financial sustainability and promote value.
+
+           The first pillar of Smart Care Catalyst will focus on helping providers reduce clinical
+
+and administrative operating expenses. The State will establish a productivity support fund to
+
+provide direct support to rural providers to modernize operations, invest in technology,
+
+restructure service-lines to align to local needs, and stand-up shared-service collaboratives to
+
+
+34
+Project Narrative
+
+
+
+reduce administrative burden. These investments will lower fixed costs, improve efficiency, and
+
+build shared capacity needed to sustain rural care delivery.
+
+           The second pillar of Smart Care Catalyst supports rural payers and providers to
+
+transition from fee-for-service payment models to outcomes-driven, VBC payment models
+
+to improve both quality and affordability of healthcare. These models will ensure that
+
+providers share in the financial benefit of reduced acute-care utilization as health improves and
+
+preventable hospitalizations decline. The State will partner with Medicaid MCOs and
+
+commercial payers to develop and operationalize standardized multi-payer VBC payment models
+
+– supported by shared analytics, Care Transformation Organization (CTO)/Management Service
+
+Organization (MSO) structures, and targeted startup and incentive funding. The State will
+
+consider models supported by CMS for Medicare populations to establish models that providers
+
+may adopt across the majority of their patients and revenue sources. The Catalyst will build on
+
+WV’s existing Medicaid VBC efforts and payer partnerships to coordinate statewide adoption.
+
+           Within 5 years, Smart Care Catalyst aims to support rural hospitals and providers in
+
+transitioning to financial risk. In the coming months, the State will facilitate a dialogue among
+
+leading payers and rural providers to determine: (1) the end-state model(s) that are best aligned
+
+with targeted improvements in care and financial sustainability of rural providers; and (2) a
+
+transitional path to that end-state, which may involve pay-for-performance or shared savings
+
+models to reward improvements and create a sustainable foundation for VBC across WV.
+
+           Key pillars and activities for this initiative include the following:
+
+
+
+
+35
+Project Narrative
+
+
+
+
+Pillars             Key activities
+Reduce     Establish a productivity support fund for direct provider investments in technology
+Provider   and efficiency improvements:
+Operating  •   Design funds for tools for productivity and efficiency (e.g., revenue cycle
+Expenses       management, billing, virtual staff augmentation, automation, ambient listening,
+               AI-enablement)62, g
+           •   Support technical assistance for service line planning and cost restructuring
+               (e.g., OB, BH, SUD) to align supply with local demand
+           •   Support shared-service collaboratives for purchasing infrastructure and
+               services (e.g., data analytics, care management, IT infrastructure,
+               administrative services, enrollment, credentialing), which may be enabled
+               through MSOs/CTOs
+Advance    Design and administer statewide, multi-payer payment models to improve
+VBC Models population health and cost of care on priority conditions (incl. behavioral health
+           and chronic disease management for diabetes, hypertension, cardiovascular
+           disease, COPD, asthma):
+           • Define standard, multi-payer VBC payment models that support providers
+               transitioning to total cost mgmt. and reward quality, including:
+               • A shared savings model for primary care (e.g., rural clinics, independent
+                   PCPs, primary care at rural hospitals)
+               • A shared risk model for TCOC with larger providers or collaboratives (e.g.,
+                   health systems, ACOs)
+               • Additional model(s) as needed to improve care outcomes and cost, such as
+                   for duals and BH/SUD (e.g., CMMI Innovation in BH, pay-for-
+                   performance for SUD or tied to foster care population outcomes, school-
+                   based VBC model to support behavioral health / reduce absences,
+                   collaboration with EMS for treat-in-place)
+           • Develop model design, performance metrics, and data-sharing infrastructure
+               (with appropriate protections) to support VBC uptake
+           • Coordinate with MCOs, payers, and providers to define model parameters and
+               participation agreements
+           • Fund centralized analytics, reporting and other activities to oversee model
+               operations and evaluate impact (supported by WVHIN)
+                    Provide implementation support to strengthen VBC participation:
+                    • Coordinate with centralized or regional resources (e.g., via CTO/ MSOs) to
+                       support providers in VBC participation – particularly smaller independent
+                       practices – by delivering shared analytics, contracting, care management, and
+                       technical assistance functions
+
+
+g
+    The State may design funding awards to best incentivize performance and outcomes (e.g., grants, forgivable loans)
+
+36
+Project Narrative
+
+
+
+
+                        •   Offer assistance on data management, quality improvements, and care
+                            model redesign
+                    •   Support providers in joining or forming ASOs or CINs (building upon existing
+                        infrastructure where possible) to enhance coordination, achieve scale, and
+                        participate effectively in VBC payment models
+                    •   Support tool implementation (e.g., AI analytics) to achieve VBC goals
+                    Provide startup funds and structured incentives to expand provider participation,
+                    according to narrow set of approved uses and eligibility criteria:
+                    • Limited fund uses include time-limited care-management or coordination
+                       payments as approved by application; analytics or data support incentive;
+                       match on shared savings achieved
+                    • Prioritize participation by rural and primary-care providers with defined
+                       funding limits and clear accountability metrics
+                    Expand PACE program implementation through SPA, providing startup funds to
+                    create new centers (private or state-run), where HRSA’s Rural PACE
+                    Planning/Development funding is not available
+
+           Critically, these efforts help provide an updated policy/payment spine to sustain other
+
+WV RHT initiatives benefiting from VBC approaches. VBC models are critically important to
+
+supporting the financial sustainability of preventative solutions in Personal Health Accelerator,
+
+recovery programs in Health to Prosperity Pipeline, and low-cost mobility solutions in Rural
+
+Health Link. By linking payment reform with programs that expand telehealth and RPM, address
+
+broadband and transportation barriers, and promote healthy lifestyles, these models ensure
+
+improved access translates into measurable outcomes. An MSO/CTO infrastructure can integrate
+
+data from Connected Care Grid to guide proactive, community-based care management, and
+
+Mountain State Care Force workforce alignment will enable local teams to deliver timely,
+
+coordinated, and cost-effective care. In this way, the Smart Care Catalyst becomes the financial
+
+engine and the operational glue that sustains population health improvement across the state.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal Innovative Care
+Use of Funds               B, D, F, G, I
+
+
+37
+Project Narrative
+
+
+
+
+Technical Score Factors     B.1 (Pop health clinical infrastructure), C.1 (Rural provider strategic
+                            partnerships), C.2 (EMS), E.1 (Medicaid provider payment
+                            incentives), E.2 (Duals), F.2 (Data infrastructure)
+
+Outcomes for Smart Care Catalyst
+Outcome 1: Improved provider productivity and admin efficiency
+Metric: Percent of providers scoring at median or better in quality and RVU productivity across
+participating provider entities
+Data notes: WV health system billing/EHR data, CMS Physician Fee Schedule (RVU File)
+Preliminary baseline & target: To be set during Stage 0
+Metric: Administrative cost reduction rate across participating provider entities
+Data notes: Initiative data tracking, provider financial reporting
+Preliminary baseline & target: Achieve 2% admin cost reduction across &gt;50% of facilities by
+Year 5
+Outcome 2: Expanded participation in VBC payment models
+Metric: Standard payment model definition and state support
+Data notes: Initiative data tracking
+Preliminary baseline & target: Baseline N/A, 1 model defined and aligned by end of Year 1
+Metric: % of rural lives covered by payers implementing new standard VBC payment models
+Data notes: Payer reporting, CMS and WV BMS enrollment data; at county level
+Preliminary baseline: Current state contract with MCOs has minimum of 12% of enrollees
+must be within APM arrangements
+Preliminary target: &gt;50% of lives covered by participating payers by Year 5
+Metric: % of eligible providers in new standard VBC payment models with at least one payer
+Data notes: Provider & initiative reporting; at county level
+Preliminary baseline & target: Baseline N/A, &gt;50% eligible providers participating by Year 5
+Metric: Percent of total rural lives attached to new standard VBC payment models
+Data notes: Data to be reported by participating Medicaid MCOs, State Health Benefits TPA,
+and other participating payers; at county level
+Preliminary baseline & target: Baseline N/A, 30% of rural lives attached to VBC payment
+models by Year 5
+Outcome 3: Achieve net savings, utilization improvement, and quality improvement
+Metric: Number and percentage of attributed members in VBC payment models achieving
+shared savings or total cost of care improvement relative to benchmark
+Data notes: Analysis of claims data for Medicaid MCOs, State Health Benefits program, and
+other participating payers
+Preliminary baseline & target: To be set during Stage 0
+Metric: Decrease ED visit / inpatient admissions rate for members in new VBC payment models
+Data notes: Analysis of claims data for Medicaid MCOs, State Health Benefits program, and
+other participating payers
+
+
+
+38
+Project Narrative
+
+
+
+
+Preliminary baseline & target: Baseline N/A, Reduce preventable inpatient admissions by 5-
+10%, preventable ED visits by &gt;10%, and preventable readmissions by &gt;10% by Year 5
+Metric: Percent of participating providers achieving improvements in core quality indicators as
+part of new standard VBC payment models
+Data notes: Reporting by participating payers
+Preliminary baseline: N/A
+Preliminary target: &gt;50% of participating providers show measurable improvement in quality
+metrics for majority of core metrics by Year 5
+Outcome 4: Expand community-based resources and improve transitions of care
+Metric: Percent of discharges in which patients receive a follow-up (in-person or virtual) with a
+qualified provider within 30 days of discharge among participants in VBC payment models
+Data notes: Provider data, payer reporting, WVHIN tracking
+Preliminary baseline & target: To be set during Stage 0
+Metric: All-cause readmission rate among providers participating in VBC payment models
+Data notes: Provider data, payer reporting, WVHIN tracking
+Preliminary baseline & target: To be set during Stage 0
+Metric: Percent of individuals at institutional level of care in community-based settings
+Data notes: WV Dept. of Human Services, BMS Medicaid LTSS data
+Preliminary baseline & target: To be set during Stage 0
+
+Key stakeholders: The Dept. of Health will spearhead this initiative in partnership with the
+
+Dept. of Human Services, WV Center for Rural Health Development, and vendor partners to
+
+support aspects of VBC development and implementation. This initiative will engage payers,
+
+provider networks, and associations to co-create and scale VBC approaches that work for WV’s
+
+rural healthcare ecosystem and communities. The WV PEIA will also be a partner and is
+
+expected to be an early adopter of VBC models.
+
+Impacted counties: All rural counties
+
+Estimated funding: $245M over five years ($49M per year)
+
+Implementation plan: The Dept. of Health will lead implementation, working with selected
+
+partners to establish the productivity framework and hold convenings to develop and pilot VBC
+
+payment models.
+
+
+
+39
+Project Narrative
+
+
+
+                                          Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+Sustainability plan:
+
+Pillar(s)           Sustainability Plan
+Reduce              Phase in multi-payer alternative payment models: Integrate Smart Care
+Provider            Catalyst payment models into Medicaid MCO, PEIA, and then commercial
+Operating           contracts, creating permanent reimbursement and incentive structures that
+Expenses            reward efficiency and quality
+and         Sustain shared-service collaborative(s) or MSO/CTO operations through
+Advance VBC membership and shared-service fees: After initial startup support, regional
+Models      collaboratives or MSO/CTOs will be financed via annual provider membership
+            and/or service contracts
+
+
+Initiative 5: Health to Prosperity Pipeline
+
+           The Health to Prosperity Pipeline will tackle health issues that pose barriers to
+
+employment, helping drive economic productivity and move rural adults from Medicaid or no
+
+insurance to employer-sponsored coverage. The State will support West Virginia’s workforce
+
+participation by connecting adults facing chronic disease, pain, or behavioral-health
+
+challenges to coordinated care and job placement. It will also help employees stay healthy
+
+and productive, embedding wellness and preventive services directly in the workplace.
+
+Partnerships between Medicaid MCOs, providers, employers, and higher education can promote
+
+
+40
+Project Narrative
+
+
+
+these return-to-work and stay-at-work outcomes. A greater focus on prevention and VBC
+
+(through Personal Health Accelerator and Smart Care Catalyst), expansion of innovative
+
+chronic, SUD, and disability solutions (incubated through HealthTech Appalachia), and ongoing
+
+employer partnerships and implementation of work requirements will help to embed these
+
+pathways and practices in perpetuity. Medicaid MCOs will have incentives to continue return-to-
+
+work efforts through performance incentives, including auto-assignment criteria or quality
+
+bonuses. The state will also augment RHT funds with targeted state investments of other state
+
+funds to build workforce participation.
+
+           Key pillars and activities for this initiative include the following:
+
+Pillar              Key Activities
+Help West      Establish integrated health-to-work programs for at-risk adults including
+Virginians Get identification, care support coordination, career coaching, job resources, and
+Back to Work wrap-around supports
+              • Expand health-to-work field-based liaison programs to focus on chronic
+                  illness management and recovery-to-work with liaisons placed within
+                  Connected Care Grid hubs or other existing entities
+              • Grow SUD recovery-to-work programs (e.g. ACCORNh) to provide full
+                  continuum of care63
+              • Enhance technical assistance in existing rehabilitation services (e.g., Dept. of
+                  Commerce Rehabilitation Services) and build a clinical rehab track focused on
+                  SUD treatment in target counties
+              • Include transition-to-employment supports for aging-out foster care youth,
+                  helping them access training and entry-level healthcare positions through
+                  Mountain State Care Force partnerships
+              • Standardize ready-for-work and return-to-work protocols with employers
+                  (e.g., job-specific pre-placement/fit-for-duty testing, early injury triage, and
+                  liaison-led benefits counseling)
+              • Invest in funding mechanisms tied to verified employment milestones, such as
+                  to cover non-clinical essentials (e.g., RPM devices transitional supports)
+
+
+
+
+h
+ Appalachian Continuum of Care for Overdose Reduction Network (ACCORN); See additional materials for further
+detail
+
+41
+Project Narrative
+
+
+
+
+            Provide MCOs performance incentives such as quality withhold and preferential
+            auto-assignment tied to employment and ESI-transition outcomes 64
+Keep People Develop worksite programs to help keep at-risk adults in current employers:
+Healthy and • Fund embedded occupational health and worksite wellness (on-site or mobile)
+Employed       at high-risk employers 65 to deliver prevention (e.g., hearing loss), rapid injury
+               care, and ready-to-work planning (e.g., Active Southern WV)66
+            • Coordinate disability and ready-to-work supports by improving cross-program
+               benefit tracking to prevent combined cash benefits from multiple programs
+               exceeding pre-disability earnings and ensure a speedy, safe return to work.
+            • Provide cost-sharing or insurance subsidies to employers hiring participants
+               from health-to-work programs to offset initial healthcare needs
+
+           This Health to Prosperity initiative will expand on existing successful WV programs
+
+(e.g., ACCORN, Division of Rehabilitation Services), using the WVHIN and Connected Care
+
+Grid for closed-loop referrals to improve outcomes. The initiative complements, not replaces,
+
+current workforce and treatment services by funding the “connective tissue” —liaisons, data
+
+integration, and outcome-based supports—and expansion capital needed for going beyond
+
+existing programs.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal          Make Rural America Healthy Again
+Use of Funds                     A, D, H
+Technical Score Factors          E.1 (Medicaid provider payment incentives)
+
+Outcomes for Health to Prosperity Pipeline
+Outcome 1: Reduced health barriers to entering employment
+Metric: Number of individuals supported back into the workforce via participating programs
+Data source: Program data for compliance monitoring and reimbursements; at county level
+Preliminary baseline & target: To be set during Stage 0
+Outcome 2: Participants stay employed and reduce Medicaid dependence
+Metric: 6-month job retention rate among program recipients 67
+Data source: Program data collected for compliance monitoring and reimbursements
+Preliminary baseline & target: To be set during Stage 068
+Metric: Increased labor force participation rate in WV
+Data source: Program data collected for compliance and reimbursements; at county level
+Preliminary baseline & target: Baseline state rate of 54.3%; Target to increase by 2 percentage
+points
+
+
+42
+Project Narrative
+
+
+
+
+Outcome 3: Employers adopt wellness/onsite care that improves preventive care uptake
+Metric: Number of employers offering additional on-site care that promotes chronic condition
+management, occupational wellness
+Data source: Program data collected for compliance monitoring and reimbursements
+Preliminary baseline & target: To be set during Stage 0
+Metric: Increase rate of employee preventative screening and primary care visits among
+participating employers
+Data source: Program data collected for compliance monitoring and reimbursements
+Preliminary baseline & target: To be set during Stage 0
+Outcome 4: Reduced health barriers to maintaining employment
+Metric: Decrease rate of employees who leave due to health conditions
+Data source: Program data collected for compliance monitoring and reimbursements
+Preliminary baseline & target: To be set during Stage 0
+
+Key stakeholders: The Dept. of Human Services will lead administration of these programs, in
+
+close collaboration with the Dept. of Commerce that will drive the employer partnership
+
+programs. As discussed below, both Departments will design and implement programs in close
+
+coordination with stakeholders leading existing job placement efforts (e.g., WIOA, Workforce
+
+WV regional boards) and care programs (e.g., ACCORN’s SUD-to-work program, RNI addiction
+
+treatment, Active Southern WV, behavioral health providers, chronic disease mgmt. solutions).
+
+The State Office of Rural Health will support recruitment and placement through its 3RNet rural
+
+provider network. Rural employers and associations (e.g., WV Behavioral Healthcare Providers
+
+Assoc., Toyota, WV Manufacturing Assoc.) will be key collaborators, hiring residents that
+
+improve their health and promoting onsite wellness to existing employees. Marshall Health
+
+Network has offered to partner through its Occupational Medicine and CORE programs to
+
+expand rural rehabilitation and recovery-to-work efforts. Additional coordination with
+
+WorkForce WV and Division of Labor will support data inputs for programming.
+
+Impacted counties: All rural counties will benefit.69 The initial phase could target counties that
+
+have a relatively lower labor force participation alongside lower unemployment rates, indicating
+
+untapped participation potential that can be unlocked by reducing health barriers.
+
+43
+Project Narrative
+
+
+
+Estimated funding: $65M over five years ($13M per year)
+
+Implementation plan: The Dept. of Health will lead implementation, working closely with
+
+Dept. of Commerce to initiate employer-partnerships and with local partners (e.g., ACCORN) to
+
+quickly design and stand-up liaison-based health-to-work programs.
+
+                                      Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+Sustainability plan:
+
+Pillar              Sustainability Plan
+Help West           MCO performance incentives: Incentivize MCOs to continue return-to-
+Virginians Get      work programs through performance incentives, which may include auto-
+Back to Work        assignment incentives (e.g., provide a greater share of auto-assigned lives for
+                    demonstrated success on return-to-work programs) and/or quality programs
+                    (e.g., include metrics in quality withhold).
+Keep People         Employer-provider partnerships sustain employer-based wellness:
+Healthy and         Wellness programs and clinics sustained through provider partnerships and
+Employed            ongoing insurance reimbursement.
+
+
+
+
+44
+Project Narrative
+
+
+
+
+Initiative 6: Personal Health Accelerator
+
+           The Personal Health Accelerator will build statewide wellness infrastructure targeting
+
+the state’s most prevalent chronic conditions and empower rural residents with education and
+
+financial incentives. Lifestyle factors (e.g., nutrition, inactivity, smoking) are some of the
+
+strongest predictors of preventable disease and lower life expectancy in rural WV counties.70
+
+The Personal Health Accelerator will empower West Virginians to take ownership of their
+
+health through nutritious food, exercise, and local care connections. Funds will kickstart
+
+efforts to support nutrition and lifestyle improvement, incentivize planning for aging-in-place
+
+and future home care needs, and integrate wellness promotion tracking into medical data
+
+systems—enabling rigorous tracking of outcomes. Coupling these efforts with RPM will support
+
+monitoring, creating synergies with Connected Care Grid. A co-investment model will engage
+
+local, private sector and provider partners to build local ownership in programs and sustainable
+
+funding streams. In addition, data-driven demonstrations of healthcare value to payers will help
+
+justify ongoing operational funding (e.g., Medicaid 1115, employer benefit integration, VBC
+
+programs).
+
+           Key pillars and activities for this initiative include the following:
+
+Pillar                Key activities
+Local Health          Create statewide challenge competition among counties/communities for
+Challenge             achieving health and lifestyle outcomes, with winners receiving awards:
+                      • Seed local groups (e.g., local health departments, local health alliances) to
+                         coordinate local efforts toward goals defined by WV RHT Leadership,
+                         potentially including
+                         • Student achievement on the Presidential Fitness Challenge
+                         • Measurable progress on childhood obesity
+                         • Other nutrition, exercise, lifestyle (e.g., smoking) outcomes that
+                             improve population health
+                      • Local leadership will lead efforts that achieve goals (e.g., nutrition,
+                         exercise, healthy outdoors initiatives)
+
+45
+Project Narrative
+
+
+
+
+                    •
+                   Targets will be set in collaboration with the Dept. of Health
+                    •
+                   Winning locales will receive a Governor’s proclamation of being a healthy
+                   community, along with financial incentives (e.g., playgrounds and park
+                   improvement, bike paths and trail renovation, greenhouses/gardens),
+                   funded through a combination of RHT and additional state funds
+               • WV will challenge neighboring states to participate in a state-to-state
+                   competition with similar goals
+Improve Health Improve prevention of obesity, diabetes, hypertension, and cardiovascular
+Outcomes       diseases by creating access to nutrition, lifestyle, and care interventions: 71
+Through        • Launch direct incentive-based weight management program in state
+Nutrition and      employee benefit plan:72
+Lifestyle          • Include pilot to incentivize state employees who choose high-
+                       deductible plans and health savings accounts (HSAs)
+                   • Provide small HSA contributions for engagement (e.g., activity
+                       milestones) and large contributions for outcomes (e.g., weight loss)
+                   • Incorporate RPM and direct incentive programs by tying financial
+                       rewards to RPM-tracked outcomes and targets73
+               • Fund demonstrations of innovative care models in partnership with
+                   FQHCs/CHCs, hospitals, payers, and other local partners (e.g., via local
+                   health alliances, home health, pharmacy):
+                   • Launch a Type 2 Diabetes reversal demonstration (e.g., enroll Medicaid
+                       patients in a ketogenic, remote-care model)74
+                   • Launch a Healthy Food Benefit Marketplace to support healthy
+                       nutrition (e.g., using an AI/smart SNAP model to deliver digital
+                       healthy-food credits through grocers and local farmers)
+               • Enhance food and wellness programs (e.g., locally grown produce
+                   prescription, healthy food access, healthy hospital menus)75
+
+                    Reduce hospitalizations and improve quality of life for individuals with COPD
+                    and asthma through early detection, monitoring, and management:
+                    • Use evidence-based smoking cessation incentive models, such as programs
+                       offering bundled financial rewards for verified abstinence 76
+                    • Tie to RPM programs that equip patients with connected devices and
+                       follow-ups to detect symptom flare-ups and prevent hospitalizations77
+                    Target behavioral health and SUD recovery by embedding wellness,
+                    prevention, and wraparound supports into treatment and community care:
+                    • Support integrated recovery-nutrition programs with peer-led wellness and
+                       movement as relapse-prevention (in collaboration with Health to
+                       Prosperity)
+                    • Provide direct incentives and support for mothers to reduce substance use
+                       and smoking to improve maternal health and infant outcomes
+
+46
+Project Narrative
+
+
+
+
+                          •   Deploy targeted strategies to mitigate neonatal abstinence syndrome
+                              (NAS) birth rates statewide
+                     Expand resources to support seniors and aging-at-home:
+                     • Create a long-term care resource hub with AI navigation linking seniors,
+                        families, and providers to aging, home, and community-based services
+                        (e.g., CaringWire)
+                     • Fund home- and community-based supports for families at risk of nursing
+                        home placement or Medicaid spenddown, including home modifications
+                        and caregiver assistance
+                     • Incentivize participation in education and evidence-based programs that
+                        help older adults manage chronic conditions and remain home safely
+Integrate            Develop shared referral and tracking systems by funding data integration
+Wellness into        between EHRs, WVHIN, and community resource databases—aligning all
+Core Medical         implementation with HIPAA requirements
+Data Systems         • Support development of shared referral and tracking infrastructure
+                       integrated with the WVHIN
+                     • Integrate a closed-loop referral system between healthcare and community
+                       service, enhancing existing investments (e.g., FindHelp capabilities)
+                     • Enable data sharing for food prescriptions, exercise programs, caregiver
+                       supports, and transportation to make prevention and wellness measurable
+                       and coordinated across care settings
+
+           This focus on personal wellness is supported by other policies and state programs,
+
+including WV’s SNAP soda-exclusion waiver, planned nutrition CME requirements, healthier
+
+options for women, infants, and children (WIC) state programs, aggressive efforts to clean up the
+
+food, and a statewide Mountaineer Mile fitness challenge launched in 2025 encouraging West
+
+Virginians to walk at least one mile a day. i The WV Food-is-Medicine Association and FARMacy
+
+WV already have active programs, which provide a strong foundation to rapidly expand on to
+
+reach rural communities.
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal          Make Rural America Healthy Again
+Use of Funds                     A, D, H
+
+
+i
+ Statewide initiative in West Virginia encouraging residents to walk at least one mile per day via designated
+“Mountaineer Mile” trails (West Virginia Office of the Governor)
+
+47
+Project Narrative
+
+
+
+
+Technical Score Factors            B.1 (Population health clinical infrastructure), B.2 (Health and
+                                   lifestyle), E.1 (Medicaid provider payments), E.2 (Duals)
+
+Outcomes for Personal Health Accelerator
+Outcome 1: Empower local health challenges
+Metric: Increase number of rural counties participating in a local health challenge
+Data notes: Initiative data tracking; county level
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+100% of rural counties participating by Year 5
+Metric: Ratio of matching dollars to RHT funded dollars in expenses of local health challenges
+Data notes: Initiative data tracking
+Preliminary baseline & target: Year 5 goal to attract enough matching funding to be self-
+sustaining (~1:1 match on non-start-up funds)
+Outcome 2: Increased participation in prevention and healthy living programs
+Metric: Increase percent of patients receiving nutrition or lifestyle counseling from a provider or
+dietician in target service areas
+Data notes: Medicaid claims and managed care encounter data, CMS Medicare data,
+Commercial payer reporting, WVHIN reporting; at county level
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+50% patients receiving counseling during routine care from participating providers 78
+Metric: Increase number of patients receiving food-as-medicine and activity prescriptions within
+participating programs
+Data notes: Program self-reporting, WV Dept of Health, WV Dept. of Agriculture
+Preliminary baseline & target: To be set during Stage 0
+Metric: Increase access and adherence rate for nutrition and exercise prescriptions
+Data notes: Clinical EHR systems, WV BPH, Community partner program logs; WVHIN
+closed-loop referrals, WV Dept. of Agriculture
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+50% adherence rate79
+Metric: Increase percent of eligible patients enrolled in at least one validated prevention,
+wellness, or digital self-management program through their insurance company (e.g., diabetes
+prevention, hypertension control, remote lifestyle coaching) in target service areas
+Data notes: Medicaid claims and payer reporting; at county level
+Preliminary baseline & target: Baseline to be collected during Stage 0; preliminary target of
+20-25% of eligible patients enrolled in insurance covered program 80
+Outcome 3: Reduced chronic disease burden and exacerbations in rural counties
+Metric: Decrease in adult obesity prevalence in rural WV
+Data notes: CDC PLACES data
+Preliminary baseline & target: Baseline: current 41% prevalence of obesity; Preliminary target
+to decrease prevalence by 4 percentage points to &lt;37% in 5 years
+Outcome 4: Improved maternal and child wellness
+
+
+48
+Project Narrative
+
+
+
+
+Metric: Decrease severe maternal morbidity and infant mortality rate among populations
+receiving interventions
+Data notes: WV Dept. of Health; WV Dept. of Human Services
+Preliminary baseline & target: Baseline infant mortality rate: 52 per 10,000, 81 Additional
+baseline and targets to be set during Stage 0
+Metric: Decrease Neonatal Abstinence Syndrome (NAS) birth rates
+Data notes: WV Dept. of Health
+Preliminary baseline & target: Preliminary target to decrease by 5-10% in 5 years; Additional
+baseline and targets to be set during Stage 0
+
+
+Key stakeholders: The Dept. of Health will lead implementation coordination, in partnership
+
+with WVHIN (for integrating wellness into data systems), PEIA (for embedding wellness into
+
+public employee insurance programs), WV Dept. of Agriculture (for partnership on locally
+
+grown food-based programs), medical schools (for partnership on research and innovative
+
+program design), and others. Local community sites (e.g., school-based health centers,
+
+employers, churches, food banks, local nonprofits) and healthcare access points (e.g., hospitals,
+
+FQHCs/CHCs) will be key partners to integrate and deliver wellness programming to rural
+
+communities. Philanthropic partners (e.g., Benedum Foundation), MCOs, and payers (including
+
+local employers) will be engaged to help financially sustain programs and recognize the value—
+
+an effort supported by the Smart Care Catalyst VBC work.
+
+Impacted counties: All counties will benefit.
+
+Estimated funding: $107M over five years ($21M per year)
+
+Implementation plan: The Dept. of Health will lead implementation, in collaboration with
+
+PEIA, WVHIN, WV Dept. of Agriculture, and selected community partners. Rollout of chronic
+
+disease management programs start within 12 months.
+
+
+
+
+49
+Project Narrative
+
+
+
+                                    Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+Sustainability plan:
+
+Pillar(s)          Sustainability Plan
+Local Health       Sustain through continued local engagement: The local health challenge
+Challenge          will build community engagement partners that can continue to drive
+                   coordination. Community incentives can be sustained after 5 years through
+                   non-monetary incentives (e.g., proclamations) as well as the transition to
+                   state-funded awards for measurable progress.
+Improve Health     Integrate wellness programs into payer programs: Embed successful
+Outcomes Through wellness and community-health programs into existing benefit design (e.g.,
+Nutrition and      PEIA HSA program), Medicaid program design (e.g., value-added
+Lifestyle          services) or waiver frameworks (e.g., 1115), making them reimbursable
+                   and part of payer operations rather than one-time projects.
+Integrate Wellness Sustain LTC/shared data/referral systems via subscription and payer
+into Core Medical support: After the grant period, support the statewide referral and data-
+Data Systems       platform spine through provider subscription fees and payer contributions,
+                   leveraging the WVHIN infrastructure, and incorporate ongoing
+                   participation into payer/MCO reporting requirements.
+
+
+
+
+50
+Project Narrative
+
+
+
+
+Initiative 7: HealthTech Appalachia
+
+           HealthTech Appalachia incubates and scales breakthrough technologies that improve
+
+rural health and productivity while drawing private investment to expand statewide impact. WV
+
+faces 20–45% higher rates of COPD, cardiovascular disease, and diabetes than the national
+
+average, along with an overdose death rate nearly twice the national average. 82 These conditions
+
+demand new, technology-enabled prevention and treatment tools. HealthTech Appalachia will
+
+foster tech-enabled innovations to address chronic disease management and SUD recovery,
+
+including through AI-enabled prevention and consumer tools to encourage nutrition, movement,
+
+and behavioral-health resilience. This public funding kickstarts an innovation ecosystem with
+
+long-term private market support.
+
+           The State will use a public-private collaborative to make investment decisions, blending
+
+public-private funds to accelerate scaling solutions that work in WV rural communities. To
+
+govern funding decisions, the State will establish a healthcare advisory investment committee
+
+appointed by the Governor. This may include representatives from medical schools (e.g., WVU,
+
+Marshall, WVSOM), government agencies (e.g., Dept. of Health), payers, the private sector, and
+
+consumers. The committee will rely on the WV Jobs Investment Trust (WV JIT) to administer
+
+awards, including diligence and award design. The State will augment the RHT funds with
+
+state dollars, supporting fund administration and technology incubation as needed to drive
+
+maximum impact. The funding process will filter to select solutions that promote healthcare
+
+quality and cost, creating value for payers and consumers. This initiative will seed innovations to
+
+make them accessible in perpetuity and drive sustainable outcomes.
+
+           Key pillars and activities for this initiative include the following:
+
+
+
+
+51
+Project Narrative
+
+
+
+
+Pillar     Key activities
+Incubate Provide seed grants to incubate new technologies that measurably improve access,
+and scale outcomes, and total costj - prioritizing the following 3 theses:
+new,       • SUD treatment & recovery (e.g., Rockefeller Neuroscience Institute (RNI)
+innovative    ultrasound neuromodulation to address the root causes of addiction)
+solutions • Chronic-disease control (e.g., Welldoc’s BlueStar FDA-cleared digital
+              therapeutic for diabetes with hypertension modules, RAIsonance AI
+              smartphone-based respiratory analysis for early COPD/ asthma detection)
+           • Consumer engagement in healthy living (e.g., AI-empowered health coaching,
+              Humetric AI triage/PHR with personalized safety alerts; Microsoft AI consumer
+              navigation; Higi retail/community risk screening; blood pressure cuff machines;
+              Topcon AI retinal screening in pharmacies/clinics, Rhino AI med adherence, or
+              similarly innovative products)
+                    Create an Accelerator to drive broad adoption in WV’s marketplace and benefits in
+                    rural communities. The Accelerator will provide innovation grants or forgivable
+                    loans to subsidize innovations. The following areas will be targets:
+                     • SUD treatment & recovery (e.g., RNI digital health and monitoring for
+                         addiction and recovery)
+                     • Chronic-disease control (e.g., Virta’s diabetes reversal at scale, Cadence
+                         titration support for cardiometabolic RPM)
+                     • Consumer engagement in healthy living (e.g., Omada Health’s connected
+                         lifestyle programs)
+                     • Care model innovations and commercialization (e.g., home dialysis, home
+                         infusion)
+                     • Advanced analytics and AI solutions for providers and payers (e.g., Moodr
+                         care mgmt. analytics, risk and predictive analytics)
+
+
+Mapping to strategic goals, use of funds, and technical score factors
+Main CMS Strategic Goal        Tech innovation
+Use of Funds                   A, C, H
+Technical Score Factors                F.3 (Consumer-facing technology)
+
+           HealthTech Appalachia is inspired by other, proven state innovation fund models while
+
+building on existing investment and startup incubation assets within WV.83 Existing research and
+
+
+
+
+ j
+   Grant funding will be contingent on compliance with robust data collection requirements via EHRs/HIE. Note that
+ listed solutions are non-comprehensive of range of eligible recipients.
+
+
+52
+Project Narrative
+
+
+
+translational commercialization assets include WVU’s Clinical and Translational Science
+
+Institute, WVU’s Innovation Corporation, WVU RNI, Marshall Health’s Clinical Research
+
+Center, and potentially the new WVSOM $35 million Bio Hub expansion.84 For instance, WVU
+
+RNI has developed innovative digital monitoring and ultrasound technology that can address the
+
+underlying drivers of cravings and addiction, which could directly support the Health to
+
+Prosperity Pipeline’s focus on helping adults avoid and recover from SUD challenges to reenter
+
+the workforce.85 Incubation pilots could be chosen in collaboration with payers and providers to
+
+prioritize models that drive outcomes, as discussed in the Stakeholder Engagement section.
+
+Target Outcomes for HealthTech Appalachia
+Outcome 1: Health improvements among target populations for funded solutions
+Metric: Increase abstinence rate, reduce relapse/usage rate among SUD patients using solutions
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Weight loss achieved for target populations using funded solutions
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Decrease diabetes patients with A1C &gt;9%
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Decrease 30-day all-cause readmission after an HF hospitalization
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Percentage of people in target population for funded solutions addressing hypertension
+whose blood pressure (BP) was adequately controlled (&lt;130/80 mm Hg)
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Decrease avoidable ED and inpatient admission rate in target population for funded
+solutions addressing diabetes, COPD, asthma, and congestive heart failure
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Improve asthma control for populations receiving relevant funded solutions
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Metric: Tobacco cessation rate for target populations using funded solutions
+Data notes: Payer and solution reporting at county level
+
+53
+Project Narrative
+
+
+
+
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Outcome 2: Innovative solutions are improving access to care
+Metric: Number of individuals benefiting from funded solutions on monthly basis
+Data notes: Payer and solution reporting at county level
+Baseline and target: Baseline set upon funding; investment committee to set targets
+Outcome 3: Innovative solutions are being funded and adopted in the market
+Metric: Number of incubated portfolio companies
+Data notes: Consortium institution reporting
+Preliminary baseline & target: Target of &gt;15 companies by 2030 86
+Metric: Number of healthcare start-ups supported by Accelerator adopted via incubation pilots
+Data notes: Accelerator compliance reporting through Dept. of Health
+Preliminary baseline & target: To be set during Stage 0
+Outcome 4: Initiative expands impact by attracting private capital
+Metric: Ratio of private/philanthropic capital to public RHT investment
+Data notes: Public-private collaborative institution reporting
+Preliminary baseline & target: To be set during Stage 0
+
+Key stakeholders: WV’s medical innovation hubs (e.g., WVU,87 Marshall Health,88 WVSOM)
+
+will provide healthcare expertise while local foundations and private investment partners (e.g.,
+
+Benedum, Appalachian Regional Commission, private equity & venture investors) will
+
+participate as co-investors.
+
+Impacted counties: All counties
+
+Estimated funding: $103M over five years ($21M per year)
+
+Implementation plan: WV is prepared to launch HealthTech Appalachia in early 2026. Early
+
+milestones include standing up the governance structure, including the healthcare advisory
+
+investment committee, and issuing the first seed grants within the first 8-12 months.
+
+
+
+
+54
+Project Narrative
+
+
+
+                                       Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+Sustainability plan:
+
+Pillar(s)          Sustainability Plan
+Incubate and scale Use sustainability as a criterion for funding: the funding governance
+new, innovative    process will prioritize solutions with a clear path to payer, provider, or
+solutions          consumer adoption, ensuring the innovations remain available in market in
+                   perpetuity.
+
+
+D) Implementation Plan & Timeline
+           WV’s implementation approach is designed to secure early wins that build momentum
+
+while staging activities to test, learn, and scale across rural communities. The Governor and
+
+Governor’s Office will provide overall leadership. The Dept. of Health will be the lead agency of
+
+the RHT Program Office (RHT PO). The Program Office (PO) will serve as the central hub for
+
+initiative coordination, budget management, and performance oversight.
+
+
+
+
+55
+Project Narrative
+
+
+
+                          Overview of West Virginia RHT Program Governance
+
+
+
+
+Key roles and responsibilities of these governing bodies include:
+
+ Role                 Responsibilities
+ WV RHT               •    Led by the Governor
+ Leadership           •    Provides high-level policy direction, interagency coordination, and
+                           barrier removal; monitors statewide progress toward RHT outcomes
+ RHT Program          •    The PO is the central coordinating and decision-making body for the
+ Office (RHT               RHT portfolio with primary authority for program oversight, budget, and
+ PO)                       coordination
+ Initiative           •    Each Initiative Workstream will have a state agency as an Executive
+ Workstreams               Sponsor that contributes support and cabinet-level accountability
+                      •    Each flagship initiative will be led by ~1 jointly-staffed Initiative Lead,
+                           co-embedded in the PO and their home agency
+                      •    Workstreams will manage day-to-day execution, lead deliverable
+                           tracking and problem-solving against initiative milestones, coordinate
+                           with delivery partners, and escalate issues to the PO as needed
+ RHT Advisory         •    Provides external consultation to RHT Leadership and PO, advising on
+ Panel                     program design, implementation progress, and opportunities for private-
+                           sector collaboration
+                      •    Key forum for ongoing stakeholder engagement, including
+                           representatives from health systems, academia, provider and community
+                           organizations, payers, and local governments
+
+           External project management and implementation support will augment the PO’s capacity
+
+as well as operational leads where needed. It is the intention of the state of WV that purchases
+
+
+
+56
+Project Narrative
+
+
+
+under this program shall be exempt from state purchasing laws to facilitate the expeditious
+
+implementation of RHT initiatives and to comply with the timing requirements of the grant.
+
+External partners can provide specialized technical assistance for data systems integration,
+
+payment reform modeling, evaluation and other specialized capabilities or surge capacity, as
+
+needed. The first 12-month implementation plan for PO governance can be found in the
+
+supporting materials. Early awards will be issued in Jan-Mar of 2026. Authorizing legislation
+
+will be passed by the end of Jan 2026. RHT PO will track milestones, budgets, and outcome
+
+metrics. Executive Sponsors will be accountable for monthly or quarterly progress and
+
+performance reports to the RHT PO. RHT PO data lead with initiative Program Managers will
+
+oversee data reporting for transparency and accountability.
+
+           See above for detailed implementation plans for Connected Care Grid, Rural Health
+
+Link, Mountain State Care Force, Smart Care Catalyst, Health to Prosperity Pipeline, Personal
+
+Health Accelerator, and HealthTech Appalachia. In addition to these initiative-specific plans, the
+
+RHT PO (with designated agencies) will lead cross-cutting implementation efforts, including the
+
+following:
+                                       Legend Stage 0-1: Planning Stage 2-3: Underway Stage 4-5: Full Implementation
+
+
+
+
+57
+Project Narrative
+
+
+
+
+E) Stakeholder Engagement
+           This WV RHT Application was built through a deep stakeholder engagement
+
+process, including broad public input, interviews, and Governor-led convenings:
+
+•    A statewide RFI generated ~3,000 pages of insights from 250+ respondents, including
+
+     providers, payers, tech companies, associations, academia, and citizens.
+
+•    The RFI was augmented with 50+ stakeholder discussions, including with rural healthcare
+
+     providers and payers, medical schools, local governments, and associations.
+
+•    Representatives of the Senate and House reviewed a draft to provide comments, and the
+
+     legislature’s Oversight Committee on Health was briefed on the RHT application strategy.
+
+•    In mid-October, the Governor convened 3 roundtables with 30+ organizations
+
+     represented to solicit input, co-hosting with Depts. of Health and Human Services.
+
+•    The Governor held a tele-townhall with 17.1k citizens in rural areas to gather input.
+
+•    State agencies (including the Depts. of Health, Human Services, Education, Agriculture,
+
+     Commerce, and Transportation) offered leadership across the application development.
+
+           Stakeholders have signaled broad support, evidenced by letters and statements of
+
+support from over 40 organizations, which are included in the supporting materials.
+
+           Going forward, a breadth of external stakeholders will be engaged through the RHT
+
+Advisory Panel and as initiative implementation partners. State agencies will serve as
+
+executive sponsors for initiatives, with representatives from populations and stakeholder groups
+
+incorporated as members of the Advisory Panel (e.g., rural patient advocates, local county health
+
+leaders, CHW representatives). To ensure continued stakeholder engagement beyond formal
+
+governance, WV will implement structured feedback and co-design mechanisms during
+
+implementation.
+
+
+
+58
+Project Narrative
+
+
+
+Early engagement strategies by initiative include:
+
+    Initiative                        Early Engagement Approach
+Connected Care • Engage with WVHIN, broadband partners, EMS, and healthcare data
+Grid             providers to co-design and align data and interoperability standards
+               • Host working sessions and interviews with providers and community
+                 representatives to identify and prioritize areas for access points
+Rural Health          • Form joint planning group with Dept. of Health, DOT, transit agencies,
+Link                    and NEMT vendors to co-design scheduling platform and mobility
+                        incentives
+                      • Hold community engagement sessions in early pilot counties to shape
+                        routes, incentives, and local capacity priorities
+Mountain State        • Convene planning group including Higher Ed, medical schools, and
+Care Force              providers to align training slots, grants, residencies, and pipeline programs
+Smart Care            • Co-develop models with payers, providers, rural hospitals, Dept. of
+Catalyst                Health, WV PEIA, Dept. of Human Services to shape early payment
+                        reform pilots and shared-service collaboratives
+Health to             • Conduct regional design roundtables with employers, MCOs, and
+Prosperity              workforce programs (e.g., ACCORN) to define pilots/incentives
+Pipeline              • Engage with state agencies to co-design data-sharing, incentive, and
+                        tracking frameworks that link health recovery to employment
+Personal Health       • Hold design workshops with local health alliances, community
+Accelerator             representatives, and philanthropic partners to define grant criteria
+HealthTech            • Co-design workshops with research institutions, health systems, and
+Appalachia              provider associations to define investment theses and fund structure
+                      • Engage rural hospitals, startups, and payers early to identify technology
+                        priorities and pilot sites
+
+
+
+F) Metrics & Evaluation Plan
+           West Virginia will evaluate the RHT Program using a unified performance framework
+
+that aligns CMS’s core priorities of access, quality, and sustainability to drive overall
+
+improvement in outcomes. The State will use a combination of existing data systems (e.g.,
+
+Medicaid, PEIA, WVHIN, hospital and FQHC reports, licensing data), augmented data sources
+
+(e.g., claims databases), and new program dashboards built through the RHT PO to enable
+
+regular monitoring. Across initiatives, baseline and target data will be defined (if needed) in Year
+
+
+59
+Project Narrative
+
+
+
+1, with measurable progress targets beginning in Years 2–3. Regular reporting is expected on a
+
+monthly, quarterly, or annual basis as needed for each initiative.
+
+           The State will conduct continuous performance monitoring through its RHT PO to
+
+inform frequent reviews and updates; this will complement long-term analysis of outcomes
+
+and economic impact. This will be supported by data partnerships with academic institutions
+
+and WVHIN. The State expects to engage external evaluation partners to complete dedicated
+
+evaluations for specific, large initiatives and activities (e.g., effectiveness of healthcare
+
+workforce retention programs). The RHT Leadership and PO will oversee evaluation processes
+
+to ensure programs are rigorous and leverage mixed-method approaches. West Virginia will fully
+
+cooperate with all CMS monitoring and third-party evaluations and will produce an annual RHT
+
+Performance Report summarizing statewide progress, lessons learned, and impact metrics.
+
+           See the detail above for detailed metrics for Connected Care Grid, Rural Health Link,
+
+Mountain State Care Force, Smart Care Catalyst, Health to Prosperity Pipeline, Personal Health
+
+Accelerator, and HealthTech Appalachia.
+
+
+G) Sustainability Plan
+           West Virginia is leveraging RHT funding to provide the catalytic startup capital
+
+needed to kickstart programs that can be durable long term. As part of this plan, WV is
+
+driving increased innovation, competition, and value-based structures that facilitate access while
+
+reducing the cost of healthcare services. See the detail above for detailed sustainability plans for
+
+Connected Care Grid, Rural Health Link, Mountain State Care Force, Smart Care Catalyst,
+
+Health to Prosperity Pipeline, Personal Health Accelerator, and HealthTech Appalachia.
+
+
+
+
+60
+Endnotes
+
+1
+  United Health Foundation (2024)
+2
+  USDA (2023)
+3
+  Department of Labor (2023).
+4
+  County Health Ranking (2024).
+5
+  Trust for America’s Health, The State of Obesity (2025); Centers for Disease Control and Prevention (CDC),
+Current Cigarette Smoking Among Adults in the United States (2024); America’s Health Rankings, Adult Smoking –
+West Virginia (2023)., Gallup
+6
+  National Survey on Drug Use and Health
+7
+  CDC Places, County Health Ranking; Saving Lives and Saving Money; The Economic Burden of Adults with
+MDD, National Survey on Drug Use and Health ; American Diabetes Association ; Takehealthtohear.org; CDC
+Chronic Disease fact; Direct Medical Costs of COPD; National Indicator Report COPD; CDC Asthma cost
+calculator; Cost of Asthma on Society
+8
+  U.S. Census Bureau Household Pulse Survey
+9
+  Bureau of Labor Statistics. Unemployment Rates by State (2025)
+10
+   Marshall University (Rural Health Transformation Initiative, RFI response, 2025)
+11
+   US Census Data (2019-2023)
+12
+   Moody’s (2024)
+13
+   County Health Ranking (2024). Note: Overdose mortality rates are ~58 in rural WV for every 100,000 people vs.
+28 nationally.
+14
+   March of Dimes. 2023 Maternity care deserts report for West Virginia.
+15
+   CDC (2024)
+16
+   USDA (2025)
+17
+   West Virginia University. Telehealth for West Virginians in Rural Areas (2024)
+18
+   Rural Health Innovation Hub (2025)
+19
+   The national US average ratio is 19:1 (population : healthcare worker). Healthcare workforce was defined as
+employment of 2-digit soc codes: 29-0000 Healthcare Practitioners and Technical Occupations and 31-0000
+Healthcare Practitioners and Technical Occupations. This is calculated as Total population / healthcare employment
+in a specific county.
+20
+   Lightcast. This pattern is especially pronounced in key clinical roles. Among RNs, 25% are aged 55 or older and
+5% are 65 and above, while among physicians, 31% are aged 55 or older and 11% are 65 and above.
+21
+   Myers and Stauffer Provider Network Adequacy Review of MCOs (2025)
+22
+   Moody’s (2024)
+23
+   Moody’s (2024)
+24
+   Federal Reserve Bank of St Louis (2025)
+25
+   Starting January 1, 2026, SNAP benefits in WV can no longer be used to purchase soda—regular, diet, or zero-
+calorie (West Virginia Department of Health)
+26
+   Matching-incentive doubling/tripling SNAP/EBT value for produce at local markets in WV (SNAP Stretch)
+27
+   At West Virginia University School of Medicine the four-year Culinary & Lifestyle Medicine Track (CLMT) runs
+alongside the standard MD curriculum, offering enhanced training in nutrition, food science and preparation,
+lifestyle management, physical activity and sleep (WVUSOM)
+28
+   SB 533 (2024) authorizes EMS agencies in WV to triage, treat in-place, or transport patients to alternate
+destinations—telehealth/medical coordination required—and mandates insurance coverage (WV Legislature)
+29
+   WV SB613 (2023)
+30
+   SB 458 (2025) establishes the “Universal Professional and Occupational Licensing Act,” allowing license-eligible
+individuals from other states to obtain equivalent West Virginia credentials without examination; West Virginia
+participates in multiple interstate licensure compacts, including IMLC (physicians), PA (physician assistants), eNLC
+(nursing), PT Compact, REPLICA (EMS), and PSYPACT (psychology) (West Virginia Legislature) Existing
+compacts: Physicians: WV has enacted the Interstate Medical Licensure Compact (IMLC) in state law (W. Va. Code
+§ 30-1C-11);PA: WV is an active member in the PA compact (W. Va. Code § 30-3G-1); Nursing: WV participates in
+the Enhanced Nurse Licensure Compact (eNLC) since 2018 (W. Va. Code § 30-7F-1); Physical Therapy: WV is
+active in the PT Compact (W. Va. Code § 30-41-1); EMS: WV is active in the EMS Compact (REPLICA) (W. Va.
+Code § 16-60-1); Psych: WV is an active member of PSYPACT compact (W. Va. Code § 30-21A-1)
+31
+   West Virginia Code Chapter 16, Article 60
+32
+   West Virginia mandates that private insurers and Medicaid cover telehealth services on the same basis as in-person
+care; The state also allows out-of-state practitioners to provide telehealth services through a special interstate
+registration process, and participates in multiple licensure compacts Center for Connected Health Policy
+33
+   Potential “spoke” access point through telehealth kiosk (clinic in a box) that is private, secure, ADA-compliant
+care station that delivers real-time virtual healthcare. Kiosks could be equipped with integrated diagnostic tools such
+as stethoscopes, high-resolution cameras, self-cleaning, and other vital sign monitoring to enable clinician-guided
+exams across primary, urgent, behavioral, and post-acute care.
+34
+   Across &gt;30 randomized trials, RPM for diabetes, heart failure, and COPD lowered hospitalizations by 25–30%,
+improved HbA1c by 0.5–1.2 percentage points, and reduced all-cause mortality by up to 20% (BMJ, 2022; JAMA
+Netw Open, 2023; CMS Innovation Center, 2024).
+35
+   California example: limited-term per e-consult incentive: Health Net implemented a $70 e-consult incentive
+payment to encourage provider adoption of virtual specialty consultations. Health Net eConsult Incentive Flyer,
+2020; Colorado example: time-bound incentives: Colorado has adopted time-limited e-consult incentive payments to
+expand provider participation in telehealth and e-consult services. Colorado eConsult Newsletter, July 2024
+36
+   Benchmarked against Cigna study evidence that virtual care can reduce ER visits by ~20%
+37
+   SageJournals Study
+38
+   Rural Health Information Hub suggests 1 in 5 care visits can be performed virtually
+39
+   Benchmarked against national average AMA
+40
+   Accounting for top portion of utilizers with chronic conditions contributing disproportionate amount to healthcare
+expenditure
+41
+   Benchmarked against results from Michigan Medicine RPM study
+42
+   Benchmarked against national average KFF
+43
+   Virtua Health’s transport platform in New Jersey resulted in a &gt;50% reduction in average cost per ride and a 20%
+improvement in inpatient bed availability. The Missouri HealthTran program found that every $1 invested in the
+mobility resources generated $7.50 in reimbursed health-care services, reinforcing the potential for strong return on
+investment and long-term sustainability of this mobility investment.
+44
+   Per-1,000 rates are derived from Modivcare analytics: 12,500 monthly users = 2.3% uptake, implies eligible
+denominator of 543,000. Baseline 1.8M one-way rides/year converts to 3,312 per 1,000. Target 3.6M converts to
+6,624 per 1,000. Method consistent with HHS/Mathematica reporting conventions for NEMT utilization.
+45
+   Assumes baseline of 2,077,765 rides per year based on Modivcare provided data and ~543,478 eligible people
+based on Modivcare statistic of 2.3% uptake at 12,500 unique riders per month. Target reflects goal to double uptake
+by eligible participants by 2031 maturity.
+46
+   Many state contracts define OTP to the appointment, not just pickup. Example: Michigan’s Modivcare contract
+requires ≥90% arrive no later than appointment time and ≥85% pickups within ±15 minutes.
+47
+   Based on Modivcare provided data; ADA paratransit guidance and industry benchmarks commonly target ~90-
+96% on time performance with 15-30 minute windows according to the FTA and industry standards DREDF.
+48
+   Outpatient no-show rates commonly fall within 15-30% in the literature (Empowered-Home.com and
+CaringWire); Research by Kentucky University shows no show rates for satellite/rural locations is ~25% compared
+to 19% at main medical campus location; NIH National Library of Medicine; Fabric Health suggested in RFI
+response ability to reduce baseline no-show rate by 25-30%
+49
+   Defined as ED visits for ambulatory-care-sensitive/avoidable causes per 1,000 members (i.e., flag “used
+transportation assistance vs. not”); Uses AHRQ’s ED Prevention Quality Indicators (PQEs) area level ED visit rates
+for conditions where good ambulator care can prevent ED use.
+50
+   Lightcast. This pattern is especially pronounced in key clinical roles. Among RNs, 25% are aged 55 or older and
+5% are 65 and above, while among physicians, 31% are aged 55 or older and 11% are 65 and above.
+51
+   Rural residency programs increase physician retention in rural practice by 35–60% compared to traditional
+residencies (HRSA Rural GME Evaluation, 2023). Graduates of rural tracks are 2.3× more likely to remain in rural
+communities after training (JAMA, 2022).
+52
+   South Carolina AHEC Rural Provider Incentive program
+53
+   https://www.ama-assn.org/sites/ama-assn.org/files/corp/media-browser/public/about-
+ama/councils/Council%20Reports/council-on-medical-education/a07-cme-incentive-access-care-
+underserved.pdf#:~:text=A%20number%20of%20states%20have,years%20of%20the%20taxable%20year
+54
+   Ascend WV is a local recruitment program that has successfully attracted new workers into the state using a
+variety of marketing, incentive, and concierge tools.
+55
+   Project ECHO models have demonstrated 20–40% improvements in guideline adherence for chronic and
+behavioral-health conditions, a 17% reduction in provider isolation scores, and expanded specialty reach to 92% of
+previously unserved counties in participating states (NEJM Catalyst, 2022; AHRQ, 2023).
+56
+   Equivalent to ~1 full class of rural high-school students across all rural counties
+57
+   2024 West Virginia Health Sciences and Rural Health Report
+58
+   Potential target placement rate benchmark: 77% of class of medical graduates who completed primary care
+residency in West Virginia remained in state at the conclusion of their Training. Source: WVSOM Rural Health
+Initiative RFI Response
+59
+   Benchmarked off of HRSA minimum adequate ratio
+60
+   Benchmarked off of National Health Service Corps results with &gt;80% of participants practicing in service
+communities after initial commitment
+61
+   CMS Health Expenditures by State of Residence
+62
+   AI-assisted clinical tools improve diagnostic accuracy by roughly 10–15% and reduce provider documentation
+time by 30–45%, allowing clinicians to spend more time in direct care (AHRQ Digital Health Evaluation, 2023;
+NEJM AI, 2024). Early rural pilots reported modest efficiency gains without compromising quality
+63
+   Appalachian, Continuum of Care for Overdose Reduction Network (ACCORN) is an ARPA-HEROES program
+that received $20M in startup funding from the West Virginia First Foundation. Full continuum includes prevention,
+same-day treatment, telehealth, peer recovery, and pay-for-outcomes contracts tied to employment stability. See
+additional materials for further detail
+64
+   WV Quality Withhold is 1% of aggregate capitation; withhold begins 7/1/2025 WVDHS p. 33; Auto-assignment
+equal-share requirement in WV Code; CMS bonus headroom up to 105% of capitation (≈5%). Provide MCO
+performance-based incentives with preferential auto-assignment tied to employment and ESI-transition outcomes.
+Highlight plan's results in helping eligible adult participations with job placement, job retention for 12 months, and
+healthcare coverage for 12 months
+65
+   e.g., mining, timber, manufacturing
+66
+   A 2025 systematic review of 10 U.S. studies in the Journal of Occupational and Environmental Medicine found
+9/10 worksite health center evaluations reported positive employer ROI, supporting onsite/near-site or mobile
+primary/BH services.
+67
+   Implies population denominator for all award recipients with &gt;12 months of observation
+68
+   Informed by industry standards, HR Executive, The Work Institute
+69
+   BLS LAUS, Lightcast, Moody’s; Low labor force participation rate is defined as lower than national average
+62.3%, low unemployment rate is defined as lower than national average 4.3% in Jul. 2025
+2. The non-institutional population aged 16 and over includes all civilians not in institutions or military and is
+eligible to participate in the labor market
+70
+   CDC Places
+71
+   Evidence-based prevention programs have demonstrated strong and durable impacts: the NIH Diabetes Prevention
+Program reduced diabetes incidence by 58% initially and 34% at 10 years (NEJM, 2002; Lancet, 2009); smoking
+cessation delivers one of the highest health returns, saving $2–$3 for every $1 invested (American Lung
+Association, 2023); and prenatal nutrition and breastfeeding supports reduce preterm birth, low birthweight, and
+infant mortality (USDA FNS, 2021; AHRQ, 2020).
+72
+   Modeled on evidence from JAMA published study
+73
+   Modeled on UnitedHealthcare and Qualcomm Life program providing RPM devices and financial rewards to
+employees meeting daily step goals
+74
+   Funding for continuous glucose monitoring, AI-assisted nutrition coaching, and clinician oversight (with
+demonstration potentially operating under a Section 1115 waiver) This model has been proven to reduce HbA1c by
+≥1%, achieves ≥35% medication reduction, and saves a n average of $12,600 per participant annually. This
+demonstration will operate under a Section 1115 waiver, enabling bundled payments tied to outcomes and
+integrating with value-based care arrangements through Medicaid MCOs. Demonstrated ROI (3:1–5:1) supports
+permanent adoption statewide.
+75
+   The national GusNIP program found produce prescriptions improved healthy food intake and contributed to A1c
+improvements for diabetics.
+76
+   Clinical trials have been shown to achieve quit rates more than triple usual care (NEJM Penn/GE study)
+77
+   Modeled on evidence from UC Davis Health initiative
+78
+   Benchmarked off Michigan Institute for Healthcare Policy & innovation study
+79
+   Benchmarked off of Massachusetts Produce Prescription Benefits Redemption study
+80
+   Benchmarked off of 9.5% enrollment rate among eligible population over 4 years in covered diabetes prevention
+program plus uplift from HSA incentive program
+81
+   County Health Ranking
+82
+   County Health Ranking (2024). Note: Overdose mortality rates are ~58 in rural WV for every 100,000 people vs.
+28 nationally.
+83
+   Massachusetts’s The Digital Health Sandbox Program, Vermont’s Green Mountain Accelerator Fund
+84
+   The Real West Virginia.com
+85
+   West Virginia Rural Health Transformation Request for Information, p. 29
+86
+   Assumes total range of potential spend is $2-$3M across 15-22 deals over 5-year period
+87
+   Including the WVU Clinical and Translational Science Institute
+88
+   Appalachian Continuum of Care for Overdose Reduction Network
+

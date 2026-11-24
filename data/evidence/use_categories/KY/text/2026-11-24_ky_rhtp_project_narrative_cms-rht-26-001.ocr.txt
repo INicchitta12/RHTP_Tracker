@@ -1,0 +1,2663 @@
+OCR (tesseract 5.3.4, --psm 4, 200 dpi grayscale) of 2026-11-24_ky_rhtp_project_narrative_cms-rht-26-001.pdf, whose text layer is unusable (Type 3 fonts with no ToUnicode). Written 2026-11-24. OCR errors are possible; letters were checked against the page images. '&lt;' and '&gt;' are written as '&lt;' and '&gt;'.
+
+=== page 01
+KENTUCKY RURAL HEALTH TRANSFORMATION
+
+PROGRAM APPLICATION
+Project Narrative
+
+TABLE OF CONTENTS
+
+Rural Health Needs and Target Population ..0.....cceeeeeseneeesseseneeseseeeeecseseeesscseeeeesseneeesaesesesseeeee 2
+Rural Health Transformation Plan: Goals and Strategies ..0.......c.ccsccecceesesseeeeeeeseeseeeeseeseeeeneeaeereeees 8
+Proposed Initiatives and Use of FUnds.........ccccccccescesessessesesseseeseeeeeeseeseecseeseeeceesaeeaeeeeaesseeeeeeasenees 18
+Implementation Plan and Timeline... eccecceccesesseseeseeeeseeseceseeseeseeeseeseeeeecaeeaeeeeseeseeeeneeaeeaees 47
+Stakeholder Engagement .0..0.0.. cc ccesscsseseseseneeseseseeeeseseecescseeeecescseeeeseseseeseaceeeecaeeeesscaeeesatseneeeeaeees 50
+Metrics and Evaluation Plan ........cececesssesceceseeseeseeeeseesceceseeseescsecseeaeeeceecaeeaceeseesaeeaeeeeaeseeeesereaeeases 53
+Sustainability Plano... ccceeesceseesceeeeeseesceeeseeseeecseeseeecseesesseeecsesaeeaeeesaeeaeaeeesseseeeesaeeaeeaeeeseteasees 55
+Endnotes... cceccecssessesesceeecseseeeescseseeseseseeecscscsesescseescsesseescseeaseescsseecaeseseeasaceeeesseaseesseseesasseeeeeeas 61
+Commonwealth of Kentucky 1
+
+=== page 02
+RURAL HEALTH NEEDS AND TARGET POPULATION
+
+The Commonwealth of Kentucky is the 10" most rural state in the country, with 1.87 million
+constituents (41.6%) of its total state population residing in a rural area as defined by HRSA
+(inclusive of the Goldsmith Modification)! and designated as the specific criterion for identifying
+rural areas in this application (see Appendix A and Appendix B in Other Supporting
+Documentation). The target population includes all rural residents within 109 rural and non-
+metropolitan counties identified by this HRSA definition, representing 90.8% of the total 120
+counties in the state. These rural communities face some of the most significant health access
+challenges in the Commonwealth and across the country, including high rates of chronic disease,
+maternal health deserts, behavioral health crises and limited access to preventive dental care and
+emergency services. To systematically address Kentucky’s rural health needs, we have designed
+five interrelated initiatives to build rural health infrastructure and provide sustainable
+improvements. Our program is designed to directly serve Kentucky’s rural counties while
+delivering broader, statewide impact through innovation, technology-enabled care, and
+strengthened clinical and non-clinical workforce recruitment pipelines. Our Rural Health
+Transformation Plan (RHTP) strategy will create a resilient, integrated, and technology-enabled
+
+health system across the Commonwealth.
+
+Rural Demographics
+
+Rural Kentucky is characterized by the proud, resilient nature of its communities along with
+several challenges that impact access and quality of health care, including geographic dispersion
+of rural populations requiring longer travel times to access care, limited access to primary care
+providers and specialists, and higher rates of chronic diseases and preventable hospitalizations
+compared to urban areas. These health challenges are exacerbated by socioeconomic factors
+
+shaping rural health in Kentucky (see Figure 1).
+
+Commonwealth of Kentucky 2
+
+=== page 03
+Socioeconomic
+
+Fact Rural/Non-Metro Kentucky Implication for Kentucky RHTP strategy
+actor °
+
+Improving rural health access will require
+investment in technology and a workforce
+focused on community-based, decentralized
+
+1.87 million residents; Population density in
+tural counties averages below 50 persons per
+
+Population Size square mile, with 70% of the area classified as
+
+and Density _ 5 . : . care for chronic care, maternal health,
+low-density (&lt;30 persons/sq mi), Particularly 1 | behavioral health, dental health, and
+eastern Appalachian and western regions. emergency management services.
+
+; Limited preventive care and behaviors (e.g.,
+Median $52,000, which is significantly lower than healthy food, exercise) result in higher rates
+Household metro average of $64,526. of obesity, diabetes, heart disease, asthma,
+Income mental health, and lower life expectancy.
+
+15.5% of adults lack a high school diploma Lack of access to education and employment
+Education and (74% higher than metro areas), only 10.2% of correlates directly with poor health literacy,
+Employment tural residents hold bachelor’s degrees, and health outcomes, and engagement in disease
+non-metro unemployment rate is 4.7%. self-management programs.
+Health 7.5% Uninsured Rate (Ages 0-64) in non-metro | Lack of health insurance impacts access to
+Insurance counties, which is 50% higher than the metro care and reduces resources available to
+Coverage rate. community hospitals and health facilities.
+
+Figure 1. Kentucky Rural Health Socioeconomic Conditions
+
+Health Outcomes
+
+According to America’s Health Rankings, Kentucky ranks 41‘ out of 50 states.? Average life
+expectancy ranges from 64.5 to 79.7 years across counties, with a lower life expectancy in
+counties within Eastern rural areas, such as Harlan, Owsley, and Perry.* To address this,
+Kentucky’s RHTP strategies target five critical rural health priorities that disproportionately
+impact our rural Kentuckians: 1) chronic disease, 2) maternal health, 3) behavioral health, 4) oral
+health, and 5) emergency medical services (EMS) and trauma systems.
+
+1) Chronic Disease: Kentucky faces a high burden of chronic disease, including cardiovascular
+disease, chronic obstructive pulmonary disease, obesity, and diabetes (see Appendix C in Other
+Supporting Documentation). Among these, diabetes disproportionately affects rural communities
+and is a critical priority due to its high prevalence, severe mortality impact, and substantial cost
+burden. Current efforts focus heavily on downstream care targeting complications and
+hospitalizations rather than upstream prevention, a reactive model that perpetuates a cycle of
+
+high costs and poor health outcomes. Over the past decade, the state’s age-adjusted diabetes
+
+Commonwealth of Kentucky 3
+
+=== page 04
+mortality rate has been 11.4% to 39.2% higher than national rates.° Kentucky consistently ranks
+among the ten worst states for both adult diabetes prevalence and diabetes-related mortality (see
+Appendix D in Other Supporting Documentation).° Additionally, over 100,000 Kentuckians are
+unaware they are diabetic,’ and only half of adults were screened for diabetes in 2021.8 Access to
+evidence-based programs such as the Diabetes Prevention Program (DPP) and Diabetes Self-
+Management Education and Support (DSMES) is limited, and participation is low. In 2023, only
+0.4% of adults with diagnosed diabetes (718 of 172,735) engaged in DSMES. Barriers such as
+transportation, income, access to affordable healthy food, and safe places for physical activity,
+especially prevalent in rural areas, further restrict progress.°
+
+2) Maternal Health: Kentucky faces a maternal health crisis, with nearly 46% of its counties
+classified as maternity care deserts and 58% of rural women living over 30 minutes from a
+birthing hospital (see Appendix E in Other Supporting Documentation), contributing to
+inadequate prenatal care for 14.9% of maternity patients statewide.'° Kentucky’s maternal
+mortality rate for pregnancy-associated deaths is among the highest in the US, with nearly half
+its counties lacking obstetric services. While pregnancy-related deaths are small, non-obstetrical
+causes (e.g., substance use disorder and mental health) lead to 82% of maternal deaths being
+deemed preventable by the state’s Maternal Mortality Review Committee.'' More than 50% of
+maternal mortality occurs after delivery, with most deaths happening between 43 days and one
+year postpartum.!? As of 2020, Kentucky ranked 33" out of all 50 US states in infant mortality,
+and Kentucky’s infant mortality rates have increased in recent years.'? Kentucky’s preterm birth
+rate, a leading driver of infant mortality, long-term disability, and high healthcare costs, is 11.3%
+
+(2023), exceeding the national average of 10.4% and ranking 42" in the nation.'*
+
+Commonwealth of Kentucky 4
+
+=== page 05
+3) Behavioral Health: Rural Kentucky has high rates of untreated mental illness, suicide, and
+overdose. Suicide is a leading cause of death in Kentucky, ranking among the top five for adults
+under 45 and 13" overall across age groups.!&gt; Costs associated with Kentucky’s opioid use
+disorder (OUD) and fatal overdoses (e.g., substance use treatment, criminal justice, lost
+productivity, reduced quality of life, etc.) totaled nearly $24.5 million in 2017, with per-resident
+
+costs among the nation’s highest.!°
+
+With limited mental health professionals in rural Kentucky
+people (see Appendix F in Other Supporting Documentation), such as 30 psychologists per
+100,000, !” behavioral health crisis response too often falls to first responders and emergency
+departments (EDs). In Kentucky, EDs have reported about 1.1 million annual diagnoses of
+mental illness or substance use disorder every year since 2020.'* The problem continues to grow
+as post-pandemic data shows worsening pediatric boarding with a disproportionate impact on
+rural youth, high ED utilization, and deepening rural behavioral health workforce shortages.
+
+4) Oral Health: Oral health is linked to chronic disease prevention, diabetes management,
+behavioral health recovery, and maternal care, positioning this initiative as a lever for whole-
+person health and healthcare cost reduction. Rural residents experience higher rates of untreated
+tooth decay, gum disease, and tooth loss compared to urban residents, driven by geographic
+isolation, transportation barriers, and a shortage of dental professionals.'? The dental workforce
+is heavily concentrated in urban areas, leaving the vast rural western Kentucky and eastern
+Appalachian region underserved (see Appendix G in Other Supporting Documentation). There
+are severe dental care workforce shortages in 32 counties that have dentist-to-population ratios at
+or above 1:5,000, far exceeding the national average of 1:1,360. Additionally, five Kentucky
+counties having no practicing dentists at all.2° Due to the high expense of dental training
+
+programs, schools like the Kentucky Community and Technical College System (KCTCS) have
+
+Commonwealth of Kentucky 5
+
+=== page 06
+not been able to keep up with the immense demand for hygienist slots.”! The negative impact on
+constituents is apparent: 42.4% of Kentucky adults did not visit a dentist in the past year, and
+rural Appalachian counties have the lowest dental visit rates and the highest rates of complete
+tooth loss among seniors. Nationwide, nearly 45% of adults aged 65+ have lost six or more teeth,
+and 23% have lost all their natural teeth due to decay or gum disease.” Additionally, preventable
+non-traumatic dental presentations (NTDPs) drive significant costs in acute care settings with
+emergency department visits for these conditions exceeding $44 million in 2019.7
+
+5) EMS and Trauma System: Timely response to a health emergency is critical for many
+conditions including strokes, heart attacks, respiratory distress, and trauma. Compared to
+national benchmarks, Kentucky’s emergency management systems performance demonstrates
+several areas for improvement, most notably in pre-hospital assessments and information
+documentation to support the care team.”4 Kentucky lacks a centralized hub to coordinate
+emergency medical and trauma system response, leading to inefficiencies in patient transport and
+adversely impacts the quality and timeliness of medical interventions for rural residents,
+particularly for natural disasters or medical surges.”&gt; A core challenge for rural Kentucky’s EMS
+and trauma services is a large geographic workforce gap as 45% of licensed paramedics are
+concentrated in the five largest metropolitan counties, leaving only 1,631 paramedics for the 115
+remaining counties.”° In fact, 91.7% of Kentucky counties are ambulance deserts where people
+or places are at least 25 minutes away from the nearest ambulance station (see Appendix H in
+Other Supporting Documentation).”’ Fatality rates from vehicular accidents in rural areas are
+almost twice as high compared to those in urban areas. The importance of investing in rural EMS
+
+and trauma response systems cannot be understated.”*
+
+Healthcare Access
+
+Healthcare access in rural Kentucky is a consistent challenge across our five rural health focus
+
+Commonwealth of Kentucky 6
+
+=== page 07
+areas. Geographic isolation and provider shortages remain a significant barrier to health care
+access and outcomes improvement. In fact, 107 of Kentucky’s 120 counties are designated as
+Health Professional Shortage Areas (HPSAs)*’ with 94% of Kentucky’s rural areas facing a
+primary care physician shortage compared to 65% nationally, according to a 2023 HRSA report.
+Maternal health deserts force Kentuckians to travel an average of 20.3 miles to the nearest
+birthing facility, with those living in counties with the top 20% highest travel times facing up to
+70.4 miles (78 minutes on average) to reach the nearest birthing facility.&gt;° Similarly, access to
+behavioral health is strained by severe provider shortages in Kentucky.*! For dental health, 32 of
+Kentucky’s rural counties have severe workforce shortages with dentist-to-population ratios that
+are 73% below the national average.*” With regard to EMS and trauma systems, the Kentucky
+Office of Rural Health (KORH) found that only 60% of rural counties have sufficient access to
+these services. While telehealth has begun to bridge the gap, Kentucky ranks 41* of 50 states in
+percentage of households with reliable broadband and a computer, smartphone or tablet required
+for telehealth access.*&gt;** In fact, a 2023 analysis of rural communities in the Appalachian region
+of Eastern Kentucky found nearly 17% of households had no internet subscription or access
+through dial-up or broadband.*°
+
+The Kentucky rural health facility landscape includes 29 Critical Access Hospitals (CAHs), 420
+Rural Health Clinics (RHCs), 41 Short Term/PPS Hospitals, two Rural Emergency Hospitals,
+and 414 Federally Qualified Health Centers (FQHCs) sites (see Appendix I in Other Supporting
+Documentation).*° These rural health facilities typically have operating margins of ~1-2% given
+the higher percentage of Medicaid patients.*” According to research from KORH, the total
+number of rural Kentucky hospital closures has increased to seven since 2010, with another 35
+
+rural hospitals at risk of closure (one of the highest states nationally).**°°
+
+Commonwealth of Kentucky 7
+
+=== page 08
+Target Populations and Geographic Areas
+
+Kentucky’s RHTP drives improvements in sustainable health access and prevention across
+90.8% of the Commonwealth (109 of 120 counties designated as rural and non-metropolitan
+counties). Moreover, these rural community improvement efforts will promote innovations in
+clinical care and strengthen technology and data infrastructure that will benefit the entire state.
+We have selected five rural health priority focus areas that address health conditions and rural
+populations most affected by gaps in care and access across Kentucky, including diabetes and
+other chronic conditions, pregnant and postpartum women and infants in maternity care deserts,
+individuals experiencing behavioral health crises, residents lacking access to preventative dental
+care, and patients experiencing medical and trauma emergencies requiring timely prehospital
+emergency management services. For each priority focus area, Kentucky has designed
+sustainable care innovations that will be piloted in specific regions and rural counties during the
+first budget period of RHTP funding. These rural health innovations will be refined and scaled
+across other regions and counties over the five-year period.
+
+RURAL HEALTH TRANSFORMATION PLAN: GOALS AND STRATEGIES
+Kentucky’s RHTP is a bold step forward to reimagine rural health care across the
+Commonwealth. The Kentucky Cabinet for Health and Family Services (CHFS), with input from
+rural health providers and community partners, proposes five community-driven initiatives under
+one integrated statewide framework. This framework supports digital innovation, expands
+workforce capacity, and promotes community partnerships to create a sustainable, value-based
+system of care aligning rural community efforts to improve access and prevention of health
+conditions that disproportionately impact rural Kentuckians. Kentucky’s five initiatives are
+
+intentionally designed to function as interdependent components of a single statewide system.
+
+Commonwealth of Kentucky 8
+
+=== page 09
+Five Initiatives Strategic Goal J Use of Funds
+
+Rural Community Hubs for Chronic Care Innovation
+. . . . : : . Make Rural
+Enhance chronic care innovation, starting with obesity and diabetes, :
+. : : America A, C, D, E, F,
+
+1 through local community hubs designed to scale evidence-based .
+
+. . a Healthy Again, G,I,J,K
+
+interventions and digital health supports such as Al-enabled self- .
+
+. 4 Tech Innovation
+management coaching across the lifespan
+
+PoWERing Maternal and Infant Health: Community-based Teams
+
+2 Enable timely initiation of quality perinatal care from early pregnancy to Sustainable A, B, C, D, E,
+postpartum in maternity care deserts through a network of coordinated, Access F,G,H, LK
+telehealth-enabled maternal care teams
+
+Rapid Response to Recovery: EmPATH Model, Mobile Crisis
+and Telehealth
+kis Provide person-centered, technology-enabled access to integrated crisis Innovative Care
+care, linking EMS, behavioral health providers, and mobile crisis units
+through shared data and referral platforms
+
+D,E, F, G, H,
+LJ,K
+
+Rooted in Health: Rural Dental Access Program
+vy Expand dental hygiene training, externship programs, and
+mobile/teledental hubs to address unmet preventive oral health needs
+
+Workforce A, B, D, E, F,
+Development G,I,J,K
+
+From Crisis to Care: Integrated EMS and Trauma Response
+ha Enhance prehospital capacity, enabling treat-in-place protocols and
+improved coordination with hospital trauma care
+
+Sustainable A, B, D, E, F,
+Access G,K
+
+Figure 2. Kentucky’s Rural Health Priorities
+Across these five rural health priorities, Kentucky will invest to improve access, sustainability,
+workforce development, care innovation, and technology innovation. Specifically, Kentucky will
+invest in consumer-facing technologies, such as mobile apps and conversational AI assistants, to
+improve access to care and move upstream in prevention of chronic diseases. Kentucky will
+expand clinical and non-clinical workforce capacity in rural communities for clinicians,
+pharmacists, paramedics, community health workers, doulas, dental hygienists, and others.
+Kentucky will invest in statewide data interoperability standards, in alignment with the CMS
+Interoperability Framework, to enable care innovation through more efficient bi-directional data
+sharing between providers, payers, public health, and other stakeholders.*? At the same time,
+these data interoperability investments will lower system costs and reduce provider
+administrative burden by eliminating manual paper-based processes, as demonstrated by the
+
+CMS “kill the clipboard” initiative.*!
+
+Commonwealth of Kentucky 9
+
+=== page 10
+Taken together, the Kentucky RHTP vision, goals, and strategies for rural health transformation
+is focused on care innovation and collaboration across four key dimensions of health quality:
+Engagement, Access, Prevention, and Delivery (see Appendix J. Kentucky Collective Action
+Framework (CAF) in Other Supporting Documentation). These four dimensions reflect an
+evidence-based, patient-centered approach to aligning rural health stakeholders around shared
+priorities for population health. The CAF focuses Kentucky’s RHTP strategies on hub-and-spoke
+delivery models to improve financial stability and mitigate causal risks for rural hospitals.
+
+Over the five-year RHTP grant period, Kentucky will implement sustainable improvements
+funded through existing reimbursement models, alternative payment models, and new revenue-
+generating business models. Our longer-term aspiration to carry forward the RHTP strategies and
+CAF mindset is to establish a Public-Private Partnership (PPP) model, led by an independent
+non-profit organization and funded through an endowment of charitable donations from private
+sector foundations and philanthropic organizations, as described in the Sustainability Plan.”
+
+To actively manage the structured, disciplined implementation of Kentucky’s RHTP vision,
+goals, and strategies, we will establish an A? Transformation Team (Aspire, Activate, Attain).
+The A? Team will focus on overall program execution, initiative coordination, and quality
+through five core functions: strategic management and oversight, initiative coordination and
+efficiency, community stakeholder collaboration, fiscal governance and accountability, and
+
+stakeholder engagement and communication (see Figure 3).
+
+“A3 Team”
+(Aspire &gt; Activate &gt; Attain)
+
+Strategic Initiative Community Fiscal governance Stakeholder
+management and coordination and ecosystem arn meat engagement and
+oversight efficiency collaboration y communication
+
+Figure 3. Kentucky’s Rural Health Transformation Team
+
+Commonwealth of Kentucky 10
+
+=== page 11
+Improving Access and Outcomes
+
+The five priority focus areas included in Kentucky’s RHTP were identified through a statewide
+survey of rural health stakeholders conducted from July to September 2025. These five priorities
+are intentionally designed to improve rural health access and deliver outcomes by functioning as
+interconnected components of a single health system, allowing Kentucky to measure both
+individual and collective impact. Individually, each of the five priorities align with the CMS
+RHTP core outcomes of improving access and prevention, strengthening care coordination, and
+supporting community-based innovation. Collectively, our rural health stakeholders agree (see
+Letters of Support in Other Supporting Documentation) these five priorities represent clear and
+meaningful opportunities for Kentucky to transform rural health through care innovations and
+cross-system collaboration to improve outcomes, reduce costs, and increase quality.
+
+Kentucky will establish a public-facing performance dashboard of evidence-based “leading
+indicators” and project-specific “Objectives and Key Results” (OKRs) to track, monitor, and
+report on milestone-based progress measures for implementation of each priority area.*? Our
+preliminary OKRs for each priority area are summarized later in this document. To define our
+initial set of evidence-based leading indicators, Kentucky has initiated discussions with several
+leading academic institutions across the state, including the University of Kentucky (UK)
+College of Public Health Biostatistics Department and the University of Louisville School of
+Public Health & Information Sciences. We anticipate these leading indicators and OKRs will be
+
+refined over the five-year lifecycle of the RHTP program.
+
+Technology Use and Data-Driven Solutions
+
+Across our five RHTP priority areas, Kentucky will make several coordinated investments in
+technology infrastructure and data interoperability to enable long-term care innovation and
+
+stakeholder collaboration (see Appendix K in Other Supporting Documentation).
+
+Commonwealth of Kentucky 11
+
+=== page 12
+Digital Health, Telehealth, and Mobile Health: Kentucky’s approach is aligned with CMS’s
+Health Tech Ecosystem vision and criteria for data interoperability and patient-facing apps, “To
+unlock the full potential of a modern, patient-centered healthcare system by aligning common
+infrastructure with private-sector innovation across a set of clearly defined categories that reflect
+the essential roles needed to make real-time, consented health data access work, securely,
+reliably, and at scale.”*4 Kentucky’s RHTP will invest in modern health data exchange,
+compliant with TEFCA and FHIR-API standards, that put patients and providers first to improve
+care coordination and outcomes tracking. We will use standardized digital tools for data capture,
+referral tracking, and care-plan monitoring.
+
+Kentucky will explore Al-enabled consumer-facing technologies such as health coaching,
+gamified incentives and rewards, and digital assistants leveraging conversational AI to deliver
+personalized nudges and education. Kentucky’s RHTP initiatives will integrate telehealth, digital
+therapeutics (DTx), mobile health apps, remote patient monitoring, and consumer wearable
+devices to improve patient access, engagement and behavior change (e.g., physical activity,
+nutrition, medication adherence). The health data captured through these digital devices will
+enable future AI/ML predictive analytics applications for consumer engagement, decision-
+support and/or reduction of administrative burdens for rural health providers. Further, this data
+will provide rapid-cycle feedback on rural health “leading indicators” and OKR measures which
+is central to Kentucky’s collective impact approach, allowing community partners to measure
+shared progress and adjust interventions.
+
+Data Interoperability: Kentucky’s approach is consistent with CMS’s Interoperability and Prior
+Authorization Final Rule, ONC’s TEFCA framework, and HHS guidance for AI readiness and
+
+data modernization. Kentucky will leverage national standards (FHIR, TEFCA, Core USCDI,
+
+Commonwealth of Kentucky 12
+
+=== page 13
+USCDI+) to enable seamless, appropriate, secure trusted information exchange to improve care
+coordination, enable predictive analytics, and train machine-learning care navigation agents for
+future deployment to patients and providers in rural areas. In doing so, the Commonwealth will
+establish a statewide, standards-based data infrastructure that meets or exceeds national
+interoperability expectations while remaining vendor-neutral and scalable. Kentucky's vision to
+improve cross-stakeholder data exchange is a secure, cloud-based, EHR-agnostic, open-source
+data model that integrates both structured and unstructured data with Al-based semantic search
+capabilities for clinicians, pharmacies, healthcare facilities, public health, and others.*&gt; This data
+interoperability infrastructure, which has been successfully deployed and demonstrated in other
+states, will provide the foundation for a potential future Kentucky Health Data Utility.*°
+
+RHTP Collaboration Hub: Kentucky will establish a digital RHTP Collaboration Hub, named
+Vitality Signs. The Hub will serve as a digital front door to Kentucky’s RHTP efforts to enable
+community-level collaboration and information sharing of Kentucky-specific leading practices.
+The Hub will include a dashboard of county-level rural health leading indicators linked to
+Kentucky’s Collective Action Framework (described in RHTP Vision, Goals, and Strategies) as
+well as RHTP-specific OKRs for ongoing program status monitoring. After initial launch,
+Kentucky will explore opportunities with the Kentucky Health Information Exchange (KHIE),
+KY Center for Statistics (K YStats), the University of Kentucky to expand the rural health
+dashboard, data availability, and visualization through geo-mapping of interrelated health factors
+and leading indicators (e.g., access to retail grocery stores, farmer’s markets, etc.)
+
+Kentucky’s vision for its digital health infrastructure creates future opportunities for CMS and
+CDC interoperability pilots across the Commonwealth of Kentucky. While the startup cost of
+
+these technology infrastructure and data interoperability investments is reflected in the primary
+
+Commonwealth of Kentucky 13
+
+=== page 14
+initiative titled, Rural Community Hubs for Chronic Care Innovation, the longer-term benefits of
+statewide data interoperability will support all five rural health priorities and enable broader
+health care innovation, collaboration, and operational efficiency across Kentucky.
+
+Kentucky’s RHTP will leverage a collective-impact partnership model to coordinate and build on
+regional and community-level strategic partnerships across our five rural health priority focus
+areas. Many of our rural health stakeholders and partner organizations have signed one or more
+letters of support for Kentucky’s five rural health priority focus areas. Kentucky’s RTHP is
+designed around active participation, engagement, and collaboration with rural health
+stakeholders in communities across the Commonwealth, including local hospitals and clinics,
+community health centers and FQHCs, local health departments (LHDs), community mental
+health centers (CMHCs), certified community behavioral health centers (CCBHCs), as well as
+Area Agencies on Aging and Independent Living (AAAILs), senior centers, nursing homes,
+long-term care (LTC) facilities, community-based organizations (CBOs), and faith-based
+organizations in each rural community. As described in the Sustainability Plan section of this
+document, Kentucky aspires to establish a Public-Private Partnership (PPP) model to provide
+
+ongoing stakeholder alignment on shared outcomes and collective actions.
+
+Workforce
+
+Kentucky will expand our rural health workforce through active collaboration, training and
+certification programs with local community colleges, such as the Kentucky Community &
+Technical College System (KCTCS). We will expand the number of community health workers
+(CHWs), midwives and doulas, peer support networks, behavioral health teams, dental
+hygienists, and EMS paramedics in rural communities. Additionally, Kentucky will expand the
+
+role of Kentucky Health Navigators (kynectors) to support patient, family and caregiver
+
+Commonwealth of Kentucky 14
+
+=== page 15
+navigation of the rural health system, and explore scope of practice expansion for pharmacists.
+Through partnerships with Kentucky’s academic institutions, extensions and community college
+system, Kentucky will coordinate student placements, research residencies, and public-health
+fellowships that align academic preparation with rural practice. This approach is aligned with
+HRSA and CDC rural workforce priorities and ensures long-term sustainability of capacity-
+building efforts. Our longer-term aspiration is to attract, recruit, and retain primary care and
+specialist clinicians in rural communities. These efforts will be supported by shared clinical
+workforce planning with accredited institutions, providers, FQHCs, CBOs, and LHDs to define
+recruitment, training, retention strategies, and metrics as leading indicators of success.
+Kentucky’s RHTP will address the financial stability of rural hospitals and providers by
+engaging the community in migrating rural patient volumes to lower cost care settings, telehealth
+and/or remote digital and mobile health modalities of care across rural communities. The result
+of Kentucky’s focus on rural health care innovation and collaboration will enable hospitals to
+focus on acute, high-cost cases and position hospitals at the core of rural community health. This
+hub-and-spoke model for Kentucky’s RHTP will position the rural community hospitals at the
+core while enabling remote telehealth, treatment-in-place protocols for lower complexity cases.
+The technology infrastructure and data interoperability established through Kentucky’s RHTP
+priority focus areas will expand clinical hub-and-spoke, hospital-to-hospital telehealth consults
+to expand the reach of primary care and specialty physicians as well as behavioral health
+providers, pharmacists, and dentists. Rural health care “deserts” for chronic conditions, maternal
+and child health, behavioral health, and dental health would be addressed through this hub-and-
+spoke model that will improve local community access, support prevention strategies, increase
+
+capacity for initial treatment, and refer more complex cases to regional hospitals and clinics.
+
+Commonwealth of Kentucky 15
+
+=== page 16
+Kentucky will continue working with providers, commercial payers, and Medicaid managed care
+organizations (MCOs) to assess reimbursement pathways and alternative payment models to
+improve provider network adequacy and geographic coverage models for rural communities. We
+recognize the long-term sustainability of future care innovations is dependent on predictable
+payments. In cases where existing reimbursement does not exist, Kentucky will work with
+providers, employers, commercial health plans, and MCOs to analyze outcomes data and design
+future value added services (VAS), bundled payments, and/or value-based contracting models.
+Kentucky’s RHTP demonstrates how the rural health system can leverage the principles of
+collective-impact, national data interoperability standards, and a deliberate strategy for
+workforce and financial sustainability to connect people, data, and organizations through a
+shared purpose: to move from fragmented care toward a seamless, sustainable health system. The
+RHTP reflects Kentucky’s commitment to measurable results, transparency, and long-term
+renewal. Through collaboration, interoperability, and local community-based leadership,
+Kentucky is not merely participating in rural transformation, it is defining it.
+
+Kentucky appreciates the importance of the legislative and regulatory environment to improving
+access, quality, and cost of care, and is committed to thoughtfully pursuing policy updates that
+will advance public health throughout the state, particularly in rural areas. At this time, the
+Commonwealth believes the current policy environment supports the changes included in this
+
+RHTP proposal.
+
+Other Required Information
+
+Below please find the information requested from Kentucky as flagged in Table 4 of the Notice
+
+of Funding Opportunity.
+
+Commonwealth of Kentucky 16
+
+=== page 17
+State Policies: For the list of current policies related to the “State policy actions” technical score
+factors, please see Appendix L in Other Supporting Documentation.
+
+Factor A.2: Certified Community Behavioral Health Clinics (CCBHCs): There are four
+CCBHCs with 55 locations in Kentucky. Refer to Other Supporting Documentation - KY
+CCBHC Data for details.
+
+Factor A.7: Disproportionate Share Hospital (DSH) Payment: In FFY 2025, five hospitals
+received DSH payments: Cardinal Hill Rehabilitation Hospital, Tug Valley ARH Regional
+Medical Center, Central State Hospital, Eastern State Hospital, and Western State Hospital. We
+
+anticipate payments for the three state psych hospitals (Central, Eastern, Western) in FFY 2026.
+
+Commonwealth of Kentucky 17
+
+=== page 18
+PROPOSED INITIATIVES AND USE OF FUNDS
+Initiative: Rural Community Hubs for Chronic Care Innovation
+
+Initiative Description
+
+Kentucky faces a long-standing population health challenge with chronic diseases, especially
+obesity and diabetes, in rural areas where access to preventive care is limited and multiple social
+and behavioral factors adversely impact health outcomes (e.g., poverty, unemployment, food
+insecurity, limited transportation, isolation, and unhealthy behaviors such as tobacco use and
+physical inactivity). The Rural Community Hubs for Chronic Care Innovation initiative seeks to
+unite fragmented interventions, programs, resources, and technology tools for local community
+organizations to enable coordinated interventions across the chronic disease continuum, from
+early education and engagement to prevention, access, and delivery of ongoing chronic care
+management solutions. We envision these Rural Community Hubs will share a common
+technology infrastructure and be locally led at a regional level to align rural health stakeholders
+on shared priorities and outcome measures based on community need.
+
+Today, Kentucky’s rural health stakeholders operate in a patchwork of programs and
+interventions to prevent, treat and manage chronic diseases. These stakeholders, including
+providers, Medicaid MCOs, CBOs, state agencies and LHDs, among others are each driving
+toward individual, siloed efforts. This fragmentation of chronic disease programs has made it
+challenging for rural health providers, community health workers (CHWs), caregivers, and
+patients to navigate an organized, cohesive care pathway to prevent and manage chronic disease.
+The Rural Community Hubs concept provides a digital collaboration hub, consumer-facing
+technologies, and navigation support through CHWs and kynectors to empower patients with
+
+more comprehensive chronic disease pathways and improve care coordination and data sharing.
+
+Commonwealth of Kentucky 18
+
+=== page 19
+The Commonwealth of Kentucky struggles with a high burden of obesity and diabetes. In fact,
+diabetes cost the state $6.1 billion in 2023 with mortality rates up to 39% higher than the national
+average.*’ For this reason, we have prioritized obesity and diabetes as an initial chronic disease
+pilot for the Rural Community Hubs, with the clear roadmap over time to expand and address
+other chronic conditions such as hypertension, heart disease, COPD and others. For each chronic
+disease, we envision the Rural Community Hubs will create an integrated, evidence-based and
+
+digitally supported care plan for chronic disease prevention and management to address:
+
+Fragmented chronic Collaboration hub platform infrastructure to align and coordinate rural
+disease prevention health stakeholders
+
+and management in Operational assets, toolkits, and technical assistance
+
+rural communities Mini grants to support locally defined cross-stakeholder innovations
+
+CHW training and expansion to build a robust, locally rooted workforce
+Locally deployed, EHR-agnostic closed-loop care coordination and
+Rural patient access referral tool for frontline CHWs, CBOs, and first responders to capture
+and navigation patient information and referral for care
+
+challenges Consumer-facing technology, digital therapeutics and mobile health
+apps to improve access, health literacy, patient empowerment and
+engagement through digital health coaching
+
+e Open-source, FHIR API-driven data interoperability infrastructure to
+enable cross-stakeholder data sharing, analytics and AI use cases
+
+e Digital platform to drive local collaboration and coordination on
+community health needs
+
+e KHIE/CRISP community data integration across clinical, claims,
+CBOs, and public health and human services enrollment and utilization
+data (e.g., SNAP, WIC, TANF)
+
+Figure 4. Approach to Rural Community Hubs for Chronic Care Innovation
+Together, these Rural Community Hubs will reduce fragmentation of chronic disease prevention
+and management, providing the integrated patient data required to improve care pathways and
+quantify patient outcomes resulting from various interventions to reduce overall cost of care. For
+example, Kentucky has several successful Food-is-Medicine/Food-as-Health initiatives.** By
+improving collaboration, Kentucky can move upstream on the diabetes prevention curve, shifting
+
+from reactive, compliance-driven care to coordinated, hyperlocal community action.
+
+Commonwealth of Kentucky 19
+
+=== page 20
+Connecting Evidence-based Interventions along the Chronic Disease Prevention Arc
+
+Upstream
+population health Potential Cross-stakeholder Community Actions
+
+(e.g., Our Healthy Kentucky Home,
+
+Early education Smart Moves for Kids, Kentucky Food Literacy Project)
+
+and promotion of
+
+near e that gamify
+nea thy ets to healthy behaviors (e.g., Al-based encouragement)
+reduce obesity ° that address food or
+
+nutrition deserts in rural communities
+
+. to reinforce
+lifestyle change (e.g., cognitive behavioral therapy via
+Preventing consumer-facing mHealth apps, HALT)
+progression for ° to sustain
+those with lifestyle change (e.g., cohorts of families engaged in
+prediabetes nutrition counseling or DPP)
+° in rural access points to improve connectivity to
+
+existing resources
+
+¢ Regional telehealth (e.g., Shaping our Appalachian
+Region (SOAR) Starlink Program)
+« Medication access/adherence (e.g., continuous glucose
+
+Access to care and monitors, Kentucky Prescription Assistance Program,
+services for transportation or home delivery supports)
+arom diagnosed ¢ Food-as-Health models (e.g., produce prescriptions,
+NY, diabetics food boxes, or medically tailored meals paired with
+Healthy Living with Diabetes DSMES program)
+Downstream
+individual health Figure 5. Moving Chronic Disease Prevention Upstream
+
+Sustainability Consideration: This initiative will leverage traditional reimbursement models
+and explore future outcomes-based alternative payment models, Public-Private Partnership (PPP)
+structures, and potential to establish an endowment for collective impact investments to provide
+long-term sustainable funding, as described in Sustainability Plan.
+
+Main Strategic Goal: Make Rural America Healthy Again, Tech Innovation
+
+Use of Funds: A, C, D, E, F, G, I, J, K
+
+Technical Score Factors: B.1, B.2, C.1, F.1, F.2, F.3
+
+Key Stakeholders: Healthcare Providers, Pharmacies, LHDs, Area Development Districts
+
+(ADDs), Area Agencies for Aging and Independent Living (AAAILs), Senior Centers, Nursing
+
+Commonwealth of Kentucky 20
+
+=== page 21
+Homes, Long-term Care Facilities, Employers, Commercial Payers and MCOs, CBOs, Farmers
+and Food Retailers, Schools, Educational Institutions, CHWs, State and Local Agencies.
+Outcomes: The Rural Community Hubs for Chronic Care Innovation initiative will track a set of
+disease-specific outcome metrics to measure the effectiveness of the Rural Collaboration Hub
+model in improving chronic disease prevention and management. These outcome metrics will
+include both lagging clinical outcome measures (e.g., diabetes prevalence rates) along with root
+cause leading indicators of disease risk (e.g., obesity rates, physical inactivity). Over time,
+dashboards will be expanded to include other chronic diseases and data visualization capabilities
+(e.g., zip code level geospatial mapping tools, overlays of food deserts) to improve stakeholder
+insights, increase transparency, promote accountability, focus interventions, and provide rapid-
+cycle feedback to inform local initiatives and strategies. While specific outcome metrics will
+vary by disease, illustrative metrics include adult chronic disease screening rates, percentage of
+adults engaged in evidence-based chronic disease prevention and management programs, and
+hospital readmissions or preventable hospitalizations for chronic disease complications. Across
+these disease-specific outcome metrics, Kentucky will identify OKRs to measure the overall
+
+progress of the initiative in reducing fragmentation and aligning stakeholders.
+
+Objective: Stand up a durable Rural Community Hub infrastructure that enables earlier prevention, improved care
+coordination, and measurable improvements in rural chronic care across all counties.
+
+Key Result Measurable Outcomes Baseline Target Relation to Initiative
+ry :
+Hub Coverage and . 33 % of counties Verifies statewide hub
+activation: Baseline in an active Hub activation, provin:
+% of rural counties that are will be by Year 2. communi t ne d §
+part of an active hub established | 90% of counties infras truetyte is
+1) (charter adopted; monthly in Year 1. in an active Hub operating)
+Development of convenings underway) by Year 5. P 8).
+Rural Community Tracks cross-sector
+Hubs . Baseline 5 partners per partners engaged (e.g.,
+Stakeholder engagement? | in 4. Hub by Year 2. | onboarded to digital
+
+# of active partners in each
+
+rural community hub established | 10 partners per collaboration platform),
+
+in Year |. Hub by Year 4. demonstrating stakeholder
+collaboration.
+
+Commonwealth of Kentucky 21
+
+=== page 22
+Objective: Stand up a durable Rural Community Hub infrastructure that enables earlier prevention, improved care
+coordination, and measurable improvements in rural chronic care across all counties.
+
+Key Result Aeasurable Outcomes Baseline Target Relation to Initi:
+
+Local initiative coverage:
+
+2) # of chronic disease or rural Baseline 2 initiatives by Shows hubs enabling
+Chronic Care health initiatives launched will be Year 2. . locally planned, aligned,
+Activation locally with multi- established | 4 initiatives by implemented innovation
+stakeholder engagement in Year 1. Year 4. with measurable impact.
+pate interoperability: Baseline Represents the number of
+a a tiate fe connections) will be 25% by Year 3. successful connections
+3) Son ened via FHIR established | 75% by Year 5. | between previously siloed
+Bidirectional Data | interoperable standards in Year 1. data systems.
+Sharing Baseli Dependent A ferral cl
+Timely referral closure: aseline ependent on ssesses referral closure
+% of total referrals closed will be baseline, targets | speed, evidencing closed
+agin care coordination tool established | to be determined | loop coordination
+8 in Year 1. in Year 1. reducing delays.
+Certified CHWs with
+Chronic Disease . Demonstrates expansion
+eae ge Baseline Dependent on . :
+Specialization: . . of CHW expertise to
+4) } vee will be baseline, targets oe
+_ % of certified CHWs who : : support chronic disease
+CHW Training h established | to be determined .
+ave completed state- in Year 1 in Year 1 prevention, management,
+approved specialized trainin: . . and intervention.
+PP! P gs
+
+for chronic-disease
+
+Figure 6. OKRs for Rural Community Hubs Initiative
+
+Supporting Evidence Examples:
+
+Component | Examples of Success
+
+e Jowa Diabetes Community HUB
+
+Community care e North Carolina Minority Diabetes Prevention Program (MDPP)
+
+models to integrate e Indiana’s Diabetes Impact Project — Indianapolis Neighborhoods (DIP-IN)
+clinical, social, and e Washington State Accountable Communities of Health
+
+community services e Winter Park Health Foundation
+
+e StriveTogether
+
+e ConnectWellSD
+e Oregon Wellness Network (OWN)
+Digital infrastructure |e California Accountable Communities for Health Initiative
+to power integrated, e Striving Together to Reduce Violence in Neighborhoods (STRiVIN’)
+community-based e North Carolina NCCARE360 platform
+health solutions e Ballad Health Closed-loop Referral Network
+e One Utah Health Collaborative
+e WNY Integrated Care Collaborative
+
+Figure 7. Examples of Similar Models for Rural Community Hubs Initiative
+
+Commonwealth of Kentucky 22
+
+=== page 23
+Impacted Counties: Kentucky has 109 rural or non-metropolitan rural counties (as defined by
+HRSA), with chronic health burden rates ranging from 38.9% to 69.4%.” The Rural Community
+Hubs for Chronic Care Innovation initiative is designed to reach all rural and non-metropolitan
+tural counties across the state, beginning with pilot implementation in selected Area
+Development Districts (ADDs) with a focus on diabetes and expanding to all 15 ADDs and
+additional chronic disease areas over time (see Appendix M for a map of Kentucky’s ADDs in
+Other Supporting Documentation). Leveraging the repeatable structure described in the initiative
+to scale local, cross-system partnerships, we will prioritize the deployment of Rural Community
+Hubs within ADDs exhibiting the highest burden of obesity, diabetes, and other chronic diseases
+— using the pilot phase as a springboard for systematic rollout across all 15 ADDs. Over the five-
+year grant period, initiative components are expected to have a positive statewide impact in all
+120 counties. Initial pilots will prioritize rural ADDs with the highest rates of undiagnosed
+diabetes, obesity, limited screening infrastructure, and elevated chronic disease burden. In
+addition to Rural Community Hub deployment in ADDs, foundational technology, data tools,
+and community networks developed through this initiative will eventually have a statewide
+impact, supporting care coordination and chronic disease prevention and management across all
+109 rural or non-metropolitan rural counties in Kentucky.
+
+Estimated Required Funding: Approximately $50-56 million per budget period (of the
+hypothetical $200 million), for an estimated total of $263 million over the five RHTP budget
+
+periods. See Budget Narrative for additional details.
+
+Commonwealth of Kentucky 23
+
+=== page 24
+Initiative: POWERing Rural Maternal and Infant Health: Community-Based Teams
+
+Initiative Description
+
+The PoWER Team (People Who Work for Engagement and Resilience) initiative is a scalable
+patient-centered and community-based model designed to provide access to perinatal care and
+address Kentucky’s maternity care deserts. Kentucky faces a maternal health crisis: nearly 46%
+of its counties are maternity care deserts, 58% of rural women live over 30 minutes from a
+birthing hospital, and maternal and infant death rates are among the highest in the nation.*°
+PoWER Teams, comprised of a perinatal CHWs, doulas, and peer support specialist (PSS), as
+needed, will combat the effects of maternity care deserts by supporting pregnant women from
+pregnancy confirmation through one year after the end of pregnancy. Each local POWER Team
+will be deployed in partnership with an LHD, RHC, or FQHC. PoWER Teams will be
+coordinated by a centralized telehealth nurse and overseen by a delivery provider throughout
+prenatal and postpartum care:
+
+1) Pre-pregnancy Education and Awareness: PoWER Teams will collaborate with LHDs,
+schools, and community groups to promote early pregnancy awareness, health literacy, and
+resource access, alongside the Kentucky Department of Education (KDE) and CHFS
+Kentucky Department for Public Health’s School Health Branch. The POWER Teams will
+support workforce mentorship and training within KCTCS and other Kentucky programs.
+
+2) Confirmation of Pregnancy: The PoWER Team will use Kentucky Medicaid’s
+“Notification of Pregnancy” tool (eNOP) to screen for social determinants of health and
+obstetric history, assess needs, and determine eligibility. Eligible patients will be assigned to
+a PoWER team and receive a POWERpack (e.g., scale, blood pressure cuff, fetal doppler,
+
+educational materials, consumer-facing mobile app) to remotely monitor their health and
+
+Commonwealth of Kentucky 24
+
+=== page 25
+connect with providers via telehealth. Healthcare providers, government programs like WIC
+TANF, SNAP, and the Health Access Nurturing Development Services (HANDS) program,
+as well as LHDs and kynectors may make Medicaid eNOP assessment referrals.
+
+3) Prenatal Care: 42% of rural maternity care deserts have preterm birth rates that exceed the
+state average, largely attributable to chronic health conditions.*! PoWER Teams will offer
+remote telehealth visits and physical visits at co-located community hubs to monitor vital
+
+signs and will utilize interoperable technology solutions to transfer data to providers. Teams
+
+&gt;
+
+will connect moms to the HANDS program and other wraparound services such as WIC, KY
+
+Moms Maternal Assistance Towards Recovery (KY Moms MATR), birthing classes, food
+banks, transportation, Kentucky Tobacco Quit Line’s perinatal program, and other value-
+added benefit referrals. The POWER Team model integrates insights and principles from the
+ACOG-endorsed Michigan Plan for Appropriate, Tailored Healthcare in pregnancy
+(MiPATH) to tailor prenatal visit frequency and modality based on individual medical and
+social risk. Trend data from PoWERpack devices and consumer-facing mobile apps will be
+analyzed using AI to provide proactive coaching, encouragement, and reminders aligned to
+maternal health needs. Monthly collaborative reviews between providers, nurses, and
+PoWER Teams will support delivery planning and knowledge sharing. From pregnancy
+through up to one year postpartum, PoWER Teams will maintain contact with patients to
+assess mental health needs and provide nutrition counseling and pregnancy education.
+
+4) Delivery: The prenatal support from PoWER Teams will reduce the risk throughout a
+mother’s pregnancy and decrease likelihood of complications to increase the likelihood
+mothers can deliver at their local hospital. Similar efforts by Texas RMOMS” indicate that
+
+by utilizing coordinated care to avoid complications, Kentucky can save ~$36k per preterm
+
+Commonwealth of Kentucky
+
+25
+
+=== page 26
+infant,&gt;? ~$270k per NICU admission,™ and ~$13k per c-section.°&gt; A POWER Team doula
+will provide in-person support during labor, delivery, and support for immediate postpartum
+newborn care.
+
+5) Postpartum Care: More than 50% of the state’s maternal mortality occurs after delivery,
+with most deaths happening within one year postpartum due to substance use disorder and
+mental health, indicating an urgent need for coordinated care through one year postpartum.°°
+In the first four weeks postpartum, the POWER Team will conduct home visits and mental
+health screenings, provide transportation for postnatal and pediatric appointments, and
+connect enrollees to support services (e.g., financial planning, childcare, CPR training,
+mental health care). During this time, the maternal health mobile app will proactively provide
+health education for mother and infant, answer questions using conversational AI, encourage
+healthy behaviors, and monitor health trends. From weeks 5—12, telehealth check-ins will
+continue, and mothers will be linked to HANDS and/or KY Moms MATR programs as
+needed. In the first year postpartum, the POWER Team will provide continued education and
+support on recovery, infant care, and child development.
+
+Ultimately, POWER Teams will deliver earlier access to coordinated, high-quality care and
+
+reduce gaps in prenatal and postpartum services for rural maternity patients. To scale this model
+
+effectively, the initiative will also expand the community workforce. Specifically, Kentucky will
+fund the creation of a perinatal CHW certification program within the Kentucky Office of
+
+Community Health Workers to build a pipeline of trained professionals equipped to serve in rural
+
+maternal care POWER Teams. Additionally, the initiative will provide resources to expand the
+
+number of HANDS workers, improving timely access to home visiting services for families
+
+referred by POWER Teams. These workforce investments are essential to sustaining the PPWER
+
+Commonwealth of Kentucky 26
+
+=== page 27
+Teams’ reach and impact across Kentucky’s rural communities.
+
+Sustainability Consideration: The PoWERing Rural Maternal and Infant Health initiative is
+focused on establishing financially sustainable POWER Teams and HANDS positions over the
+five-year grant period. To do so, RHTP funding will be used to cover start-up costs and
+supplement operating costs so that the initiative is revenue-generating and reimbursable after
+start-up through existing payment models. We will work with teams to define targets to reach
+self-sustaining breakeven patient volumes by the end of the grant period as RHTP funding is
+scaled down. Refer to Sustainability Plan for additional information.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, B, C, D, E, F, G, H, I, K
+
+Technical Score Factors: B.1, B.2, C.1, D.1, F.1, F.2, F.3
+
+Key Stakeholders: State Academic Institutions, LHDs, FQHCs, RHCs, K-12 Schools, CBOs,
+CMHCs, Medicaid MCOs, State and Local Agencies
+
+Outcomes:
+
+rural families
+
+Key Result 2 Relation to Initiativ
+
+Early engagement via
+PoWER Team outreach,
+
+1) % of pregnant women in 78% by . .
+. education, and intake
+Increased Early rural counties who complete | 75.5% Year 3. rocesses enables patients to
+Prenatal a first prenatal visit within (as of 2024) 80% by P P
+- be connected to care sooner
+Engagement the first trimester Year 5. : .
+to receive coordinated
+support.
+. 15%
+# of rural maternal patients increase in PoWER Teams connect
+2) enrolled in evidence-based patients to wraparound
+wap: . . enrollment ‘ . .
+Expanded support programs within 30 | Baseline will by Year 3 services, leveraging their
+Enrollment in days of confirming be established 30% ear? partnerships and care
+Wraparound pregnancy (e.g., HANDS, in Year 1. ‘nerease in coordination role to address
+Support Programs WIC, KY Moms MATR, enrollment social drivers of health and
+
+SNAP, Nutrition) improve maternal outcomes.
+
+by Year 5.
+
+Commonwealth of Kentucky 27
+
+=== page 28
+Objective: To increase early access, engagement, and quality of maternal health care for rural families
+
+Key Result Measurable Outcomes Baseline Relation to Initiati
+Through ongoing
+engagement, reminders,
+
+3) % of rural maternal patients Dependent | transportation support, and
+
+Improved Adherence! who complete the Baseline will | on baseline, | personalized care planning,
+
+to Recommended recommended number of be established | targets to be | POWER Teams help
+
+Prenatal and prenatal and postpartum in Year 1. determined | patients overcome barriers
+
+Postpartum Visits visits (including telehealth) in Year 1. and maintain consistent
+contact with providers pre-
+and postpartum.
+
+PoWER Teams are trained
+
+% of rural women (pre- and
+° ° to identify behavioral health
+
+postpartum) screened for
+
+4) behavioral health needs . __ | Dependent | needs early and facilitate
+Increased Maternal Baselines will | on baselines,| referrals, integrating mental
+Behavioral Health % of rural women (pre- and | be established | targets to be} health into routine maternal
+Screening and postpartum) with positive in Year 1. determined | care and reducing gaps in
+Referral behavioral health screens in Year 1. support.
+referred to appropriate
+services
+The PoWER Team model
+% of eligible rural patients Dependent Provides coordinated,
+5) : . . 5 multidisciplinary care;
+with a POWER Team or Baseline will | on baseline, . .
+Increased Access to . : . tracking assignment to
+on enrolled in a coordinated care| be established | targets to be
+Nutrition and re : . teams or pathways
+A pathway within 14 days of in Year 1. determined woe eg
+Coordinated Care . . demonstrates the initiative’s
+confirming pregnancy in Year 1.
+reach and system
+transformation.
+The PoWER Team initiative
+strengthens early access to
+6) % of rural children who have | 67.3% 74% by coordinated perinatal care in
+Improved continuum] had 6 or more well-child (as of 2024; Year 3. rural areas, directly
+of care via integrated] visits in the first Medicaid; 80% by supporting increased well-
+postpartum support | 15 months of life statewide) Year 5. child visits through home
+
+visits, telehealth, and
+linkage to pediatric services.
+
+Figure 8. OKRs for POWER Teams Initiative
+
+Supporting Evidence Examples:
+
+Component | Examples of Success
+
+e Kentucky HANDS
+Coordinated Perinatal Care | « Texas Rural Maternity and Obstetrics Management Strategies (T-RMOMS)
+
+Models e North Carolina Maternal Support Services
+e Michigan Maternal, Infant and Early Childhood Home Visiting (MIECHV)
+
+e The University of Michigan MiPATH: Pregnancy and Postpartum
+Telematernal Care Models | ¢ NC Maternal Outreach Through Telehealth for Rural: The MOTHERS Project
+e UK Kentucky Angels
+
+Workforce Models
+Leveraging Non-traditional
+Paraprofessional Providers
+
+Figure 9. Examples of Similar Models for POWER Teams Initiative
+
+Montana One Health
+e Effects of Maternity Care Coordination on Pregnancy Outcomes
+
+Commonwealth of Kentucky 28
+
+=== page 29
+Impacted Counties: Selection of pilot and expansion sites for POWER Teams will consider
+counties that have the most severe needs, such as elevated maternal vulnerability, preterm birth
+rates, chronic health burden, provider shortages, and travel distances to care. For example,
+Kentucky has 55 counties classified as maternity care deserts, with 58% of rural women living
+more than 30 minutes from a birthing hospital (e.g., regions of elevated need include Lake
+Cumberland, Bluegrass, Kentucky River, and Barren River).°”
+
+Estimated Required Funding: Approximately $15-53 million per budget period (of the
+hypothetical $200 million), for an estimated total of $158 million over the five RHTP budget
+
+periods. See Budget Narrative for additional details.
+
+Initiative: Rapid Response to Recovery: EmPATH Model, Mobile Crisis and Telehealth
+
+Initiative Description
+
+The Rapid Response to Recovery initiative will build on Kentucky's Emergency Psychiatric
+Assessment, Treatment and Healing (EmPATH) model and Mobile Crisis Intervention services
+to become an integrated, interoperable system that supports individuals through the entire
+behavioral health crisis continuum.** Rural Kentucky faces a behavioral health crisis marked by
+high rates of untreated mental illness, suicide, substance use disorder (SUD), and
+overdose.&gt;”°!. The state incurs hundreds of millions of dollars in healthcare costs annually
+due to individuals using emergency services, lost productivity, and cycling between hospitals,
+jails, and shelters. This initiative will reduce these state costs and minimize mental health system
+reliance on first responders by building a person-centered, interoperable continuum of care to
+expand EmPATH units and provide integrated wraparound supports and real-time navigation to
+
+patients from initial call through recovery.
+
+Commonwealth of Kentucky 29
+
+=== page 30
+Component 1: Scale EmPATH to include two new units in Eastern Kentucky, one new unit in
+
+Western Kentucky, and one additional unit whose location will be determined mid-grant after
+evaluation. EmPATH units offer immediate assessment, stabilization, and connection to
+community care for those in behavioral health crisis thereby achieving high rates of patient
+stabilization, rapid discharge, and improved follow-up engagement. Since the July 2024 launch
+at UK HealthCare, the EmPATH unit has served nearly 5,500 patients, with 76% stabilized and
+discharged to community services and follow-up engagement rates more than doubling from
+baseline. Each unit will be designed in partnership providers, including CMHCs and current
+CCBHCs, to similarly address unmet needs, increase community connections, and reduce
+disparities. The model provides a safe environment for rapid psychiatric treatment within a 23-
+hour observation window, creating timely access and direct linkage to care in rural regions.
+Expanding EmPATH units will reduce ED boarding times from the current average of 14 hours
+and $2,200 per patient,°* strengthen the workforce, and generate cost savings.
+
+Component 2: Expand community-based crisis support by integrating Mobile Crisis
+
+Intervention Services (MCIS) teams, including the Community Paramedicine and Community
+Co-Response (CCR) model, to deliver 24/7 crisis intervention statewide. These teams will
+expand the reach of services by pairing first responders with behavioral health specialists and/or
+training paramedics to de-escalate crises, screen for health needs, and support timely response to
+overdose and opioid use disorder (OUD). These models improve rural crisis response and offer
+direct access to EmPATH units for quicker stabilization. State pilots have already shown positive
+impact in line with other leading states. For example, Kentucky’s three-county paramedicine
+pilot has demonstrated successful training of EMS personnel to address behavioral health crises,
+
+reduced mental health stigma, and increased utilization of wraparound services. Additionally, a
+
+Commonwealth of Kentucky 30
+
+=== page 31
+pilot of six Co-responder Units (CRU) indicates individuals are 33% less likely to be transported
+to an emergency department (ED) than those without CRU involvement. Ultimately, this
+initiative will scale these models into new counties to increase access to timely care, minimize
+ED use, and build a sustainable, cross-trained workforce.
+
+Component 3: Launch a centralized telebehavioral health hub with EmPATH-trained
+
+behavioral health professionals to deliver real-time, virtual assessments, consultations, and
+follow-ups to rural hospitals, PCP offices, and first responders. Approximately 52% of
+Kentucky’s rural population lives in Mental Health Professional Shortage Areas (MHPSAs) and
+the low 1,510:1 (vs. 1,068:1 nationally) mental health counselor ratios statewide, indicating a
+need for alternative treatment options. A telehealth system integrated with existing EHRs will
+streamline triage, risk evaluation, and treatment planning for behavioral health crises thereby
+reducing unnecessary admissions and expediting transfers to EmPATH units or community care.
+A similar program in rural Texas has seen about half of patients become stabilized and treated as
+outpatients and therefore freeing up beds and staff, increasing safety, and decreasing unnecessary
+inpatient admissions.®’ In South Carolina, a telebehavioral health hub lowered ED admission
+rates from 22% to 11%, shortened inpatient stays by 0.86 days, and saved $2,336 per patient
+within 30 days.® By integrating EmPATH’s protocols into ED workflows, this telebehavioral
+health hub will improve outcomes, shorten ED boarding times, and offer local providers
+specialized support. A statewide network will enable consistent, high-quality psychiatric care for
+rural patients while optimizing Kentucky’s existing resources. In addition, Kentucky will
+allocate funds for consumer-facing mobile health applications to support the continuity of
+recovery care for providers, caregivers, and patients discharged from EmPATH units,
+
+paramedicine interventions, and telebehavioral health programs.
+
+Commonwealth of Kentucky 31
+
+=== page 32
+Component 4: Integrate a real-time technology platform to facilitate seamless electronic
+
+connections beginning with crisis call and first responders and throughout the care continuum to
+enable centralized tracking of each patient’s journey and “kill the clipboard.” Kentucky’s crisis
+call system is experiencing a sharp growth in demand with a 5% increase to CMHCs and a 33%
+increase to 988 calls. This signals a greater willingness among Kentuckians to seek help but has
+also resulted in strained capacity and response rates falling below 90%.°? The system will be
+built in collaboration with the chronic health platform and enable interoperability across
+platforms, directing 988 calls to appropriate teams to shorten response times, improve safety, and
+facilitate triage needs. It will incorporate features such as EHR integration, telehealth
+connectivity, and automated referral tracking to re-direct encounters away from the ED and
+towards community resources. With robust data collection and advanced analytics capabilities,
+Kentucky will monitor key metrics (e.g., response times, stabilization rates, follow-up
+engagement, cost savings) across the entire crisis continuum. This approach will help centralize
+referral management and reporting, streamline administrative processes, enable providers and
+stakeholders to collaborate statewide, and employ AJ-enabled tools to drive system performance.
+This approach will impact all counties across the state, ensuring Kentuckians in crisis have
+“someone to call, someone to respond, and somewhere to go,” with real-time navigation
+supporting the mental health workforce.
+
+Sustainability Consideration: The Rapid Response to Recovery initiative will support startup
+costs to establish new EmPATH units, expand mobile paramedicine/co-responder teams to new
+counties, and launching telebehavioral health infrastructure including a mobile health app. Each
+component is designed to reduce reliance on RHTP dollars over time as services are reimbursed
+
+through a mix of Medicaid/Medicare (~65%) and commercial insurance (~20%). This approach
+
+39
+
+Commonwealth of Kentucky 32
+
+=== page 33
+incentivizes the transition to billable revenue from patient services while also partnering with
+CMHCs, current CCBHCs, and other providers to leverage existing Medicaid reimbursement
+and diversified funding streams. Refer to the Sustainability Plan section for details.
+
+Main Strategic Goal: Innovative Care
+
+Use of Funds: D, E, F, G, H, I, J, K
+
+Technical Score Factors: B.1, C.1, C.2, D.1, E.1, F.1, F.2
+
+Key Stakeholders: Rural Hospitals, CCBHCs, CMHCs, First Responders, EMS, Paramedicine
+Providers, Co-Responders, CBOs, KORH, UK
+
+Outcomes: The Rapid Response to Recovery initiative will transform Kentucky’s behavioral
+health crisis system by expanding community-based crisis support, scaling EmPATH units for
+rapid stabilization, and launching a centralized telebehavioral health hub and mobile health app.
+These initiatives will improve timely access to high acuity psychiatric crisis care, enhance patient
+outcomes, enable successful handoffs to community partners, and provide a mobile health app to
+
+empower patients with resources and encouragement throughout their recovery journey.
+
+Objective: Improve timely access to high acuity behavioral health crisis care, enhance patient outcomes, and
+enable successful handoffs to community partners
+
+Key Result | Measurable Outcomes l Baseline l Target | Relation to Initiative
+
+Baseline will
+1) be established
+ees % of EMS incidents m Year | for EMS providers responding to
+utilization of . pilot counties. ° .. : :
+communit responded with (33% average 10% by Year 2. | crisis calls with trained
+
+wy paramedicine or co- ene 8° | 40% by Year 5. | behavioral health support will
+paramedicine in current : . .
+responders . improve patient experience.
+
+and co- operating
+responder teams units, as of
+
+2025)
+
+36, 362 ED Opening EmPATH units and
+a visits with 3% decrease b launching community
+Decreased ED # of adult ED visits primary ° y BS
+
+Ad ar . . . Year 2. paramedicine and co-
+utilization for primarily for behavioral | diagnosis for 0 ,
+A : . 10% decrease by | responder teams will reduce
+behavioral disorders behavioral .
+Year 5. behavioral health ED
+health health, wae gs
+utilization.
+
+statewide
+
+Commonwealth of Kentucky 33
+
+=== page 34
+Objective: Improve timely access to high acuity behavioral health crisis care, enhance patient outcomes, and
+enable successful handoffs to community partners
+
+Key Result | Measurable Outcomes Baseline Target | Relation to Ini
+Baseline will Achieve 30% Increasing active treatment
+3) 6 . be established will accelerate patient
+% of patients seen at . adherence by .
+Increased . in Year | for recovery. EmPATH units
+Lae EmPATH units who . . Year 3. :
+likelihood an : pilot units. . 0 enable more rapid treatment
+paper complete their first follow of: Achieve 50% .
+individual enters up appointment (65% in adherence b and connection to local
+active treatment P appr current unit, Year 5 y CMHCs and CCBHCs for
+as of 2025) ‘ follow up care.
+
+A telebehavioral health hub
+4) % of telehealth services for crisis response will enable
+Increased access delivered in primary care Baseline will more rapid response for
+to telebehavioral settings for behavioral be established | 10% by Year 3. | patients and reduce ED visits
+health support health crisis response in Year 1. (Net| 33% by year 5. | by redirecting individuals in
+for urgent P new service) need to telebehavioral health
+response support rather than admitting
+
+them to EDs
+
+Figure 10. OKRs for Rapid Response to Recovery Initiative
+
+Supporting Evidence
+
+Component | Examples of Success
+
+EmPATH Models e® SCDHHS EmPATH Units and SCHA learning collaborative (South Carolina)
+e Centra Health Lynchburg General Hospital EmPATH Unit (Virginia)
+
+e Crisis Assistance Response and Engagement (Care) Pilot Program (Chicago)
+* Eugene CAHOOTS (Oregon)
+e National MCT Benchmarks 2024 to 2025 (NRI State Profiles)
+
+Community-based
+Crisis Support
+
+Telebehavioral Health | ¢ Statewide centralized telebehavioral health hub (South Carolina)
+Models e Texas Tech Rural Telebehavioral health Initiative (Texas)
+
+Real-Time Technology |e GCAL & Behavioral Health Link Platform (Georgia)
+Platform e STRIVIN’ Community CareLink (Missouri)
+
+Figure 11. Examples of Similar Models for Rapid Response to Recovery Initiative
+Impacted Counties: Implementation of this initiative will begin with Eastern Kentucky’s
+FIVCO region and surrounding counties with the development of one EmPATH unit and the
+launch of paramedicine and co-responder programs. In phase 2, the initiative will impact four
+additional Eastern Kentucky ADDs and by phase 3 start to reach Western Kentucky. Over the
+five-year grant period, telebehavioral health components are expected to have a positive impact
+across most of the state’s rural counties.
+
+Estimated Required Funding: Approximately $30-43 million per budget period (of
+
+Commonwealth of Kentucky 34
+
+=== page 35
+hypothetical $200 million), for an estimated total of $190 million over the five RHTP budget
+
+periods. See Budget Narrative for additional details.
+
+Initiative Name: Rooted in Health: Kentucky Rural Dental Access Program
+
+Initiative Description
+
+Rooted in Health will improve dental care in rural communities through workforce development,
+
+teledentistry support, expanded community access points for oral care, and reduced ED visits for
+
+non-emergent dental pain at EDs. This initiative includes the following components:
+
+1) Increase the number of accredited dental hygienist education programs in Kentucky and
+increase externship opportunities with rural providers
+
+2) Provide startup funding to develop a statewide teledental network to support rural
+providers and public health hygiene teams
+
+3) Fund expanded mobile and/or portable dental care units to deliver care in rural
+communities lacking sufficient access points
+
+4) Equip ED physicians with increased ability to administer intraoral injections of long-
+acting local anesthetics through a mobile training program to reduce opioid administration
+and prescriptions for dental pain in EDs
+
+Component 1: Accredited Dental Hygiene Programs: Kentucky will support start-up costs for
+
+accreditation of dental hygienist programs, including administrative and equipment costs. This
+initiative will also provide participating programs funding for rural externships with public
+health hygiene units and rural private practices. Kentucky has engaged several potential
+campuses for expansion, including multiple campuses of KCTCS. The funding for this
+
+component will prioritize establishment and supporting expansion of existing training programs.
+
+Commonwealth of Kentucky
+
+=== page 36
+Component 2: Teledental Hubs: The state will partner with Kentucky’s dental colleges to fund
+
+startup costs necessary to launch and staff centralized hubs for teledentistry. The hubs will have
+satellite clinics as spokes across rural Kentucky that will connect with the hubs for billable
+consultations. Public health hygiene teams will be assigned to each hub to access necessary
+(virtual) oversight for more complex cases at each satellite clinic to enable hygienists in the field
+to provide care under the supervision of the hub site dentist. Hub sites will incorporate
+administration of the teledentistry hubs into their academic programs and connect dentistry
+students into the program, providing students with more exposure to the oral healthcare needs of
+rural Kentuckians. Through the administration of the hub network, hygiene teams will enhance
+data collection, expand use of interoperable clinical records (e.g., Oral Health Interoperability
+Alliance), embed consumer-facing technology, and explore opportunities to embed artificial
+intelligence into consultations and closed loop referrals initiated by the hub.
+
+Component 3: Portable and Mobile Dental Care:
+
+e Increase number of Public Health Dental Hygiene Programs and increase the number
+of patients served by the portable clinics: The Public Health Dental Hygiene Program
+provides preventive dental services and oral health education through portable units designed
+to transport equipment for temporary use on-site in rural K-12 schools. Kentucky will
+increase the number of teams with the goal of addressing all jurisdictions with demonstrated
+need. Kentucky will provide partners with funding to hire staff and procure equipment. Local
+health districts will receive additional incentive funding when meeting patient interaction
+targets (e.g., number of cleanings). The added incentive will partially support staffing costs
+for hygienists, dental assistants, a CHW, and a coordinator. Patient interaction targets will be
+
+set at the jurisdiction level and be based on a % of the total addressable Medicaid population
+
+Commonwealth of Kentucky 36
+
+=== page 37
+within a local health district. Any patient seen, regardless of insurance status, will count
+toward a district’s incentive target.
+
+¢ Provide public health hygienists with a supervising dentist, enabling service to adults
+and seniors with more complex needs in long-term care (LTC) settings: Each public
+health hygiene team will be connected to a supervising dentist at one of the teledental hubs.
+Supervising dentists can authorize public health hygienists to administer silver diamine
+fluoride (SDF) treatments and care for patients beyond the American Society of
+Anesthesiologists (ASA) classification of ASA II+ (ASA II+ refers to any patient that does
+not meet the ASA I classification of “A person in good health”). With the general supervision
+arrangement, public health hygiene teams will be able to deploy portable units to additional
+community sites—such as LTC facilities, where there is high and recurring need—and other
+community organizations to host portable clinics to reach underserved adults in rural
+Kentucky.
+
+e¢ Deploy mobile dental health vans capable of more complex oral care unmet by public
+health hygienists: Kentucky will fund start-up costs for mobile dental units that can provide
+the full spectrum of dental care (including restorative and extractive services) and denture
+care for seniors in long-term care settings. The state will seek a partner(s) to provide dental
+health services to underserved rural populations, especially in areas identified by the public
+health hygiene teams to be of particularly high need.
+
+Component 4: Intraoral Injection Education for ED Physicians: Kentucky will train ED
+
+physicians to administer intraoral injections of long-acting local anesthetics through a mobile
+training program. This initiative will support ED clinician trainings conducted by a dentist or
+
+oral/maxillofacial surgeon, including costs associated with equipment, supplies and labor. The
+
+Commonwealth of Kentucky
+
+=== page 38
+training will increase the number of emergency physicians using local anesthetics to provide
+immediate pain relief, reduce the use of opioid medications for dental pain, and reduce return ED
+visits within 48 hours. The training will also include an overview of what should be included in a
+patient’s care kit and engage non-clinical staff who can help connect patients to a CHW to
+facilitate follow-up dental care where the underlying cause of pain can be treated.
+
+Sustainability Consideration: The Kentucky Rooted in Health initiative is focused on
+establishing financially sustainable rural dental services and training programs over the five-year
+grant period. To do so, RHTP funding will be used to cover start-up infrastructure costs and
+temporarily supplement operating costs. Once operational, the public health hygiene programs
+and mobile services will be revenue-generating through reimbursable services. We will work
+with teams to define targets to reach self-sustaining breakeven patient volumes by the end of the
+grant period as RHTP funding is scaled down. Refer to the Sustainability Plan section for
+additional information.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: A, B, D, E, F, G, I, J, K
+
+Technical score factors: B.1, B.2, C.1, D.1, F.1, F.2, F.3
+
+Key Stakeholders: State academic institutions, LHDs, FQHCs, K-12 schools, LTC settings,
+adult day care centers, private dental practices, EDs, and constituent advocacy groups
+Outcomes: Rooted in Health will adapt operations in real time by tracking a focused set of
+metrics year over year. These align with identified outcomes tied to improving dental care
+access, strengthening workforce capacity, and reducing emergency department utilization for
+non-emergent dental conditions. Each metric was chosen for its ability to provide actionable
+
+insights, reflect meaningful change, and guide continuous improvement across components.
+
+Commonwealth of Kentucky 38
+
+=== page 39
+Objective: Improve the oral health of rural Kentuckians through preventative cleanings and improved
+connectivity with oral health specialists
+
+Key Result Measurable Outcomes | Baseline | Target Relation to Initiative
+
+Increased public health hygiene
+
+1) : . :
+Increased % of adults on Medicaid 5% increase by eon Serving adults in community
+preventative (18+) that have a claim 6% (as of | Year 3. vesoutoes to develo, Tmobile care
+oral care for dental cleaning(s) 2025) 10% increase by capacity will merene the
+utilization for | within the past year Year 5. percentage of adults accessing
+qdhits preventative dental care.
+— d % of children (aged 4 to 5% increase b The increase in number of public
+0 20) on Medicaid that ° ° Y | health hygiene teams will increase
+preventative 5 44% (as of | Year 3. :
+have a claim for dental of: the number of children able to
+oral care : vps 2025) 15% increase by :
+ar cleaning(s) within the access a dental cleaning at or
+utilization for Year 5. h h school
+children past year through school.
+# of dental hygiene 10% increase by The creation of new dental
+students that graduate 102 (as of | Year 3. h sone, nm vate will wncrease the
+from a Kentucky-based 2025) 50% increase by ys Prog ,
+3) rogram Year 5 number of graduates; increased
+Increased r aT Taeul : externships with public health
+supply of dental oF leensec centa’ oy: hygiene programs in rural
+hygienists i hygienists registered in a 8% increase by 7 say: .
+ygienists in : communities will increase the
+0 fully rural counties (based| 873 (as of | Year 3. ‘
+rural counties : : : percentage of newly trained
+on business location and | 2025) 15% increase by hygienists who choose to stay in
+county HRSA Year 5 kK s tuck y
+designation) ¥-
+4) The administration of trainings for
+Reduced ° emergency department physicians
+emergency # of hospital visits for 33,960 we gocrease by and staff will reduce the number of
+department non-traumatic dental (as of 20% decrease b recurring visits (patients with
+visits from presentations in EDs 2024) Year 5 ¥ | dental pain are more likely to
+preventable . return to an ED without a proper
+dental needs dental handoff).
+5)
+Increased 500% increase Establishing a dental telehealth
+utilization of # of virtual consults with 9 (as of b Year 3 network and distributed supplies to
+telehealth dentists and/or specialists 2025) 100% increase public health hygiene units as well
+systems for through Medicaid b Year 5 as rural practices will make it
+dental care y . easier to access consults.
+delivery
+
+Figure 12. OKRs for Rooted in Health Initiative
+
+Supporting Evidence Examples:
+
+Component | Examples of Success
+
+Accredited Dental * Health Resources & Services Administration Oral Health Workforce Development
+Hygiene Programs Programs
+
+¢ Reaching Vulnerable Populations through Portable and Mobile Dentistry—Current
+
+Portable and Mobile and Future Opportunities
+Dental Care « New York University College of Dentistry’s “Smiling Faces, Going Places”
+
+* 2023-2025 Minnesota Dental Safety Net Formula Grant Program
+
+Commonwealth of Kentucky 39
+
+=== page 40
+Component | Examples of Success
+
+* The Virtual Dental Home Model
+* The California Dental Transformation Initiative
+¢ The UCSF/Tuolumne County Virtual Dental Home
+* The Colorado SMILES Initiative
+* The Oregon Virtual Dental Home
+
+rledemtal Slo dels * The Hawaii Virtual Dental Home
+
+* The Idaho Virtual Dental Home
+* The Iowa Virtual Dental Home
+* The Maine Virtual Dental Home
+
+¢ The School-Based Telehealth Network Grant Program
+
+Intraoral Injection
+
+Education for ED ¢ Wisconsin Dental Pain Protocol
+Physicians
+
+Figure 13. Examples of Similar Models for Rooted in Health Initiative
+Impacted Counties: Early implementation of this initiative will focus on Kentucky's rural and
+non-metropolitan rural counties (as defined by HRSA). Selection of pilot sites and/or initial
+expansion sites for academic programs and public health hygiene teams will consider the
+counties that have the most severe needs. For example, as of 2023, five Kentucky counties have
+no practicing dentists: four of the five counties with no dentists are designated rural (Ballard,
+Fulton, Jackson, and Robertson), and three of the five counties designated as Appalachian have
+
+no dentists (Edmonson, Jackson, and Robertson).””
+
+These counties will be of particular focus for
+mobile oral care unit deployment for restorative and extractive care (beyond the scope of practice
+for a hygienist). Over five years, initiative components are expected to have statewide impact.
+Estimated Required Funding: Approximately $16-33 million per budget period (of the
+hypothetical $200 million), for an estimated total of $119 million over the five RHTP budget
+
+periods. See Budget Narrative for additional details.
+
+Commonwealth of Kentucky 40
+
+=== page 41
+Initiative: From Crisis to Care: Integrated EMS and Trauma Response
+
+Initiative Description
+
+This initiative will enhance prehospital care capacity, responsiveness, and coordination by
+enhancing workforce training, mobile resources, and telemedicine, thereby empowering EMS
+professionals to treat patients in place and ensuring smoother coordination with hospitals for
+trauma and specialty care. There are five main components of this initiative.
+
+Component 1: EMS and CHW Workforce Recruitment & Development: The most
+
+significant unmet health need facing Kentucky’s rural population is ensuring an adequate EMS
+and paramedic workforce to meet demand. Rural areas often struggle with insufficient numbers
+of trained paramedics and EMS professionals, resulting in delayed response times and limited
+access to timely care. In fact, the Kentucky Board of Emergency Medical Services (KBEMS)
+reported that 21% of prehospital providers will not renew their license in Kentucky and the
+number of new certified paramedics is less than the number leaving the workforce.’! The
+Commonwealth proposes funding new education and training programs to increase the
+production of trained paramedics in Kentucky. Additionally, we will support the costs of initial
+education courses for Emergency Medical Technician (EMT), Advanced Emergency Medical
+Technician (AEMT), and Paramedic students. We also intend to expand access to CHW training
+to ensure statewide availability given funding gaps in rural areas to establish training programs
+and apprenticeship sites. Lastly, to support training, particularly in rural areas, we will establish
+an EMS education mobile equipment program that will integrate technology, enhanced
+simulation labs, tele-education, and hybrid course delivery.
+
+Component 2: Post-Response Case Management: To bridge the gap between EMS response
+
+and ensuring patients receive appropriate services, the Commonwealth proposes providing post-
+
+Commonwealth of Kentucky 41
+
+=== page 42
+response case management. We will train EMS providers to utilize a social determinants of
+health (SDOH) assessment tool, such as the PRAPARE screening tool. This tool will enable
+EMS professionals to identify and address patient needs during emergency responses. In
+addition, EMS providers will receive training and technical assistance on conducting SDOH
+assessments, using the findings to inform their care decisions, and healthcare billing training to
+ensure the sustainability of these services. By integrating CHWs into EMS care teams, they will
+deliver evidence-based chronic disease interventions, preventive education and support, provide
+post-hospital follow-up, connect patients to medical and social resources, coordinate
+transportation, facilitate telehealth, and support remote monitoring programs.
+
+Component 3: Treatment in Place (TIP) Care and Transport to Alternative Destination
+
+(TAD): Many Kentucky patients require transportation over long distances to reach appropriate
+facilities which can tie up scarce EMS resources and leave communities temporarily unprotected.
+The Commonwealth proposes a comprehensive approach to EMS by incorporating both TIP and
+TAD strategies. The plan establishes a system enabling ambulance crews in rural areas to deliver
+telemedicine services, allowing trained EMS personnel to assess and treat patients on site
+through real-time video consultations with qualified healthcare practitioners who can provide
+diagnoses, develop treatment plans, and offer follow-up recommendations without requiring
+hospital transport. Additionally, the proposal introduces a process authorizing agencies to
+transport patients to facilities better suited for their needs, such as urgent care centers, FQHCs, or
+behavioral health crisis stabilization units instead of traditional EDs. This dual strategy not only
+enhances patient care and resource efficiency but also supports ongoing partnerships among
+EMS, physicians, and other healthcare professionals to deliver emergency care, chronic disease
+
+management, preventive interventions, and screening services under appropriate supervision.
+
+Commonwealth of Kentucky 42
+
+=== page 43
+Component 4: Establish Regional Medical Operations Coordination Centers (RMOCC):
+
+A major challenge in the Commonwealth is the lack of sufficient real-time information to
+support EMS providers and trauma centers in directing their limited resources and identifying the
+most appropriate hospital or facility for patient care. Kentucky’s proposed RMOCC is designed
+to assure timely access to specialty care—such as trauma, stroke, cardiac, and pediatric
+services—and expand trauma centers capacity and efficiency by providing real-time visibility
+into bed and critical resource availability as well as coordinating patient transfers statewide. The
+RMOCC aims to minimize delays in emergent care by balancing EMS workloads and reducing
+emergency department crowding through region-wide coordination. It standardizes response
+protocols for both planned and unplanned surges such as mass casualty incidents, severe weather
+events, and infectious disease outbreaks thereby ensuring the region can rapidly adapt to
+evolving demands. The RMOCC will serve as a centralized operational hub, offering a
+comprehensive situational awareness platform that tracks real-time bed status across emergency,
+intensive care, and pediatric units as well as trauma bays, cath labs, operating rooms, ventilators,
+and diversion statuses. It will also monitor EMS system readiness by providing updates on call
+volumes, unit availability, and hospital offload times in addition to highlighting pediatric
+capabilities to ensure appropriate care for children. A dedicated transfer and load-balancing desk
+will operate around the clock, enabling one-call coordination for interfacility transfers with clear
+escalation pathways for critical conditions supported by protocol-based triage and
+teleconsultation with specialty providers. During surges or emergencies, the RMOCC will
+support region-specific clinical coordination to facilitate mutual aid—including staffing,
+transport, and equipment pooling—and specialized pediatric and neonatal transfer plans. The
+
+center will also support ongoing quality improvement through data analytics, after-action
+
+Commonwealth of Kentucky 43
+
+=== page 44
+reviews, regular clinical performance collaboratives, and public reporting to foster transparency
+and continuous enhancement of emergency medical services across Kentucky.
+
+Component 5: Establishment of a Special Needs Tracking and Awareness Response System
+
+(STARS) for Children with Complex Medical Needs: Children with complex medical needs
+
+living in rural areas within the Commonwealth are far from the specialty clinics where they
+receive their care, and EMS is likely to have very little information about their complex care at
+the time of an emergency. The STARS program is an initiative to aid in EMS care of children
+with complex medical needs. These children present a special challenge in emergency care as
+they often have atypical vital signs at baseline, require specialized equipment, and have non-
+standard physiology that can mean typical treatments in an emergency may not work. The
+program will collaborate with the child’s treatment team to develop information specific to that
+child and share it with participating EMS agencies, getting the right information to the right
+people at the right time to help care for children with these complex medical cases.
+Sustainability Consideration: This initiative is built for long-term sustainability through
+strategic investments in infrastructure, workforce development, and diversified funding streams,
+including insurance reimbursements and participation fees. Refer to the Sustainability Plan
+section for additional information.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, B, D, E, F, G, K
+
+Technical Score Factors: B.1, C.1, C.2, D. 1, F.1, F.2
+
+Key Stakeholders: KBEMS, KORH, Kentucky Hospital Association (KHA), Rural Hospitals,
+State Level 1/2/3 Trauma Hospitals, EMS Providers, EMS and CHW Training Organizations,
+
+FQHCs, Kentucky Primary Care Association, SUD Centers, CCBHCs, VA Medical Centers
+
+Commonwealth of Kentucky 44
+
+=== page 45
+Outcomes: Below are four outcomes that will be tracked by the Commonwealth for this
+initiative. As this initiative will begin with pilot programs in the Appalachian Region of
+
+Kentucky, the Commonwealth will begin tracking within the pilot counties.
+
+Objective: To enhance prehospital care capacity, responsiveness, and coordination
+Measurable
+
+Key Result Baseline Relation to Initiative
+
+Outcomes
+
+Tracking the annual number of
+
+507 emergency Dependent on newly certified professional
+
+1) Annual # of newly
+
+Build Capacity | certified EMTs, medical baseline, ensures that Kentucky has a
+responders targets to be .
+for EMS AEMTs, . . robust and qualified emergency
+roviders and paramedics, and 4,501 determined in response team capable of
+P ° paramedics Year 1. oe
+CHWs CHWs 650 CHWs meeting increased demand and
+improving health outcomes.
+Monitoring the percentage of
+Dependent on EMS calls resulting in TIP or
+2) % of EMS calls Baseline will be | baseline, TAD reflects Corts 4
+Appropriate resulting in TIP or established in targets to be P' P :
+. : resource allocation to ensure
+Level of Care TAD Year 1. determined in : -
+Year 1 that patients receive the most
+. appropriate level of care for
+their needs.
+3) Dependent on | Evaluating rates of preventable
+Improved % of preventable Baseline will be | baseline, hospital ED visits provides
+Patien t hos ral ED visits established in targets to be critical feedback on the quality
+Outcomes P Year 1. determined in | and effectiveness of EMS and
+Year |. trauma services.
+Measuring access to up-to-date
+facility and patient-specific
+Better % of RMOCC Dependenton | fystem integration and.
+Coordinated partners’ access to Baseline will be | baseline, safeomation slutin allowin
+EMS and up-to-date facility established in targets to be EMS providers to ike &
+and patient-specific | Year 1. determined in | . P . :
+Trauma care Year 1 informed decisions, improve
+Systems . response times, and ensure
+
+seamless transitions between
+care settings.
+
+Figure 14. OKRs for Crisis to Care Initiative
+
+Commonwealth of Kentucky
+
+45
+
+=== page 46
+Supporting Evidence
+
+Component | Examples of Success
+
+Workforce Recruitment
+
+and Development e RHI Hub — Rural EMS) and Trauma — Models and Innovations
+
+Post-Response Case
+
+Management e RHI Hub — Kentucky Homeplace
+
+e Emory Prehospital and Ambulatory Virtual Emergency Services
+TIP / TAD e CMS — Emergency, Triage, Treat, and Transport (ET3) Model
+e Health Affairs — Giving EMS Flexibility in Transporting Low-Acuity Patients Could
+Generate Substantial Medicare Savings
+
+e Inside Tennessee's Regional Coordination Centers
+e American College of Surgeons - Regional Medical Operations Coordination
+Regional Medical Centers
+
+Operations e JAMA — Regional Transfer Coordination and Hospital Load Balancing During
+Coordination Centers COVID-19 Surges
+
+e Southern Regional Disaster Response System: Medical Operations Coordination
+
+Cell (MOCC
+
+e American Academy of Pediatrics - Special Needs Tracking and Awareness
+STARS Response System (STARS): Improving Emergency Care for Pediatric Patients with
+Complex Medical Needs
+e STARS: Special Needs Tracking and Awareness Response System
+
+Figure 15. Examples of Similar Models for Crisis to Care Initiative
+Impacted Counties: This initiative will start within the Appalachian Region of Kentucky, which
+includes 54 counties.”” However, by the end of the program, it is anticipated this initiative will
+impact multiple rural or non-metropolitan counties outside Appalachia as the pilot programs
+expand (see Appendix B in Other Supporting Documentation).
+Estimated Required Funding: Approximately $27-47 million per budget period (of the
+hypothetical $200 million), for an estimated total of $182 million over the five RHTP budget
+
+periods. See Budget Narrative for additional details.
+
+Commonwealth of Kentucky 46
+
+=== page 47
+IMPLEMENTATION PLAN AND TIMELINE
+
+The table below provides a high-level overview of Kentucky’s RHTP implementation plan.
+
+Stage 1 Stage 2 Stage 4 Stage 5
+(FY27) (FY28) (FY30) (FY31)
+. an Implementation Near Fully
+Planning Initial Launch Early Scale iW etdlanti Canzpilaitorn iiegaermerated
+
+1) Rural Community Hubs for Chronic Care Innovation
+
+e Stand up e Launch RCHs | ® RCHs in 5 e RCHs in 10 ¢ RCHs in 15 ¢ Implemented
+state-level in 2 ADDs ADDs ADDs ADDs statewide for
+RCH (obesity and (obesity and (obesity and (chronic tural health
+coordination diabetes diabetes diabetes disease initiatives
+team focused) focused) focused) focused) ¢ Long-term
+
+¢ Confirm * Digital ¢ Digital « Digital « Production funding
+backbone collaboration collaboration collaboration digital streams secured]
+organization hub (MVP) hub (version hub (version collaboration ¢ RCH program
+
+* Select 2 pilot and care 1) and care 2) with mobile | hub available transferred to
+ADDs coordination coordination app in 10 statewide non-profit,
+
+° Define tool launched tool in 5 ADDs © Identification university, or
+requirements in 2 ADDs ADDs e Establish of funding PPP for
+and procure * Semantic data | * Patient advisory sources sustainability
+solutions for model and matching and council ¢ Revenue cycle | ¢ Disease
+digital tools governance clinical © Population optimization, registries, AI-
+
+models decision health first AI model driven care
+established support analytics and deployment pathway
+* Complete virtual care © Complete capabilities
+program capabilities program
+evaluation evaluation
+
+2) PoWERing Maternal and Infant Health: Community-Based Teams
+
+© Select pilot ¢ Pilot in 2 e Expand into 5 |« Expandto10 |e Expandtoall | Implemented
+region and ADDs total ADDs total ADDs 15 ADDs statewide
+partner clinics | e Establish local | * Pilot e Reach 50% of | ¢ Design ¢ Sustainable
+* Develop wraparound community KY’s rural bundled funding
+Notification of partnership education counties payments with secured
+Pregnancy Establish program using | e Define APM Medicaid (e.g., POWER
+(NOP) rubric Perinatal HANDS opportunities | ¢ Explore teams
+for POWER CHW ¢ Complete with Medicaid bundled reimbursable
+Team certification program and private payment through
+eligibility program evaluation insurers opportunities MCOs and
+Deploy care with private private
+coordination insurers payers)
+tool to active * Complete
+PoWER program
+Teams evaluation
+
+Commonwealth of Kentucky 47
+
+=== page 48
+Stage 0 Stage 1 Stage 2 Stage 3 Stage 4 Stage 5
+(FY26) (FY27) (FY28) (FY29) (FY30) (FY31)
+Planning Initial Launch Early Scale iM lidoant.. renin implement d
+3) Rapid Response to Recovery: EmPATH Model with Mobile Crisis and Telehealth
+© Identify pilot « Launch 1 e Expand e Launch | new | Launch 1 new | Operate
+hospitals and EmPATH pilot} Eastern KY EmPATH unit EmPATH unit statewide
+community in Eastern KY EmPATH unit (Western KY) | ¢ Expand collaboration
+behavioral and collect e Expand e Expand community hub network
+health partners initial outcome community community paramedicine | « Expand
+e Establish data paramedicine paramedicine program to up community
+EmPATH e Launch pilots to at program to at to 10 new paramedicine
+Consortium community least 5 new least 5 new counties program to up
+¢ Identify paramedicine counties counties and | e Expand to 10 new
+community pilots in 5 e Launch scale telebehavioral counties
+paramedicine counties and telebehavioral integrations health program | ¢ Expand
+partners collect initial health hub to | ¢ Expand to 11 new telebehavioral
+e Assess outcome data support rural telebehavioral counties health program
+telebehavioral | ¢ Build EDs, PCPs and health to e Expand to 16 new
+health telebehavioral first responders operate as collaboration counties
+readiness and health program | in 11 counties regional of EmPATH, | © Reach majority
+determine with 6 pilot ¢ Complete consultation community rural counties
+delivery model | _ participants program hubs to serve paramedicine through
+e Execute MOUs| * Award sub- evaluation non-EmPATH programs telehubs and
+grantees hospitals/ EMS | e Publish public EmPATH
+in 11 KPI dashboard network
+additional ¢ Complete « Publish leading
+counties program practices, case
+evaluation studies, and
+learnings
+
+4) Rooted in Health: Rural Dental Access Program
+
+¢ Identify * Connect 50% | Connect 100% | ¢ Graduate first | ¢ Complete
+expansion sites} of public of public students from program
+for dental health dental health dental new dental evaluation
+hygiene hygiene teams hygiene teams hygiene « Increase reach
+programs to a teledental to a teledental programs of public
+Identify hub, hub, ¢ Provide health hygiene
+expansion sites supervising supervising intraoral teams to all 15
+for public dentist dentist injection ADDs
+health dental « Launch ED ¢ Increase reach trainings to ED
+hygiene teams intraoral of public staff in at least
+e Establish injection health hygiene one facility
+teledental trainings teams to over within 20
+network with | ¢ Select funding 50 counties counties
+dental colleges recipients and | ¢ Complete
+© Contract launch mobile program
+dentist(s) or dentistry evaluation
+
+oral surgeon(s)
+to develop and
+conduct ED
+intraoral
+injection
+trainings
+
+Create 100"
+new training
+slot for dental
+hygienists at
+accredited
+training
+programs
+Provide
+intraoral
+injection
+training to ED
+staff in at least
+one facility
+within all 15
+ADDs
+
+Commonwealth of Kentucky
+
+48
+
+=== page 49
+Stage 0 Stage 1 Stage 2 Stage 3 Stage 4 Stage 5
+
+(FY26) (FY27) (FY28) (FY29) (FY30) (FY31)
+Planning Initial Launch Early Scale iM lidoant.. renin implement d
+5) From Crisis to Care: Integrated EMS and Trauma Response
+© Create e Launch pilots | « Launch « Continued « Expand pilot Identify
+workgroups of EMS technical expansion pilot] programs statewide
+Identify training and assistance and programs ¢ Identification leading
+organizations recruitment, collaboratives |e Launch 2"4 of other funding] practices, case
+and partners for| post-response to support pilot] RMOCC sources and studies, and
+pilot program case initiatives © Identify state partners (state, lessons learned
+© Creation and management, | e Expand EMS regulations or public-private | ¢ Establish long-
+approval of and TIP/ TAD training and policies needed| _ partnerships, term funding
+protocols e Pilot expansion} recruitment, to support long-| membership streams to
+¢ Define funding} of STARs post-response term success fees) sustain work
+allocation e Technology case mgmt.., © Use pilot e Maintain robust
+strategy and procurement TIP and TAD, evaluation to state-level
+other for RMOCC and STARs support policy technology
+foundational |e Finalize ¢ Launch regulation and capacity for
+processes MOUs, data- RMOCC pilot policy changes RMOCCs and
+e Define use and in Appalachian and secure EMS telehealth
+requirements fo} _information- Region ongoing funding
+technology sharing « Complete « Complete
+agreements for | program program
+RMOCC evaluation evaluation
+
+Figure 16. Kentucky RHTP Implementation Plan by Initiative
+
+Governance and Project Management Structure
+
+The Department for Public Health (DPH) within Kentucky CHFS will serve as the lead agency
+supporting RHTP implementation. DPH will work collaboratively with other agencies and key
+stakeholders to ensure the program is fiscally responsible, meets reporting requirements, makes
+progress towards established goals, and is sustainable.
+
+Kentucky intends to build a new team within DPH to support the RHTP. Kentucky’s RHTP A?
+Team will function as the operational “nerve center” of the RHTP. Figure 17 below provides an
+overview of the intended type and count of staff that will be utilized during the program. The A?
+Team integrates program oversight, analytics, communications, and partnerships across CHFS,
+academic partners, and community organizations. Over five years, the A? Team could evolve
+into a public-private collaborative entity (or other entity), sustaining innovation capacity and
+
+coordination beyond the grant period.
+
+Commonwealth of Kentucky 49
+
+=== page 50
+Tier Role Examples FTEs Notes
+
+Commissioner retains oversight; may
+Leadership Core Executive Director, Deputy Director ~2 rotate deputies from other CHFS
+divisions.
+Each manages a major program
+workstream; sits within an initiative
+team, but reports to the A3
+leadership core.
+
+Initiative Leads for Chronic Disease,
+Initiative Leads Maternal Health, Behavioral Health, Oral ~5
+Health, EMS/Trauma
+
+Program Managers (Clinical and
+
+Community Domains), Data Analytics, Ensure consistency, reporting, and
+Technology Enablement, Quality and provides cross-cutting capabilities.
+Evaluation, and Workforce Planning
+
+Horizontal Leads
+
+Deputies for each Initiative Lead,
+Support Analysts | Financial Analysts (x2), and a Health ~8
+Informatics Specialist
+
+Figure 17. Anticipated A’ Team Staffing
+
+Comprised of analysts that support
+Initiatives and/or Horizontal Leads.
+
+Additionally, DPH anticipates hiring consulting and technical support firms to support the
+implementation of the RHTP in areas such as project management, technology integration, and
+evaluation services. Please refer to Appendix N in Other Supporting Documentation for a
+
+proposed organizational chart.
+
+STAKEHOLDER ENGAGEMENT
+
+As part of its commitment to robust engagement, Kentucky CHFS solicited input directly from
+rural health stakeholders including health care provider organizations, associations, and
+academic and research centers in late July to seek innovative ideas and recommendations for
+Kentucky’s RHTP application. Stakeholders were asked to respond to this request by September,
+generating significant interest across the Commonwealth, and resulting in over 50 responses
+from a diverse array of organizations. Each submission was reviewed by the CHFS and used to
+
+inform the development of the five proposed initiatives for Kentucky’s RHTP application.
+
+Commonwealth of Kentucky 50
+
+=== page 51
+Stakeholders
+
+Kentucky is pleased to share letters of support for each of the five initiatives (see Letters of
+Support in Other Supporting Documentation), demonstrating broad support for our RHTP
+
+approach. The Commonwealth is committed to working with these and other stakeholders.
+
+Initiative Stakeholder Engagement
+
+The Rural Community Hubs initiative will bring together a broad coalition of partners
+
+Rural Community across Kentucky’s rural health system to foster coordinated, community-driven action on
+Hubs for Chronic chronic disease prevention and management. Key stakeholders include LHDs, ADDs
+Care Innovation AAAs, MCOs and Payers, Healthcare Providers, CBOs and FBOs, SOAR, Employers
+
+and Local Businesses, Schools and Educational Institutions, CHWs, and State Agencies.
+
+The PoWER Team initiative will bring together a broad coalition of partners across
+Kentucky’s rural health system to foster coordinated, community-driven action on
+
+PoWERing maternal and infant health. Key stakeholders include LHDs, FQHCs, RHCs, CAHs,
+Maternal and Infant | Primary Care Associations, Hospital Associations, Perinatal Quality Collaboratives and
+Health: Perinatal Associations, Behavioral Health Providers, CBOs and FBOs, SOAR, Advocacy
+Community-based Organizations, Nursing and Professional Associations, Organizations from existing
+Teams Maternal and Infant Health Initiatives and Home Visiting Programs (e.g., HANDS),
+
+Rural Health Centers of Excellence and the Office of Rural Health, Educational
+Institutions, MCOs and Payers, and State Agencies.
+
+Rural stakeholders have been engaged throughout the development of the four initiative
+components. The Kentucky Department for Medicaid Services led a statewide needs
+assessment that prioritized rural gaps through surveys, interviews, and advisory work
+groups with rural providers, agencies, and community members. The CCCR model was
+Rapid Response to co-developed with input from over 56 individuals representing 34 organizations (rural
+
+Recovery: law enforcement, EMS, CMHCs, PSAPs, peer support associations, and healthcare
+EmPATH Model, providers) to address unique rural challenges such as limited behavioral health resources,
+Mobile Crisis and transportation barriers, and workforce shortages. Rural paramedicine mobile crisis teams
+Telehealth were piloted in collaboration with city and county officials, first responders, and school
+
+resource centers, shaping program design and referral systems between 988 and 911. The
+EmPATH model features ongoing, deep collaboration with local CMHCs as daily
+partners and the establishment of a statewide EmPATH Consortium, ensuring rural
+voices are represented in governance, data sharing, and continuous improvement cycles.
+
+This initiative is built on the collective input and collaboration of key stakeholders across
+Kentucky, including the UK College of Dentistry, UK TeleCare, the University of
+Louisville College of Dentistry, Pikeville College of Dentistry, KCTCS, Murray State
+
+Rooted in Health: University, the Kentucky Dental Association, Kentucky Voices for Health, SOAR, the
+
+Rural Dental Access | UK College of Public Health. It also includes the input of organizations representing
+
+Program aging and long-term care such as the Kentucky Association of Health Care Facilities,
+Leading Age Kentucky, the Kentucky Association of Adult Day Centers, the Kentucky
+Association of Area Agencies on Aging, the Kentuckiana Regional Planning &
+Development Agency, and the State Long-Term Care Ombudsman.
+
+From Crisis to
+Care: Integrated
+EMS and Trauma
+Response
+
+To support the development of this initiative, CHFS has consulted and will continue to
+consult several organizations within the EMS and trauma system community, including
+but not limited to KBEMS, KHA, SOAR, and KORH.
+
+Figure 18. Initiative Stakeholder Engagement
+
+Commonwealth of Kentucky 51
+
+=== page 52
+Engagement Framework
+
+Kentucky is committed to fostering robust, ongoing collaboration with all relevant state entities
+to ensure the effective implementation and success of the RHTP. Kentucky CHFS will work
+across agencies and leverage existing collaborative structures to align fund deployment, track
+milestones, and evaluate impact metrics to ensure all partners have a shared understanding of
+program goals and progress. Through this coordinated approach, Kentucky CHFS will maintain
+transparent communication channels and inclusive decision-making processes across agencies
+and partners. This will facilitate timely identification and resolution of challenges, promote best
+practices, and ensure that stakeholders are represented in shaping and monitoring the RHTP. For
+
+each initiative, Kentucky has outlined its stakeholder engagement framework.
+
+Initiative Engagement Framework
+
+Stakeholder engagement will be ongoing and formalized through State-level and District-
+level Coordination Teams that will facilitate regular open forums, enabling diverse
+voices—including those of patients and caregivers—to be represented in governance and
+decision-making.
+
+Rural Community
+Hubs for Chronic
+Care Innovation
+
+mw ne , d Stakeholder engagement will be ongoing and formalized through State-level and Regional
+Infant Health: Coordination Teams that will facilitate regular open forums, enabling diverse voices—
+
+a L. including those of patients, families, and frontline providers—to be represented in
+Community-based a .
+Thame governance and decision-making.
+
+Supported statewide, the initiative will form an EmPATH Consortium to oversee program
+governance, bringing together hospitals, mental health centers, EMS, payers, and
+
+erp] enor community partners. Chaired by CHFS and DBHDID leads, the Consortium will serve as
+
+ee Model. the backbone for the initiative, set the agenda, budget, and measures, and support a
+G A , Stakeholder Advisory Council for feedback. All core stakeholders will collaborate to align
+Mobile Crisis and .
+transport and treat-in-place protocols, EmPATH and telebehavioral health workflows,
+Telehealth . . .
+workforce actions, value-based payment levers, and continuous improvement cycles to
+drive sustainable rural impact.
+. Kentucky will create a dedicated team of state experts within the CHFS for the duration of
+Rooted in Health: . : 5 . :
+Rural Dental the grant with the expectation that each component’s operations will become self-
+
+sustaining afterwards. This team will foster partnerships, set regulations and requirements
+
+Accxs gga as well as manage implementation rollout.
+
+From Crisis to Kentucky will create several workgroups in Phase 0 to support each component of the
+Care: Integrated initiative, support defining metrics, baselines, and targets, and share best practices and
+EMS and Trauma _| lessons learned during the pilot phases. We intend to reflect the communities we engage,
+Response including EMS patients, CHWs, EMS providers, and more.
+
+Figure 19. Initiative Engagement Frameworks
+
+Commonwealth of Kentucky 52
+
+=== page 53
+METRICS AND EVALUATION PLAN
+
+Initiative-specific metrics are outlined in the initiatives section to ensure clear accountability and
+alignment with program goals. For some initiatives, Kentucky plans to use Phase 0 to define
+baseline values and set targets in collaboration with relevant stakeholders, while also identifying
+appropriate data sources and specifying measurement details. Kentucky will contract with RHTP
+implementation partners to include requirements for measurement and accountability. Figure 20
+
+below outlines the overall goals that will be measured throughout the program.
+
+Initiative Goal
+
+Rural Community Hubs for Reduce obesity and diabetes rate through evidence-based, community-led
+Chronic Care Innovation strategies focused on upstream prevention
+
+PoWERing Maternal and Infant Increase timely perinatal care in maternity care deserts through
+Health: Community-based Teams | coordinated, telehealth-enabled teams
+
+Rapid Response to Recovery:
+EmPATH Model, Mobile Crisis
+and Telehealth
+
+Expand integrated, technology-enabled crisis care from community
+response to long-term support
+
+Improve rural access to preventive dental care and treatment through
+expanded training, geographically distributed dental hygiene clinics, and
+mobile, portable services
+
+Rooted in Health: Rural Dental
+Access Program
+
+From Crisis to Care: Integrated Strengthen capabilities and capacity for pre-hospital care and treatment in-
+EMS and Trauma Response place interventions
+
+Figure 20. Potential Measures to Be Considered for Overall Program Impact
+In addition to these initiative metrics, Kentucky intends to establish overall program metrics to
+monitor broader impact. A sample of potential measures is presented in Figure 21; Kentucky will
+leverage Phases 0 and | to assess and select measures that reflect the program’s effectiveness.
+
+Category Metric Purpose / Rationale
+
+Program Effectiveness & Impact
+
+# of counties participating in at least Measures program penetration
+
+Overall saan one RHT initiative Leading across rural Kentucky
+
+System Transformation & Integration
+
+System-wide # of formal data-sharing or partnership Leadin Reflects collective-impact
+Collaboration MOUs executed 8 strength
+
+Innovation Adoption # of pilot interventions scaled statewide | Lagging Demonstrates replicability and
+
+learning
+
+Commonwealth of Kentucky 53
+
+=== page 54
+Category Metric Type Purpose / Rationale
+
+Fiscal Sustainability & Efficiency
+
+Ratio of non-RHTP dollars leveraged
+Fiscal Stewardship (other federal, state, philanthropic, Lagging
+private) per RHTP dollar
+
+Public Awareness & Engagement
+
+Gauges sustainability and
+external buy-in
+
+f communi reach events or . a
+# of community outreach events 0 Leading | Engagement activity measure
+
+Community town halls conducted
+Engagement # of visits to public RHTP/Vitality Leading | Digital awareness proxy
+Signs website or app
+Public awareness of RHTP (survey) Lagging | Evaluates reach of messaging
+Perception & Trust Community satisfaction with local . Perceived impact of
+Lagging
+
+health services (annual survey) transformation
+
+Program Learning & Evaluation
+
+% of initiatives submitting quarterly
+
+Reporting Compliance performance data on time
+
+Leading | Ensures accountability
+
+Figure 21. Potential Measures to Be Considered for Overall Program Impact
+
+Program Evaluation
+
+Kentucky will actively monitor and evaluate its progress toward its RHTP goals and will
+consider partnering with an independent evaluator, such as an academic institution, to support
+robust review of initiatives within our application. We recognize the importance of continuous
+evaluation throughout the program to monitor its current status, identify best practices, and
+enable ongoing improvements. Furthermore, we intend to leverage collected data to inform the
+program’s evolution, promote its success, and long-term sustainability. Kentucky will cooperate
+with CMS-led evaluation or monitoring activities and is prepared to participate in assessments
+
+conducted by CMS or third-party evaluators across states.
+
+Commonwealth of Kentucky 54
+
+=== page 55
+SUSTAINABILITY PLAN
+
+Kentucky is firmly committed to establishing and maintaining a sustainable RHTP program that
+will deliver long-term value for both the Commonwealth and its partners. We will pursue
+ongoing innovation and collaboration with rural health stakeholders and statewide partners,
+including the University of Kentucky’s Advancing Kentucky Together Network.” In designing
+and implementing the Kentucky RHTP, we focused on operational feasibility and financial
+viability of each individual initiative. Beyond the duration of five-year federal investment,
+Kentucky aspires to establish a Public-Private Partnership (PPP) model in collaboration with
+rural health stakeholders. We anticipate this PPP will be led by an independent non-profit
+organization that will explore innovative funding models such as an endowment to pool
+charitable donations from public, private, and philanthropic organizations. Further, this PPP
+would be managed under a transparent governance structure to pursue shared priorities and
+collective actions across the Cabinet for Health and Family Services, academic and other
+community partners. This innovative approach reflects the Commonwealth’s broader
+commitment to sustainability through collective investment, enabling rural health transformation
+to shift from time-limited funding to a self-sustaining model of continuous improvement.
+Rural Community Hubs for Chronic Care Innovation
+
+The Rural Community Hubs for Chronic Care Innovation initiative will be the starting point for
+this statewide Public-Private Partnership (PPP) model by engaging the broader rural health
+stakeholders in collaboration and collective action around shared chronic care innovation
+priorities. To realize this vision, the Rural Community Hubs will capture patient outcomes and
+demonstrate future potential for Medicaid waivers and/or outcomes-based alternative payment
+
+models to incentivize ongoing chronic care innovation through Rural Community Hubs.
+
+Commonwealth of Kentucky 55
+
+=== page 56
+Kentucky anticipates this five-year evaluation period will provide sufficient outcomes data to
+support design of alternative payment models and attract long-term funding from private sector
+foundations and philanthropies to provide sustainable funding for community-based grants.
+PoWERing Maternal and Infant Health: Community-based Teams
+
+The PoWERing Maternal and Infant Health initiative is designed for long-term sustainability
+beyond the RHTP funding period, with core functions embedded within Kentucky’s existing
+healthcare and community infrastructure. POWER Teams will be trained as kynectors to assist
+with Medicaid enrollment and renewal, providing continuous coverage through pregnancy and
+12 months postpartum. PoWER Teams will screen patients for insurance status at first contact
+and help them leverage existing Medicaid benefits. For example, all five current Medicaid
+MCOs offer maternal health support services (e.g., mental health checks, breast feeding support,
+medical nutrition therapy) and each MCO offers a range of services that can be used to improve
+maternal health outcomes (e.g., reimbursement for doula services, rewards for prenatal and
+postpartum visit adherence, home meal plans after delivery). By coordinating existing roles
+through new, integrated POWER Teams, the model minimizes the need for new hires.
+
+A scalable, low-maintenance telehealth and care coordination platform will allow for ongoing
+remote monitoring, virtual visits, and seamless interoperable data sharing with providers. Once
+implemented, this technology requires minimal ongoing investment, can be scaled statewide, and
+can effectively help “kill the clipboard.” Through rigorous data collection (e.g., MCCC’s
+Azara/NextGen EHR integration model), we expect this initiative to show improvements in
+maternal/infant outcomes, cost savings, and patient engagement. Reimbursement models for the
+initiative are anchored in Medicaid-covered services for doulas, certified nurse midwives,
+
+telehealth, peer support specialists, and CHW support to fund this workforce expansion.
+
+Commonwealth of Kentucky 56
+
+=== page 57
+As the program proves its effectiveness, Kentucky will pursue bundled payment models for
+Medicaid and advocate for commercial payers and self-insured employers to offer POWER Team
+services as a covered benefit. This approach positions POWER Teams as a transformative,
+evidence-based solution that can be sustained beyond the initial grant period.
+
+Rapid Response to Recovery: EmPATH Model, Mobile Crisis and Telehealth
+
+To drive towards long-term sustainability after RHTP funding periods, Kentucky will integrate
+the Rapid Response to Recovery initiative into its established state and regional behavioral health
+systems. This approach will maximize existing resources through Medicaid reimbursement and
+explore future value-based contracts with managed care organizations and commercial payers, as
+well as ongoing collaboration with hospitals, CMHCs, CCBHCs, EMS, and CBOs.
+
+RHTP funding will support initial investments in facility upgrades, workforce development, and
+infrastructure establishment. Once operational, we anticipate reimbursement for billable services
+will surpass operating costs, allowing for modest margins. Kentucky has already developed and
+refined best practices for EmPATH’s revenue cycle management, payers are well-acquainted
+with these services, and the current unit has demonstrated a path towards cost recovery.
+Paramedicine, co-responder services, and telebehavioral health consultations will be billed using
+existing codes, with appropriate modifiers and place-of-service codes, consistent with CMS and
+Kentucky Medicaid guidelines. The state’s intent is to continue supporting CCBHCs, which
+would enable further cost-based reimbursements for these services. Throughout the grant period,
+demonstration of reduced healthcare costs and improved quality of care through EmPATH units,
+paramedicine, co-responder response, and telebehavioral health access will demonstrate value for
+ongoing payer support. Beyond the five-year grant period, governance will be maintained by the
+
+EmPATH Consortium to monitor program fidelity, data reporting, and ongoing improvements.
+
+Commonwealth of Kentucky 5
+
+=== page 58
+Rooted in Health: Rural Dental Access Program
+Each component of the Rooted in Health initiative has identified a pathway to sustainability:
+
+¢ Component 1: Accredited Dental Hygiene Programs: Dental hygiene programs will
+
+generate recurring revenue through tuition payments.
+
+e Component 2: Teledental Hubs: The Teledental Hubs will bill insurance for consults and
+
+generate revenue through referrals from the public health hygienists. To enable this model, a
+statewide network of distributed telehealth equipment will be established in rural dental
+clinics (spokes). The funding for Hub dentists will be supported by the growth of rural
+clinics, with subsidies declining over the life of the grant. Kentucky will work with the Hubs
+to replace that revenue with billable patient interactions or consults.
+
+e Component 3: Portable and Mobile Dental Care: The Portable and Mobile Dental Care
+
+units will recover their operating expenses through insurance reimbursements, making the
+program financially sustainable after the initial startup investment phase. The financial
+investment risk of expanding hygienist capacity to meet demand in LTC settings will be
+offset by incentive-based payments to encourage LHDs to expand their hygiene programs
+over the duration of the RHTP grant. The increase in program reach will generate insurance
+reimbursements and result in collaboration between LHD hygiene units and LTC facilities.
+
+¢ Component 4: Intraoral Injection Education for ED Physicians: ED training will be
+
+administered through a “train the trainer” model, such that physicians who participate in the
+training will receive the necessary materials to train peers. Other team members (including
+CHW and other ED staff) will also be provided with leave-behind training material which
+
+ideally will be incorporated into each facilities’ training and onboarding programs.
+
+Commonwealth of Kentucky 58
+
+=== page 59
+From Crisis to Care: Integrated EMS and Trauma Response
+
+Kentucky’s From Crisis to Care initiative has been strategically designed to ensure long-term
+sustainability after the conclusion of RHTF funding. The Commonwealth is making significant
+upfront investments in infrastructure, technology, and workforce training to lay a strong
+foundation for ongoing operations. Throughout the pilot phase, CHFS will review policies and
+reimbursement pathways to support effective billing of both public and private insurers in order
+to expand coverage for EMS and CHW services. This approach will help secure stable revenue
+streams by leveraging existing Medicaid, Medicare, and commercial insurance reimbursements,
+particularly for non-transport services and CHW follow-ups.
+
+CHFS will actively seek other funding opportunities. For initiatives such as the RMOCC, we will
+explore tiered participation fee structures. These annual fees, scaled by organization size, will
+cover a significant portion of operational costs and incentivize broad engagement. In-kind
+contributions from host health systems, such as physical space and IT support, will further offset
+costs, especially for rural providers. The EMS initiative will assess opportunities through
+Kentucky’s Medicaid managed care value-based payment initiatives, rewarding EMS agencies
+for reducing avoidable emergency department visits and improving health outcomes through
+social determinants of health interventions. In the future, value-based incentives will be explored
+through Medicaid and commercial plans for improved timely transfers and lower costs.
+Sustainability will also be reinforced through formal workforce development pipelines for EMS
+and CHWs, supported by training programs at community colleges and universities. Hospitals
+and other referral partners will contribute to ongoing EMS provider training and technology, and
+participation in RMOCC may be incentivized through public reporting and inclusion in state
+
+quality programs. Kentucky’s From Crisis to Care initiative will be maintained through a
+
+Commonwealth of Kentucky 59
+
+=== page 60
+balanced mix of insurance reimbursements, participation fees, payer partnerships, and other
+funding support. This diversified funding model will ensure the continued availability and
+improvement of EMS services beyond the initial RHTF funding period.
+
+Kentucky’s RHTP demonstrates how states can connect people, data, and purpose to renew rural
+health. The plan transforms fragmented services into a coordinated system where technology,
+workforce, and community engagement converge. Kentucky stands ready to serve as a national
+
+demonstration site for sustainable rural health transformation.
+
+Commonwealth of Kentucky 60
+
+=== page 61
+ENDNOTES
+
+' America’s Health Rankings. “Annual Report 2025.” United Health Foundation. Accessed October 2025.
+
+https://www.americashealthrankings.org/explore/measures/pct_rural_b/KY.
+
+Rural Health Information Hub. “Healthcare Access in Rural Communities.” 2025.
+
+https://www.ruralhealthinfo.org/topics/healthcare-access.
+
+3 America’s Health Rankings. “2024 Annual Report.” United Health Foundation. Accessed October 2025.
+https://www.americashealthrankings.org/learn/reports/2024-annual-report.
+
+4 County Health Rankings & Roadmaps. “2025 Kentucky.” Accessed October 2025.
+https://www.countyhealthrankings.org/health-data/kentucky?year=2025.
+
+5 Kentucky Cabinet for Health and Family Services. “Kentucky Diabetes Report.” 2025.
+
+https://www.chfs.ky.gov/agencies/dph/dpgqi/cdpb/dpcp/2025%20Diabetes%20Report.pdf?.
+
+Centers for Disease Control and Prevention. “Diabetes Mortality.” 2023. https://www.cdc.gov/nchs/state-
+
+stats/deaths/diabetes.html.
+
+7 American Diabetes Association. “The Burden of Diabetes in Kentucky.” 2023.
+https://diabetes.org/sites/default/files/2023-09/ADV_2023_State_Fact_sheets_all_rev_Kentucky.pdf.
+
+8 Kentucky Cabinet for Health and Family Services. “Kentucky Diabetes Report.” 2023.
+https://www.chfs.ky.gow/agencies/dph/dpqi/cdpb/dpcep/2023%20Diabetes%20Report%20%281%29.pdf.
+
+° Kentucky Cabinet for Health and Family Services, “Kentucky Diabetes Report.”
+
+10 March of Dimes. “Maternity Care Deserts Report: Kentucky.” 2023.
+https://www.marchofdimes.org/peristats/assets/s3/reports/mcd/Maternity -Care-Report-Kentucky.pdf.
+
+1 CIK Issue Brief. “Maternal Mortality in Kentucky.” 2022. https://kypqe.org/sites/default/files/2022-
+06/CIK%20Maternal%20Mortality%20in%20Kentucky%20Issue%20Brief.pdf.
+
+' Kentucky Maternal Mortality Review Committee. “Annual Report 2024.”
+https://www.chfs.ky.gov/agencies/dph/dmch/Documents/MMRAnnualReport2024.pdf.
+
+'3 Kentucky Department for Public Health. “Child Fatality Review, 2024.”
+https://www.chfs.ky.gov/agencies/dph/dmch/Documents/CFR%20Annual%20Report%202024.docx.pdf.
+
+4 Kentucky Cabinet for Health and Family Services, “Kentucky Diabetes Report.”
+
+15 Centers for Disease Control and Prevention, WISQARS. “WISQARS Leading Causes of Death Visualization
+Tool.” 2023. Accessed October 2025. WISQARS Leading Causes of Death Visualization Tool
+
+16 Centers for Disease Control and Prevention. “Opioid Overdose Data.” Morbidity and Mortality Weekly Report
+70, no.15 (2021). https://www.cdce.gov/mmwr/volumes/70/wr/pdfs/mm7015a1 -H.pdf.
+
+17 Pathways. “Mental Health in Rural Areas: Understanding and Addressing the Unique Challenges.”2024.
+https://www.pathways-ky.org/mental-health-in-rural-areas-understanding-and-addressing-the-unique-challenges/.
+
+18 Kentucky Hospital Association. “Kentucky’s Persistent Mental Health Crisis: Effects on Hospital Emergency
+Departments.” 2024.
+https://www.kyha.com/wp-content/uploads/2024/08/KentuckysPersistentMentalHealthCrisis.pdf
+
+1° Centers for Disease Control and Prevention. “Health Disparities in Oral Health.” 2024. https://www.cdc.gov/oral-
+health/health-equity/index.html.
+
+20 University of Kentucky. “Dental Workforce Report, 2023.” https://medicine.uky.edu/sites/default/files/inline-
+files/2023%20Dental%20Report%20Final%20Aug%2017%202023.pdf.
+
+21 Scripps News Group. “Dental Workforce Shortages in Kentucky.” 2024. https://www.lex18.com/news/lex-in-
+depth/as-dental-offices-face-hygienist-shortages-bctc-prepares-the-next-generation.
+
+22 University of Kentucky. “Dental Workforce Report, 2023.”
+
+33 CareQuest Institute. “Adult Use of Emergency Departments for Non-Traumatic Dental Conditions: Spotlight on
+Kentucky.” 2022. https://www.carequest.org/resource-library/adult-use-emergency-departments-non-traumatic-
+dental-conditions-spotlight-kentucky.
+
+24 National EMS Quality Performance Measures. “High Impact, practical, evidence-based measures for the
+assessment of EMS Performance. June 2020 - May 2021.”
+https://kbems.ky.gov/KSTARS/Documents/Publications/NEMSQA%20Performance%20Measures.pdf.
+
+25 American College of Surgeons. “Regional Medical Operations Coordination Centers.” 2025.
+https://www.facs.org/quality-programs/trauma/committee-on-trauma/regional-committees-on-trauma/field-
+program/rmoces/.
+
+26 Kentucky Board of Emergency Medical Services. “Report to Interim Joint Committee on Health Services.” 2024.
+https://apps.legislature.ky.gov/CommitteeDocuments/366/3082 1/07%2030%202024%203.%20Ky%20Brd%20E
+MS%20-Staffing%20Shortages%20Presentation.pdf.
+
+Commonwealth of Kentucky 61
+
+=== page 62
+27 Maine Rural Health Research Center. “Ambulance Desert: Geographic Disparities in the Provision of Ambulance
+Services.” 2023. https://digitalcommons.usm.maine.edu/ems/16/.
+
+28 National Rural Health Association. “EMS Services in Rural America: Challenges and Opportunities.” 2019.
+https://www.ruralhealth.us/getmedia/cc0078fa-14d2-47eb-98a6-2bb6722e540c/2019-NRHA-Policy-Document-
+EMS-Services-in-Rural-America-Challenges-and-Opportunities.pdf
+
+2° Cicero Institute. “Kentucky Physician Shortage Facts.” 2024. https://ciceroinstitute.org/wp-
+content/uploads/2024/02/K Y -Physician-Shortage-Facts-one-pager-2-1-2024.pdf.
+
+3° March of Dimes. “Where you live matters: Maternity Care Access in Kentucky.” 2023.
+https://www.marchofdimes.org/peristats/reports/kentucky/maternity-care-deserts.
+
+31 Cicero Institute, “Kentucky Physician Shortage Facts.”
+
+32 University of Kentucky, “Dental Workforce Report, 2023”
+
+33 America’s Health Rankings, “High Speed Internet in Kentucky.” United Health Foundation. 2023. Accessed
+October 2025. https://www.americashealthrankings.org/explore/measures/internet/KY.
+
+34 Kentucky Office of Broadband Development. “Kentucky Wired Project and Improving Lives: Telehealth Services
+and Distance Learning.” Accessed October 2025. https://www.rsinc.com/kentucky-office-of-broadband-
+development.php#:~:text=Many%200f%20these%20communities%20often,to%20invest%20in%20these%20com
+munities.
+
+35 Appalachian Regional Commission. “Households in the Appalachian Region With an Internet Subscription, By
+Type of Subscription, 2019-2023.” Accessed October 2025. https://www.are.gov/wp-
+content/uploads/2025/05/PRB_ARC_Chartbook ACS 2019 2023 FINAL 2025-06.pdf#page=85.
+
+36 Rural Health Information Hub. “Kentucky”. 2025. https://www.ruralhealthinfo.org/states/kentucky.
+
+37 Kentucky Center for Economic Policy. “Kentucky Faces the Nation’s Highest Number of Rural Hospitals at Risk
+of Closure.” 2025. https://kypolicy.org/35-kentucky-hospitals-at-risk-of-closure-due-to-medicaid-cuts/.
+
+38 Center for Healthcare Quality and Payment Reform. “Rural Hospital Closures in Kentucky.” 2024.
+https://chgpr.org/downloads/Rural_Hospitals_at_Risk_of Closing.pdf.
+
+3° Kentucky Center for Economic Policy, “Kentucky Faces the Nation’s Highest Number of Rural Hospitals at Risk
+Closure.”
+
+4° Centers for Medicare & Medicaid Services. “Interoperability Framework”
+
+Accessed October 2025. https://www.cms.gov/health-technology-ecosystem/interoperability-framework
+
+41 Centers for Medicare & Medicaid Services. “Patient Facing Apps.” Accessed October 2025.
+
+#2 NC Innovation. Accessed October 2025. Provides an example of a 501(c)(3) public-private partnership
+endowment for statewide impact, pooling funds from state and private philanthropic commitments to provide
+grant funding and support services to regional communities. https://ncinnovation.org/about/.
+
+43 OKRs (Objectives and Key Results) refers to a goal-setting framework with qualitative “Objectives” and specific,
+measurable “Key Results” metrics to track progress; OKRs have been found to improve focus and program
+execution by aligning organizations, stakeholders, and teams on clear outcomes and actionable initiatives.
+Centers for Medicare & Medicaid Services. “Making Health Tech Great Again”. 2025.
+https://www.cms.gov/priorities/health-technology-ecosystem/overview.
+
+45 Semantic search is an Al-driven search technology that aims to understand meaning and intent behind a query,
+rather than just matching keywords. It uses natural language processing (NLP) and machine learning (ML) to
+consider context of search, synonyms, and relationships between words to deliver more relevant, accurate results.
+
+46 OneUtah Health Collaborative. Accessed October 2025.
+https://www.uthealthcollaborative.org/.
+
+47 Kentucky Cabinet for Health and Family Services, “Kentucky Diabetes Report.”
+
+48 Kentucky Food-is-Medicine. Accessed October 2025. https://foodismedicineky.com/.
+
+4 March of Dimes, “Maternity Care Deserts Report: Kentucky.”
+
+5° March of Dimes, “Maternity Care Deserts Report: Kentucky.”
+
+5! March of Dimes, “Report Card for Kentucky.” 2024.
+https://www.marchofdimes.org/peristats/reports/kentucky/report-card.
+
+5? Health Resources and Services Administration. “Texas Rural Maternity and Obstetrics Management Strategies.”
+2021.
+https://www.hrsa.gov/sites/default/files/hrsa/rural-health/tx-rmoms-fact-sheet.pdf
+
+53 March of Dimes, “Report Card for Kentucky.”
+
+54 University of Pennsylvania, Leonard David Institute of Health Economics. “Chart of the Day: The Financial Cost
+of Complications from Preterm Birth.” 2023. https://Idi.upenn.edu/our-work/research-updates/the-financial-cost-
+of-complications-from-preterm-birth/.
+
+Commonwealth of Kentucky 62
+
+=== page 63
+55 Peterson-KFF Health System Tracker. “Health Costs Associated with Pregnancy, Childbirth, and Infant Care.”
+2025. Accessed October 2025. https://www.healthsystemtracker.org/brief/health-costs-associated-with-pregnancy-
+childbirth-and-postpartum-
+care/#HA verage%20additional%20health’%20spending%20by%20people%20with%20employer%20coverage%20
+who%20give%20birth,%20relative%20to%20those%20who%20do%20not%20give%20birth,%202021-2023.
+
+5° Kentucky Maternal Mortality Review Committee, “Annual Report 2024.”
+
+57 March of Dimes, “Maternity Care Deserts Report: Kentucky.”
+
+58 EmPATH (Emergency Psychiatric Assessment, Treatment, and Healing) is a national evidence-based approach to
+mental health crisis involving specialized hospital units that provide assessment and stabilization in a calmer,
+therapeutic environment outside of the traditional emergency department, aiming to resolve a mental health crisis
+in up to 23 hours, reduce hospital admissions, and help patients connect to ongoing care.
+
+5° Centers for Disease Control and Prevention. “National Center for Health Statistics.” 2025.
+https://www.cdce.gov/nchs/.
+
+© Kentucky Injury Prevention and Research Center. “Reports.” 2025. https://kipre.uky.edu/.
+
+°! Substance Abuse and Mental Health Services Administration. “Behavioral Health Barometer.”2025.
+https://www.samhsa.gov/data/.
+
+® National Rural Health Association. Accessed October 2025. https://www.ruralhealth.us/
+
+% Prime PubMed. “Association of Emergency department Boarding Times on Hospital Length of Stay for Patients
+with Psychiatric Illness.” 2022.
+https://www.unboundmedicine.com/medline/citation/34187881/Association_of emergency _department_boarding
+_times_on_hospital_length_of_stay_for_patients_with_psychiatric_illness_.
+
+4 Pubmed Central. “Effects of a Dedicated Regional Psychiatric Emergency Service on Boarding of Psychiatric
+Patients in Area Emergency Departments.” 2013. https://pme.ncbi.nlm.nih.gov/articles/PMC3935777/.
+
+6 Kentucky Hospital Association, “Kentucky’s Persistent Mental Health Crisis.”
+
+6 Tn Illinois, the city of Chicago’s EMS-based co-response teams divert individuals from EDs, achieving a 37%
+increase in successful crisis responses, provided structured follow-up care at 1, 7, and 30 days post-crisis, and
+improved continuity and reduced ED strain.
+
+°7 Becker’s Behavioral Health. “Texas hospital partnership launches telepsychiatry initiative.” 2025.
+https://www.beckersbehavioralhealth.com/behavioral-health-mental-health/texas-hospital-partnership-launches-
+telepsychiatry-initiative/.
+
+68 Psychiatry Online. “Impact of a Telepsychiatry Program at Emergency Departments Statewide on the Quality,
+Utilization, and Costs of Mental Health Services.” 2015.
+https://psychiatryonline.org/doi/pdf/10.1176/appi.ps.201400122
+
+§ 988 Suicide & Crisis Lifeline. “State-Based Monthly Reports.”2025. https://988lifeline.org/professionals/our-
+network/state-based-monthly-reports/.
+
+7 University of Kentucky, “Dental Workforce Report, 2023”
+
+™ Kentucky Board of Emergency Medical Services. “Report to Interim Joint Committee on Health Services.”
+
+” Shaping Our Appalachian Region (SOAR). “Who we serve: Eastern Kentucky counties.” 2025. https://soar-
+ky.org/eastern-kentucky-counties/.
+
+® University of Kentucky Board of Trustees. “Advancing Kentucky Together Network.” 2024. https://akt.uky.edu/.
+
+Commonwealth of Kentucky 63

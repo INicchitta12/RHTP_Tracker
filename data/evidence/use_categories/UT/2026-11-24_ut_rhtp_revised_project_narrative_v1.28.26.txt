@@ -1,0 +1,2418 @@
+Utah’s Rural Health
+Transformation
+Project Narrative
+Revised: January 28, 2026
+
+
+
+
+CMS Disclaimer: This Rural Health Transformation Program
+is supported by the Centers for Medicare & Medicaid Services
+(CMS) of the U.S. Department of Health and Human Services
+(HHS) as part of a financial assistance award totaling
+$195,743,566.29 with 100 percent funded by CMS/HHS. The
+contents are those of the author(s) and do not necessarily
+represent the official views of, nor an endorsement, by CMS/
+HHS, or the U.S. Government.
+I. Rural health needs
+and target population
+Rural demographics
+The vast rural areas in Utah make up 77% of the state’s land.1 Despite having most of its
+population concentrated in urban areas, Utah is an overwhelmingly rural state.2 Utah is
+the 13th largest state in the U.S. by area but ranks 30th among states in population. Utah’s
+population primarily resides in a 4-county region known as the Wasatch Front. The urban
+areas in this north-central portion of the state are home to approximately nine of every 10
+Utahns and make up just 1.1% of the land mass. This places Utah 40th among all states in
+population density.3 Of Utah’s 25 non-urban counties, 13 are classified as rural and 12 meet
+the federal definition of frontier, characterized by extremely low population density and
+limited access to services. According to Utah Code, a “rural county” is defined as “a county
+of the fourth, fifth, or sixth class; or a county of the third class, if the county of the third class
+has no municipality with a population of 100,000 or more.”4 Under this definition, 25 of 29
+counties are rural. Roughly 64% of Utah’s land is owned by the federal government, 21% is
+private land, 10% is state-owned, and 5% is tribal land. See Table 1.
+
+Table 1: Utah urban and rural demographics.5
+Utah demographics                                     Urban               Rural
+Population size                                       3,000,000           338,080
+Density                                               90%                 10%
+Income level per capita                               $72,332             $54,006
+Unemployment rates                                    3.5%                3.5%
+Bachelor’s degree educational attainment              38.5%               32.5%
+Uninsured rate                                        10.2%               12.3% rural/14.5% frontier
+Seasonal/recreational housing units                   1.5%                20.9%
+
+
+Utah’s rural residents are more likely to work in agriculture, forestry, fishing and hunting,
+mining, construction, public administration, transportation and warehousing, and utilities.6
+Rural workers have lower median earnings than their urban counterparts. On a per capita
+income basis, Utah’s urban workers earn approximately 33% more than rural Utahns
+($72,332 vs $54,006). Unemployment rates are also significantly higher and more volatile in
+rural counties. For example, rural counties like Piute and Garfield have the state’s highest
+unemployment, 5.4% and 5.1%, respectively. These are significantly higher rates relative to
+Utah’s general unemployment rate of around 3.5%.
+
+
+
+     RHTP project narrative | 2
+Educational attainment is a challenge, with the rural population holding fewer college and
+advanced degrees (only 32.5% have a college degree compared to 38.5% in urban areas). This
+educational gap correlates with poorer health outcomes and higher rates of uninsurance.
+Adults in Utah’s frontier counties have the highest uninsured rate (approximately 14.5%),
+followed by rural counties (approximately 12.3%); both are higher than the urban uninsured
+rate of 10.2%. Utah also ranks 36th in the rate of insured children.7
+
+
+Health outcomes
+Preventive care
+Preventive care and screenings play a vital role in overall health and well-being. However,
+Utahns who live in rural areas do not receive the preventive care needed. Almost one-in-
+three Utah adults living in rural counties (28.2% rural, 30.4% frontier) did not have a routine
+check-up in the past year.8 Most recent data show that one-in-five children in Utah (20.3%)
+did not receive a preventive check-up in the past year.9 Preventive visits for oral healthcare
+remain low in Utah. Among adults in rural Utah, 26.1% in rural counties and 32.7% in frontier
+counties, had no routine dental visit in the past year.10 Many Utah children were eligible for
+Early and Periodic Screening, Diagnostic, and Treatment Medicaid dental coverage in 2024.
+Despite this coverage, fewer than half of children aged 1 to 18 enrolled in Medicaid (48%)
+received a preventive dental visit that year. Additionally, many Utahns living in rural counties
+do not receive recommended screening tests. Utah is 35th among states in the non-metro
+percentage of adults ages 45-75 who reported receiving one or more of the recommended
+colorectal cancer screening tests within the recommended time interval.11 More than one-
+in five adults who live in rural Utah (22.9% rural, 21.1% frontier) have not had a cholesterol
+screening test in the past five years.12 Many women in rural Utah do not receive recommended
+screenings. Utah ranks 32nd and below the national average on the percentage of non-
+metro women ages 40-74 (34.49% rural, 43.57% frontier) who reported they did not receive a
+mammogram in the past two years.13,14 Rates for Utah women not receiving a pap smear in the
+past three years (40.12% rural, 39.97% frontier) is also alarmingly high.15 16
+
+
+
+
+     RHTP project narrative | 3
+Chronic disease
+Chronic disease and related risk factors pose significant health challenges in Utah. Heart
+disease, linked to diabetes, obesity, and hypertension, is the leading cause of death in Utah.
+Utah adults who live in frontier counties have the highest rates of diabetes (10.1%) and high
+blood pressure (30.1%) in the state. While rates of obesity are fairly consistent regardless
+of geography (31.4% overall), Utah adults living in frontier counties have the highest rates
+of being overweight (38%). Healthy eating and physical activity are important behaviors to
+delay or even prevent chronic disease. A majority of adults living in rural Utah do not meet
+recommendations for physical activity (66.4% rural, 72.6% frontier) or fruit and vegetable
+consumption (86.8% rural, 90.6% frontier).17,18 There is a similar trend among adolescents
+in Utah, with a majority living in rural counties (80.4%) who do not meet physical activity
+recommendations.19 Food security is also an issue in rural Utah, with one-in-five adults in
+frontier counties (21.2%) who report being worried or stressed about having enough money
+to buy nutritious meals.20
+
+Behavioral health
+Utah, like the rest of the nation, is experiencing high rates of behavioral health disorders,
+including suicide and substance use disorders. Utah had the 7th-highest age-adjusted suicide
+rate in the U.S. in 2022.21 In 2023, the suicide death rate in Utah’s rural counties hit its highest
+level in a decade and was 40% higher than the urban rate.22 That year, suicide was the second
+leading cause of death for Utahns ages 10 to 44. From 2021 to 2023, four of Utah’s rural health
+districts had significantly higher age-adjusted suicide rates compared to the state rate.23 One
+in five rural Utahns (21% in 2024) have been diagnosed with depression in their lifetimes,
+and a similar number report poor mental health in the past 30 days (22%).24 The percentage
+of rural and frontier Utahns who report having poor mental health in the past 30 days has
+increased by 47% from 2015 (14.8%) to 2024 (21.7%).25 Utah has also been hit hard by the
+opioid epidemic. Substance use disorders, compounded by limited access to treatment and
+stigma are elevated in rural Utah.26 From 2014 and 2023, there was a 1,160.9% increase in
+Utah deaths involving fentanyl.27 This epidemic disproportionately impacts rural areas. Utah’s
+eastern rural counties have the highest rates of overdose in the state, with rates as high as 34
+deaths per 100,000 people in 2022.28
+
+Maternal and child health
+The health and well-being of mothers, infants, and children are vital to shaping the next
+generation of Utahns.29 While Utah has long been known for large families and a high birth
+rate, Utah fertility rates are following declining national trends. The total fertility rate for Utah
+declined by 2.8% and dropped from fourth to tenth highest in the country in 2023.30 However,
+maternal and child health remains a top concern for the state. Women of reproductive age
+in rural Utah face significant barriers to quality preconception, pregnancy, and postpartum
+care, largely due to shortages of primary care providers and obstetrician-gynecologists. Over
+three-fourths of Utah’s births in 2023 occurred to mothers residing in a county designated
+as a primary care workforce shortage area. Utah has one of the lowest rates in the nation of
+
+
+
+     RHTP project narrative | 4
+preventive medical visits for women aged 18 to 44 (65.7% vs. 71.2% nationally).31 Only half of
+Utah women (52%) had a regular health care checkup in the 12 months before pregnancy. The
+percentage of pregnant women living in rural Utah counties that received prenatal care in the
+first trimester is alarmingly low (62.83% rural, 66.47% frontier). Another major issue in Utah’s
+rural counties is access to birthing hospitals. In five rural Utah counties, the average travel
+time to a birthing hospital is over 60 minutes.32 These issues increase the likelihood of severe
+maternal morbidity and adverse birth outcomes.
+
+Healthcare access
+Utah’s rural areas experience chronic workforce shortages for both primary care and specialty
+services. Utah ranks the lowest (50th) among states in the number of primary care physicians
+per 100,000 population (60.2 versus 83.8 nationally).33 These workforce shortages exacerbate
+existing barriers to access due to long travel distances, challenging terrain, and inclement
+weather. Utahns living in rural counties may travel more than one hour to receive care at a
+hospital and up to four to six hours one-way to see a specialty provider.34 The average 911
+emergency transport time is twice as long in rural counties (60.8 minutes) compared to urban
+counties (35.2 minutes).35 These limitations in access to care may delay important medical
+care, which can result in severe and even life threatening complications. The majority of
+Utah’s hospitals statewide are managed by two healthcare systems, Intermountain Health and
+University of Utah Health, with a smaller number operated by CommonSpirit Health, Lifepoint
+Health, and MountainStar Healthcare. Utah is home to 21 rural and Critical Access Hospitals
+(CAHs); nine of these are independent facilities that serve the seven counties in which they
+are located, as well as four adjacent counties without hospitals. Additionally, Utah has 21 rural
+health clinics (RHCs) and 35 rural community health center clinics.
+
+Rural facility financial health
+Since 2005, Utah has had no hospital closures and is one of few states with no hospitals at
+immediate risk of closure. Even so, five rural hospitals had a negative margin (loss) on patient
+services.36 Rural hospitals face higher average costs per service due to low patient volume and
+the need to maintain staff and equipment regardless of utilization. In the past year, Utah’s
+overall inpatient hospitalizations have used between 44% and 73.5% of beds.37 See Table 2.
+
+Utah’s rural hospitals have a harder time securing a high share of revenue from private payers
+because patients often travel to larger urban centers for specialty care.
+
+This inability to capture the higher-paying private patient revenue stream, combined with
+the losses often incurred on uninsured and Medicaid patients, limits the ability of rural
+hospitals to invest in new services and technology for long-term sustainability. Utah’s Rural
+Health Transformation (RHT) plan aims to help Utah’s rural hospitals and CAHs provide more
+of these services locally by expanding service lines, allowing patients to seek care in their
+communities, and avoid the added costs from time off work and associated travel expenses.
+
+
+
+
+     RHTP project narrative | 5
+Table 2. Utilization of rural hospitals.38
+ Service type                           Annual patient volume range (rural hospitals)
+ Emergency department visits            500 to over 16,000 per year
+ Inpatient stays                        46 to 3,000
+ Outpatient visits                      5,550 to over 53,000
+
+
+Target population
+Utah’s RHT plan will focus on improving health outcomes in the state’s 25 rural counties;
+however, its impact will extend across the entire healthcare delivery system. The plan
+includes generational investments that will benefit rural hospitals, rural health clinics, and
+community health centers statewide—ensuring residents in these communities receive more
+coordinated, accessible, and high-quality care. Particular attention is being paid to children,
+students, and individuals who are dually eligible for Medicaid and Medicare, a group that
+represents 12.6% of Utah’s dual-eligible population.39 These efforts are designed to create a
+seamless healthcare delivery model that supports both publicly insured and uninsured
+
+
+
+
+     RHTP project narrative | 6
+II. Rural health
+transformation plan
+individuals, bridging gaps across programs and providers. Given that 12% of Utah’s Medicaid
+members and 10% of the state’s population live in rural areas, the RHT plan is not only a rural
+initiative—it is a strategic blueprint for statewide health and system-wide transformation.
+
+
+A. Goals and strategies
+Utah’s vision is to transform rural health through sustainable, generational investments to
+increase opportunities for all rural Utahns to live safe and healthy lives. This is built on a
+strong foundation of positive health outcomes as demonstrated by our state’s consistent
+ranking as one of the nation’s healthiest states. Utah’s RHT plan is grounded in the principles
+recently adopted by the Utah State Legislature, including sustainable financial outcomes,
+prioritization of one-time projects, leveraging non-state resources, inspiring innovation in
+healthcare delivery, and improving health outcomes. In addition to these guiding principles,
+the plan repeatedly reflects and emphasizes the required elements of improving access;
+improving outcomes; utilizing technology; leveraging regional partnerships; and the
+development of a sustainable rural healthcare workforce. The plan is built to ensure Utah’s
+rural health systems continue to be financially solvent with strategies that are data-driven and
+outcome focused.
+
+Through extensive planning for this funding opportunity, Utah’s rural health stakeholders
+identified four strategic goals, aligned with the CMS RHT Program’s strategic goals, that now
+guide this plan.
+
+     → Making rural Utahns healthy: Support upstream projects that promote healthy
+       lifestyles beginning in childhood; prevent illness; manage chronic disease; improve
+       maternal and child health outcomes, and address behavioral health.
+
+     → Workforce development: Support rural communities in growing, attracting, and
+       retaining skilled healthcare providers to deliver high-quality, comprehensive care.
+
+     → Innovation and access: Support rural providers to strengthen infrastructure, share
+       resources, and adopt innovative, data-driven care approaches to maintain long-term,
+       reliable care that is financially sustainable.
+
+     → Technology innovation: Support rural providers and patients to use modern
+       technology to make care easier, faster, and more secure.
+
+
+
+
+     RHTP project narrative | 7
+Collectively, these goals will drive progress for rural communities and result in tangible results
+for Utah through four overarching outcomes.
+
+     A. Improving outcomes: Improved health outcomes and healthy behaviors in chronic
+        disease, behavioral health, and maternal and child health across rural Utah.
+
+     B. Improving access: Expanded access to healthcare and essential health services,
+        ensuring rural Utahns receive the care they need, when and where they need it.
+
+     C. Improving quality: Strengthened systems that support high-quality care
+        and services with improved coordination, standards, and continuous quality
+        improvement to prevent any rural hospital from closing.
+
+     D. Strengthening workforce: Strengthened workforce stability to ensure rural
+        communities have skilled and reliable healthcare professionals.
+
+Utah plans to drive progress on these outcomes through seven broad initiatives in partnership
+with state, local, tribal, and community stakeholders across rural Utah.
+
+     1. Making Rural Utahns Healthy: Preventive Action and Transformation for Health (PATH)
+
+     2. Rural Incentive and Skill Expansion (RISE)
+
+     3. Sustaining Health Infrastructure for Transformation (SHIFT)
+
+     4. Financial Approaches for Sustainable Transformation (FAST)
+
+     5. Leveraging Innovation for Facilitated Telehealth (LIFT)
+
+     6. Shared Utilities for Partnered Provider Operational Resources and Technology (SUPPORT)
+
+     7. Leveraging Interoperability Networks to Connect Services (LINCS)
+
+Within each of the seven initiatives, Utah will implement targeted core activities directly
+aligned with key performance objectives to be achieved by the end of FY2030. The key
+performance objectives are outlined in the initiative sections below.
+
+Legislative or regulatory action
+The Utah State Legislature has been the nation’s leader in addressing many legislative and
+regulatory priorities outlined in this funding opportunity. It has recently banned fluoride in
+Utah drinking water; required the removal of additives in school lunches; and prohibited the
+use of SNAP funds to purchase beverages with sugar.40, 41,42 Below addresses the status of the
+state policy actions requested within this funding opportunity.
+
+
+
+
+     RHTP project narrative | 8
+Status of and commitment to “State policy actions” technical score factors
+    → B.2 Health and lifestyle (None): The state had a comparable, locally-developed
+      school program called Gold Medal Schools (GMS) that coincided with the 2002 Utah
+      Olympics and the Presidential Fitness Test. The state is proposing to re-establish
+      GMS. Utah will pursue requiring schools to reestablish the Presidential Fitness Test
+      by December 31, 2028, in a way that is aligned with federal guidance associated with
+      Executive Order 14327. This legislative action will help rural communities benefit
+      from initiatives promoting prevention through physical activity, which can reduce
+      overall cost of care burden and improve health outcomes.
+
+    → B.3 SNAP waivers (Enacted): The state has a USDA SNAP Food Restriction Waiver that
+      prohibits the purchase of non-nutritious items. SNAP Benefits Waiver: Utah
+      Code § 35A-17-P1.
+
+    → B.4. Nutrition Continuing Medical Education (None): Utah has a robust medical
+      education system through which physicians receive adequate nutrition training.
+
+    → C.3 Certificate of Need (Enacted): The state has no CONs across facility categories.
+
+    → D.2 Licensure compacts (Enacted): The state is a member of all identified interstate
+      licensure compacts. Interstate Medical Licensure Compact: Utah Code § 58-67b;
+      Nurse Licensure Compact: Utah Code § 58-31e-102; EMS Compact: Utah Code § 53-
+      2e-101; Psychology Interjurisdictional Compact: Utah Code § 58-61b; PA Licensure
+      Compact: Utah Code § 58-70c-P1.
+
+    → D.3 Scope of practice (Partial): Utah Physician Assistant Act enables full practice
+      authority: Utah Code § 58-70a-501; Nurse Practice Act enables full practice authority:
+      Utah Code § 58-31b. The state will review expanding scope of practice for dental
+      hygienists and pharmacists in 2026 and 2027.
+
+    → E.3 Short-term, limited-duration insurance (Enacted): The state follows federal
+      CMS direction on the non-enforcement of the 2024 final rule, Short-Term, Limited-
+      Duration Insurance (STLDI) and Independent, Noncoordinated Excepted Benefits
+      Coverage. The state’s maximum allowable initial contract term for STLDI is less than
+      12 months and allowable total coverage period for STLDI is no more than 36 months.
+
+    → F.1 Remote care services (Partial): The state Medicaid program provides
+      reimbursement for live video: R414-42. Telehealth. The state allows out-of-state,
+      licensed physicians in good standing to provide telehealth services without a Utah
+      license, and the state does not require a special license for telehealth: Utah Code §
+      26B-4-704.
+
+
+
+
+    RHTP project narrative | 9
+Other policy actions Utah plans to pursue
+Additionally, Utah is committed to pursuing complementary policy actions that would
+support the successful implementation of the planned initiatives in rural Utah.
+
+     → Exploring policy changes that would allow pharmacists to distribute medication
+       through mobile pharmacy kiosks in rural communities. This legislative change would
+       improve population health by bringing medication and preventive screenings to
+       communities that might otherwise face barriers to accessing a pharmacy.
+
+     → Exploring policy to improve the timely credentialing of providers by insurers. This
+       regulatory change would streamline the credentialing process, reduce administrative
+       delays, allow providers to begin billing sooner, and improve timely access to care in
+       rural facilities while supporting financial sustainability and operational efficiency.
+
+Other required information
+As required by Section 71401 of Public Law 119-21, Utah’s initiatives address the statutory
+elements and align with the CMS RHT Program’s five strategic goals. More detailed
+information is included throughout the project narrative and in the attachments. Additionally,
+Utah is reporting on request information related to factors A.2 and A.7.
+
+For factor A.2: Utah does not have any Certified Community Behavioral Health Clinics
+(CCBHC) entities in the state as of September 1, 2025.
+
+For factor A.7: The following nine hospitals in the state received a Medicaid Disproportionate
+Share Hospital (DSH) payment from Utah for the most recent State plan rate year (SPRY):
+Beaver Valley Hospital, Garfield Memorial Hospital, Gunnison Valley Hospital, Kane County
+Hospital, Milford Valley Memorial Hospital, Moab Regional Hospital, San Juan Hospital,
+University of Utah Hospital, and Utah State Hospital.
+
+
+B. Proposed initiatives and use of funds
+Utah’s comprehensive RHT plan represents a strategic, generational investment in building
+a sustainable rural health system that will improve health outcomes for Utahns living in rural
+communities. Each of the seven outcome-driven initiatives includes specific activities with
+measurable objectives, allowing progress to be monitored and evaluated with data. These
+initiatives, activities, and estimated funding amounts were informed by a rigorous stakeholder
+engagement process—detailed later in this application—that generated more than 210 proposed
+projects with itemized budgets totaling approximately $2.97 billion in funding requests, which
+were then consolidated into the $1 billion hypothetical budget initially submitted for this
+application. Utah’s RHT plan activities are described below by initiative.
+
+
+
+
+     RHTP project narrative | 10
+1. Making Rural Utahns Healthy: Preventive Action and
+Transformation for Health (PATH)
+Description
+The PATH initiative advances rural health through innovations in nutrition, physical activity,
+and built environments, establishing lifelong healthy behaviors to promote health, improve
+maternal and behavioral health, and reduce the overall burden of chronic disease in rural
+communities.
+
+Increasing access to healthy foods and opportunities for physical activity, access to care, and
+reducing limitations in the built environment reduces the risk of chronic disease.43 Nearly
+11% of Utahns lack reliable access to nutritious food, with rates in some rural counties
+approaching as much as 20%.44,45 Access to healthy, whole foods is necessary for good
+health and to prevent and manage chronic diseases, including obesity, type 2 diabetes,
+cardiovascular disease, and certain cancers, which are prevalent in rural counties.46
+
+In addition to access to nutritious food, physical activity is a recognized contributor to
+improved health outcomes. Nearly 1 in 5 adults in rural Utah are physically inactive and
+nearly half of youth in Utah do not meet weekly physical activity recommendations.47 Utah’s
+rural areas often lack safe and accessible places to be physically active. This lack of access
+and engagement in physical activity contributes to chronic disease and mental health
+challenges.48
+
+The PATH initiative also uses regional stakeholder groups to create community care hubs to
+create integrated models that support improved health outcomes. PATH is a comprehensive
+strategy to prevent chronic disease, support maternal health, and address the root causes of
+poor physical and mental health across the lifespan for rural Utahns.
+
+Key actions
+1.1. Strengthen rural food infrastructure
+     A. Fund innovative approaches to strengthen local producers’ capacity to supply rural
+        communities with fresh, nutritious whole food. Approaches should contribute to a
+        resilient food system to decrease the reliance on ultra-processed food by increasing
+        access to and consumption of nutritious foods and place rural farmers and ranchers
+        at the center of good health. Funded activities may include, but are not limited to:
+
+         → Components of an efficient and resilient supply chain, including storage,
+           transportation, and processing facilities.
+
+         → Providing start-up costs to rural producers to remove barriers in food systems.
+
+         → Educating producers on innovative techniques to boost productivity, reduce
+           waste, and extend the growing season, as well as educating consumers (including
+           children) about shopping for and cooking locally-sourced, healthy foods.
+
+
+     RHTP project narrative | 11
+        → Support centrally located facilities, like food hubs, that are an innovative and
+          sustainable way to provide the structure to store, sort, process, package, and
+          distribute regionally-produced nutritious food products.
+
+1.2. Strengthen physical activity and nutrition in schools
+    B. Re-establish and implement Gold Medal Schools in rural communities. Gold Medal
+       Schools (GMS) is a locally-developed program that will incorporate the Presidential
+       Fitness Test and support schools in providing physical activity, healthy nutrition
+       choices and nutrition education, and wellness policies within rural local education
+       agencies (LEAs).49 Created for the 2002 Olympic games held in Utah, GMS will be re-
+       established to coincide with the 2034 Olympic games to be held in Utah.
+
+1.3. Support unique rural built environment needs
+    C. Fund innovative approaches and regional partnerships to improve the walkability,
+       physical safety, and recreation of rural communities in support of regular physical
+       activity and active transportation. Funded activities may include the following:
+
+        → Bike lane improvements to improve access to biking safely.
+
+        → Improve wayfinding on trail systems and expand trail connection.
+
+        → Update and improve existing infrastructure, such as adding missing sidewalk
+          connections or bike lanes, and landscaping to create gathering areas and
+          promote activity and recreation.
+
+1.4. Improve coordinated care for prevention and disease management
+    D. Pilot Utah’s first community care hub (CCH) for rural communities. CCHs are an
+       effective way to coordinate care across rural settings to address health and social
+       needs.50 CCHs help small rural clinics, community-based organizations, local health
+       departments, and others that participate in service delivery. The CCH serves as a
+       connector in rural communities to support organizations and individuals to improve
+       health by facilitating referrals, implementing sustainable reimbursement models,
+       supporting dual-eligible enrollment in integrated plans, and working with agencies
+       that provide community-based social care services. Services may include evidence-
+       based chronic disease prevention and management, behavioral health, and maternal
+       and child health programs, as well as services to address health-related social needs.
+
+    E. Select the CCH model through strategic, informative activities like conducting a
+       landscape analysis to understand existing resources and infrastructure, establishing
+       a community advisory council and determine framework, and contracting with local
+       organizations to deliver or coordinate services.
+
+    F. Scale up the model to additional rural communities.
+
+
+
+    RHTP project narrative | 12
+1.5. Support integrated behavioral health and primary care services
+    G. Assist rural sites in behavioral health and primary care services integration using a
+       stepped-care approach. The lowest necessary intervention will be provided first,
+       outcomes tracked, and care is “stepped up” as needed. Sites may implement the
+       Collaborative Care Model (CoCM) according to their capacity. CoCM is an evidence-
+       based approach to integrate behavioral health care into primary care settings.
+       CoCM includes a patient-centered care team, population-based care, measurement-
+       based treatment to target, evidence-based care, and accountable care. CoCM can
+       be implemented across multiple care settings, to support individuals with mild to
+       moderate behavioral health conditions including dual-eligible beneficiaries.
+
+    H. Provide technical assistance for screening and referral.
+
+
+
+
+    RHTP project narrative | 13
+Table 3: PATH initiative summary of funding, goals, and measures.
+Main strategic goal: Make rural America healthy again
+
+Use of funds: A, H, K
+
+Technical score factors: B.1, B.2, E.1, E.2, F.1, F.3
+
+Key performance objectives: By 2031, Utah will (1.1) increase the % of rural Utahns with ac-
+cess to locally-sourced fresh, whole foods (baseline pending; targets to follow); (1.2) support
+the Presidential Fitness Test statewide by increasing participation in the Gold Medal Schools
+program among rural school districts to 50%; (1.3) expand regional partnerships and built
+environment projects in 50% of rural counties to enhance opportunities for physical activity
+and active transportation; (1.4) increase the # of county- or region-based linkages between
+healthcare and social service providers (baseline pending; targets to follow) to strengthen
+rural care coordination; (1.5) expand integrated care by increasing the % of rural Utahns with
+access to facilities with increased behavioral health and primary care integration by 50%.
+
+Outcomes and measures: A.1, A.2, A.3, A.4, A.5, A.6, A.7, A.8, C.1, C.3, C.4, C.5, D.3, 1.1, 1.2,
+1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 1.10 (Tables 11 and 12)
+
+Key stakeholders: State and local health programs, rural food producers and suppliers, Fed-
+erally Qualified Health Centers (FQHCs), primary care and RHCs, community-based organi-
+zations (CBOs), faith-based organizations, state and local health departments, healthcare
+consulting organizations, health professions organizations, healthcare systems, tribal gov-
+ernments and tribal organizations, civic and community leaders, healthcare providers, local
+businesses, state and local education agencies, state and local transportation organizations,
+rural and CAHs, health organizations, state legislative and regulatory bodies, local mental
+health authorities (LMHAs), local public works departments, Utah Department of Agricul-
+ture and Food (UDAF), Utah Indian Health Advisory Board, Association for Utah Community
+Health (AUCH), Indian Health System (I/T/U) partners.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $155,000,000
+
+Year 1 funding: $29,000,000
+
+
+
+
+     RHTP project narrative | 14
+2. Rural Incentive and Skill Expansion (RISE)
+Description
+The RISE initiative strategically invests in building a sustainable rural healthcare workforce
+by investing in career pathways beginning in grade school, expanding training, connecting
+education to local needs, and supporting recruitment and retention. Evidence shows that
+providers are significantly more likely to practice where they train—making local education
+and training essential.51 This initiative aligns with Governor Cox’s goal of improving access to
+high-quality, affordable healthcare for rural Utahns with a measurable target to increase the
+number of primary care providers in rural counties by 5%.52
+
+Utah currently has the lowest number of primary care physicians per capita in the nation
+and these physician shortages are even more severe in the rural areas.53 A significant barrier
+is the current structure of medical residency training, known as graduate medical education
+(GME), which does not exist outside Utah’s urban Wasatch Front. As a result, current residency
+programs struggle to address rural physician shortages. Utah also ranks poorly, having the
+fourth lowest number of primary care GME positions per capita, and faces unique barriers in
+obtaining federal GME funding for rural primary care training.54 The high-volume, high-acuity
+hospitals necessary to produce high-quality physicians are often located at inconvenient
+distances from the rural training sites that are foundational to developing future rural,
+primary care physicians. Without an intentional, strategic, and sustainable plan for GME
+expansion into rural areas, these rural physician shortages are anticipated to worsen.
+
+Rural communities in Utah face persistent, interconnected challenges in recruiting and
+retaining healthcare professionals. Financial barriers are significant: rural areas often offer
+lower salaries and limited sign-on and relocation incentives.55 Many rural residents cannot
+afford healthcare training, impeding the development of a local pipeline. Moreover, current
+challenges with housing affordability create a major hurdle, preventing professionals from
+being able to train and work in these areas.56
+
+Clinical preceptors—experienced, licensed clinicians who provide one-on-one supervision,
+instruction, and evaluation to a student or a newly hired professional in a clinical setting—are
+essential to bridge the gap between theoretical knowledge and practical application, acting
+as role models and mentors to safely guide students into competent, professional practice.
+A recent study initiated by Utah’s Health Workforce Advisory Council (HWAC), found Utah
+also faces a severe and rapidly growing clinical training crisis, requiring an estimated 3,000
+additional preceptorships annually by 2031—a 57% increase from 2023 levels.57 According
+to the study, the primary barrier to meeting this demand is financial strain, as only 24% of
+current preceptors receive compensation, and these crucial trainers carry significantly higher
+educational debt than their non-precepting colleagues. The study concluded that a clear
+solution pathway exists, making targeted financial incentives the most effective intervention
+to expand the state’s preceptor pool, and RISE will address that through preceptor stipends.
+
+
+
+
+     RHTP project narrative | 15
+The RISE initiative prioritizes activities that cultivate and retain healthcare professionals
+within rural communities by (1) addressing rural physician workforce needs, healthcare
+capacity to deliver rural GME, and patient mix and volumes for a high-quality educational
+experience; (2) expanding infrastructure and educational support for rural clinical
+rotations and finding the appropriate financial incentives to support rural precepting; (3)
+growing healthcare talent locally through structured educational pathway programs; (4)
+expanding industry-driven training programs for non-GME workforce; and (5) designing and
+implementing a provider incentive strategies that align with Utah’s ongoing investment to
+support providers in practicing at the top of their licensure.
+
+Following stakeholder review and input, Utah intends to require 5 years of service in a rural
+community for participants in the programs under Initiative 2: Rural Incentive and Skill
+Expansion (RISE) where appropriate, based on the program scope and the unique workforce
+needs of our state. The rationale for each key action under the RISE initiative is outlined
+below:
+
+Key actions
+2.1. Develop GME training in rural healthcare facilities
+     A. Create and implement a comprehensive strategic plan to sustainably develop and
+        expand GME opportunities in rural facilities with Utah’s medical schools.
+
+     B. Build capacity and attain accreditation within rural hospitals and clinics to allow
+        students to focus their residency or internship programs in rural hospitals and rural
+        community outpatient settings.
+
+Utah will offer structured financial incentives and awards associated with the costs of
+completing a medical residency in a rural area, such as relocation bonuses, resident stipends,
+or housing assistance, which will be tied to a 5-year service commitment in a rural area.
+
+2.2. Expand rural clinical preceptor capacity program
+     C. Design and implement an incentive program to support rural clinical preceptors for a
+        range of providers, including nurses, physician assistants, and physicians.
+
+Utah recognizes that this incentive will be a modest award amount, ranging between $1,000–
+$5,000, for physicians and other health professionals. As such, the 5-year service requirement
+will not be required for this program.
+
+
+
+
+     RHTP project narrative | 16
+2.3. Increase health career pathways through the creation of “grow our own”
+high school to certification programs
+     D. Develop multidisciplinary local training programs for rural high school students or
+        recent graduates pursuing healthcare careers including distance-learning options so
+        students can stay in their communities. The certification types that will be the focus
+        of this “grow our own” initiative may include the following, based on community
+        need: paramedic, nursing assistant, behavioral health technician, community health
+        worker, behavioral health technician, behavioral health coach, master addiction
+        counselor, prescribing psychologist, other clinical or non-clinical community,
+        behavioral health, and health professionals.
+
+     E. Provide support that may include stipends, internships, apprenticeships, clinical
+        supervision, or career coaching.
+
+Utah will require 5 years of service in a rural community for “grow our own” participants on a
+case-by-case basis in programs that offer a structured, certifiable pathway to a new degree,
+new certification, or to a career/new job opportunity in the clinical workforce in a rural area.
+For participants in programs that focus on K-12 outreach and exposure to health careers, the
+5-year service requirement will not apply.
+
+2.4. Optimize public-private partnerships to expand non-GME pipeline development
+     F. Partner with education and employers across industries for public-private
+        partnerships to expand rural-based, non-GME health workforce career training
+        programs in targeted occupations with regional demand. This could include
+        community health aides, behavioral health aides, dental health aide therapists,
+        peer behavioral health specialists, care coordinators and navigators, doulas, and
+        community paramedicine. Providing these opportunities addresses healthcare
+        workforce gaps across various careers and strengthens local economies by fostering
+        a skilled and employable labor force.
+
+     G. Expand opportunities for apprenticeships and internships for individuals seeking
+        non-degree or alternative pathways into healthcare careers.
+
+     H. Leverage existing health sciences higher education partnerships and the Utah Health
+        Scholars program to create career ladders with regional needs, ensuring locally
+        accessible pathways to health workforce careers.58,59
+
+Utah will require 5 years of service in a rural community for non-GME participants on a case-
+by-case basis. Utah will require a service commitment commensurate with the length of
+education and training for participants in non-GME training programs when participants are
+offered financial assistance.
+
+
+
+
+     RHTP project narrative | 17
+2.5. Recruit and retain rural workforce
+     I. Offer structured incentives to recruit and retain rural workforce. The amount of these
+        incentives will be benchmarked to the cost of living in the rural community in which
+        the professional is employed and will include a commitment from the provider
+        to serve a minimum of five years in the rural community. These awards will target
+        those in high-need professions such as nursing, dentistry, midwifery, and behavioral
+        health. Additional incentives will be available to trainees completing short-
+        term rotations; providers offering short-term coverage to local staff; and awards
+        supporting upskilling and professional development.
+
+     J. Align with Utah’s ongoing investment in systems, resources, policies, and
+        collaborative models to support providers in practicing at the top of their licensure.
+
+Generally, Utah will require 5 years of service in a rural community for participants who are
+offered structured recruitment and retention incentives to begin or continue their service
+in rural communities. For short-term rotations, supporting upskilling and professional
+development, Utah will require a service commitment commensurate with the incentives. For
+short-term coverage to local staff, the 5-year service requirement will not apply.
+
+With oversight from the Utah Department of Health and Human Services (DHHS), the
+respective sub-recipients will be responsible for administering the agreement that defines
+participant commitments, program requirements, and remedies for early termination or breach.
+
+
+
+
+     RHTP project narrative | 18
+Table 4: RISE initiative summary of funding, goals, and measures.
+Main strategic goal: Workforce development
+
+Use of funds: E, G, H, K
+
+Technical score factors: B.1, C.1, C.2, D.1, D.3
+
+Key performance objectives: By 2031, Utah will (2.1) improve workforce recruitment and
+retention by increasing the # of providers with 5-year service commitments in rural commu-
+nities by 45; (2.2) improve workforce capacity by increasing the # of primary care providers
+(MD, DO, APRN, PA) practicing in rural counties by 5%; (2.3) expand healthcare career op-
+portunities by increasing the # of recognized healthcare career pathways available to rural
+students in school districts across 50% of rural counties.
+
+Outcomes and measures: A.3, A.4, A.5, A.6, A.7, A.8 B.1, B.2, B.3, B.4, C.4, C.5, D.1, D.2, D.3,
+D.4, 2.1, 2.2, 2.3, 2.4 (Tables 11 and 12)
+
+Key stakeholders: State and local education agencies, medical schools, healthcare systems,
+primary care and RHCs, rural EMS agencies, health career students, CBOs, nonprofit orga-
+nizations, state agencies, state trade associations, health professions organizations, phil-
+anthropic organizations, HWAC, Governor’s Office of Economic Opportunity, Talent Ready
+Utah, Utah Department of Workforce Services.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $187,000,000
+
+Year 1 funding: $28,800,000
+
+
+
+
+     RHTP project narrative | 19
+3. Sustaining Health Infrastructure for Transformation
+(SHIFT)
+Description
+The SHIFT initiative seeks to transform preventive care through enhancements to local
+service delivery that improves health outcomes. Recognizing that rural communities
+face disproportionately poorer health outcomes compared to urban populations due to
+interconnected economic, infrastructure, and workforce barriers, SHIFT aims to build a
+resilient, interconnected system centered on proactive wellness and early intervention.60
+
+A key component of this transformation is the development of integrated rural health provider
+networks such as rural health clinics, pediatric trauma, and community health worker
+networks that expand services, pool resources, and reduce duplication. By establishing shared
+services, SHIFT will support coordinated care, lower administrative costs, and strengthen
+the capacity of rural systems to meet community needs. Infrastructure modernization and
+physical capacity expansion are crucial to achieve sustainable change through one-time
+funding projects. By funding vital improvements to ensure healthcare settings are structurally
+and technologically equipped for the future, such as repurposing existing space and acquiring
+specialized equipment, Utah is creating new local service points for behavioral health,
+maternal care, and chronic disease management.
+
+ For efficiency, these strategic capital investments will establish essential 24/7 crisis
+stabilization centers and upgrade community assets into multi-functional facilities that can
+deliver a broader array of preventive and specialist care services closer to home.
+
+A central challenge the SHIFT initiative addresses is the human capital resource gap, which
+severely limits access to local, essential services and contributes to poor patient outcomes.
+Many EMS agencies rely heavily on volunteers and operate with constrained resources which
+limit their ability to invest in updated equipment or expand services beyond emergency
+response.61 SHIFT responds by strategically expanding EMS to deliver care closer to home
+and reduce emergency department dependence. This involves evolving the role of EMTs and
+paramedics into community paramedicine hubs, equipped with modern technology to deliver
+non-emergency, preventive services directly to patients’ homes.
+
+
+
+
+     RHTP project narrative | 20
+Finally, the program capitalizes on the development of new models of care that incorporate
+community health workers (CHWs), peer support specialists, and other paraprofessionals
+within healthcare delivery systems to alleviate provider strain and improve care coordination.
+In addition to expanding the workforce in these often underutilized extender certifications,
+the SHIFT plan incorporates the exploration of diverse funding models (including Medicaid
+reimbursement and value-based care integration), and capitalizing on the opportunity to
+upskill professionals like EMTs and doulas through dual certification.62 By funding these new
+models of care and empowering community-embedded individuals, SHIFT ensures that
+preventive, chronic disease, maternal and child health, and behavioral health management
+services are accessible, mobile, and anchored in the very communities they serve.
+
+The SHIFT initiative responds by: (1) funding capital improvements for expanded local
+services and modern equipment; (2) integrating innovative EMS and CHW community-based
+models in rural healthcare; and (3) establishing rural health provider networks to share
+resources and coordinate preventive care.
+
+Key actions
+3.1. Support capital infrastructure improvements
+     A. Fund capital infrastructure improvement projects to improve care delivery, keep care
+        local, and improve the quality of care in rural Utah, which may include:
+
+     → Minor building alterations or renovations to repurpose existing space and add new
+       services; expand existing services such as pharmacy services, dialysis, behavioral
+       health, cancer care, maternal health; and physical spaces for telehealth capabilities.
+
+     → Purchase new equipment or upgrade older equipment to ensure quality and safety
+       standards of care are achieved.
+
+     → Facility master planning, feasibility studies, and service line analysis (new service
+       line exploration, growth opportunities, outmigration analysis).
+
+     → Improvements to infrastructure to ensure access to safe food and drinking water in
+       rural communities.
+
+     → Establishing and expanding rural receiving centers staffed by therapists, nurses, and
+       peer counselors that offer 24/7 crisis stabilization.
+
+
+
+
+     RHTP project narrative | 21
+3.2. Expand services and resources through rural health provider networks
+    B. Expand and establish integrated rural health provider networks such as a rural health
+       clinic network, pediatric trauma network, or community health worker network.
+
+    C. Develop a resource directory of physical and behavioral healthcare services in rural
+       Utah, detailing capacity, access, and availability to support patients and providers by
+       pooling resources, reducing duplication, and lowering administrative costs.63
+
+3.3. Strengthen EMS
+    D. Establish community paramedicine programs that provide non-emergency
+       healthcare services in rural areas. These programs could expand access to preventive
+       and post-discharge care in rural areas and help reduce unnecessary emergency
+       department visits and hospital readmissions.
+
+    E. Invest in technology components to support the delivery of services key to
+       community paramedicine programs. This may include equipping ambulances with
+       broadband connection and devices capable of video conferencing, mobile network
+       devices, and remote medical direction/consultation services.
+
+    F. Facilitate the delivery of low-cost initial, continuing, and specialty EMS education
+       for providers and agencies in rural communities. This may include the use of mobile
+       simulation trailers that travel to rural areas to provide initial training and ongoing CME.
+
+3.4. Build new models for innovative care
+    G. Fund innovative approaches to new models of care that expand access to mobile
+       services, enhance transportation for medical appointments, and support prevention
+       and management of chronic diseases, cancer, behavioral health, and maternal and
+       child health in rural communities.64
+
+    H. Assist rural employers to embed CHWs within their healthcare delivery model. Support
+       activities may include guidance and technical assistance, recruitment and retention
+       strategies, and payment sustainability models, as well as supporting sustainable
+       training, certification, and continuing education that meets the needs of rural Utah.
+
+
+
+
+    RHTP project narrative | 22
+Table 5: SHIFT initiative summary of funding, goals, and measures.
+Main strategic goal: Innovative care
+
+Use of funds: A, C, D, E, F, G, H, I, J, K
+
+Technical score factors: B.1, B.2, C.1, C.2, D.1, F.1, F.3
+
+Key performance objectives: By 2031, Utah will (3.1) increase the # of new services
+or expand existing services in rural facilities by 10–12 services; (3.2) strengthen care
+coordination and shared services by expanding or establishing 2–4 rural health provider
+networks; (3.3) enhance rural emergency and preventive care by increasing the # of rural
+EMS units implementing community paramedicine programs across 40% of rural counties.
+
+Outcomes and measures: A.1, A.2, A.3, A.4, A.5, A.6, A.7, A.8, B.1, B.2, B.2, B.4, C.1, C.4, C.5,
+D.1, D.2, D.3, D.4, 3.1, 3.2, 3.3, 2.4 (Tables 11 and 12)
+
+Key stakeholders: Rural and CAHs, FQHCs, primary care and RHCs, health professions
+organizations, healthcare systems, community leaders, rural EMS agencies, state and
+local health departments, CBOs, health career pathway programs, state and local
+health programs, healthcare providers, academic medical centers, state agencies, tribal
+governments and tribal organizations, Utah Indian Health Advisory Board, Indian Health
+System (I/T/U) partners.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $245,500,000
+
+Year 1 funding: $55,500,000
+
+
+
+
+     RHTP project narrative | 23
+4. Financial Approaches for Sustainable Transformation
+(FAST)
+Description
+The FAST initiative addresses core financial and care delivery challenges that hinder rural
+healthcare viability in Utah by transitioning providers to value-based payment and proactive
+care, streamlining revenue cycles for efficiency, and piloting alternative models to fund
+specialist access for rural communities.
+
+Rural providers face significant obstacles in shifting to value-based care models, which demand
+robust data systems, population health analytics, and specialized care teams.65 Low patient
+volumes prevent the rapid achievement of shared savings and economies of scale, while thin
+financial margins restrict a provider’s ability to absorb the financial risk common in value-based
+care contracts. This disadvantage is compounded by limited local access to specialists and
+behavioral health services, which are critical for effective care coordination and demonstrating
+successful patient outcomes. Initiatives will identify and implement incentives for value-based
+care approaches that are structured to reward better patient outcomes.
+
+Additionally, rural hospitals face difficulties in optimizing their revenue cycles. Reduced
+operating margins mean small disruptions, such as claim denials or processing delays,
+severely impact cash flow and financial stability. Structural issues, including a high mix of
+underinsured and Medicaid patients, reduce overall reimbursement potential. Furthermore,
+many facilities lack the specialized workforce, updated billing technology, or data analytics
+capabilities required to efficiently manage operations.
+
+In addition to challenges with the financial sustainability of rural health systems, another driver
+of financial and care coordination is the severe lack of local specialist access in rural Utah
+counties, covering fields like urology, cardiology, and orthopedics.66 One approach to addressing
+this shortage is leveraging urban specialists to travel to rural counties. However, these
+specialists often incur financial loss when traveling to, and treating patients at a rural site, given
+current payment structures which fail to compensate for travel time or the reduced volume of
+procedures in rural communities. It is the rural patient population who bears the burden of this
+gap requiring them to travel long distances for care, lost wages, directly hindering local revenue
+generation and complicating the coordination necessary for value-based care and strong
+revenue cycles.67 The exploration of alternative payment models will accelerate sustainable,
+economically viable solutions in accessing specialty care in rural communities.
+
+The FAST initiative seeks to further Utah’s rural healthcare financial stability and sustainability
+by: (1) building the data and operational maturity needed to capture sustainable revenue
+from new payment models; (2) streamlining operations and leveraging technology to
+capture all allowable revenue; and (3) resolving critical workforce and specialty access
+gaps by establishing alternative payment models to allow patients to receive care in their
+communities.
+
+
+
+     RHTP project narrative | 24
+Key actions
+4.1. Support rural providers in transitioning to value-based care models
+     A. Provide needs assessment, training, and education around value-based care models
+        and contracts with payers.
+
+     B. Develop data infrastructure for quality reporting to prepare for value-based
+        payment.
+
+     C. Expand technical capabilities for interoperability and data sharing.
+
+     D. Work with insurers and the state insurance commission on timely data availability.
+
+     E. Operationalize and expand a clinically integrated network (CIN), that supports
+        centralized billing, IT, credentialing, and advanced care coordination.
+
+     F. Pilot and evaluate value-based payment model with two payers.
+
+4.2. Develop infrastructure for revenue cycle optimization
+     G. Provide denials management support, coding and billing training, and certification.
+
+     H. Improve patient engagement to reduce missed appointments and increase revenue
+        by implementing a system to improve patient registration and scheduling.
+
+     I. Support payer negotiations, patient portal development, and AI/Chatbot technology.
+
+4.3. Implement a pilot for alternative payment model to increase specialty care access
+     J. Provide per diem payments for specialists to provide on-site specialty care in rural
+        hospitals and clinics. The alternative payment model stabilizes specialist earnings
+        during the initial start-up phase, directly compensating for barriers like travel time
+        and the lack of sufficient patient volume. This support is vital to mitigate financial
+        risk and allows specialists to build consistent patient loads so the on-site practice
+        can successfully transition to a financially self-sustainable model that provides a
+        reliable, long-term pathway to specialty care for rural residents.
+
+
+
+
+    RHTP project narrative | 25
+Table 6: FAST initiative summary of funding, goals, and measures.
+Main strategic goal: Innovative care
+
+Use of funds: A, B, C, D, F, H, I, K
+
+Technical score factors: B.1, C.1, D.1, E.1, F.1, F.2, F.3
+
+Key performance objectives: By 2031, Utah will (4.1) strengthen financial sustainability
+by increasing the # of rural health systems equipped to implement value-based payment
+models by two; (4.2) improve financial sustainability in rural healthcare by increasing the
+% of rural facilities optimizing revenue cycle management (baseline pending; targets to
+follow).
+
+Outcomes and measures: A.3, A.4, A.5, A.6, B.1, B.2, B.3, B.6, 4.1, 4.2, 4.3 (Tables 11 and 12)
+
+Key stakeholders: Primary care and RHCs, rural EMS agencies, rural and CAHs, FQHCs,
+state and local health departments, LMHAs, CBOs, payers, technology providers, tribal
+governments and tribal organizations, Utah Indian Health Advisory Board, Indian Health
+System (I/T/U) partners.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $65,000,000
+
+Year 1 funding: $18,000,000
+
+
+
+
+     RHTP project narrative | 26
+5. Leveraging Innovation for Facilitated Telehealth (LIFT)
+Description
+The LIFT initiative aims to improve sustainable physical and behavioral healthcare access and
+outcomes in Utah’s rural communities through scalable, data-informed, telehealth strategies,
+reinforced by training and technical assistance to facilitate effective implementation and lasting
+impact. Access issues which plague rural Utah lead to negative health outcomes including lower
+survival rates for cancers, higher rates of death by suicide, and limited access for treatment for
+myriad behavioral health challenges.68 Together, these challenges highlight an urgent need to
+expand access to timely, high-quality care in rural communities through telehealth.
+
+Additionally, this RHT plan’s extensive focus on workforce emphasizes the serious concerns
+around healthcare workforce shortages across primary care, behavioral health, maternity,
+dental, and both adult and pediatric specialty services. As previously highlighted, many counties
+are designated as Health Professional Shortage Areas (HPSA). While attracting the workforce
+to rural communities is a critical strategy to improve access to healthcare for those who live in
+Utah’s rural and frontier counties, additional innovative strategies are required given that there
+will never be enough healthcare providers to meet the needs of Utah’s rural population.
+
+The LIFT initiative attempts to enhance Utah’s RHT plan’s focus on workforce as a strategy
+to access and implement innovative additional strategies that address systemic barriers,
+including limited broadband service, fragmented electronic health records, telehealth
+integration gaps, reimbursement restrictions, cybersecurity constraints, and insufficient
+digital literacy among both patients and providers.69,70 The removal of these systemic barriers
+will allow Utah’s rural communities to embed a wide array of telehealth services and in-
+home medical care, thereby ensuring improved health outcomes for patients who require
+healthcare from the most minor of issues to the most serious such as cancer.
+
+Telehealth offers a strategic solution to expand access to care, improve outcomes, and support
+workforce efficiency. By leveraging remote consultations, virtual monitoring, and integrated care
+platforms, rural providers can deliver timely, preventive, and specialty services closer to patients’
+homes. Telehealth also enables point-of-care medication access, reduces delays in treatment, and
+supports chronic disease management, behavioral health, and maternal care.71 While the COVID-19
+pandemic introduced Utah to the value of telehealth and remote healthcare delivery, limited
+funding and barriers impeded the opportunity to fully integrate telehealth in Utah’s healthcare
+delivery models. The LIFT initiative provides the opportunity to expand access to healthcare through
+telehealth while also addressing broadband gaps and interoperability challenges; providing training
+to medical professionals; leadership engagement; and digital literacy to patients.
+
+The LIFT initiative will employ a multi-stakeholder approach to supporting new and existing
+innovative, data-informed, and scalable projects across rural Utah that take into consideration:
+(1) the healthcare and telehealth needs in rural communities; and (2) existing telehealth
+resources and gaps, including those in policy, education, training, technical assistance, and
+technology capabilities.
+
+
+     RHTP project narrative | 27
+Key actions
+5.1. Expand access care through telehealth services and support implementation
+    A. Establish a multi-stakeholder consortium with representatives from rural and urban
+       healthcare sub-specialty providers, community health organizations, network
+       and security providers, nutrition and wellness specialists, vendors, and other key
+       community partners to guide activities.
+
+    B. Conduct a telehealth needs assessment, including a community survey, to assess
+       the landscape and develop actionable recommendations. Potential activities may
+       include a community education campaign to telehealth utilization, telehealth access
+       points (TAPs) mapping, and supportive training and technical assistance.
+
+    C. Fund scalable, sustainable projects to meet needs that align with telehealth
+       consortium recommendations. Projects may be related to preventive and primary
+       care; chronic disease and cancer care; behavioral healthcare; acute, emergency and
+       in-patient care, emergency services; maternal and infant health; medication access
+       and adherence; and oral health. These may include virtual visits, nurse triage, health
+       coaching, collaborative care management, mobile screening, virtual scribes/AI
+       documentation, school-based telehealth, tele-ophthalmology, remote monitoring,
+       crisis intervention, virtual therapy, tele-psychiatry, tele-wound care, EMS tele-triage,
+       tele-stroke, en-route telemonitoring. wellness and nutrition virtual education, virtual
+       perinatal care, lactation support, tele-pharmacy, remote medication counseling,
+       point of care (POC) automated dispensing, tele-dentistry, and remote dental exams.
+
+    D. Support onsite and virtual training and technical assistance for project
+       implementation, management, and sustainability. This may include offering digital
+       literacy education for providers, patients, and community members to ensure
+       effective use.
+
+
+
+
+    RHTP project narrative | 28
+Table 7: LIFT initiative summary of funding, goals, and measures.
+Main strategic goal: Sustainable access
+
+Use of funds: A, B, C, D, E, F, G, H, I, J, K
+
+Technical score factors: B.1, B.2, C.1, F.1, F.2, F.3
+
+Key performance objectives: By 20231, Utah will (5.1) increase the % of patients in rural
+counties with access to telehealth services by 50%; (5.2) increase the # of specialties
+available via telehealth (baseline pending; targets to follow).
+
+Outcomes and measures: A.1, A.2, A.3, A.4, A.5, A.6, A.7, A.8, B.1, B.2, B.3, B.4, C.1, C.2, C.4,
+C.5, D.1, D.2, D.3, 5.1, 5.2, 5.3 (Tables 11 and 12)
+
+Key stakeholders: State and local health departments, rural and CAHs, FQHCs, health
+systems, technology providers, health professions organizations, CBOs, state and local
+education agencies, correction facilities, academic medical centers, Utah Education
+and Telehealth Network (UETN), Northwest Regional Telehealth Resource Center, tribal
+governments and tribal organizations, Utah Indian Health Advisory Board, Indian Health
+System (I/T/U) partners.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $125,000,000
+
+Year 1 funding: $26,500,000
+
+
+
+
+     RHTP project narrative | 29
+6. Shared Utilities for Partnered Provider Operational
+Resources and Technology (SUPPORT)
+Description
+The SUPPORT initiative partners with rural facilities to build critical digital, technological,
+and administrative infrastructure offering collaboration and pooled or shared resources that
+leverage economies of scale while preserving operational autonomy.
+
+Rural Utah healthcare facilities operate on limited budget flexibility.72 Their low patient
+volume prevents them from achieving economies of scale that larger, from which urban
+systems benefit from. This results in high, fixed costs per patient, purchasing disadvantage,
+revenue cycle complexity, and inadequate cyber-resiliency. The unique challenges faced by
+rural facilities, which may be small and independent, and CAHs, can be effectively alleviated
+through the strategic implementation of shared services.73 Although these facilities may
+individually serve fewer patients and be geographically or organizationally isolated, they can
+pool and leverage shared resources to achieve economies of scale. Administrative services
+that are common across most facilities, but require specialized, costly talent or technology,
+are especially well-suited for collaboration. The functions well-suited for collaboration
+and shared services include shared systems for information technology and cybersecurity,
+centralized human resource recruiting, and other administrative or operational functions.
+
+One of the largest drivers of provider burnout is the time spent on administrative and non-
+clinical tasks, which takes time away from direct patient interaction.74 Providers often spend
+excessive hours inputting data into complex electronic health records (EHRs) and managing
+documentation requirements. Providers also lack immediate, shared access to specialists
+for real-time consultation, diagnosis, and monitoring which makes it more difficult to
+safely manage the care of patients with complex medical conditions. Also, fewer resources
+committed to cybersecurity leave patients’ most sensitive protected health information (PHI)
+vulnerable to breaches and ransomware attacks. Cyber events also threaten a system’s ability
+to remain operational, keeping essential clinical services available and preventing mass
+appointment cancellations and delays in care.
+
+Shared services offer rural healthcare facilities a lifeline by providing the scale and
+sophistication needed to operate in the modern healthcare environment. The SUPPORT
+initiative seeks to advance data and administrative infrastructure in rural health by helping
+providers to invest in, and pool resources to modernize EHRs, enhance patient access,
+strengthen cybersecurity capabilities and training, and implement consumer-facing tech and
+AI solutions.
+
+
+
+
+     RHTP project narrative | 30
+Key actions
+6.1. Support investments in EHR upgrades and improved patient access
+    A. Fund rural sites to upgrade, enhance, and modernize their EHR systems, with
+       consideration given and options available for shared and pooled platforms and
+       services.
+
+    B. Support sharing of EHR platforms where feasible under the federal EHR Donation
+       Safe Harbor and Stark Law exceptions, ensuring that there is interoperability among
+       systems and data is accessible at the individual and community level.
+
+    C. Work with rural sites to evaluate levels of patient access to their own healthcare data
+       and implement solutions that increase patient access to this data.
+
+6.2. Defend rural facilities from cyberattacks
+    D. Deploy multi-factor authentication (MFA) for users to defend against compromised
+       user credentials, not broadly implemented in rural facilities due to resource
+       constraints.
+
+    E. License and deploy endpoint detection and response (EDR) software to detect,
+       investigate, and respond to advanced threats that bypass traditional security
+       measures to servers, workstations, and connected medical devices.
+
+    F. Purchase and manage tools and software for threat intelligence and patch
+       management to identify vulnerabilities and push urgent security patches and
+       software updates to connected devices simultaneously.
+
+6.3. Equip rural providers through shared cybersecurity expertise and training
+    G. Conduct annual, standardized risk assessments and vulnerability scanning across
+       all participating facilities, which will also fulfill regulatory requirements (e.g., HIPAA)
+       and identify unique gaps for participating clinics or hospitals.
+
+    H. Provide high-quality, continuous security awareness training for all staff (clinical and
+       administrative), focusing on current cyber threats and attacks.
+
+    I. Offer fractional access to a qualified chief information security officer (CISO) who
+       advises leadership at each rural hospital on governance, risk management, business
+       continuity, and strategic security planning, a role otherwise completely inaccessible
+       to a standalone facility.
+
+
+
+
+    RHTP project narrative | 31
+6.4. Deploy consumer-facing tech and AI solutions
+     J. Identify and make available solutions that automate routine tasks like appointment
+        booking, prescription refill requests, and general practice inquiries to improve patient
+        access and frees up the limited staff in rural clinics to focus on direct patient care.
+
+     K. Identify and make available AI-powered remote patient monitoring (RPM) tools to
+        analyze data from vendor-provided or consumer-owned devices (smartphones,
+        wearables) to track vital signs, fetal monitoring, or chronic conditions.
+
+     L. Identify and deliver tailored information and personalized wellness plans based on a
+        patient’s health data, promoting self-management of chronic conditions, supporting
+        prenatal and maternal care, and improving overall adherence to treatment.75
+
+6.5. Facilitate clinical technology and AI solutions
+     M. Identify and make available clinical AI agents or similar technologies to assist with
+        note generation, chart summarization, diagnosis history, ordering, and/or treatment
+        recommendations.
+
+     N. Identify and make available a charge and coding AI agent or similar technologies to
+        review documentation for recommended charge levels (CPT codes) and assist with
+        updating diagnosis/problem lists (HCC codes).
+
+Table 8: SUPPORT initiative summary of funding, goals, and measures.
+Main strategic goal: Tech innovation
+
+Use of funds: C, D, F, K
+
+Technical score factors: C.1, F.1, F.2, F.3
+
+Key performance objectives: By 2031, Utah will (6.1) increase the # of rural healthcare
+facilities using new and emerging technologies (baseline pending; targets to follow); (6.2)
+increase the # of rural healthcare facilities participating in shared services models (baseline
+pending; targets to follow).
+
+Outcomes and measures: A.7, B.1, B.2, B.3, C.1, C.2, C.3, 6.1, 6.2 (Tables 11 and 12)
+
+Key stakeholders: FQHCs, primary care and RHCs, CBOs, rural and CAHs, state and local
+health departments, nonprofit organizations, health systems, technology providers.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $80,000,000
+
+Year 1 funding: $16,900,000
+
+
+
+
+     RHTP project narrative | 32
+7. Leveraging Interoperability Networks to Connect
+Services (LINCS)
+Description
+The LINCS initiative aims to create a connected health ecosystem for rural Utah communities
+by modernizing the interoperability and secure exchange of health data among clinics,
+hospitals, public health and behavioral health entities, as well as community-based
+organizations. As an innovation leader, Utah’s approach aligns directly with the CMS
+Interoperability Framework, advancing open, standards-based data exchange and positioning
+the state at the forefront of using interoperability to transform rural health care. This initiative
+will enable Utah to create a digital ecosystem where data sharing leads to real-time, secure,
+and seamless care coordination.
+
+Rural healthcare organizations often operate on isolated EHR platforms with limited ability
+to share patient data across systems.76 The lack of interoperability also limits participation
+in value-based payment models, population health management, and chronic disease
+monitoring. Many federal and state programs require accurate, shareable data to measure
+quality and outcomes. Rural providers without interoperable systems struggle to report
+performance metrics or qualify for incentive payments, which puts them at a financial
+disadvantage.77
+
+Many rural residents live with chronic diseases such as diabetes, COPD, or heart disease.
+Managing these conditions requires collaboration among primary care providers, specialists,
+pharmacists, and social workers. Limited health data exchange between systems creates a high
+likelihood of missing pertinent data at the point of care and costly duplication of diagnostic
+services. The management of paper records, access to multiple portals, and communication
+with payers is problematic. Without direct access and interoperability, patients must either
+request records from time-strapped rural clinics or manually carry incomplete information
+between local and specialty providers. By giving patients’ control, they become active partners
+in their care. They can ensure their record is complete, supplement it with information from
+other sources, and seamlessly coordinate their own care.78
+
+Utah lacks a timely and comprehensive statewide chronic disease monitoring system which
+hinders effective public health action. This deficit prevents the implementation of targeted,
+data-driven public health actions and interventions aimed at improving patient outcomes.
+Additionally, the absence of comprehensive, statewide chronic disease data differentiated by
+geographic area impacts accuracy in assessing needs, allocating resources, and evaluating the
+effectiveness of public health interventions in rural and urban areas of the state.
+
+Utah’s early success in modernizing health data exchange through statewide collaboration
+provides a strong foundation for this effort and a model for expanding innovation to rural
+communities.79 The LINCS initiative will further help rural providers modernize healthcare
+interoperability and expand patient data access by enabling secure viewing and sharing of
+
+
+
+     RHTP project narrative | 33
+health records. The initiative also includes developing and applying a cloud-based semantic
+data platform that harmonizes data from multiple sources—including EHRs and claims—into
+a single, computable structure using open-source frameworks.80
+
+Key actions
+7.1. Support rural providers to modernize interoperability capabilities
+     A. Understand rural providers’ current interoperability capabilities to identify technical
+        gaps, readiness, barriers, and data quality of information sharing.
+
+     B. Facilitate rural site connectivity to exchange data electronically via recognized data
+        exchange standards such as HL7® FHIR® APIs, directly and through a modernized
+        state interoperability platform, such as the state’s Health Information Exchange
+        (HIE), by providing technical assistance, potential funding to offset EHR vendor
+        connectivity costs, and ongoing training for key stakeholders.
+
+     C. Evaluate the quality of data being exchanged against established standards and
+        support providers to bring data feeds up to completeness and quality requirements.
+
+     D. Support the acquisition of modules or solutions that improve exchange between
+        electronic medical records (EMRs) and community partners by enhancing consent
+        management capabilities to improve and enable exchange of non-medical drivers
+        of health information with community-based organizations, and organizations with
+        laws more restrictive than HIPAA (e.g., 42 CFR Part 2 facilities).
+
+     E. Streamline electronic submission to state public health registries—directly or through
+        statewide interoperability networks—and improve onboarding and validation.
+
+     F. Provide education, recruitment, and training for analytics and informatics staff.
+
+7.2. Expand patient access to health information
+     G. Increase options for patients in rural areas to meet their healthcare needs by
+        enabling them to securely view, download, and share their health information
+
+
+
+
+    RHTP project narrative | 34
+        through applications or portals. Patient access may be enabled through the state
+        HIE, individual providers’ patient portals, or through participating providers that
+        adopt recognized data exchange standards, such as HL7® FHIR® APIs, ensuring
+        flexibility and alignment with federal goals for patient-centered interoperability.
+
+    H. Support targeted provider outreach to help rural clinics understand how patient-
+       directed access reduces their record request burden and improves patient
+       engagement.
+
+7.3. Build a cloud-based and semantically interoperable open data model
+    I. Establish a statewide, cloud-based, semantically interoperable data platform
+       that harmonizes information from EHRs, claims, and public health systems into a
+       consistent, computable structure using open-source frameworks.81 This platform
+       will enable real-time data exchange, and create a foundation for analytics,
+       clinical decision support, AI innovation, and other applications of interest to rural
+       hospitals. It will also expose standardized data through HL7® FHIR® APIs, enabling
+       interoperability with the HIE, integration with clinical and operational partners,
+       and secure, direct access for patients—advancing both exchange and patient
+       participation.
+
+    J. Translate heterogeneous data from multiple EHR vendors into a shared semantic
+       model. Enable rural providers to participate in a unified ecosystem where data is
+       accurate, comparable, and ready for reuse in clinical and administrative workflows.
+
+7.4. Support applications of the semantic data model
+    K. Leverage the semantic data model to explore the potential of a wide range of
+       clinical, operational, and public health applications that can be rapidly deployed.
+       Below are early use cases that may be enabled by this platform: enable public
+       health and rural hospitals to monitor and respond to chronic conditions through
+       real-time, population-level insights; automate payer-provider workflows to reduce
+       administrative burden and speed up prior authorization, claims adjudication, and
+       payments; reduce duplicate tests and procedures by making readily available patient
+       history including lab and imaging results across different providers and facilities;
+       seamlessly integrate data generated during a telehealth visit (e.g., e-visits, remote
+       monitoring) into the patient’s EHR and accessible to all treating providers; support
+       value-based care models through the use of accurate, aggregated patient data
+       which is essential for success in value-based care arrangements; simplify Healthcare
+       Effectiveness Data and Information Set (HEDIS) quality reporting, reduce manual
+       effort, and support value-based care.
+
+
+
+
+    RHTP project narrative | 35
+Table 9: LINCS initiative summary of funding, goals, and measures.
+Main strategic goal: Tech innovation
+
+Use of funds: A, C, D, F, I, K
+
+Technical score factors: B.1, C.1, E.1, F.1, F.2, F.3
+
+Key performance objectives: By 2031, Utah will (7.1) improve interoperability capabilities in
+rural healthcare facilities, as measured by annual assessment of readiness, data exchange,
+and usability (baseline pending; targets to follow).
+
+Outcomes and measures: B.1, B.2, B.3, C.1, C.2, C.3, 7.1, 7.2, 7.3 (Tables 11 and 12)
+
+Key stakeholders: Rural and CAHs, payers, primary care and RHCs, healthcare providers,
+care facilities, LMHAs, state and local health departments, CBOs, technology providers, One
+Utah Health Collaborative.
+
+Impacted counties: All rural counties in Utah: 01448015, 01448017–19, 01448021–30,
+01448032–37, 01448039–41, 01455158, 01455966
+
+Estimated 5-year required funding: $108,000,000
+
+Year 1 funding: $16,000,000
+
+
+
+
+     RHTP project narrative | 36
+C. Implementation plan and timeline
+The following overarching implementation plan and timeline provides current best estimates
+for key milestones and activities, with updates to be provided in annual reporting. More
+detailed initiative and activity implementation plans and timelines are included in the
+attachments.
+
+Ongoing activities FY2026–FY2031
+     → Stakeholder engagement
+
+     → Public communications on project updates
+
+     → Regular site visit and contract monitoring
+
+     → Outcomes/outputs reporting and monitoring
+
+     → Monthly CMS calls and ongoing communications
+
+     → Quarterly and annual CMS reporting
+
+State policy actions FY2026–FY2028
+     → Engage state legislators on policy actions Q2 FY2026–Q2 FY2027.
+
+     → State legislative action B.2 enacted by Q1 FY2028.
+
+Stage 0—Project planning is underway. Q2 FY2026–Q2 FY2027
+State legislative appropriations by Q2 2026.
+
+     → Establish stakeholder engagement and governance structures by Q1 2027.
+
+     → Strategic planning and final adjustments per legislative appropriations by Q3 2026.
+
+     → Identify internal project staff and recruitment preparation by Q3 2026.
+
+Stage 1—Initial work on implementing the initiative has begun. Q2
+FY2026–Q2 FY2027
+     → Onboard and train new staff and provide orientation for existing staff by Q4 2026.
+
+     → Subaward/subcontract preparation and release by Q1 2027.
+
+     → Establish partner reporting requirements and tools by Q2 2027.
+
+     → Select and finalize contracts and agreements by Q2 2027.
+
+     → Sub-recipients/awardees/contractors’ kick off meetings and training by Q2 2027.
+
+
+
+
+     RHTP project narrative | 37
+Stage 2—Implementation is underway. Q2 FY2027–Q4 FY2027
+   → With sub-recipients, align implementation with rural community needs by Q4 2027.
+
+   → Develop initiative project criteria, eligibility, and processes by Q4 2027.
+
+   → Select and finalize subcontracts and sub agreements to support initiative partners in
+     securing platforms, devices, equipment, and/or products and services by Q4 2027.
+
+   → Initiative projects are launched and operational by Q4 2027.
+
+Stage 3—Implementation is halfway complete. Q1 FY2028–Q1 FY2029
+   → Midway through implementation; initiative project activities and goals are
+     actively being executed, monitored, and refined. Partially developed ecosystems,
+     infrastructure developed, necessary services/products and procedures by Q1 FY2029.
+
+   → Conduct interim evaluation of initiative activities and outcomes to inform mid-
+     course adjustments by Q1 FY2029.
+
+Stage 4—Deliverables and proposed goals are nearly achieved.
+Q2FY2029–Q2 FY2030
+   → Finalize implementation; initiative project activities and goals are being realized.
+     Developed ecosystems, infrastructure developed, necessary services/products and
+     procedures in place by Q2 FY2030.
+
+Stage 5—Fully implemented, goals achieved, and measurable
+outcomes. Q2–Q4 FY2030
+   → Finalize implementation; initiative project activities and goals realized by Q4 FY2030.
+
+   → Conduct outcome evaluation and identify impactful, scalable, and sustainable
+     initiative projects by Q4 FY2030.
+
+   → Leverage evaluation findings for expansion and sustainability efforts by Q4 FY2030.
+
+   → Disseminate lessons learned, best practices, and project findings through reports,
+     webinars, and community forums to promote replication, scalability, and broader
+     implementation by Q4 FY2030.
+
+
+
+
+   RHTP project narrative | 38
+Governance and project management structure
+Utah’s Rural Health Transformation Program (RHTP) will operate under a robust governance
+and project management structure with the Utah Department of Health and Human Services
+(DHHS) as designated by Governor Cox as the lead agency, demonstrating commitment at
+the highest executive level. This framework ensures effective coordination, strong financial
+accountability, and alignment with state health priorities through frequent communication
+and defined decision-making processes. An organization chart is available in the attachments.
+
+
+Key personnel for program administration (executive oversight)
+Senior leaders will provide continuous strategic guidance, policy direction, and executive
+sponsorship for the RHTP. Their roles, agency/office, and primary function are as follows:
+
+     → Executive director, DHHS executive director: Provides executive oversight and
+       guidance for the RHTP.
+
+     → Sponsor, DHHS executive director’s office: Provides executive endorsement, removes
+       high-level bureaucratic barriers, and ensures strategic alignment with the DHHS mission.
+
+     → Assistant director, Division of Population Health: Provides expertise to guide
+       initiatives related to improving health outcomes and health access in rural areas.
+
+     → Medical director, Utah Medicaid Program: Provides clinical and policy expertise,
+       ensuring initiatives are integrated seamlessly within Medicaid systems and standards.
+
+     → Director, State Office of Rural Health: Contributes expertise on the unique needs and
+       infrastructure of rural healthcare providers and communities.
+
+
+Dedicated RHTP team headcount and functions
+DHHS will dedicate 25.7 full time equivalent (FTE) to this program, including: One office
+director (1.0 FTE); two management support leadership positions (0.4 FTE); two program
+managers (2.0 FTE); five program coordinators (four for the strategic goals and one specific to
+workforce development subject matter expertise (SME); 4.3 FTE); one program manager for
+food infrastructure (1.0 FTE); one program administrator for behavioral health (1.0 FTE); eight
+program specialists (four for make rural Utahns healthy; two for workforce development, one
+for project assistance, and one specific to maternal and child health subject matter expertise
+(SME) (7.5 FTE); four finance support staff (one financial manager and three financial analysts;
+3.5 FTE); three data specialists (2.25 FTE); one contract monitoring auditor (1.0 FTE); one
+evaluation manager (0.25 FTE); and two administrative support staff (1.5 FTE). This will ensure
+sufficient capacity for rigorous management, financial oversight, program execution, and
+continuous evaluation. Additional personnel information is provided in the budget narrative,
+with resumes available upon request.
+
+
+     RHTP project narrative | 39
+Coordination among state agencies and external stakeholders
+Coordination will be executed through a formal structure that prioritizes existing, effective
+communication channels. At the strategic level, the RHTP Steering Committee will meet
+at least quarterly to provide policy approval, budgetary oversight, interagency conflict
+resolution, and strategic direction. For operational issues, weekly dedicated RHTP team
+meetings will guide day-to-day project management and status reporting. Several specialized
+stakeholder groups will ensure effective coordination of RHTP activities. This includes
+quarterly HWAC, Utah Medical Education Council (UMEC), and Utah Behavioral Health
+Commission (UBHC) meetings to review and advise on specialized initiatives (workforce,
+GME and behavioral health, respectively), ensuring buy-in and alignment with statutory
+mandates. The One Utah Health Collaborative’s Digital Health Interoperability workgroup
+meets regularly to advance interoperability frameworks that drive healthcare innovation
+and efficiency statewide. The Utah Indian Health Advisory Board (UIHAB) meets monthly
+to discuss health concerns, policies, and programs with DHHS. Progress reports will be
+presented at Utah Hospital Association (UHA) Rural Hospital Council semi-annual meetings
+to ensure feedback from 21 rural hospitals and CAHs and guide program adjustment. This
+multi-tiered coordination plan ensures that decision-making is defined and appropriate to the
+scope of the change.
+
+
+D. Stakeholder engagement
+Between July and October 2025, the DHHS executed a comprehensive and multi-layered
+stakeholder engagement strategy to develop Utah’s RHT plan. This effort was grounded in
+the principle that meaningful transformation in rural health systems must be co-designed
+with the communities served, including patients, providers, tribal representatives, and local
+leaders.
+
+The engagement process began in July with internal alignment, including the submission
+of a situation-background-assessment-recommendation (SBAR) to the executive director’s
+office and the appointment of program two co-leads from DHHS Medicaid and DHHS
+Population Health, reporting to the executive director. The co-lead from Population Health is
+responsible for the State Office of Rural Health. Early meetings with DHHS leadership laid the
+foundation for cross-agency collaboration. On July 25, DHHS initiated external outreach by
+inviting community stakeholders to join the RHTP contact list via its newly established email,
+signaling the program’s commitment to transparency and inclusion from the outset. This
+process generated an initial list of more than 130 individuals representing a broad range of
+rural stakeholders—a number that continues to grow.
+
+August marked a surge in strategic consultations. DHHS met with the legislative fiscal analyst,
+the Office of Legislative Research and General Counsel, the Governor’s Office of Planning and
+Budget, appropriations committees, and individual legislators to align policy and budgetary
+frameworks. DHHS invited 135 people to the first RHTP Stakeholder Webinar, which included
+
+
+     RHTP project narrative | 40
+94 participants. During that webinar, DHHS provided a public-facing overview of the funding
+opportunity and opened the door to broader dialogue. Engagements with UHA and the
+Utah Health Improvement Plan’s Low-Income Populations working group helped tailor the
+program to high-need populations.82 Additional meetings with rural providers, provider
+networks, appropriations committees, and UBHC ensured extensive input. On August 26,
+DHHS launched the RHTP webpage,83 providing a centralized hub for updates, resources,
+and a stakeholder survey. This survey garnered 106 responses, a strong signal of community
+interest and investment.
+
+In September, DHHS transitioned from outreach to activation, establishing four thematic
+workgroups based on survey results: making rural Utahns healthy, workforce development,
+innovation and access, and technology innovation. These groups were co-led by an internal
+and external lead, staffed with subject matter experts, and designed to channel stakeholder
+expertise into actionable recommendations. Three regional listening sessions were held
+in rural communities across the state–Cedar City (southwest), Brigham City (north), and
+Moab (southeast)—drawing close to 40 attendees in each session. These sessions featured
+structured agendas, transcripts, and meeting minutes, and served as forums for community
+feedback.
+
+DHHS also deepened its engagement with tribal, local public health, and healthcare entities.
+Presentations were delivered to UIHAB, the DHHS/local health department coordinating
+meeting, the governor’s rural health workforce strategic planning workgroup, HWAC, UMEC,
+and UHA’s Rural Hospital Council. September 24 marked the second stakeholder webinar to
+introduce the launch of a solicitation process that garnered more than 200 project proposal
+ideas and budgets, which further expanded the program’s reach and operational readiness.
+
+October culminated in high-level policy integration. DHHS conducted check-ins with the
+Governor’s Office of Planning and Budget and held multiple meetings with legislators,
+including joint leadership from both chambers. During this time, DHHS engaged in formal
+consultation with tribal representatives. Efforts culminated in the Utah State Legislature’s
+commitment to rural health transformation through House Joint Resolution 101 (2025),
+authorizing the state to participate in the RHTP.
+
+October also included workgroup participation at the One Utah Summit, a premier rural
+event for rural leadership agenda setting. The Summit featured a panel discussion on RHTP,
+reinforcing the program’s visibility and strategic importance. A 2-day virtual open session
+provided a statewide platform for dialogue on project proposals and initiatives, followed by
+final presentations to legislative committees. Finally, RHTP workgroups reviewed project
+proposals, synthesized ideas, and submitted activities that shaped the development of Utah’s
+seven initiatives and funding allocations, ensuring efforts were grounded in feasible, realistic,
+and community-driven strategies.
+
+Utah’s robust stakeholder engagement reflects a commitment to participatory governance to
+ensure stakeholder engagement is not a one-time event but a continuous, embedded process
+
+
+     RHTP project narrative | 41
+that drives decision-making and accountability throughout the program lifecycle. Letters of
+support are included in attachments.
+
+Table 10: List of stakeholders consulted.
+Utah Department of Health and Human Services (DHHS), which includes the involvement
+of the following divisions: Medicaid; Office of Primary Care and Rural Health (Utah’s
+State Office of Rural Health); Office of Substance Use and Mental Health; Data, Systems,
+& Evaluation; American Indian/Alaska Native Health & Family Services; Division of
+Population Health. Additional stakeholders include: Governor’s Office of Planning and
+Budget; Utah state legislators, leadership, and legislative committees; Office of the
+Legislative Fiscal Analyst (LFA); Office Of Legislative Research and General Counsel; One
+Utah Health Collaborative; local health departments (LHDs); University of Utah Healthcare;
+Intermountain Healthcare; Rural 9 Hospital Network; Utah Hospital Association Rural
+Hospital Council; Utah Behavioral Health Commission; Utah Medical Education Council;
+Utah Health Workforce Advisory Council; Built Here rural health workforce workgroup;
+Utah Indian Health Advisory Board (UIHAB); Utah tribal representatives; Indian healthcare
+providers; FQHCs; Association for Utah Community Health (AUCH); Department of Public
+Safety, Division of Emergency Management Services; community leaders (e.g., local
+attendees at listening sessions); patients and providers (via public listening sessions and
+survey); and local and national vendors (via project proposal submission).
+
+Ongoing stakeholder engagement strategy
+Continued and strategic stakeholder engagement is paramount for a seamless transition
+into the implementation phase. Continuing with the robust process developed to inform
+the application, DHHS will employ a tiered stakeholder engagement strategy to ensure that
+decisions continue to be informed, innovative ideas are captured, and expertise, particularly
+lived experience, is fully leveraged. This is specifically designed to meaningfully involve all
+partners who contribute to and support initiatives benefiting rural Utahns.
+
+Tiered engagement approach
+     → Steering committee: Composed of senior decision-makers, this committee will
+       provide essential high-level oversight and executive support for programmatic
+       implementation. It will continue the commitment established by leaders across
+       healthcare, state agencies, and rural legislators during the planning phase, ensuring
+       continuous support. Proposed members to include: representatives from DHHS, the
+       Governor’s Office of Planning and Budget, the legislature, relevant executive branch
+       agencies, and appropriate tribal and local government entities. Membership will
+       be strategically expanded or adjusted to incorporate expertise as specific areas of
+       interest or implementation needs arise.
+
+     → Implementation partners: This structure represents a direct continuation of the
+       foundational workgroups—Making Rural Utahns Healthy, Workforce, Innovation
+       and Access, and Technology and Innovation—responsible for initial project proposal
+
+
+     RHTP project narrative | 42
+         review and initiative design. Composed of industry leaders and experts who will
+         be executing the projects, this group is uniquely positioned to deliver the critical,
+         operational input and practical perspective required to guarantee the relevance,
+         efficacy, and successful deployment of all RHTP efforts. It will include engagement
+         building on existing advisory workgroups, ensuring continuity, alignment, and
+         informed decision-making.
+
+     → Patients and rural community feedback: This engagement mechanism is vital
+       to obtain direct, critical feedback from patients and family members who receive
+       RHTP-supported services. It will gather community-level information regarding the
+       broader impact of services on individuals and communities. This grassroots-level
+       structure will regularly interface with the steering committee and implementation
+       partners, ensuring a continuous feedback loop that drives the sustained quality and
+       responsiveness of services.
+
+     → Sovereign tribal partners: Facilitated through existing state and tribal entity policy
+       and infrastructure, DHHS will regularly consult with tribal leadership to inform
+       and align efforts in rural Utah. FQHCs and other community clinics dedicated and
+       specialized in tribal health services, take part in the implementation partners’ tier.
+       This ensures that providers serving all rural communities, including tribal members,
+       are contributors and beneficiaries of the RHTP initiatives.
+
+     → Public transparency: DHHS is committed to maintaining ongoing stakeholder
+       engagement and transparency with interested partners and with all rural Utah
+       communities through dedicated webpage updates, email notifications, webinars,
+       listening sessions, open meetings, and additional communication outlets of the state
+       of Utah.
+
+This tiered framework will include recurring and formal coordination at various levels with
+key state entities including DHHS and its following divisions: Medicaid, Office of Primary Care
+and Rural Health (Utah’s State Office of Rural Health), Office of Substance Use and Mental
+Health, Data, Systems, and Evaluation, and Office of American Indian/Alaska Native Health
+and Family Services. Governance structures are designed to reflect the communities served,
+with mechanisms for continuous feedback, milestone tracking, and impact assessment.
+
+
+
+
+     RHTP project narrative | 43
+E. Metrics and evaluation plan
+Key program outcomes and measures anticipated to evaluate success for each initiative are
+outlined in Table 11. All initiatives contribute toward achieving the key outcomes. Together,
+the seven initiatives are designed to function as an integrated system of improvement—each
+reinforcing the others to collectively advance Utah’s overarching outcomes of improved
+health, access, quality, and workforce stability in rural communities. By aligning shared
+metrics across initiatives and analyzing data at the county and community level, Utah
+commits to achieving a greater cumulative impact—demonstrating broader, measurable
+improvements in rural health outcomes and system performance than any single initiative
+could achieve independently. Table 12 outlines additional outcomes and performance
+measures specific to each of the seven initiatives. Table 13 is a key for Tables 11 and 12. Data
+sources, baselines, and targets have also been outlined, as available. These proposed metrics
+are preliminary and subject to change according to initiative and activity development based
+on awarded funding. Further statistical analysis specific to rural data to more accurately
+determine true baselines and targets will be completed post award. Data sources will include
+survey data such as the Behavioral Risk Factor Surveillance System (BRFSS) and the Utah
+Student Health and Risk Prevention (SHARP) survey, state data systems, and progress reports
+from contracted partners. Staff overseeing data collection and analysis have several years of
+experience collecting, analyzing, managing, and reporting data for federal grants. Processes
+to ensure timely and complete data collection and reporting will be built into contracts with
+health facilities, key partners, and other contractors. Data will be collected and analyzed
+annually for annual progress reporting.
+
+Table 11: Key program outcomes and measures.
+Outcome measure (related initiatives)                         Data source    Baseline Target
+A. Improving outcomes: Improved healthy behaviors and
+health outcomes in chronic disease, behavioral health,
+and maternal and infant care across rural Utah.
+A.1. % of Utah adults living in rural counties with obesity   BRFSS          29.6%*     -5%
+(BMI 30+) (1, 3, 5)
+A.2. % of Utah children with obesity in grades 6–12 living    SHARP          10.5%      -5%
+in rural counties (1, 3, 5)
+A.3. % of Utahns who report poor mental health living in      BRFSS          21%**      -10%
+each rural county (1, 2, 3, 4, 5)
+A.4. Rate of suicide deaths per 100,000 population in         Death          20.6       -10%
+rural counties (1, 2, 3, 4, 5)                                certificates
+A.5. % of women in rural counties with first trimester        Birth          63.3%      +10%
+prenatal visit (1, 2, 3, 4, 5)                                certificates
+
+
+
+
+     RHTP project narrative | 44
+Outcome measure (related initiatives)                           Data source   Baseline Target
+A.6. % of women in rural counties with a postpartum visit PRAMS               92.9%    +5%
+(1, 2, 3, 4, 5)
+A.7. % of people in rural counties with a routine check-up BRFSS,             71%*     +10%
+in past year (1, 2, 3, 5, 6)                               contractor
+                                                           reports
+A.8. % of women ages 18-44 in rural counties with a             BRFSS         65%*     +10%
+routine check-up in past year (1, 2, 3, 4, 5)
+B. Improving access: Expanded access to healthcare and
+essential health services so people in rural areas can get
+the care they need, when and where they need it.
+B.1. # of rural hospitals and facilities at risk of service     Contractor    0        0
+reduction or closure (2, 3, 4, 5, 6, 7)                         reports
+B.2. % of Utahns living in rural counties who report            BRFSS         –        -10%
+having to wait more than 3 months for a healthcare
+appointment (2, 3, 4, 5, 6, 7)
+B.3. % of Utahns living in each rural county that report      BRFSS           –        -10%
+waiting more than 3 months for a specialty visit (2, 3, 4, 5,
+6, 7)
+B.4. % of Utahns living in rural counties who drive more        HWIC          TBD      -TBD
+than 30 minutes to receive routine care (2, 3, 5)
+C. Improving quality: Strengthened systems that
+support high-quality care and services with improved
+coordination, standards, and continuous quality
+improvement.
+C.1. % of clinics in rural counties with improved primary       HEDIS;        TBD      +TBD
+care clinical quality measures (1, 3, 5, 6, 7)                  Contractor
+                                                                reports
+C.2. % of rural facilities utilizing interoperable              Contractor    TBD      +TBD
+capabilities (5, 6, 7)                                          reports
+C.3. % of rural facilities reporting increased patient          Contractor    TBD      +TBD
+healthcare data access and utilization (1, 6, 7)                reports
+C.4. % of preventable hospitalizations in rural facilities (1, Contractor     TBD      -TBD
+2, 3, 5)                                                       reports
+C.5. % of hospital readmissions in rural facilities (1, 2, 3,   Contractor    TBD      -TBD
+5)                                                              reports
+
+
+
+
+    RHTP project narrative | 45
+Outcome measure (related initiatives)                       Data source    Baseline Target
+D. Strengthening workforce: Strengthened workforce
+stability to ensure rural communities have a skilled and
+reliable healthcare team.
+D.1. # of rural counties with at least 1 primary care       HWIC           TBD        +TBD
+provider per 1,000 people (2, 3, 5)
+D.2. # of healthcare providers recruited in rural Utah (2, 3, Contractor   –          +5%
+5)                                                            reports
+D.3. % of rural counties with at least 1 mental health      HWIC           TBD        +TBD
+provider per 1000 people (1, 2, 3, 5)
+D.4. % of EMS provider retention in rural agencies (2, 3)   HWIC           TBD        +TBD
+
+
+
+Table 12: Performance measures and outcomes.
+Outcome measure (Initiative; strategic goal)                Data source    Baseline   Target
+Initiative 1: PATH (Preventive Action and Transformation
+for Health; Making Rural Utahns Healthy)
+1.1 % of Utah adults living in rural counties that meet     BRFSS          11%*       +15%
+fruit and vegetable consumption recommendations
+1.2 % of rural counties with increased access to fresh      Contractor     –          +25%
+whole foods                                                 reports
+1.3 % of students at each rural LEA implementing            SHARP          TBD        +TBD
+Gold Medal Schools that meet fruit and vegetable
+consumption recommendations
+1.4 % of students at each rural LEA implementing            SHARP          19.6%**    +15%
+Gold Medal Schools that meet physical activity
+recommendations
+1.5% of Utahns living in rural counties that report using   BRFSS          35%*       +5%
+active transportation
+1.6 % of Utahns living in rural counties that report no     BRFSS          17%*       -10%
+leisure physical activity
+1.7 % of referrals for follow-up clinical services          Contractor     –          +TBD
+completed through CCH                                       reports
+1.8 % of referrals for follow-up social services completed Contractor      –          +TBD
+through CCH                                                reports
+
+
+
+
+    RHTP project narrative | 46
+Outcome measure (Initiative; strategic goal)                 Data source   Baseline   Target
+1.9 % of patients in rural counties screened for             Contractor    TBD        +TBD
+depression, anxiety, and SUD in primary care                 reports
+1.10 % of BHI/CoCM patients with an improved score on        Contractor    TBD        +TBD
+validated tools                                              reports
+Initiative 2: RISE (Rural Incentive and Skill Expansion;
+Workforce development)
+2.1 # of primary care providers (MD, DO, APRN, PA) in        NPI           1,189      +5%
+rural counties
+2.2 # of new providers trained in each rural county          Contractor    –          +1/year
+                                                             reports
+2.3 % of providers retained in each rural county after 1, 2, Contractor    –          +50%
+and 3 years                                                  reports
+2.4 # and type of improvements to workforce shortages        Contractor    –          +TBD
+                                                             reports
+Initiative 3: SHIFT (Sustaining Health Infrastructure for
+Transformation; Innovation and access)
+3.1 # and type of improvements to rural health facilities    Contractor    –          +TBD
+that increase capacity to deliver quality healthcare         reports
+3.2 # of EMS preventive and post-discharge visits in rural   EMS           TBD        +TBD
+areas
+3.3 % of non-emergent EMS transports in each rural Utah Contractor         TBD        -TBD
+county                                                  reports
+3.4 # of repeat EMS/911 calls by patients with chronic       EMS           TBD        -TBD
+conditions in rural counties
+Initiative 4: FAST (Financial Approaches for Sustainable
+Transformation; Innovation and access)
+4.1 % of rural health facilities in each rural county with   Contractor    –          +TBD
+data infrastructure in place for value-based payment         reports
+4.2 # and type of improvements to revenue cycle              Contractor    –          +TBD
+                                                             reports
+4.3 % of rural health facilities with improved revenue       Contractor    –          +TBD
+cycle (denial rate, clean claim rate, etc.)                  reports
+
+
+
+
+    RHTP project narrative | 47
+Outcome measure (Initiative; strategic goal)                  Data source   Baseline   Target
+Initiative 5: LIFT (Leveraging Innovation for Facilitated
+Telehealth; Innovation and access)
+5.1 # and type of improvements to increase capacity to        Contractor    –          +TBD
+deliver quality healthcare via telehealth                     reports
+5.2 % of patients in each rural county using telehealth       BRFSS,        24.5%*     +50%
+services                                                      contractor
+                                                              reports
+5.3 # and type of specialties provided via telehealth in      Contractor    –          +TBD
+rural counties                                                reports
+Initiative 6: SUPPORT (Shared Utilities for Partnered
+Provider Operational Resources and Technology;
+Technology innovation)
+6.1 % of participating facilities in each rural county with   Contractor    TBD        +TBD
+MFA and EDR fully implemented and deployed                    reports
+6.2 % of physicians at participating facilities in each rural Contractor    TBD        +TBD
+county reporting decreased documentation and charting reports
+time
+Initiative 7: LINCS (Leveraging Interoperability Networks
+to Connect Services; Technology innovation)
+7.1 % of rural facilities in each rural county that report    DHHS          TBD        +TBD
+complete and timely data to public health                     reports
+7.2 # of manual prior authorization submissions and           DHHS          TBD        +TBD
+corresponding electronic approvals                            reports
+
+
+
+
+    RHTP project narrative | 48
+Outcome measure (Initiative; strategic goal)                  Data source    Baseline    Target
+7.3 % improvement in each category of an annual             Contractor       –           +TBD
+interoperability assessment across participating facilities reports
+(e.g., technical readiness, data completeness, data
+usability, and clinician experience, etc.)
+
+
+
+Table 13: Key to Tables 11 and 12.
+– Baselines unavailable; TBD: Baselines and targets to be established; *Baselines estimated
+for rates combined across counties designated as rural and frontier; **Baselines reflect a
+total for all rural counties or LEAs. Baselines for each county or LEA will be reported post
+award.
+Acronyms: body mass index (BMI); Behavioral Risk Factor Surveillance System (BRFSS);
+Student Health and Risk Prevention survey (SHARP); emergency department (ED);
+Pregnancy Risk Assessment Monitoring System (PRAMS); Healthcare Workforce Information
+Center (HWIC); Healthcare Effectiveness Data and Information Set (HEDIS); local education
+agency (LEA); community care hub (CCH); substance use disorder (SUD); behavioral health
+integration (BHI); collaborative care model (CoCM); National Provider Identifier (NPI);
+Emergency Medical Services (EMS); multi-factor authentication (MFA); endpoint detection
+and response (EDR); electronic prior authorization (ePA)
+
+
+Program evaluation
+Utah confirms it will cooperate with any CMS-led evaluation or monitoring. Formal
+evaluations will be contracted out to evaluate the effectiveness and impact of innovative
+pilot projects as funding is available. These may include projects related to interoperability,
+telehealth, EMS, new models of care, workforce pathways programs, food infrastructure,
+and the community care hub. Evaluation efforts requiring subject matter expertise will be
+built into initiative contracts. These may include semantic data modeling, value-based
+care, graduate medical education (GME), non-GME programs, and shared services. We will
+incorporate basic evaluation metrics into contractor reporting for other initiatives.
+
+
+F. Sustainability plan
+Utah is recognized as among the best managed states due to its adoption of a key government
+financing principle to utilize one-time funds for one-time expenses. The Utah State Legislature
+embedded that principle when it endorsed its support of Utah’s application for RHTP
+funding by adopting language stating “initiatives should seek to create sustainable positive
+financial outcomes without creating future financial obligations for the state.”84 As a result,
+Utah’s strategy for the RHTP is designed to generate permanent, systemic, and generational
+change, not temporary reliance on federal infusions. This aligns with the intent of the RHTP
+
+
+     RHTP project narrative | 49
+encouraging states to reject investments for projects that will not be sustainable upon
+completion of the program. The plan prioritizes one-time projects or upgrades and focuses on
+establishing models that are self-sustaining and shifting payment models to reward value and
+efficiency. Where appropriate, a phased approach will be employed to scaling back funding,
+while contractors find ways for self-sustainability over the course of the funding cycle.
+
+Key Initiatives:
+1. Making rural Utahns healthy: Preventive Action and Transformation for Health
+   (PATH)
+     → Financial and operational viability: Establish payment streams for high-value
+       preventive services (Medicare, Medicaid, private payers). Build administrative
+       systems within the CCH to contract with health plans and Accountable Care
+       Organizations (ACOs), ensuring reliable revenue. Diversify funding for CCH
+       infrastructure.
+
+     → Community and programmatic sustainability: Strengthen grassroots infrastructure
+       like local food hubs for permanent market opportunities. Transfer built environment
+       improvements (bike lanes, trails) to local government for long-term maintenance.
+       Institutionalize wellness efforts through the Utah Gold Medal Schools program to
+       formalize policies in rural education agencies.
+
+2. Workforce initiative: Rural Incentive and Skill Expansion (RISE)
+     → Financial and operational viability: Secure long-term viability through state
+       appropriations, tax credits, and GME subsidies. The preceptor model requires a one-
+       time startup investment, with sustainability through a 10% surcharge on biennial
+       license renewal fees for participating professions. Explore cost-sharing models for
+       rural GME.
+
+     → Community and programmatic sustainability: Rural GME sites will function as
+       permanent teaching clinics, generating revenue through patient billing. The “Grow
+       our own” initiative will integrate high school-to-certification programs into the Utah
+       System of Higher Education. Evaluate Medicaid as a financing mechanism for rural
+       GME.
+
+3. Building clinical and operational models that are structurally and financially
+   resilient: Sustaining Health Infrastructure for Transformation (SHIFT)
+     → Financial and operational viability: Evaluate options for sustainable payment
+       models. One-time capital improvement costs will enable rural facilities to offer
+       new and billable services. Diversify funding through Medicaid reimbursements for
+       paramedicine visits, ACO partnerships, and taxes embedded in rural EMS plans.
+
+
+
+
+    RHTP project narrative | 50
+    → Community and programmatic sustainability: Rural health network members will
+      pay dues after funding ends. Payments for new care models will be sustained by
+      savings from reduced hospital readmissions and emergency department reliance.
+      Consider policy for premium payments for rural coordinated care, leverage Medicare
+      funds, invest shared savings in community workforce, and dual certification of
+      paraprofessionals.
+
+4. Financial sustainability: Financial Approaches for Sustainable Transformation
+   (FAST)
+    → Financial and operational viability: Pilot and stabilize innovative payment models
+      that shift rural providers from fee-for-service toward value-based care. Initial RHTP
+      support will create infrastructure for revenue cycle optimization to boost operating
+      cash flow and profitability. Diversify funding by proving these models generate
+      shared savings.
+
+    → Community and programmatic sustainability: Having specialists in the community
+      performing procedures will allow for sustainability. Facilities that want to continue
+      the program will absorb expenses after RHTP ends.
+
+5. Telehealth: Leveraging Innovation for Facilitated Telehealth (LIFT)
+    → Financial and operational viability Collect data on the cost effectiveness of telehealth
+      modalities to transition services into permanent, parity-reimbursed Medicaid
+      benefits. One-time capital investments will be transferred to rural facility ownership.
+
+    → Community and programmatic sustainability: Virtual specialty consultations
+      will reduce patient bypass to urban specialists and keep revenue local. Regional
+      partnerships with maternal-fetal medicine specialists provide sustainable access
+      to high-risk expertise. Collaborative care management, telepsychiatry, and virtual
+      therapy will create sustainable mental and behavioral health capacity within primary
+      care practices.
+
+6. Shared services: Shared Utilities for Partnered Provider Operational Resources
+   and Technology (SUPPORT)
+    → Financial and operational viability: The creation of a shared service organization
+      (SSO) will be sustained by the facilities, with combined costs less than individual
+      operational costs. RHTP funds will establish joint purchasing and back-office
+      services, creating a permanent SSO for administrative functions.
+
+    → Community and programmatic sustainability: Successful clinical AI tools will be
+      bundled with core telehealth offerings, reducing provider burnout and administrative
+      time, making rural practice more attractive and reducing turnover costs.
+
+
+
+
+    RHTP project narrative | 51
+7. Interoperability: Leveraging Interoperability Networks to Connect Services (LINCS)
+     → Financial and operational viability: A single, cloud-based data model will replace
+       costly vendor interfaces and manual data entry, with sustainability driven by
+       eliminating administrative costs and complexity. RHTP will cover the primary cost of
+       initial programming, with few resources needed for maintenance.
+
+     → Community and programmatic sustainability: Connecting to a Health Information
+       Network will allow rural facilities broader interoperability. Investments in IT
+       infrastructure and data exchange enable data sharing and cybersecurity resilience,
+       institutionalizing multi-factor authentication and endpoint detection and response.
+
+
+Integrating lessons into ongoing policy
+Utah anticipates there will be many lessons learned throughout the course of the RHTP
+funding period, much of which cannot be anticipated. The ongoing engagement with the
+Steering Committee and other stakeholders will support the identification of issues that will
+need to be addressed through statute, administrative rule, and even procedure. At this point,
+Utah anticipates it will incorporate the following into state-level policy instruments to ensure
+permanence:
+
+     → DHHS State-level plans: DHHS will consider formally incorporating successful RHTP
+       measurable rural health transformation goals (e.g., rural access metrics, specialty
+       coverage rates, behavioral health integration in primary care) into strategic plan
+       revisions. This makes rural transformation a core component of statewide public
+       health planning.
+
+     → Medicaid managed care contracting: Utah Medicaid, with the Utah State Legislature
+       will explore the integration of successful alternative payment models and new
+       services such as mobile health, paramedicine, and telehealth, will be integrated
+       as mandatory requirements or incentive targets within Medicaid. This may include
+       leveraging managed care organization (MCO) contracts and establishing a fee
+       structure within Utah’s fee-for-service model. The need to incorporate these new
+       payment structures and services lines within Utah Medicaid will be determined upon
+       evaluation of the effectiveness of these new models in terms of cost savings and
+       improved patient outcomes.
+
+
+
+
+     RHTP project narrative | 52
+Transitioning from phased-out financing
+The RHTP directly addresses the challenge posed by recent reductions in federal funding
+mechanisms, specifically the elimination of certain supplemental payments.
+
+     → Addressing DSH/supplemental payment reductions: Utah’s 2024 legislative actions
+       eliminated “DSH add-on” payments. The RHTP is designed to fill this fiscal vacuum
+       by:
+
+            1. Creating financial viability: Help CAHs and providers enhance efficiency,
+               right-size their service offerings, and stabilize financial statements.
+
+            2. Shifting revenue: Accelerate the transition to alternative payment models
+               and two-sided risk models, replacing fee-for-service with performance-based
+               revenue that rewards quality and value.
+
+            3. IT investment: Upgrading IT systems to ensure rural providers can accurately
+               track and report quality measures necessary to maximize reimbursement
+               under value-based care and Medicare’s quality improvement programs.
+
+Utah’s RHTP strategy aims for permanent, systemic, and generational change in healthcare
+by prioritizing one-time projects and self-sustaining models, shifting toward value and
+efficiency. Key initiatives like PATH (preventive health), RISE (workforce development),
+SHIFT (resilient infrastructure), FAST (financial sustainability), LIFT (telehealth), SUPPORT
+(shared services), and LINCS (interoperability) focus on financial viability and community
+sustainability. The plan also integrates lessons into ongoing policy, including DHHS state-
+level plans and Medicaid managed care contracting, and addresses DSH and supplemental
+payment reductions by creating financial viability, shifting revenue models, and investing in
+IT. By aligning financial incentives, modernizing infrastructure, expanding telehealth capacity,
+and addressing workforce shortages, Utah is positioned to cultivate a data-driven, patient-
+centered rural health system that supports providers to thrive and ensures rural Utahns have
+consistent access to high-quality care for generations to come.
+
+
+
+
+     RHTP project narrative | 53
+Endnotes
+1. Kem C. Gardner Policy Institute. “Regional Fact Sheet.” Utah Legislative Policy Summit,
+2017. https://d36oiwf74r1rap.cloudfront.net/wp-content/uploads/RuralUtahSheet.pdf
+
+2. Kem C. Gardner Policy Institute. “Utah Demographic Characteristics: Urban and Rural
+Populations.” Demographic insight, 2024. https://d36oiwf74r1rap.cloudfront.net/wp-content/
+uploads/2024/05/DivData-Urban-Rural-May2024.pdf
+
+3. https://www.statista.com/statistics/183588/population-density-in-the-federal-states-of-the-us/
+
+4. H.B. 176, 2025 Leg., General Sess. (Ut. 2025). https://le.utah.gov/~2025/bills/static/HB0176.html
+
+5. Utah urban and rural demographics. https://www.statista.com/statistics/183588/
+population-density-in-the-federal-states-of-the-us/
+
+6. Kem C. Gardner Policy Institute. “Utah Demographic Characteristics: Urban and Rural
+Populations.” Demographic insight, 2024. https://d36oiwf74r1rap.cloudfront.net/wp-content/
+uploads/2024/05/DivData-Urban-Rural-May2024.pdf
+
+7. Kem C. Gardner Policy Institute. “Utah Demographic Characteristics: Urban and Rural
+Populations.” Demographic insight, 2024. https://d36oiwf74r1rap.cloudfront.net/wp-content/
+uploads/2024/05/DivData-Urban-Rural-May2024.pdf
+
+8. Utah Behavioral Risk Factor Surveillance System (BRFSS) 2024. Accessed via the Utah Public
+Health Indicator Based Information System (IBIS). https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+9. https://www.childhealthdata.org/browse/survey/allstates?q=11100
+
+10. Utah BRFSS 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/selection/
+brfss/BRFSSSelection.html
+
+11. https://www.americashealthrankings.org/explore/measures/colorectal_cancer_
+screening/colorectal_cancer_screening_nonmetro/UT
+
+12. Utah BRFSS 2023–2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+13. Utah BRFSS 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/selection/
+brfss/BRFSSSelection.html
+
+14. https://www.americashealthrankings.org/explore/measures/health_screenings_ahr/
+health_screenings_ahr_nonmetro_b/UT
+
+15. Utah BRFSS 2020. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/selection/
+brfss/BRFSSSelection.html
+
+
+
+
+     RHTP project narrative | 54
+16. Utah BRFSS 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/selection/
+brfss/BRFSSSelection.html
+
+17. Utah BRFSS 2023–2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+18. Utah BRFSS 2021, 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+19. Utah Youth Risk Behavior Survey (YRBS) 2023. Accessed via IBIS. https://ibis.utah.gov/
+ibisph-view/query/selection/yrbs/YRBSSelection.html
+
+20. Utah BRFSS 2023–2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+21. IBIS 2021–2023. https://ibis.utah.gov/ibisph-view/indicator/view/SuicDth.SA.html
+
+22. Utah Violence and Injury Prevention Program. “Suicides in rural and urban Utah 2014–
+2023. https://ruralhealth.utah.gov/wp-content/uploads/Suicides-in-Rural-and-Urban-Utah-
+FInal-1.pdf
+
+23. IBIS 2021–2023. https://ibis.utah.gov/ibisph-view/indicator/view/SuicDth.SA.html
+
+24. Utah BRFSS 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/selection/
+brfss/BRFSSSelection.html
+
+25. Utah BRFSS 2021, 2024. Accessed via IBIS. https://ibis.utah.gov/ibisph-view/query/
+selection/brfss/BRFSSSelection.html
+
+26. DasGupta, Debasree et al. “The Urban/Rural Divide in Access to Medication-Assisted
+Treatment for Opioid Use Disorder in Utah.” Utah State University Extension, 2020. https://
+digitalcommons.usu.edu/cgi/viewcontent.cgi?article=3115&context=extension_curall
+
+27. https://dhhs.utah.gov/featured-news/10-years-of-data-show-drug-overdoses-remain-a-
+significant-health-threat-in-utah/
+
+28. IBIS 2019–2022. https://ibis.utah.gov/ibisph-view/indicator/view/PoiDth.LHD.html
+
+29. https://odphp.health.gov/healthypeople/about/workgroups/maternal-infant-and-child-
+health-workgroup
+
+30. https://gardner.utah.edu/news/utahs-fertility-rate-dropped-to-1-801-in-2023-sliding-
+from-4th-highest-to-10th-highest-in-the-u-s/
+
+31. Beagley, Melanie. “Maternal Health in Utah: Risk Factors, Workforce Gaps, and Access
+to Care.” Kem C. Gardner Policy Institute, 2025. https://d36oiwf74r1rap.cloudfront.net/wp-
+content/uploads/2025/08/MatCare-Shortage-Sep2025.pdf
+
+
+
+
+     RHTP project narrative | 55
+32. Beagley, Melanie. “Maternal Health in Utah: Risk Factors, Workforce Gaps, and Access
+to Care.” Kem C. Gardner Policy Institute, 2025. https://d36oiwf74r1rap.cloudfront.net/wp-
+content/uploads/2025/08/MatCare-Shortage-Sep2025.pdf
+
+33. https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/state-of-the-primary-
+care-workforce-report-2024.pdf
+
+34. Beagley, Melanie. “Maternal Health in Utah: Risk Factors, Workforce Gaps, and Access
+to Care.” Kem C. Gardner Policy Institute, 2025. https://d36oiwf74r1rap.cloudfront.net/wp-
+content/uploads/2025/08/MatCare-Shortage-Sep2025.pdf
+
+35. Bureau of Emergency Medical Services. “Addressing Critical Issues Affecting Rural EMS
+Agencies.” Utah Department of Public Safety, 2025. https://ems.utah.gov/wp-content/
+uploads/sites/34/2025/02/Rural_EMS_white_paper_Feb20_2025_website.pdf
+
+36. Center for Healthcare Quality & Payment Reform. “Rural Hospitals At Risk of Closing.”
+2025. https://chqpr.org/downloads/Rural_Hospitals_at_Risk_of_Closing.pdf
+
+37. Utah Department of Health and Human Services. “Utah Respiratory Dashboard.” 2024.
+https://files.epi.utah.gov/Utah-respiratory-dashboard.html#overview
+
+38. Utah Hospital Association. “RHTP Rural Hospital Data.xlsx.” (n.d.). [No URL provided]
+
+39. Utah Medicaid data, 2025.
+
+40. H.B. 81, 2025 Leg., General Sess. (Ut. 2025). https://le.utah.gov/~2025/bills/static/HB0081.html
+
+41. H.B. 402, 2025 Leg., General Sess. (Ut. 2025). https://le.utah.gov/~2025/bills/static/HB0402.html
+
+42. H.B. 403, 2025 Leg., General Sess. (Ut. 2025). https://le.utah.gov/~2025/bills/static/HB0403.html
+
+43. https://www.cdc.gov/nchs/state-stats/states/ut.html#cdc_data_surveillance_section_3-
+leading-causes-of-death
+
+44. Utah Foundation. “Healthy Communities: Cultivating Food Accessibility.” Research Report
+816. 2023. https://www.utahfoundation.org/wp-content/uploads/rr816.pdf
+
+45. https://map.feedingamerica.org/county/2023/overall/utah
+
+46. https://www.cdc.gov/nutrition/php/healthy-food-environments/index.html
+
+47. https://www.americashealthrankings.org/explore/measures/Sedentary/Sedentary_
+nonmetro/UT
+
+48. Fairag, Maryam et al. “Exercise as a Therapeutic Intervention for Chronic Disease
+Management: A Comprehensive Review.” Cureus vol. 16,11 e74165. 21 Nov. 2024, doi:10.7759/
+cureus.74165. https://pmc.ncbi.nlm.nih.gov/articles/PMC11662992/
+
+
+
+
+     RHTP project narrative | 56
+49. H.B. 371, 2025 Leg., General Sess. (Ut. 2025). https://le.utah.gov/~2025/bills/static/HB0371.
+html
+
+50. Breslau, Joshua et al. “Approaches to Coordination of Health and Social Care:
+An Overview of Backbone Organizations and Key Takeaways from Case Studies of
+Community Care Hubs.” RAND Health Care, 2023. https://aspe.hhs.gov/sites/default/files/
+documents/81ff88859954186802b85137a61f412d/health-social-care-coordination.pdf
+
+51. Rabinowitz, Howard K et al. “Comprehensive medical school rural programs produce rural
+family physicians.” American family physician vol. 84,12 (2011): 1350. https://www.aafp.org/
+pubs/afp/issues/2011/1215/p1350.pdf
+
+52. Governor Spencer Cox. “Built Here. Second Term Strategic Plan.” Utah Governor’s Office,
+2025. https://governor.utah.gov/wp-content/uploads/PDFRoadMap0110.pdf
+
+53. https://www.aamc.org/data-reports/data/2024-key-findings-and-definitions
+
+54. https://www.aamc.org/data-reports/report/us-physician-workforce-data-dashboard
+
+55. https://www.ruralhealth.us/blogs/2025/07/recruitment-challenges,-solutions,-and-
+outlooks-for-the-rural-doc-shortage
+
+56. Weichelt, Bryan et al. “Rural workforce recruitment and retention factors.” National Rural
+Health Association, 2025. https://www.ruralhealth.us/nationalruralhealth/media/documents/
+advocacy/nrha-policy-brief-workforce-retention-factors-final-3-7-25.pdf
+
+57. Veritas Health Solutions. “Bridging the Gap: Clinical Preceptors for Physicians
+Advanced Practice Registered Nurses, a Brief Summary of the Clinical Preceptor Issue
+and Recommendations to Strengthen the Physician and APRN Pipeline.” 2025. https://
+veritashealthsolutions.org/wp-content/uploads/Bridging-the-Gap-FINAL.pdf
+
+58. https://uhs.utahtech.edu/
+
+59. https://www.suu.edu/ruralhealth/uhs/
+
+60. Curtin, Sally C. and Spencer, Merianne Rose. “Trends in death rates in urban and rural
+areas: United States, 1999–2019.” NCHS Data Briefs, no. 417, 2021. https://stacks.cdc.gov/
+view/cdc/109049
+
+61. Bureau of Emergency Medical Services. “Addressing Critical Issues Affecting Rural EMS
+Agencies.” Utah Department of Public Safety, 2025. https://ems.utah.gov/wp-content/
+uploads/sites/34/2025/02/Rural_EMS_white_paper_Feb20_2025_website.pdf
+
+62. https://nashp.org/state-tracker/state-community-health-worker-policies/utah/
+
+
+
+
+     RHTP project narrative | 57
+63. Kissam, Stephanie et al. “State Efforts to Coordinate Provider Directory Accuracy:
+Final Report.” RTI International, 2023. https://aspe.hhs.gov/sites/default/files/
+documents/72a2324e3deb078b275c66eb53052c86/state-coordinate-provider-directory-
+accuracy.pdf
+
+64. Association of State and Territorial Health Officials. “Community Health Workers: Evidence
+of Their Effectiveness.” https://www.astho.org/4a4b27/globalassets/pdf/community-health-
+workers-summary-evidence.pdf
+
+65. Mueller, Keith et al. “How to Design Value-Based Care Models for Rural Participant Success:
+A Summit Findings Report.” Rural Health Value, 2020. https://ruralhealthvalue.public-health.
+uiowa.edu/files/Rural%20VBC%20Summit%20Report.pdf
+
+66. https://www.sltrib.com/news/2024/04/03/how-health-care-shortages-affect/
+
+67. Cyr, Melissa E et al. “Access to specialty healthcare in urban versus rural US populations:
+a systematic literature review.” BMC health services research vol. 19,1 974. 18 Dec. 2019,
+doi:10.1186/s12913-019-4815-5. https://pmc.ncbi.nlm.nih.gov/articles/PMC6921587/
+
+68. https://www.ruralhealth.us/blogs/2025/02/telehealth-s-impact-on-rural-hospitals-a-
+literature-review
+
+69. IBIS, 2021. https://ibis.utah.gov/ibisph-view/indicator/view/Telehealth.html
+
+70. https://www.ruralhealthinfo.org/toolkits/telehealth/1/barriers
+
+71. Ezeamii, Victor C et al. “Revolutionizing Healthcare: How Telemedicine Is Improving
+Patient Outcomes and Expanding Access to Care.” Cureus vol. 16,7 e63881. 5 Jul. 2024,
+doi:10.7759/cureus.63881. https://pmc.ncbi.nlm.nih.gov/articles/PMC11298029/
+
+72. Flex Monitoring Team. “CAH Financial Indicators Report: Summary of Indicator Medians by
+State.” 2025. https://www.flexmonitoring.org/sites/flexmonitoring.umn.edu/files/media/fmt-
+finan-median-2023-ut.pdf
+
+73. Beckman, Wyatt et al. “Service & Resource Sharing in Rural Settings: A Perspective Report.”
+Public Health Accreditation Board Center for Innovation, 2024. https://phaboard.org/wp-
+content/uploads/Rural-Service-Resource-Sharing-Arrangements-report-2.pdf
+
+74. https://www.ama-assn.org/practice-management/physician-health/doctors-work-fewer-
+hours-ehr-still-follows-them-home
+
+75. Jakubowski, Bethany Ellen et al. “Is self-management a burden? What are the experiences
+of women self-managing chronic conditions during pregnancy? A systematic review.” BMJ
+open vol. 12,3 e051962. 18 Mar. 2022, doi:10.1136/bmjopen-2021-051962. https://pmc.ncbi.
+nlm.nih.gov/articles/PMC8935172/
+
+
+
+
+     RHTP project narrative | 58
+76. Saberi, Mohammad Ali, Hamid Mcheick, and Mehdi Adda. “From Data Silos to Health
+Records Without Borders: A Systematic Survey on Patient-Centered Data Interoperability.”
+Information. 2025; 16(2):106. https://doi.org/10.3390/info16020106. https://www.mdpi.
+com/3168326
+
+77. Anzalone, A Jerrod et al. “Lower electronic health record adoption and interoperability
+in rural versus urban physician participants: a cross-sectional analysis from the CMS quality
+payment program.” BMC health services research vol. 25,1 128. 23 Jan. 2025, doi:10.1186/
+s12913-024-12168-5. https://pmc.ncbi.nlm.nih.gov/articles/PMC11755824/
+
+78. https://www.cms.gov/priorities/burden-reduction/overview/interoperability/policies-and-
+regulations/cms-interoperability-and-patient-access-final-rule-cms-9115-f
+
+79. One Utah Health Collaborative. “Advancing Interoperability in Healthcare: Utah’s Collaborative
+Approach to Modernizing Data Exchange.” 2025. https://www.uthealthcollaborative.org/wp-
+content/uploads/2025/03/Digital-Interoperability-2025-Report.pdf
+
+80. de Mello, Blanda Helena et al. “Semantic interoperability in health records standards: a
+systematic literature review.” Health and technology vol. 12,2 (2022): 255-272. doi:10.1007/
+s12553-022-00639-w. https://pmc.ncbi.nlm.nih.gov/articles/PMC8791650/
+
+81. de Mello, Blanda Helena et al. “Semantic interoperability in health records standards: a
+systematic literature review.” Health and technology vol. 12,2 (2022): 255-272. doi:10.1007/
+s12553-022-00639-w. https://pmc.ncbi.nlm.nih.gov/articles/PMC8791650/
+
+82. Note: The Utah Health Improvement Plan (UHIP) is a collaborative, 5-year (2023–2028)
+statewide initiative designed to tackle key health concerns prioritized by various stakeholders
+and agencies deeply invested in the well-being of Utah’s population. This plan underscores
+a unified commitment to improving public health outcomes to achieve optimal mental,
+physical, and economic health. The UHIP is led and coordinated primarily by DHHS and local
+health department (LHD) staff but relies on strong participation from many organizations and
+individuals to maximize impact to move the needle within selected priorities.
+The Low-Income Populations working group is one of four working groups supporting the
+UHIP’s objectives. Key objectives for this working group include:
+- Increased community engagement;
+- Decreased social isolation;
+- Increased food security among Utah families; and
+- Increased federal earned income tax credit usage among eligible Utahns.
+https://dhhs.utah.gov/uhip/
+
+83. Utah RHTP webpage, https://dhhs.utah.gov/ruralhealth/
+
+84. H.J.R 101, 2025 Leg., First Special Sess. (Ut. 2025). https://le.utah.gov/~2025S1/bills/static/
+HJR101.html
+
+
+
+
+     RHTP project narrative | 59
+

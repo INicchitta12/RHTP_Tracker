@@ -228,6 +228,9 @@ change. Stage 3c renders from `data/reference/abstract_named_organizations.csv`
 ```
 Rscript R/10_contract_registers.R --build      # data/reference/contracts/*.csv (then R/07 --apply)
 Rscript R/10_contract_registers.R --validate
+Rscript R/11_use_categories.R --apply        # session 123: use categories, LAST (after R/09b and R/07)
+Rscript R/11_use_categories.R --validate
+Rscript R/11_use_categories.R --report
 Rscript R/07_summary_calls.R --apply           # LAST: summary calls, budget_period, AND the spend columns
 Rscript R/08_year1_summary.R --build           # + year1_vendor_summary_<date>.csv, the Vendor spending sheet
 Rscript R/09c_verified_vendor_list.R --xlsx    # verified_vendor_list_<date>.xlsx from the spend layer

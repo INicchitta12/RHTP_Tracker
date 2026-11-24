@@ -1,0 +1,460 @@
+             State of Idaho Rural Health Transformation Program
+                             Idaho Department of Health and Welfare
+
+
+
+             SOLICITATION FOR SUBAWARD APPLICATIONS
+
+Federal Agency                     Centers for Medicare & Medicaid Services
+
+Federal Award No.                  RHTCMS332084
+
+ALN No.                            93.798
+
+Solicitation No.                   RHTPPAL1
+
+Issue Date                         07/20/2026
+
+Application Deadline               08/17/2026
+
+Estimated Award Range              $1,200,000 annually
+
+Anticipated Project Period         09/30/2026-09/30/2031
+
+Point of Contact                   IdahoRHTP@dhw.idaho.gov
+Section 1: Program Description & Purpose
+
+
+1.1 Background
+The Department will serve as the lead agency for administering the Rural Health Transformation
+Program (RHTP) Grant funding award for the state of Idaho (ID). As such, the Department is
+committed to removing barriers to treatment, improving health outcomes, and promoting patient-
+centered care. The RHTP website address is: https://healthandwelfare.idaho.gov/providers/rural-
+health-transformation-program-grant/about-rural-health-transformation-program-grant
+As the grant recipient, the Department manages the entire grant award and is responsible for
+distributing funding to other ID state agencies, contractors, and subrecipients in alignment with the
+projects awarded by Centers for Medicare & Medicaid Services (CMS). This distribution will be
+carried out in accordance with both state and federal regulation, specifically procurement rules, to
+facilitate the execution of RHTP work. The state’s RHTP is a critical mechanism to advance a
+sustainable, data-driven model of care that enhances access, quality, and outcomes.
+Idaho’s RHTP (Attachment A, ID RHTP Project Narrative) is a multi-year strategic plan including five
+(5) major initiatives designed to strengthen rural health systems, increase access to care, enhance
+quality outcomes, expand workforce capacity, and promote financial sustainability. These initiatives
+address CMS’ strategic goals for this grant to transform healthcare for residents in the state’s rural
+areas.
+The five initiatives are:
+Initiative 1. Improving rural access to care through technology
+     • Facility technology assessments and shared infrastructure
+     • Telehealth expansion
+     • Digital health
+     • Cybersecurity modernization and artificial intelligence (AI) tools
+     • Emergency communication systems implementation and enrollment
+     • Health management and data analytics tools
+     • EHR software and upgrades
+Initiative 2. Ensuring accessible, quality care through innovative models
+     • Diagnostic and care access innovations
+     • Health extenders
+     • Emergency medical service (EMS) expansion and workforce stabilization
+     • Understand opportunities to leverage health extenders and optimize service delivery
+Initiative 3. Sustaining rural workforce with training, recruitment, and retention.
+    •   Ladder payments based on priority positions and rural presence
+    •   Healthcare career exploration and advancement programs
+    •   Work-based learning
+    •   Graduate medical education (GME) programs
+Initiative 4. Implementing population specific, evidence-based projects to Make America Healthy
+Again
+     • Chronic disease prevention and treatment
+     • Behavioral health prevention and treatment
+     • Maternal and child health efforts
+Initiative 5. Investing in rural health infrastructure and partnerships
+    •   Healthcare facility renovations
+    •   Pharmacy solutions
+    •   Clinical equipment purchases
+    •   Vehicles for patient transport and rural mobile health units
+    •   Healthcare facility federal, state, and local safety code compliance
+    •   Tribal rural health transformation support
+
+The state’s RHTP leverages partnerships with state and local agencies, tribal partners, healthcare
+providers, and community organizations to ensure locally responsive solutions.
+This program will work to modernize electronic and logistical infrastructure, strengthen community-
+to-clinician connections, and further integrate healthcare and community-based services across
+settings and types of care.
+
+This solicitation supports Initiative 4: Implementing Population Specific, Evidence-Based Projects to
+Make America Healthy Again, specifically behavioral health prevention and treatment and maternal
+and child health efforts.
+
+The Idaho Department of Health and Welfare (DHW), Division of Behavioral Health (DBH), is seeking
+to establish a statewide Idaho Pediatric Psychiatry Access Line (PAL) through partnership with one of
+Idaho’s public universities, consistent with Idaho Code §67-2332A and interagency contracting
+requirements.
+
+Idaho faces significant gaps in pediatric behavioral health care due to workforce shortages,
+geographic disparities, and long wait times for psychiatric services. The Pediatric Psychiatry Access
+Line (PAL) is intended to function as a free, statewide resource to support primary care providers
+(PCPs) in managing youth behavioral and mental health concerns through expert consultation,
+education, referral coordination, and data-informed system improvement.
+The selected university partner will collaborate with DHW to design, implement, and operate a
+Pediatric Psychiatry Access Line that includes both a Warm Access Line consultation model and an
+integrated continuing education component.
+1.2 Project Coordination
+To ensure alignment across the Idaho Rural Health Transformation Program and to prevent
+duplication or overlap, the selected applicant must, as applicable to the scope of work, coordinate
+with Department staff, other Rural Health Transformation Program-funded entities, and key
+stakeholders in conducting assessment, data collection, evaluation, reporting, and development of
+deliverables.
+
+The selected applicant must incorporate and align with existing and related work identified by the
+Department and must not duplicate efforts. Deliverables must demonstrate alignment and meet
+Department-defined quality and completeness standards.
+
+1.3 Program Goals & Objectives
+The goal of this solicitation is to establish and sustain a statewide Pediatric Psychiatry Access Line
+that increases access to pediatric behavioral health expertise and supports Idaho primary care
+providers in managing pediatric mental and behavioral health concerns.
+
+Specific objectives include:
+
+    1. Establish and implement a statewide Pediatric Psychiatry Access Line within the first year of
+       award.
+
+    2. Increase access to child and adolescent psychiatric consultation for Idaho primary care
+       providers.
+
+    3. Improve provider confidence and capacity to diagnose and manage pediatric behavioral
+       health conditions.
+
+    4. Improve referral coordination and access to behavioral health services for Idaho youth and
+       families.
+
+    5. Develop and deliver a statewide pediatric behavioral health educational series with
+       emphasis on rural and underserved communities.
+
+    6. Collect and evaluate program data to support quality improvement, system planning, and
+       sustainability.
+
+1.4 Scope of Work
+The selected applicant must implement and operate a statewide Pediatric Psychiatry Access Line
+(PAL) program that includes the following required activities:
+Required Activities
+Warm Access Line Consultation Service
+    •   Establish and maintain a dedicated consultation line staffed by child/adolescent
+        psychiatrists and/or qualified behavioral health professionals.
+    •   Implement a rapid response consultation framework with consultations scheduled within
+        twenty-four (24) to forty-eight (48) hours of provider request.
+   •   Provide consultation support related to diagnostic clarification, medication management, and
+       case consultation for Idaho primary care providers.
+   •   Provide integrated referral coordination to available behavioral health services statewide.
+Provider Onboarding and Training
+   •   Develop and implement a required onboarding and educational module for providers prior to
+       participation in the consultation service.
+   •   Establish standardized clinical language, consultation expectations, and documentation
+       requirements.
+Pediatric Behavioral Health Educational Series
+   •   Develop and deliver a pediatric behavioral health educational series informed by
+       consultation trends.
+   •   Provide continuing education credits when applicable.
+   •   Ensure statewide access to training opportunities with emphasis on rural and underserved
+       providers.
+Data Collection and Evaluation
+   •   Track consultation volume, consultation response time, provider participation, referral
+       outcomes, provider satisfaction, and case complexity.
+   •   Conduct provider satisfaction surveys, pre- and post-assessments, and other evaluation
+       activities.
+   •   Use data to identify systemic barriers and support future sustainability and funding
+       opportunities.
+Program Administration and Sustainability
+   •   Maintain staffing and infrastructure necessary to operate the program.
+   •   Coordinate with DHW on reporting, monitoring, evaluation, and performance management.
+   •   Support development of sustainability strategies and long-term funding approaches.
+
+
+1.5 Target Population & Service Area
+Target Population
+The target population for this project includes Idaho primary care providers serving pediatric
+populations, including physicians, nurse practitioners, physician assistants, and other licensed
+healthcare providers.
+Indirect beneficiaries include Idaho children and adolescents experiencing behavioral health
+concerns and their families, particularly those residing in rural and underserved communities.
+Service Area
+The service area is statewide, including rural, frontier, tribal, and underserved communities across
+Idaho.
+Section 2: Eligibility Requirements
+2.1 Eligible Applicant Types
+Eligible entities include Idaho public institutions of higher education, including:
+
+    •   Boise State University
+
+    •   Idaho State University
+
+    •   University of Idaho
+
+    •   Lewis-Clark State College
+
+2.2 Minimum Qualifications
+Minimum qualifications include: active SAM.gov registration, valid UEI number, no active federal
+exclusions, current single audit (if applicable), demonstrated experience in the relevant public health
+domain, organizational capacity to comply with 2 CFR 200.
+Ability to provide or subcontract qualified child and adolescent psychiatric consultants
+Demonstrated capacity to manage statewide healthcare initiatives and data reporting requirements
+
+2.3 Exclusions
+The following entities are not eligible to apply for funding under this subgrant solicitation:
+
+        •       Organizations that are debarred, suspended, or otherwise excluded from
+                participation in federal programs, as verified through the System for Award
+                Management (SAM.gov)
+        •       Applicants that do not maintain an active registration in the System for Award
+                Management (SAM.gov)
+        •       Applicants with unresolved audit findings, including outstanding single audit findings
+                or material weaknesses that have not been adequately addressed to the satisfaction
+                of the awarding agency
+        •       Applicants that do not have the financial management systems and internal controls
+                necessary to manage federal funds in accordance with applicable requirements
+        •       Individuals applying in a personal capacity
+The awarding agency reserves the right to verify eligibility and disqualify applicants that do not meet
+federal and state compliance requirements.
+
+2.4 Cost Sharing / Match Requirements
+No cost share or match is required for this subaward
+Section 3: Award Information
+3.1 Funding Details
+ Total Available Funding              $1,200,000 annually
+ Anticipated No. of Awards            1
+ Award Range (per subaward)           $1,200,00 annually
+ Subaward Type                        Fixed amount
+ Period of Performance                09/30/2026-09/30/3031
+ Continuation Funding                 No
+
+
+3.2 Indirect Cost Rate
+As required by the Centers for Medicare & Medicaid Services under the Rural Health Transformation
+Program, administrative costs, including indirect costs, are limited to 10 percent of Modified Total
+Direct Costs (MTDC).
+
+This federally required limitation applies to all subawards. Modified Total Direct Costs (MTDC) are
+defined in 2 CFR 200.1. Costs exceeding this threshold are not allowable and will not be reimbursed.
+
+
+Section 4: Application Instructions
+[Instruction: The more structured and specific your instructions, the better applications you’ll receive. Spell out
+exactly what you want, in what order, with page limits.]
+
+
+
+4.1 Required Application Components
+Applicants must submit all of the following components as a single, consolidated application
+package:
+     #                Component                             Format                Page Limit        Required?
+ 1       Cover Page / Application Face Sheet       Template provided          1                   Yes
+ 2       Project Narrative                         PDF or Word                [X pages]           Yes
+ 3       Work Plan with Milestones & Timeline      Template provided          [X pages]           Yes
+ 4       Budget & Budget Justification             Template provided          No limit            Yes
+
+ 5       Organizational Capacity Statement         PDF or Word                [X pages]           Yes
+ 6       Key Personnel & Resumes/CVs               PDF                        [2 pp each]         Yes
+ 7       Letters of Support / MOUs                 PDF                        No limit            If applicable
+ 8       Proof of SAM.gov Registration / UEI       Screenshot or PDF          N/A                 Yes
+ 9       Current Indirect Cost Rate Agreement      PDF                        N/A                 If applicable
+
+
+ 10      Most Recent Single Audit (if >$1          PDF or link                N/A                 If applicable
+         million)
+ 11       Signed Certifications & Assurances    Template provided       N/A            Yes
+
+
+
+4.2 Project Narrative Guidance
+[The Project Narrative should address each of the following areas in sequence:
+      1. Statement of Need: What specific public health problem will you address? Support with data.
+      2. Goals & Objectives: What measurable outcomes will be achieved? Use SMART criteria.
+      3. Approach & Methods: How will you accomplish the objectives? Describe interventions,
+         evidence base, and innovation.
+      4. Target Population & Engagement: Who will be served and how will you ensure equitable
+         access?
+      5. Partnerships & Collaboration: What organizations will you work with and what roles will they
+         play?
+      6. Evaluation Plan: How will you measure progress and outcomes? What data will be collected?
+      7. Sustainability: How will activities or outcomes continue beyond the funding period?]
+
+
+4.3 Budget & Budget Justification Guidance
+Required budget categories: Personnel (salary & fringe), Travel, Equipment (>$2,000 per-unit cost
+per Idaho statute), Supplies, Contractual, Other Direct Costs, and Indirect Costs.
+Allowable costs may include:
+      •   Clinical consultation staffing
+      •   Program management and administrative staffing
+      •   Telehealth and technology infrastructure
+      •   Continuing education and training development
+      •   Data collection and evaluation activities
+      •   Referral coordination systems
+      •   Provider outreach and engagement activities
+
+
+
+4.4 Submission Instructions
+ Submission Method                   Email
+ Submit To                           IdahoRHTP@dhw.idaho.gov
+ Deadline                            08/17/2026 at 05:00 P.M. MT – NO EXCEPTIONS
+ Late Policy                         Late applications will not be reviewed
+ Questions Deadline                  [07/28/2026] – all questions must be submitted by this date]
+ Q&A Publication                     [Responses posted to URL by 08/07/2026]
+Section 5: Application Review & Evaluation Criteria
+5.1 Evaluation Criteria & Scoring
+                       Criterion                      Max Points             Key Considerations
+ Statement of Need & Alignment                        10            Data-driven, aligned to RHTP
+                                                                    priorities
+ Program Design & Implementation                      20            Clear & feasible approach for
+                                                                    implementation
+ Clinical Consultation Model                          15            Qualified child/adolescent psychiatric
+                                                                    consultation, diagnostic clarification,
+                                                                    provider consultation
+ Provider Training & Educational Series               10            Onboarding, training modules,
+                                                                    provider engagement
+ Organizational Capacity & Key Personnel              15            Pediatric BH expertise, program
+                                                                    management
+ Data Collection, Reporting, and Evaluation Plan      10            Reporting capability, continuous
+                                                                    improvement
+ Sustainability & Partnerships                        10            Continuation plan
+ Budget & Cost Reasonableness                         10            Allowable, reasonable, allocable
+
+ TOTAL                                                [100]
+
+
+
+5.2 Review Process
+Applications will be screened for completeness and eligibility. Complete and eligible applications will
+be independently reviewed and scored by a review panel comprised of qualified reviewers.
+Final funding decisions will be made by the Department based on reviewer scores, applicant
+capacity, statewide programmatic needs, geographic considerations, and alignment with Rural
+Health Transformation Program priorities.
+The Department reserves the right to request clarification, negotiate scope and budget, or make no
+award if applications do not sufficiently meet program needs.
+
+
+5.3 Pre-Award Risk Assessment
+All recommended applicants will undergo a pre-award risk assessment prior to subaward execution.
+This assessment will evaluate:
+    •    Prior experience managing federal awards of similar size and scope
+    •    Results of previous audits, including Single Audit findings (if applicable)
+    •    Ability to adhere to federal statutes, regulations, and subaward terms
+    •    Financial stability and adequacy of financial management systems
+    •    Adequacy of internal controls and policies (procurement, property, travel, etc.)
+    •    Current or pending corrective action plans
+Section 6: Subaward Terms & Conditions
+6.1 Federal Flow-Down Requirements
+Subrecipients will be subject to all applicable federal requirements that flow down from the prime
+award, including but not limited to:
+    • 2 CFR Part 200 – Uniform Administrative Requirements, Cost Principles, and Audit
+      Requirements
+    • 45 CFR Part 75 (HHS-specific implementation, if applicable)
+    • Federal award terms and conditions as specified in the Notice of Award
+    • CMS/CDC/HRSA program-specific requirements from the Notice of Funding Opportunity
+      (NOFO)
+    • Single Audit requirements per §200.501 (for entities expending $1,000,000+ in federal
+      awards)
+
+6.2 Reporting Requirements
+Subrecipients will be required to submit the following reports:
+[Instruction: Adjust this table as necessary.]
+               Report                            Frequency        Due Date             Submit To
+ Financial Status Report (FSR)          Quarterly             45 days after     TBD
+                                                              quarter ends
+ Program Progress Report                Quarterly             45 days after     TBD
+                                                              quarter ends
+ Performance Measures / Data            Quarterly             [Per NOFO]        TBD
+ Annual Inventory Report                Annually              30 days after     TBD
+ (§200.312)                                                   end of year
+ Final Report (Financial +              Close of Subgrant     60 days after     TBD
+ Programmatic)                                                closure
+
+6.3 Monitoring & Oversight
+The pass-through entity will monitor subrecipient activities to ensure compliance with the subaward
+terms and applicable federal requirements. Monitoring activities may include:
+    • Desk reviews of financial and programmatic reports
+    • On-site or virtual monitoring visits (at least annually for high-risk subrecipients)
+    • Review of single audit reports per §200.332(d)
+    • Technical assistance and capacity-building support
+    • Review of subrecipient procurement documentation for compliance with §§200.318–
+        200.327
+6.4 Remedies for Noncompliance
+If a subrecipient fails to comply with the terms of the subaward or applicable federal requirements,
+the pass-through entity may take one or more of the following actions per §200.339:
+    • Temporarily withhold payments pending corrective action
+    • Disallow all or part of the cost of the noncompliant activity
+    • Wholly or partly suspend or terminate the subaward
+    • Initiate suspension or debarment proceedings per 2 CFR Part 180
+    • Withhold further awards or impose additional conditions
+
+6.5 Record Retention
+Subrecipients must retain all financial records, supporting documents, statistical records, and all
+other records pertinent to the subaward for a period of three (3) years from the date of submission of
+the final expenditure report, or as otherwise required by §200.334. If any litigation, claim, or audit is
+started before the expiration of the retention period, records must be retained until all issues are
+resolved.
+
+6.6 Procurement Standards
+Subrecipients must follow the procurement standards in §§200.318–200.327, including conducting
+all procurement transactions in a manner providing full and open competition. Subrecipients must
+maintain written conflict of interest policies and document the procurement process including
+cost/price analysis.
+
+
+Section 7: Key Dates & Timeline
+                          Milestone                                              Date
+ Solicitation Released                                        07/20/2026
+ Pre-Application Webinar / Informational Session              08/04/2026; Details will be posted on
+                                                              Funding Opportunities website
+ Deadline for Questions                                       07/28/2026
+ Q&A Responses Published                                      08/07/2026
+ Application Deadline                                         08/17/2026
+ Review Period                                                08/19/2026 – 08/28/2026
+ Award Notifications                                          On or about 09/03/2026
+ Anticipated Subaward Start Date                              09/24/2026
+Section 8: Required Certifications & Assurances
+By submitting an application, the applicant certifies and assures the following:
+      The applicant organization is not currently debarred, suspended, or otherwise excluded from or
+       ineligible for participation in federal assistance programs per 2 CFR Part 180.
+      The applicant has an active registration in SAM.gov with a current, valid UEI number.
+      The applicant will comply with all applicable provisions of 2 CFR Part 200.
+      The applicant will comply with the federal award terms and conditions that flow down through
+       this subaward.
+      No federally or state appropriated funds have been or will be paid to any person for lobbying in
+       connection with this award per 31 USC §1352 and §200.450.
+      The applicant will maintain a drug-free workplace per applicable federal regulations.
+      The applicant will comply with all applicable civil rights statutes and regulations.
+      The applicant’s financial management system meets the standards in §200.302, including the
+       ability to separately identify and account for federal award funds.
+      If expending $1,000,000+ in federal awards annually, the applicant will obtain a Single Audit per
+       §200.501.
+      The applicant will permit the pass-through entity, the federal awarding agency, and their
+       authorized representatives to access records per §200.337.
+
+If selected, upon execution of a subgrant agreement, the Subgrantee will be required to certify
+compliance with the following Idaho statutory requirements, as applicable for the duration of the
+agreement:
+ Abortion Prohibition: The Subgrantee does not perform abortions, as defined in Idaho Code § 18-
+     8702, and is not an affiliate of any entity that performs abortions.
+ Israel Boycott Prohibition: The Subgrantee is not engaged in, and will not engage in, a boycott of
+     goods or services from Israel or territories under its control.
+ Energy, Agriculture, and Firearms Boycott Prohibition: The Subgrantee is not engaged in, and will
+     not engage in, a boycott of any individual or company based on that individual’s or company’s
+     involvement in fossil fuel–based energy, timber, minerals, hydroelectric power, nuclear energy, or
+     agriculture, or the manufacture, distribution, sale, or use of firearms, as defined in Idaho Code §
+     18-3302.
+ Ownership by the Government of China: The Subgrantee is not owned or operated by the
+     government of China and will not become owned or operated by the government of China.
+ Assignment Restrictions: The Subgrantee will not assign or attempt to assign the agreement to
+     any party operating in violation of the above requirements.
+ Notification and Enforcement: The Subgrantee agrees to promptly notify the Department in
+     writing if it becomes aware of information related to compliance with these requirements. The
+     Department may immediately terminate the agreement upon receipt of information indicating
+     noncompliance.
+
+
+    Organization Name
+    Authorized Official Name
+    Title
+    Signature
+    Date
+

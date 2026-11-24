@@ -1,0 +1,2057 @@
+[OCR transcription (tesseract 5.3.4, --psm 6, 200 dpi) of the image-only PDF 2026-11-24_mi_rht_project_narrative.pdf; one OCR misread ("LJ") on PDF page 32 corrected to "I, J" after visual check of the page image. Page markers follow each page.]
+Michigan ®DHHS
+(Ci Be we al
+ae ; — Ba TON
+_ ¥ 4;
+sn Yah *
+* ” —— . . — R
+%~ = y TI, JQLAZ " x
+; we a FA. \ eS ‘ ” Mh ’ oie ES ’
+eg cel \" ¥ ( 2 TA i te
+‘ —i & Wa ie 1 og | e =F ving
+—_ > \ Wy a \r- 7 iw }
+4 See —— « 4 { , el 47 A rm
+\ } : to < y nc y K q N /9 . ©
+Rural Health
+Transformation
+Program Proposal
+Michigan
+Please Note: This document reflects Michigan's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-01.png>>>
+Project Narrative - Michigan
+Project Narrative: Table of Contents Page #
+Michigan’s Rural Description and Target Population
+Rural health transformation plan: Goals and strategies
+Proposed initiatives and use of funds:
+Initiative: Transforming Rural Health through Partnerships
+Initiative: Workforce for Wellness
+Initiative: Interoperability in Action
+Initiative: Care Closer to Home
+Implementation plan and timeline 45
+Stakeholder engagement
+Metrics and evaluation plan
+Sustainability plan 57
+Other Required Information | 60 |
+Michigan’s Rural Description and Target Population
+The state of Michigan is well known for the nation's longest freshwater coastline surrounded by
+the Great Lakes, more than 11,000 inland lakes and two separate peninsulas. Though these
+features can be enjoyed by Michigan’s 10 million residents, they also pose unique challenges to
+the delivery of health care, particularly in rural areas. With 75 of its 83 counties classified as
+rural in whole or in part and more than 20% of the Michigan residents living in rural areas,
+Michigan has the seventh largest rural population in the nation.
+One unique aspect of Michigan’s geography is the Upper Peninsula, where health care access
+challenges are exacerbated by the vast land size and low population density. This challenge is
+not exclusive to the Upper Peninsula, Michigan’s rural areas in the Lower Peninsula are also
+characterized with rugged forests, agricultural land, and sparce population. These features result
+in long travel distances and limited access to many routine and specialized health care services
+and resources. Michigan also has several habitable islands dotting the coastline. These islands
+have a mix of seasonal and year-round residents which makes high-quality and accessible
+healthcare arrangements a need on each island.
+Michigan’s rural areas have economic challenges, as well. For example, the median household
+income lags the U.S. average by over $15,000, with all rural counties in Michigan falling below
+1
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-02.png>>>
+Project Narrative - Michigan
+the US average. Rural Michigan ranks 20th nationally in median income for all rural state
+populations. The median income in rural Michigan is the 3rd lowest in the Midwest, and
+unemployment is the highest among Midwestern rural states, and is higher than the overall rate
+for the country. Rural Michiganders tend to lag their urban counterparts in higher educational
+attainment. According to a report by Michigan State University, rural residents on average “have
+lower levels of postsecondary educational attainment” compared to non-rural populations. An
+earlier study of Michigan’s urban—rural divide found that only about 19.9% of rural residents
+aged 25 and over had earned a bachelor’s degree (versus 29.3% in urban areas), and 7.1% had
+graduate or professional degrees (versus 11.6% in urban areas). Michigan’s rural counties had an
+average percentage of 16.1% of residents noting food insecurity, compared to urban counties at
+13.75%. In rural Michigan, 6% of households do not have access to a personal vehicle.
+Between 2021 and 2024, a study in northeastern Michigan found that 26% of participants
+experienced transportation problems for routine health care.
+Rural Michigan residents have significant chronic health challenges, with considerable variation
+across the rural parts of state. In total, rural Michigan has the 8th most rural residents with
+diabetes of any state’s rural population and ranks second among states in the Midwest. With
+approximately 37% of rural Michigan adults are obese, Michigan has the 6th largest rural
+population of obese individuals in the nation. Rural Michigan’s heart disease mortality rate is
+roughly 368 per 100,000 deaths, which is far higher than the national average.
+While health care services are in high need in rural Michigan, the availability of these services
+have been eroding. Since 2005 four rural hospitals closed, and of the 70 remaining rural
+hospitals, 26% are operating at negative margins and 13 serving as sole hospitals in their
+counties. Five of the rural hospitals with negative margins are the sole hospital in the county and
+are bordered by counties that do not have any other hospital access. As a result, their closure
+2
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-03.png>>>
+Project Narrative - Michigan
+would increase travel distances for residents of multiple counties at once. Maternal care access
+is also implicated by potential rural hospital closures. Ten of the 18 hospitals with negative
+margins have Obstetric (OB) units. Large pockets of rural Michigan have over 35 miles to reach
+a birthing hospital. Rural residents travel an average of approximately 15.4 miles to an
+OB-capable hospital, about double the statewide average. In addition, rural Michigan faces a
+severe shortage of obstetricians and gynecologists (OB/GYNs), averaging just 4.9 providers per
+100,000 residents, ranking 20th lowest in the nation and third lowest in the Midwest. Nearly
+40% of rural counties have no practicing OB/GYN in their county.
+Michigan’s rural communities also have limited primary care, and behavioral healthcare, and
+pre-and post-natal care. Overall, 1.7 million of Michigan’s rural residents live in a primary care
+shortage county, 4th most among rural populations across all states and second in the Midwest.
+In rural Michigan, 91% counties have a primary care shortage.
+Approximately 98% of rural Michigan counties having mental health workforce shortages
+(whole or partial), impacting roughly 1.75 million rural Michiganders. In addition, there are five
+opioid treatment programs located in all of rural Michigan, with some patients traveling over 120
+miles daily to receive treatment.
+Defining Rural Areas in Michigan
+Michigan defines rural areas to include 75 counties that are either fully rural or partially rural
+counties as identified by the Federal Office of Rural Health Policy within Health Resources and
+Services Administration (HRSA). This program will prioritize counties that experience high
+chronic disease prevalence; limited access to hospitals, primary care, OB/GYN, and behavioral
+health services; high Medicaid dependence and socioeconomic vulnerability; and significant
+rates of child poverty or aging populations. For the purposes of the Rural Health Transformation
+Program, Critical Access Hospitals, Sole Community Hospitals and Rural Health Clinics are
+3
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-04.png>>>
+Project Narrative - Michigan
+considered part of the rural health safety net and therefore included regardless of the county
+designation in which it is located. Special consideration will be given to collaborations that may
+include non-rural partners that are focused on supporting care in rural areas with one or more
+rural partners.
+Target Population
+Michigan’s proposal targets a subset of 75 rural or partially rural counties statewide. This target
+allows the inclusion of counties with significant rural census tracts. These counties typically lag
+in health infrastructure, provider availability, and socioeconomic resources, making them prime
+candidates for transformative interventions. Our target population includes rural residents,
+Medicaid beneficiaries, older adults and children and families experiencing poverty or adverse
+health outcomes in these high-need counties. We will prioritize counties that exhibit high chronic
+disease prevalence, limited access to hospitals, primary care, maternal health, behavioral health
+services, and high Medicaid utilization. By concentrating resources in these 75 counties, this
+program aims to stabilize rural hospitals and clinics, expand access to primary, maternal, and
+behavioral health services, and support sustainable care models where gaps are most acute.
+Rural health transformation plan: Goals and strategies
+Michigan’s vision is to create a resilient and innovative rural health system where every resident
+has access to high-quality care close to home. By leveraging partnerships, workforce
+development, technology, and community-centered care models, the state will improve health
+outcomes, expand access, and ensure sustainable rural health infrastructure by fiscal year
+(FY)2031.
+Purpose: Michigan’s Rural Health Transformation Project seeks to strengthen the foundation of
+tural health systems through integrated, community-driven solutions that expand access to care,
+modernize health information exchange, build workforce capacity, and address key community
+4
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-05.png>>>
+Project Narrative - Michigan
+
+supports that influence health and well-being. The project is designed to create sustainable
+infrastructure that enables rural providers, tribal governments, and other key rural partners to
+deliver coordinated and high-quality care across Michigan’s rural and frontier communities.
+Project Goals: The project will advance four major initiatives that collectively aim to transform
+tural health delivery, workforce development, and data exchange capacity.
+
+1. Transforming Rural Health through Partnerships Initiative: Builds and formalizes
+cross-sector partnerships between health care, public health, and community
+organizations to align strategies, coordinate investments, and expand the reach of
+essential services in rural areas.
+¢ Improving access: Expands access to integrated care in rural communities through
+
+Hubs, telehealth, mobile services, and coordinated referral networks. Focus is placed
+on populations with access to care challenges.
+
+« Improving outcomes: Strengthens chronic disease management, behavioral health,
+prenatal care, and preventive services through Community Health Worker (CHW)-
+supported interventions, team-based care, and evidence-based programs. Programs
+target measurable improvements in population health and well-being.
+
+e Technology use: Leverages Community Information Exchange (CIE), Health
+Information Exchange (HIE), and interoperable dashboards to coordinate care, track
+outcomes, support CHW workflows, and enable billing and operational efficiency.
+
+e Partnerships: Formalizes collaboration among hospitals, local health departments,
+school-based clinics, community-based organizations, and regional partners to align
+strategies, share resources, and implement sustainable care models.
+
+e Workforce: Builds and retains the rural health workforce by trainmg CHWs,
+physicians, nurses, social workers, nurse practitioners, physician assistants, allied
+
+5
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-06.png>>>
+Project Narrative - Michigan
+health professions, and care teams, supporting credentialing, technical assistance
+(TA), and career pathways to strengthen local capacity.
+
+e Data-driven solutions: Employs outcome tracking, continuous quality improvement,
+and predictive analytics to measure program impact, guide resource allocation, and
+inform evidence-based interventions.
+
+e Financial solvency strategies: Supports sustainable CHW services and hub operations
+through innovative financing, billing readiness assistance, shared resources, and long-
+term operational planning.
+
+¢ Cause identification: Addresses root causes of disease by improving housing,
+environmental conditions, energy efficiency, and social supports, while engaging
+communities in identifying local health priorities.
+
+¢ Program key performance objectives: Increase CHW integration, expand access to
+preventive and chronic care services, demonstrate measurable improvements,
+strengthen partnerships, and demonstrate measurable improvements in rural health
+and social care.
+
+e Strategic goals alignment: Make rural America healthy again, workforce
+development, innovative care, and sustainable access
+
+« Legislative or regulatory action: None identified
+
+¢ Other required information: Includes stakeholder engagement, evaluation
+frameworks, sustainability planning, and dissemination of best practices and shared
+resources to ensure long-term community impact.
+
+2. Workforce for Wellness Initiative: Strengthens the rural health and wellness workforce
+through training, recruitment, and retention programs that the needs of rural Michigan.
+6
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-07.png>>>
+Project Narrative - Michigan
+
+« Improving access: Supporting eligible rural health care providers in creating
+innovative workforce solutions for their local communities and efforts targeted at
+increasing access to care and improving health outcomes for rural residents.
+
+e Improving outcomes: Addressing rural health workforce shortages through a
+combination of proven strategies and innovative, locally driven programs, which will
+increase the availability of health care providers in rural areas and improve related
+tracked outcomes.
+
+e Technology use: The funding will support the development of a technology-enabled
+dashboard to track workforce capacity and impact of workforce investments across
+rural Michigan. This interactive, public-facing tool will leverage data analytics to help
+public health leaders, providers, and communities monitor trends and drive
+improvements in rural health outcomes.
+
+¢ Partnerships: This initiative will foster statewide, local and regional strategic
+partnerships between health care providers and key partners for coordinated
+workforce development, information sharing, targeted marketing, and the
+implementation of new and emerging workforce initiatives and programs in rural
+areas. Supporting internal alignment and external partner engagement through
+monthly Transforming Rural Health Through Partnership Coalition
+meetings. Michigan will also lean on existing partnerships and established systems
+such as meetings with subject matter experts and organizations to discuss issues and
+challenges, share best practices in rural health workforce, and expand and drive
+workforce innovation.
+
+¢ Workforce: This initiative will recruit and train more clinicians for rural areas by
+incentivizing and training needed personnel entering service obligations. This
+
+7
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-08.png>>>
+Project Narrative - Michigan
+initiative will also support existing providers in rural Michigan while also increasing
+the availability of limited health care resources through two activities: the Rural
+Health Workforce Pipeline and Education Fund and the Rural Provider Recruitment,
+Retention, and Capacity Fund. Other activities will focus on specific high-need
+provider types like behavioral health, maternal health and Emergency Medical
+Services (EMS).
+
+e Data-driven solutions: This initiative will build a public-facing rural health data
+dashboard to track health outcomes, health care workforce, access to care and other
+related metrics, which will support decision making, policy development, and
+strategic planning to improve wellness and overall health in rural Michigan.
+
+¢ Financial solvency strategies: Due to one-time nature of the proposed workforce
+interventions, the sustainability will come from increased billing by providers that are
+added to the rural health care workforce. Further sustainability will be achieved
+through efficiencies gained. through expanded staffing and increased patients.
+
+e Cause identification: Lack of a trained workforce has been cited as one of the top
+reasons why health care services in Michigan’s rural areas are in jeopardy. For
+example, due to declining and aging populations in Michigan’s rural areas, there are
+shortages in obstetric patients and obstetric providers, which has caused some
+obstetric unit closures in rural Michigan. This initiative will support the
+transformation and expansion of a wide array of needed health care services in rural
+Michigan by incentivizing and supporting the existing workforce in rural areas and
+expanding workforce availability through a multi-faceted approach.
+
+e Program key performance objectives: By the end of the funding period (FY 2031),
+this initiative will increase the ratio of behavioral health, primary care, maternal
+
+8
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-09.png>>>
+Project Narrative - Michigan
+health, and EMS rural providers in rural communities as measured by Health
+Professional Shortage Area (HPSA) scores, Maternity Care Health Professional
+Target Areas (MCTAs), and new Rural MI EMS HPSA scores.
+
+e Strategic goals alignment: Workforce development and sustainable access.
+
+e Legislative or regulatory action: Michigan will explore expanding the scope of
+practice for pharmacists, and other potential professions to better address rural health
+needs, which will require legislative action.
+
+e Other required information: Includes evaluation frameworks, sustainability planning,
+and dissemination of best practices and shared resources to ensure long-term
+community impact.
+
+3. Interoperability in Action Initiative: Enhances the technical infrastructure and
+interoperability of health data in Michigan’s rural areas by investing in electronic health
+record (EHR) systems, clinical and administrative technology, Health Information Exchange
+(HIE) and Community Information Exchange (CIE) capability. This includes expanding data-
+sharing capabilities between rural providers and state health information networks to improve
+care coordination and population health management.
+
+e Improving access: Rural providers will actively participate in an integrated health
+information technology (IT) ecosystem, bridging the rural-digital divide. This
+initiative will increase data sharing between organizations and provider types to
+ensure providers and patients have access to the right information at the right time in
+the right context.
+
+e Improving outcomes: This initiative will increase the number of providers utilizing
+EHRs that support information sharing and therefore improve the breadth of
+information available to clinicians and patients. This initiative will also increase
+
+9
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-10.png>>>
+Project Narrative - Michigan
+access to care by supporting the increase of telemedicine in areas without access to
+certain services like primary care or specialty services. Finally, investing in
+technology tools for use clinically and administratively will increase and strengthen
+care coordination and reduce administrative burden.
+
+e Technology use: Michigan will advance data sharing, interoperability, and secure
+access to digital health tools to increase the number of rural providers participating in
+statewide HIE, expand the use of secure messaging and telemedicine across the full
+array of rural providers and increase referrals to support services. Other technologies
+will be made available through this initiative to augment the efficiency of clinical and
+administrative staff.
+
+¢ Partnerships: This initiative will strengthen statewide coordination of health care. As
+part of this initiative, we will solidify governance structures to ensure rural priorities
+are embedded in Michigan’s health data ecosystem. By producing a standards
+framework and policy roadmap for long-term adoption, this initiative will align rural
+Michigan with federal and state regulations and ensure patient privacy.
+
+¢ Workforce: This initiative will increase the number of frontline clinicians and health
+care workers, including CHWs and community paramedics (CP), who will utilize
+solutions and workflows to ensure technology meets their needs and the needs of
+patients. Clinicians, health care, and frontline workers will also receive the training,
+certification, and support necessary to maximize the implementation of new
+technology solutions and to reduce administrative burden.
+
+e Data-driven solutions: This initiative will close gaps in the rural digital divide,
+expand onboarding and TA to rural facilities, increase the adoption of foundational
+data exchange solutions that strengthen care coordination, improve information
+
+10
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-11.png>>>
+Project Narrative - Michigan
+sharing, and reduce the administrative burden of manual processes for rural
+providers.
+
+e Financial solvency strategies: Sustainability of the technical innovations will come
+from increased number of patients able to receive care, reduced delays in care
+transitions, and less paperwork for rural clinicians.
+
+e Cause identification: Many rural providers in Michigan lack the technical and
+financial capacity to connect to the statewide health information exchange. These
+organizations are left out of coordinated care and are in digital isolation. By investing
+in this initiative, rural providers and facilities will gain reliable, and affordable access
+to health care technology tools.
+
+e Program key performance objectives: Over the next five years, Michigan will
+measure the progress of the integration of rural providers who expand and exchange
+data by increasing the number of rural providers participating in statewide HIE,
+expanding the use of secure messaging and telehealth across rural providers, and
+increasing referrals to support services.
+
+e Strategic goals alignment: Sustainable access, workforce development, and tech
+innovation.
+
+« Legislative or regulatory action: None identified
+
+¢ Other required information: Includes stakeholder engagement, statewide governance,
+data infrastructure, telehealth and remote care services expansion, sustainability
+planning, and dissemination of best practices and quality improvement to ensure
+long-term community impact.
+
+4. Care Closer to Home Blueprint Initiative: This initiative is designed to transform how
+rural residents access care by creating sustainable, community-based pathways that bring
+11
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-12.png>>>
+Project Narrative - Michigan
+health services closer to where people live and work. By promoting innovations that improve
+chronic disease management, maternal and child health, and behavioral health outcomes, the
+initiative aims to make care more efficient, coordinated, and person-centered.
+
+e Improving access: This initiative connects disparate partners across health and social
+sectors to reimagine care delivery, reduce transportation obstacles, and simplify
+access to primary and behavioral health services. The goal is to integrate and expand
+primary care services within local communities; test new models to deliver the right
+behavioral health care in the right settings; and focus on expanding and home-based
+care for older adults to allow them to age in place.
+
+¢ Improving outcomes: This initiative will reduce emergency department utilization for
+preventable conditions by increasing access to primary care services and behavioral
+health care, along with transportation and home-based care options.
+
+¢ Technology use: By leveraging technology solutions, this model will create telehealth
+sites at innovative community locations to bring specialty care to rural areas that
+otherwise would not have access to these services. In partnership with health systems
+in other parts of Michigan and using technology that allows for remote visits and
+monitoring or real time vitals and exams, patients can receive services they would
+otherwise have to travel for hours to receive. Practitioners will also utilize telehealth
+and data-sharing tools for remote monitoring and specialist consultations.
+
+e Partnerships: The initiative connects provider groups, Federally Qualified Health
+Centers (FQHCs), EMS, CHWs, peer coaches, Medical Assistants, and doulas
+through a hub-and-spoke model, with additional links to local health departments,
+Michigan Department of Health and Human Services (MDHHS) offices, Area
+Agencies on Aging (AAAs), pharmacies, Women, Infants and Children (WIC)
+
+12
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-13.png>>>
+Project Narrative - Michigan
+offices, school clinics, and other community partners. Complementary initiatives
+build cross-sector coalitions—including local businesses, transportation associations,
+and civic groups—to expand transportation access and strengthen coordinated care in
+rural communities.
+
+¢ Workforce: The hub and spoke model will promote “top-of-license” practice for rural
+health care providers, engaging and promoting the workforce and their skills in new
+ways.
+
+e Data-driven solutions: Providers will utilize telehealth and data-sharing tools to
+change how primary care is being delivered in the community and emergency
+department utilization data will be monitored for the desired effect in improving
+patient outcomes.
+
+¢ Financial solvency strategies: This initiative improves rural hospital financial
+solvency by reducing unnecessary emergency department visits for primary and
+behavioral health care, freeing up beds for higher-acuity patients, and aligning
+hospital operations with true community needs.
+
+e Cause identification: Rural hospitals have become the de facto safety and primary
+care office for their surrounding communities, forcing many to spend time and money
+on low acuity, low priority patients. By removing the burden of primary care and
+behavioral health care from the emergency departments and allowing those services
+to be care for in proper settings, rural hospitals can create more efficiencies and better
+streamline their services for what their higher acuity patients need.
+
+e Program key performance objectives: Over the next five years, MDHHS will evaluate
+progress toward reducing emergency department utilization for preventable
+
+13
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-14.png>>>
+Project Narrative - Michigan
+conditions, increasing access to primary and behavioral health care, and improving
+transportation and home-based care options in rural communities.
+e Strategic goals alignment: Innovative care, tech innovation, and sustainable access
+e Legislative or regulatory action: None identified
+e Other required information: The initiative integrates multiple programs to create a
+fully coordinated rural health ecosystem. Technical assistance, readiness reviews, and
+evaluation frameworks are embedded to support operational success, monitor
+outcomes, and guide continuous improvement.
+In recognition of the unique needs and priorities of tribal communities, Michigan’s proposed
+Rural Health Transformation Program includes a dedicated five percent carve-out of resources
+specifically to support tribal government partners in expanding access to care and strengthening
+health systems within their communities. As sovereign entities, Michigan’s 13 federally
+recognized tribal governments will be eligible to apply to MDHHS for these funds and MDHHS
+will utilize contractual tools to make sure that all applicable requirements are passed on to
+awarded tribes. The tribes that are interested in this funding will work closely with MDHHS to
+develop plans that meet the criteria outlined in this Notice of Funding Opportunity and
+subsequent award to make necessary investments that meet program goals. This arrangement
+recognizes the unique needs of Michigan’s tribes and their critical role in protecting the health
+and wellness of their communities. Twelve of Michigan’s tribes are located in rural areas of the
+state while one tribe located in an urban setting that serves many rural residents.
+Proposed initiatives and use of funds
+The proposed four initiatives are designed to improve health outcomes for rural communities
+through strategic investments that strengthen local health systems, build workforce capacity,
+enhance data interoperability, and expand access to care. Together, these initiatives form a
+14
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-15.png>>>
+Project Narrative - Michigan
+comprehensive framework to advance rural health transformation through collaboration,
+innovation, and sustainability. Each initiative supports locally driven solutions that respond to the
+unique needs of rural populations. All grants referenced will be evaluated based on the
+partnerships they have built, the model they intend to use, feasibility and timeline for standing up
+the model, patient population they intend to serve, their outcomes and stated goals, compliance
+with the award terms and conditions, and the sustainability plan for after this program.
+Initiative 1: Transforming Rural Health through Partnerships
+Description: The Transforming Rural Health through Partnerships Initiative is designed to
+reimagine Michigan’s rural health landscape by testing and scaling new, community-driven
+approaches to care. Michigan will develop Hubs that function as a collaborative network of
+local, community, and regional partners that work together to improve health and social
+outcomes. Hubs will prioritize the utilization of CHWs, leverage CIE and broader HIE systems,
+and integrate Health in All Policies (HiAP) approaches to address the root causes of disease. By
+fostering interdisciplinary partnerships across health care, behavioral health, and social services,
+Hubs create sustainable, coordinated solutions that strengthen community capacity, enhance care
+delivery, and improve health outcomes.
+This Initiative introduces fresh models of CHW integration, interdisciplinary chronic disease
+management, and behavioral health workflows, while also pioneering financing strategies that
+enable long-term sustainability. By piloting innovative solutions with local health departments,
+FQHCs, school-based clinics, rural health clinics, hospitals, and community-based organizations,
+this initiative expands access to integrated care, strengthens rural health infrastructure, and opens
+new pathways to improving outcomes.
+The Transforming Rural Health Through Partnership Initiative encompasses several integrated
+efforts to strengthen community-based care, foster cross-sector partnerships, and support the
+15
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-16.png>>>
+Project Narrative - Michigan
+development of sustainable, coordinated models of care. The Transforming Rural Health
+Through Partnership Initiative has the following principal programs and activities:
+
+1. Chronic Disease Collaborative Care Fund supports Michigan’s rural health providers and
+community organizations in advancing innovative, collaborative approaches to chronic
+disease prevention and management. This competitive funding opportunity is designed to
+pilot and scale evidence-based interventions that improve outcomes for diabetes,
+hypertension, and other chronic conditions, while leveraging existing rural health and
+state networks. CHW integration and behavioral health support are included as
+complementary strategies to enhance care delivery. Under the CHW and CIE Chronic
+Disease Management Through Interdisciplinary Care Models Grant Program eligible
+applicants can propose innovative projects that advance integrated chronic disease care,
+strengthen rural health infrastructure, and improve health outcomes. Successful projects
+will demonstrate strong partnerships, evidence-informed strategies, and sustainable
+approaches for long-term community impact. MDHHS would prioritize project areas that
+include:
+
+e Diabetes Management and Education: Continuous Glucose Monitoring (CGM)
+Utilization: Expanding access and use of CGM technology in rural communities
+to improve glycemic control; Evidence-Based Lifestyle Change Program
+Participation: Supporting diabetes education programs to enhance patient self-
+management and promote long-term lifestyle change; CHW and Provider
+Training: Providing direct training for health care providers, diabetes educators,
+and CHWs in technology use and diabetes education, including micro-
+credentialing for CHWs; and Telehealth Expansion: Leveraging existing diabetes
+
+16
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-17.png>>>
+Project Narrative - Michigan
+educator and CHW networks to deliver education and support services via
+telehealth.
+
+e Hypertension Management: CHW Micro-Credentialing in Rural Communities:
+Training health workers and CHWs in hypertension management; Participation in
+Evidence-Based Lifestyle Change Programs that promote interventions that
+improve blood pressure through diet, exercise, and behavior modification; Multi-
+Disciplinary Care Teams that implement team-based care models for hypertension
+control in partnership with local clinics and community organizations; and Self-
+Measured Blood Pressure (SMBP) Monitoring with Clinical Support: Supporting
+patients in blood pressure monitoring with provider guidance and follow-up.
+
+o Chronic Disease and Healthy Homes Collaborative Grant Program will grant funds to
+community-based organizations, local governments, and Hubs to invest in new evidence-
+based, community-led interventions that address the intersection of housing, health, and
+economic stability for low-income rural residents. This fund recognizes that chronic
+disease prevention and management are directly influenced by living conditions, energy
+burden, and access to essential resources. Through coordinated efforts between
+community action agencies, local health departments, and housing partners, this initiative
+will ensure families can thrive safely in their homes, maintain employment, and achieve
+long-term self-sufficiency. Eligible activities include but are not limited to repair and
+rehabilitation of single-family homes to remove health and safety hazards that contribute
+to chronic disease and prevent participation in energy efficiency and weatherization
+programs that mitigate asthma and allergy triggers.
+
+2. Collaborative Care Integration and Sustainability Fund is designed to support innovative rural
+health initiatives that expand access points and improve population health outcomes across the
+17
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-18.png>>>
+Project Narrative - Michigan
+lifespan. Funding will also support technology to screen populations and provide impactful brief
+interventions and resources, then close the loop with repeat screenings and referral to navigator
+follow-up when needed. Priority will be given to projects that establish or expand collaborative
+partnerships to strengthen and sustain the framework, enabling coordinated, community-driven
+approaches to care. Funded projects will address the root causes of disease and promote
+preventive care, behavioral health, and prenatal care through evidence-based, outcomes-driven
+interventions. Targeted efforts will focus on improving health and well-being among children,
+adolescents, and families, including initiatives that support behavioral health and prenatal care
+through partnerships with school-based clinics, Child and Adolescent Health Centers (CAHCs),
+and Family Resource Centers. In addition, projects may strengthen cross-sector partnerships with
+the AAAs to promote coordinated care and preventive health strategies for older adults. By
+providing flexible funding and TA, the initiative encourages rural health care providers and
+community partners to implement sustainable care models that enhance local capacity, strengthen
+care coordination, and advance health outcomes for Michigan’s rural populations.
+Funding will also strengthen the long-term sustainability of CHW services within rural health
+and social care networks by supporting innovative solutions that enable partners to build
+capacity, enhance operational infrastructure, and implement effective billing strategies for CHW
+services. By investing in both TA and technology infrastructure, this program aims to ensure
+CHWs can continue to provide high-quality care while advancing integrated, collaborative
+approaches to addressing the health and social care needs of rural populations. Funding will also
+be available for MDHHS to select a service through competitive bid processes to support
+creation and dissemination of shared resources, guides, and best practices to strengthen
+sustainability and promote operational efficiency across partner organizations. Overall, the fund
+aligns with statewide priorities to transform rural health through partnerships, leverage
+18
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-19.png>>>
+Project Narrative - Michigan
+interoperability for coordinated care, and advance community-centered approaches that bring
+care closer to home.
+Main strategic goal: Make rural America healthy again
+Use of funds: A, B, C, E, F, G, H, I, K
+Technical score factors: B.1, B. 2., C.1., C.2., D.1., D.3. - non-exhaustive
+Key stakeholders: Rural health clinics, local health departments, FQHCs, CAHCs Community-
+Based Organizations including AAAs, Critical Access Hospitals, Rural Hospitals, Michigan
+Department of Health and Human Services, Michigan Center for Rural Health, Michigan
+Primary Care Association, Family Resource Centers, and several regional alliances.
+Outcomes: The Transforming Rural Health Through Partnerships Initiative will be evaluated
+using measurable outcomes that assess improvements in chronic disease management, access to
+care, workforce capacity, and data-driven program effectiveness across rural and semi-rural
+communities. The initiative integrates multiple programs including: CHW and CIE Chronic
+Disease Management Through Interdisciplinary Care Models and Collaborative Care as well as
+Evaluation & Data Management. These programs work together to achieve synergistic
+improvements in patient and system-level outcomes.
+1. CHW and CIE Chronic Disease Management Through Interdisciplinary Care Models
+Grant Program
+CHW Micro-Credentialing in Rural Communities:
+According to the 2025 Michigan Community By Year 2, Train and credential 10 rural
+Health Worker Alliance (MiCHWA) CHW Survey | CHWs through the MiCHWA cardiovascular
+Report, 369 CHWs currently serve rural Michigan | health micro-credential track. By Year 5, train
+counties, compared with 267 CHWs in urban and credential 50 or more rural CHWs through
+areas. Despite this numerical advantage, most the MiCHWA cardiovascular health micro-
+possess only generalist training without credential track.
+specialized competencies in chronic-disease
+prevention or management. Currently, no CHWs
+(0) in rural Michigan currently hold a
+cardiovascular health (CVH) micro-credential.
+19
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-20.png>>>
+Project Narrative - Michigan
+Evidence indicates that SMBP adoption and By Year 2, establish SMBP programs in 5 rural
+electronic data sharing remain low among rural clinics or community sites, equipping 150 or
+residents with hypertension, with only 10.5— more participants with validated devices and
+21.7% of adults reporting electronic transmission | protocols for regular monitoring and follow-
+of SMBP readings to health care providers. up by CHWs or clinical teams. By Year 5,
+expand SMBP implementation to at least 15
+tural clinics or community organizations, with
+500 or more active participants transmitting
+BP readings and receiving documented
+clinical follow-up.
+MDHHS currently works with three rural clinics By Year 2, support at least 5 rural clinics or
+in Michigan meeting the definition of team-based | partner organizations in establishing multi-
+care that adhere to evidence-based hypertension disciplinary hypertension care teams
+management guidelines, collectively serving (provider, nurse, pharmacist, and CHW),
+approximately 53,211 patients. Across other rural | integrating standardized blood pressure
+clinics, team-based approaches remain control protocols and shared-care workflows.
+inconsistently implemented and are typically By Year 5, expand team-based care to at least
+limited to provider—nurse models without full 20 additional rural sites.
+integration of pharmacists or CHWs.
+50.8% of rural counties (31 of 61*) in Michigan By Year 2, increase to 33 of 61* rural counties
+have telehealth access to diabetes education. (54%) with telehealth access to diabetes
+education. By Year 5, increase to 39 of 61*
+rural counties (64%) to have telehealth access
+to diabetes education.
+*Analysis done on 61 counties. We will
+evaluate all 75 rural counties in year 1.
+According to the 2024 Michigan Statewide By Year 2, at least 150 homes will receive
+Housing Needs Assessment, Michigan’s rural repairs to support chronic disease prevention.
+housing stock includes a high proportion of aging | By Year 5, at least 600 homes will receive
+homes, many of which lack adequate insulation, repairs to support chronic disease prevention
+have outdated mechanical systems, or require
+critical repairs to meet health and safety
+standards. These conditions disproportionately
+affect low-income households, particularly in
+rural areas where housing quality is lower and
+access to repair resources is limited.
+2. Collaborative Care Integration and Sustainability Fund:
+20
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-21.png>>>
+Project Narrative - Michigan
+CHWs are currently embedded in only a limited Within Year | establish baseline since there
+number of local Hubs and CAHCs in schools are current data gaps for chronic disease
+across rural communities. Baseline data is tracking within Hubs and CAHCs. By Year 2,
+unavailable but will be assessed in year 1. connect five Hubs, CAHCs, and AAAs
+through the Hub framework to strengthen
+coordinated care across generations. Increase
+CHW coverage so that 80% of high-risk
+children, adolescents, and older adults served
+by participating hubs, CAHCs, and AAAs
+receive regular outreach, education, and
+follow-up by the end of Year 4. Increase CHW
+outreach and follow-up so that at least 75—
+80% of high-risk patients with chronic
+conditions, particularly among children,
+adolescents, and older adults, receive regular
+contact, education, and care coordination
+through Hubs, CAHCs, and AAAs by the end
+of Year 5.
+CHW-to-patient ratios are variable across hubs, Recruitment and training measurable within
+with inconsistent training, supervision, and 12 months; full integration and billing
+Medicaid billing capacity. Baseline data is capacity within 24-60 months. Recruit, train,
+unavailable but will be assessed in year 1. and deploy at least 50 CHWs across funded
+Hubs and CAHCs, with 90% completing
+standardized training and integration into local
+care teams within 18 months, and 80%
+achieving Medicaid billing capacity within
+four years.
+Rural health and social care systems currently By Year 2, increase the number of formal
+operate through fragmented networks with limited | cross-sector partnerships among rural health
+coordination among school-based clinics, providers, CAHCs, school-based clinics,
+CAHCs, Family Resource Centers, AAAs, and Family Resource Centers, AAAs, and hub
+local health departments. networks by 50%. By Year 5, establish shared
+referral and communication pathways between
+at least 80% of funded project hub partners to
+improve integration across health, behavioral
+health, and social services.
+among children and adolescents are lower in rural | preventive and behavioral health programs for
+21
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-22.png>>>
+Project Narrative - Michigan
+
+than 50% of eligible youth accessing behavioral three years through school-based and
+
+health or abuse prevention services through community partnerships.
+
+school-based programs).
+Combined, these efforts amplify chronic disease management outcomes beyond what any single
+program could achieve alone. By integrating CHWs, strengthening interdisciplinary care models,
+and fostering sustainable partnerships, the initiative builds lasting capacity within rural health
+systems. Through targeted support for billing readiness and pathways to sustain CHW
+employment, it advances measurable improvements in chronic disease management, behavioral
+health access, workforce development, and long-term system sustainability.
+Impacted counties: 26001 26003 26005 26007 26009 26011 26013 26015 26017 26019 26021
+26023 26025 26027 26029 26031 26033 26035 26037 26039.26041 26043 26045 26047 26049
+26051 26053 26055 26057 26059 26061 26063 26065 26067 26069 26071 26073 26079 26083
+26085 26087 26089 26091 26093 26095 26097 26101 26103 26105 26107 26109 26111 26113
+26117 26119 26123 26125 26127 26129 26131 26133 26135 26137 26141 26143 26145 26151
+26153 26155 26149 26157 26159 26161 26163 26165
+Estimated required funding: $26,000,000
+Initiative 2: Workforce for Wellness Initiative
+Description: The Workforce for Wellness Initiative strengthens Michigan’s rural health
+workforce to support integrated care delivery. Efforts focus on recruitment, retention, and
+training across a wide array of professions including behavioral health, maternal health, EMS,
+primary care and other specialists in high need. Key strategies include educational pipelines from
+high school to health care careers, stipends and scholarships for social work and behavioral
+health providers and establishing a rural medical residency program. Jomt CHW and CP training
+will help integrate social and clinical care, while regional collaboratives will support maternal
+
+22
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-23.png>>>
+Project Narrative - Michigan
+
+health providers. Cross-sector partnerships with EMS, clinics, schools, and community
+organizations will foster interdisciplinary learning, and evaluation systems will track progress
+statewide. This initiative supports a number of programs that utilize proven best practices that
+support those already working in our rural communities while also increasing the number of
+available health care professionals. For any of these programs that require a five-year service
+requirement, MDHHS will utilize established contractual mechanisms to enforce the five-year
+commitment and routinely track provider progress throughout their service commitment
+internally or through a subaward as applicable.
+
+1. Rural Health Workforce Pipeline and Education Fund: provides education to employment
+pathways and scholarships to strengthen the rural talent pipeline through the following
+activities:
+¢ High School to Health Care Pipeline Grant Program: Rather than a bandage, this
+
+funding is intended to be a transformation of rural health care in Michigan. To that
+end, this program will create a talent and recruitment pipeline that will transition high
+school students to health care professionals. Through a partnership with Area Health
+Education Centers (AHEC) and other relevant entities, pipeline programs will be
+established to both move rural high school students into health care professions in
+their home communities as well as encouraging non-rural students to become
+critically needed rural health care professionals.
+
+e Bachelors of Social Work (BSW) to Clinical Master of Social Work (MSW) Stipend
+Program: Designed to bridge the mental health care provider gap in our rural
+communities, the program provides educational stipends to social work students.
+Through university partnerships, individuals with BSW degrees are provided stipends
+to enroll in one of the currently existing one-year advanced clinical MSW programs.
+
+23
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-24.png>>>
+Project Narrative - Michigan
+Receipt of a stipend would require a post-graduation five-year commitment to work
+in a rural community in Michigan.
+
+e University-Led MSW Scholarship Program: To increase the pool of available mental
+health professionals, this program will provide scholarships to MSW students. At
+least two university partners will provide scholarship opportunities to MSW students
+who make a five-year commitment to serving in rural communities after graduation.
+
+2. Rural Provider Recruitment, Retention, and Capacity Fund: provides direct recruitment
+and retention incentives and workforce infrastructure across physical, behavioral, and
+maternal health through the following activities:
+
+¢ Rural Health Provider Recruitment and Retention Fund: This funding opportunity
+will be made available directly to eligible rural health care providers. Through a grant
+process, rural health care providers will be able to create innovative workforce
+solutions for their local communities. This funding opportunity has flexible
+recruitment and retention tools like provider relocation and housing assistance,
+increases in childcare capacity, recruitment and retention bonus programs, career
+ladder programs, and certified apprenticeships. This funding will be utilized for
+efforts to recruit, train, and retain critical health care providers including establishing
+rural medical residency programs. These efforts will be targeted at increasing access
+to care and improving health outcomes for rural residents.
+
+e Maternal Health Provider Training Program: Preserving access to rural maternal
+health care is a key priority of Michigan’s Rural Health Transformation plan. The
+program will support training and professional development of key professionals
+providing maternal health care (family physicians, EMTs, obstetricians, certified
+
+24
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-25.png>>>
+Project Narrative - Michigan
+nurse midwives, and additional health professionals). This program will focus on
+increasing the number of providers able to engage in maternal health.
+
+e« EMS Retention and Recruitment Program: This program will invest in the training
+and support of rural EMS professionals. Receipt of funds would require a post-
+graduation five-year commitment to work in a rural community in Michigan.
+
+e Limited Licensed Master Social Worker (LLMSW) Supervision Stipend Program:
+Improving the rural behavioral health workforce requires investment at all workforce
+levels. Increasing the amount of LLMSWs also requires investing in the licensed
+MSWs who provide the required supervision. This program will provide a multi-
+pronged approach to supporting workforce capacity by supporting regional shared
+infrastructure to support LLMSW supervision. The second piece will provide stipends
+to licensed MSWs providing that supervision, incentivizing more licensed MSWs to
+provide that critical service.
+
+« CHW/CP Trainings and Certifications: This strategy will invest in a robust rural
+CHW and CP workforce that can support the unique needs of Michigan’s rural
+residents, allow other medical professionals to work at the top of their license, and
+support prevention and chronic disease.
+
+3. Rural Health Dashboard: Monitoring, Evaluation & Data Management: This funding will
+support tracking of health outcomes, health care workforce, access to care, and non-
+medical health factors metrics in rural Michigan. The dashboard will be public facing and
+will help public health leaders, providers and communities monitor and improve health
+outcomes in rural areas.
+
+Main strategic goal: Workforce development
+Use of funds: A, B, C, D, E, F, G, H, I, K
+25
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-26.png>>>
+Project Narrative - Michigan
+Technical score factors: B.1, B. 2., C.1., C.2., D.1., D.3. - non-exhaustive
+Key stakeholders: Rural health clinics, local health departments, FQHCs, CAHCs, Community-
+Based Organizations including AAAs, Critical Access Hospitals, Rural Hospitals, Michigan
+Department of Health and Human Services, Michigan Center for Rural Health, Michigan
+Primary Care Association, Tribal Governments, universities, and several regional alliances.
+Outcomes: The Workforce to Wellness Initiative will be evaluated by using measurable
+outcomes that assess the size and health of Michigan’s rural health workforce. The Workforce to
+Wellness Initiative will address rural health workforce shortages through a combination of
+proven strategies and innovative, locally driven programs that aim to create localized
+improvements for rural health providers and professionals.
+1. Rural Health Workforce Pipeline and Education Fund
+High School to Health Care Pipeline Grant Program:
+This is a new intervention in Michigan. Baseline | By year 2, pipeline programs launched in five
+data is unavailable but will be assessed in year 1. | rural schools reaching at least 200 students.
+By year 5, at least 25 each year students
+enrolled in postsecondary health programs;
+BSW to Clinical MSW Stipend Program:
+Many factors influence MSW completion rates Year 1) Partner with at least three universities;
+and this program is designed to alleviate financial | Year 2) Enroll at least 25 stipend recipients;
+burdens and obligate students to practice inrural | Year 3) Expand to at least 50 recipients with
+Michigan upon completion. Baseline data is 80% progressing toward completion; Year 4)
+unavailable but will be assessed in year 1. Support new graduates with resources and
+support for finding employment; Year 5) At
+least 40 new MSWs employed in rural
+communities.
+University-Led MSW Scholarship Program:
+A major factor in completing an MSW is the By year 2, fund 25 MSW students per year.
+ability to meet the program costs without the By year 5, place 25 per year MSWs in rural
+burden of additional debt. This program settings.
+alleviates that burden with a scholarship. Baseline
+data is unavailable but will be assessed in year 1.
+2. Rural Provider Recruitment, Retention, and Capacity Fund
+26
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-27.png>>>
+Project Narrative - Michigan
+The foremost need in Michigan’s rural health By year 2, design and launch competitive
+system is often cited as a strong workforce from grant process and award at least 20 provider
+clinicians to support staff. This program allows grants per year. By year 5, demonstrate at least
+tural health providers to develop employment 10% net increase in rural workforce.
+benefit programs to fit their specific recruitment
+and retention needs. Baseline data is unavailable
+but will be assessed _in year 1.
+In 2024, 27.1% of Michigan’s counties were By year 4, achieve at least a 20% increase in
+considered maternal health deserts, with rural maternal health provider availability. By year
+areas in both the upper and lower peninsula most | 5, demonstrate improvement in at least two
+affected. maternal health outcomes in awarded areas.
+The 2024 Michigan Healthcare Workforce Index, | By year 5, This program will retain at least
+estimates that, from 2023 to 2033, only 840 150 newly trained EMTs/paramedics in rural
+paramedics will graduate to fill a projected 2,000 | communities with five-year commitments.
+job openings.
+Licensed MSWs actively engaged in clinical By Year 2, fund stipends for at least 15
+counseling are needed to supervise new LLMSW_| supervisors supporting 30 LLMSWs per year;
+before full licensure. This program offsets lost By year 5, place at least 50 newly licensed
+supervisor wages that result from loss of billable _| MSWs in rural behavioral health positions.
+time. Baseline data is unavailable but will be
+assessed in year 1.
+This program will increase the numbers of CHWs | By Year 2, enroll 50 CHW and CP trainees per
+and CPs trained and certified working in rural year in training and certification programs.
+Michigan. Baseline data is unavailable but will By year 5, place 100 certified CHWs and CPs
+be assessed in year 1. in rural communities with five-year
+commitments.
+This is a new intervention in Michigan. Baseline | By Year 5, demonstrate dashboard use by 50
+data is unavailable but will be assessed in year 1. | rural providers and three state agencies to
+inform planning and policy.
+Impacted counties: 26001 26003 26005 26007 26009 26011 26013 26015 26017 26019 26021
+26023 26025 26027 26029 26031 26033 26035 26037 26039 26041 26043 26045 26047 26049
+27
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-28.png>>>
+Project Narrative - Michigan
+26051 26053 26055 26057 26059 26061 26063 26065 26067 26069 26071 26073 26079 26083
+26085 26087 26089 26091 26093 26095 26097 26101 26103 26105 26107 26109 26111 26113
+26117 26119 26123 26125 26127 26129 26131 26133 26135 26137 26141 26143 26145 26151
+26153 26155 26149 26157 26159 26161 26163 26165
+Estimated required funding: $44,731,500
+Initiative 3: Interoperability in Action Initiative
+Description: The Interoperability in Action Initiative aims to advance technology innovation
+aimed at reducing duplicative care and improving health outcomes through interoperable systems
+that connect providers, rural hospitals and clinics, and Michigan Hubs. In its first year, the
+initiative will establish an Interoperability Advisory Council, bringing together state leaders,
+rural providers, IT experts, and community stakeholders to develop statewide standards for data
+sharing and integration. Pilot projects will link EMS data with hospital EHRs and integrate
+community-based social service data via CIE to ensure timely, coordinated care. Investments will
+support rural health partners in implementing new or upgraded EHR systems and secure
+telehealth and messaging platforms, which will augment administrative technologies and remote
+monitoring tools for high-need patients while expanding CIE-connections and care coordination
+services. A dedicated initiative team will oversee program operations, provide TA and training,
+and evaluate impact. Additionally, rural resource directories will be expanded and integrated with
+interoperable systems to strengthen community connections and referrals. The initiative
+addresses the inconsistent adoption of EHR and lack of critical IT capacities, which prevent data
+sharing across the health care ecosystem, leaving care transitions and community care referrals
+fragmented and disjointed in rural communities. The following activities will support this
+initiative:
+28
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-29.png>>>
+Project Narrative - Michigan
+
+1. Rural Interoperability and Governance Fund will strengthen statewide leadership,
+coordination, and governance structures to ensure rural priorities are embedded in
+Michigan’s health data ecosystem. A Rural Interoperability Advisory Council will be
+formed and report to the Health IT Commission to ensure that rural priorities and needs
+are embedded in statewide planning and decision-making. Stipends will be provided to
+support participation by non-traditional rural providers and to promote meaningful
+community engagement. Consulting and technical support will be secured through a
+competitive bidding process to engage national experts and convene working groups
+focused on developing interoperability and data-sharing standards.
+
+2. Rural Data Integration and Infrastructure Fund will advance interoperability and digital
+infrastructure for rural and left-behind providers to strengthen care coordination and
+reduce administrative burden.
+
+e Rural Tech Innovation Initiative: This funding will support the adoption and
+integration of innovative technologies that strengthen care delivery and operations
+across rural health and social service providers. Funding may be used for
+implementation of new or upgraded EHR systems that meet current interoperability
+standards (FHIR, HL7); deployment of Health Insurance Portability and
+Accountability Act (HIPAA)-compliant telehealth and secure messaging platforms
+across rural clinics, providers and hubs; and licensing, implementation, and training
+for clinical and administrative staff. In addition, the fund will support partner-driven
+solutions such as remote monitoring and care management tools, robotics, artificial
+intelligence applications, and other emerging technologies that enhance access,
+coordination, and quality of care. Recognizing that rural partners are at varying
+stages of technology adoption, this fund is designed to meet organizations where they
+
+29
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-30.png>>>
+Project Narrative - Michigan
+are. Applicants are encouraged to propose innovative, context-specific solutions that
+address local challenges and advance the use of technology to transform care
+delivery, streamline operations, and create new efficiencies. Whether partners are
+implementing foundational systems such as interoperable EHRs or piloting advanced
+tools like artificial intelligence (AI)-enabled care coordination, remote monitoring, or
+data-sharing platforms, the Rural Tech Innovation Initiative will provide the resources
+and support needed to accelerate digital transformation across rural
+communities. Funds will be available to eligible rural providers and partners through
+a competitive grant process.
+
+¢ Data Integration Pilot Projects: This funding opportunity will support four pilot
+
+cohorts of left-behind provider types, including EMS, rural clinics, rural hospitals,
+FQHCs, and community-based organizations, to develop data exchange solutions that
+strengthen care coordination, improve information sharing, and reduce the
+administrative burden of manual processes. Rural sites will be selected based on high
+EMS volumes and rural community needs, expansion of Michigan Technical
+Assistance for Health Information Exchange (MiTAHIE) for left-behind providers,
+and infrastructure upgrades to support best practices and quality improvements in
+rural health systems.
+
+3. Rural Access and Connectivity Fund to expand rural residents’ access to care, social
+services, and community resources through connected systems and real-time information
+sharing. Technology and Community Connections Program is designed to invest in local
+public health to expand infrastructure to community resources, assist in navigation of
+health care needs, align community agency referrals, and improve care coordination;
+expand CIE initiative investment in aligning and expanding existing and/or new
+
+30
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-31.png>>>
+Project Narrative - Michigan
+technologies through interoperable referrals. These funds will be available to local public
+health rural providers through competitive grants. Rural Resource Directory Investments
+to expand and maintain comprehensive rural resource directories in partnership with local
+2-1-1 providers across all rural counties. Evaluation and Data Management to provide
+program oversight, TA and impact assessment including how the initiative is increasing
+administrative efficiencies and improving health outcomes.
+Main strategic goal: Technology Innovation
+Use of funds: A, B, C, D, E, F, G, H, I, J, K
+Technical score factors: B.1., B.2., C.1., C.2., F.1., F.2., and F.3.
+Key stakeholders: Rural health clinics, local health departments, CHWs and care coordinators,
+behavioral health providers, technology and IT partners, community-based organizations, EMS
+and pre-hospital care providers, rural patients and community members.
+Outcomes: The Interoperability in Action Initiative will be evaluated by using measurable
+outcomes that assess the improvements in Michigan’s health IT system to better meet the needs
+of rural populations to ensure patients benefit from modernized, integrated digital care. The
+initiative will increase critical health IT capabilities through the following pathways: Rural
+Interoperability Advisory Council, Data Integration Pilots, Technical Infrastructure Investments,
+Technology and Community Connection Programs, Rural Resource Directory Investments, and
+Evaluation and Data Management.
+Rural Interoperability Advisory Council
+This is a new intervention in Michigan. Baseline | By Year 2 Conduct statewide rural
+data is unavailable but will be assessed in year 1. | interoperability needs assessment; identify
+priority use cases for rural communities; By
+Year 3, develop and publish draft statewide
+interoperability and data-sharing standards;
+make key recommendations to support pilot
+implementation in at least 3 rural regions. By
+ear 5: Finalize and adopt standards
+31
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-32.png>>>
+Project Narrative - Michigan
+ee
+sustainable statewide adoption.
+Statewide participation in HIE among rural By year 2, establish four pilot project cohorts
+providers such as rural health clinics (2%), to develop and integrate data exchange
+FQHCs (15%), and EMS (0%) is extremely low solutions per year. By year 5, provide training
+or nonexistent. and TA to 150 rural health provider
+organizations with 75% reporting comfort
+using and satisfaction with health IT
+workflows, tools, and technology solutions.
+Many rural providers rely on outdated or limited By year 2, design and launch a competitive
+EHR systems, creating a digital divide that delays | grant process that invites partners to propose
+care delivery, hinders coordination, and limits innovative technology solutions tailored to
+adoption of innovative solutions. This initiative their local needs. Begin baseline
+seeks to address these gaps by supporting both measurement of provider participation in HIE
+foundational technology upgrades and partner- use cases and adoption of partner-proposed
+driven, innovative projects that advance innovations. By year 5, demonstrate a 50%
+interoperability, care efficiency, and digital increase in rural providers actively exchanging
+transformation. Baseline data is unavailable but data through health information networks and
+will be assessed in year 1. 50% of participating providers have
+incorporated new solutions, including partner-
+proposed innovations, into workflows,
+standard operating procedures, and client
+care.
+Establish baseline to evaluate and invest in rural By year 2, design and launch competitive
+local public health to expand infrastructure to grants funds; select first five rural provider
+community resources, assist in navigation of sites; design and deploy referral and secure
+health care needs, align community agency messaging platform to initial cohort and
+referrals, and improve care statewide baseline data established. By year 5,
+coordination. Baseline data is unavailable but demonstrate measurable progress in two areas:
+will be assessed in year 1. Improved network connectivity expanded use
+of secure messaging and referrals by 70%
+across funded sites; and 60% of participating
+providers have incorporated new solutions
+into workflows, standard operating
+procedures, and/or client care.
+32
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-33.png>>>
+Project Narrative - Michigan
+Rural communities have limited points of access | By year 2, pilot two Rural Resource Centers
+to resources in rural areas. Of the total number of | and expand provider networks (call centers) in
+annual Michigan 2-1-1 calls, rural counties in the | 15 counties in Upper Peninsula (UPCAP 2-1-
+upper peninsula make up less than three percent 1) and 10 selected rural counties statewide,
+and rural counties in the lower peninsula make up | establish statewide baseline assessment and
+less than nine percent of total call volume. provide TA to support and onboard 25 rural
+community based organizations; Through year
+5, monitor and track survey in all sites;
+resulting in a 80% increase in the number of
+rural community members reporting access to,
+awareness of, and satisfaction with local
+resources and/or health or social care
+services.
+Evaluation and Data Management
+This is a new intervention in Michigan. Baseline | By year 2, design and implement compliance
+data is unavailable but will be assessed in year 1. | and monitoring tools and implement
+mechanisms to present key findings to
+stakeholders and rural communities. By year
+5, publish final report with findings and
+recommendations for sustainable
+development.
+Impacted counties: 26001 26003 26005 26007 26009 26011 26013 26015 26017 26019 26021
+26023 26025 26027 26029 26031 26033 26035 26037 26039 26041 26043 26045 26047 26049
+26051 26053 26055 26057 26059 26061 26063 26065 26067 26069 26071 26073 26079 26083
+26085 26087 26089 26091 26093 26095 26097 26101 26103 26105 26107 26109 26111 26113
+26117 26119 26123 26125 26127 26129 26131 26133 26135 26137 26141 26143 26145 26151
+26153 26155 26149 26157 26159 26161 26163 26165
+Estimated required funding: $53,000,000
+Initiative 4: Care Closer to Home Blueprint Initiative
+Description: The Care Closer to Home Blueprint Initiative is designed to transform how rural
+residents access care by creating sustainable, community-based pathways that bring health
+services closer to where people live and work. This initiative connects disparate partners across
+health and social sectors to reimagine care delivery, improve transportation access, and simplify
+33
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-34.png>>>
+Project Narrative - Michigan
+
+access to primary and behavioral health services. By promoting innovations that improve chronic
+disease management, maternal and child health, and behavioral health outcomes, the initiative
+aims to make care more efficient, coordinated, and person-centered. This initiative encompasses
+several integrated efforts: Rural Health Care Delivery Hub and Spoke Model, which expands
+primary care services within local communities; Improving Care and Delivery Access Through
+Transportation, addressing rural residents’ needs for flexible travel options; Advancing Rural
+Behavioral Health, which tests new models to deliver care in the right settings; and Promoting
+Healthy Aging in Rural Communities Blueprint, focused on expanding community-based care
+for older adults. Together, these blueprints redefine rural health access by reducing emergency
+department visits, strengthening local care systems, and ensuring that every resident can receive
+high-quality care close to home. The Care Closer to Home Blueprint Initiative also includes
+complementary components to the other three overarching initiatives (Transforming Rural
+Health through Partnerships, Workforce for Wellness, and Interoperability in Action) by aligning
+care access improvements with strengthened partnerships, workforce development, and data
+connectivity to create a fully integrated rural health ecosystem. The Care Closer to Home
+Blueprint Initiative has the following principal programs and activities:
+
+1. Promoting Healthy Aging in Rural Communities Blueprint: This funding will help rural
+residents age in place and access health care in their communities, while reducing costly
+visits to higher acuity settings and emergency departments. Grants will prioritize the
+Upper Peninsula, where seniors face significant gaps in care access and are sometimes
+relocated downstate, away from family and support networks.
+
+e Care Transition Coordination and Support (CTCS) promotes quality proactive
+discharge planning resulting in the opportunity for older adults to live with dignity
+and independence in the environment they call home following a hospital
+
+34
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-35.png>>>
+Project Narrative - Michigan
+discharge. The local Area Agency on Aging (AAA) will coordinate thorough pre-
+discharge planning and offer person-centered home/community-based services
+options including accessible housing support, transportation to primary care
+appointments, medication management, primary care follow-up support, red-flag
+warning education, and 30-day post discharge follow up and support with a AAA
+CTCS representative. A hospital readmission due to a preventable cause is an
+indicator that patients were not adequately prepared to be discharged. Studies
+have shown that 40 percent of patients over the age of 65 had medication errors
+after leaving the hospital and 19 percent of Medicare patients discharged from a
+hospital are readmitted within 30 days. CTCS will coordinate with local hospitals
+to reduce patient readmissions for the same diagnosis.
+
+e Support the development of rural Program for All Inclusive Care (PACE)
+Alternative Care Settings (ACS) that provide adult day services and clinical care
+in smaller, locally accessible facilities that may have a more flexible service
+model than a full PACE center. Establish satellite PACE centers or mobile PACE
+units that bring adult day services, clinical care, and interdisciplinary teams
+directly into underserved communities.
+
+e Provide Home and Community Based Services (HCBS) clients with emergency
+preparedness kits, including food rations, first aid kits, emergency blankets, and a
+guide for emergencies for older adults and individuals with disabilities.
+Additionally, emergency battery operated generators will be provided to HCBS
+clients to stay in their homes during power outages. This will be available to
+clients that have medical electrical needs.
+
+35
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-36.png>>>
+Project Narrative - Michigan
+
+e Offer grants to rural post-acute facilities, skilled nursing facilities, and assisted
+living facilities licensed in Michigan as adult foster care homes and homes for the
+aged. Funding will support the adoption of new age-inclusive telehealth and
+staffing models tailored to meet the unique needs of older adults. Partnerships
+between health systems and rural senior living communities will expand access to
+specialists such as neurologists through telehealth, improving outcomes while
+reducing the need for wheelchair transport and emergency room visits.
+
+2. Rural Health Care Delivery Hub and Spoke Model: Michigan will award grants to
+collaborations between traditional system providers and community-based care
+organizations to improve outpatient care in rural Michigan, enhance health outcomes,
+reduce hospital admissions, and lower healthcare costs.
+
+This Fund will have the following focus areas:
+
+e Preventive care (immunizations, health screening, prenatal/postnatal care)
+
+e Management of chronic conditions (diabetes, heart disease, chronic obstructive
+
+pulmonary disease (COPD))
+
+e Mental Health services including substance use disorder (SUD)
+
+The partnerships will launch a hub-and-spoke model to serve rural patients closer to
+
+home by providers practicing at the top-of-license in their communities. Keeping patients
+
+where they are avoids delays in care, lengthy travel into metro areas, and strengthens
+
+management of chronic disease for patients and workforce opportunities for providers.
+
+Health Systems, provider groups, FQHCs and PIHPS can serve as hubs, extending their
+
+reach through local partnerships. Spokes deliver in-home, community and telehealth care:
+
+Emergency medical technicians (EMTs), CHWs, peer coaches, medical assistants (MAs)
+
+and doulas, can provide real-time vitals and exams through tech partnerships with the
+
+36
+Please Note: This document reflects MI's application for CMS' Rural Health
+
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-37.png>>>
+Project Narrative - Michigan
+
+hubs. These professionals practicing at the top of their license will enable care in-home
+
+care through technology like telehealth and wearable monitoring devices and bring
+
+specialty care to local community telehealth centers with facilitators. Examples of local
+community telehealth centers include local health departments, MDHHS offices, AAAs,
+pharmacies, WIC offices, school clinics, and other established community partners.
+
+This program will provide grant funding to coalitions with a commitment from at least
+
+one FQHC, rural hospital or clinic, local health department, and Michigan-based health
+
+system that offers specialty-based care that is not available close to the hub. Examples of
+successful partnerships may include:
+
+e A patient with poorly controlled diabetes, hypertension, chronic kidney disease and
+diabetic foot ulcers accessing care ata FQHC or qualified community site. An MA or
+other mid-level practitioner manages labs and test results while facilitating specialist
+visits through telehealth including fundoscopic and wound exams. Health care
+happens at home with CHWs assisting with dressing changes and wound care, EMTs
+conducting blood draws, and remote patient monitoring for blood glucose and blood
+pressure.
+
+e A patient with a high-risk pregnancy has an OBGYN practice managing labs and test
+results. Mid-level practitioners facilitate visits with maternal-fetal medicine including
+ultrasound at a community telehealth site. Health care happens at home with remote
+patient monitoring, EMTs conducting weight monitoring, home STI screening, urine,
+blood pressure, and glucose checks with continued remote patient monitoring
+technologies. Doula home visits and education on lactation, safe sleep, and car seats
+continue in the home after birth.
+
+37
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-38.png>>>
+Project Narrative - Michigan
+
+e A patient with a history of substance use disorder (SUD) on medication-assisted
+treatment (MAT) would have care coordinated through their local PIHP. Health care
+happens at home through telehealth therapy, mobile MAT vans dispensing
+medications, and a peer recovery coach check-in via phone or telehealth.
+
+By leveraging technology solutions, this model will create telehealth sites at community
+
+locations to bring specialty care to rural areas that otherwise would not have access to
+
+these services. These innovations will create a sustainable path for health care delivery in
+
+our rural communities, achieving greater health outcomes with lower costs.
+
+Grants for coalitions will be evaluated based on the partnerships they have built, the
+
+model they intend to use, feasibility and timeline for standing up the model, patient
+
+population they intend to serve, their outcomes and stated goals, and their sustainability
+
+plan for after this program.
+
+3. Improving Care Delivery & Access through Transportation Blueprint Grant Program:
+Funding will support a multifaceted. technical assistance and grant program focused on
+increasing access to health care and healthy lifestyle needs in rural areas that lack robust
+transit options.
+
+Enhancing Access to Non-Emergency Medical Transportation (NEMT)
+
+e Enhancing awareness of Non-Emergency Medical Transportation (NEMT) by
+leveraging partner advertising and coordinated promotional campaigns to ensure
+beneficiaries understand available services.
+
+« Offering technical assistance grants for rural NEMT providers, community-based
+organizations, and local governments to navigate Medicaid provider enrollment
+and reimbursement processes. Support will include step-by-step guidance on
+meeting Medicaid requirements and billing for services.
+
+38
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-39.png>>>
+Project Narrative - Michigan
+
+¢ Establishing a centralized rural hub acting to serve as a clearinghouse connecting
+individuals with the appropriate NEMT authorizing entities. The hub will feature
+a single, statewide phone number with direct-connect capability to Medicaid
+Health Plans, MDHHS local county offices, and other authorizing parties, along
+with tailored contact information specific to each individual’s needs.
+
+Innovating Transportation Access for Maternal Health and Healthy Living
+
+e Providing outreach and education grants to community partners that support
+beneficiaries and providers understand and access transportation services.
+
+e Expanding the role of Community Health Workers (CHWs) to provide
+transportation for Medicaid-covered services, including prenatal and postnatal
+appointments. This approach leverages CHWS as trusted community resources to
+foster stronger relationships, support care monitoring, and improve maternal and
+infant health outcomes.
+
+e Supporting initiatives to provide rides to grocery stores, gyms, schools, and other
+destinations that promote chronic disease prevention and management.
+
+e Developing partnerships with local businesses, such as propane or package
+delivery services to expand transportation options or integrate fresh meal delivery
+into existing rural routes.
+
+e Establishing last-mile food delivery systems that increase access to fresh, healthy
+food in remote areas, including partnerships with mobile markets, food pantries,
+and farm-to-table networks.
+
+Addressing Behavioral Health Transportation Gaps
+39
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-40.png>>>
+Project Narrative - Michigan
+
+« Advancing targeted projects that expand access for individuals seeking mental
+health, substance use treatment, and crisis care services, with priority given to
+initiatives aligned with gap analyses and responsive to rural community needs.
+
+e Piloting behavioral health transport models in rural and underserved regions by
+supporting the use of secure, non-ambulance vehicles designed specifically for
+behavioral health patients. These vehicles provide a safer, more dignified
+alternative to ambulance transport, reduce strain on EMS resources, and align
+with Medicaid reimbursement strategies being advanced in other states.
+
+¢ Supporting community paramedic programs that provide transportation and care
+coordination for individuals with behavioral health, substance use, and chronic
+disease needs, reducing reliance on ambulances while ensuring timely access to
+appropriate services.
+
+o Advancing Rural Behavioral Health Blueprint Program: Traditional behavioral health
+care delivery models face persistent barriers in rural Michigan, where workforce
+shortages, lack of technology and broadband infrastructure, transportation challenges,
+and low population density limit access to timely, high-quality care. While Michigan
+currently has 35 Certified Community Behavioral Health Clinics (CCBHCs), none
+are located in the northern third of the state, and no Crisis Stabilization Units (CSUs)
+operate in rural areas.
+
+The Rural Behavioral Health Blueprint Program is designed to adapt and innovate
+
+traditional models to meet the unique needs of rural communities. The program will
+
+expand access to the full spectrum of behavioral health care closer to home while
+reducing costs by diverting avoidable inpatient admissions and minimizing reliance
+on law enforcement interventions.
+40
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-41.png>>>
+Project Narrative - Michigan
+Behavioral health providers will be invited to propose models of care that deliver
+personcentered, highquality services without driving longterm cost growth.
+Anticipated cost offsets include reductions in emergency department boarding,
+improved jail diversion, and more efficient use of inpatient psychiatric beds.
+The Michigan Department of Health and Human Services (MDHHS) will select
+awardees based on demonstrated quality metrics, staffing capacity, and ability to
+manage complex patient populations. Routine data reporting will be required to
+ensure accountability, effectiveness, and patient safety.
+
+o Established behavioral health providers prepared to rapidly expand their service array
+or increase the acuity levels they are able to serve will be best positioned for success.
+These may include:
+
+e Intensive Outpatient Program (IOP): Funding to test effectiveness of rural IOP
+models including virtual IOPs using secure video platforms to deliver group
+therapy, psychiatric care, and case management and hub-and-spoke
+collaborations with health systems, local providers, and CCBHCs. This
+demonstration will work to treat patients in an outpatient setting, keeping
+them in their homes.
+
+e Rural Crisis Stabilization Units (CSUs): Funding to test Alternative Payment
+Models (APMs) for rural CSUs to capture the full scope of crisis stabilization
+in rural areas which may include follow-up services, community coordination,
+and wraparound supports. Successful APMs will incentivize continuity of
+care, quality, sustainability, and inpatient psychiatric or jail diversion.
+
+e Crisis Intervention: Funding for rural providers to test crisis care models that
+work in rural areas. Rural Michiganders have inconsistent access to mobile
+
+41
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-42.png>>>
+Project Narrative - Michigan
+crisis services and rural providers face challenges with CCBHC certification
+because of this core service. 24/7 mobile crisis and innovative intensive crisis
+stabilization services will help rural providers support all Michiganders, both
+children and adults, in crisis with the right type and the right level of care at
+the right time.
+
+e Rural CCHBC Readiness: Funding to support behavioral health providers who
+are not yet positioned for full CCBHC certification but are prepared to expand
+their service array by adding core CCBHC services and evidence-based
+practices such as substance use disorder (SUD) treatment, 24/7 mobile crisis
+response, Behavioral Health Urgent Care, and services tailored to mandatory
+populations such as active-duty military and veterans.
+
+e Behavioral Health Urgent Care: Funding providers to pilot new telehealth or
+in-person options for same-day mental health services, expanded hours, and
+additional prescriber availability. Behavioral health urgent cares can be
+Community Mental Health Service Providers (CMHSPs) or co-located with
+existing FQHCs, rural health clinics or critical access hospitals, leveraging
+shared space and staff. Investment in Behavioral Health Urgent Cares not
+only addresses immediate community needs but also equips providers with the
+service array and operational experience needed to move toward future
+CCBHC certification.
+
+¢ Mobile Medication Units: Funding to stand up mobile medication units to
+provide Medications for Opioid Use Disorder (MOUD) to rural areas of the
+northern lower peninsula. Many people in rural northern Michigan must drive
+up to two and a half hours to reach a provider with a full range of MOUD.
+
+42
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-43.png>>>
+Project Narrative - Michigan
+Initiating mobile medication services out of the Ludington Opioid Treatment
+Program will allow services to expand into Wexford County and Grand
+Traverse County — both with a high incidence of opioid use -- as well as
+neighboring counties with unmet demand. The units will offer medications,
+peer recovery coaching, and counseling as needed.
+o Main strategic goal: Sustainable Access
+Use of Funds: A, B, E, G, H, J, K
+Technical Score Factors: B.1, B.2, C.1, C.2, D.1, E.1, E.2, F.1
+Stakeholders: Rural hospital, rural health clinics, providers, Michigan Primary Care Association
+(FQHCs), Uber/Lyft/Taxis/Transportation associations, Michigan Transportation Connection,
+payors, PIHPs, behavioral health providers, AAAs, Home and Community Based providers, local
+businesses, local health departments, Michigan health systems, emergency responders, doulas,
+Tribal Governments, community health centers, opioid treatment centers, local business/civil
+organizations.
+Outcomes:
+The Care Closer to Home Blueprint Initiative aims to demonstrate measurable improvements in
+rural residents’ access to care, health outcomes, and quality of life by bringing essential services
+closer to where people live and work. Over the next five years, MDHHS will evaluate progress
+toward reducing emergency department (ED) utilization for preventable conditions, increasing
+access to primary and behavioral health care, and improving transportation and home-based care
+options in rural communities. Each of the principal programs and funds under this initiative will
+include quantitative and qualitative outcome measures aligned with Michigan’s broader goals for
+partnership integration, workforce development, and data interoperability across the four
+overarching rural health initiatives.
+43
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-44.png>>>
+Project Narrative - Michigan
+Studies have shown that 40 percent of patients Reduce the number of patients over the age of
+over the age of 65 had medication errors after 65 with a medication error by 10 percent by
+leaving the hospital and 19 percent of Medicare year 5. Reduce by five percent the number of
+patients discharged from a hospital are readmitted | patient readmissions for the same diagnosis.
+within 30 days.
+Rural residents experience higher rates of chronic | Establish 5—7 coalition hubs with connected
+disease and limited access to specialty care; There | community spokes delivering preventive,
+are currently 145 addiction and behavioral health | primary, and behavioral health services via
+providers per 100,000 residents in Michigan telehealth, in-home visits, and mobile clinics.
+overall, compared to 127 providers per 100,000 To achieve a rate of 132 providers per 100,000
+residents across all selected rural counties. This is | population in rural counties would require
+a gap of about 18 providers per 100,000 residents; | adding about 45 additional behavioral health
+an additional 149 providers across all rural providers over 5 years (average of 9 providers
+counties are needed to close this gap. per year). This would close 30% of the current
+gap and bring rural counties significantly
+closer to the overall Michigan rate of
+behavioral health providers per capita.
+Limited or no formal non-emergency medical Fund at least 10 community-based
+transportation (NEMT) options exist in most rural | transportation projects, integrate NEMT with
+counties. Total NEMT Providers (based on local EMS or public safety services in at least
+provider’s home address, may not reflect service three pilot regions, and establish five last-mile
+area): 70 providers across 33 counties food and pharmacy delivery routes by Year 4.
+MDHHS would prioritize counties 0-2
+providers with the goal of having providers in
+each county by year 5.
+In 2023, behavioral health related ED visits in Establish at least 2 Rural CSUs, four
+rural Michigan exceeded 2,000 per 100,000 CCBHCs, and three new Intensive Outpatient
+residents, with limited outpatient and crisis Program sites by Year 5. Reduce behavioral
+stabilization options. Additionally, Northern health-related ED visits by 15% and inpatient
+Lower Peninsula counties experience long travel | admissions by 10% in pilot regions. MDHHS
+times up to 2.5 hours to reach MOUD providers, | will also deploy two mobile medication units
+with limited access for over 60% of residents in by 2026 serving at least 400 new patients
+need. annually, with a goal to expand into six rural
+counties by 2028. Increase access to MOUD
+by 30% in the service region and reduce
+overdose-related ED admissions by 10%
+within three years.
+44
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-45.png>>>
+Project Narrative - Michigan
+
+Impacted counties: 26001 26003 26005 26007 26009 26011 26013 26015 26017 26019 26021
+26023 26025 26027 26029 26031 26033 26035 26037 26039 26041 26043 26045 26047 26049
+26051 26053 26055 26057 26059 26061 26063 26065 26067 26069 26071 26073 26079 26083
+26085 26087 26089 26091 26093 26095 26097 26101 26103 26105 26107 26109 26111 26113
+26117 26119 26123 26125 26127 26129 26131 26133 26135 26137 26141 26143 26145 26151
+26153 26155 26149 26157 26159 26161 26163 26165
+
+Estimated Required Funding: $73,000,000
+
+Implementation plan and timeline
+
+The Rural Health Transformation (RHT) Program will be managed through a structured
+governance and project management framework, with guidance from the Rural Health
+Transformation Advisory Council. MDHHS will serve as the lead organization for the four
+overarching initiatives. However, it will take strong collaboration at the state and local level to
+ensure that initiatives are impactful. Staffing will be a mix of newly hired roles or internal re-
+assignment to these initiatives.
+
+Staffing and Roles:
+
+e Grant Administration: 1 Full-Time Equivalent (FTE) Grant Administrator will manage all
+grants across the four initiatives, including overseeing the internal processes to launch
+Requests for Proposals (RFPs), review applications, award funding, and finalize
+agreements with partner organizations.
+
+e Program and Data Monitoring: 9 FTE Program Managers will oversee implementation,
+monitor program outcomes, and manage data tracking and reporting of roughly 24
+programs/ sub-initiatives. These managers will provide internal oversight and ensure
+timely adjustments based on performance data.
+
+45
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-46.png>>>
+Project Narrative - Michigan
+
+¢ Partnership Management & Engagement: 1 FTE Analyst dedicated to supporting the
+Rural Health Transformation Advisory Council and coordinating external partner
+engagement. This role facilitates monthly coalition meetings, stakeholder alignment, and
+strategic engagement with rural partners.
+
+e Program Director: | FTE ensures alignment across all four initiatives, supports the Rural
+Health Transformation Advisory Council, reviews progress reports, and serves as lead for
+programmatic and operational escalations.
+
+e External Support: Vendor partners will provide TA, evaluation, and additional data
+management support to complement internal staffing through a competitive bidding
+process. Limited-term staffing and additional analytical support needs will be provided
+through the Michigan Public Health Institute (MPHI).
+
+Coordination and Communication:
+
+« Regular reporting, structured decision-making, and frequent meetings will ensure
+alignment among MDHHS divisions, external partners, and rural stakeholders.
+
+e Steering committees and advisory councils will provide guidance, review progress, and
+help prioritize initiatives across the program.
+
+e External vendors will provide TA, data management, and evaluation support to
+complement internal staffing and strengthen implementation capacity.
+
+This governance and project management structure, combined with dedicated staffing and
+
+strategic partner engagement, ensures a capable and accountable framework for advancing
+
+measurable rural health improvements across Michigan.
+
+The table below presents a consolidated view of the four overarching initiatives organized by
+
+programmatic components and mapped across staged activities from FY26 through FY31. This
+
+46
+Please Note: This document reflects MI's application for CMS' Rural Health
+
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-47.png>>>
+Project Narrative - Michigan
+integrated framework supports alignment across initiatives, ensures clear accountability, and
+enables tracking of measurable outcomes to advance rural health improvement in Michigan.
+Program Year
+Chronic 2 convene stakeholders to design collaborative
+Disease framework and workflows.
+Management Stage 1: FY26 Q3- | Assign staff; finalize project plan; implement initial
+4 workflows/protocols; deliver patient education and
+monitoring tools.
+outcome data; adjust protocols.
+lessons learned.
+refined models; consolidate training/toolkits.
+diabetes, cardiovascular disease.
+Disease & 2 program guidelines; conduct rural needs assessments.
+Homes 4 grantees.
+establish monitoring protocols.
+track outputs.
+interventions as needed.
+develop sustainability plans; share findings.
+i
+Medicaid 2
+Billing 4 toolkits/technology.
+training; establish monitoring.
+workflows.
+integration.
+outcomes.
+Ee
+2 assign program managers.
+47
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-48.png>>>
+Project Narrative - Michigan
+Data 4 hubs.
+Management
+collection.
+learned.
+document recommendations.
+Health care pipeline program; execute contracts.
+student interest data.
+shadowing, camps).
+health care employment.
+BSW to Stage 0-5: FY26- | Hire or assign 0.5 FTE; create guidelines; administer
+Clinical MSW | 31 stipend program; outreach; review applications; execute
+Stipend agreements; track employment/retention outcomes.
+MSW evaluation standards.
+Scholarship
+practice exposure.
+employment.
+completion, rural workforce retention.
+Provider 27 contracts.
+Retention 31 progress; TA.
+impact.
+Maternal
+Health
+Recruitment & institutions; collect early progress data.
+provide TA.
+48
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-49.png>>>
+Project Narrative - Michigan
+————————
+artnerships.
+maternal health access improvements.
+Retention & 31 application period; orientation; post-employment
+Recruitment tracking; provide TA; monitor retention.
+Supervision coordinate with universities.
+Stipend
+Program
+Trainings & identify counties with greatest need.
+30 certification; transition certified CHWs/CPs into rural
+employment.
+CHWs/CPs, retention. in rural areas.
+Dashboard key metrics.
+operability assessment; design RFP; contract consulting group.
+Council deliver first annual report.
+regions; gather feedback.
+roadmap; annual summits.
+Integration ypes.
+Pilot Projects
+49
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-50.png>>>
+Project Narrative - Michigan
+i cc
+31
+Infrastructure telehealth/secure messaging platform; establish
+TA/training standards.
+expand platform to additional sites.
+advisory council.
+31 final report and sustainability plan.
+Transportation evaluation metrics; collect baseline data.
+collection.
+TA/training; oversee contracts.
+sustainability strategies.
+31 outcomes.
+Resource pilot rural resource centers.
+Investments monitoring.
+Stage 2 monitoring/data collection.
+data collection.
+31
+Evaluation & | Stage 0: FY26 Hire or assign 1 FTE; select contracts with evaluation
+Management contracts.
+Year 1 summit.
+report.
+Rural Health
+Hub and development.
+50
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-51.png>>>
+Project Narrative - Michigan
+Fund model; telehealth established.
+home/community; telehealth operational.
+sustainability plans in place.
+Improving
+& Access development.
+Through
+Transportation
+implemented.
+Advancing
+Behavioral initiative prep.
+initiate programs.
+established.
+implemented.
+Promoting
+in Rural development.
+Communities
+services.
+implemented.
+Stakeholder Engagement
+MDHHS recognizes that meaningful engagement with rural stakeholders is essential to the
+success of the Rural Health Transformation Program. Our approach builds on existing
+partnerships and a structured engagement framework that ensures rural voices guide planning,
+implementation, and evaluation.
+51
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-52.png>>>
+Project Narrative - Michigan
+Michigan has taken a multi-pronged approach to ensure the Rural Health Transformation
+Program is responsive to on-the-ground needs. Building on longstanding relationships with rural
+health safety net partners, we engaged key membership associations and organizations to
+collaboratively develop strategies that reflect diverse perspectives. Partners such as the Michigan
+Health and Hospital Association, the Michigan Primary Care Association, and the Michigan
+Center for Rural Health (Michigan’s State Office of Rural Health), among others, have been
+instrumental in refining program proposals. To broaden input, we conducted an open survey on
+the MDHHS website, soliciting targeted feedback from providers, community members, and
+local leaders. Together, these efforts have generated over 500 unique responses.
+We have already engaged a wide range of stakeholders and will continue to do so throughout the
+program lifecycle:
+
+¢ Rural hospital and health system leaders
+
+e Primary care providers and FQHCs
+
+« Community leaders and patients in rural communities
+
+« Local health departments and county health officers
+
+e Tribal representatives and Indian health care providers (in partnership with the State
+
+Tribal Affairs office)
+
+e Faith-based and nonprofit service providers
+
+e Behavioral health providers and critical access hospitals
+
+e Workforce stakeholders, including the Michigan Department of Labor and Economic
+
+Opportunity, which oversees apprenticeship and career ladder programs
+MDHHS hosted two statewide listening sessions with broad stakeholder participation, which
+provided important insights on workforce shortages, provider payment challenges, and
+52
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-53.png>>>
+Project Narrative - Michigan
+
+community needs. MDHHS also held a listening session for Michigan’s 13 federally recognized
+tribes to understand their unique challenges, needs and ideas to incorporate in this proposal.
+
+To ensure sustained input and governance, MDHHS will implement the following engagement
+framework:
+
+e Rural Health Transformation Advisory Committee: A formal advisory body representing
+patients, providers, hospitals, community leaders, and tribal partners. The Committee will
+meet regularly and receive written updates to advise on implementation, track progress
+toward milestones, and review impact metrics.
+
+¢ Regular Workgroups: Utilization of existing workgroups will focus on workforce,
+interoperability, and community engagement with rural health focus.
+
+« Annual Summit: MDHHS will convene an annual forum to ensure ongoing feedback
+from rural residents and providers.
+
+« Integrated Governance: Governance structures will reflect community representation,
+including patient voices, rural hospital leadership, and provider organizations, to ensure
+that decisions reflect the needs of the populations we serve.
+
+MDHHS will continue internal collaboration across Medicaid, Behavioral Health, Public Health,
+Human Services, the Tribal health and human services liaison and Aging Services, as well as
+with the Michigan Department of Labor and Economic Opportunity to align workforce
+development initiatives with rural health needs.
+Metrics and Evaluation Plan
+To evaluate the success of the four proposed initiatives, MDHHS will implement a
+comprehensive performance measurement and evaluation framework that leverages existing
+health data systems, Medicaid data, and rural health reporting infrastructure. Metrics will be
+tracked at both the State and county levels to measure the impact across rural and Tribal
+53
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-54.png>>>
+Project Narrative - Michigan
+
+communities. Participating providers and partners will submit quarterly data through secure
+reporting tools, supplemented by data from existing state systems. Baseline data are available for
+most metrics using FY2024 Michigan rural health data.
+
+MDHHS will conduct its own ongoing monitoring and performance assessment while partnering
+with a vendor to conduct a summative evaluation of program effectiveness and impact. MDHHS
+will fully cooperate with CMS-led evaluation or third-party monitoring.
+
+1. Transforming Rural Health through Partnerships Initiative Performance Focus:
+Strengthening local and cross-sector rural partnerships to improve access to care,
+community capacity, and sustainability.
+
+Transforming Rural Health through Partnerships Initiative Performance Metrics
+Performance Metric: | Number of formalized rural partnership agreements
+30 new partnerships by Year 2
+State partnership registry and grant reporting
+Performance Metric: | Percent increase in rural residents with access to coordinated care
+services within their coun
+10% inerease by Year 3
+County-level
+Performance Metric: | Reduction in hospital readmission rates among rural residents
+participating in partnership programs
+8% reduction by Year 3
+Hospital discharge and claims data
+Performance Metric: | Number of community-based projects addressing rural health
+priorities (e.g., mobile clinics, wellness hubs
+15 projects launched by Year 2
+Grant reporting
+
+Evaluation: Data will be analyzed quarterly to assess partnership density, service reach, and
+
+improvements in care coordination.
+
+54
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-55.png>>>
+Project Narrative - Michigan
+2. Workforce for Wellness Initiative Focus: Strengthening Michigan’s rural health
+workforce through targeted recruitment, retention, education, and training programs to
+increase access to care and build local capacity in rural communities. This initiative
+addresses workforce shortages through proven and innovative strategies, including
+educational stipends, scholarships, pipeline programs, and local workforce initiatives.
+Workforce for Wellness Initiative Performance Metrics
+Performance Metric: | Number of rural health care professionals recruited and retained
+through locally tailored programs
+Target: | Year 3: 150 new rural providers; Year 5: >15% net increase in
+rural workforce
+Program award reports, provider registry
+Performance Metric: | Ratio of targeted providers to residents in rural areas, HPSA
+scores changes, and overutilization rates
+Target: | Year 5 Reducing overutilization rates and HPSA scores based on
+federal shortage designation benchmarks.
+Provider registry, shortage designation system, and program
+award reports
+Performance Metric: | Number of students enrolled in rural health educational pipeline
+programs
+Target: | Year 2: 200 students; Year 5: 25 students enrolled in
+postsecondary health programs
+Grant reporting
+Performance Metric: | Number of rural MSWs trained and employed
+>40 new MSWs employed by Year 5
+Grant reporting
+Performance Metric: | Number of rural CHWs/CPs trained, credentialed, or employed
+100 certified CHWs/CPs deployed by Year 5
+Grant reporting
+Evaluation: Quarterly and annual reporting will track recruitment, retention, credentialing,
+and educational program outcomes. Data will inform adjustments to program design and
+allocation of resources.
+55
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-56.png>>>
+Project Narrative - Michigan
+3. Interoperability in Action Initiative Focus: Modernizing Michigan’s rural health IT
+ecosystem to improve patient care, enhance provider coordination, and reduce
+administrative inefficiencies. This initiative develops statewide interoperability standards,
+supports data integration pilots, invests in technology infrastructure, and strengthens
+workforce capacity to optimize care delivery in rural communities.
+Interoperability in Action Initiative Performance Metrics
+Performance Metric: | Number of rural health IT pilot projects implemented to
+demonstrate integrated workflows
+Target: | Four pilot cohorts established in Year 1; 100% implementation in
+all pilot sites by Year 3
+Program reporting and pilot site tracking (county-level)
+Performance Metric: | Percent increase in rural provider participation in HIE/data
+sharing networks
+50% increase in active rural provider participation by Year 5
+Program reporting (county-level)
+Performance Metric: | Number of rural community members with improved access to
+digital health and referral resources
+Year 4 Achieve up to 80% 5-year retention
+Provider reporting
+Performance Metric: | Number of health IT workforce and stakeholder participants
+trained. or supported in rural technology use
+Target: | 150 organizations supported by Year 5, with 75% reporting
+satisfaction and comfort with tools
+Training and technical assistance records (County Level)
+Evaluation: Data will be collected annually through dashboards, surveys, and pilot site
+reports. Progress will be analyzed to assess HIE participation, technology adoption,
+workflow integration, and community access to resources. Findings will inform standards
+development, workforce training, and statewide interoperability policy.
+4. Care Closer to Home Blueprint Initiative Focus: Bringing essential health care services
+closer to where rural residents live and work to improve access, health outcomes, and
+56
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-57.png>>>
+Project Narrative - Michigan
+quality of life. The initiative emphasizes home and community-based care, behavioral
+health access, transportation solutions, and coordinated care networks.
+Care Closer to Home Blueprint Initiative Performance Metrics
+Performance Metric: | Number of new rural PACE or alternative care sites (ACS)
+established
+>3 ACS or mobile PACE units by Year 5
+Program reporting (county-level)
+Performance Metric: | Percent reduction in preventable hospital and ED visits
+10% reduction in hospital admissions for ambulatory care;
+Hospital discharge and claims data (county-level)
+Performance Metric: | Number of rural residents with access to primary, behavioral, and
+home-based care
+Target: | >400 patients served annually by mobile medication units by
+Year 5
+Program reporting (county-level)
+Performance Metric: | Number of transportation and delivery programs implemented to
+improve access to care
+Target: | >10 community-based, >5 last-mile food/pharmacy delivery
+routes by Year 4
+Program reporting (County Level)
+Evaluation: Data will be collected and analyzed annually to monitor expansion of care sites,
+patient utilization, ED/hospitalization trends, and access improvements. Progress will inform
+refinement of home- and community-based services, transportation strategies, and integration
+with health IT systems for coordinated care.
+Sustainability Plan
+Michigan’s Rural Health Transformation Program is designed to create lasting improvements in
+rural health care delivery, workforce capacity, and infrastructure. Initiatives such as telehealth
+programs, home-based care services, and workforce development programs will be fully
+integrated into MDHHS operational policies and procedures, ensuring that these efforts persist
+beyond the conclusion of the Rural Health Transformation funding in FY31. By embedding these
+57
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-58.png>>>
+Project Narrative - Michigan
+approaches within existing state systems, creates a framework for sustaining the benefits of the
+RHT program in rural communities, even as temporary funding concludes.
+With Medicaid’s expansive telehealth coverage as a foundation, additional proven and
+permissible innovations, both in telehealth and broader care delivery, will be assessed for
+potential permanent inclusion as covered services. MDHHS will explore legislative
+appropriations, Medicaid State Plan amendments, waiver authorities, and managed care contract
+updates as avenues to sustain successful initiatives. This policy and contractual alignment ensure
+that high-impact programs, particularly those that expand access to primary care, behavioral
+health, and specialty services in rural areas, are maintained and remain aligned with ongoing
+Medicaid benefits and policy priorities.
+The partnerships established through the Rural Health Transformation Program are being
+structured with sustainability in mind. Regional collaboratives that generate savings will have
+mechanisms to reinvest those resources into continued operations. These partnerships will
+formalize governance structures, decision-making processes, and performance metrics to
+promote alignment, accountability, and ongoing commitment from participating entities. Early,
+frequent, and ongoing stakeholder engagement, including advisory boards, private-sector
+partners, and interagency collaboration through the Medicaid Advisory Council (MAC) and
+Beneficiary Advisory Council (BAC), will ensure that community voices shape decisions and
+that accountability for permanent change is shared across sectors.
+Sustainability will rely on a combination of funding sources, including state appropriations,
+Medicaid financing mechanisms, philanthropic contributions, and partner investment. MDHHS
+will begin sustainability discussions early in the grant period, which will take place with
+Department leadership to identify and pursue potential funding sources. Initiating these
+58
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-59.png>>>
+Project Narrative - Michigan
+conversations at the outset provides time to secure additional resources and to assess the capacity
+of external organizations to support successful initiatives after federal funding concludes.
+Ongoing monitoring, evaluation, and reporting will remain central to sustainability. MDHHS will
+share frameworks and disseminate best practices to strengthen regional and statewide success.
+Lessons learned will inform targeted grant applications and investment strategies, helping build a
+diversified financial foundation for continued operation. Data-driven governance will guide
+decision-making, track outcomes, and ensure continuous improvement. Programs that
+demonstrate measurable cost savings or improved health outcomes will leverage those results to
+secure ongoing funding.
+The knowledge and evidence generated through the Rural Health Transformation Program will
+inform broader state health policy and planning. Rural health transformation goals will be
+reflected in the Michigan Health Improvement Plan, Medicaid policies, managed care contracts,
+and other statewide initiatives. Programs supported by these federal funds will be assessed for
+transition to sustainable state funding streams, ensuring continuity of services and avoiding
+disruption in care for rural populations.
+By the conclusion of this program in FY31, each initiative will have a formalized sustainability
+plan detailing responsible entities, budgets, staffing, and funding strategies. These plans will
+identify operational requirements, partnership roles, and potential funding streams to maintain
+services and programs. Evaluation and ongoing data monitoring will remain central to
+sustainability, enabling MDHHS and partners to track program outcomes, make adjustments, and
+continue evidence-based improvements. Through this structured, collaborative, and data-driven
+approach, MDHHS will ensure that the investments made under the Rural Health Transformation
+59
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-60.png>>>
+Project Narrative - Michigan
+Program result in measurable, enduring improvements in rural health access to care, workforce
+capacity, and improved health outcomes.
+Other Required Information
+Michigan Data:
+D.3 Scope of Practice Legislative Bill
+introduced to
+expand the scope House Bill 5108 of 2025 - Michigan
+of practice for Legislature
+Pharmacists on
+Oct. 22, 2025
+A. 2. Proportion of https://www.michigan.gov/mdhhs/keep-
+Rural Health :
+eer mi-healthy/mentalhealth/ecbhc/consumer
+Facilities in the State; 35
+ber of CCBHCs i
+numero sin See Appendix A for sites and addresses
+Michigan
+A. 7. number of
+hospitals in a State that ff. oo. :
+receive Medicaid DSH Michigan Medicaid Office
+payments
+60
+Please Note: This document reflects MI's application for CMS' Rural Health
+Transformation Program. It is a proposed plan and subject to CMS review and approval.
+<<<PAGE ocr_mi/p-61.png>>>

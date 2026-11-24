@@ -1,0 +1,388 @@
+                          Vermont’s Rural Health Transformation (RHT) Program Application Activity Details
+
+                                                         Posted March 4th, 2026
+
+
+
+Vermont’s publicly posted narrative (and summary) describe the various work the state plans to accomplish through the federal RHT
+Program funding opportunity. Vermont’s RHT Program vision will be executed through thirty grant opportunities (also called subrecipients)
+as well as procurement of two consultants and four contractors (including an independent evaluator). The state’s key initiatives include: (1)
+Regionalization and Innovative Care Strategies (“Regionalization”); (2) Establishing a Clinically Integrated Network of Shared Services
+(“Shared Services”); (3) Strengthening Primary Care (“Primary Care”); (4) Health Care Workforce Development (“Workforce Development”);
+and (5) Price Transparency and Insurance Competition. A note that the items listed in the tables below are subject to change pending
+forthcoming negotiations with the Centers for Medicare and Medicaid Services.
+
+ Grants (Subrecipients)
+ Number Title                       Description                                                                              Initiative
+ 1         Community                Establish a mobile integrated health care and community paramedicine model that          Regionalization
+           paramedicine/Mobile      uses specially trained paramedics, Advanced Emergency Medical Technicians
+           Integrated Health        (EMTs), and EMTs working under physician/nurse practitioner (NP) oversight, to
+           model                    deliver protocol driven care in patients’ homes, shifting care out of the hospital. A
+                                    phased statewide rollout will establish the legal framework, pilot and refine care
+                                    protocols, and expand to all regions with standardized data, training, and quality
+                                    assurance infrastructure. Core services will focus on post-discharge and primary-
+                                    care follow-up, with the flexibility to add modules for surgical recovery, substance
+                                    use, or other locally prioritized needs. This project will also include changes to the
+                                    Emergency Medical Services (EMS) scope of practice and associated
+                                    reimbursement model, such as flexibility to “triage and treat” in the community.
+ 2          Facility upgrades to    Support renovations or upgrades to existing buildings and equipment in hospitals         Regionalization
+            support                 and clinics, so they can better serve their communities. Investments may include
+            regionalization         heating, ventilation, and air conditioning (HVAC) and sewer system upgrades,
+                                    reconfigured office or clinical areas, and other limited physical modifications to
+                                    support service realignment, shared operations, and integrated care delivery
+                                    envisioned under Vermont’s regionalization strategy.
+
+
+                                                                      1
+3   Mental Health (MH)      Support targeted expansion of urgent care centers to enable immediate, walk-in           Regionalization
+    and Substance Use       access to MH and SUD care as a lower-cost, community-anchored alternative to
+    Disorder (SUD) urgent   Emergency Departments (EDs). Investments in urgent care expansion will include
+    care expansion          minor renovations within the blueprint of existing buildings to improve service
+                            capacity. This project aims to create new and long-term access points to preventive
+                            care at the community level.
+4   Transformation,         Support health care providers in adopting tactical regional care strategies that will    Regionalization
+    innovation, and         shift appropriate services from hospitals to nonhospital settings and create regional
+    regionalization         hospital services or centers of excellence. Grants will be made by AHS to health care
+    support grants          providers to support the implementation of regional care changes that sustain high-
+                            quality, cost-effective care for Vermonters, and the grants will primarily be provided
+                            to non-hospital providers to strengthen the continuum of care, encourage care
+                            delivery innovation, and better align services with population needs. AHS will
+                            allocate a proportion of grant funding to provider proposals to implement innovative
+                            care models in line with the state’s regionalization and transformation goals (e.g.,
+                            hospital-home health partnerships, regional workforce sharing models, maternity
+                            care network development). Grants may also be used to purchase tools and
+                            technical assistance to enable interoperability between electronic medical record
+                            (EMR) systems.
+
+5   Mobile units offering   Support mobile clinic units to provide medical care (including integrated MH and         Regionalization
+    medical, and            SUD services) to remote areas in the state. Several of the state’s Designated
+    integrated MH and       Agencies (DAs) have already piloted the model and lessons learned will inform
+    SUD treatment           deployment of new mobile units to rural areas where schools and homes do not
+                            have the necessary supportive services available.
+
+
+6   Mobile units offering   Dental mobile units will deliver oral health services to schools and residential         Regionalization
+    dental care             facilities.
+
+
+
+
+                                                              2
+7   Improve availability     Provide funding support for new grants to providers to purchase dialysis and nursing      Regionalization
+    and access to high-      home ventilator equipment. Funds would also cover equipment installation for
+    acuity services for      dialysis services with necessary upgrades to facility infrastructure to serve
+    nursing home             patients—the state will also consider a mobile unit in place of facility units based on
+    residents, including     review of business plans.
+    dialysis services and
+    ventilators
+
+
+
+
+8   Establishing a shared    Invest in the development of a unified HRIS that will centralize core human               Shared Services
+    Human Resources          resources functions, including benefits administration, payroll, recruitment,
+    Information System       onboarding, licensure tracking, and compliance, while allowing each participating
+    (HRIS) system            hospital and community partners to securely manage organization specific tasks,
+                             such as performance evaluations and regulatory reporting. The system will
+                             streamline workforce management, reduce administrative costs, and support staff
+                             scheduling flexibility, allowing clinical teams to be shared or shifted to meet
+                             fluctuating patient volumes across regions.
+9   Incentivizing adoption   Build upon Vermont’s existing health data infrastructure, including Vermont’s Health      Shared Services
+    of a shared EMR          Information Exchange (VHIE), to strengthen data sharing and care coordination
+    platform                 across the state. This initiative would implement a shared EMR that complements
+                             and continues to contribute data to the VHIE. Participation would be voluntary and
+                             designed to achieve seamless data exchange, support improved image and lab
+                             sharing, enhance cybersecurity, and allow advanced data analytics. Leveraging the
+                             VHIE’s existing infrastructure for state-wide sharing, while promoting a shared EMR,
+                             would reduce administrative burden, improve care coordination— particularly for
+                             rural populations—and advance statewide health system integration.
+
+
+
+
+                                                               3
+10   Statewide e-Consult      Support the implementation of a statewide e-Consult platform to ensure an               Shared Services
+     expansion and            interoperable means of access for primary care providers to consult with specialists.
+     workforce capacity       Grants will be provided to providers to enable purchase of technologies to support
+     building                 the build and function of an eConsult platform. Funding will also be used for
+                              technology upgrades as well as startup program coordination costs that do not have
+                              an alternative funding source. Lastly, funding will be used to build capacity for
+                              pediatric and perinatal providers through a program that provides real-time
+                              psychiatric consultation, training, and resources, so they can confidently care for
+                              patients with mild to moderate MH needs in their primary care hub. Access to e-
+                              Consult services will save patients from having to travel to separate appointments
+                              and help strengthen local primary care capacity.
+
+11   Grants to providers to   Provide grants to provider organizations for the purchase of RPM equipment. RPM         Shared Services
+     adopt Remote Patient     would be used in home health, primary care/specialty, and community
+     Monitoring (RPM)         paramedicine settings. RPM enables earlier interventions and ongoing monitoring for
+     equipment                chronic conditions (e.g., Congestive Heart Failure (CHF), Chronic Obstructive
+                              Pulmanory Disease (COPD), diabetes, hypertension, asthma for pediatric
+                              populations, etc.) in the home to prevent hospital admissions or readmissions.
+12   Grant funds to           Provide grants to rural independent medical practices to purchase and implement         Shared Services
+     providers to adopt       telehealth technology solutions statewide. Funds would support investments in
+     telehealth technology    secure telehealth platforms, connected diagnostic tools, and related infrastructure
+                              necessary to deliver high-quality virtual visits (Note: funds will not be used for
+                              broadband). Funds will be used to provide technical assistance and training to
+                              grantees on technology selection, implementation, cybersecurity, and compliance.
+                              By enabling smaller and independent practices to fully participate in Vermont’s
+                              evolving digital health ecosystem, this initiative will reduce barriers to access,
+                              improve continuity of care, and enhance the overall resilience of the state’s rural
+                              health system.
+
+
+
+
+                                                               4
+13   Grants to providers to   Provide grants to providers to purchase AI scribe technology. Currently, smaller and    Shared Services
+     adopt Artificial         more rural and independent practices are struggling with access to the same
+     Intelligence (AI)        technology that larger practices can afford. Scribes automate an average of over two
+     transcription/scribe     hours of daily administrative work, transcribing and processing clinician-patient
+     technology               conversations, producing clinical notes and follow-up materials so clinicians can
+                              focus on delivering quality care to their patients. Investing in these services will
+                              produce clinical and administrative efficiencies for providers that will lead to
+                              improvements in the quality of care.
+14   Providing enhanced       Fund payments to improve team-based care implementation to support care                 Primary Care
+     capacity for team-       coordination and prevention-focused interventions such as chronic disease
+     based care               management, nutrition, and exercise programs. This payment will be a prospective
+                              Per Member Per Month (PMPM) amount to support community health team staff.
+                              Practices will receive payment based on agreeing to implement new standards and
+                              their performance on these standards. The PMPM will help increase access to
+                              services, including provision of evidence-based chronic disease prevention and
+                              management for all Vermonters.
+15   MH and community         Funds expanded staffing recruitment efforts at primary care practices to provide        Primary Care
+     support integration      comprehensive, team-based care for activities that are not otherwise reimbursable.
+     into primary care        Embedding MH and community support specialists within existing clinical teams will
+     teams                    strengthen coordination between physical, MH, and social services. This allows
+                              patients to access timely, whole-person support in a familiar setting. The model will
+                              enhance screening, early intervention, and care planning for patients with
+                              intertwining needs, reduce barriers to care access, and improve outcomes through
+                              closer collaboration between clinicians, care coordinators, and community-based
+                              partners, including transportation partners.
+16   Enhancing Blueprint      Invest in the Vermont Blueprint for Health’s statewide network of practices to allow    Primary Care
+     transformation           for the modernization of the model. The project will support technical assistance,
+     network capacity         training, and practice transformation resources that help providers implement new
+                              care standards and evidence-based approaches. Priority areas include chronic
+                              disease prevention and management, integration of MH/SUD and physical health,
+                              and improved use of data to drive quality and outcomes.
+
+
+
+
+                                                               5
+17   Workforce support      To standardize care and ensure consistency across the state, providers will adopt            Primary Care
+     and system             clear, Vermont-specific guidelines aligned with national best practices and guidelines
+     integration            promoted by the U.S. Department of Health and Human Services. Training and
+     development            competency-building for the treatment team will promote evidence-based care,
+                            while enhanced patient education will strengthen self-management skills and
+                            confidence. Centralized resources and shared learning will ensure community health
+                            teams use the most current, effective interventions to achieve measurable outcome
+                            goals.
+                            This initiative is distinct from workforce pipeline development efforts under Initiative 4
+                            and is focused on transforming care delivery among currently practicing providers.
+18   Enhancing primary      Provide funding to expand statewide access to Electronic Clinical Quality Measures           Primary Care
+     care-focused data      (eCQM) calculation tools, risk stratification modules, referral tracking, and team-
+     and analytics          based care documentation. This will strengthen data-driven care coordination and
+     infrastructure         performance improvement. Investments will support practices in leveraging these
+                            tools to identify high-risk populations, monitor outcomes, and streamline reporting.
+                            Further, investments will enable primary care practices to harness data and
+                            technology to furnish high-quality health care services.
+19   Expanding access to    Provide funding to an FQHC to adapt existing clinical sites through minor                    Primary Care
+     Federally Qualified    infrastructure renovations/refurbishments and equipment upgrades to expand
+     Health Center          access to care. Funds will also be used to pay for resources related to formal
+     (FQHC) primary care    onboarding and training of staff and investments in information technology. In
+     services               addition, funding will support costs related to health data information transfer and
+                            community engagement and public relations activities.
+20   Incentivizing access   As part of the modernized Blueprint for Health model, primary care practices that            Primary Care
+     to primary care        meet access requirements will receive a PMPM capacity payment. Enhanced access
+                            requirements will improve patients’ ability to receive the care they need when and
+                            where they need it. Examples of the types of requirements needed to earn the
+                            capacity payments include waitlist reduction for new patients; ensuring availability
+                            of after-hours and/or weekend appointments; adoption of RPM, mobile health or
+                            home-visiting, telehealth; and same-day appointments for existing patients.
+
+
+
+
+                                                              6
+21   Specialty and primary   Funds will provide performance payments, as PMPM payments, that will be shared                 Primary Care
+     care performance        between specialty and primary care providers to incentivize consultation, co-
+     payments                management, and coordination of care for the following conditions: diabetes,
+                             MH/SUD, COPD, CHF, and hypertension (additional conditions may be added in
+                             future years). These payments are intended to incent providers to work together
+                             differently, facilitated by technology (e.g., e-Consults, telehealth). These payments
+                             will depend on the shared performance of providers.
+
+22   Expanding access to     Provide grants for the minor renovation and refurbishment of existing housing to               Primary Care
+     recovery housing for    increase capacity to support individuals in recovery. Through this investment, the
+     individuals with SUD    state will ensure that individuals provided primary care through the Blueprint for
+     needs                   Health’s community health teams will be able to access recovery housing. Recovery
+                             housing’s evidence-based model will provide a stable environment for individuals
+                             with SUD and co-occurring conditions to focus on recovery through encouraging
+                             peer support, personal growth, and long-term recovery skills.
+23   Health care             Fund a new workforce housing program to increase the amount of housing stock                   Workforce
+     workforce housing       available to health care workers in rural parts of the state. This program would               Development
+     program                 provide grants of up to $50,000 per unit to property owners for minor renovations and
+                             refurbishments needed to bring vacant rental units up to Vermont Rental Housing
+                             Health Code guidelines, add new units to an existing building within the current
+                             building footprint, or convert commercial or retail space into housing. Property
+                             owners are required to provide a 20% match for project grants and maintain the
+                             Department of Housing and Urban Development Fair Market Rent prices. More
+                             specifically, funds will (1) rehabilitate existing vacant units; (2) rehabilitate structural
+                             elements affecting multiple units, such as the lighting/electrical/plumbing/HVAC
+                             systems of a multi-family property, interior modifications, and accessibility
+                             improvements; and (3) create new units within an existing structure or convert
+                             commercial or retail space to residential. Health care organizations may apply to
+                             AHS to receive an allocation. The health care organizations will partner with one of
+                             the five Vermont Homeownership Centers based on their region, which will be the
+                             fiscal agent and administrator of the agreements. Property owners will submit an
+                             application to their regional Center. Recipients of the grants must agree to only allow
+                             qualifying health care providers to occupy the unit.
+
+
+                                                                7
+24   Expand access to         Invest in new LNA training opportunities across Vermont through hybrid education          Workforce
+     Licensed Nursing         models and coordinated clinical partnerships. Today, Vermont offers several               Development
+     Assistant (LNA)          accessible, work-based training options for LNA candidates, allowing them to gain
+     training programs        paid experience while completing required coursework. However, these programs
+                              are fragmented. RHT Program funds would support creation of a new centralized
+                              training hub and shared clinical placement opportunities for small and rural
+                              providers that lack the capacity to host their own programs. This project will help
+                              strengthen Vermont’s long-term care and hospital workforce pipeline while
+                              supporting career advancement within the nursing profession.
+
+25   Workforce                Funds would extend new coverage of licensing renewal fees, exam costs, continuing         Workforce
+     development tuition      education unit training, and stipends to pay interns for community-based providers,       Development
+     assistance program       including but not limited to MH, SUD, and intellectual and developmental disability
+                              providers. This project is crucial toward promoting access to essential community
+                              services.
+26   Invest in Vermont’s      Fund new activities to expand a “critical occupations” no-cost tuition program to         Workforce
+     “critical occupations”   enable access to education and training for high-demand health professions,               Development
+     no-cost tuition          including registered nursing, radiologic science, respiratory therapy, dental hygiene,
+     program                  and others. The program will provide last-dollar tuition support, covering any
+                              remaining tuition and fees after institutional, state, and federal gift aid is applied.
+                              Combined aid would not exceed a student’s total cost of attendance, ensuring
+                              responsible use of funds.
+27   Establish the Maple      Invest in startup and the first four years of operations for Vermont’s first rural        Workforce
+     Mountain Consortium      teaching health center family medicine residency programs. [Note: The state will be       Development
+     Family Medicine          contributing from its own funds to support startup in collaboration with but not
+     Residency Program        supplanted by RHT’s funds.] RHT funds may also support the program’s efforts to
+                              expand training for additional health professionals (e.g., dental residents and
+                              Advanced Practice Registered Nurses (APRNs)).
+
+
+
+
+                                                                8
+28   Expand pharmacists’      Fund a pilot program to broaden access to timely diagnosis and treatment through          Workforce
+     scope to include test-   enhanced utilization of pharmacists operating at the top of their license. Funds will     Development
+     to-treat in more         support the development of training modules, the establishment of necessary
+     scenarios                infrastructure (including technology and equipment), and pilot reimbursement
+                              mechanisms for expanded pharmacy-based services. By leveraging pharmacists as
+                              accessible, community-based providers, this initiative will enhance primary care
+                              capacity, reduce unnecessary emergency visits, and strengthen Vermont’s
+                              integrated rural care delivery system.
+29   Vermont conditional      Invest in attracting and retaining qualifying students (e.g., nurses, radiology           Workforce
+     financial assistance     technicians, medical technicians) through the provision of financial assistance. The      Development
+     program                  program will reduce financial barriers to entering and remaining in provider
+                              organizations within the state. Scholarships are granted once participants sign a
+                              promissory note and fulfill their required in-state service obligation
+30   Health care              Provide grant funding to support the ability of providers, such as rural home health      Workforce
+     professions residency    agencies, rural hospitals, and other health care organizations, to identify preceptors,   Development
+     program                  recruit residents, conduct training and education, and incentivize program
+                              participants to remain employed at the provider organization. Funds will enable
+                              statewide promotion of the program to educational institutions and prospective
+                              residents, provide recruitment materials, coordinate peer learning and support
+                              groups among residents, create preceptor support structures, provide curriculum
+                              support and materials, and assist with program reporting to state.
+
+
+
+
+                                                               9
+Consultants
+Number Title                       Description                                                                             Initiative
+1        Development of a          Cover costs associated with hiring a consultant to develop and implement a              Regionalization
+         statewide health care     Statewide Health Care Delivery Strategic Plan for Vermont. The plan will provide a
+         delivery strategic plan   roadmap for health care delivery system reform and promote access to high-quality,
+                                   cost-effective services across the system. Key elements of the plan may include a
+                                   shared statewide vision, goals, and objectives; annual total cost of care targets and
+                                   related spending targets for primary and preventive care; identification of the
+                                   resources, infrastructure, and supports necessary for implementation/monitoring.
+                                   AHS intends for this plan to build on prior transformation and regionalization
+                                   initiatives to ensure a coordinated, data-driven approach to organizing and
+                                   sustaining Vermont’s health care delivery system statewide.
+2         Statewide assessment     Invest in a statewide assessment and associated technical assistance to identify        Price
+          of options to improve    and advance policy options to improve access and affordability in Vermont’s             Transparency
+          health coverage          Marketplace (Vermont Health Connect). The assessment will explore options to            and Insurance
+          affordability            promote marketplace sustainability for insurers and consumers, including small          Competition
+                                   businesses. The assessment will identify what the state can do now, what requires
+                                   near-term analysis, and what could be implemented in 2028. Funds will provide
+                                   technical support to analyze reinsurance and Basic Health Program affordability
+                                   options, prepare federal waiver applications, and support marketplace plan design
+                                   innovation. The Department of Vermont Health Access (DVHA) and AHS will
+                                   undertake a Request for Information or other pre-procurement vehicle(s) to collect
+                                   information from the national issuer community on perceived barriers to entering
+                                   the Vermont market.
+
+
+
+
+                                                                   10
+Contractors
+Number Title                       Description                                                                              Initiative
+1        Independent evaluator     Vermont will select an external evaluator through a competitive procurement that         Evaluator
+                                   will be initiated during the first budget period. The selected vendor will be
+                                   responsible for overall assessment and evaluation of the program, including:
+                                   Understanding the context of Vermont’s RHT program; Developing a deep
+                                   knowledge of the activities undertaken as part of each initiative described above;
+                                   Designing the evaluation; Using existing data sources and collecting additional data
+                                   and information, as needed; Analyzing the data and information; and Presenting
+                                   results, conclusions, and recommendations. Vermont will fully cooperate with
+                                   Centers for Medicare and Medicaid Services-led evaluation, monitoring, and
+                                   reporting requirements.
+2        Transformation            Hire a vendor(s) to gather and study data that will inform hospital and regional         Regionalization
+         analytics and support     transformation planning over the next five years; and provide project management
+                                   support. The vendor(s) will provide modeling to assess the impacts of proposed
+                                   reforms on cost, quality, access, and sustainability across Vermont’s hospitals and
+                                   regions. Analytics support will be made available to hospitals and non-hospital
+                                   providers to support transformation and regionalization efforts (e.g., identifying
+                                   areas most in need of enhanced maternity care capacity). The selected vendor(s)
+                                   will also support onsite transformation activities with providers throughout the state
+                                   in alignment with Vermont’s regionalization goals, including backend office support,
+                                   efficiency studies, and other administrative functions that can be streamlined. The
+                                   state may require the vendor(s) to provide project management or other
+                                   transformation support to the other Initiatives in this application, as needed.
+3        Creating a centralized    Develop a shared subscription to a real-time digital tool that tracks bed capacity and   Shared
+         tool to guide             service availability across Vermont’s hospitals and health care facilities. The system   Services
+         interfacility transfers   will enable more efficient and appropriate patient transfers by providing up-to-date
+                                   visibility into available beds, specialty services, and transportation resources.
+                                   Improved coordination would reduce ED boarding, prevent unnecessary transfers
+                                   out of state, and ensure patients receive timely
+
+
+
+                                                                   11
+4   Support a statewide       Purchase a digital care coordination platform to strengthen communication and              Shared
+    closed-loop referral      collaboration among health care, MH/SUD, and social service providers. The system          Services
+    system                    will ensure patients successfully connect to needed community supports, such as
+                              housing, food assistance, and transportation. By enabling real-time data sharing and
+                              tracking of referral outcomes, the platform will reduce duplication of services,
+                              improve accountability, and promote cost efficiency while ensuring more seamless,
+                              person-centered care across Vermont’s health and social service systems.
+
+5   Statewide health care     This project aims to modernize how cost, quality and access data is managed and            Price
+    data platform             used in Vermont by scaling existing infrastructure. Funds will support development         Transparency
+    modernization and         of a scaled solution that will replace older tools and make it easier for state leaders,   and Insurance
+    transparency initiative   health care providers, and the public to see how well the health care system is            Competition
+                              working according to defined metrics. Additionally, the solution will use dashboards
+                              and reports to show important facts and trends, like how much health care costs are
+                              rising, the quality of care provided, and access to care. By using modern technology,
+                              the project will help people make smarter decisions about health care and track
+                              progress toward improving health services across the state.
+
+
+
+
+                                                               12
+

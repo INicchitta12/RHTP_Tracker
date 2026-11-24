@@ -145,15 +145,15 @@ test_that("no state's award total exceeds its allotment (the NV double count sta
   expect_equal(st$pool_level_usd[st$state == "LA"], 10736208)
 })
 
-test_that("the committed 2026-11-23 build is what the builder produces (session 122)", {
-  f <- here::here(YS_OUT("2026-11-23"))
+test_that("the committed 2026-11-24 build is what the builder produces (session 123; 122: 2026-11-23)", {
+  f <- here::here(YS_OUT("2026-11-24"))
   expect_true(file.exists(f))
   committed <- readr::read_csv(f, show_col_types = FALSE)
   expect_equal(committed$state, s$state)
   expect_equal(names(committed), names(s))
   expect_equal(round(committed$hospital_summary_usd, 2), round(s$hospital_summary_usd, 2))
   expect_equal(round(committed$award_total_usd, 2), round(s$award_total_usd, 2))
-  expect_true(file.exists(here::here(YS_XLSX("2026-11-23"))))
+  expect_true(file.exists(here::here(YS_XLSX("2026-11-24"))))
 })
 
 # SESSION 116f: the vendor layer re-pinned the build to 2026-11-11. The hospital
@@ -172,7 +172,7 @@ test_that("the 2026-11-11 hospital columns equal the 2026-11-09 build to the cen
 })
 
 test_that("the Vendor spending table: verified only, never across types, national pins (session 116f)", {
-  vt <- readr::read_csv(here::here(YS_VENDOR_OUT("2026-11-23")), show_col_types = FALSE)
+  vt <- readr::read_csv(here::here(YS_VENDOR_OUT("2026-11-24")), show_col_types = FALSE)
   expect_equal(nrow(vt), 51L)
   expect_equal(utils::tail(vt$state, 1), "US")
   usv <- vt[vt$state == "US", ]
@@ -201,13 +201,18 @@ test_that("the Vendor spending table: verified only, never across types, nationa
   expect_true(all(vt$vendor_out_of_state_award_usd <= vt$vendor_total_award_usd))
 })
 
-test_that("the workbook has the six sheets, and every Detail column is defined", {
-  x <- here::here(YS_XLSX("2026-11-23"))
-  expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Vendor spending", "Definitions", "Notes and caveats", "Sources"))
+test_that("the workbook has the seven sheets, and every Detail column is defined", {
+  x <- here::here(YS_XLSX("2026-11-24"))
+  # Session 123: + "By use category".
+  expect_equal(openxlsx::getSheetNames(x), c("Overview", "Detail", "Vendor spending", "By use category",
+                                             "Definitions", "Notes and caveats", "Sources"))
   expect_setequal(YS_DEFINITIONS$column, names(s))
   dt <- openxlsx::read.xlsx(x, "Detail")
   expect_equal(nrow(dt), 52L)
-  expect_equal(names(dt), names(s))
+  # Session 123: Detail appends the hospital best estimate by use group (task 4d).
+  expect_equal(names(dt), c(names(s), paste0("hospital_", tolower(names(RHTP_USE_GROUP_LABELS)), "_usd")))
+  expect_setequal(df_use <- openxlsx::read.xlsx(x, "Definitions")$term[openxlsx::read.xlsx(x, "Definitions")$sheet == "By use category"],
+                  YS_USE_DEFINITIONS$column)
   # Session 116c: a national FSRS row heads the Sources sheet.
   src <- openxlsx::read.xlsx(x, "Sources")$state
   expect_equal(src[1], "FSRS (all states)")
@@ -227,7 +232,7 @@ test_that("the workbook has the six sheets, and every Detail column is defined",
 # -- session 111b: presentation only. Every cell below is checked against
 # ys_build(), so a figure that moved would fail here, not just look different.
 
-ov_x <- here::here(YS_XLSX("2026-11-23"))
+ov_x <- here::here(YS_XLSX("2026-11-24"))
 ov <- openxlsx::read.xlsx(ov_x, "Overview", check.names = FALSE, sep.names = " ")
 so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
 # the n/m test reads STATE-SOURCED awards (CMS obligation-report files removed)

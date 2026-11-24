@@ -1,0 +1,2818 @@
+Harnessing Innovation and Strengthening Partnerships:
+   Building a Healthier Future for Rural Wisconsin
+    The Rural Health Transformation Program - Wisconsin Application
+Table of Contents
+Wisconsin’s Rural Health Transformation Program: Project Narrative ................................3
+  Summary .....................................................................................................................................3
+  Rural Health Needs and Target Population ............................................................................4
+  Rural Health Transformation Plan: Goals and Strategies ...................................................11
+  Proposed Initiatives and Use of Funds ...................................................................................22
+     Initiative 1: Rural Talent Recruitment and Retention ............................................................22
+     Initiative 2: Interoperability Infrastructure and Modernization ..............................................29
+     Initiative 3: Population Health Infrastructure .........................................................................38
+  Implementation Plan and Timeline ........................................................................................46
+  Stakeholder Engagement .........................................................................................................51
+  Metrics and Evaluation Plan ...................................................................................................53
+  Sustainability Plan ...................................................................................................................58
+  Endnotes ....................................................................................................................................61
+
+
+
+
+                                                                                                                                     Page | 2
+Wisconsin’s Rural Health Transformation Program:
+Project Narrative
+Summary
+We envision a future where the right providers, empowered by the right technology, and
+supported by the right networks, transform the health of rural Wisconsinites.
+
+Initiative         Project                      Total       Key Goals, Activities, and
+                                                Amount      Timelines
+1: Rural Talent    Rural workforce grants       $150        Empower communities to
+Recruitment and                                 million     develop regionally driven
+Retention                                                   solutions through competitive
+                                                            grants starting in 2027
+                   Community health worker      $60 million Pilot community health
+                   integration                              worker integration and study
+                                                            the return on investment in
+                                                            2026. Sustain support through
+                                                            Medicaid coverage starting in
+                                                            2028
+                   Workforce readiness          $127        From middle school to
+                                                million     medical school, equip
+                                                            educational partners with
+                                                            tools to grow the next
+                                                            generation of health care
+                                                            professionals starting in 2026
+2:                 Facility technology          $300        Provide rural facilities with
+Interoperability   transformation               million     technology to transform
+Infrastructure                                              patient care and support
+and                                                         providers through flexible
+Modernization                                               allocations starting in 2027
+                   Public navigation            $29 million Leverage technology to better
+                   transformation                           connect residents with public
+                                                            services starting in 2026
+3: Population      Care coordination grants     $230        Transform delivery through
+Health                                          million     innovative care models
+Infrastructure                                              developed through regional
+                                                            partnerships starting in 2027
+                   Behavioral health            $5 million Address Wisconsin’s rural
+                   innovations                              mental health crisis,
+                                                            especially for kids, starting in
+                                                            2026
+                   Medicaid reforms and other   $44 million Invest in Tribal Nations,
+                   strategic investments                    Medicaid reforms, and
+                                                            intervenor services to improve
+                                                            health care for patients and
+                                                            providers starting in 2026
+
+
+                                                                                     Page | 3
+Rural Health Needs and Target Population
+The Case for Change: Many rural Wisconsinites lack access to primary, specialty, and
+
+behavioral health care because of geographic barriers and fragmented care pathways. This
+
+narrative describes Wisconsin’s rural health landscape and specific challenges the Rural Health
+
+Transformation (RHT) program will help solve. It describes the criteria and data Wisconsin will
+
+use to identify rural areas, shape investments, and measure the impact of this critical resource.
+
+
+•   Over one-third of Wisconsinites live in rural census tracts. These Wisconsinites have a lower
+
+    median income and are less likely to be insured. They have higher rates of chronic diseases,
+
+    including heart disease and diabetes. Two-thirds of rural residents must travel more than 30
+
+    minutes to access emergency care, and this access is at risk. In 2024, two hospitals closed in
+
+    adjoining counties, leaving patients to find new providers and other facilities to absorb
+
+    patients. Out of 72 counties, 40 are federally designated as mental health professional
+
+    shortage areas, 37 as primary care shortage areas, and 34 as dental care shortage areas.
+
+
+•   Yet rural Wisconsin communities have immense strengths. Community health centers are
+
+    partnering with schools to bring care closer to home. Investments in broadband are
+
+    expanding telehealth opportunities. Collaborations between state and local partners are
+
+    increasing mental health services for farmers, veterans, and rural residents. A special
+
+    telehealth license is making it easier for out-of-state providers to fill service gaps through
+
+    remote care. Wisconsin’s RHT program will leverage these partnerships to reshape rural
+
+    health care access and outcomes.
+
+
+
+
+                                                                                              Page | 4
+                                           Rural Demographics
+WISCONSIN DEMOGRAPHICSi                               Rural populationii         Urban population
+Population size                                    2,141,476 people (36.3%)   3,752,242 people (63.7%)
+Total land area                                    44,496 sq. miles (82.1%)   9,672 sq. miles (17.9%)
+Population density                                   48.1 people/sq. mile       388.0 people/sq. mile
+Household income
+   Under $25,000                                        177,802 (9%)               343,406 (9%)
+   $25,000 to $49,999                                   305,891 (15%)              510,414 (14%)
+   $50,000 to $74,999                                   355,558 (17%)              555,864 (15%)
+   $75,000 to $99,999                                   330,477 (16%)              510,703 (14%)
+   $100,000 and over                                    921,385 (44%)             1,736,560 (48%)
+   Average median household income ($)                     $74,700                    $81,800
+Ratio of income to federal poverty level
+   Below 100% FPL                                       199,399 (10%)              409,512 (11%)
+   Below 138% FPL                                       307,274 (15%)              588,203 (16%)
+   138% to 399% FPL                                     949,384 (45%)             1,470,778 (40%)
+   400% FPL or greater                                  835,848 (40%)             1,602,531 (44%)
+Employment sectors (top 5)
+   Education, health care, and social assistance        225,935 (21%)              477,713 (25%)
+   Manufacturing                                        217,346 (20%)              327,198 (17%)
+   Retail trade                                         121,085 (11%)              210,588 (11%)
+   Construction                                          82,564 (8%)               105,912 (5%)
+   Recreation, arts, entertainment, and                  77,965 (7%)               149,290 (8%)
+  accommodation and food services
+Employment status
+   Employed                                            1,070,390 (61%)            1,948,528 (65%)
+   Unemployed                                            34,987 (2%)                67,672 (2%)
+   Not in labor force                                   647,158 (37%)              999,059 (33%)
+Educational attainment
+   Less than high school graduate                        98,449 (7%)               157,867 (6%)
+   High school graduate (or equivalent)                 514,221 (35%)              644,235 (26%)
+   Some college or associate’s degree                   486,201 (33%)              736,348 (30%)
+   Bachelor’s degree or higher                          374,552 (25%)              928,879 (38%)
+Health insurance coverage
+   Yes                                                 1,996,314 (94%)            3,521,868 (95%)
+   No                                                   120,207 (6%)               189,678 (5%)
+
+
+
+
+                                                                                                  Page | 5
+                                         Rural Health Outcomes
+   Health outcome        Data on Rural Wisconsin
+                         •   Heart disease mortality rate in adults 35+ years is greater in rural counties than
+   Rate of heart
+                             urban (335.5 vs. 324.2 deaths per 100,000 people).iii
+   disease (chronic
+                         •   Rural counties have a higher rate of workable cardiac arrest ambulance runs
+   condition)
+                             compared to urban (14.3 vs. 12.3 per 10,000).iv
+                         •   The prevalence of diabetes has increased since 2019. In 2023, the prevalence of
+   Rate of diabetes
+                             diagnosed diabetes in adults is around 9% in both rural and urban areas.
+   (chronic condition)
+                         •   The diabetes-related mortality rate was 142.4 deaths/100,000 people in 2023.v
+                         •   The suicide rate is higher for rural residents (17.0 vs. 14.2 deaths per 100,000),vi
+                             particularly for rural men over age 25.vii
+                         •   The self-harm injury rate in emergency department visits is higher for rural
+                             residents (64.8 vs. 51.8 patients/100,000 residents).viii
+                         •   Self-harm injuries among rural men increase during the summer, as this can be a
+                             stressful time for farmers and other rural residents.ix
+                         •   Rural residents have fewer depression screenings during primary care visits and
+                             use telehealth for mental health visits less than urban county residents.x
+   Rates of behavioral   •   Rural adults agree that availability (55%), embarrassment (52%), and stigma (51%)
+   health conditions         would be a barrier if they were seeking help for a mental health condition.xi
+                         •   Farmers and farm workers say financial issues (80%), weather or factors beyond
+                             their control (82%), and the farm economy (80%) impact their mental health.xii
+                         •   In 2022, 145 Wisconsin veterans died by suicide. Veterans make up 6.2% of
+                             Wisconsin’s adult population, yet they account for 16.2% of adult suicide deaths. xiii
+                         •   The rate of opioid-related drug mortality for rural residents is 11.6
+                             deaths/100,000 people.xiv
+                         •   Nearly 9% of Wisconsin’s youth have attempted suicide. 59% of high school
+                             students report at least one mental health challenge in the past year.xv
+                         •   The prevalence of mothers who received prenatal care during their first
+                             trimester was lower in rural counties vs. urban counties (75% vs. 78%) in 2023.
+                         •   The prevalence of mothers who received adequate (or better) prenatal care was
+                             lower in rural counties vs. urban counties (78% vs. 81%) in 2023.xvi
+   Child and maternal
+                         •   The severe maternal morbidity rate has increased significantly from 2016 and in
+   health
+                             2023 was 77.9 per 10,000 delivery hospitalizations.xvii
+                         •   Maternal mortality has increased in WI from 2016 to 2020. Pregnancy-related
+                             overdose deaths are on the rise and in 2020, overdoses were the leading cause of
+                             pregnancy-related death.xviii
+
+
+                                       Rural Health Care Access
+Average Hospital Visit Drive Time
+ Facility Rurality       Average Percent       Average Percent       Average Percent of      Average Percent of
+                         of Inpatient Visits   of Inpatient Visits   Emergency               Emergency
+                         with more than 30     with more than 60     Department Visits       Department Visits
+                         minutes of drive      minutes of drive      with more than 30       with more than 60
+                         time                  time                  minutes of drive        minutes of drive
+                                                                     time                    time
+ Urban                   29%                   12%                   10%                     4%
+ Semi-rural              47%                   22%                   35%                     12%
+ Rural                   71%                   38%                   66%                     35%
+
+
+
+
+                                                                                                           Page | 6
+Availability of Health Care Providers: Rural residents struggle to receive appropriate, high-
+
+quality, and timely care because of workforce shortages, particularly for primary care and
+
+behavioral health.xix Wisconsin’s RHT program focuses on the rural health care workforce.
+
+Detailed information on current workforce availability and an analysis on causes of the
+
+workforce shortage is included in the supporting materials section of the application.
+
+Public Transportation: In 2024, 71% of the urban population could access public transit,
+
+compared to only 31% of the rural population.xx Several counties have no transit system. A full
+
+map of transit systems is included in the supporting materials section.
+
+Rural Health Care Facility Numbers and Distribution
+
+ Health Care Facility Type                     State Total     Semi-Rural          Rural
+ FQHC/Community Health Center                  280             156 (55%)           80 (28%)
+ Critical Access Hospital                      60              32 (53%)            28 (46%)
+ Sole Community Hospital                       7               1 (14%)             6 (85%)
+ Medicare Dependent Hospital                   7               6 (85%)             1 (14%)
+ Low Volume Hospital                           39              18 (46%)            21 (53%)
+ Opioid Treatment Facility                     31              22 (70%)            0 (0%)
+ Rural Health Clinic                           217             105 (48%)           112 (51%)
+ Free and Charitable Clinic                    102             72 (70%)            8 (7%)
+ Tribal Clinic                                 14              4 (28%)             9 (64%)
+ Local and Tribal Health Department            84              43 (51%)            31 (36%)
+ Total                                         841             459 (54%)           296 (35%)
+
+
+This map shows the distribution of health care facilities across the state. Northern Wisconsinites
+
+are more likely to be served through rural and Tribal health clinics and federally qualified health
+
+centers (FQHCs). Hospitals, free and charitable clinics, and opioid treatment facilities are more
+
+prevalent in the urban southeast. Wisconsin also has 762 emergency medical service (EMS)
+
+agencies (84% rural or semi-rural).
+
+
+
+
+                                                                                              Page | 7
+                      Distribution of Health Care Facilities in Wisconsin
+
+
+
+
+                                 Rural Facility Financial Health
+•   In 2024, two rural Wisconsin hospitals, one of which specialized in inpatient and outpatient
+
+    behavioral health, closed in adjoining counties, leaving vulnerable patients to seek out new
+
+    providers and remaining facilities to absorb additional patients. A recent report from the
+
+    Wisconsin Hospital Association found that 55 (33%) of the state's 167 hospitals were
+
+    operating at a loss.xxi Of note, the 2025 state budget provided significant on-going
+
+    investments for hospitals to help with financial stability. However, even with this investment,
+
+    we expect rural hospitals to continue to face financial challenges related to payor mix, low
+
+    patient volumes, and uncompensated care.
+
+•   Other rural providers are also grappling with financial challenges. For example, FQHCs and
+
+    community health centers are highly dependent on public payors, predominantly located in
+
+    health care provider shortage areas, and often located within rural geographies. In 2023,
+
+
+                                                                                           Page | 8
+    Wisconsin FQHCs served over 285,000 patients, with 55% covered by Medicaid, 14% by
+
+    Medicare, and 20% not covered by any insurance at all. Only 6% of visits were via
+
+    telehealth, partially because facilities lack capital to fund investments in technology.
+
+•   Similarly, rural health clinics (RHCs) in Wisconsin serve sparsely populated areas with
+
+    health provider shortages. These clinics receive a high proportion of revenues through
+
+    Medicaid, which currently reimburses most through a cost reconciliation payment method. It
+
+    often takes a year or more to complete cost reporting and auditing processes before the final
+
+    payment, resulting in payment delays and threatening stable revenue flows. RHT will
+
+    transform revenue streams for rural providers by investing in efficient technology, provider
+
+    supports to maximize the workforce, and modernized Medicaid payment strategies.
+
+                            Target Population and Geographic Areas
+•   The RHT program is targeted to serve rural Wisconsinites. The program will benefit
+
+    Wisconsinites in the state’s rural and semi-rural counties, as defined by the 2020 U.S.
+
+    Census. Facilities located in these counties will qualify for funds, including but not limited to
+
+    hospitals, community health centers (including FQHCs), opioid treatment facilities, rural
+
+    health clinics, free and charitable clinics, Tribal clinics, local and Tribal health departments,
+
+    county human services agencies, pharmacies, EMS agencies, and other community-based
+
+    organizations. Of note, certain urban facilities may also qualify based on factors such as
+
+    specialty services provided to rural residents or partnerships with rural facilities.
+
+
+
+
+                                                                                               Page | 9
+                                    Target Areas of Wisconsinxxii
+
+
+
+
+Rural Counties                              Semi-Rural Counties
+Adams, Ashland, Barron, Buffalo, Burnett,   Bayfield, Brown, Calumet, Chippewa, Columbia, Dane, Dodge,
+Clark, Crawford, Florence, Forest, Green    Door, Douglas, Dunn, Eau Claire, Fond du Lac, Grant, Green,
+Lake, Iron, Jackson, Juneau, Lafayette,     Iowa, Jefferson, Kenosha, Kewaunee, La Crosse, Manitowoc,
+Langlade, Lincoln, Marinette, Marquette,    Marathon, Oconto, Outagamie, Ozaukee, Pierce, Racine, Rock,
+Menominee, Monroe, Oneida, Pepin, Polk,     Sauk, Shawano, Sheboygan, St. Croix, Trempealeau, Vernon,
+Portage, Price, Richland, Rusk, Sawyer,     Walworth, Washington, Waukesha, Waupaca, Waushara,
+Taylor, Vilas, Washburn, Wood               Winnebago
+
+
+
+
+                                                                                               Page | 10
+Rural Health Transformation Plan: Goals and Strategies
+Vision, Goals, and Strategies: We envision a future where the right providers, empowered by
+
+the right technology, and supported by the right networks, transform the health of rural
+
+Wisconsinites. To achieve this goal, Wisconsin’s plan includes three keystone initiatives.
+
+    1. Rural Talent Recruitment and Retention: Strengthen the Health Care Workforce
+•   Rural Wisconsin does not have enough health care workers. This makes accessing high-
+
+    quality and timely care difficult for residents. Wisconsin will launch innovative workforce
+
+    projects in rural communities, support career pathways for rural health care providers, and
+
+    reimburse for services provided by community health workers.
+
+     2. Interoperability Infrastructure and Modernization: Enhance Digital Capabilities
+•   Rural Wisconsin risks missing out on technological advancements in health care, such as
+
+    closed-loop referral systems and telehealth capability. Wisconsin will improve rural patient
+
+    care by investing in a rural health care collaborative and allocating funds to rural facilities to
+
+    upgrade Information Technology (IT) systems, enable telehealth, improve interoperability,
+
+    transform care delivery, and enhance cybersecurity.
+
+    3. Population Health Infrastructure: Transform Care Delivery Through Partnerships
+•   Fragmented systems of care prevent coordination across primary care, behavioral health, and
+
+    community supports. Wisconsin will create a grant program for rural partners to innovate
+
+    rural health care delivery. The state will also invest in Medicaid and behavioral health
+
+    reforms in Tribal Nations to meet the unique needs of rural communities.
+
+As required by federal statute, Wisconsin’s plan addresses each of the following elements:
+
+Improving Access: Rural Wisconsinites have difficulty accessing care because of provider
+
+shortages (particularly for behavioral health, primary and oral health, and specialty care), long
+
+
+
+
+                                                                                             Page | 11
+travel times to hospitals and clinics, and fragmented connections between providers. Rural
+
+Wisconsinites often identify telehealth as an important opportunity to improve access.
+
+•    Access to behavioral health is a challenge. Wisconsinites struggle to navigate a complex
+
+     system of resources, making it difficult to find the right support when and where they need it.
+
+     RHT will leverage innovative and technology-driven solutions to simplify this process,
+
+     improve care coordination, and enhance the mental well-being of rural residents.
+
+•    Accessing primary care is also difficult. Americans rank pharmacies as the most accessible
+
+     health care destination. Ninety-seven percent of the population lives within 10 miles of a
+
+     pharmacy, and pharmacies offer extended hours. Yet pharmacies are often excluded from the
+
+     care continuum. RHT will create innovative care sites, such as pharmacies, schools, and
+
+     mobile clinics to improve access to care.
+
+                      ACTIONS TO INCREASE ACCESS THROUGH RHT INITIATIVES
+Care coordination grants – linking rural providers together to improve access through innovative care delivery
+Connecting the dots – simplifying access to state behavioral health programs
+Community information exchange – improving information and resource coordination for rural residents
+Mental health consultation line – expanding access to comprehensive mental health supports
+Workforce investments – ensuring the right providers are available to care for rural residents
+Medicaid dual eligible project – increasing coordinated care for dual eligible individuals
+
+
+Improving Outcomes, Program Key Performance Objectives, and Data-driven Solutions: The
+
+RHT program will make a real difference in the health outcomes of rural Wisconsinites.
+
+Measures demonstrating this impact will include decreased rates of avoidable hospitalizations,
+
+improved management of chronic diseases, increased use of depression and diabetes screening,
+
+implementation of mobile clinics and co-located care sites, and integration of non-traditional
+
+provider types such as community health workers. Specific and measurable objectives, with
+
+baseline data and targets, are detailed in the Metrics and Evaluation Plan below.
+
+
+
+
+                                                                                                          Page | 12
+•   To truly transform our rural health care system, Wisconsin must fully understand the
+
+    complexity of the rural health care system and measure progress towards improving rural
+
+    health outcomes. Our state has partners who track clinical and community data on
+
+    determinants of health. Wisconsin will use RHT funds to boost our ability to analyze data in
+
+    rural communities and to use that information to improve health. Wisconsin will demonstrate
+
+    program impact and progress through evaluations by academic institutions.
+
+•   RHT will expand the rural health workforce through investments in training programs,
+
+    community health worker integration, and supported workforce retention. Wisconsin will
+
+    harness data and technology to deliver high-quality services for rural residents. The program
+
+    will develop a rural health care collaborative to help providers manage at-risk patients and
+
+    populations through securely shared referrals and data. Patients will experience improved
+
+    access and health outcomes, such as reduced wait times for appointments and improved
+
+    chronic disease management. Providers will experience efficiencies in their work through use
+
+    of advanced documentation tools and teleconsultation services. Wisconsin will also invest in
+
+    health and community infrastructure exchanges (HIE/CIE) to drive quality improvement.
+
+                       ACTIONS TO IMPROVE OUTCOMES THROUGH RHT INITIATIVES
+           Intended Outcomes                                            Methods
+Improved identification and          • Care provided in new and innovative settings
+management of chronic diseases       • Financial support to invest in telehealth and remote patient monitoring
+                                     • Increase data exchange compatibility among health care networks.
+Earlier identification and treatment • Coordinated care grants launch co-responder models, community
+of behavioral health conditions        paramedic programs, and other innovative partnerships
+                                     • Teleconsultation for providers to connect to specialty care experts
+                                     • Payment processing for providers who serve farmers and farm families
+Enhanced provider efficiency,        • Adoption of technology to connect patients and providers
+wellbeing, and supply                • Leverage community health workers to maximize scope of practice
+                                     • Expanded training programs to increase supply of workers
+                                     • Investments in rural communities (childcare, transportation, housing)
+Data-informed and evidence-based     • Shared data dashboards and interoperable decision-making through the
+health care decisions                  rural health care collaborative and HIE/CIE investments
+                                     • Independent data evaluation through contracts with academic
+                                       institutions to evaluate progress towards goals
+                                     • Technical assistance to help communities leverage local and statewide
+                                       data to maximize investments
+
+
+
+                                                                                                     Page | 13
+Technology Use: Advances in technology – such as telehealth and remote patient monitoring –
+
+can transform patient care, achieve better health outcomes, and improve patient safety. However,
+
+rural facilities face significant challenges in adopting technologies due to smaller patient
+
+volumes, limited financial resources, and barriers to employing adequate IT staff.
+
+•   Outdated computer systems challenge rural providers’ ability to leverage emerging
+
+    technologies and might hurt their financial viability. Physicians spend more time on
+
+    paperwork than they do face-to-face with patients. A study found that physicians spend
+
+    nearly six hours per workday on paperwork tasks.xxiii Clinical workforce technology can
+
+    improve these ratios, such as using ambient listening to support documentation. Providers
+
+    cannot easily share patient records, resulting in disconnected services across hospitals, health
+
+    centers, pharmacies, and health departments. As a result, patients spend time waiting for test
+
+    results, prescriptions, necessary specialty referrals, and information to be shared, and
+
+    providers may not have information they need. This contributes to delayed care, medical
+
+    errors, provider burnout, and frustration among patients, especially with complex or chronic
+
+    conditions who see multiple providers. According to the Wisconsin Hospital Association,
+
+    technology optimization is essential and will require investment and partnership.xxiv
+
+•   RHT funding will supercharge rural Wisconsin’s capability to implement remote patient
+
+    monitoring, telehealth, smart devices, AI-supported care, with paths to sustainability built
+
+    into the plans developed by local partners. RHT will leverage group purchasing and
+
+    information sharing. For example, RHT Initiative 2 will leverage technology and economies
+
+    of scale to help rural facilities access interoperable patient and population data. Wisconsin
+
+    experts will evaluate the suitability of new technologies for rural providers and patients.
+
+
+
+
+                                                                                               Page | 14
+    Long-term sustainability will be a key feature of funding allocations through agreements with
+
+    health facilities and vendors to plan for ongoing maintenance and service costs.
+
+•   Rural Wisconsinites engaged with public programs face similar barriers when seeking
+
+    services: fragmented systems, numerous applications, and difficulty navigating resources
+
+    online. Our state recently hosted public listening sessions on mental health where participants
+
+    affirmed these challenges and highlighted the need for a statewide care coordination and
+
+    unified intake portal that spans across Wisconsin’s state agencies, including the Departments
+
+    of Children and Families, Health Services, and Workforce Development. RHT will upgrade
+
+    the state’s customer service through technology to improve access to public services.
+
+                     ACTIONS TO ADOPT TECHNOLOGY THROUGH RHT INITIATIVES
+Rural Technology Transformation Fund – ensuring technology reaches every rural community
+Rural Health Care Collaborative – connecting patients and providers through technology
+Upgraded State Services – improving digital customer service for residents and local partners
+
+
+Partnerships and Coordinated Care: Rural residents experience higher rates of chronic disease
+
+and worse behavioral health outcomes. Rural residents have fewer depression screenings and are
+
+less likely to use mental telehealth.xxv Rural counties also experience higher rates of emergency
+
+detentions (involuntary hold of a person suffering from a mental illness or drug dependency at
+
+risk of harming themselves or others). A shortage of behavioral health providers means that
+
+primary care providers, pharmacists, and clinics often manage mental health and substance use.
+
+•   RHT will generate multidisciplinary partnerships that coordinate and transform care delivery
+
+    to improve primary and behavioral health care services. For example, community health
+
+    workers (CHWs), peer specialists, doulas, and other workforce extenders will help rural
+
+    patients navigate health systems and find resources. However, current payment models do
+
+    not allow for reimbursements, threatening financial stability and limiting services.
+
+
+
+
+                                                                                                Page | 15
+•   Investments in workforce extenders will yield substantial returns. For example, Kentucky’s
+
+    CHW initiative has measured a return of $11.33 for every $1 spent over the last 25 years.
+
+    Their chronic disease management program decreased emergency room (ER) visits by 10%
+
+    and inpatient admissions by 23%.xxvi Serving Medicaid beneficiaries and other rural residents
+
+    through workforce extenders will decrease expenditures and inpatient admissions.
+
+•   RHT Initiative 3 will build sustainable regional partnerships through coordinated systems of
+
+    care to promote quality improvement, increase financial stability, maximize economies of
+
+    scale, and share best practices in rural health care. Grantees will receive technical assistance
+
+    from academic institutions to develop evidence-based and data-driven strategies to address
+
+    local needs. Each grantee will propose a governance structure that reflects their project’s
+
+    unique needs and partnerships. This initiative will promote improvements in primary and
+
+    behavioral health care by leveraging telehealth and teleconsultation services, deploying
+
+    mobile clinics, and developing co-located or co-responder models of care.
+
+•   These issues are even more important to Wisconsin’s Tribal communities. There are 11
+
+    federally recognized Tribal nations in Wisconsin and approximately 73,000 American
+
+    Indian/Alaska Native residents, the majority of whom live in rural areas.xxvii Tribal
+
+    communities have lower employment rates and higher poverty rates than the rest of the state.
+
+    They experience lower life expectancy, higher infant mortality, higher rates of mental health
+
+    conditions and chronic diseases like diabetes and heart disease.xxviii,xxix Tribal members
+
+    access Tribal and non-Tribal care facilities, which struggle to securely share patient
+
+    information. This lack of coordination contributes to worse outcomes. RHT will invest in
+
+    Tribal Nations to serve the unique needs of their members and communities.
+
+
+
+
+                                                                                             Page | 16
+•   DHS values robust partner engagement. In August, DHS opened a request for information
+
+    (RFI) to gather early insights and ideas from partners to inform Wisconsin’s RHT program
+
+    application. Ongoing engagement will be critical to the success of the initiatives included
+
+    here. As such, DHS will create an advisory body to guide development and implementation
+
+    of RHT. The advisory body will meet at least four times a year and will bring together rural
+
+    hospitals, Tribal health centers, community health centers, primary and behavioral health
+
+    providers, community-based providers (e.g., community health workers, peer specialists,
+
+    pharmacists, EMS, etc.), institutions of higher education, individuals with lived experience,
+
+    and partners as necessary to inform implementation and ensure accountability.
+
+                 ACTIONS TO ADVANCE PARTNERSHIPS THROUGH RHT INITIATIVES
+ Care coordination grants – prioritized funding for projects that involve team-based care models
+ Rural workforce grants – empowering communities to develop regionally-driven solutions
+ Rural Health Care Collaborative – connecting patients and providers through technology
+ Advisory group –ensuring rural voices are reflected in RHT program implementation
+
+
+Cause Identification and Workforce: Rural hospitals, rural outpatient clinics, behavioral health
+
+providers, public health agencies, and dental practices face similar challenges in maintaining,
+
+expanding, and improving services for their communities. These include higher rates of
+
+uninsurance, low and unpredictable patient volumes, and barriers to the implementation of
+
+transformative health care technologies. The challenge of recruiting and retaining health care
+
+workers in rural Wisconsin continues to worsen.xxx More than half of Wisconsin’s counties are
+
+designated as health care professional shortage areas. Workforce challenges have well
+
+documented negative impacts on patient care and outcomes.
+
+•   Health care demand is primarily driven by demographics, and Wisconsin’s population is
+
+    aging. Efforts to encourage young people to pursue health care careers are essential to
+
+    increasing supply and meeting the demand for services. Early engagement, as young as
+
+
+
+                                                                                                   Page | 17
+    middle school, is critical to long-term sustainability. Students are more likely to stay in rural
+
+    areas after graduation if they can train nearby. Yet students who want to work in rural areas
+
+    have difficulty connecting to rural training opportunities and finding a place to live.
+
+•   Providers who want to work in rural areas face geographic isolation, long commutes,
+
+    outdated technology, and a lack of family-supporting services. Providers will not live in
+
+    communities that lack childcare and housing for their families.xxxi Provider shortages lead to
+
+    increased wait times, which delay diagnoses and worsen patient outcomes. Existing providers
+
+    have high workloads and limited time with each patient, threatening their ability to provide
+
+    quality care and increasing burnout.
+
+•   Projects that train, recruit, and retain providers are crucial to sustaining a thriving rural health
+
+    care workforce in Wisconsin. RHT will build sustainable partnerships between educators and
+
+    clinics to recruit and retain more workers in rural areas. RHT will create additional and
+
+    expanded training programs from middle school through medical school, invest in
+
+    experiential learning to prepare students, and grow telehealth support to extend the reach of
+
+    specialists. Additionally, strategies that address recruitment challenges for rural areas, such
+
+    as housing and childcare deserts, will be part of the workforce framework.
+
+                     ACTIONS TO IMPROVE WORKFORCE THROUGH RHT INITIATIVES
+Rural workforce grants – empower communities to develop innovative solutions to local problems
+Community health worker integration – sustained support for providers with strong community connections
+Educational initiatives – invest in training through clinical sites, simulation labs, and new programs
+Early education – build health care pathways with K-12 partners to empower the next generation
+
+
+Financial solvency strategies: Rural hospitals and providers face challenges in maintaining
+
+financial solvency. Recent bipartisan State legislation secured significant annual investments for
+
+the hospital sector (including rural hospitals), yet these facilities continue to struggle.
+
+
+
+
+                                                                                                         Page | 18
+Wisconsin’s RHT program will build on bipartisan investments by requiring that certain projects
+
+allocate at least 15% of project funds to rural hospitals.
+
+•   Wisconsin’s transformative investment in health care technology under RHT Initiative 2,
+
+    including provider and patient tools to improve prevention and chronic disease management,
+
+    will maximize workforce productivity, reduce burnout, and improve financial sustainability.
+
+•   Wisconsin will facilitate regional care coordination under RHT Initiative 3 to make sure care
+
+    is provided in the right setting, by the right provider, at the right time. Through RHT,
+
+    Medicaid will invest in financial stability by partnering with rural health clinics to shift to a
+
+    more timely and predictable payment methodology. Finally, investments in community
+
+    health workers will support finances by sustaining community-focused services.
+
+               ACTIONS TO ADDRESS FINANCIAL SOLVENCY THROUGH RHT INITIATIVES
+Rural health clinic payments – modernize Medicaid payment reforms to speed up payments
+Rural technology transformation fund – support workers through technology that reduces administrative burdens
+Care coordination grants – allocate scarce resources to high-impact areas and reduce costly interventions
+Public intervenor office – supporting the bottom line of rural patients and providers
+Community health worker integration – sustain funding for community-focused providers
+
+
+Strategic goals alignment: Wisconsin’s plan aligns with the five CMS strategic goals.
+
+•   Make Rural America Healthy Again. This plan provides transformational funding to local
+
+    providers to innovate and provide new access points for care. By providing flexible funding
+
+    to local coalitions for coordinated systems of care, increasing technological capacity, and
+
+    strengthening the rural workforce, Wisconsin will make real progress to improve primary
+
+    care, chronic disease management, and behavioral health care.
+
+•   Sustainable Access. No one facility can have sole responsibility for ensuring individual and
+
+    community health. Wisconsin’s plan creates opportunities for regional coalitions, who best
+
+    know the strengths and challenges of their communities, to generate sustainable plans for
+
+
+
+
+                                                                                                            Page | 19
+    access to high-quality, coordinated care. With RHT support, rural facilities can come together
+
+    to coordinate operations, technology, primary and specialty care, and emergency services,
+
+    reaching economies of scale that will bolster collective sustainability for the future.
+
+•   Workforce Development: Wisconsin’s secondary schools, colleges, and universities are key
+
+    partners in strengthening recruitment and retention of health care providers in rural
+
+    communities. These partners will develop clinical training agreements with health care
+
+    providers and develop innovative programs to attract and retain a high-skilled workforce.
+
+•   Innovative Care: RHT will spark the growth of care models to improve health outcomes,
+
+    coordinate care, and promote flexible care arrangements. For example, the rural health care
+
+    collaborative in RHT Initiative 2 will improve quality of care by improving remote patient
+
+    monitoring and telehealth, reducing administrative burdens on providers, and facilitating care
+
+    coordination between providers. RHT Initiative 3 will incentivize rural health systems to shift
+
+    care to lower-cost settings by integrating community health workers and innovative sites
+
+    such as mobile clinics and co-located facilities.
+
+•   Technological Innovation: RHT will foster the use of innovative technologies that promote
+
+    efficient care delivery, data security, and access to digital health tools. The state will also
+
+    launch a teleconsultation line for behavioral health to increase access to timely specialty
+
+    services in rural areas. Tools will help patients connect with health information to manage
+
+    chronic conditions and access specialty and behavioral health services closer to home.
+
+Legislative or regulatory action. Wisconsin will continue to develop policies that promote rural
+
+health, such as incentivizing healthy food purchases and farmer supports through SNAP,
+
+ensuring rural nursing home bed access, and supporting non-traditional health providers.
+
+•   Wisconsin will commit to expanding Fully Integrated Dual Eligible Special Needs Plans
+
+
+
+                                                                                              Page | 20
+    (FIDE SNPs) to additional Wisconsin counties. In each program year, Wisconsin will
+
+    increase the number of counties where FIDE SNPs are an option. By 2030, Wisconsin will
+
+    double the number of counties with a FIDE SNP.
+
+•   Other required information. Tables in the supporting materials section detail state policy
+
+    actions from Table 4 of the NOFO. This includes factors A.2. and A.7., Certified Community
+
+    Behavioral Health Clinics (CCBHC) and Disproportionate Share Hospital Payments.
+
+
+
+
+                                                                                        Page | 21
+Proposed Initiatives and Use of Funds
+Initiative 1: Rural Talent Recruitment and Retention
+Description: To address provider shortages, this initiative will help train new health care
+
+workers, recruit workers to rural areas of need, and retain workers in those roles. The workforce
+
+initiative does not provide funding to individual students or medical professionals. Rather,
+
+strategically invests in systems that will last longer than five years to maximize impact.
+
+                Initiative 1, Project 1: Rural Workforce Grants ($150 million)
+
+•   The Wisconsin Department of Workforce Development (DWD) provides employment
+
+    services to job seekers and works with employers to find workers. The RHT program will
+
+    allocate funds to DWD as the state’s workforce agency to administer competitive grants for
+
+    regions and communities to develop transformational solutions to workforce challenges.
+
+•   Examples include integrating community health workers, care coordinators, peer support
+
+    specialists, community paramedics, auxiliary personnel, and behavioral health specialists into
+
+    care delivery. Funds could also be used to address recruitment or retention challenges in rural
+
+    communities such as access to childcare, transportation, and housing. Addressing these basic
+
+    needs can help health care workers and their families sustainably live in rural areas.
+
+•   Grantees must prioritize one-time, transformational investments. For ongoing expenditures,
+
+    the grantee must identify a sustainability plan; for example, coordinating with payors on
+
+    insurance coverage so investments last longer than five years. Grantees will be required to
+
+    demonstrate proper planning and quality assurance metrics. The project will safeguard tax
+
+    dollars by publishing reports on outcomes and prioritizing evidence-based practices.
+
+•   Funds could be used to strengthen rural workforce pathways through partnerships between
+
+    health care and other sectors. Novel or existing partnerships could reach new areas or
+
+    populations (such as a potential collaboration between Marshfield Clinic in Wausau and UW-
+
+
+                                                                                             Page | 22
+    Stevens Point to support certified registered nurse anesthetists, or a collaboration between
+
+    Beloit Health System and Beloit College to build the nursing workforce). Current
+
+    partnerships offer a model, such as between Mayo Clinic Health System and UW – Eau
+
+    Claire. These partners launched a Rural Preventative Health Specialist model at five sites to
+
+    improve preventive care and chronic disease management and started a Rural Preventative
+
+    Health Specialist program to improve access in 16 counties.xxxii
+
+        Initiative 1, Project 2: Community Health Worker Integration ($60 million)
+
+•   Wisconsin will boost adoption of Community Health Workers (CHWs) as an evidence-based
+
+    care model to improve outcomes for individuals with chronic health conditions, especially
+
+    those who are low-income or underserved. CHWs connect people to care and resources. They
+
+    are often community members with lived experience in overcoming barriers to access,
+
+    navigating systems, and using local resources. Services include diabetes prevention, chronic
+
+    disease management, nutrition, and maternal and child health support. Other states cover
+
+    CHWs through Medicaid, including Arizona, Minnesota, New Mexico, and Texas. However,
+
+    these services are not currently covered by Wisconsin Medicaid or most private insurers.
+
+•   DHS will establish a pilot project during the first two years of RHT with two components:
+
+1. Competitive grant for rural facilities. Facilities will request reimbursement for CHW services
+
+    not covered by insurance. The grant will enable providers to expand their CHW workforce
+
+    for services such as patient outreach and enrollment, patient navigation, chronic disease
+
+    management, and others defined through a grant funding opportunity. The grant will partner
+
+    with training programs to ensure adherence to core competency requirements. Improved
+
+    patient outcomes and cost savings proven through the pilot will encourage private and public
+
+
+
+
+                                                                                          Page | 23
+    payors to cover community health worker services. Grantees will also receive supervisor
+
+    training to ensure CHWs are successfully integrated into the care team.
+
+2. Study on utilization, cost, impact, and return on investment. DHS will commission a study to
+
+    measure the effectiveness and efficiency of CHW integration. The study will inform
+
+    development of a Medicaid state plan amendment to sustain services. Grantees will be
+
+    required to participate in the study to demonstrate the impact and scope of CHW services.
+
+•   Wisconsin Medicaid will add CHWs as a reimbursable service when delivered under the
+
+    direction of a physician or other medical professional (as allowable under federal law). The
+
+    state will seek authority from CMS through a state plan amendment before 2028. Medicaid
+
+    will develop reimbursement rates, define eligible services, and establish billing policies to
+
+    help leverage services in an effective, evidence-based way.
+
+•   Although Wisconsin does not have a formal CHW certification, there are three nationally
+
+    certified training programs that provide core competency training across Wisconsin. These
+
+    programs offer virtual and in-person training to ensure workers develop recognized skills.
+
+    CHWs are employed by local agencies and health systems despite a lack of reimbursement.
+
+    Creating a long-term funding source through Medicaid and encouraging other payors to
+
+    cover services will ensure that CHWs are a sustainable part of the rural health workforce.
+
+•   This project will support the Wisconsin Association of Community Health Workers, which
+
+    has established a structure to enhance skills and resiliency through peer-to-peer learning,
+
+    support, and mentorship. The association has established a supervisor peer group to ensure
+
+    supervisors have better understanding of CHW roles, responsibilities, and retention
+
+    techniques. Support for the association ensures CHWs are directly involved in decisions
+
+    involving workforce development and integration.
+
+
+
+
+                                                                                           Page | 24
+                  Initiative 1, Project 3: Workforce Readiness ($127 million)
+
+•   Wisconsin will make transformational investments in education through allocations to Area
+
+    Health Education Centers (AHEC), the Department of Public Instruction (DPI), the
+
+    University of Wisconsin System (UW), the Wisconsin Technical College System (WTCS),
+
+    Marquette University School of Dentistry, and the Medical College of Wisconsin (MCW).
+
+    These agencies are established partners with a history of achieving transformational change
+
+    in rural Wisconsin. RHT workforce investments will support initiatives described in the
+
+    NOFO such as starting health care career pathway programs in high schools, funding clinical
+
+    training partnerships, and other investments that will be sustained for more than five years.
+
+•   Secondary Education. Preparing students early for careers in health science supports
+
+    American industry, reduces skills gaps, and promotes economic opportunity. AHEC, through
+
+    seven regional centers, serves over 7,000 learners annually and facilitates over 500 field
+
+    placements at 131 clinical and community training sites. This investment will build the next
+
+    generation of health care, including through apprenticeships for community health workers.
+
+•   DPI will focus this investment on creating or strengthening health science career pathways
+
+    for high school students in 20 rural communities identified through data from the Career
+
+    Connected High School grant (Perkins Reserve Funding). Schools can apply for start-up or
+
+    expansion grants to introduce or broaden health science courses, dual credit opportunities,
+
+    work-based learning experiences, and access to industry-recognized credentials that align
+
+    with rural workforce needs. Funding will also support the growth of Wisconsin HOSA–
+
+    Future Health Professionals to engage rural students in intra-curricular leadership
+
+    development, community health initiatives, and competitive skill events. DPI will build a
+
+    competitive grant program and support the development, implementation, review, and
+
+
+
+
+                                                                                          Page | 25
+    evaluation of the grant, ensuring provision of technical assistance to recipient schools.
+
+    Grantees must plan for long-lasting programs that will be sustained for more than five years.
+
+•   Higher Education. Wisconsin will invest in clinical training opportunities, simulation labs,
+
+    and health care programs across rural Wisconsin through UW and WTCS. Both systems will
+
+    solicit applications and coordinate investments strategically across their rural campuses.
+
+    Wisconsin will also allocate funds to Marquette University, the state’s only dental school, for
+
+    a new rural residency program. Marquette will partner with rural hospitals for placement to
+
+    recruit dentists to high-need rural areas.
+
+•   Funds will cover initial accreditation fees, preceptor training and compensation, curriculum
+
+    design, and recruitment outreach. Funds will also support hospitals with residency programs
+
+    and equip rural sites with tools like technology for tele-precepting and patient-care
+
+    documentation systems. Campuses will be responsible for designing and maintaining long-
+
+    lasting partnerships that connect students with high-quality clinical experiences.
+
+•   Recruiting students from rural areas and exposing students to rural practices increases the
+
+    likelihood that they choose to practice in rural settings.xxxiii Campuses will replicate evidence-
+
+    based models, such as the University of Wisconsin-Madison’s rural OBGYN residency track
+
+    highlighted in the NOFO, to expand rural training for disciplines such as pharmacy,
+
+    behavioral health, and primary care. Wisconsin will also invest in simulation labs and
+
+    experiential learning tools as a supplement to classroom and clinical experience. These one-
+
+    time investments will result in increased program capacity for more than five years.
+
+    Northcentral Technical College created a mobile learning lab for Certified Nursing Assistants
+
+    and serves as a model. The lab travels to rural communities to provide learning opportunities
+
+
+
+
+                                                                                            Page | 26
+    and health care services closer to home. One-time funds helped purchase the lab supplies.
+
+    Funds are needed to expand experiential learning and to train instructors on use.
+
+•   Simulation labs provide a safe and controlled environment for students to practice clinical
+
+    skills without putting real patients at risk. Students can learn from their mistakes and receive
+
+    constructive feedback. Through repetitive practice, students can improve their clinical
+
+    decision-making and problem-solving skills. This instills a culture of patient safety and
+
+    facilitates the integration of theoretical knowledge with practical applications. It provides a
+
+    consistent and standardized learning experience for all students. Simulation allows for the
+
+    controlled introduction of specific learning objectives, ensuring students are exposed to
+
+    essential skills and scenarios. Ensuring students are properly prepared for the demands of
+
+    rural health care jobs can increase retention and reduce burnout.
+
+•   Wisconsin will leverage educational funds to establish new programs in high-demand fields,
+
+    for example, rural programs in dental therapy, behavioral health, nursing, and allied health
+
+    (radiology, laboratory and surgical technicians). Existing programs have long wait lists and
+
+    new rural programs will encourage trainees to enroll at rural campuses with shorter wait lists.
+
+    Funds will cover curriculum development, equipment, facility and staff costs associated with
+
+    start-up, and operational deficits during the first two years while initial student cohorts are
+
+    established. Programs will be sustained for more than five years through tuition and fees.
+
+•   Mental Health Consultation. Wisconsin will establish the Wisconsin Psychiatry Extension
+
+    (WISCOPE) program in partnership with MCW. This comprehensive mental health and
+
+    substance use consultation program will provide teleconsultation on behavioral health
+
+    services for children, adults, and perinatal patients. WISCOPE is modeled after the highly
+
+    successful and now sustainably funded Wisconsin Child Psychiatry Consultation Program.
+
+
+
+
+                                                                                             Page | 27
+    The pediatric program began with one-time funds and proved its worth through measurable
+
+    improvements in access to mental health care, provider confidence, and patient outcomes.
+
+    This success helped build support among policymakers, leading to long-term state funding.
+
+    In 2023-24, the pediatric program provided 1,600 consultation services and 732 hours of
+
+    educational services. There are over 2,700 primary care providers registered.
+
+•   Consultation will be available to providers such as physicians, nurse practitioners, physician
+
+    assistants, and registered nurses across all areas of practice including family medicine,
+
+    internal medicine, obstetrics and gynecology, and behavioral health. Consultation services
+
+    include: (a) support for clinicians to assist in managing adults with mental health and
+
+    substance use concerns; (b) a triage-level assessment to determine the most appropriate
+
+    response, including appropriate referrals; and (c) when medically appropriate, diagnostic and
+
+    therapeutic feedback. Consultation is provided by teleconference, e-mail, or in-person.
+
+•   Launching WISCOPE will deliver real-time psychiatric consultation and education to rural
+
+    providers, improving care for patients with mental health and substance use disorders.
+
+    Patients will experience enhanced care within their own communities without traveling to a
+
+    specialist This implementation will generate data, stories, and partnerships to demonstrate
+
+    effectiveness. MCW has committed to sustained funding for the project.
+
+Key stakeholders:
+
+•   Of the 172 responses to the RFI, 73 (42%) were focused on this strategic goal. It also reflects
+
+    recommendations from the Wisconsin Governor’s Task Force on the Health Care Workforce,
+
+    developed in 2024 by 25 members including health care providers and educators.
+
+•   This initiative will benefit rural communities through transformational investments in
+
+    training programs and an influx of qualified providers. Educators will partner with health
+
+
+
+
+                                                                                           Page | 28
+      care facilities such as hospitals, long-term care facilities, pharmacies, dental clinics,
+
+      community health centers, local and Tribal health departments, and behavioral health
+
+      providers. These educational agencies have proven experience collaborating with the health
+
+      care industry in rural Wisconsin to develop sustainable investments. These partners are
+
+      committed to sustaining workforce investments for more than five years.
+
+                          Initiative 1: Rural Talent Recruitment and Retention Initiative
+
+    Main Strategic Goal         Recruit and retain clinical workforce talent to rural areas
+
+    Use of Funds                D, E, G, H, K
+
+    Technical Score Factors     B.1, B.2, C.1, D.1, D.3, F.1
+
+    Outcomes                    •    Expand the rural health workforce through investments in long-lasting training
+                                     programs (longer than five years)
+                                • Sustain community health worker (CHW) integration
+                                • Support workforce retention through rural community investments
+                                • Strengthen behavioral health capacity and provider support
+    Impacted Counties           All rural and semi-rural counties. Federal Information Processing Series Codes:
+                                • 1581060, 1581061, 1581062, 1581063, 1581064, 1581065, 1581066, 1581067,
+                                     1581068, 1581069, 1581070, 1581071, 1581072, 1581073, 1581074, 1581075,
+                                     1581076, 1581077, 1581078, 1581079, 1581080, 1581081, 1581082, 1581083,
+                                     1581084, 1581085, 1581086, 1581087, 1581088, 1581089, 1581090, 1581091,
+                                     1581092, 1581093, 1581094, 1581095, 1581096, 1581097, 1581098, 1581099,
+                                     1581101, 1581102, 1581103, 1581104, 1581105, 1581106, 1581107, 1581108,
+                                     1581109, 1581110, 1581111, 1581112, 1581113, 1581114, 1581833, 1581115,
+                                     1581116, 1581117, 1581118, 1581119, 1581120, 1581121, 1581122, 1581123,
+                                     1581124, 1581125, 1581126, 1581127, 1581128, 1581129, 1581130
+    Estimated Required          $337 million:
+    Funding                     • $150 million for rural workforce grants
+                                • $127 million for educational initiatives
+                                • $60 million for community health worker integration
+
+
+Initiative 2: Interoperability Infrastructure and Modernization
+Description: This initiative will help rural communities connect to and provide care through
+
+technology. The initiative includes two transformative projects with a significant rural impact.
+
+             Initiative 2, Project 1: Facility Technology Transformation ($300 million)
+
+•     Rural Technology Transformation Fund. Wisconsin will allocate funds to rural facilities
+
+      to purchase technology that removes barriers to care, maximizes provider productivity, and
+
+
+                                                                                                         Page | 29
+    ensures patients benefit from modern digital health tools. This will be based on a formula-
+
+    based or standardized allocation to a broad base of rural providers to ensure that technology
+
+    advancements reach every corner of Wisconsin. Facilities can leverage this one-time
+
+    investment to adopt emerging health tech innovation focused on rural populations to promote
+
+    consumer-facing, technology-driven solutions. At least 15% will be allocated to hospitals.
+
+•   As artificial intelligence, interoperability, and cybersecurity shape how care is delivered,
+
+    rural facilities need to adopt digital tools that meet their unique clinical and operational
+
+    needs. Health technology solutions have the potential to accelerate improved quality,
+
+    expanded access, and reduced cost of care for rural residents. Adopting more efficient and
+
+    effective technologies increases provider satisfaction and lowers turnover, improving the
+
+    health care experience for providers as well as for patients. Investing in next generation
+
+    technology will enable rural facilities to streamline workflows, improve interoperability,
+
+    strengthen data security, purchase hardware, and improve patient care.
+
+•   For example, the Wisconsin Primary Health Care Association estimates that only 15% of
+
+    community health centers use ambient AI for notetaking to reduce administrative burdens,
+
+    improve provider well-being, and enhance patient interactions. These tools capture real-time
+
+    conversations between providers and patients as clinical notes, with patient consent. One
+
+    facility that piloted an AI-powered tool showed improvements in the percentage of charts
+
+    closed within two days and decreased time spent outside of scheduled work hours.
+
+•   Other eligible costs include upgrading IT systems, joining the rural health care collaborative
+
+    (described below), and purchasing patient and provider devices. Patient devices are tools
+
+    such as Bluetooth enabled blood-pressure monitors, continuous glucose monitors, and digital
+
+    weight scales to support patients with chronic disease management. For example, Unity Point
+
+
+
+
+                                                                                             Page | 30
+    Health – Meriter enrolls perinatal patients in a remote program to manage hypertension
+
+    through home monitors and daily telehealth touch points. As a result, 71% of patients
+
+    maintained blood pressure control, outperforming CMS quality benchmarks by 18%.
+
+    Provider devices include tools such as telehealth-capable computers to facilitate digital
+
+    access and innovative tools like robotic surgical systems to transform in-person care.
+
+•   Wisconsin will also leverage the external advisory group to pursue opportunities for group
+
+    purchasing through the rural technology transformation fund. For example, if multiple rural
+
+    hospitals want to purchase new software functions or upgrades, the state will facilitate
+
+    purchasing with the hospitals and potential vendors. This would include software solutions or
+
+    infrastructure that enable participation in data exchanges and interoperability. To be
+
+    considered for group purchasing, the technology would need to have specific rural benefits
+
+    with a preference for cloud-based, multi-tenant architecture.
+
+•   Like North Dakota’s Rough Rider Network, the Wisconsin High-Value Network is a
+
+    collaboration of independent hospitals working together to strengthen rural health care. At
+
+    the core is a clinically integrated network that serves more than 350,000 people and allows
+
+    members to jointly collaborate with commercial and government payers. Facilities could use
+
+    a portion of IT funds to support telehealth, care coordination infrastructure, and digital health
+
+    solutions through the network, leveraging economies of scale in shared purchases.
+
+•   Rural Health Care Collaborative. Wisconsin will build a digital collaborative to transform
+
+    how providers interact with each other and with patients. The goal of the collaborative is to
+
+    help rural patients receive high-quality care from informed providers whether they are using
+
+    their cellphone at home, meeting with a community health worker in a mobile clinic,
+
+    receiving treatment in a behavioral health clinic, or visiting a community pharmacy.
+
+
+
+
+                                                                                             Page | 31
+•   The collaborative will give providers the opportunity to join a shared digital backbone,
+
+    enabling them to upgrade clinical systems and achieve economies of scale through a single
+
+    statewide procurement. The collaborative will allow smaller rural providers to deploy
+
+    modern systems faster, with fewer resources, and at lower costs than acquiring their own
+
+    individual systems and improve patients’ access to care through functions like telehealth,
+
+    electronic messaging, and remote health monitoring integration. Some local health
+
+    departments, for example, only have a few staff members and some clinics still operate with
+
+    paper records. This project will enhance data infrastructure with Wisconsin.
+
+•   Participating providers will gain secure access to a comprehensive, longitudinal health record
+
+    for each patient, chronic disease management tools, a patient-facing portal, population-level
+
+    rural health data dashboards, telehealth services to support access to an expanded care
+
+    network, and a closed-loop community service referral network. Other tools may include AI
+
+    charting, medication management, remote patient monitoring, and cybersecurity.
+
+    Interoperability refers to the use of technology to coordinate patient care across facilities and
+
+    disciplines. Providers will be able to coordinate patient care digitally through the
+
+    collaborative’s highly secure closed-loop referral system and shared patient records.
+
+•   Technical specifications for the collaborative will be further developed in partnership with
+
+    interested providers. Participation in the collaborative can reduce the incidence of medical
+
+    errors, reduce duplication of tests, reduce delays in treatment, and help empower patients to
+
+    be active participants in their own care. With shared care data, providers can make new
+
+    discoveries, advance medicine, find insights, and tailor care for the patient in front of them.
+
+•   Funds will be invested in one-time build and implementation costs for the collaborative,
+
+    including software fees and implementation support. Go-live events will be sequenced
+
+
+
+
+                                                                                            Page | 32
+    throughout the grant period. DHS will develop user fees for participating providers and
+
+    sustainability will be achieved by charging participants for ongoing maintenance costs. The
+
+    collaborative includes infrastructure investments that enable participation in data exchange
+
+    and are aligned with CMS’s Health Technology Ecosystem criteria and ASTP/ONC criteria.
+
+•   Dental Grants. DHS will provide competitive grants to dental clinics to adopt efficient
+
+    cleaning technologies and expand routine dental services for rural Medicaid beneficiaries.
+
+    New technologies enable clinics to use specialized equipment for routine cleanings. These
+
+    technologies, such as ultrasonic scalers and laser cleaning, provide cleanings that are faster
+
+    and more comfortable compared to manual cleanings. This technology maximizes the dental
+
+    workforce by allowing providers to see more patients per day, thus increasing access without
+
+    having to recruit more providers. However, this technology is only available through
+
+    expensive start-up costs that are not reimbursable by insurance.
+
+•   Wisconsin aims to increase the efficiency of current Medicaid providers and incentivize
+
+    dentists to enroll as Medicaid providers by subsidizing the purchase of these efficient
+
+    technologies. The competitive grant would be available to dental clinics in rural areas that
+
+    agree to serve a certain quota of Medicaid members proportional to the community. Beyond
+
+    Medicaid, this technology will increase dental service quality and availability for all rural
+
+    patients at participating clinics.
+
+            Initiative 2, Project 2: Public Navigation Transformation ($29 million)
+
+•   Information Exchange Investments. Wisconsin will invest in the state’s community and
+
+    health information exchanges (CIE/HIE) to help rural residents and providers find and
+
+    deliver high-quality care. United Way of Wisconsin serves as the state’s CIE backbone while
+
+    WISHIN serves as the state-designated entity for HIE. United Way curates 211 and employs
+
+
+
+
+                                                                                            Page | 33
+    navigators with local expertise to facilitate referrals and help rural residents find the care they
+
+    need. These partners ensure that patient information is shared securely and accurately from
+
+    rural community-based organizations to hospital systems. Investing in these patient
+
+    navigation systems will ensure the state’s closed-loop referral systems have accurate and
+
+    timely information about community resources and patient needs.
+
+•   Integrated State Platform to Connect the Dots. The State will create a single platform to
+
+    improve customer service for rural residents navigating state agency resources and services,
+
+    connecting the dots across multiple state agencies and entry points. Wisconsin will create
+
+    efficiencies in government services by embracing self-service, digital-first, and modern
+
+    technologies. This includes ensuring all individuals can access digital services, emphasizing
+
+    data to drive service delivery, and enhancing shared governance across state agencies.
+
+•   In 2025, Wisconsin analyzed strategies to improve mental health services through listening
+
+    sessions in all regions of the state, an online survey, and partner conversations. Many
+
+    residents identified the need for more integrated and accessible care through state programs.
+
+    Customer-focused solutions will help meet the needs of rural Wisconsinites when they
+
+    interact with state government. The platform will be built through a phased approach, rolling
+
+    out mental health resources through RHT and then expanding to other state resources.
+
+•   The integrated platform will include a website and mobile app so rural residents can access
+
+    mental health information, self-help tools, and contacts (for example, the Farm Center)
+
+    without navigating multiple government websites. This will help children and families,
+
+    veterans, farmers, and other rural residents easily access services designed for them. The
+
+    platform will also educate residents about stress reduction, nutrition, and healthy choices.
+
+
+
+
+                                                                                             Page | 34
+•   The platform will be modeled on the Illinois Beacon and the South Carolina First Five
+
+    programs. For example, to address a fragmented and confusing behavioral health care system
+
+    for children, Illinois partnered with Google to create Beacon. Launched in just seven months,
+
+    the unified intake portal handled over 400 family cases in its first quarter, successfully
+
+    clearing 70% of them and demonstrating a new model for interagency collaboration.
+
+•   Wisconsin Farm Center. Agriculture jobs make up nearly 10% of Wisconsin’s employment
+
+    and our state is home to more dairy farms than any other.xxxiv This is hard work: men in our
+
+    farming, fishing, and forestry industries face suicide rates 180% higher than average.
+
+    Investments in farming communities can reduce suicide rates. Wisconsin’s Department of
+
+    Agriculture, Trade, and Consumer Protection (DATCP) will strengthen its Farmer Wellness
+
+    Program to address the farmer mental health crisis. Farmer mental health assistance offered
+
+    includes: (a) a 24-hour Wisconsin farmer wellness helpline for immediate support; (b)
+
+    counseling vouchers that farmers and farm families can redeem for free in-person or tele-
+
+    health care; and (c) monthly online support groups to help bring farmers together, build
+
+    community, and manage stress. The program also offers free in-person and virtual
+
+    educational training presentations for agricultural service providers (lenders and agribusiness
+
+    firms), farmer organizations, and healthcare professionals. Investments in farming
+
+    communities can reduce suicide rates.
+
+•   Most funding for the Farmer Wellness Program is allocated for counseling sessions through
+
+    vouchers. Farm Center staff are trained to identify signs of high stress and suicidal ideation,
+
+    talk with farmers to reduce their feeling of isolation, and refer them to professional help. In
+
+    fiscal year 2024, the program funded over 500 counseling sessions. The voucher
+
+
+
+
+                                                                                            Page | 35
+    reimbursement process for mental health providers currently depends on manual data entry,
+
+    and 15% of the coordinator’s time is spent collecting and manually processing vouchers.
+
+•   One-time investments will improve the user experience for farm families, increasing
+
+    awareness and participation in this valuable rural resource. For example, funds will be used
+
+    to digitize the claims process by developing an application for behavioral health providers to
+
+    be reimbursed for counseling sessions. The project will also invest in outreach and other
+
+    efforts to increase the number of farmers and farm families receiving counseling care.
+
+•   The investment in counseling voucher processing infrastructure will make payments more
+
+    accurate, automated, and timely, decreasing frustration for providers while lowering
+
+    administrative costs. The project will also invest in outreach to increase the number of
+
+    farmers and farm families receiving counseling care.
+
+•   Veterans Telehealth. Access to broadband can present barriers for rural veterans. One-time
+
+    funds will help the state’s County and Tribal Veterans Services Offices establish private
+
+    telehealth rooms to provide access to telehealth in safe and convenient spaces. Funds will be
+
+    administered by the WI Department of Veteran Affairs and will help offices purchase
+
+    technology, remodel spaces for privacy, and educate veterans on using technology.
+
+Key stakeholders:
+
+•   IT advances were the most prevalent theme among stakeholders. Of the 172 responses to the
+
+    RFI, 93 (54%) were focused on this goal. This initiative will help rural residents leverage
+
+    consumer-facing technology to more easily connect with health care resources and services.
+
+•   Rural facilities will benefit from technology investments, including hospitals, community
+
+    health centers, EMS, local and Tribal health departments, county health and human services
+
+    agencies, and behavioral health providers. DHS will select a vendor to help implement the
+
+
+
+
+                                                                                           Page | 36
+      rural health care collaborative focused on helping smaller facilities. DHS has met with a
+
+      variety of rural partners who support this collaborative. One rural county noted they are
+
+      holding their patient management system together with “bubble gum and duct tape.”
+
+•     The RHT program will award funds to the Wisconsin Statewide Health Information Network
+
+      (WISHIN); United Way Wisconsin; the Department of Administration; the Department of
+
+      Agriculture, Trade, and Consumer Protection; and the Department of Veterans Affairs. This
+
+      project is interconnected; for example, the inclusion of DATCP’s Wisconsin Farm Center
+
+      information in the integrated platform will serve the needs of farm families.
+
+                      Initiative 2: Interoperability Infrastructure and Modernization Initiative
+
+
+    Main Strategic Goal        Provide technical assistance, software, and hardware for IT advances to improve
+                               efficiency, enhance cybersecurity capacity, and improve health outcomes.
+
+    Use of Funds               A, C, D, F, K
+
+
+    Technical Score            B.1, B.2, C.1, C.2, D. 1, D.3, E.1, E.2, F.1, F.2, F.3
+    Factors
+
+    Outcomes                   •    Improve digital infrastructure to support providers and serve rural residents
+                               •    Improve service access and navigation for rural residents (community level of
+                                    granularity)
+                               • Enhance provider efficiency and well-being (community level of granularity)
+                               • Expand participation in rural health and wellness programs
+    Impacted Counties          All rural and semi-rural counties. Codes:
+                               • 1581060, 1581061, 1581062, 1581063, 1581064, 1581065, 1581066, 1581067,
+                                    1581068, 1581069, 1581070, 1581071, 1581072, 1581073, 1581074, 1581075,
+                                    1581076, 1581077, 1581078, 1581079, 1581080, 1581081, 1581082, 1581083,
+                                    1581084, 1581085, 1581086, 1581087, 1581088, 1581089, 1581090, 1581091,
+                                    1581092, 1581093, 1581094, 1581095, 1581096, 1581097, 1581098, 1581099,
+                                    1581101, 1581102, 1581103, 1581104, 1581105, 1581106, 1581107, 1581108,
+                                    1581109, 1581110, 1581111, 1581112, 1581113, 1581114, 1581833, 1581115,
+                                    1581116, 1581117, 1581118, 1581119, 1581120, 1581121, 1581122, 1581123,
+                                    1581124, 1581125, 1581126, 1581127, 1581128, 1581129, and 1581130
+    Estimated Required         $329 million:
+    Funding                    • $205 million for the rural technology transformation fund
+                               • $85 million for the rural health care collaborative
+                               • $10 million for dental grants
+                               • $20 million for the integrated state platform
+                               • $4 million for United Way Wisconsin and $2 million for WISHIN
+                               • $2 million for veteran telehealth and $1 million for farmer mental health
+
+
+
+
+                                                                                                          Page | 37
+Initiative 3: Population Health Infrastructure
+Description: Transform care delivery through partnerships.
+
+               Initiative 3, Project 1: Care Coordination Grants ($230 million)
+
+•   Wisconsin will administer competitive grants to innovate care delivery in the state’s seven
+
+    Healthcare Emergency Readiness Coalitions regions.xxxv The goal is to improve access to
+
+    preventative services, primary care, dental services, and behavioral health services through
+
+    team-based models of care delivered in trusted sites close to home. Successful grantees will
+
+    implement multidisciplinary strategies that address health needs, increase the use of
+
+    preventive care, provide care in lower-cost settings such as homes, and reduce preventable
+
+    hospital admissions and emergency room visits.
+
+•   Grant applications should reflect collaborations across partners, including but not limited to
+
+    pharmacists and pharmacies, community health centers, aging and disability resource centers,
+
+    long-term care providers, primary care clinics, rural health clinics, local and Tribal health
+
+    departments, behavioral health clinics, EMS, schools, and other organizations. Applications
+
+    will also need to demonstrate clear paths to sustainability for any proposed project. Any
+
+    renovations or retrofits must comply with CMS restrictions on use of funds for construction.
+
+•   A non-exhaustive list of example projects includes:
+
+    o Expand care in mobile clinics, long-term care facilities, schools, pharmacies, and homes.
+
+       Renovate existing buildings, partner with law enforcement on co-responder models for
+
+       behavioral health care or develop community paramedics programs with EMS. Educate
+
+       residents and providers on the use of telehealth and other technologies.
+
+    o Create a partnership between a hospital system and a skilled nursing facility to establish a
+
+       complex patient program that facilitates the discharge of difficult-to-place individuals
+
+
+
+                                                                                            Page | 38
+   into post-acute care settings. Every day, an estimated 350 to 400 Wisconsinites are
+
+   waiting to be discharged from hospitals to post-acute care.
+
+o Establish a school health expansion fund in partnership with community health centers to
+
+   support program coordination, recruitment incentives, data and information exchange,
+
+   and equipment for telehealth services. Start-up barriers include non-billable planning and
+
+   implementation activities, coordination with schools, and technology and space
+
+   development. Renovations could create private medical service lines within schools.
+
+   Funds would be used to develop population health infrastructure as opposed to ongoing
+
+   service delivery in schools (which is funded by Medicaid).
+
+o Launch a mobile tele-dentistry program to expand access to rural oral health services.
+
+   Reduce barriers to dental care by using secure technology to connect patients remotely
+
+   with licensed providers while providing on-site preventive care through dental hygiene.
+
+   Operate in community settings, including community centers, long-term care facilities,
+
+   and schools. Partner with local employers such as dairy farmers and processors to serve
+
+   agricultural workers. The unit would be self-sustaining within five years based on patient
+
+   volume, payer mix, and reimbursement rates.
+
+o Fund efforts to help rural patients locate, understand, and obtain health care benefits,
+
+   insurance, transportation, food assistance, and other services as highlighted in Wisconsin-
+
+   based case studies included in the NOFO.xxxvi
+
+o Stand up psychiatric residential treatment facilities (PRTFs) to provide behavioral health
+
+   care to youth closer to home. Bipartisan State legislation passed in 2025 will allow
+
+   PRTFs to provide inpatient comprehensive mental health treatment services to
+
+
+
+
+                                                                                      Page | 39
+       individuals under the age of 21 in Wisconsin. Many of these youth are currently sent out
+
+       of the state for care. Communities could request one-time funding to stand up these
+
+       facilities in rural Wisconsin, with the caveat that funding must comply with federal
+
+       requirements and cannot include new construction.
+
+    o Leverage hospitals’ expertise to expand access to specialty care. For example, virtual care
+
+       provided by UW Health empowers regional hospitals and clinics with programs such as
+
+       Telestroke, e-ICU, ED-to-ED teleconsults, and remote patient monitoring. Investments
+
+       could scale or replicate this evidence-based teleconsultation model to meet the needs of
+
+       rural communities. Further, Children’s Wisconsin serves every county as the state’s
+
+       system dedicated to the health and well-being of kids. Communities could partner with
+
+       Children’s to ensure more seamless, coordinated care for kids, including those in rural
+
+       areas who require pediatric specialty care.
+
+              Initiative 3, Project 2: Behavioral Health Innovations ($5 million)
+
+•   Wisconsin will invest in a study of the current behavioral health landscape and develop
+
+    strategies to better meet rural behavioral health needs, such as by moving to a Certified
+
+    Community Behavioral Health Clinic (CCBHC) model. DHS will also modernize reporting
+
+    processes for behavioral health to create reimbursement efficiencies for rural counties. The
+
+    CCBHC program has shown incredible results across the country. Major findings highlight a
+
+    substantial increase in the number of individuals accessing timely care, improved rates of
+
+    follow-up during care transitions, and improved recruitment and retention of high-cost, high-
+
+    value staff positions in a clinical environment. Wisconsin data shows preventable hospital
+
+    visits could be addressed by increased access to outpatient mental health and substance use
+
+    disorder treatments. Investment in the CCBHC program could lead to a more robust and clear
+
+
+
+
+                                                                                          Page | 40
+    mental health and substance use disorder treatment system in the state. However, given the
+
+    complexities of our current system, Wisconsin needs to intentionally study how best to
+
+    structure the program to address challenges and ensure success.
+
+•   In addition, DHS will modernize the program participation system, an online system for
+
+    Tribal Nations and Wisconsin counties to submit data on behavioral health services. The
+
+    system includes service utilization information and is used to design service improvements.
+
+    This project will improve the system to meet federal requirements, align with modern user
+
+    interfaces, and reduce errors. This will benefit rural communities in understanding how
+
+    services are utilized across counties to improve outcomes. Of note, DHS has reserved $2.2
+
+    million of braided funds (over 50% of costs) to maximize this investment. The state has not
+
+    had the matching funds needed to achieve this high-impact technological innovation.
+
+•   Funds will also be used to support youth mental health. RHT will support a rural expansion
+
+    of Sources of Strength, a best practice youth mental health promotion and suicide prevention
+
+    program. The program uses a train-the-trainer model to help schools implement the program,
+
+    ensuring sustainability beyond the funding period.xxxvii Funds will also support the DHS
+
+    Division of Care and Treatment Services’ development of a youth peer support curriculum in
+
+    partnership with the Office of Children’s Mental Health (OCMH). Funding will be dedicated
+
+    to OCMH to tailor mental health trainings for rural schools and host convenings to uplift the
+
+    voices of students in rural Wisconsin. When youth have the opportunity and ability to
+
+    influence the world around them, their mental health and well-being improve.
+
+      Initiative 3, Project 3: Medicaid Reforms and Other Investments ($43.5 million)
+
+•   Improved Care for Dual Eligible Individuals. Fully Integrated Dual Eligible Special Needs
+
+    Plans (FIDE SNPs) are currently only available in 23 of 72 counties. Dual-eligible
+
+
+
+
+                                                                                         Page | 41
+    beneficiaries in rural areas can benefit from more intentionally coordinated care for improved
+
+    health outcomes and reduced total cost of care. Yet most rural residents do not have the
+
+    option to enroll because the plans are only available in a small number of rural counties.
+
+    Medicaid will expand these plans by the end of the grant period. DHS will use funds to
+
+    support enhanced training for local staff and dual eligible member communications. Work is
+
+    needed to educate partners, advocates, and members of the benefits of integrated care. DHS
+
+    intends to develop buy-in through partner engagement activities and procurement processes.
+
+•   Medicaid Reforms. Medicaid will invest in rural health by partnering with rural health
+
+    clinics to shift from cost-based reimbursements to a modernized prospective payment system.
+
+    This will improve financial stability for clinics that serve sparsely populated areas with
+
+    provider shortages. Currently, rural health clinics can select from one of two payment
+
+    methodologies under Medicaid: a cost-based reimbursement or a prospective payment system
+
+    (PPS). Under PPS, clinics are paid a per-visit rate, representing the clinic’s total costs
+
+    averaged across all visits. Wisconsin’s current PPS rate methodology for RHCs is outdated; it
+
+    was established over 25 years ago with annual adjustments using a medical cost index that
+
+    has not kept pace with medical inflationary growth and does not fully reimburse RHC costs.
+
+•   Through cost-based reimbursement, clinics eventually receive full reimbursement, but, under
+
+    this methodology, experience significant payment delays. It often takes a year or more for
+
+    DHS to complete the cost reporting and auditing processes before the final payment to
+
+    clinics. Medicaid needs to move all clinics to a modernized PPS methodology to reflect
+
+    current prices and reduce payment delays. This is a one-time cost that will result in
+
+    immediate financial benefits for rural clinics. Medicaid will leverage RHT funds to prepare
+
+    for payment changes effective in calendar year 2028.
+
+
+
+                                                                                             Page | 42
+•   Wisconsin’s eligibility management system (known as “CARES”), which supports Medicaid,
+
+    Supplemental Nutrition Assistance, and Temporary Assistance for Needy Families, runs on
+
+    legacy, on-premises technologies. The system faces challenges in cost efficiency, disaster
+
+    recovery, regulatory compliance, and maintainability. Medicaid will evaluate modernization
+
+    options that will improve performance, reduce risk, and align with future goals. This will
+
+    help rural residents maintain access to secure governmental services. Costs associated with
+
+    Medicaid reforms are accounted for under the administrative budget.
+
+•   Public Intervenor Services. The Office of the Commissioner of Insurance will contract for
+
+    public intervenor services to help rural patients and providers maximize insurance coverage
+
+    and payments. Navigators will help patients obtain insurance coverage, connect to in-network
+
+    providers, secure necessary prior authorization approvals, and resolve claim denials.
+
+    Financial performance specialists will help health care providers manage revenues cycles and
+
+    charge codes for appropriate reimbursement. Through a proof-of-concept, the state will
+
+    explore sustainable support through a provider or insurer-supported fee-based model.
+
+•   Tribal Allocations. There are 11 federally recognized Tribal Nations within Wisconsin, and
+
+    DHS recognizes its unique government-to-government relationship with each Tribal Nation.
+
+    Each Tribal Nation will receive $500,000 per year ($27.5 million total) to implement the
+
+    three Wisconsin RHT initiatives in their communities. Tribal Nations will also be eligible to
+
+    apply for the grants and opportunities described in the three initiatives. The state will assign
+
+    staff to ensure Tribal funds are spent in alignment with the state’s CMS approved goals and
+
+    strategies. Tribal Nations can leverage this transformational investment to modernize IT
+
+    systems, build a culturally competent workforce, and innovate care delivery to meet the
+
+    unique needs of members. For example, tribal clinics can upgrade IT systems, strengthen
+
+
+
+
+                                                                                            Page | 43
+      transportation options to increase access to care, and partner with other local providers to
+
+      reduce barriers to care for members.
+
+
+Key stakeholders:
+
+•     Of the 172 responses to the RFI, 40 (23%) were focused on this strategic goal.
+
+•     Providers will include hospitals, pharmacies, dental clinics, community health centers, long-
+
+      term care facilities, local and Tribal health departments, and behavioral health providers.
+
+      Other partners could include secondary and post-secondary educational institutions, law
+
+      enforcement agencies, statewide specialty providers, EMS agencies, and private sector
+
+      vendors. Partners can provide expertise and tools to support innovative care delivery.
+
+•     The UW Population Health Institute and the Wisconsin Collaborative on Healthcare Quality
+
+      will serve as key partners for technical assistance and evaluation. Participating health systems
+
+      will have access to a suite of digital dashboards and one-on-one technical assistance to target
+
+      investments to high-need areas and high-demand services.
+
+                              Initiative 3: Population Health Infrastructure Initiative
+
+
+
+    Main Strategic Goal         Develop projects that support innovative models of care
+
+
+
+    Use of Funds                A, B, C, E, F, G, H, I, J, K
+
+
+
+    Technical Score Factors     B.1, B.2, C.1, C.2, D.1, E.1, F.1, F.2, F.3
+
+
+
+    Outcomes                    •   Establish regional coordinated care networks (by county level of granularity)
+                                •   Improve health outcomes related to primary and behavioral health resulting
+                                    from better coordinated care (by county level of granularity)
+                                •   Modernize behavioral health data and reporting systems
+                                •   Achieve advanced payment reform and financial stability for rural providers
+
+
+
+
+                                                                                                          Page | 44
+Impacted Counties    All rural and semi-rural counties. Codes:
+                     • 1581060, 1581061, 1581062, 1581063, 1581064, 1581065, 1581066, 1581067,
+                          1581068, 1581069, 1581070, 1581071, 1581072, 1581073, 1581074, 1581075,
+                          1581076, 1581077, 1581078, 1581079, 1581080, 1581081, 1581082, 1581083,
+                          1581084, 1581085, 1581086, 1581087, 1581088, 1581089, 1581090, 1581091,
+                          1581092, 1581093, 1581094, 1581095, 1581096, 1581097, 1581098, 1581099,
+                          1581101, 1581102, 1581103, 1581104, 1581105, 1581106, 1581107, 1581108,
+                          1581109, 1581110, 1581111, 1581112, 1581113, 1581114, 1581833, 1581115,
+                          1581116, 1581117, 1581118, 1581119, 1581120, 1581121, 1581122, 1581123,
+                          1581124, 1581125, 1581126, 1581127, 1581128, 1581129, and 1581130
+Estimated Required   $278.5 million:
+Funding              • $230 million for coordinated care grants
+                     • $27.5 million set aside for federally recognized Tribal Nations
+                     • $15 million for public intervenor services
+                     • $5 million for behavioral health innovations
+                     • $1 million to improve care for dual eligible beneficiaries
+
+
+
+
+                                                                                        Page | 45
+Implementation Plan and Timeline
+                                            Overview
+•   For each initiative and project, this implementation plan and timeline provides dates and
+
+    milestones that line up with phases from Stage 0 (project planning) to Stage 5 (producing
+
+    results). These represent current best estimates on timeline and milestones.
+
+•   To comply with reporting progress, DHS will require participating providers and
+
+    organizations to submit data and will use state health data systems to measure outcomes.
+
+    DHS will coordinate with participating providers and organizations to report on performance
+
+    metric progress during the annual reporting process. Projects will provide preliminary reports
+
+    to DHS on annual progress by August 31 each year, and DHS will finalize a report for CMS
+
+    by October 31 of each year, unless CMS directs a different timeline.
+
+•   DHS has identified strategies to achieve RHT program goals without the need for legislative
+
+    action. However, the timeline does include regulatory actions, including seeking federal
+
+    approval for a Medicaid state plan amendment submitted to CMS by the end of 2027 to cover
+
+    community health worker services.
+
+                       Governance and Project Management Structure
+•   DHS has a robust management structure to implement the RHT program. DHS will hire a
+
+    dedicated and qualified team to provide oversight and implementation support through the
+
+    Office of Grants Management within the Office of the Secretary. DHS will dedicate a team of
+
+    full-time employees (FTEs) including a RHT Program Director, program managers focused
+
+    on policy and grants administration, and a team of analysts focused on program and policy
+
+    development, grants management, and technical support for data analytics and rural health
+
+    care collaborative implementation. DHS will also leverage consultant services to ensure
+
+    efficient and expedient investments. More details are in the budget narrative.
+
+
+
+                                                                                         Page | 46
+•   DHS has worked with human resources to ensure recruitment can begin in January 2026
+
+    upon confirmation of funds from CMS. DHS plans to hire most of the team in 2026 to
+
+    quickly stand up the program and distribute funds to communities that need it most. DHS
+
+    will also leverage consulting services to quickly stand up the program in 2026.
+
+•   Frequent communication with partners will be key given the scope of changes, so DHS staff
+
+    will engage formally and informally with stakeholders, as detailed in the stakeholder section.
+
+    Across all initiatives, members for the internal and external advisory groups will be identified
+
+    in early 2026 and begin to meet soon thereafter. This governance structure will ensure
+
+    program development and implementation are aligned with data-driven practices and health
+
+    care industry needs to improve health care for rural Wisconsinites.
+
+•   Certain RHT funds will be allocated to other Wisconsin agencies that focus on farmer
+
+    supports, provider consults, education, and workforce development. These agencies will be
+
+    responsible for managing assigned projects, ensuring compliance with federal rules, and
+
+    issuing reports to CMS in partnership with DHS on progress and outcomes. DHS will also
+
+    contract with academic institutions to support technical assistance for data and evaluation.
+
+•   The charts below describe additional details specific to each of the three keystone initiatives.
+
+    Information on each initiative includes the timeline for project planning, implementation,
+
+    plan adjustment, and deliverable reporting for each project.
+
+
+
+
+                                                                                           Page | 47
+                                                         GANTT Charts: Timelines
+Initiative 1: Rural Talent and Recruitment
+
+ CY             Rural Workforce Grants                   Educational Initiatives                             Community Health Worker Integration
+ 2026   Q1-Q2   Stage 0: Department of Workforce         Stage 0: Agencies assign staff and develop          Stage 0: DHS develops project plan,
+                Development develops project plan        project plans.                                      selects a vendor for the study, develops
+                and grant funding opportunity (GFO)                                                          GFO, develops CHW supervisor training,
+                                                                                                             and engages WI Association of CHWs
+        Q3-Q4                                            Stage 1: Milestone: Marquette submits               Stage 1: Initial implementation has begun.
+                                                         accreditation for dental residency program          DHS issues GFO and launches study.
+ 2027   Q1-Q2   Stage 1: implementation has begun.       Initial work is underway. Agencies solicit          Stage 2: Implementation is underway. The
+                Milestone: DWD publishes best            proposals from campuses. Milestone: MCW             study helps scope Medicaid coverage
+                practices from grantees                  launches consultation and enrolls providers
+        Q3-Q4                                            Stage 2: implementation is underway. MCW            Stage 2: Milestone: Medicaid SPA
+                                                         coordinates teleconsultation. Milestone: Awards     submitted to CMS to generate sustainable
+                                                         are issued to campuses                              revenue for providers
+ 2028   Q1-Q2   Stage 2: implementation is underway.     Campuses launch clinical partnerships,
+                Milestone: DWD issues second round       equip simulation labs, and develop new programs
+                of awards and publishes best practices
+        Q3-Q4                                            Stage 3: implementation is halfway complete.        Stage 3: implementation is halfway
+                                                         Milestone: Students participate in training         complete. Medicaid develops cost-to-
+                                                         programs and schools report on progress             continue budget estimate
+ 2029   Q1-Q2   Stage 3: implementation of the           Health science programs enroll more middle and
+                project plan and goal achievement are    high school students through targeted
+                halfway complete. Grantees               investments
+                implement projects
+        Q3-Q4                                            Milestone: New post-secondary programs begin        Stage 4: proposed goals are nearly
+                                                         to enroll students at rural campuses                achieved. Milestone: Community health
+                                                                                                             workers are covered under Medicaid
+ 2030   Q1-Q2   Stage 5: the initiative is fully         Stage 4: proposed goals are nearly achieved. The
+                implemented, DWD closes out grant.       consultation program is sustainably funded in
+                Milestone: grantees report outcomes      SFY 2030. Agencies develop final deliverables
+        Q3-Q4
+ 2031   Q1-Q2                                            Stage 5: the projects are fully implemented.        Stage 5: the project is fully implemented
+                                                         Agencies produce measurable outcomes and            and is producing measurable outcomes
+                                                         issue final reports. Milestone: training programs
+                                                         are self-sufficient and sustainable
+
+
+
+
+                                                                                                                                                Page | 48
+Initiative 2: Interoperability Infrastructure and Modernization
+ CY             Rural Health Care Collaborative       IT Infrastructure Allocations      Dental Technology Grants         State Systems Upgrades
+ 2026   Q1-Q2   Stage 0: DHS selects vendor(s)        Stage 0: DHS creates a project     Stage 0: DHS develops            Stage 0: project planning is
+                and develops project plans in         plan and hires staff               scope of work and hires staff    underway. Agencies develop
+                partnership with rural facilities                                                                         scopes of work and assign staff
+        Q3-Q4                                         Stage 1: Milestone: DHS            Stage 1: the project plan has    Stage 1: CIE/HIE workplans
+                                                      develops funding methodology       been created. DHS develops       developed. DHS procures grants
+                                                      and publishes allocations          GFO and selects recipients       administration system
+ 2027   Q1-Q2                                         Stage 2: implementation is         Stage 2: implementation is       DVA coordinates telehealth
+                                                      underway. Milestone: Providers     underway. Milestone: dental      projects with local agencies.
+                                                      begin to purchase technology       providers begin to purchase      Farm Center launches outreach
+                                                                                         technology                       campaigns
+        Q3-Q4   Stage 1: DHS assign staff and         Stage 3: DHS monitors facility                                      Stage 2: implementation is
+                contracts for digital backbone        purchases for compliance and                                        underway, original project plans
+                                                      to help measure impact                                              are refined and adjusted
+ 2028   Q1-Q2                                                                            Milestone: rural patients        Stage 3: Milestones: Farm
+                                                                                         experience improved dental       Center and integrated state
+                                                                                         services                         platform launch payments
+                                                                                                                          system, website, and mobile app
+        Q3-Q4   Stage 2: Milestone: rural             Milestone: patients and            Stage 3: implementation is
+                outpatient clinics go-live. 20-40     providers experience higher-       halfway complete. Medicaid
+                providers are added every six         quality services because of        continues to recruit providers
+                months through 2031                   innovative technologies
+ 2029   Q1-Q2                                                                                                             Milestone: telehealth centers
+                                                                                                                          open to serve veterans at
+                                                                                                                          existing community sites
+        Q3-Q4   Stage 3: implementation is                                               Stage 4: deliverables are        Stage 4: deliverables are
+                halfway complete. New providers                                          finalized, and proposed goals    finalized, and proposed goals
+                continue to join the collaborative                                       are nearly complete              are nearly complete
+ 2030   Q1-Q2
+        Q3-Q4   Stage 4: proposed goals are nearly    Stage 4: Proposed goals are
+                achieved. Milestone: Facilities are   nearly achieved. Providers
+                responsible for ongoing costs,        submit final reports
+                achieving financial sustainability
+ 2031   Q1-Q2   Stage 5: The initiative is fully      Stage 5: initiative's goals have   Stage 5: the project's goals     Stage 5: the projects are fully
+                implemented and producing             been achieved. DHS closes out      have been achieved. DHS          implemented. Agencies issue
+                measurable outcomes                   allocations                        closes out grant                 final reports on outcomes
+
+
+
+                                                                                                                                                   Page | 49
+Initiative 3: Population Health Infrastructure
+
+
+ CY                    Care Coordination Grants                       Behavioral Health Innovations                Other Projects
+ 2026     Q1-Q2                                                       Stage 0: DHS selects subcontractors for      Stage 0: Medicaid coordinates with
+                                                                      the study and data system upgrades.          rural health clinics on payment system
+                                                                      Youth Peer Support Curriculum is             upgrades. Project planning is underway
+                                                                      developed. Children’s mental health          in partnership with Tribal Nations
+                                                                      program expansion outreach begun
+          Q3-Q4        Stage 0: project planning is underway. DHS     Stage 1: initial work has begun. Data        Stage 1: initial work has begun.
+                       develops GFO and contractors develop           design requirements are developed. The       Medicaid begins partner engagement
+                       technical assistance programs                  study contractor begins research. Youth      for dual eligibility changes. Medicaid
+                                                                      Peer Support Curriculum is developed         analyzes CARES modernization
+                                                                      and program expansion underway               options. OCI contracts for public
+                                                                                                                   intervenor services
+ 2027     Q1-Q2        Stage 1: initial work has begun. DHS           Milestone: Rural youth begin to receive      Stage 2: Milestone: Tribal Nations
+                       receives applications and issues awards        specialized mental health supports in        begin to implement initiatives
+                                                                      schools
+          Q3-Q4                                                       Stage 2: plan is adjusted based on data      Stages 3-4: Intervenors help patients
+                                                                      development and user acceptance testing      and providers navigate insurance
+                                                                                                                   coverage and payment
+ 2028     Q1-Q2        Milestone: grantees begin implementation,                                                   Medicaid implements payment system
+                       DHS reviews for compliance and impact                                                       upgrades
+          Q3-Q4                                                       Stage 3: Milestone: the data system goes     Implementation is continuously
+                                                                      live. The contractor submits study results   worked on by Tribal Nations
+ 2029     Q1-Q2        Stage 2: contractors provide TA to ensure      Stage 4: Milestone: the study is complete,
+                       compliance and data-driven, evidence-based     and recommendations are adopted in state
+                       decisions                                      budget
+          Q3-Q4        Milestone: Patients receive coordinated care   Stage 5: Milestone: the data system is
+                       at new sites                                   fully operational
+ 2030     Q1-Q2
+          Q3-Q4        Stage 4: Milestone: projects are financially                                                Stage 4: Milestone: dual eligible
+                       sustained                                                                                   beneficiaries have plan access
+ 2031     Q1-Q2        Stage 5: DHS closes out grants                                                              Stage 5: Milestone: projects report
+                                                                                                                   outcomes
+
+
+
+
+                                                                                                                                                Page | 50
+Stakeholder Engagement
+•   Overview: DHS values robust partner engagement. In August, DHS opened a request for
+
+    information (RFI) to gather early insights and ideas from partners to inform Wisconsin’s
+
+    RHT program application. The Department received a robust response from 172 partners
+
+    representing a variety of interests. Following the release of the NOFO and with insights
+
+    gained from the responses to the RFI, DHS began holding targeted partner meetings to
+
+    involve rural stakeholders in planning and carrying out the RHT Program. Partner meetings
+
+    provided the opportunity to discuss in more detail ideas or concepts shared in RFI responses;
+
+    explore existing work, resources, and networks; and discuss ongoing engagement in the
+
+    application development and implementation.
+
+•   Under Wisconsin statute, DHS authority includes the Medicaid program, public health,
+
+    behavioral health, and regulation of our hospital and long-term care sectors. Throughout
+
+    application development, DHS collaborated with these key internal partners, along with the
+
+    Office of Tribal Affairs, and the Wisconsin Office of Rural Health. DHS also met with rural
+
+    hospital networks, provider associations, partners in higher education and training, public
+
+    health and county human service departments, and held a formal consultation with Tribal
+
+    leaders. DHS leaders traveled to rural parts of the state and met with select Tribal health
+
+    directors individually to learn more about their unique needs and opportunities to improve
+
+    access, quality, and outcomes. For a full list, see the supporting materials section.
+
+•   Framework for ongoing engagement: external advisory group. Ongoing engagement
+
+    from partners will be critical to the success of RHT initiatives. As such, DHS will create an
+
+    external advisory group to guide the development and implementation of the RHT program.
+
+    The advisory group will be a multi-divisional priority within DHS and will include
+
+
+
+
+                                                                                            Page | 51
+    representation from relevant divisions and the Office of the Secretary. This will provide high-
+
+    level support within the organization, as well as convey to partners and advisory body
+
+    members the value placed on these efforts to transform rural health.
+
+•   The external advisory body will meet at least four times a year and will bring together rural
+
+    hospitals, local and Tribal health departments, community health centers, primary and
+
+    behavioral health providers, community-based care extenders (e.g., community health
+
+    workers, peer specialists, pharmacists, EMS, etc.), community-based organizations,
+
+    individuals with lived experience with rural health systems, state agencies, higher-education
+
+    partners, and other partners as necessary to inform implementation strategies and ensure
+
+    accountability. Wisconsin’s rural communities are spread throughout the state. To reflect the
+
+    unique needs that exist throughout the state, the advisory body will also ensure geographic
+
+    diversity and representation. DHS will also leverage existing meetings to ensure widespread
+
+    engagement. For example, DHS Tribal Affairs Office will use bi-monthly meetings with the
+
+    Wisconsin Tribal Health Directors Association to engage Tribal health directors.
+
+•   Framework for ongoing engagement: internal advisory group. RHT program
+
+    implementation will be led within DHS by the Office of Grants Management (OGM). OGM
+
+    will lead an internal advisory to support and seek input from the external advisory group,
+
+    advise on funding allocations, track milestones, and assess impact metrics. It will include
+
+    staff from the Divisions of Medicaid Services, Public Health, and Care and Treatment
+
+    Services; the Office of Tribal Affairs; and the Wisconsin Office of Rural Health. The group
+
+    will also be supported by the Wisconsin’s State Health Officer, Medicaid Lead Medical
+
+    Director and Chief Medical Officers to provide rigorous medical and public health
+
+    consultation and coordinated support throughout this program.
+
+
+
+
+                                                                                          Page | 52
+Metrics and Evaluation Plan
+•   Overview and key data sources: This plan outlines the performance measures and
+
+    outcomes used to evaluate success. The plan identifies at least four quantifiable metrics for
+
+    each initiative and specifies county and community levels of data. The plan includes
+
+    milestones and targets, describes data sources, identifies timing of data updates, and
+
+    describes the state’s ability to collect and analyze data. Baselines are provided when possible.
+
+•   DHS will leverage Wisconsin Medicaid data to understand the impact of the RHT program
+
+    on members and to plan for regulatory changes to improve services provided by community
+
+    health workers and for dual eligible beneficiaries, including utilization and claims data.
+
+•   DHS will leverage contracts for administrative support to conduct a formal evaluation of the
+
+    program in partnership with academic institutions. This will strengthen Wisconsin’s ability to
+
+    collect and analyze data while increasing the data sources available for analysis. DHS will
+
+    contract with the University of Wisconsin Population Health Institute (UW-PHI), the
+
+    Wisconsin Office of Rural Health (WORH), and the Wisconsin Collaborative for Healthcare
+
+    Quality (WCHQ) for evaluations and technical assistance related to data and reporting. These
+
+    organizations will generate baseline and outcomes data to measure program impact on an
+
+    annual basis as part of progress reports and will assist rural communities with targeting
+
+    investments to improve patient health outcomes and strengthen provider organizations.
+
+•   WORH will serve as an independent third-party evaluator and will review progress towards
+
+    goals. The Office will help write the annual report for CMS to detail milestones and progress
+
+    towards goals. Based on that analysis, the Office will recommend program changes to ensure
+
+    outcomes are achieved. Data and evaluation specialists within WORH have expertise on rural
+
+    Wisconsin and can leverage the Office’s national network for best practices.
+
+
+
+
+                                                                                             Page | 53
+•   Participating providers and partners will submit data on annual performance metric progress
+
+    tentatively by August 31 each year, and DHS will then finalize a report for CMS by October
+
+    31 each year, unless CMS directs a different timeline for reporting on progress. DHS will
+
+    also cooperate with any CMS-led evaluation or monitoring, understanding that CMS and/or
+
+    third-party evaluators may assess outcomes across States.
+
+•   UW-PHI will maintain a comprehensive dataset at the county level with data-informed health
+
+    groups, website interactives, downloads and reports, county-level data with trends and
+
+    descriptive data. The organization will provide responsive technical assistance for care
+
+    coordination grantees and other rural facilities to support evidence-based decisions.
+
+•   WCHQ maintains a nationally unique data repository that aggregates clinical, laboratory, and
+
+    encounter data from medical and dental practices. These measures enable medical groups to
+
+    collect and report data on all patients, driving internal improvements and fostering cross-
+
+    organizational collaboration. Health systems will partner with WCHQ to identify needs, gap,
+
+    and trends, particularly in chronic disease management and preventative service delivery.
+
+•   The included tables detail outcomes, measures by calendar year, metric type, and data source
+
+    for each initiative and project. The results will be reported to CMS through the state’s annual
+
+    performance report and adjustments will be made to workplans as needed to meet the
+
+    included targets and milestones.
+
+
+
+
+                                                                                            Page | 54
+                                        Initiative 1: Rural Talent Recruitment and Retention Initiative
+Description: Train and retain rural providers. Projects: Rural Workforce Grants, CHW Integration, and Workforce Readiness.
+ Outcomes                    Measures by Calendar Year                                                            Metric Type       Data Sources
+ Expand the rural health     Number of new rural residency, credentialing, and/or apprenticeship programs         Workforce         Universities of WI (UW),
+ workforce through           established by Year 3 with a five-year commitment to serving rural areas.                              WTCS, Marquette,
+ investments in long-        Milestone: new or expanded programs created in each region                                             Department of Public
+ lasting training programs                                                                                                          Instruction (DPI)
+ (longer than five years)    Locations and number of students completing rural clinical rotations or              Workforce         UW, WI Technical
+                             simulation-based training and locations of participating facilities by Year 4.                         College System (WTCS),
+                             Milestone: students completing new programs by region                                                  Marquette Dental School
+                             Reports on best practices for innovative workforce strategies, developed and         Workforce         Department of Workforce
+                             proven through innovation, by Year 3. Milestone: providers learn from each other                       Development (DWD),
+                             how to develop best practices for workforce supports                                                   grant recipients
+                             Number and location of rural community-based learning experiences implemented        Program           Area Health Education
+                             for pre-health learners, with a target of serving 15 annually by Year 3              implementation    Centers (AHEC)
+                             Number and location of rural clinical health career exploration events, with a       Workforce         AHEC
+                             target of hosting 15 annually by Year 3
+                             Number of new Career and Technical Education participants and concentrators in       Workforce         DPI
+                             a health science career pathway at each rural high school by Year 3
+ Sustain community           Medicaid State Plan Amendment submitted, with developed rates, allowable             Program           Wisconsin Medicaid
+ health worker (CHW)         services, and process for enrolling providers, by Year 3                             implementation
+ integration                 Recruit, train, coach, and provide professional development to at least 10 rural     Workforce         AHEC
+                             CHWs annually by Year 3
+                             Number and locations of CHWs providing services to help with chronic disease         Workforce,        OGM, Wisconsin
+                             management and other services. Goal: 100 CHWs by Year 3 in rural areas               Quality and       Medicaid
+                                                                                                                  health outcomes
+ Support workforce           Number and location of rural workforce grants funded and implemented for             Program           Department of Workforce
+ retention through rural     evidence-based innovations by Year 2                                                 implementation    Development (DWD),
+ community investments                                                                                                              grant recipients
+                             Number of rural health care workers benefiting from investments by Year 3            Workforce         DWD, grant recipients
+                             Reduction in turnover rates, vacancy rates, increases in workplace satisfaction at   Workforce         DWD, grant recipients
+                             participating sites, or other measures of success, by Year 5
+ Strengthen behavioral       Develop the WISCOPE program infrastructure by Year 2. Milestone: providers           Program           Medical College of
+ health capacity and         begin to enroll in teleconsultation services                                         implementation    Wisconsin (MCW)
+ provider support            Number of providers trained through WISCOPE. Goal: Provide 500 hours of              Workforce,        MCW
+                             educational services per year for pediatric and adult populations by Year 4          Access
+                             Number of consultations delivered through WISCOPE. Goal: Provide over 1,500          Workforce,        MCW
+                             consultation services for pediatric and adult populations by Year 4                  Access
+
+
+
+                                                                                                                                                   Page | 55
+                                Initiative 2: Interoperability Infrastructure and Modernization Initiative
+Description: Connect to and provide care through technology. Projects: Facility Technology and Public Navigation Transformation.
+ Outcomes                    Measures by Calendar Year                                                       Metric Type          Data Sources
+ Improve digital             Increased data exchange compatibility among health care networks. Goal:         Technology use       Rural Health Care
+ infrastructure to support   enroll at least 60 providers at 5 care sites in RHC by Year 4                                        Collaborative (RHC)
+ providers and serve rural   Percent of facilities using performance data for decision making (such as       Technology use       RHC, WI Collaborative for
+ residents                   data from WCHQ) by Year 3. Milestone: facilities receive technical                                   Healthcare Quality
+                             assistance and make evidence-based decisions                                                         (WCHQ)
+                             Number of facilities adopting new technology to improve outcomes through        Technology use,      DHS Office of Grants
+                             remote patient monitoring, telehealth equipment, and other tools by Year 3.     Quality and health   Management (OGM)
+                             Milestone: facilities report on impact of technology purchases                  outcomes
+ Improve service access      Patients using technology to connect remotely with providers by Year 4          Access               RHC, OGM
+ and navigation for rural
+                             Indicators of improved chronic disease management, such as number of            Quality and health   RHC
+ residents (community
+                             patients actively monitoring their blood glucose levels and sending them to     outcomes
+ level of granularity)
+                             their care team via the patient portal by Year 5
+                             Number of organizations included or updated in the 211 database every year.     Technology use       United Way Wisconsin
+                             Baseline: 12,000 agencies included in 211
+ Enhance provider            Number and locations of facilities using technology for integrated revenue      Financial metrics    RHC
+ efficiency and well-being   cycle solutions and billing services by Year 3.
+ (community level of         Number of specialty teleconsults completed using technology by Year 3           Technology use       RHC
+ granularity)                Proportion of providers and facilities using advanced documentation tools,      Technology use       RHC, Wisconsin Primary
+                             such as ambient AI to support provider-patient relationships by Year 5.                              Health Care Association
+                             Baseline: 15% of community health centers use ambient AI for notetaking                              (WPHCA)
+                             Number of dental cleaning technologies purchased and adopted by Year 3          Technology use       OGM
+                             Percent of Farm Center time spent processing reimbursements. Goal:              Program              Department of Agriculture,
+                             decrease time spent by at least 75 percent by Year 3. Milestone: Behavioral     implementation       Trade, and Consumer
+                             health providers can more easily serve farmers and farm families, and be                             Protection (DATCP)
+                             compensated for their service more efficiently
+                             Survey behavioral health providers in Farmer Wellness Program network on        Financial metrics    DATCP
+                             effectiveness of reimbursement process before and after payment platform
+                             launch. Baseline: Survey results before payment platform launch.
+ Expand participation in     Medicaid dental service utilization rates each year. Baseline: average weekly   Access               Wisconsin Medicaid
+ rural health and wellness   utilization is 1,967 visits per 100,000 beneficiaries
+ programs                    Number of redeemed behavioral health counseling vouchers by farmers and         Access               DATCP
+                             farm families by Year 5. Baseline: 350 vouchers per year
+                             Utilization of integrated state platform to connect to programs by Year 4.      Access               Department of
+                             Milestone: rural residents experience improved customer services                                     Administration
+
+
+
+
+                                                                                                                                                    Page | 56
+                                            Initiative 3: Population Health Infrastructure Initiative
+Description: Transform care delivery through partnerships. Projects: Care Coordination Grants, Behavioral Health Innovations,
+Medicaid reforms and other strategic investments.
+ Outcomes                      Measures By Calendar Year                                                     Metric Type          Data Sources
+ Establish regionalized care   Number of providers partnering to deliver care, with a goal of                Access               OGM, grant recipients
+ delivery (by community        establishing projects in all seven regions of the state by end of Year 3
+ level of granularity)         Toolkits and resources deployed to support evidence-based decisions by        Program              OGM, WCHQ, UW
+                               end of Year 2. Milestone: Providers receive technical assistance to target    implementation       Population Health Institute
+                               investments in areas of highest need                                                               (UW-PHI)
+                               Number of new or expanded care sites developed or improved (e.g.,             Access               Grant recipients, CMS and
+                               schools, pharmacies, mobile units, care at home) by end of Year 4                                  DHS databases
+ Improve health outcomes       Demonstrated improvement in rural resident health outcomes,                   Quality and health   Grant recipients, UW-PHI,
+ resulting from innovative     demonstrated by measures such as decreased rates of avoidable                 outcomes             Rural health care
+ care delivery (by county      hospitalizations, improved management of chronic diseases, increased                               collaborative
+ level of granularity)         use of depression and diabetes screening, implementation of mobile
+                               clinics and co-located care sites, and integration of non-traditional
+                               provider types such as community health workers, as tracked and
+                               reported by each grantee, by end of Year 5
+ Modernize behavioral          Deployment of upgraded information technology platform for county-            Technology use       DHS Division of Care and
+ health data and reporting     level behavioral health data collection and analytics by end of Year 3                             Treatment Services (DCTS)
+ systems                       Increased reporting accuracy and utilization of shared data for quality       Technology use       DCTS
+                               improvement through the updated IT platform by end of Year 4.
+                               Milestone: county behavioral health partners leverage data for decisions
+                               Incorporate recommendations for the behavioral health system into the         Program              DCTS, OGM
+                               Governor’s state budget proposal by the end of Year 4, pending                implementation
+                               legislative modifications.
+                               Amount of time for rural health clinics to receive Medicaid payments,         Financial metrics    Wisconsin Medicaid
+                               with a goal of reducing payment delays by end of Year 4. Milestone:
+                               clinics receive timely, appropriate payments to support financial stability
+                               Double the number of counties where dual eligible beneficiaries have          Access               Wisconsin Medicaid
+                               access to an integrated plan option by end of Year 5. Baseline: 23
+                               counties, target: 46 counties
+
+
+
+
+                                                                                                                                                     Page | 57
+Sustainability Plan
+Overview: This plan describes how Wisconsin will sustain initiatives after the RHT program
+
+ends. The state has developed a strategy for each initiative to ensuring lasting change. Wisconsin
+
+will also integrate the lessons from this program into ongoing policy. This plan assures federal
+
+partners that investments will have lasting benefits. The plan includes three categories of
+
+sustainability: sustainable partnerships, investments, and funding sources.
+
+
+                Initiative 1: Rural Talent Recruitment and Retention Initiative
+•   RHT Initiative 1 uses funding for rural workforce grants, educational projects to strengthen
+
+    career pipelines, and provider teleconsultation services. These will be sustained through
+
+    continued partnerships, an increased supply of rural providers, and other fund sources.
+
+    Investments in community health workers will be sustained by incorporating coverage of
+
+    these services into the Medicaid state plan amendment with a goal implementation of 2028.
+
+•   Rural workforce grantees will be required to identify sustainability measures and certify
+
+    plans to maintain efforts longer than five years. Preference will be given to projects with a
+
+    one-time cost, such as renovations or partnership development. Through reporting processes,
+
+    the state will measure the extent to which projects comply with these requirements and will
+
+    hold grantees accountable for non-compliance.
+
+•   Educational initiatives will be sustained through ongoing partnerships and other existing fund
+
+    sources. For clinical sites, host facilities will sustain the project through billing, other
+
+    potential workforce funds, and institutional commitment for longer than five years. For
+
+    simulation labs, most costs are incurred on a one-time basis for equipment, technology, and
+
+    renovations. Funding for new programs is associated with one-time costs such as curriculum
+
+    development, site planning, and accreditation fees. Ongoing costs will be covered by tuition,
+
+
+
+                                                                                               Page | 58
+    fees, and other existing fund sources. In addition, graduating students will sustainably
+
+    increase the rural workforce, as students tend to stay where they train. Students will have
+
+    connections and expertise needed to sustain employment in rural communities. Investing in
+
+    programs that serve multiple students, rather than investing in individual students or
+
+    providers, will help maximize RHT and ensure projects last longer than five years.
+
+•   The Medical College of Wisconsin is committed to pursuing a sustainable funding model for
+
+    the behavioral health teleconsulting service WISCOPE. This includes exploring innovative
+
+    approaches such as public-private partnerships with hospitals, providers, and insurers. By
+
+    engaging these stakeholders and demonstrating success of the model, MCW will work
+
+    toward a blended funding strategy that includes state support, health system contributions,
+
+    and payer engagement.
+
+          Initiative 2: Infrastructure Interoperability and Modernization Initiative
+•   RHT Initiative 2 uses funding for IT infrastructure development, including a patient
+
+    management systems, devices and equipment for rural facilities, and public systems for
+
+    customer service. This aims to make scalable and sustainable investments focused on helping
+
+    patients and providers to connect through technology. Facilities will be responsible for the
+
+    cost of ongoing maintenance and operations costs, ensuring long-term impact.
+
+•   Investments in technology increase provider satisfaction and lower turnover, creating savings
+
+    that can be invested back in the software. Through reporting processes, the state will measure
+
+    the extent to which projects comply with requirements and will hold facilities accountable for
+
+    non-compliance.
+
+•   Any ongoing costs associated with operating a state portal for customer services (integrated
+
+    state platform) will be billed to participating state agencies through routine IT services
+
+
+
+
+                                                                                             Page | 59
+    billing, keeping the portal free for rural residents. The Wisconsin Farm Center investment in
+
+    counseling voucher processing infrastructure will make payments more accurate, automated,
+
+    and timely, decreasing frustration for providers while lowering administrative costs.
+
+                   Initiative 3: Population Health Infrastructure Initiative
+•   Coordinated care grant recipients will be required to submit an evaluation and sustainability
+
+    plan to ensure investments result in long-lasting and strategic transformation. Funding must
+
+    be clearly linked to supporting local rural health systems and improving health outcomes in
+
+    the served communities. Funding for provider payments, capital expenditures, and
+
+    infrastructure would be subject to the limitations listed in the NOFO. Tribal Nations that
+
+    receive separately allocated funds must similarly demonstrate compliance with federal
+
+    guidelines including sustainability and use of funds. Through reimbursement reviews and the
+
+    reporting process, the state will measure the extent to which projects comply with these
+
+    requirements and will hold grantees accountable for non-compliance.
+
+•   DHS will invest funds in one-time systems upgrades for Medicaid payment reforms and
+
+    behavioral health data systems. These are one-time costs with the timeline and scope of the
+
+    RHT program. Any ongoing costs will be budgeted within routine administration of the
+
+    state’s Medicaid and behavioral health programs. Changes to programs for dual eligible
+
+    individuals will be incorporated into appropriate Medicaid implementation strategies, which
+
+    may include contracting for Medicaid managed care organizations. Public intervenor services
+
+    will be sustained through a provider or insurer-supported fee-based model.
+
+
+
+
+                                                                                            Page | 60
+Endnotes
+
+i
+   United States Census Bureau. (2023). American Community Survey 5-Year Data (2009-2023).
+https://www.census.gov/data/developers/data-sets/acs-5year.html
+ii
+    Health Resources & Services Administration. (2025). Federal Office of Rural Health Policy (FORHP) Data Files.
+https://www.hrsa.gov/rural-health/about-us/what-is-rural/data-files
+iii
+    Centers for Disease Control and Prevention. (2025). Heart Disease Mortality Data Among US Adults (35+) by
+State/Territory and County – 2021-2023. https://data.cdc.gov/Heart-Disease-Stroke-Prevention/Heart-Disease-
+Mortality-Data-Among-US-Adults-35-by/th8y-thx5/about_data
+iv
+    Wisconsin Department of Health Services. (2019). Cardiac Arrest Ambulance Runs.
+https://www.dhs.wisconsin.gov/publications/p02424.pdf
+v
+    Centers for Disease Control and Prevention. (2025). United States Diabetes Surveillance System.
+https://gis.cdc.gov/grasp/diabetes/DiabetesAtlas.html
+vi
+    Wisconsin Department of Health Services. (2025). Suicide Prevention: Data.
+https://www.dhs.wisconsin.gov/prevent-suicide/data.htm
+vii
+     Wisconsin Department of Health Services. (2024). Self-harm and Suicide Among Wisconsin Rural Men.
+https://www.dhs.wisconsin.gov/publications/p03587.pdf
+viii
+     Wisconsin Department of Health Services. (2025). Wisconsin Self-Harm Data Dashboard.
+https://www.dhs.wisconsin.gov/injury-prevention/self-harm-data.htm
+ix
+    Wisconsin Department of Health Services. (2024). Self-harm and Suicide Among Wisconsin Rural Men.
+https://www.dhs.wisconsin.gov/publications/p03587.pdf
+x
+    Health Metric. (2023, June). Disparities in Mental Health Care and Outcomes: A Healthy Metric 2023 Report for
+Wisconsin. https://healthymetric.org/sites/files/2023 Disparities in Mental Health Care and Outcomes Report.pdf
+xi
+    American Farm Bureau. (2021, December). Farmer and Rural Perceptions of Mental Health.
+https://www.fb.org/files/Farmer_and_Rural_Mental_Health_AFBF.pdf
+xii
+     American Farm Bureau. (2021, December). Farmer and Rural Perceptions of Mental Health.
+https://www.fb.org/files/Farmer_and_Rural_Mental_Health_AFBF.pdf
+xiii
+     Wisconsin Department of Health Services. (2025). Suicide Prevention: Data.
+https://www.dhs.wisconsin.gov/prevent-suicide/data.htm
+xiv
+     Wisconsin Department of Health Services. (2024, November). Substance Use: Drug Overdose Deaths
+Dashboard. https://www.dhs.wisconsin.gov/aoda/drug-overdose-deaths.htm
+xv
+     Wisconsin Department of Public Instruction. (2023). Wisconsin Youth Risk Behavior Survey Mental Health Data
+Summary. https://dpi.wi.gov/sites/default/files/imce/sspw/pdf/yrbs23_MH.pdf
+xvi
+     Wisconsin Department of Health Services. (2023, April). WISH: Prenatal Care Module.
+https://www.dhs.wisconsin.gov/wish/prenatal-care/index.htm
+xvii
+      Wisconsin Department of Health Services. (2024, December). Wisconsin Data Resource:
+Severe Maternal Morbidity, 2016-2023. https://www.dhs.wisconsin.gov/publications/p01125-2016-2023.pdf
+xviii
+      Wisconsin Department of Health Services. (2024, June). Wisconsin Maternal Mortality Review Team
+Recommendations: 2020 Pregnancy-Associated Deaths. https://www.dhs.wisconsin.gov/publications/p02108-
+2020.pdf
+xix
+     Wisconsin Department of Health Services. (2024). Governor’s Task Force on the Healthcare Workforce Report.
+https://www.dhs.wisconsin.gov/hc-workforce/index.htm
+xx
+     Wisconsin Department of Transportation. (2025). Transit Availability.
+https://mapss.wisconsindot.gov/Public/Measure/3
+xxi
+     Wisconsin Hospital Association. (2025). Press Release. https://www.wha.org/news/press-releases/2025/wha-
+applauds-bipartisan-budget-for-hospitals
+xxii
+      Health Resources and Services Administration. (2025). Federal Office of Rural Health Data Policy Files.
+https://www.hrsa.gov/rural-health/about-us/what-is-rural/data-files
+xxiii
+      Arndt, B., et al. (2017). Primary Care Physician Workload Assessment.
+https://pubmed.ncbi.nlm.nih.gov/28893811/
+
+
+
+
+                                                                                                       Page | 61
+xxiv
+      Wisconsin Hospital Association. (2025). Wisconsin Health Care Workforce Report.
+https://www.wha.org/getmedia/d2b089ab-077a-4d9f-8898-e91333edff5b/Workforce-Report-2025-web.pdf
+xxv
+     Healthy Metric. (2023). Disparities in Mental Health Care and Outcomes Report.
+https://healthymetric.org/sites/files/2023 Disparities in Mental Health Care and Outcomes Report.pdf
+xxvi
+      Rural Health Information Hub. (2015). Kentucky Homeplace. https://www.ruralhealthinfo.org/project-
+examples/785
+xxvii
+       Wisconsin Department of Health Services. (2025). WISH Query: Population Module.
+https://www.dhs.wisconsin.gov/wish/population/form.htm
+xxviii
+       Wisconsin Department of Health Services. (2022). Annual Report.
+https://www.dhs.wisconsin.gov/publications/p03091-2022-02.pdf
+xxix
+      Wisconsin Department of Health Services. (2025). Wisconsin Self-Harm Data Dashboard.
+https://www.dhs.wisconsin.gov/injury-prevention/self-harm-data.htm
+xxx
+     Governor’s Task Force on the Healthcare Workforce. (2024). Task Force Report.
+https://www.dhs.wisconsin.gov/hc-workforce/gov-taskforce-hcwf-report-2024.pdf
+xxxi
+      National Rural Health Association. (2025). Rural Workforce Recruitment and Retention Factors.
+https://www.ruralhealth.us/nationalruralhealth/media/documents/advocacy/nrha-policy-brief-workforce-retention-
+factors-final-3-7-25.pdf
+xxxii
+       University of Wisconsin. (2025). UW-Eau Claire Workforce Innovation Grant reaches successful conclusion.
+https://www.wisconsin.edu/all-in-wisconsin/story/uw-eau-claire-workforce-innovation-grant-reaches-successful-
+conclusion/
+xxxiii
+       Paragon Health Institute. (2025). Rural Health Transformation Fund offers states a way to improve rural health
+care access: Here’s what states should do. Paragon Health Institute.
+xxxiv
+       Wisconsin Department of Agriculture, Trade, and Consumer Protection. (2025). Wisconsin Agriculture
+Statistics. https://datcp.wi.gov/Pages/Publications/WIAgStatistics.aspx
+xxxv
+       Wisconsin Department of Health Services. (2025). Wisconsin Healthcare Emergency Preparedness Program.
+https://www.dhs.wisconsin.gov/preparedness/healthcare/index.htm
+xxxvi
+       Rural Health Information Hub. (2025). Scenic Bluffs Community Health Centers Help Team.
+https://www.ruralhealthinfo.org/project-examples/752
+xxxvii
+       University of Wisconsin – Population Health Institute. (2024). School-based suicide risk awareness programs.
+https://www.countyhealthrankings.org/strategies-and-solutions/what-works-for-health/strategies/school-based-
+suicide-risk-awareness-programs
+
+
+
+
+                                                                                                           Page | 62
+

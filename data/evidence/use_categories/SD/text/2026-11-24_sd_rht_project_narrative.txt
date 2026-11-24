@@ -1,0 +1,3078 @@
+       South Dakota
+Rural Health Transformation
+    Program Narrative
+TABLE OF CONTENTS
+
+Project Narrative Overview .......................................................................................................................... 2
+Rural Health Needs and Target Populations ................................................................................................. 3
+Health Outcomes: Rates of Chronic Conditions ........................................................................................... 7
+Health Outcomes: Child and Maternal Health .............................................................................................. 8
+  Healthcare Access: Distance to Care and Availability of Healthcare Providers....................................... 8
+   Healthcare Access: Health Care Facility Numbers and Distribution...................................................... 10
+   Healthcare Access: Rural Facility Financial Health ............................................................................... 12
+   Healthcare Access: Number of Rural Hospital Closures ........................................................................ 13
+   Healthcare Access: Utilization Levels/Patient Volumes of Existing Rural Health Facilities ................. 13
+Rural Health Transformation Plan: Goals and Strategies ........................................................................... 14
+Key Performance Objectives ...................................................................................................................... 20
+Proposed Initiatives and Use of Funds ........................................................................................................ 21
+  Connect Technology and Data for a Healthier South Dakota ................................................................. 21
+   Advance the Rural Workforce ................................................................................................................ 27
+   Keep Healthcare Access Local and Strong ............................................................................................. 36
+   Transform Systems for Sustainability ..................................................................................................... 48
+Implementation Plan ................................................................................................................................... 54
+Stakeholder Engagement ............................................................................................................................ 55
+Sustainability Plan ...................................................................................................................................... 56
+State Policy Factors..................................................................................................................................... 57
+Endnotes...................................................................................................................................................... 61
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                                                                                     page 1
+Project Narrative Overview
+
+        Many of South Dakota’s rural and frontier residents face challenges in accessing
+
+healthcare. Most live far from urban centers, and nearly every county is classified as rural. 1 The
+
+state is also home to nine federally recognized American Indian tribes whose reservations are
+
+largely located in frontier areas where accessing care can take an hour or more. 2 In these rural
+
+and frontier areas, fewer available jobs and lower average incomes can make it difficult for
+
+families to afford care, even when services are available. Hospitals and clinics in these regions
+
+often operate on thin margins, leading to service reductions, workforce shortages, or facility
+
+closures. 3 Transportation costs and the need to take time off work further compound barriers to
+
+preventive and specialty care. 4
+
+        These economic realities contribute to health disparities that are more pronounced in
+
+South Dakota’s small towns and Tribal communities and highlight the need for targeted action.
+
+Through this funding opportunity, South Dakota’s health leaders will have the chance to deepen
+
+collaboration, coordinate resources, and advance focused initiatives that expand access and
+
+improve health outcomes for rural residents, creating a lasting foundation for rural health across
+
+the state.
+
+        In 2024, the South Dakota Department of Health (SD DOH) Office of Rural Health
+
+conducted a Strategic Analysis of South Dakota’s rural healthcare needs and developed
+
+actionable recommendations to improve access to healthcare in rural South Dakota. The analysis
+
+identified four key focus areas:
+
+        1. Rural Access Gaps
+
+                   South Dakota has a shortage of healthcare professionals to meet current and
+
+                   projected health needs, especially in rural areas.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 2
+                   Administrative activities burden providers and clinicians, leading to burnout
+
+                   and diminished operational capacity.
+
+       2. Growing Health Needs
+
+                   Demand for healthcare is increasing as South Dakota’s population grows and
+
+                   ages. 5
+       3.
+            Community Conditions Influencing Health
+
+                   47 of South Dakota’s 66 counties have no intercity transportation access.
+
+                   Rural residents die at higher rates from suicide and chronic conditions.
+
+       4. Strengthening Collaboration
+
+                   Opportunities exist to create partnerships to share data, coordinate patient
+
+                   care, and expand access to care. 6
+
+       In response to these findings, this plan sets a path forward for South Dakota to strengthen
+
+the capacity and resilience of its rural healthcare system. These efforts aim not only to improve
+
+access and health outcomes but also to build lasting partnerships and infrastructure that support
+
+healthy, resilient rural communities across the state.
+
+Rural Health Needs and Target Populations
+
+Rural Demographics: State Definition and Criteria for Identifying Rural Areas
+
+       The SD DOH uses a comprehensive approach to define and analyze rural areas,
+
+combining federal definitions with state-level data to reflect the state’s unique geography and
+
+population distribution. Under the Health Resources and Services Administration (HRSA)
+
+definition of rural from the Federal Office of Rural Health Policy, all South Dakota counties
+
+except Minnehaha and Pennington are considered rural. 7 SD DOH further applies a composite
+
+measure that integrates HRSA definitions with the U.S. Department of Agriculture’s Rural-
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 3
+Urban Commuting Area (RUCA) codes and key demographic indicators such as population
+
+density. 8 This provides a more granular understanding of rurality and helps the state assess
+
+access to care and workforce needs.
+
+Under this framework:
+
+           Urban areas include zip codes with RUCA codes 1-3 (52 SD zip codes)
+
+           Rural areas include zip codes with RUCA codes 4-6 (59 SD zip codes)
+
+           Small rural areas include RUCA codes 7-9 (47 SD zip codes)
+
+           Very rural areas include RUCA code 10 (253 SD zip codes)
+
+       Counties spanning multiple RUCA codes are classification is based on the zip code with
+
+the largest share of the county’s population. The analysis also distinguishes Tribal areas
+
+(counties or zip codes overlapping federally recognized reservations) from non-Tribal areas (all
+
+other rural areas). South Dakota’s two urban counties are excluded to maintain focus on rural
+
+health needs.
+
+       This framework offers a more nuanced view of rurality than the HRSA definition alone
+
+and will guide how the state implements the initiatives outlined later in this plan. By
+
+differentiating rural, small rural, and very rural areas, SD DOH can more accurately target areas
+
+with the greatest access gaps and service needs.
+
+Rural Demographics: Population Size and Density
+
+       South Dakota is one of the most rural and frontier states in the nation, covering over
+
+75,000 square miles with an estimated population of 924,669 in 2024. 9 It is the 16th largest state
+
+but ranked 46th in terms of population, which places it among the least densely populated states
+
+in the country with an average population density of just 12.2 people per square mile.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                              page 4
+       As noted, nearly all of South Dakota’s 66 counties are classified as rural under HRSA
+
+criteria, with 39 counties meeting the frontier designation, defined as areas with six or fewer
+
+residents per square mile. According to the Rural Health Information Hub, approximately 49.8%
+
+of the state’s population -- 460,485 people -- live in non-metropolitan areas. 10 Three
+
+communities in the state have populations over 25,000, and only 17 have more than 5,000. The
+
+map below illustrates South Dakota zip codes where most residents live 60 minutes or more from
+
+an urban area of 50,000 or more. 11 South Dakota is among the states with the highest shares of
+
+FAR populations. 12
+
+                                               South Dakota’s communities are also diverse and
+
+                                       face economic disparities. South Dakota encompasses nine
+
+                                       federally recognized American Indian reservations
+
+                                       spanning 15,000 square miles. Demographically, 84.1% of
+
+                                       residents are White, 8.5% are Native American, and 5.4%
+
+are Hispanic or Latino, and 5.6% identify as another race or two or more races. 13 Many counties
+
+experience long-standing economic challenges: several are classified as persistently poor
+
+according to the 2023 U.S. Census Bureau report, with poverty rates of 20% or higher sustained
+
+over the past 30 years, and some rank among the poorest counties in the United States. 14
+
+Rural Demographics: Income Levels & Employment Sectors
+
+        South Dakota’s employment base has added approximately 5,900 non-farm wage salary
+
+jobs in 2024, a gain of 1.3% over the prior year. 15
+
+$73,959 in 2024, placing South Dakota among the top states nationally. 16 While the state’s
+
+largest industry is trade, transportation and utilities with over 91,800 workers, it is followed
+
+closely by public administration (approximately 76,600 workers) and the education and health
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 5
+services sector. Healthcare is projected to grow about 12% over the next decade, driven by rising
+
+demand and shortages in key roles like nurses and nurse anesthetists, highlighting the need for
+
+strong workforce recruitment and retention.
+
+Rural Demographics: Unemployment Rates
+
+       South Dakota consistently maintains one of the lowest unemployment rates in the nation
+
+at 1.8% in 2024, compared to 4.0% nationally. While this reflects a strong labor market, it also
+
+underscores the persistent challenge of recruiting and retaining enough healthcare professionals,
+
+particularly in rural and Tribal communities. 17
+
+Rural Demographics: Education Attainment
+
+       Education is a key driver of employment and income in South Dakota. Individuals
+
+without a high school diploma face the highest unemployment and lowest earnings (median
+
+salary $30,532), while those with a bachelor’s degree or higher enjoy the lowest unemployment
+
+and the highest earnings (bachelor’s degree median salary $52,325). Median income rises
+
+steadily with each level of educational attainment, underscoring the economic value of continued
+
+education and training. 18
+
+Rural Demographics: Health Insurance Coverage
+
+       Health insurance coverage in South Dakota is generally strong, with just 6.5% of
+
+residents ages 0-64 uninsured. Children are the most likely to be covered, with only 2.4%
+
+uninsured, while working-age adults (18-64) have an uninsured rate of 8.3%. Gaps are more
+
+pronounced among certain groups: younger adults (ages 18-29), lower-income households,
+
+individuals without a high school diploma, and those who are unemployed or self-employed
+
+report the highest rates of being uninsured. 19
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                          page 6
+Health Outcomes: Rates of Chronic Conditions
+
+        Chronic diseases are the leading causes of illness and death in South Dakota, driven by
+
+behavioral risks, social conditions, and limited access to preventive care. Disparities are greatest
+
+among low-income residents and American Indians, who experience higher rates of risk factors
+
+and worse outcomes. According to 2024 South Dakota Vital Statistics, heart disease remains the
+
+leading cause of death, followed by cancer, chronic lower respiratory disease, Alzheimer’s
+
+disease, and stroke. 20
+
+        According to South Dakota’s Behavioral Risk Factor Surveillance Survey, tobacco use
+
+among adults has fallen from 23% in 2011 to 14% in 2022, though e-cigarette use is rising,
+
+especially among American Indians and low-income residents. Alcohol use remains widespread:
+
+19% of adults report binge drinking, including 31% of those ages 18-29. Depression affects 18%
+
+of adults and 22% of young adults, both rates have been increasing since 2011. 21
+
+        Obesity rates continue to rise, affecting 37% of adults and 16% of high school students in
+
+2022. Diabetes impacts 9% of adults, increasing sharply with age, while 7% live with COPD,
+
+35% have high blood pressure, and 36% have high cholesterol. Despite strong overall screening
+
+rates for breast, cervical, and colorectal cancer, American Indians who live in predominately
+
+rural and frontier areas experience much lower screening rates (36% colorectal vs. 69% among
+
+Whites). 22
+
+        Beyond chronic disease, according to SD DOH Vital Statistics, South Dakota faces high
+
+rates of suicide, overdose, and alcohol-related harm:
+
+        Suicide: Leading cause of death for ages 20-39; American Indian rate 2.9× higher than
+
+        Whites.
+
+        Overdose: Rising meth, opioid, and fentanyl deaths; American Indian rate 3.5× higher.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 7
+        Alcohol-Related Deaths: Third-highest age-adjusted death rate nationally.
+
+    These trends highlight the urgent need for coordinated, statewide efforts to build overall
+
+capacity (especially in chronic disease management programs), address workforce shortages, and
+
+advance behavioral health delivery. 23
+
+Health Outcomes: Child and Maternal Health
+
+        Maternal and child health outcomes in South Dakota are shaped by limited obstetric
+
+service availability and geographic isolation. Nearly half of women of reproductive age live in
+
+rural counties, yet 60% of short-term acute care hospitals no longer provide obstetric services,
+
+leaving more than half the state’s counties designated as maternity care deserts. 24 As a result,
+
+South Dakota ranks 47th nationally for obstetric service availability, and many women in rural
+
+and Tribal communities must travel long distances for care. 25
+
+        The state’s maternal mortality rate (45.4 per 100,000 live births) is much higher the
+
+national average, with American Indian women accounting for 17% of births but experiencing
+
+nearly half of maternal deaths. Similar disparities appear in infant mortality: rates among
+
+American Indian infants (10.5 per 1,000) are substantially higher than among White infants (6.1
+
+per 1,000). 26
+
+        These disparities underscore the urgent need for statewide strategies to expand maternity
+
+care access and strengthen prenatal and postpartum supports.
+
+Healthcare Access: Distance to Care and Availability of Healthcare Providers
+
+        Access to healthcare in South Dakota is more limited in rural areas than in urban regions,
+
+even though nearly half of residents live in non-metropolitan areas. Urban areas have more care
+
+sites per 10,000 square miles, while rural regions have fewer facilities relative to population. As
+
+a result, many rural residents often face long travel times to receive care. Many must travel over
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                              page 8
+60 minutes for emergency or hospital services, and residents in western South Dakota may travel
+
+more than two hours to reach acute care facilities. 27
+
+       Transportation is also a barrier to healthcare access in rural areas. Many counties lack
+
+public transit and residents face long travel times and high out-of-pocket costs for emergency
+
+transport. Although public and medical transportation services provide millions of rides
+
+annually, limited availability, restricted service hours, and regional gaps continue to make
+
+accessing care difficult for many residents. 28
+
+       Provider shortages also contribute to challenges. South Dakota faces shortages across all
+
+provider types, particularly in rural areas. Healthcare Professional Shortage Areas (HPSAs) are
+
+designated based on provider-to-population ratios, poverty levels, and travel distance to care, and
+
+are required for eligibility in federal programs such as the National Health Service Corps. The
+
+entire state is classified as a mental health HPSA, and large portions are also designated as
+
+primary care HPSAs. Shortages are especially acute in the Black Hills and South-Central Plains
+
+regions, leaving many rural residents without consistent access to care. Network adequacy
+
+assessments indicate that multiple counties lack an adequate number of providers to meet
+
+community demand. 29
+
+         Maternity care access is particularly limited with 37 of the state's 66 counties considered
+
+maternity care deserts. 30 Recruitment and retention challenges, driven by factors including
+
+housing affordability and geographic isolation, contribute to these shortages. South Dakota
+
+retains about 57.7% of its physician residents, consistent with national trends, yet one in five
+
+providers plan to retire or leave the workforce within five years, half of whom are in rural areas.
+
+Rural EMS services face similar struggles with workforce retention. 31
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                              page 9
+        Operational challenges further strain rural providers, including administrative burdens,
+
+complex reimbursement structures, and growing demand from an aging population with chronic
+
+conditions. These realities point to the need for investments that strengthen local care delivery,
+
+support providers in rural regions, and ensure South Dakotans can access timely, high-quality
+
+care.
+
+Healthcare Access: Health Care Facility Numbers and Distribution
+
+        Across South Dakota, there are 39 Critical Access Hospitals (CAHs, 25 beds or less), 10
+
+larger hospitals (26+ beds), and 10 specialized hospitals licensed through the SD DOH. The state
+
+has 50 general acute-care hospitals, including one Indian Health Services (IHS) hospital not
+
+operating as a Tribal 638 organization, and three rural hospitals with fewer than 50 beds. 32
+
+
+
+
+        In 2023, daily censuses in CAHs ranged from 1 to 15, averaging 4.18 patients, while
+
+Prospective Payment System hospitals with fewer than 49 beds averaged 10.67 patients per
+
+day. 33 South Dakota also has 15 ambulatory-surgery hospitals, 58 Rural Health Clinics (RHCs),
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                           page 10
+39 Federally Qualified Health Centers (FQHCs), three Veterans Administration hospitals, four
+
+IHS hospitals, and four IHS clinics.
+
+Community Health Centers (CHCs): South Dakota’s four CHC organizations – Complete
+
+Health, Falls Community Health, Horizon Health Care, and Rural Health Care – operate 45 sites
+
+statewide, providing primary, preventive, behavioral, and sometimes dental and substance abuse
+
+care regardless of patients’ ability to pay. In 2023, they served 124,541 patients, primarily in
+
+high-need areas.
+
+Federally Qualified Health Centers (FQHCs): South Dakota has 46 FQHCs that meet federal
+
+Section 330 requirements or operate as look-alikes. These centers deliver essential primary and
+
+dental care to underserved populations in free-standing clinics or co-located community settings.
+
+Rural Health Clinics (RHCs): Fifty-eight RHCs operate in 35 counties and 56 cities,
+
+addressing rural physician shortages and expanding non-physician care. They meet CMS
+
+requirements, including being in shortage areas, employing nurse practitioners or physician
+
+assistants, and providing diagnostic, laboratory, and emergency services.
+
+Critical Access Hospitals (CAHs): South Dakota’s 39 CAHs are supported by the Medicare
+
+Rural Hospital Flexibility (Flex) Program, which provides 101% reimbursement for Medicare
+
+inpatient and outpatient services. Seventy-seven percent are east of the Missouri River, where
+
+70% of the population lives, while western communities face travel times up to 120 miles to
+
+reach care. The state mitigates access barriers through referral and transfer agreements,
+
+collaborative projects via the Flex Program, and partnerships with Avera Health, Sanford Health,
+
+and Monument Health to improve care delivery, quality, and EMS integration.
+
+Certified Community Behavioral Health Clinics (CCBHCs): South Dakota has zero CCBHCs
+
+(A. 2. current list of CCBHC entities as of September 1, 2025).
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                           page 11
+Medicaid Disproportionate Share Hospital (DSH) Payments: In FY2025, 23 hospitals in
+
+South Dakota received DSH payment (A. 7. number of hospitals receiving DSH payments). 34
+
+Healthcare Access: Rural Facility Financial Health
+
+       An analysis of South Dakota Critical Access Hospitals (CAHs) from 2020-2025 shows
+
+that most facilities have remained in the low- or medium-low financial risk categories. Medium-
+
+high risk hospitals remained relatively stable, and no hospitals were classified as high risk in
+
+2023-2025. Notably, the “no data” category rose in 2025 to 18, reflecting reporting gaps.
+
+        Critical Access Hospitals in Financial Distress 2020-2025
+        Year                    2020     2021      2022      2023           2024       2025
+        Low Risk                   12       14        14       25             24         15
+        Medium-low Risk            15       11         9        8             11          4
+        Medium-high Risk            8        5         8        5              3          3
+        High Risk                   0        1         1        0              0          0
+        No Data                     5        9         8        2              2         18
+        Healthcare Cost Report Information System 2024, Quarter 4
+        Data File (Flex Monitoring Team) updated March 2025.
+
+       Median financial indicators for South Dakota CAHs in 2023 show strong performance
+
+compared to national medians. Total margin (5.0%) and operating margin (3.78%) exceeded
+
+U.S. averages, liquidity was robust with days cash on hand (144) and a current ratio (4.68), and
+
+debt service coverage remained healthy at 4.12. South Dakota hospitals also rely more heavily on
+
+Medicare services than the national median, reflecting the rural populations they serve. Staffing
+
+and salary levels were in line with national norms.
+
+          Median Indicator Values for South Dakota and the United States 2021
+ Indicator                 SD      US     Indicator                      SD                    US
+ Total Margin (%)         5.00     3.87 Patient Deductions (%)          42.36                 47.95
+ Cash Flow Margin (%)     8.70     6.18 Medicare Inpatient Payer Mix 78.07                    58.75
+                                          (%)
+ Return on Equity (%)     5.67     6.00 Medicare Outpatient Payer       47.39                 29.22
+                                          Mix (%)
+ Operating Margin (%)     3.78     1.38 Medicare OP Cost to Charge      36.30                 42.15
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 12
+ Current Ratio                 4.68     3.00     OP Revenue to Total                76.54     84.21
+                                                 Revenue
+ Days Cash on Hand            143.64    103.0    Salaries to Net Patient            44.46     44.01
+                                          7      Revenue (%)
+ Days in Net Accounts         32.74     47.21    Average age of Plant               10.94     12.30
+ Receivable
+ Days in Gross Accts          48.06     48.92    FTEs/Adjusted Occupied Bed           6.05    4.95
+ Receivable
+ Equity Financing (%)         78.48     66.65    Avg Salary Per FTE                78119     76443
+ Debt Service Coverage         4.12      4.00    Avg Daily Census Swing             1.28      1.62
+                                                 SNF
+ Long-Term Debt to            16.22     17.88    Avg Daily Census Acute               1.48    2.19
+ Capitalization (%)                              Beds
+ OP Revenues to Total         76.54     84.21    Number of Included CAHs              39      1324
+ Revenues (%)
+
+Healthcare Access: Number of Rural Hospital Closures
+
+       In the past three years, three South Dakota hospitals have converted to different facility
+
+types: an IHS hospital became Tribally managed in 2022, a Prospective Payment System hospital
+
+converted to a CAH in 2023, and a CAH transitioned to a Rural Emergency Hospital in July
+
+2025. The most recent hospital closure in the state occurred in 2010. 35
+
+Healthcare Access: Utilization Levels/Patient Volumes of Existing Rural Health Facilities
+
+       The 2024 Rural Health Strategic Analysis found that utilization of care sites varies by
+
+region, rurality, and Tribal classification. Rural and Tribal areas have limited access to outpatient
+
+services, leaving residents with fewer care options. As a result, hospital outpatient departments
+
+are used more frequently than clinics which can be more costly for patients.
+
+       South Dakotans use telehealth and telemedicine to help address access-to-care
+
+challenges, but usage remains lower than in peer states. This highlights an opportunity to expand
+
+telehealth, particularly in very rural and small rural areas identified in the analysis. To ensure
+
+equitable access to outpatient care across South Dakota, targeted investment is needed to
+
+enhance telehealth infrastructure, particularly in rural and Tribal communities. 36
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 13
+Rural Health Transformation Plan: Goals and Strategies
+
+       Rural healthcare in South Dakota is essential and resilient, but persistent challenges exist
+
+related to geographic access to care, workforce shortages, financial and social barriers, limited
+
+healthcare infrastructure, and pronounced health disparities, particularly among rural and Tribal
+
+populations. This situation presents an opportunity to transform how we support rural healthcare
+
+delivery by investing in long-term, sustainable capacity-building initiatives that strengthen
+
+providers and systems, rather than starting temporary programs that lapse when funding ends.
+
+       This Rural Health Transformation Plan prioritizes direct investment in provider capacity
+
+over creating new programs. Recognizing that rural providers understand their communities’
+
+needs best, this plan offers flexibility for local innovation by supplying practical tools and
+
+support necessary to enable providers to deliver high-quality care efficiently and sustainably.
+
+Through strategic investments across four core themes, this plan will build capacity that extends
+
+beyond this grant period. Connect Technology and Data for a Healthier SD will optimize
+
+Electronic Health Record (EHR) systems, fund essential technology and equipment, and develop
+
+statewide data infrastructure. Advance the Rural Workforce will address workforce shortages via
+
+recruitment incentives, training infrastructure, and workforce expansion. Keep Healthcare Local
+
+and Strong focuses on enhancing chronic disease management programs, supporting facility
+
+optimization, and reforming payment models. Transform Systems for Sustainability advances
+
+behavioral healthcare delivery and emergency medical services.
+
+       These targeted investments will enable rural providers to operate more efficiently, extend
+
+their reach, reduce administrative burdens, and retain strengthened capacity beyond 2031.
+
+Efficiency gains from EHR optimization, telehealth capabilities supported by critical equipment,
+
+and the recruitment of clinicians all represent lasting improvements in care delivery.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                               page 14
+Enhancements to chronic disease programs, facility optimization, payment model reforms, and
+
+expanded behavioral health and emergency services further ensure that these gains are
+
+sustainable, meaningful, and tailored to the needs of rural communities.
+
+       Together, these initiatives will achieve measurable transformation by creating a resilient
+
+and enduring rural healthcare infrastructure that will strengthen communities and serve South
+
+Dakotans for decades into the future.
+
+Improving Access
+
+       Access to healthcare in rural South Dakota requires both immediate workforce solutions
+
+and long-term infrastructure investments that extend provider reach. Our approach addresses
+
+access gaps across the full continuum: primary care, specialty services, behavioral health,
+
+maternal health, and emergency medical services.
+
+       Technology investments will deploy telehealth capabilities, diagnostic equipment, and
+
+remote monitoring tools that bring specialty expertise to rural communities to improve health
+
+outcomes for patients. Financial incentives through recruitment and retention programs will
+
+attract and keep clinicians in rural areas, while our Rural Health Forward training and resource
+
+hub will support existing providers with continuing education. Community health worker (CHW)
+
+expansion extends clinical team capacity for care coordination and chronic disease support.
+
+       Behavioral health access will be transformed through Certified Community Behavioral
+
+Health Clinic (CCBHC) implementation, ensuring same-day access and 24/7 crisis response.
+
+Access to maternal health services will be improved by assessing and implementing
+
+opportunities for coordinated care. EMS system advancement through regional hubs will
+
+improve response times, while grants for rural Medicaid providers will help facilities transition
+
+to sustainable models that keep services local.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 15
+Improving Health Outcomes
+
+       Outcome-focused initiatives address South Dakota's leading causes of morbidity and
+
+mortality while building systems that prevent disease progression. Strengthening statewide
+
+chronic disease management will reduce deaths from heart disease, stroke, and diabetes through
+
+early intervention and improved disease control. Care coordination improvements through EHR
+
+optimization and health information exchange integration ensure continuous information flow
+
+across care settings. CHW extension expands coordination into homes and communities. Value-
+
+based payment transformation through Medicaid reform aligns financial incentives with health
+
+outcomes rather than volume, rewarding providers for keeping patients healthy. Integrated
+
+behavioral health will improve outcomes through comprehensive, coordinated care delivery. The
+
+Rural Data Atlas will enable outcome tracking at the community level, allowing providers and
+
+health departments to identify gaps, target interventions, and measure impact.
+
+Technology Use
+
+       South Dakota will advance the adoption of emerging technologies with careful evaluation
+
+of their relevance and effectiveness for rural providers and patients. Technology strategies will
+
+prioritize tools that enhance prevention and chronic disease management which are areas where
+
+rural residents have historically experienced gaps in care.
+
+       Remote patient monitoring for chronic conditions enables real-time data collection and
+
+early intervention to prevent severe complications, and EHR optimization ensures existing
+
+technology is fully leveraged for clinical decision support and population health management.
+
+The plan will support technology-driven solutions ranging from AI diagnostic tools to robotic
+
+devices that are evaluated based on demonstrated effectiveness in rural settings, alignment with
+
+provider capacity, patient connectivity, implementation costs, and measurable impact. Expansion
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                          page 16
+of telehealth will extend specialist services into communities that are not able to support
+
+specialists locally. The Data Atlas will use community data to support prevention through
+
+community-level surveillance and data-driven resource allocation while health information
+
+exchange integration will ensure coordinated prevention and chronic disease management across
+
+providers. Technology investments will also include funding for training, technical assistance,
+
+and implementation support to ensure sustainable adoption and impact.
+
+Strategic Partnerships and Collaboration
+
+       Strategic partnerships will drive sustainable improvements in rural health. Regional
+
+collaborations funded through rural Medicaid provider grants will allow hospitals and clinics to
+
+coordinate services, offer complementary care, and achieve measurable quality gains and
+
+strengthened financial stability. Regional innovation hubs will mentor and support smaller
+
+facilities through training, technical assistance, and shared services to elevate care quality and
+
+access. Integrated data systems, including the Data Atlas, will provide unified access to patient-
+
+level information for evidence-based decision-making. Behavioral health networks strengthened
+
+through the CCBHC model and regional EMS sites will further enhance coordination, training,
+
+and resource sharing.
+
+Workforce
+
+       South Dakota’s rural workforce shortage requires solutions that address professional
+
+isolation, limited continuing education, and financial barriers. Recruitment incentives will
+
+provide financial incentives to support rural service commitments, while community health
+
+worker expansion will extend clinical team capacity and reduce administrative burden for
+
+providers. A training and resource hub will support retention through continuing education and
+
+professional development. EMS advancement will expand training for emergency medical
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 17
+professionals. Finally, telehealth investments through grants allow rural providers to consult
+
+specialists remotely, manage complex cases with support, and increase clinical confidence and
+
+job satisfaction which further supports retention.
+
+Data-Driven Solutions
+
+       The Data Atlas creates a public technology platform with interactive maps, charts, and
+
+tables displaying county-level health data, enabling evidence-based decision-making, grant
+
+writing, needs assessment, and intervention evaluation. EHR interoperability investments
+
+connect rural providers to health information exchange systems, ensuring patient data follows
+
+individuals across care settings to prevent duplicative testing and medical errors. Quality
+
+improvement analytics through EHR enhancements provide rural providers with dashboards
+
+tracking readmissions, infections, wait times, and screening rates. Remote monitoring generates
+
+continuous patient data informing clinical decisions and enabling early intervention. Each
+
+initiative includes specific, measurable outcomes tracked through data systems to enable
+
+continuous program refinement and accountability.
+
+Financial Solvency Strategies
+
+       Ensuring long-term financial stability requires payment reform options, operational
+
+adjustments, and strategic investments in sustainable service models. Value-based payment
+
+options through Medicaid can provide predictable revenue rewarding quality outcomes rather
+
+than volume, addressing financial vulnerability from low rural patient volumes while
+
+incentivizing preventive care.
+
+       Medicaid provider grants will fund financial, accounting, legal, and strategic consulting
+
+to help hospitals and clinics assess operations and transition to sustainable models. This may
+
+include modifying service offerings, right-sizing facilities, developing regional partnerships, or
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 18
+transitioning to alternative facility designations. Revenue diversification occurs through
+
+expanded Medicaid billing for CHW services, reimbursable care coordination, and remote
+
+patient monitoring models.
+
+       Infrastructure investments through EHR and technology and equipment grants will
+
+enhance operational efficiency, expand service capacity, and enable higher-acuity services
+
+locally. By reducing costly facility transfers and capturing more services within rural facilities,
+
+these investments improve financial performance. Regional EMS hubs and CCBHC automated
+
+reporting systems will reduce administrative burden and improve billing accuracy.
+
+Addressing Root Causes of Rural Hospital Risk
+
+       Rural hospitals face a range of connected challenges that put their services and viability
+
+at risk. This plan addresses each systematically. Low volume challenges are addressed through
+
+value-based payment providing predictable revenue regardless of volume, facility transformation
+
+support for right-sizing or regional partnerships, and chronic disease management reducing
+
+hospitalizations while maintaining local access.
+
+       Quality and patient bypass concerns are addressed through a training and resource hub
+
+that supports provider competencies, technology investments that expand local diagnostic and
+
+teleconsultation capacity, and care coordination that strengthens outcomes and community trust.
+
+Payer mix and reimbursement challenges are addressed through Medicaid payment
+
+transformation, community health worker enhancement, chronic disease management initiatives
+
+that improve population health, and strategies to diversify revenue.
+
+       Workforce shortages limiting service capacity are comprehensively addressed through
+
+recruitment and training initiatives. Technology and infrastructure deficits are directly addressed
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 19
+through investments in EHR, technology, and equipment while the Data Atlas supports strategic
+
+planning and quality improvement.
+
+Key Performance Objectives
+
+Connect Technology and Data for a Healthier South Dakota: The objective is to modernize
+
+South Dakota's rural healthcare infrastructure through strategic health information technology
+
+investments and data-driven decision making. By transitioning facilities from paper-based
+
+systems to certified EHR technology, achieving complete integration with the state health
+
+information exchange, and establishing a comprehensive Data Atlas, the state will enable real-
+
+time clinical decision support, population health management, and evidence-based policy
+
+development. These technological foundations will drive improvements in preventive care
+
+delivery, chronic disease management, and patient safety while creating the data infrastructure
+
+necessary to track health disparities and inform community health strategies across all 66
+
+counties. Each initiative includes clearly defined performance objectives.
+
+Advance the Rural Workforce: The objective is to build and sustain a comprehensive rural
+
+healthcare workforce capable of meeting the complex needs of South Dakota's rural, frontier, and
+
+Tribal communities. Through targeted recruitment and retention strategies that support expanded
+
+training and certification programs, the state will strengthen capacity across multiple disciplines.
+
+This multifaceted workforce development approach will ensure communities have access to
+
+culturally responsive care that addresses both clinical needs and social determinants of health.
+
+Performance objectives are detailed within each individual initiative.
+
+Keep Healthcare Access Local and Strong: The objective is to preserve essential healthcare
+
+services in rural communities while improving quality, efficiency, and financial sustainability.
+
+By supporting operational improvements, facilitating strategic partnerships, and advancing
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                           page 20
+value-based payment models, the state will help rural facilities maintain comprehensive service
+
+offerings close to home. Simultaneously, investments in primary care transformation, preventive
+
+care, and chronic disease management will improve health outcomes and reduce avoidable
+
+utilization to decrease unnecessary emergency department visits and hospital readmissions. Each
+
+initiative outlines its own specific performance objectives.
+
+Transform Systems for Sustainability: The objective is to create coordinated, regional systems
+
+for emergency medical services, behavioral health, and maternal care that ensure timely,
+
+integrated, and sustainable access across South Dakota. Through hub-and-spoke models and
+
+regional partnerships, the state will establish infrastructure for rapid crisis response, whole-
+
+person behavioral health care, and comprehensive maternal support. These transformed systems
+
+will reduce fragmentation, improve clinical outcomes through care coordination and follow-up,
+
+and build long-term sustainability through shared resources, enhanced technology integration,
+
+and workforce development. Specific objectives and performance targets are provided for every
+
+initiative.
+
+Proposed Initiatives and Use of Funds
+
+Connect Technology and Data for a Healthier South Dakota
+
+Initiative: Tech and Data Connection for a Healthier South Dakota
+
+Description: This initiative will modernize healthcare delivery across South Dakota through a
+
+comprehensive approach to digital health infrastructure and health information exchange. Guided
+
+by feedback from system leaders, rural hospitals, and provider associations, it provides flexible
+
+funding to healthcare facilities while building statewide infrastructure for sustained success. A
+
+key component, the South Dakota Health Data Atlas, will unify siloed health data into a single,
+
+accessible platform, allowing communities, providers, and policymakers to make data-driven
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 21
+decisions that strengthen rural health outcomes. Together, these efforts address both clinical
+
+technology needs and essential operational infrastructure including telecommunications,
+
+cybersecurity, equipment, and emergency preparedness systems that enable modern healthcare
+
+delivery in rural settings.
+
+        Tier 1 - Foundation Building: Small practices, Tribal clinics, behavioral health
+
+        providers, long-term care, and rural clinics will receive funding for EHR implementation,
+
+        South Dakota Health Link (state’s health information exchange) connections, training,
+
+        and workflow optimization. This tier ensures that providers with limited or no EHR
+
+        capabilities receive the support needed to establish foundational digital health systems,
+
+        enabling them to participate in coordinated care and meet modern standards for
+
+        documentation and quality reporting.
+
+        Tier 2 - Advanced Integration: Mid-size facilities can upgrade systems for full
+
+        interoperability, implement clinical decision support, integrate telehealth, deploy
+
+        population health tools, and establish robust data analytics. This tier transforms adequate
+
+        systems into high-performing platforms that improve clinical outcomes, operational
+
+        efficiency, and care coordination across provider networks.
+
+        Tier 3 - Regional Innovation Hubs: Critical Access Hospitals, regional health systems,
+
+        and large FQHCs can become regional technology leaders by partnering with smaller
+
+        facilities to accelerate technology adoption. These hubs will provide training, mentorship,
+
+        technical assistance, and shared services to help elevate care quality and access.
+
+        Accelerated Health Link Expansion: Funding will remove barriers to SD Health Link
+
+        participation, including waived connection fees, local engagement support, technical
+
+        assistance, upgraded infrastructure, and enhanced interoperability for rural providers.
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 22
+       Comprehensive Infrastructure Modernization: Beyond clinical technology, this
+
+       initiative recognizes that effective healthcare delivery requires robust operational
+
+       infrastructure. Facilities can access funding for critical systems and equipment that
+
+       address the unique challenges of rural healthcare environments.
+
+                                             Eligible Activities
+     Purchase of certified EHR        Cybersecurity enhancements         Operational resilience tools to
+     systems                          including encryption, multi-       include backup power systems,
+     ePrescribing of controlled       factor authentication, and         emergency generators, and
+     substances capabilities          intrusion detection                business continuity solutions
+                                                                         that maintain healthcare access
+     Population health management     Workflow redesign and
+                                                                         during weather events, power
+     platforms for chronic disease    optimization consultation
+                                                                         outages, or other disruptions
+     tracking and preventive care     Quality measure reporting          common in rural areas
+                                      automation
+     Clinical decision support        Comprehensive training             Advanced care delivery tools
+     systems including drug           programs for clinicians, nurses,   to include telehealth equipment
+     interaction checking, evidence- medical assistants,                 and platforms, robotic surgical
+     based order sets, and predictive administrative staff, and IT       or diagnostic systems, AI-
+     algorithms                       personnel to include change        powered clinical support tools,
+                                      management support                 remote patient monitoring
+     Implementation services          Health Link connectivity           devices, occupancy tracking
+     including vendor project         including recruitment,             platforms, and consumer-
+     management, system               interface development, testing,    facing technology that expands
+     configuration, data migration,   and go-live support                access to specialized care
+     and testing                                                         without requiring patient travel
+     Patient engagement tools         Interface development
+     including portals, mobile apps, connecting EHRs to labs,
+     and secure messaging             pharmacies, imaging, and other
+                                      systems
+     Practice management and          Workforce tools to include         Technology infrastructure to
+     revenue cycle systems            training programs, technical       include servers, network
+     integrated with clinical EHRs    resources, and implementation      equipment,
+                                      support that ensure staff can      telecommunications upgrades,
+     Ongoing maintenance,
+                                      effectively utilize new            cybersecurity solutions, and IT
+     licensing, and support
+                                      technologies and sustain           security systems
+     contracts (up to 3 years)
+                                      improvements over time
+     Data analytics and quality       Cloud-based EHR                    Telehealth module fully
+     reporting infrastructure         infrastructure and hosting         integrated with EHR
+                                      services                           workflows
+       Grants will be awarded through a streamlined application process that considers facility
+
+readiness, community impact, and alignment with statewide health priorities. Applicants must
+
+demonstrate how requested funding will improve patient care, expand access, enhance
+
+
+South Dakota Rural Health Transformation Program Project Narrative                                 page 23
+operational capacity, or strengthen care coordination. Technical assistance will be available
+
+throughout the application and implementation process to ensure success, particularly for smaller
+
+facilities with limited grant management experience.
+
+       This integrated approach recognizes that modern healthcare requires both clinical
+
+information systems and the underlying infrastructure to support them. By addressing EHR
+
+adoption, health information exchange, and comprehensive technology infrastructure in a
+
+coordinated manner, South Dakota will build a sustainable foundation for high-quality,
+
+accessible healthcare across all communities regardless of size or geographic location.
+
+       Rural Data Atlas: The South Dakota Health Data Atlas will serve as a comprehensive
+
+       rural health dashboard, integrating data from state agencies and the health information
+
+       exchange into interactive maps, charts, and tables. By unifying siloed systems into a
+
+       single, accessible platform, it will support data-driven planning and investment across the
+
+       rural health system. Hospitals, clinics, Tribal nations, and community partners will be
+
+       able to analyze trends, identify service gaps, target resources, and measure outcomes
+
+       using county-level data on key health indicators.
+
+Main Strategic Goal: Technology Innovation
+
+Use of Funds: A, C, D, F, K
+
+Technical Score Factors: B.1., C.1., C.2., F.1, F.2., F.3
+
+Key Stakeholders: Hospitals, Healthcare Systems, CAHs, Ambulatory Clinics, Urgent Care
+
+Clinics, FQHCs, RHCs, Post-Acute and Long-Term Care Facilities, Community Mental Health
+
+Providers, Home Health Agencies, Hospice, Pharmacies, Optometrists, Dentists, and other
+
+ancillary healthcare stakeholders
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                         page 24
+Outcomes:
+
+   1. EHR Adoption: Establish baseline EHR functionality in previously unserved facilities
+
+       Metric: Percentage of Tier 1 facilities that transition from paper-based or limited EHR
+
+       systems to certified EHR technology
+
+       Baseline: Assessment of EHR adoption by facility type within first 180 days (2026)
+
+       Target: 80% of funded Tier 1 facilities implement certified EHR systems by Year 3
+
+   2. Enhanced Preventative Care Delivery: Use population health tools and automated
+
+       outreach to increase evidence-based screenings
+
+       Metric: Percentage increase in completed colon cancer, breast cancer, and diabetes
+
+       screenings through automated patient identification and outreach
+
+       Baseline: Current screening rates by facility (2025)
+
+       Target: 8% increase in completed preventive screenings by Year 3 in funded Tier 2
+
+       facilities
+
+   3. Clinical Decision Support: Reduce adverse events through real-time clinical alerts and
+
+       evidence-based guidance
+
+       Metric: Percentage reduction in hospital-acquired infections (HAIs) and medication-
+
+       related adverse events through infection surveillance modules and drug interaction
+
+       checking
+
+       Baseline: Current HAI and adverse event rates (2025)
+
+       Target: 15% reduction in HAIs and 10% reduction in medication errors by Year 3 in
+
+       funded Tier 2 facilities
+
+   4. Innovation Diffusion: Pilot and scale advanced health IT capabilities across regions
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                          page 25
+         Metric: Number of innovative health IT pilots (AI-driven tools, advanced analytics,
+
+         novel telehealth integrations) implemented and scaled to partner facilities
+
+         Baseline: 0 (new program)
+
+         Target: Each funded Tier 3 hub launches 2 successful innovation pilots by Year 4, with
+
+         at least one scaled to 2 partner facilities
+
+   5. Strengthen Public Health Impact: Increase the number of assessments (city, county, or
+
+         hospital), state agency plans, initiatives, or reports, or other health-focused strategies that
+
+         cite or use data from the Data Atlas.
+
+         Metric: Number of resources referencing Data Altas
+
+         Baseline: 0 references
+
+         Target: 30 references by 2029
+
+   6. Improve Population Health Outcomes: Track key health conditions and disparities
+
+         across counties.
+
+         Metric: Number of county-level outcome indicators available in Data Atlas
+
+         Baseline: 0 indicators
+
+         Target: 25 indicators by 2029
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+
+ Stage     Key Activities   Lead /             Start    End     Deliverables / Milestones
+                            Responsible        Date     Date
+                            Party
+                             EHR/Health                         Workplan approved, grant program
+                                                  Jan   May
+                            Link: SD DOH                        guidance developed, marketing and
+                                                 2026   2026
+               Project       + Consultant                       outreach plan developed
+   0
+              Planning                                          Develop governance, technical
+                             Data Atlas: SD       Jan   June
+                                                                infrastructure, and host internal
+                                 DOH             2026   2026
+                                                                stakeholder meetings
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                               page 26
+                           EHR/Health
+           Project Kick                      June    Aug    Kick off meeting completed,
+                           Link: Lead +
+               Off                           2026    2026   communications plan implemented
+                            Consultant
+   1
+                            Data Atlas:                     DOH initiates Data Atlas with limited
+                                             July    Dec
+         Initial Go-Live      Lead +                        data and seeks external stakeholder
+                                             2026    2026
+                           Stakeholders                     feedback
+                                                            Release grant guidance documents,
+                           EHR/Health
+                                             Aug     June   provide technical resource virtual
+           Implement       Link: Lead +
+                                             2026    2030   presentations, accept applications on set
+                            Consultant
+   2                                                        cycles, review and approve applications
+                             Data Atlas:
+                                              Jan    June   Stakeholder feedback refines Data
+             Refine        Initiative Lead
+                                             2027    2027   Atlas
+                               & Team
+                            EHR/Health                       Interim metrics report completed;
+                                              Oct    Nov
+           Check Goal       Link: Lead +                    adjustments made based on evaluation
+                                             2027    2027
+                             Consultant                     data; lessons learned documented
+   3
+                                                            Additional data from DSS, DHS,
+          Expanded go-      Data Atlas:      July    June
+                                                            Health Link, and RHT outcomes
+              live            Team           2027    2028
+                                                            included in Data Atlas
+                            EHR/Health
+                                             June    July
+             Finalize       Link: Lead +                    Final outcomes
+                                             2030    2030
+   4                         Consultant
+                             Data Atlas      July    Dec    Load data as it becomes available,
+             Monitor
+                               Team          2028    2029   monitor use of Data Atlas
+                            EHR/Health                      Final evaluation completed and
+                                             Aug     Dec
+            Evaluate       Link: SD DOH                     sustainability plan submitted, all
+                                             2030    2030
+   5                        + Consultant                    metrics and deliverables reported
+                             Data Atlas:      Jan    Sep
+          Implemented                                       Complete impact evaluations
+                               Team          2030    2030
+Estimated Required Funding: $500,000,000 over 5 years
+
+Advance the Rural Workforce
+
+Initiative: Building a Sustainable Rural Healthcare Workforce
+
+Description: This initiative will strengthen South Dakota’s rural healthcare workforce through a
+
+comprehensive, incentive-based program that attracts, develops, and retains professionals across
+
+critical roles and care settings. By combining targeted recruitment incentives with education-
+
+based retention supports, the program ensures sustainable access to quality care in rural and
+
+frontier communities. Recruitment incentives will draw new healthcare professionals to high-
+
+need rural areas through competitive sign-on bonuses, relocation assistance, and rural service
+
+stipends. Retention efforts will support current healthcare workers in advancing their skills and
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 27
+careers through tuition assistance, paid clinical release time, on-site or hybrid training, and
+
+leadership or mentorship opportunities. Together, these strategies build a stable, skilled, and
+
+sustainable workforce to serve rural South Dakotans for years to come.
+
+Specific activities include:
+
+       Recruitment Incentives: Offer tiered sign-on bonuses, relocation assistance, and rural
+
+       service stipends based on role and location. These incentives will help remove barriers to
+
+       relocation and make rural healthcare positions more competitive in attracting highly
+
+       skilled professionals. Participants will be required to sign five-year commitments.
+
+       Retention Supports: Provide current rural healthcare workforce with direct funding for
+
+       education, certification, or leadership training tied to five-year rural service
+
+       commitments.
+
+       Education Partnerships: Collaborate with technical colleges and universities to expand
+
+       accessible rural training pathways to include apprenticeship opportunities.
+
+   The application process for both recruitment and retention incentives will be streamlined to
+
+minimize administrative burden on healthcare providers and applicants. Clear, transparent
+
+eligibility criteria and requirements will be established upfront to ensure fairness and efficiency.
+
+To protect the state's investment and ensure program integrity, participants who fail to fulfill
+
+their five-year service commitment will be subject to prorated repayment obligations.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: A, E, C
+
+Technical Score Factors: D.1
+
+Key Stakeholders: Licensed Healthcare Professionals, Rural Healthcare Facilities, Tribal Health
+
+Partners, Educational Institutions
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 28
+Outcomes:
+
+   1. Rural Healthcare Workforce Recruitment: Increase the number of healthcare
+
+       professionals practicing in rural and frontier communities through targeted recruitment
+
+       incentives.
+
+       Metric: Number of healthcare professionals recruited to rural communities
+
+       Baseline: N/A (new program)
+
+       Target: 500 professionals recruited by 2030
+
+   2. Rural Workforce Retention: Strengthen the stability of the rural healthcare workforce
+
+       through long-term service commitments and education-based retention supports.
+
+       Metric: Percentage of healthcare professionals retained in rural communities five years
+
+       after receiving incentives
+
+       Baseline: N/A (new program)
+
+       Target: 90% retention rate five years post-incentive
+
+   3. Healthcare Education Advancement: Expand education and career advancement
+
+       opportunities for healthcare professionals serving rural communities.
+
+       Metric: Number of professionals completing education or professional development
+
+       programs supported through the initiative
+
+       Baseline: N/A (new program)
+
+       Target: 200 professionals by 2030
+
+   4. Improved Patient Access to Care: Increase availability of care closer to home by
+
+       expanding and stabilizing the rural healthcare workforce.
+
+       Metric: % of Medicaid beneficiaries accessing primary care within 30 miles of home
+
+       Baseline: Established in Year 1 using claims data (2026)
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 29
+         Target: Increase from baseline by 15% by 2023
+
+Impacted Counties: All South Dakota Counties, 46003-46137, except for Minnehaha (46099)
+
+and Pennington (46103)
+
+ Stage     Key           Lead /         Start   End     Deliverables / Milestones
+           Activities    Responsible    Date    Date
+                         Party
+              Project      Initiative    Jan     Mar    Workplan approved, program goals
+   0
+             Planning        Lead       2026     2026   defined, program guidelines established
+                                                        Staff assigned, contractor secured, kickoff
+                                        June     Aug
+   1         Kickoff     Lead + Team                    meeting completed, roles/responsibilities
+                                        2026     2026
+                                                        finalized
+                                                        Activities launched: recruitment
+                                         Sep     June   incentives; retention through long-term
+   2        Implement    Lead + Team
+                                        2026     2030   service commitments and education-based
+                                                        supports.
+                                                        Metrics report/adjustments: Interim
+            Midpoint                     Oct     Nov    metrics report completed; adjustments
+   3                     Lead + Team
+             Check                      2027     2027   made based on evaluation data; lessons
+                                                        learned documented
+             Finalize                   June     July   Final outcomes defined; review metric,
+   4                     Lead + Team
+              Goal                      2030     2030   baseline and target data for each outcome
+                                        Aug      Dec    Evaluation, lessons learned, sustainability,
+   5        Evaluation   Lead + Team
+                                        2030     2030   reporting.
+Estimated Required Funding: $62,500,000 over 5 years
+
+Initiative: Expand and Strengthen Rural Community Health Worker Workforce
+
+Description: This initiative will expand community health workers (CHW) and community
+
+health representatives (CHR) through training, technical assistance, and capacity building, while
+
+strengthening the workforce through sustainable reimbursement, stakeholder collaboration, and
+
+professional development. It will focus on five core activities designed to increase access to
+
+health services, grow the rural workforce, and enhance organizational capacity, education, and
+
+technical support for CHWs and CHRs.
+
+         Rural communities in South Dakota face limited access to care and follow-up services
+
+due to social determinants of health. CHWs and CHRs serve as trusted bridges between these
+
+communities and the healthcare system, helping individuals navigate care, manage chronic
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 30
+conditions, connect with social services, and address social needs. These roles are especially
+
+critical in rural and frontier areas, where access is limited and trusted local relationships are
+
+essential. Specific activities include:
+
+        Financial Sustainability & Reimbursement Support: Support long-term financial
+
+        sustainability by assisting organizations with Medicaid claims and billing processes,
+
+        establishing Medicare billing pathways for CHWs/CHRs, and supporting the integration
+
+        of CHWs into organizational structures to ensure durable funding and reimbursement.
+
+        Integration & Awareness Building: Enhance provider awareness of CHW/CHR roles
+
+        and advance evidence-based programs for chronic disease and injury prevention. CHWs
+
+        will be integrated into rural settings to expand reach and improve care coordination.
+
+        Technical Assistance for Program Development & Expansion: Assist organizations in
+
+        establishing and expanding CHW programs.
+
+        Workforce Recruitment & Retention: Develop strategies to recruit CHWs in rural
+
+        communities, create career pathways and advancement opportunities, and maintain peer
+
+        learning networks and communities of practice to support retention.
+
+        Training, Certification, & Professional Development: Offer cross-training and
+
+        scholarship opportunities for EMS professionals, medical assistants, patient access staff,
+
+        Tribal health workers, and other personnel.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, D, E, G
+
+Technical Score Factors: B.1. B.2., C.1., C.2., D.3.
+
+Key Stakeholders: Community Health Worker Collaborative of South Dakota, Lake Area
+
+Technical College, Southeast Technical College, CHW and CHR Programs
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 31
+Outcomes:
+
+   1. Expanded Workforce: Expand CHW workforce, provide training that equips them to
+
+         improve access to care and address social drivers of health in rural SD.
+
+         Metric: Total number of individuals trained as CHWs
+
+         Baseline: 340 individuals trained as of November 2025
+
+         Target: Train a total of 500 individuals as CHWs by 2030
+
+   2. Increase Certification: Increase the number of Certified CHWs and CHRs
+
+         Metric: Number of Certified CHWs and CHRs
+
+         Baseline: 180 certified CHWs and CHRs as of November 2025
+
+         Target: Certify 300 CHWs and CHRs by 2030
+
+   3. Create New CHW Programs: Support new CHW/CHR programs in South Dakota
+
+         Metric: Number of CHW and CHR programs enrolled and serving Medicaid patients
+
+         Baseline: 22 programs in November 2025
+
+         Target: Assist 25 new programs in enrolling and serving Medicaid patients by 2029
+
+   4. Support More Medicaid Recipients: Expand access to CHW/CHR services for
+
+         Medicaid recipients
+
+         Metric: Number of unique Medicaid recipients receiving CHW/CHR services
+
+         Baseline: 1,250 recipients supported in 2025
+
+         Target: Increase to 1,750 unique Medicaid recipients by October 2029:
+
+Impacted counties: All South Dakota Counties, 46003-46137
+
+ Stage    Key             Lead /            Start   End    Deliverables / Milestones
+          Activities      Responsible       Date    Date
+                          Party
+
+                                             Jan    Mar    Workplan approved, contractor solicited,
+   0         Planning     Initiative Lead
+                                            2026    2026   project goals defined
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 32
+                                                          Staff assigned, contractor secured, training
+                                          June    Aug     organizations secured,
+   1      Initial Work    Lead + Team
+                                          2026    2026    roles/responsibilities finalized, outreach to
+                                                          stakeholders begins
+                                                          Outreach and expansion, implementation
+                         Lead, Team +
+                                          Aug      Oct    support, Medicaid enrollment assistance,
+   2       Implement      Contractor
+                                          2026    2030    CHW training, and quarterly and annual
+                                                          reporting
+                                                          Report review, outreach, implementation
+           Midpoint      Lead, Team +      Oct    Nov     assessment, documentation of lessons
+   3
+            Check         Contractor      2027    2027    learned, and launch of sustainability
+                                                          efforts.
+            Goal &                                        Outcomes defined, expansion targets set,
+                         Lead, Team +     June     Oct
+   4       Objective                                      CHWs trained/certified, Medicaid
+                          Contractor      2030    2030
+          Finalization                                    engagement achieved.
+                         Lead, Team +     Aug     Dec     Evaluation, lessons learned, sustainability,
+   5       Evaluation
+                          Contractor      2030    2030    reporting.
+
+Estimated Required Funding: $3,535,176 over 5 years
+
+Initiative: Rural Health Forward: Training and Resource Hub
+
+Description: This initiative will establish Rural Health Forward, a resource and training hub
+
+designed to close gaps in education, training, and professional development between urban and
+
+rural healthcare providers. Designed for rural use but accessible to all, the hub will serve
+
+physicians, advanced practice providers, nurses, CHWs/CHRs, EMS professionals, doulas, and
+
+other frontline healthcare staff across South Dakota.
+
+       The hub will provide access to high-quality, evidence-based continuing education,
+
+training, and resources. It will feature on-demand learning modules, regional training events, and
+
+simulation-based experiences focused on key topics such as maternal and child health,
+
+behavioral health, emergency care, telehealth, and chronic disease prevention.
+
+This initiative will strengthen South Dakota’s rural healthcare workforce, improve care quality,
+
+and ensure that every community benefits from well-trained, well-supported professionals. A
+
+request for proposal (RFP) would be released by the SD DOH to allow a university, association,
+
+or other central coordinating group to operate the hub.
+
+South Dakota Rural Health Transformation Program Project Narrative                               page 33
+Specific activities include:
+
+       Platform Development: Design and launch a statewide digital platform hosting
+
+       evidence-based training modules, resources, and best practices.
+
+       Training and Education: Deliver virtual and in-person training opportunities, including
+
+       simulation experiences and CE/CME-accredited courses.
+
+       Stakeholder Engagement: Partner with universities, health systems, and professional
+
+       associations to guide content and ensure statewide relevance.
+
+       Evaluation and Quality Improvement: Track utilization, training outcomes, and
+
+       workforce impacts to guide continuous improvement.
+
+       Sustainability Planning: Develop long-term governance and funding strategies to
+
+       maintain and grow the hub beyond initial implementation.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: A, D, E
+
+Technical Score Factors: B.1, B.2, C.2
+
+Key Stakeholders: CAHs, Independent and Community Clinics, FQHCs, RHCs, Long-Term
+
+Care and Home Health Agencies, State Universities and Medical Schools, Technical Colleges
+
+Outcomes:
+
+   1. Provider Training Participation: Expand access to training for healthcare professionals
+
+       across disciplines.
+
+       Metric: Number of providers trained
+
+       Baseline: 0 providers trained
+
+       Target: At least 1,000 providers trained statewide by Year 3.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 34
+   2. Geographic Reach: Ensure equitable access to training for providers in rural, frontier,
+
+         and Tribal communities.
+
+         Metric: % of rural, frontier, and Tribal counties with at least one participating provider.
+
+         Baseline: 0%
+
+         Target: Providers from at least 80% of rural/Tribal counties access resources by Year 3.
+
+   3. Knowledge and Skill Improvement: Improve clinical knowledge and application of
+
+         evidence-based practices.
+
+         Metric: Increase in participant knowledge or skill confidence based on pre-/post-training
+
+         assessments.
+
+         Baseline: Established through first training cohort (Year 1).
+
+         Target: Demonstrate at least a 20% improvement in post-training assessment scores by
+
+         Year 3.
+
+   4. Workforce Retention and Impact: Strengthen long-term workforce stability and
+
+         provider retention in rural and underserved areas.
+
+         Metric: Percentage of trained providers remaining in South Dakota’s healthcare
+
+         workforce after 12 months.
+
+         Baseline: To be established using Year 1 tracking data.
+
+         Target:
+
+         continue to practice in rural or frontier areas.
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+ Stage     Key             Lead /            Start   End      Deliverables / Milestones
+           Activities      Responsible       Date    Date
+                           Party
+
+                                               Jan    Mar     Workplan approved, project goals
+   0         Planning      Initiative Lead
+                                              2026    2026    defined, RFP process initiated.
+
+South Dakota Rural Health Transformation Program Project Narrative                               page 35
+                                          Apr     June    Staff assigned, contractor secured, kickoff
+   1       Initial Work        Lead
+                                          2026    2026    meeting completed
+                                                          Stakeholder ID, training needs
+                                          June    June    assessment, curriculum/platform
+   2       Implement       Lead +Team
+                                          2026    2030    development, CE/CME accreditation,
+                                                          statewide training, quarterly reporting
+                                                          Interim reporting, adjustments, lessons
+            Midpoint                       Oct    Nov
+   3                           Lead                       learned, sustainability review, partnership
+             Check                        2027    2027
+                                                          development.
+             Goal &                                       Final outcomes defined, targets for
+                              Lead +      June    July
+   4        Objective                                     education program and resource hub
+                           Stakeholders   2030    2030
+           Finalization                                   achieved.
+                                          Aug     Dec     Evaluation, lessons learned,
+   5       Evaluation          Lead
+                                          2030    2030    sustainability, reporting.
+Estimated Required Funding: $4,730,000 over 5 years
+
+Keep Healthcare Access Local and Strong
+
+
+Initiative: Medicaid Primary Accountable Care Transformation
+
+Description: This initiative will implement an alternative payment model that provides flexible,
+
+capitated payments to rural primary care practices, incentivizing both providers and patients for
+
+quality outcomes while promoting shared accountability for cost and utilization.
+
+Specific activities include:
+
+       Model Design & Development: Develop payment methodology with phased options
+
+       bridging fee-for-service to partial capitation, define quality measures, and establish
+
+       practice transformation requirements.
+
+       Provider Infrastructure Support: Offer transformation grants for care coordination,
+
+       care managers, population health tools, and technology enhancements.
+
+       Quality Payment System: Deploy a vendor-supported platform for real-time
+
+       performance dashboards, HEDIS tracking, and year-end bonus calculations.
+
+       Data Analytics Infrastructure: Implement population health tools to identify high-risk
+
+       patients, track care gaps, and enable reporting and data exchange.
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 36
+       Payer Alignment Coordination: Align payment methodologies across Medicare,
+
+       commercial insurers, and Tribal health programs.
+
+       Practice Support & Training: Provide technical assistance on care coordination,
+
+       chronic disease management, behavioral health integration, and value-based operations.
+
+The model strengthens rural primary care sustainability by ensuring predictable revenue that
+
+rewards quality and enables practices to maintain comprehensive services.
+
+Main Strategic Goal: Innovative Care
+
+Use of Funds: I, A, B, C
+
+Technical Score Factors: E.1, E.2, B.1, B.2, E.2, F.1
+
+Key Stakeholders: Medicaid-Enrolled Primary Care Clinics, RHCs, FHQCs, Tribal Partners,
+
+Medicaid Recipients
+
+Outcomes:
+
+   1. Increased Quality of Care: Improved quality of patient care, as measured by in five
+
+       primary-care centric HEDIS measures.
+
+       Metric: HEDIS-based primary care quality measures
+
+       Baseline: South Dakota Medicaid rates by measure (2024 data).
+
+       Target:
+
+               By December 2028: Achieve a statistically significant improvement above
+
+               baseline in each selected HEDIS measure at the clinic/community level.
+
+               By December 2030: Sustain improvements and demonstrate continued year-over-
+
+               year gains in HEDIS measures across clinics, with performance compared to like
+
+               facilities.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 37
+   2. Reduce Emergency Department Visits: Decrease unnecessary emergency department
+
+       utilization.
+
+       Metric: ED visits per 1,000 member-months for ambulatory care sensitive conditions
+
+       (ACSCs)
+
+       Baseline: South Dakota Medicaid average (2024 data).
+
+       Target:
+
+               By December 2028: Achieve a statistically significant reduction in unnecessary
+
+               ED visits at the clinic/community level.
+
+               By December 2030: Maintain or further reduce unnecessary utilization, with year-
+
+               over-year improvement.
+
+   3. Improve Sustainability of Primary Care for Clinicians: Amplify efforts to
+
+       recruit/retain primary care physicians to rural/frontier locations.
+
+       Metric: Provider burnout rate
+
+       Baseline: National burnout rate of 43.2% (AMA, 2024); South Dakota baseline to be
+
+       established via survey.
+
+       Target: By December 2028: Reduce clinician burnout and administrative stress to at
+
+       least one standard deviation below the national average.
+
+   4. Transform South Dakota Primary Care Landscape: Engage with stakeholder payors
+
+       for alignment work
+
+       Metric: Number of payers formally aligned on payment methodology
+
+       Baseline: 1 (Medicaid only).
+
+       Target: By December 2030: 4 payers
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                      page 38
+Implementation Plan
+ Stage   Key             Lead /         Start      End Date    Deliverables / Milestones
+         Activities      Responsible    Date
+                         Party
+
+                                                               Workplan approved, goals defined,
+                           Initiative      Jan                 stakeholder engagement plan
+   0       Planning                                Apr 2026
+                             Lead         2026                 completed, RFI/RFP needs
+                                                               identified.
+                                                               Staff assigned, kickoff meeting held,
+                                          May                  roles finalized, RFP completed,
+   1      Initial Work       Lead                  July 2026
+                                          2026                 infrastructure funding process
+                                                               established.
+                                                               Vendors selected, model created,
+                                          May                  quality reporting process
+   2      Implement      Lead + Team               Sep 2027
+                                          2026                 implemented, bridge payments for
+                                                               FQHC/RHCs enacted.
+                                                               Case management staff hired and
+                                                               trained, SPA/admin changes
+           Midpoint                        Oct
+   3                        Lead                   Oct 2027    completed, quality metrics set,
+            Check                         2027
+                                                               lessons documented, payor alignment
+                                                               initiated.
+                                                               Final outcomes defined, model
+                                           Nov
+            Finalize        Lead +                 Dec 2029    launched, payor alignment on core
+   4                                      2027
+             Goal        Stakeholders                          tenets, annual best-practices
+                                                               gathering held.
+                                                               Quality and utilization data analyzed,
+                                           Jan
+   5       Evaluate         Lead                   Sep 2030    results inform budgeting/legislation,
+                                          2030
+                                                               all metrics and deliverables reported
+Estimated Required Funding: $62,610,000 over 5 years
+
+Initiative: Medicaid Rural Health Access and Quality Grants
+
+Description: This initiative will establish Rural Health Access and Quality Grants to help rural
+
+hospitals and clinics assess and transition their service delivery models to ensure long-term
+
+access to essential healthcare. These grants will help sustain vital rural healthcare services and
+
+promote quality in clinical and operational delivery across South Dakota. Funding will support
+
+professional services such as financial, legal, and organizational change management, as well as
+
+regional assessments and partnerships that strengthen coordination and sustainability. Grants will
+
+be awarded through a competitive RFP process. Provider proposals must describe how funds will
+
+be used to maintain or expand healthcare access and improve operational performance.
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 39
+Specific allowable activities include:
+
+       Strategic Partnerships: Planning and developing regional partnerships or affiliations to
+
+       expand specialty and maternal health access. Funds may support legal or accounting
+
+       services, technical consulting, shared infrastructure, and hub-and-spoke models for
+
+       specialized care.
+
+       Service Line Expansion: Conducting feasibility assessments, securing technical and
+
+       contracting support, and making infrastructure upgrades to expand/realign service lines.
+
+       Operational Efficiency: Engaging consultants to improve staffing models, train existing
+
+       personnel, and enhance revenue cycle management to reduce waste and strengthen
+
+       financial performance.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: D, F, G, H, J, K
+
+Technical Score Factors: A.3, A.7, B.1, C.1, F.1, F.2
+
+Key stakeholders: Urban Tertiary Hospitals and Health Systems, Academic Medical Centers,
+
+Rural Hospitals, CAHs, Rural Emergency Hospitals, RHCs, FQHCs, Community Mental Health
+
+Centers, IHS/Tribal Facilities, Clinicians
+
+Outcomes:
+
+   1. Healthcare Access Preservation: Ensuring essential services remain available locally
+
+       Metric: Percentage of essential service lines maintained or expanded through grant-
+
+       funded facilities (to include through telehealth and transportation coordination)
+
+       Baseline: Number of services lines offered pre-grant (2025)
+
+       Target: 100% of pre-existing essential services maintained; >10% of facilities expand
+
+       service offerings
+
+
+South Dakota Rural Health Transformation Program Project Narrative                         page 40
+   2. Strategic Partnerships: Expanding specialized care access through collaboration
+
+         Metric: Number of new regional partnerships or affiliations established
+
+         Baseline: 0 (new initiative)
+
+         Target: At least one meaningful partnership per funded proposal for strategic
+
+         partnerships
+
+   3. Operational Efficiency: Supporting sustainability through streamlined operations
+
+         Metric: Financial performance improvement
+
+         Baseline: Operating margin, days cash on hand, cost per adjusted patient day (2025)
+
+         Target: 15% improvement in operating margin OR achieve positive operating margin
+
+   4. Community Health Impact: Improving population health to reduce crisis-driven care
+
+         Metric: Medicaid health outcomes in grant-recipient service areas
+
+         Baseline: Medicaid and CHIP Quality Core Set Data
+
+         Target: 15% improvement in child and adolescent annual prevention visits; 10%
+
+         improvement in chronic disease control measures
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+
+ Stage    Key            Lead /             Start   End     Deliverables / Milestones
+          Activities     Responsible        Date    Date
+                         Party
+
+                                                            Draft RFP, obtain approval, form
+                                              Jan    Feb
+   0        RFP Prep      Initiative Lead                   evaluation team, develop provider
+                                             2026   2026
+                                                            contracts and reporting templates.
+                                                            Issue RFP, review proposals, finalize
+                                              Mar    July
+   1       RFP Execute        Lead                          awards, obtain signed provider
+                                             2026   2026
+                                                            contracts.
+             Fund +                          Aug     Jun    Disperse funds, collect and review bi-
+   2                          Lead
+             Monitor                         2026   2028    annual provider progress reports.
+                                                            Review previous grants and reports,
+             2nd RFP                          Jun    Dec
+   3                           Lead                         issue second RFP, review proposals,
+              Cycle                          2028   2028
+                                                            finalize awards, obtain contracts.
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 41
+           2nd Fund +                          Jan     July    Disperse funds, collect and review bi-
+   4                           Lead
+            Monitor                           2028    2030     annual provider progress reports.
+                                               Aug     Sep     Data analysis of metrics. All
+   5        Evaluate           Lead
+                                              2030    2030     deliverables reported.
+Estimated Required Funding: $12 ,         ,     over 5 years
+
+Initiative: Strengthening Chronic Disease Management
+
+Description: This initiative strengthens statewide chronic disease management through four key
+
+strategies: targeted rural funding, expanded self-management programs, enhanced caregiver
+
+support, and provider training.
+
+Specific activities include:
+
+       Targeted Rural Funding: Rural hospitals, clinics, pharmacies, and schools will receive
+
+       funding to implement evidence-based interventions tailored to local needs. Eligible
+
+       activities include care coordination, remote patient monitoring, use of CHWs to address
+
+       barriers, and screening for social drivers of health. These efforts complement and expand
+
+       the Medicaid Health Home program by supporting infrastructure growth and encouraging
+
+       new provider participation.
+
+       Chronic Disease Self-Management: Evidence-based programs will be expanded to help
+
+       individuals manage symptoms, improve daily functioning, and reduce healthcare costs.
+
+       Expansion includes increasing program capacity and training more organizations to
+
+       ensure sustainability and reach.
+
+       Caregiver Support: Caregivers, a largely unrecognized workforce, will gain additional
+
+       resources through peer support groups, coordinated resources, expanded provider
+
+       training, and increased respite care availability.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                               page 42
+       Provider Training: Targeted training will ensure fidelity in implementing interventions,
+
+       covering topics such as remote monitoring and caregiver coordination, fostering provider
+
+       engagement and sustainable impact.
+
+   The initiative also includes a pilot within the Medicaid Health Home program to test whether
+
+enhanced quality incentive payments improve health outcomes and drive further program
+
+improvements.
+
+Main Strategic Goal: Make Rural America Healthy Again
+
+Use of Funds: A, C, D, E, F, I, K
+
+Technical Score Factors: B.1, B.2, C.1, F.1
+
+Key Stakeholders: Healthcare providers in South Dakota including, but not limited to, Rural
+
+Hospitals, RHCs, FQHCs, Primary Care Clinics and Physician Practices, Community
+
+Pharmacies, Home Health Agencies, Chronic Disease Self-Management Providers, Schools
+
+Outcomes:
+
+   1. Reduce Hospital Readmissions: Reduce 30-day readmission rates for patients with
+
+       chronic health conditions in rural hospitals.
+
+       Metric: 30-day readmission rate for chronic condition patients
+
+       Baseline: To be established through the funding application process (data provided by
+
+       participating hospitals)
+
+       Target: Annual reduction in readmission rates, as reported by funded entities, with
+
+       specific targets set once baseline data is collected
+
+   2. Remote Patient Monitoring – Blood Pressure Control: Increase the number of
+
+       participants in remote patient monitoring programs achieving controlled blood pressure
+
+       (<140/90), with current medication adherence and no medication changes needed.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 43
+         Metric: Number of patients with controlled blood pressure
+
+         Baseline: To be established through initial program reporting by funded entities
+
+         Target: 1,000 participants with controlled blood pressure by 2030, monitored annually
+
+         through funded entity reports
+
+   3. Chronic Disease Self-Management Workshops: Increase participation in certified
+
+         chronic disease self-management workshops.
+
+         Metric: Number of individuals completing a certified workshop
+
+         Baseline: To be established through initial reporting by the statewide coordinating entity
+
+         Target: 750 participants annually by 2030, monitored annually through reports from the
+
+         coordinating entity
+
+   4. Medicaid Health Home Quality Incentive Performance: Improve outcomes on
+
+         Medicaid Health Home Quality Incentive Payment metrics.
+
+         Metric: Number of metrics (of 7) showing improved performance
+
+         Baseline: CY 2025 performance on seven quality metrics: depression follow-up plan
+
+         documented, active person-centered care plan, BMI in control, mammogram up to date,
+
+         colonoscopy up to date, blood pressure in control, and appointment compliance
+
+         Target: Improvement in at least 3 of 7 metrics by 2030, measured annually through
+
+         Medicaid Health Home reporting
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+ Stage     Key          Lead /              Start   End    Deliverables / Milestones
+           Activities   Responsible         Date    Date
+                        Party
+
+                         Initiative Lead:    Jan    Mar    Workplan, goals, stakeholder plan
+   0        Planning
+                            SD DOH          2026    2026   completed.
+                                            June    Aug    Staff assigned, contractor secured, kickoff
+   1         Staffing          Lead
+                                            2026    2026   meeting held, roles finalized.
+
+South Dakota Rural Health Transformation Program Project Narrative                              page 44
+                                                          EBI funding released, programs and
+                                           Aug    June
+    2       Launch       Lead + Team                      supports implemented, provider trainings,
+                                           2026   2030
+                                                          quarterly reports.
+                                                          Interim metrics report completed,
+           Midpoint                         Oct   Nov
+    3                          Lead                       adjustments made based on evaluation
+            Check                          2027   2027
+                                                          data, lessons learned documented.
+                                                          Targets met for chronic disease
+                            Lead +         June   July
+    4      Outcomes                                       management, self-management, and
+                         Stakeholders      2030   2030
+                                                          caregiver support.
+                                                          Final evaluation, lessons learned,
+                                           Aug    Dec
+    5      Evaluation    Initiative Lead                  sustainability plan submitted, all metrics
+                                           2030   2030
+                                                          reported.
+Estimated Required Funding: $45,079,000 over 5 years
+
+Initiative: Regional Maternal and Infant Health Hubs
+
+Description: This initiative aims to reduce maternal and infant health disparities and improve
+
+access to high-quality care in rural and Tribal areas in South Dakota by establishing regional
+
+hubs. These hubs focus on both clinical care and broader care coordination, supported by spoke
+
+sites that integrate community social-support networks.
+
+Specific activities include:
+
+   1. Assessment, Planning, and Policy Alignment: Conduct a maternal health gap, policy,
+
+        and funding analysis to identify service shortages, regulatory and payment barriers, and
+
+        workforce needs. Complete a landscape analysis of social services, home-visiting
+
+        programs, and community-based supports for mothers and infants. Map existing maternal
+
+        care providers, define care coordination pathways, and develop an ideal care coordination
+
+        model.
+
+   2. Clinical Transformation - Hub and Spoke Model: Informed by the assessments, three
+
+        healthcare entities will receive funding to design and launch regional maternal health
+
+        hubs linked to local “spoke” sites. This will be a hybrid OB-Nest-style model combining
+
+        in-person, telehealth, and remote monitoring prenatal and postpartum care. Funding can
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 45
+       be used to develop telehealth and data infrastructure, provide training and technical
+
+       assistance to hub and spoke staff, and pilot, refine, and scale hub operations.
+
+   3. Social Support Care Coordination: Integrate social and clinical care to address non-
+
+       medical barriers affecting maternal and infant health outcomes by establishing and testing
+
+       a patient navigation model with hubs and spokes. Define collaboration between different
+
+       members of the care team. Strengthen referral pathways for housing, behavioral health,
+
+       transportation, nutrition, and home visiting services. Build data-sharing and
+
+       communication systems to link social and clinical information.
+
+   4. Community and Tribal Doula Support: Fund and support community and Tribal
+
+       organizations to develop and sustain doula programs. Integrate doulas into hub care
+
+       teams.
+
+Main Strategic Goal: Make Rural America Healthy Again
+
+Use of Funds: A, D, E, F, G, I, K
+
+Technical Score Factors: B.1, B.2, C.1, D.1, F.1, F.2,
+
+Key stakeholders: Healthcare Providers including, but not limited to, Rural Hospitals, RHCs,
+
+FQHCs, Primary Care Clinics and Physician Practices, Integrated Health Systems, Indian/Tribal
+
+Health Services, Community Organizations
+
+Outcomes:
+
+   1. Prenatal Care Initiation: Increase percentage of women receiving prenatal care in the
+
+       first trimester
+
+       Metric: Prenatal care visit during the first trimester (% among participating women in
+
+       OB hubs)
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                         page 46
+         Baseline: To be established through the funding application process (data provided by
+
+         participating hospitals and clinics)
+
+         Target: 80.5% of pregnant women, to align with Healthy People 2030 goal
+
+   2. OB Hybrid Hub and Spoke Implementation: Increase number of pregnant and
+
+         postpartum women served through the hybrid hub and spoke model
+
+         Metric: Number of women receiving hybrid OB care
+
+         Baseline: To be established through initial program reporting by funded entities
+
+         Target: To be established by hub and spoke sites in their application for funding.
+
+   3. Care Coordination and Referrals: Increase percent of women who receive referrals to
+
+         address behavioral health, housing, nutrition, and other social needs.
+
+         Metric: Percentage of women in OB hybrid model receiving a referral for
+
+         social/behavioral health needs
+
+         Baseline: To be established through initial program reporting by funded entities.
+
+         Target: 80% of women who had a positive social determinant of health screening receive
+
+         at least one referral
+
+   4. Doula Workforce Expansion: Increase number of doulas in the state
+
+         Metric: Number of trained, certified, and Medicaid verified doulas statewide
+
+         Baseline: To be established through initial reporting through funded entity
+
+         Target: Increase from baseline by 25% each year
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+ Stage     Key Activities        Lead /             Start Date   End     Deliverables/Milestones
+                                 Responsible                     Date
+                                 Party
+                                                                         Workplan approved, goals
+                                 Initiative Lead:                 Mar
+   0            Planning                             Jan 2026            set, engagement plan done,
+                                    SD DOH                        2026
+                                                                         RFP initiated.
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 47
+                                                                June    Staff assigned, contractor
+    1          Staffing            Lead          April 2026
+                                                                2026    secured, kickoff held.
+                                                                        Gap analysis done, pilot hub
+                                                                        funding awarded and
+                                                                June
+    2      Implementation      Lead + Team       June 2026              launched, doula training
+                                                                2030
+                                                                        funded, quarterly metrics
+                                                                        reported.
+                                                                        Interim report completed,
+                                                                Nov     adjustments made, lessons
+    3      Midpoint Check          Lead           Oct 2027
+                                                                2027    documented, sustainability
+                                                                        plan started.
+                                                                        Final outcomes defined,
+                                   Lead +                       July
+    4         Outcomes                           June 2030              maternal and infant hub
+                                Stakeholders                    2030
+                                                                        targets achieved.
+                                                                        Final evaluation completed,
+                                                                        lessons learned, and
+                                                                Dec
+    5        Evaluation        Initiative Lead   Aug 2030               sustainability plan
+                                                                2030
+                                                                        submitted, all metrics
+                                                                        reported.
+Estimated required funding: $24,000,000 over 5 years
+
+Transform Systems for Sustainability
+
+
+Initiative: Integrated Behavioral Health through CCBHC & Collaborative Care
+
+Description: This initiative will implement the Certified Community Behavioral Health Clinic
+
+(CCBHC) model statewide, ensuring comprehensive, coordinated care with same-day access,
+
+24/7 crisis response, integrated physical and behavioral health services, and evidence-based care
+
+for special populations including veterans and perinatal populations. This initiative will also
+
+expand the Collaborative Care Model from three pilot sites to additional primary care locations
+
+statewide, integrating mental health into primary care through teams of physicians, behavioral
+
+health case managers, and psychiatric consultants. This evidence-based model improves access
+
+and quality of care for rural and frontier patients closer to home. Specific activities include:
+
+        Provider Capacity Building: Support behavioral health and primary care providers in
+
+        meeting CCBHC and Collaborative Care standards, including same-day access, case
+
+        management, peer support, and integrated screening.
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 48
+       Crisis Services Expansion: Establish one Mobile Crisis Team and one crisis
+
+       stabilization facility per region to reduce ER use and jail holds.
+
+       Payment System Transformation: Implement a Behavioral Health PPS with outcome-
+
+       based incentives and provider technical assistance.
+
+       IT Infrastructure Development: Create a statewide, multi-functional EHR/IT system to
+
+       standardize data collection, monitor outcomes in real time, and streamline payment
+
+       processes. The system will interface with provider EHRs and state Medicaid systems to
+
+       support quality improvement and performance tracking.
+
+       Telehealth Infrastructure Enhancement: Expand telehealth capabilities to improve
+
+       access in rural and frontier areas.
+
+       Workforce Development: Implement recruitment and retention strategies, training
+
+       programs, and supports for both licensed professionals and paraprofessionals such as peer
+
+       support specialists, CHWs, care coordinators.
+
+       Technical Assistance and Oversight: Provide contractual support for grant
+
+       management, CCBHC coordination, PPS implementation, and population health
+
+       platforms, including care coordination, referral tracking, and analytics tools.
+
+       Collaborative Care Billing Codes: Ensure coverage and implementation of
+
+       Collaborative Care Model billing codes for both Medicaid and commercial insurance.
+
+Main Strategic Goal: Make Rural America Health Again
+
+Use of Funds: B, D, E, F, G, H
+
+Technical Score Factors: A.1, A.2, A.3, A.4, A.5, A.6, B.1, B.2, B.4, C.1, D.1, D.2, E.1, F.1,
+
+F.2
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                        page 49
+Key Stakeholders: Behavioral Health stakeholders in South Dakota including but not limited to:
+
+Community Mental Health Centers, Substance Use Disorder Programs, Helpline Center/988,
+
+Inpatient Psychiatric Hospitals, Short-Term Crisis Stabilization Centers, RHCS, Rural Hospitals,
+
+State Office of Rural Health, Council of Community Behavioral Health, Indian/Tribal Health
+
+Services, and other ancillary behavioral healthcare stakeholders later identified.
+
+Outcomes:
+
+   1. CCBHC Regional Coverage: Implement at least one CCBHC in each of South Dakota’s
+
+       Behavioral Health Regions.
+
+       Metric: Operational CCBHCs per region
+
+       Baseline: 0 CCBHCs (January 2026)
+
+       Target: At least 2 by 2027, with full coverage of 1 per region by 2030.
+
+   2. Timely Access to Behavioral Health Care: Patients receive urgent care within 24 hours
+
+       and follow-up within 7 days post-hospitalization or crisis.
+
+       Metric: 24-Hour Access, 7-Day Follow-Up
+
+       Baseline: No baseline data (new)
+
+       Target: By December 2027: 60% of same-day access standards met and 75% of 7-day
+
+       follow-ups completed and documented across all certified CCBHCs.
+
+   3. Integrated Clinical Improvement: Patients with co-occurring behavioral and physical
+
+       health conditions receive integrated care, promoting symptom reduction and improved
+
+       medication adherence.
+
+       Metric: 6-month symptoms and medication improvement
+
+       Baseline: No baseline data
+
+       Target:
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 50
+                By December 2026: Collect six months of baseline data to establish benchmarks.
+
+                Achieve a 10% improvement over baseline.
+
+   4. Timely Intervention: Patients with newly identified mental health concerns in primary
+
+         care receive prompt, team-based interventions to reduce treatment delays and support
+
+         early symptom management.
+
+         Metric: Average days from identification to first treatment intervention
+
+         Baseline: No baseline data
+
+         Target:
+
+                   By December 2026: Collect six months of baseline data to establish benchmarks.
+
+                   Achieve a 75% reduction in average days to first treatment compared to baseline.
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+ Stage     Key            Lead /         Start   End      Deliverables / Milestones
+           Activities     Responsible    Date    Date
+                          Party
+                                                          Workplan approved, goals defined,
+                            Initiative                    CCBHC framework and regional strategy
+                                          Jan     June
+   0        Planning        Lead: SD                      completed, stakeholder engagement plan
+                                          202     2026
+                              DSS                         done, infrastructure and data system
+                                                          updates begun
+                                                          Staff assigned, vendor secured, kickoff
+                                          July    Dec     held, baseline data collected, benchmarks
+   1         Staffing     Lead + Team
+                                          2026    2026    set, provider training started, provisional
+                                                          providers identified
+                                                          Ongoing system buildout, data collection
+                                           Jan    June
+   2         Develop      Lead + Team                     system implemented, PPS methodology
+                                          2027    2030
+                                                          prepared, provider training continued.
+                                                          First CCBHCs operational, Collaborative
+                                           Jan    June
+   3         Launch       Lead + Team                     Care expanded, data tracked, benchmarks
+                                          2029    2029
+                                                          achieved, adjustments made as needed.
+                                                          Comprehensive evaluation completed,
+                                                          outcome targets assessed,
+                          Lead, Team +    June    Dec     barriers/successes reviewed, strategic
+   4        Evaluate
+                          Stakeholders    2029    2030    adjustments made, certification and
+                                                          expansion accelerated, systems
+                                                          interconnected.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                              page 51
+                                                         Final evaluation of all outcomes, 5-year
+                                                         data analyzed, sustainability and financial
+                                         Oct     Dec     planning completed, efficiency and
+   5        Sustain       Lead + Team
+                                        2030     2030    provider satisfaction assessed, lessons
+                                                         learned documented, findings shared,
+                                                         ongoing quality improvement planned.
+Estimated Required Funding: $56,357,877over 5 years
+
+Initiative: Enhancing Sustainable Emergency Medical Services
+
+Description: This initiative will create a modern, connected, and sustainable Emergency
+
+Medical Services (EMS) system across South Dakota, ensuring timely, high-quality emergency
+
+care for all residents, including those in rural, Tribal, and frontier communities. By incentivizing
+
+establishment regional EMS hubs, integrating advanced technology, and expanding workforce
+
+development, this initiative addresses critical gaps in response times, staffing, equipment, and
+
+operational efficiency.
+
+       This initiative will also implement coordinated coverage models and telemedicine
+
+integration to improve patient outcomes, strengthen hospital partnerships, and enhance real-time
+
+data collection and sharing. These evidence-based strategies ensure residents receive lifesaving
+
+care closer to home, regardless of location.
+
+Specific activities include:
+
+       Regional Hub Development: Incentivize establishment of strategically located EMS
+
+       hubs to optimize coverage, reduce response times, and coordinate advanced life support.
+
+       Workforce Capacity Building: Support EMS providers through career development,
+
+       simulation-based training, retention strategies, and certification programs.
+
+       Technology Integration: Implement real-time data systems, telemedicine platforms, and
+
+       hospital interfaces to enhance patient care and operational coordination.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 52
+       Operational Efficiency and Cost Management: Reduce duplication, pool resources,
+
+       and streamline EMS operations to lower costs while maintaining high-quality service.
+
+       Technical Assistance and Oversight: Provide support for EMS coordination, data
+
+       collection, and performance tracking.
+
+Main strategic goals: Sustainable Access
+
+Use of funds: E, G, H
+
+Technical Score Factors: C.2
+
+Key Stakeholders: EMS Agencies and Associations, City and County Officials, Law
+
+Enforcement and First Responders, Healthcare Providers and Telemedicine Partners, Educators
+
+and Technical Colleges, Community Leaders in Rural and Frontier Regions
+
+Outcomes:
+
+   1. EMS Regional Coverage: Establish regional EMS hubs to ensure coordinated, timely
+
+       emergency response and advanced life support coverage across South Dakota
+
+       Metric: Operational regional EMS hubs per designated region
+
+       Baseline: 0 hubs (new)
+
+       Target: At least 1 hub per region by 2027, with full statewide coverage by 2030
+
+   2. Enhance EMS Data Integration & Technology Use: Achieve seamless integration of
+
+       EMS electronic patient care records with the state’s health information exchange.
+
+       Metric: Percentage of EMS agencies integrated with the State HIE
+
+       Baseline: 0% integration (January 2026)
+
+       Target: 100% integration in 12 months
+
+   3. Improve EMS Response Times: Reduce delays in emergency response.
+
+       Metric: Percentage of 911 calls with response times exceeding 15 minutes
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                         page 53
+         Baseline: 20% of calls (January 2026)
+
+         Target: Less than 10% of calls within 36 months
+
+   4. Grow and Train the EMS Workforce: Expand recruitment, certification, and training.
+
+         Metric: Increase in certified EMTs/EMRs
+
+         Baseline: Current workforce (January 2026)
+
+         Target: 15% increase statewide within 24 months
+
+Impacted Counties: All South Dakota Counties, 46003-46137
+
+Implementation Plan:
+
+ Stage    Key           Lead /             Start   End     Deliverables / Milestones
+          Activities    Responsible        Date    Date
+                        Party
+
+                                                           Workplan approved, project goals
+                        Initiative Lead:    Jan     Apr    defined, stakeholder engagement plan
+   0        Planning
+                           SD DOH          2026     2026   completed, regional assessment planning
+                                                           approved.
+                                           June     Aug    Staff assigned, contractor secured,
+   1          Staff          Lead
+                                           2026     2026   kickoff meeting completed
+                                                           Launch of regional EMS assessment,
+                                                           identification of hub sites, integrate
+                             Lead          Aug      June   communications and telemedicine
+   2       Implement
+                                           2026     2030   systems, workforce and staffing pool
+                                                           development, and coordination of
+                                                           dispatch systems.
+                                                           Interim metrics report completed;
+            Midpoint         Lead           Oct     Nov
+   3                                                       adjustments made based on evaluation
+             Check                         2027     2027
+                                                           data; lessons learned documented
+                                                           Final outcomes defined, targets for EMS
+            Finalize         Lead          June     July
+   4                                                       hubs, training and workforce
+             Goal                          2030     2030
+                                                           development
+                                                           Final evaluation completed and
+                                           Aug      Dec
+   5       Evaluation        Lead                          sustainability plan submitted, all metrics
+                                           2030     2030
+                                                           and deliverables reported
+Estimated Required Funding: $64,000,000 over 5 years
+
+Implementation Plan
+
+         The SD DOH will lead designated initiatives, with the South Dakota Department of
+
+Social Services (SD DSS) taking the lead on initiatives aligned with their expertise. Overall plan
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 54
+ownership resides with the SD DOH Office of Rural Health, which will oversee progress,
+
+coordinate activities, and ensure alignment with statewide rural health goals. Consultants will
+
+support the Office of Rural Health by administering and managing most initiatives, providing
+
+technical assistance, monitoring, and reporting. Each initiative will have a dedicated team, DOH-
+
+led or DSS-led, responsible for execution and reporting. Progress will be tracked against defined
+
+milestones and performance metrics, with consultants and initiative teams submitting regular
+
+updates to the Office of Rural Health.
+
+Stakeholder Engagement
+
+       South Dakota launched this effort with comprehensive stakeholder engagement,
+
+including individual meetings with the South Dakota Association of Healthcare Organizations,
+
+the state's three major hospital systems, the Great Plains Tribal Leaders Health Board, and
+
+several provider associations. Listening sessions were also conducted in rural communities
+
+statewide and written feedback was solicited through a Request for Information. This level of
+
+engagement will continue throughout the five-year initiative, involving community health
+
+centers, hospitals, primary care providers, Tribal health organizations, patients, caregivers,
+
+advocacy groups, and community partners.
+
+       All engagement will be guided by principles of transparency, collaboration,
+
+responsiveness, and consistency to ensure diverse perspectives are represented. Stakeholders will
+
+participate through bi-annual briefings to review progress, address challenges, and gather
+
+structured input. Annual listening sessions will be held to align priorities and inform strategic
+
+adjustments. Ongoing communication via written reports and updates will be complemented by
+
+interactive consultations including surveys, focus groups, and advisory conversations as needed.
+
+       The SD DOH Office of Rural Health will coordinate engagement efforts, synthesize
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 55
+stakeholder input, and communicate outcomes, while initiative leads provide regular updates,
+
+identify engagement needs, and implement feedback. Consultants will support logistics, track
+
+input, and ensure timely follow-up. All engagement activities will be documented and used to
+
+inform mid-course adjustments. Effectiveness will be measured through participation rates,
+
+stakeholder satisfaction, and the extent to which feedback shapes implementation, with
+
+engagement strategies evolving based on lessons learned and changing needs.
+
+Sustainability Plan
+
+       South Dakota's plan is designed for long-term impact through strategic one-time
+
+investments that build enduring infrastructure and capacity. Each initiative uses non-recurring
+
+funding to establish systems, tools, and capabilities that will continue functioning well beyond
+
+the grant period. The sustainability approach focuses on three core strategies. First, one-time
+
+funds will build essential technology infrastructure and platforms that require minimal ongoing
+
+investment to maintain. Second, funding will support comprehensive staff training and
+
+recruitment efforts that create lasting workforce capacity and expertise. Third, initiatives will
+
+establish self-sustaining resources such as training hubs and resource libraries that continue
+
+serving communities through regular utilization after initial development.
+
+       These investments transform existing systems and strengthen foundational capabilities.
+
+Technology platforms will be integrated into routine operations, trained staff will remain
+
+embedded in their organizations, and newly established care delivery models will be sustained
+
+through standard billing and reimbursement mechanisms. Community health centers, hospitals,
+
+and other partner organizations will incorporate new tools and approaches into their standard
+
+practice, ensuring improvements persist as part of their operational framework.
+
+       The state will monitor sustainability indicators throughout implementation, tracking
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 56
+adoption rates, utilization patterns, and integration into existing workflows. By the end of the
+
+funding period, all initiatives will have clear operational ownership, defined maintenance
+
+responsibilities, and demonstrated pathways for continued function without additional grant
+
+support. This approach ensures that temporary funding produces permanent improvements in
+
+South Dakota's rural health infrastructure.
+
+State Policy Factors
+
+       South Dakota is committed to improving rural healthcare access through targeted policy
+
+actions.
+
+B.2. Health and Lifestyle: South Dakota discontinued the Presidential Fitness Test when it was
+
+eliminated federally in 2013, but is eager to reinstate the test when new federal guidelines are
+
+released.
+
+B.3. SNAP Waiver: South Dakota is not currently pursuing a SNAP waiver due to the costs and
+
+complexities of implementing a state-specific waiver but is monitoring the Healthy SNAP Act of
+
+2025 and will adopt federal reforms when implemented.
+
+B.4. Nutrition Continuing Medical Education (CME): South Dakota will offer optional
+
+supplemental CME in nutrition to healthcare professionals to increase the state's capacity to
+
+address nutrition-related health disparities as part of South Dakota’s Rural Health Forward
+
+Training and Resource Hub.
+
+C.3. Certificate of Need (CON): South Dakota has no Certificate of Need (CON) laws
+
+regulating healthcare facilities. The state fully repealed its CON statute (SDCL 34-7A) in 1988.
+
+D. 2. Licensure Compacts: South Dakota is a member of multiple licensure compacts,
+
+including:
+
+       Physician: Interstate Medical Licensure Compact (IMLC) for physicians,
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                           page 57
+       Nurse: Nurse Licensure Compact (NLC) for nurses.
+
+       Emergency Medical Services (EMS): United States EMS Compact for Emergency
+
+       Medical Services personnel
+
+       Psychology and Behavioral Health Professionals: Board of Psychology, Board of Social
+
+       Workers, Board of Counselor Examiners.
+
+       Physician Assistant (PA): South Dakota’s PA Association has expressed interest in
+
+       introducing legislation to adopt the compact within the next 2-3 years, and the South
+
+       Dakota commits to supporting this effort.
+
+D.3. Scope of Practice: South Dakota supports scope of practice policies that enable providers
+
+to practice at the top of their license and training. Current status of professions:
+
+       Physician Assistants (PAs): Full scope of practice
+
+       Nurse Practitioners (NPs): Full scope of practice
+
+       Pharmacists: South Dakota asks CMS to re-consider the score for pharmacists’ scope of
+
+       practice, arguing the state deserves at least a 6 equating to 50 points for this technical
+
+       scoring factor. Innovations in Pharmacy identifies six categories of healthcare practice
+
+       that expand access to healthcare through pharmacists, which include participating in
+
+       collaborative practice agreements. 37 South Dakota Codified Law 36-11-19.1(6) allows
+
+       collaborative practice agreements, also referred to as protocols. In rural healthcare, this
+
+       coordination as a team is vital to provide the highest quality of care to the patient. The
+
+       Cicero report awards no points for utilizing collaborative practice agreements with
+
+       prescribers. The Cicero report also fails to consider the telepharmacy innovation in place
+
+       in South Dakota since 2007, which allows pharmacy access to rural areas where staffing
+
+       is limited and can be overseen by pharmacists via audiovisual technology.
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                            page 58
+       Dental Hygienists: Semi-restricted scope of practice. Allowable tasks include supervision
+
+       of dental assistants, provision of sealants, direct access to prophylaxis, and general local
+
+       anesthesia. Unallowable tasks include dental hygiene diagnosis, prescriptive authority,
+
+       direct Medicaid reimbursement, and dental hygiene treatment planning.
+
+E.3. Short-Term, Limited-Duration Insurance: South Dakota’s regulations for short-term
+
+limited-duration insurance are in line with federal guidelines, with current limits set at less than
+
+12 months (364 days max) with renewals and extensions. The total duration cannot exceed 36
+
+months.
+
+F.1. Remote Care Services: South Dakota has strong reimbursement policies for telehealth
+
+services, including live video and remote patient monitoring, which are reimbursed by Medicaid.
+
+The state will continue to enhance its remote care infrastructure through this plan. Current
+
+policies include Medicaid payment for live video services, store-and-forward for radiology and
+
+tele dentistry, and remote patient monitoring (RPM). South Dakota also maintains a telehealth
+
+license or registration process tied to Medicaid enrollment but does not have an in-state licensing
+
+exception.
+
+State Policy Actions Conclusion
+
+       South Dakota remains committed to strengthening rural health and largely aligns with
+
+federal policy priorities. The state will continue to stay aligned while pursuing initiatives that
+
+address the unique needs of rural and frontier communities.
+
+Cybersecurity Plan
+
+       This CMS funding opportunity requires a cybersecurity plan only if a project involves
+
+ongoing access to HHS systems and handling of PII or PHI from HHS. South Dakota does not
+
+receive information from HHS and is not proposing initiatives that meet these criteria and has
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                             page 59
+not included a formal cybersecurity in this application. South Dakota does maintain robust
+
+cybersecurity protections through the Bureau of Information and Telecommunications and is
+
+fully prepared to comply with CMS cybersecurity requirements if future initiatives require access
+
+to HHS systems or PII/PHI.
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                       page 60
+Endnotes
+
+1
+    HRSA Federal Office of Rural Health Policy. Rural Health Designations (2025); U.S. Department of Agriculture.
+Frontier and Remote (FAR) Area Codes (2024).
+2
+    Guidehouse. (2024, July 26). Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis
+Summary. South Dakota Department of Health, Office of Rural Health.
+3
+    South Dakota Association of Healthcare Organizations (SDAHO). Hospital Financial Condition Report. (2024).
+4
+    Guidehouse. (2024, July 26). Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis
+Summary.
+South Dakota Department of Health, Office of Rural Health; Centers for Disease Control and Prevention (CDC).
+Transportation Barriers to Health Care in Rural Communities. (2023).
+5
+    From 2020-2023, the state gained over 32,000 residents, a 9.6% increase, slightly faster than the national average.
+Rural and Tribal communities have a higher proportion of residents aged 65+, which increases the demand for
+chronic disease management, long-term care, and specialty services. Utilization data shows that rural and Tribal
+populations rely heavily on hospital outpatient departments, while urban residents more often use urgent care or
+ambulatory surgical centers. Telehealth has the potential to offset demand pressures, but utilization remains below
+peer states, especially in very rural and Tribal areas.
+6
+    Guidehouse. Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis Summary. (2024).
+7
+    HRSA Federal Office of Rural Health Policy. Rural Health Designations (2025).
+8
+    U.S. Department of Agriculture. Frontier and Remote (FAR) Area Codes (2024).
+9
+    U.S. Census Bureau. QuickFacts: South Dakota. (2024).
+10
+     Rural Health Information Hub. Frontier Counties by Population Density (2024).
+11
+     U.S. Department of Agriculture, Economic Research Service. Rural-Urban Commuting Area (RUCA) Codes
+Documentation. (2020).
+12
+     USDA, 2010 Frontier and Remote (FAR) Area Codes https://www.ers.usda.gov/data-products/frontier-and-
+remote-area-codes/documentation
+13
+     U.S. Census Bureau. QuickFacts: South Dakota. (2024).
+14
+     U.S. Census Bureau. (2023). Persistent poverty in the United States: 2023 edition (ACS-51)
+https://www.census.gov/content/dam/Census/library/publications/2023/acs/acs-51%20persistent%20poverty.pdf
+Depietro, A. (2023, January 31). Richest and poorest counties in the U.S. Credit Karma.
+https://www.creditkarma.com/insights/i/richest-and-poorest-counties-in-us
+15
+     South Dakota Department of Labor Workforce Report:
+https://dlr.sd.gov/lmic/publications/labor_market_reports/workforce_report_2024.pdf
+16
+     Stats America, U.S Department of Economic Administration: https://www.statsamerica.org/sip/rank_list.aspx
+
+
+
+
+South Dakota Rural Health Transformation Program Project Narrative                                             page 61
+17
+     Labor Market Information Center, Economic Snapshot, South Dakota Department of Labor
+https://dlr.sd.gov/lmic/economic_snapshot.aspx
+18
+     Labor Market Information Center, South Dakota Employment Status of the Population: 25 Years and Older by
+Educational Attainment, South Dakota Department of Labor
+19
+     Behavioral Risk Factor Surveillance System (BRFSS), 2022
+20
+     South Dakota Department of Health Vital Statistics, 2023
+21
+     Behavioral Risk Factor Surveillance System (BRFSS), 2022
+22
+     South Dakota Department of Health Vital Statistics, 2023
+23
+     South Dakota Department of Health, 2023
+24
+     South Dakota Department of Health, Office of MCH Data Analytics & Insights. (2025a). Analysis of
+reproductive-age women by rural–urban county classification in South Dakota [Unpublished internal analysis].
+Pierre, SD.
+25
+     Kozhimannil, K. B., Interrante, J. D., Carroll, C., Sheffield, E. C., Fritz, A. H., McGregor, A. J., & Handley, S. C.
+(2025). Obstetric care access declined in rural and urban hospitals across US states, 2010–22. Health Affairs, 44(7),
+806–811. https://doi.org/10.1377/hlthaff.2024.01552
+26
+     Provisional SD data from 2021-2023. The SD rate is unreliable due to a small number of cases and should be
+considered with caution. MMRC has not completed review of 2023 cases. Historically, 85% of reviewed cases were
+found to be preventable. 2021-2023 US Data Source: National Vital Statistics Reports, Volume 74, Number 1,
+March 18, 2025, Births: Final Data for 2023
+27
+     South Dakota Department of Transportation. 2024 Intercity Bus and Transit Needs Report.
+28
+     Guidehouse. Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis Summary. (2024)
+29
+     Guidehouse. Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis Summary. (2024).
+30
+     Stoneburner, A., Lucas, R., Fontenot, J., Brigance, C., Jones, E., & DeMaria, A. L. (2024). Nowhere to go:
+Maternity care deserts across the US (Report No. 4). March of Dimes. https://www.marchofdimes.org/maternity-
+care-deserts-report.
+Fontenot, J., Lucas, R., Stoneburner, A., Brigance, C., Hubbard, K., Jones, E., & Mishkin, K. (2023). Where you live
+matters: Maternity care deserts and the crisis of access and equity in South Dakota. March of Dimes.
+31
+     Guidehouse. Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis Summary. (2024).
+32
+     South Dakota Department of Health Licensure as of 10/29/2025: https://www.sdhls.org/verify/
+33
+     Critical Access Hospitals in Financial Distress 2020-2025. Information based off Healthcare Cost Report
+Information System 2024 Quarter 4 Data File (Flex Monitoring Team) updated March 2025.
+34
+     South Dakota Department of Social Services, 2025
+35
+     South Dakota Department of Health, https://www.sdhls.org/verify/
+36
+     Guidehouse. Strategic Analysis of South Dakota’s Rural Healthcare Programs: Data Analysis Summary. (2024).
+37
+ Adams, A., & Weaver, K. (n.d.). Pharmacists’ patient care process: A state “Scope of practice” perspective.
+INNOVATIONS in pharmacy. Accessed 16 Oct. 2025.
+https://pubs.lib.umn.edu/index.php/innovations/article/view/1389.
+South Dakota Rural Health Transformation Program Project Narrative                                                page 62
+

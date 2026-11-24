@@ -1,0 +1,16 @@
+RHTP tracker archive (session 123, owner Task 1): the CMS Rural Health Transformation Program
+Notice of Funding Opportunity, as appended by Indiana to its GROW site ("Appendix 1 - CMS NOFO").
+It is CMS's document (PDF Author: Centers for Medicare & Medicaid Services; Title: Rural Health
+Transformation Program; created 2025-09-15, modified 2026-02-19). It carries the statutory
+uses of funds A-K (Section 71401 of Public Law 119-21) on its pages 11-12 and the funding
+limits (Category J 20%, provider payments 15%, EMR replacement 5%, Tech Catalyst 10%/$20M)
+on pages 18-19. The .txt is pdftotext -layout output of the PDF, for quoting.
+
+source_url   : https://secure.in.gov/grow-rural-health/files/Appendix-1-CMS-NOFO.pdf
+fetched_utc  : 2026-11-24T14:33:26Z
+http_status  : 200
+user_agent   : AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes        : 940464
+sha256       : b369cb8c9bbf793d9cebdf4e31fb451d633a5f7c2a1691127d74430ef0ee59a4
+pages        : 124
+text_sha256  : 9e226635b69b634e20d02eb53c10fe748b06a7cc95c643502e19b48d7d65b3cb
