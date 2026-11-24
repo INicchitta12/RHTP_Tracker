@@ -1,0 +1,103 @@
+CommonSpirit Kansas, Finney County ($2,980,250)
+
+      CommonSpirit Kansas will acquire and integrate essential, FDA-cleared
+       diagnostic and surgical technologies, including two advanced Computed
+       Tomography (CT) Scanners, six advanced surgical OR Tower systems with
+       integrated video processors and SPY-QP fluorescence imaging, and one
+       Portable X-ray unit with complementary applications.
+UKHS Great Bend, Barton County ($2,960,927)
+
+      Wichita County Health Center, Rooks County Health Center, Beloit Medical
+       Center, Coffey Health System, and seven Great Plains Health Alliance-affiliated
+       hospitals will participate in the Rural Primary Care Orchestration Initiative to bring
+       Lumeris’ Tom™, a proven AI-enabled Primary Care as a Service platform, to rural
+       primary care practices
+Rooks County Health Center, Rooks County ($1,704,066)
+
+      Rooks County Health Center will implement Remote Patient Monitoring (RPM)
+       services to clinic patients which will transform how primary care services are
+       delivered to adults in rural northwest Kansas. Rooks County is a HRSA
+       designated Health Professional Shortage Area (HPSA) for primary care; the RPM
+       project will be a significant advancement in care services provided to rural and
+       remote patients in the county.
+Hospital District #1 Rice County, Rice County ($1,377,990)
+
+      Hospital District #1 Rice County will implement enterprise virtual desktop
+       infrastructure with secure badge-tap single sign-on and more than 150 point-of-
+       care workstations across its Critical Access Hospital, clinics, and clinical
+       departments to give clinicians fast, secure EHR access while strengthening
+       cybersecurity
+GoodLife Innovations, Johnson County ($1,169,246)
+
+      This project will help rural Kansas providers deliver care to individuals with
+       intellectual and developmental disabilities in a smarter, more efficient way
+       through iLink Technologies, a proven technology-enabled care platform that has
+       more than 25 years of real-world use and refinement. iLink combines assistive
+       technology, secure software, and 24-hour remote support to ensure individuals
+       receive the right support at the right time. This solution also allows providers to
+       make better use of their existing workforce.
+Via Christi Village Hays, Ellis County ($1,145,446)
+      Via Christi Hays will implement Jana, a proven clinical intelligence and care
+       coordination platform, across its 16 participating rural skilled nursing and long-
+       term care facilities.
+Genesis Family Health, Seward County ($1,059,190)
+
+      Through strategic adoption and expansion of advanced technologies within its
+       existing eClinicalWorks platform, GFH, a federally qualified health center, will
+       create a fully integrated, data-driven care model that expands access, improves
+       quality, enhances efficiency, and supports long-term sustainability through an AI-
+       powered no-show prediction model, remote patient monitoring, a behavioral
+       health module and AI-powered revenue cycle management.
+Sumner Mental Health Center, Sumner County ($975,334)
+
+      Operating as a regional technology deployment hub in cooperation with the
+       Sumner County Educational Services Interlocal 619, this initiative scales a
+       proven, university-developed Extended Reality (XR) software solution (the
+       VOISS Solution) directly into rural pediatric behavioral health and special
+       education workflows. The project establishes a scalable, decentralized access
+       model that addresses critical regional workforce shortages, eliminates multi-
+       month service waitlists for early intervention services and intervention deficits,
+       and establishes a self-sustaining post-grant financial infrastructure via insurance-
+       reimbursed Remote Therapeutic Monitoring (RTM) that provides an
+       implementation pathway for scaling this unique digital therapeutic to rural areas
+       across the state.
+Prairie View Inc., Harvey County ($729,081)
+
+      The Prairie View Rural Connected Care Initiative scales proven, already-
+       deployed technologies to expand access to integrated healthcare, strengthen
+       care coordination, and improve management of chronic physical and behavioral
+       health conditions across a rural, medically underserved region of south-central
+       Kansas.
+NMC Health, Harvey County ($662,642)
+
+      NMC Health will implement an integrated rapid diagnostic microbiology platform
+       anchored by Matrix-Assisted Laser Desorption/Ionization Time-of-Flight (MALDI-
+       TOF) mass spectrometry. The proposed technologies will dramatically reduce the
+       time required to detect and identify infectious organisms and guide treatment of
+       serious infections, enabling physicians to make faster, evidence-based clinical
+       decisions.
+Attica Hospital District #1, Harper County ($532,045)
+      In partnership with Anthony Community Care Center and Kiowa District Hospital
+       Manner (partnership comprises 100% of the Medicaid-certified nursing home
+       capacity in Harper and Barber counties), Attica Hospital District #1 will implement
+       a shared technology ecosystem spanning AI-assisted clinical decision support,
+       resident monitoring, Cloud-based communication systems, operational workflow
+       management & medication accountability technologies
+Grisell Memorial Hospital, Ness County ($350,000)
+
+      Grisell Memorial Hospital will implement a comprehensive Philips Patient
+       Monitoring System across all acute inpatient and emergency department rooms.
+Valley Hope Association, Norton County ($219,333)
+
+      Valley Hope Association will deploy three AI-enabled technologies across
+       substance use disorder treatment programs: an AI-assisted clinical
+       documentation and compliance platform for approximately 80 clinicians, AI
+       medication verification systems at three residential treatment facilities, and
+       standardized telehealth and virtual connection stations
+Meade Hospital District, Meade County ($141,098)
+
+      Meade Hospital District will implement Microsoft Dragon Copilot, an AI-powered
+       ambient clinical documentation solution. This innovative technology will improve
+       provider efficiency, reduce administrative burden, enhance patient access, and
+       strengthen the long-term sustainability of rural healthcare services.
+

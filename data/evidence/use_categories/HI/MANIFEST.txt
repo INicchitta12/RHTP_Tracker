@@ -1,0 +1,5 @@
+file: text/hi_compiled_rht_application_appendix_a_transcription.txt
+derived_from: data/evidence/recheck/2026-10-12/HI/hi_compiled_rht_application_redacted.pdf pages 123-125 (image-only)
+method: pdftoppm -r 110 renders (text/*_p12[345].png) read and transcribed cell by cell; tesseract 4 --psm 4 OCR of 300-dpi renders kept beside it (text/*_tesseract_ocr.txt) for comparison
+fetched_utc: n/a (derived 2026-11-24)
+

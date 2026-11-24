@@ -1,0 +1,8 @@
+file: 2026-11-24_mt_rhtp_plan.pdf
+source_url: https://dphhs.mt.gov/assets/RuralHealthTransformation/RHTP-Plan.pdf
+fetched_utc: 2026-11-24T14:53:00Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 841395
+sha256: 059782b7f997139abca22dfef5111c8c769fd757251d043448187f90017df277
+

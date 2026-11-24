@@ -1,0 +1,18 @@
+file: 2026-11-24_mo_rhtp_application_narrative_mediapage.html
+source_url: https://dss.mo.gov/media/pdf/rhtp-application-narrative
+fetched_utc: 2026-11-24T14:53:01Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 39686
+sha256: 57a0ed92fc65ced88f1c2fa149e68ce3821bf72e64d87a39889ede0e8435b4ab
+
+file: 2026-11-24_mo_rhtp_application_narrative_2026-04.pdf
+source_url: https://dss.mo.gov/sites/mydss/files/media/pdf/2026/04/RHTP%20Application%20Narrative.pdf
+fetched_utc: 2026-11-24T14:53:11Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 2335698
+sha256: e7fcb3bdc43c60e7607473c332eb9a40b4141deeebefdcca15fd55f917ffcf73
+
+text/2026-11-24_mo_rhtp_application_narrative_2026-04.raw.txt: pdftotext -raw of 2026-11-24_mo_rhtp_application_narrative_2026-04.pdf (the -layout output, text/2026-11-24_mo_rhtp_application_narrative_2026-04.txt, interleaves overprinted text and is unreadable in places); &, <, > written as HTML entities. No other change.
+

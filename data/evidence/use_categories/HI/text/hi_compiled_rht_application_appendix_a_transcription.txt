@@ -1,0 +1,41 @@
+TRANSCRIPTION (not publisher text). Source: data/evidence/recheck/2026-10-12/HI/hi_compiled_rht_application_redacted.pdf,
+"Compiled RHT Application Redacted" (State of Hawai'i, CMS-RHT-26-001, PREVIEW Date: Nov 04, 2025), PDF pages 123-125,
+"Appendix A – Summary of Initiatives". These pages are images with no text layer. They were rendered with pdftoppm
+(110 dpi PNGs beside this file) and transcribed cell by cell by reading the image. Raw tesseract OCR of the same pages is
+beside this file for comparison. Only the initiative banners and the Strategic Goals / Use of Funds / Technical Score
+Factors cells are transcribed.
+
+[PDF page 123, Appendix page 1]
+Appendix A – Summary of Initiatives
+
+Rural Health Information Network (RHIN): A statewide digital backbone connecting rural hospitals, clinics, and health centers to the rest of the state through interoperable EHRs, wireless networks, and integrated data hubs.
+Strategic Goals: Tech Innovation
+Use of Funds: D, F, I, K
+Technical Score Factors: B.1, B.2, C.1, E.2, C.2, E.1, F.2
+
+Pili Ola Telehealth Network: A statewide telehealth network connecting rural communities to providers, integrating digital health access, virtual care, and telehealth training.
+Strategic Goals: Tech Innovation; Sustainable Access
+Use of Funds: A, B, C, D, F, G, H, K
+Technical Score Factors: B.1, C.1, C.2, D.1, F.1, F.2, F.3
+
+[PDF page 124, Appendix page 2]
+Rural Infrastructure for Care Access (RICA): A physical access initiative expanding emergency medical services, community care, and behavioral health infrastructure in rural communities.
+Strategic Goals: Make Rural America Healthy Again; Sustainable Access
+Use of Funds: A, B, D, E, F, G, H, J, K
+Technical Score Factors: B.1, B.2, C.1, C.2, D.1, F.1, F.2, F.3
+
+Hawai'i Outreach for Medical Education in Rural Under-resourced Neighborhoods (HOME RUN): A pipeline initiative expanding education, recruitment, and retention of healthcare workers across rural Hawai'i through certificate programs, residencies, incentives, and mentoring.
+Strategic Goals: Workforce development
+Use of Funds: E, K
+Technical Score Factors: C.1, D.1
+
+[PDF page 125, Appendix page 3]
+Rural Respite Network (RRN): A rural expansion of medical respite programs to reduce preventable hospital use among unhoused or post-acute patients with low medical acuity.
+Strategic Goals: Sustainable access
+Use of Funds: A, B, G, H, J, K
+Technical Score Factors: B.1, B.2, C.1
+
+Rural Value-Based Innovation (RVBI) & AHEAD Readiness Fund: A competitive fund enabling rural providers to adopt innovative care models and succeed under the AHEAD model by financing local value-based innovations.
+Strategic Goals: Innovative care
+Use of Funds: A, B, D, F, G, I, K
+Technical Score Factors: B.1, B.2, C.1, E.1

@@ -1,0 +1,3089 @@
+  Rural Health Transformation
+  Program Application
+  Opportunity number: CMS-RHT-26-001
+
+  PROJECT NARRATIVE
+  Submitted by the State of Montana, Department of
+  Public Health and Human Services (DPHHS)
+
+
+  February 17, 2026
+
+
+
+
+Greg Gianforte, Governor | Charlie Brereton, Director
+Project Narrative
+
+
+RURAL HEALTH NEEDS AND TARGET POPULATION
+
+Montana has the third-lowest population density of any state, averaging fewer than eight people
+
+per square mile. The State has only one city with a population over 100,000 and only six with
+
+populations over 25,000. i 51 of Montana’s 56 counties and 204 of 219 census tracts are defined
+
+as rural, ii based on the Health Resources and Services Administration’s (HRSA) definition.
+
+Montana’s Department of Public Health and Human Services (DPHHS) is acutely aware of the
+
+unique needs of rural populations and the specific challenges in delivering care in rural areas.
+
+These challenges manifest as shortfalls in health care access, worse health outcomes for those in
+
+rural communities, and financial stress and instability for rural health care providers. Montana
+
+has 77 physicians per 100,000 people in rural counties compared to 233 per 100,000 in urban
+
+countiesi and 134 physicians per 100,000 in rural areas nationally. iii Individuals in Montana’s
+
+rural counties bear a 30-40% greater chronic disease burden than those in urban counties i.
+
+Further, 89% of rural hospitals in Montana operate at a negative profit margin i.
+
+The State’s analysis suggests that, at the most fundamental level, the health challenges faced by
+
+Montana’s rural communities are driven by a clear set of root causes:
+
+    •    An insufficient number of health care providers across both generalist and specialist care,
+
+         and an inadequate utilization of available providers’ existing and potential skillsets
+
+    •    Ongoing financial pressures on rural health providers that, if left unaddressed, are likely
+
+         to lead to further reductions in care services and access in the years ahead
+
+    •    Underdeveloped health access and care models that have yet to take full advantage of
+
+         innovative methods to improve access and quality for individuals in rural areas
+
+    •    Under-resourced community health services, including too few access points
+
+    •    Lack of access to nutritious food, physical inactivity, and related health factors
+
+
+February 17, 2026                                                                             2|P a g e
+Project Narrative
+
+
+    •    Gaps in the adoption and use of modern health care technologies to improve care
+
+         Montana’s application for Rural Health Transformation Program (RHTP) funds reflects a
+
+         plan to address each of these root causes directly. The initiatives described in this
+
+         application have been designed in partnership with stakeholders across Montana to
+
+         address root causes and transform the State so that it can measurably and sustainably
+
+         improve outcomes for rural populations.
+
+         These initiatives will transform rural health across the State, but the State maintains a
+
+         specific focus on the following populations and geographic areas:
+
+    •    Residents of the 51 rural counties and 204 rural census tracts in Montana
+
+    •    The 8 tribal nations comprising 6.5% of Montana’s population, and the 5 Urban Indian
+
+         Organizations (UIOs) iv whose reach extends to tribal members in rural areas
+
+    •    Individuals in rural areas with chronic diseases and those with behavioral health needs,
+
+         including substance use disorders, and developmental disabilities
+
+    •    Individuals on Medicaid, on Medicare, or who are dually enrolled
+
+    •    Low-income individuals in rural areas in need of but without access to health services
+
+    •    The existing, potential, and future health care workforce serving rural areas
+
+    •    Rural hospitals and health care systems, Federally Qualified Health Center (FQHC)
+
+         service sites, and Certified Community Behavioral Health Clinics (CCBHCs)
+
+    •    Individuals in rural areas who are considering pregnancy, are pregnant or have recently
+
+         been pregnant, and children themselves, with an emphasis on maternal and infant health
+
+STATISTICS ON RURAL DEMOGRAPHICS
+
+    •    49% of Montana’s population lives in entirely rural counties, with an additional 12% in
+
+         rural census tracts of Montana’s five non-rural counties v
+
+
+February 17, 2026                                                                                3|P a g e
+Project Narrative
+
+
+    •    There are 4.1 individuals per square mile on average within rural counties vi
+
+    •    The unemployment rate in rural counties is 3.1%, compared to 2.7% in non-rural
+
+         counties. Health care comprises a smaller portion of the workforce in rural counties (19%
+
+         vs. 29% in non-rural counties) vii
+
+    •    73% of adults in rural counties have less than a bachelor's degree, compared to 60% in
+
+         non-rural counties viii
+
+    •    Only 42% of individuals have employer-sponsored health insurance in rural counties,
+
+         compared to 54% in non-rural counties; vii 7.1% of individuals are uninsured in rural
+
+         counties, compared to 6.7% in non-rural counties ix
+
+STATISTICS ON HEALTH OUTCOMES
+
+    •    Adult rates of chronic disease are higher in Montana’s rural counties than in Montana’s
+
+         non-rural countiesviii or U.S. average (rural and non-rural): x COPD: 8.7% (MT rural), vs.
+
+         6.1% (MT non-rural), vs. 4.2% (U.S.); Diabetes: 11.3% vs. 8.1% vs. 8.9%; Coronary
+
+         Heart Disease: 8.6% vs. 6.1% vs. 5%; Blood Pressure: 35.8% vs. 27.4% vs. 33%
+
+    •    45.7 deaths per 100,000 children in Montana, compared to U.S. average of 29.0 xi
+
+    •    40.7 deaths per 100,000 live births in Montana, compared to U.S. average of 29.7 xii
+
+STATISTICS ON HEALTH CARE ACCESS
+
+    •    In 15 Montana counties representing 9% of the State’s population, the average distance to
+
+         a hospital is greater than 20 miles; in 4 counties, the average distance is over 40 miles xiii
+
+    •    76.7 physicians (all types) per 100,000 rural county residents, compared to 233.3 in
+
+         Montana’s non-rural counties, xiv and 133.7 in rural counties nationally xv
+
+    •    89.2 nurse practitioners (NPs, all types) per 100,000 rural county residents, compared to
+
+         151.0 in Montana’s non-rural countiesxv and 110.0 NPs per 100,000 residents in U.S.
+
+
+February 17, 2026                                                                               4|P a g e
+Project Narrative
+
+
+         rural counties xvi
+
+    •    The health sector is projected to see 8,500 annual job openings over the next 10 years xvii
+
+    •    8.0% of adults living in rural areas report unreliable transportation xviii
+
+STATISTICS ON RURAL FACILITY FINANCIAL HEALTH
+    1)
+         88.9% of rural health care systems or individual rural hospitals operate at a negative
+
+         profit margin, with 63.9% operating below a negative 10% profit margin xix
+
+    2) Hospitals in rural counties have an average utilization rate of 38.5%, with 61.6% having a
+
+         utilization rate under 50%; non-rural hospitals have an average of 51.7% xx
+
+RHTP PLAN: GOALS AND STRATEGIES
+
+Montana’s vision is to ensure that every resident has affordable access to high-quality, high-
+
+value care regardless of geography. The State’s RHTP plan directly addresses the root causes of
+
+rural health disparities through five integrated initiatives that strengthen the workforce, secure
+
+financial solvency, modernize care delivery, embed prevention and community health at the
+
+center of care, and expand technology use.
+
+The State believes outcome gaps are driven by compounding challenges, including rural
+
+Montanans having too few opportunities to engage with too few clinicians on services further
+
+upstream, and doing so without the full benefit of modern technologies or care models. These
+
+challenges are exacerbated by the fundamentally unfavorable economics of rural care for
+
+provider systems, resulting from a care model, workforce, and provider capital footprint not
+
+aligned with rural utilization, reimbursement, and care needs. The State’s goals are grounded in
+
+addressing the root causes of rural outcomes gaps. Specific goals and strategies by objective:
+
+
+
+
+February 17, 2026                                                                            5|P a g e
+Project Narrative
+
+
+IMPROVING ACCESS
+
+Montana will expand and sustain access to hospitals, primary and specialty care, behavioral
+
+health, and maternal-child services by:
+
+    •    Right-sizing rural hospital capacity and expanding ambulatory care through the
+
+         Montana Rural Health Center of Excellence (CoE) (Initiative 2.1 and 3.4), to align
+
+         service delivery with county-level needs and optimize inpatient and outpatient balance by
+
+         developing and incentivizing implementation of county- and facility-level restructuring
+
+         plans aligning service supply with local health needs
+
+    •    Launching virtual specialty access statewide, including tele-stroke, tele-ED, and tele-
+
+         cardiology consults in 50+ rural hospitals (Initiative 2.2)
+
+    •    Modernizing EMS systems via a new dispatch platform and expanded community
+
+         paramedicine, reducing response times and unnecessary ED use (Initiative 3.2)
+
+    •    Expanding school-based and mobile preventive care in ~200 locations and 10 mobile
+
+         clinics to bring care directly to residents (Initiative 4.1)
+
+Collectively, these actions will reduce travel distance to essential services, maintain emergency
+
+access points, and ensure rural residents receive care at the right place and time.
+
+IMPROVING OUTCOMES
+
+Montana will target measurable improvement in rural health outcomes, including:
+
+    •    Chronic-disease control (diabetes, hypertension, and obesity) through expanded
+
+         preventive infrastructure (Initiative 4) and data-guided care management (Initiative 5)
+
+    •    Maternal, infant, and child health, reducing under-five and perinatal mortality through
+
+         expanded prenatal care, perinatal telehealth, and enhanced EMS (Initiatives 3 and 4)
+
+
+
+
+February 17, 2026                                                                         6|P a g e
+Project Narrative
+
+
+    •    Behavioral health outcomes, implementing Certified Community Behavioral Health
+
+         Clinics and expanding crisis stabilization capacity (Initiative 4.2), virtual behavioral
+
+         health services (Initiative 2.2), behavioral health ED admissions (Initiative 4), and
+
+         reduction of deaths by suicide (Initiative 4)
+
+    •    Trauma, emergency, and crisis response including ED length-of-stay (Initiative 2),
+
+         ED high utilization (Initiative 3)
+
+Outcome metrics will be continuously monitored via the Department’s electronic data warehouse
+
+and population health analytics under Initiative 5. Monitoring will be done in partnership with
+
+the State’s Data Management Office and Office of Research and Data Analytics (both housed
+
+within DPHHS).
+
+TECHNOLOGY USE
+
+Montana will jointly leverage new and existing technology to drive rural transformation through
+
+initiatives including:
+
+    •    Modernizing EHRs for rural providers through community-connect models, ensuring
+
+         interoperability, cybersecurity, and actionable analytics (Initiative 5.2)
+
+    •    Activating telehealth and remote monitoring tools within EHRs to enhance chronic-
+
+         disease management and specialist reach (Initiatives 2.2 and 5.2)
+
+PARTNERSHIPS (BACK TO INITIATIVE 1, 2, 3, 4, 5)
+
+Montana’s plan builds on strong partnerships to deliver and sustain transformation, including:
+
+    •    Partnership with the Department of Labor and Industry for workforce program
+
+         implementation, and partnership with the Montana State University Office of Rural
+
+         Health to manage stakeholder engagement and workforce expansion (Initiative 1)
+
+
+
+
+February 17, 2026                                                                            7|P a g e
+Project Narrative
+
+
+    •     Collaboration with Montana Hospital Association, Yellowstone High Value Network,
+
+          Billings Clinic/Logan Health, and other Critical Access Hospital Collaboratives to
+
+          implement care delivery restructuring and shared service models (Initiative 2)
+
+    •     Partnership with Montana Healthcare Foundation and community partner
+
+          organizations on community-based care (Initiative 4)
+
+    •     Partnership with Montana Primary Care Association, Montana Pharmacy
+
+          Association, EMS Advisory Committee, Montana Ambulance Association, and other
+
+          primary and ambulatory care partners for innovative care models (Initiative 3)
+
+    •     Engagement with tribal governments, Urban Indian Organizations, and Indian
+
+          Health Service for co-design of preventive and workforce programs (Initiatives 1 and 4)
+
+    •     Collaboration with Big Sky Care Connect, technology partners, hospitals, and rural
+
+          health care providers to advance data integration and interoperability (Initiative 5)
+
+The stakeholders above, in addition to those listed here, will be consulted across all initiatives
+
+(cross-cutting stakeholders): Behavioral Health Alliance, FQHCs and RHCs, Montana Academy
+
+of Family Physicians, Montana Academy of Pediatrics, Montana Dental Association, Montana
+
+Health Care Association, Montana Medical Association, and Rocky Mountain Tribal Council.
+
+Stakeholders supporting individual initiatives are included in the Initiative Description sections.
+
+This is a preliminary list that the State will refine and augment over the course of the funding
+
+period.
+
+WORKFORCE
+
+In August 2025, Montana Governor Greg Gianforte announced the 406 JOBS initiative, an
+
+industry-led effort to modernize Montana’s workforce. Among the priorities of this initiative are
+
+
+
+
+February 17, 2026                                                                            8|P a g e
+Project Narrative
+
+
+increased attention to apprenticeships and industry-recognized credentials, innovative career
+
+awareness, and exploration programs focused on High-Demand Sectors, including health careers.
+
+Through Initiative 1, the State will build on its commitment to attract, train, and retain health
+
+care professionals in rural areas by:
+
+    •    Expanding apprenticeships, credentials, and micro-pathways, and early exposure
+
+         programs; offsetting training costs with time-limited education awards and tuition
+
+         assistance
+
+    •    Increasing clinical training capacity in rural communities by growing residency
+
+         programs, offering preceptor incentives, and expanding rural training tracks
+
+    •    Enhancing supportive services and professional development to better connect and
+
+         sustain health workers in rural communities
+
+By FY2031, these investments will sustainably increase provider density and access to skilled
+
+care across Montana’s rural counties.
+
+DATA-DRIVEN SOLUTIONS
+
+All of Montana’s proposed initiatives will use data to inform program design and monitor
+
+progress. Initiatives that are explicitly data-focused include:
+
+    •    Deploying statewide data dashboards, including a behavioral health bed registry and
+
+         population health analytics hub to track access, quality, and cost trends (Initiative 5.1)
+
+    •    Embedding a continuous improvement framework for Medicaid interventions, linking
+
+         funding to outcomes, and closing care gaps across counties (Initiative 5.1)
+
+FINANCIAL SOLVENCY STRATEGIES
+
+Montana’s plan addresses the structural financial fragility of rural facilities by:
+
+
+
+
+February 17, 2026                                                                            9|P a g e
+Project Narrative
+
+
+    •    Comprehensive facility analysis and restructuring to achieve positive operating
+
+         margins by FY2031 (Initiative 2.1)
+
+    •    Incentive payments tied to implementation of sustainability recommendations (~10% of
+
+         net patient service revenue) (Initiative 2.1)
+
+    •    Group purchasing and shared services to lower administrative and supply costs
+
+         (Initiative 2.3)
+
+    •    Value-based Medicaid and dual-eligible contracting models to incentivize rural
+
+         quality and efficiency (Initiative 3.1)
+
+These reforms will stabilize rural providers, improve margins, and sustain access beyond the
+
+grant period.
+
+CAUSE IDENTIFICATION
+
+Analysis of facility-level data shows Montana’s rural hospitals face closures or service
+
+reductions due to:
+
+    •    Low inpatient utilization (average < 50% of capacity)
+
+    •    High fixed costs and limited economies of scale
+
+    •    Unfavorable payer mix and uncompensated care
+
+    •    Workforce shortages and limited clinical coverage
+
+    •    Geographic isolation and patient bypass to urban centers
+
+The Montana Rural Health CoE’s data-driven approach (Initiative 2.1) directly addresses each
+
+cause, producing county-level recommendations to stabilize rural access and performance.
+
+PROGRAM KEY PERFORMANCE OBJECTIVES
+
+By FY2031, Montana aims to achieve:
+
+                Objective                                Baseline                 FY2031 Target
+
+
+
+February 17, 2026                                                                          10 | P a g e
+Project Narrative
+
+ Ratio of NPs per 100,000 people in rural                   76.7 per 100k                     5% increase annually
+                  counties
+  Ratio of physicians per 100,000 people                    89.2 per 100k                     5% increase annually
+             in rural counties
+ Ratio of RNs per 100,000 people in rural                   860.9 per 100k                    5% increase annually
+                  counties
+  Ratio of dental hygienists per 100,000                    90.7 per 100k                     5% increase annually
+          people in rural counties
+   Ratio of EMTs per 100,000 people in                      115.0 per 100k                    5% increase annually
+              rural counties
+ Ratio of PAs per 100,000 people in rural                   70.6 per 100k                     5% increase annually
+      communities, all rural counties
+     Rate of position turnover in rural       Internal data on metric is not collected yet     At least to national
+          counties (in health care)                                                                  average
+       Provider mental health rating          Internal data on metric is not collected yet     Higher behavioral
+                                                                                                 health ratings
+      Average ED length-of-stay                               3.9 hours                         10% reduction
+     Rural facility operating margin        Estimated -14.48% net operating profit margin        0%; hospitals
+                                             based on Definitive data; to be validated and         breakeven
+                                                     refined during FY2026 Q2
+ Total facility inpatient days divided by                  39.49% average                        30 pp increase
+                staffed beds
+   Percentage of total Medicaid visits      Expansion visits: 2.12%; expansion traditional:      15 pp increase
+        conducted via telehealth                                 2.33%
+ % of Medicaid spend on outpatient care            72.8% spend on outpatient care                  80% spend
+      Treat no Transport CPT use                 0% (Treat no Transport not currently             10% of calls
+                                                             reimbursable)
+     Percentage of total pharmacists        0% (Pharmacists currently not able to prescribe    50% participation
+   prescribing for Medicaid members                     for Medicaid members)
+             ED high utilizers                      21.03% all; 19.86% Medicaid                  10 pp decrease
+   Average dollar amount spent from          $305 yearly average PMPM, non-disabled, no              Stable
+      Medicaid on Duals (PMPM)                            TPL, dual Medicare
+      Number of crisis safe spaces                         1 crisis safe space                    11 spaces
+  Percentage of children who receive a        Internal data on metric is not collected yet     Comparable with
+ well-child visit in the first 30 months of                                                    national median
+              life (W30-CH)
+    % of diabetics with A1c control               37.80% all; 27.31% Medicaid                    10 pp increase
+  % of those with hypertension with BP            36.75% all; 29.74% Medicaid                    10 pp increase
+                   control
+   % of specific population with BMI        Internal data on metric is not collected yet        Higher levels of
+           levels under control                                                                     control
+  Behavioral health ED admissions per                     50.61 per 100k                         6% reduction
+                    1,000
+   Deaths by suicide per 100,000 total                26.2 per 100k statewide                    10% decrease
+                 population
+ Prevalence of students reporting mental 43% students reported feeling sad or hopeless for       10% decrease
+    health and related risk behaviors                   two weeks or more
+
+
+
+February 17, 2026                                                                                        11 | P a g e
+Project Narrative
+
+   Number of Community Health Aide                       0 (CHAP not launched)                 200 CHAP providers
+           Program Practitioners
+ Average wait time for behavioral health        Internal data on metric is not collected yet    Reduction in wait
+    bed placements across non-State                                                                  time
+                   facilities
+ Percentage of rural facilities and clinics        73% of hospitals, 43% of providers           95% for hospitals;
+            participating in HIE                                                                  75% for others
+ Percentage of rural sites connected with                    88% of hospitals                    95% of hospitals
+         HITECH-certified EHRs
+ Rural facility financial performance after   Estimated -14.48% net operating profit margin     10% increase for
+            EHR modernization                  based on Definitive data; to be validated and      participating
+                                                       refined during FY2026 Q2                     facilities
+
+
+
+STRATEGIC GOALS ALIGNMENT
+
+Montana’s initiatives directly map to CMS’s five RHTP goals:
+
+    1. Make Rural America Healthy Again – Initiative 4 (community prevention)
+
+    2. Sustainable Access – Initiative 2 (facility restructuring)
+
+    3. Workforce Development – Initiative 1 (workforce)
+
+    4. Innovative Care – Initiative 3 (EMS, telehealth, value-based models)
+
+    5. Tech Innovation – Initiative 5 (EHR modernization, interoperability, data sharing &
+
+         access)
+
+LEGISLATIVE OR REGULATORY ACTION
+
+Complementing these five initiatives, the State plans a set of legislative/regulatory actions to
+
+strengthen the underpinnings of rural health. These are summarized in the table on page 14.
+
+
+
+
+February 17, 2026                                                                                        12 | P a g e
+Project Narrative
+
+
+OTHER REQUIRED INFORMATION
+
+State policies: Current state policies across all relevant factors are included in the table below.
+
+Factor A.2: While Montana does not currently have any CCBHCs, the State has secured a
+
+SAHMSA planning grant and is in the process of applying for a demonstration grant with four
+
+providers identified for certification. The Montana Legislature passed legislation authorizing
+
+implementation of CCBHCs and appropriated associated Medicaid funding with the expectation
+
+these providers would be certified through the award of a demonstration grant beginning in
+
+CY2026.
+
+Factor A.7: In 2024, no hospitals received DSH payments in Montana. Montana discontinued
+
+making DSH payments after 2018 due to an increase in Medicaid supplemental payments as a
+
+result of an increase in the state’s Hospital Utilization Fee (HUF), coupled with its ability to
+
+leverage enhanced federal funds through Medicaid expansion as a match to revenue received
+
+through HUF. This extra revenue to hospitals virtually eliminated their uncompensated care and
+
+eligibility for DSH. Montana continues to commit to making DSH payments to qualifying
+
+hospitals, however, no hospitals have qualified since 2021.
+
+
+
+
+February 17, 2026                                                                           13 | P a g e
+Project Narrative
+
+
+
+
+ Policy Area        Current Policy                                       Policy Action                  Timeline              Link to Outcomes
+ B.2 Health         Presidential Fitness Test not reestablished or       DPHHS will coordinate with OPI N/A                   Enabling schools to independently
+ and lifestyle      enforced (0 points)                                  to enable schools to implement                       implement the PFT is consistent
+                                                                         independently.                                       with Make rural America healthy
+                                                                                                                              again goals
+ B.3 SNAP           No existing USDA-approved waiver, despite            Commitment to implementing a          Fully          The SNAP waiver will promote
+ waivers            previous attempts (0 points)                         USDA-approved SNAP waiver             implemented by nutrition throughout the state and
+                                                                         (100 points)                          EOY 2026       reinforce prevention initiatives like
+                                                                                                                              Initiative 4.
+ B.4 Nutrition      No existing requirement for a Nutrition CME          The State will work to introduce      Fully          This policy change enables nutrition
+ Continuing         for physicians (0 points)                            and enforce a nutrition CME for       implemented by to be developed alongside
+ Medical                                                                 physicians (100 points)               EOY 2027       workforce in Initiative 1.
+ Education
+ C.3 Certificate    Throughout all the Cicero-tracked CON                CON restrictions will be              N/A            Rural hospitals are not burdened
+ of Need (CON)      restrictions, Montana only has restrictions on       consistent, and Montana will                         heavily by CONs, increasing
+                    long-term care facilities, indicating a score of 5   remain in the limited CON                            sustainability and ability to provide
+                    from Cicero per the latest report (75 points)        category (75 points)                                 care
+ D.2 Licensure      Full membership for physicians, nurses,              The State will work to become a       Fully          Supporting EMS through licensure
+ compacts           psychologists, and PAs (100 points each); not a      licensure compact state for EMS       implemented by compacts augments and supports the
+                    member state for EMS (0 points)                      (100 points)                          EOY 2027       EMS work in Initiative 3.
+
+ D.3 Scope          Full scope of practice for physicians, NPs, and      Dental hygienists can diagnose        Fully          The broad scope of practice across
+ of practice        pharmacists (100 points each); dental hygienists     and create a treatment plan; State    implemented by these positions will increase access
+                    allowed to do 5 defined tasks, according to          will work to have this codified in    EOY 2027       to care by further leveraging the
+                    OHWRC (50 points)                                    OHWRC (100 points)                                   workforce, like Initiative 1
+ E.3 Short-term,    STLDI fully allowed under federal max terms,         STLDI will maintain alignment         N/A            Federally aligned STLDI offers
+ limited-duration   currently (100 points)                               with federal terms (100 points)                      rural Montanans another insurance
+ insurance                                                                                                                    option, increasing access to
+ (STLDI)                                                                                                                      affordable care
+ F.1 Remote care    Medicaid payment for at least one form of live       Medicaid reimbursement will be        Fully          Medicaid reimbursement for these
+ services           video (100 points), in-state licensing exceptions    put in place for Store and            implemented by programs will enable technology-
+                    (100 points), and license & registration process     Forward (100 points) as well as       EOY 2027       based care to become more
+                    in place (100 points); no payment for store-and-     Remote Patient Monitoring (100                       accessible, thus increasing access to
+                    forward (0 points) and RPM (0 points)                points)                                              rural care overall
+
+
+
+February 17, 2026                                                                                             14 | P a g e
+Project Narrative
+
+
+PROPOSED INITIATIVES AND USE OF FUNDS
+
+The State proposes five sustainable initiatives to transform rural health over the next five years.
+
+These initiatives involve strengthening Montana’s workforce, supporting health providers in the
+
+state to transition to more sustainable long-term economics, innovating care models, reinforcing
+
+community health and existing care sites, and deploying innovative technology. Together, they
+
+will achieve the strategic goals outlined by CMS, fulfill key State priorities, and transform the
+
+State of Montana’s rural health capabilities.
+
+INITIATIVE 1. DEVELOP WORKFORCE THROUGH RECRUITMENT, TRAINING, AND
+
+RETENTION
+
+To address Montana’s growing health care workforce gap, the State, in strong partnership with
+
+the Montana Department of Labor and Industry (DLI), will implement a coordinated set of
+
+actions to recruit, train, and retain health care professionals in rural areas. This initiative
+
+sustainably strengthens and expands the State’s broader workforce strategy under the 406
+
+JOBS Initiative. This includes:
+
+         1.1 – Increasing recruitment of rural health care workers through early exposure
+
+         programs, apprenticeships, and training programs
+
+         1.2 – Enhancing and increasing rural clinical training capacity and opportunities,
+
+         including residencies, preceptor and apprenticeship incentives, and rural training tracks
+
+         1.3 – Retaining and upskilling rural health care workforce through additional supportive
+
+         services and enhanced training (including BH)
+
+Sub-initiative details:
+
+1.1.     Increase recruitment of rural health care workers
+
+
+
+
+February 17, 2026                                                                                 15 | P a g e
+Project Narrative
+
+
+    •    Expand early exposure programs that establish early career interest and sustained
+
+         entry points into Montana’s health care workforce pipeline:
+
+             o Pilot health care registered pre-apprenticeship programs that connect rural high
+
+                    school students with local employers. This pilot will offer direct experience and
+
+                    career exploration opportunities, while also directly leading to a registered
+
+                    apprenticeship pathway in a health occupation, creating an integrated pathway
+
+                    from school to employment for health care support careers
+
+             o Expand health care Career and Technical Student Associations, including Health
+
+                    Occupations Students of America (HOSA) and Area Health Education Centers
+
+                    (AHEC) for programs including MedStart, REACH, and Heads Up, reaching
+
+                    more than 1,500 rural students
+
+             o Support initial rollout costs for industry recognized credential attainment to
+
+                    accelerate health care credentials for high school students in rural communities
+
+             o Expand state’s online career exploration platform with health care specific
+
+                    content to support new entrants, career changers, and talent attraction. This
+
+                    program will also grow middle school career awareness programs statewide.
+
+    •    Fund training programs for health care professionals, including physicians, nurse
+
+         practitioners, physician assistants, registered nurses, midwives, dental hygienists, EMT
+
+         pilots, and other trainees. The initiative will provide four-year funding for a cohort of 100
+
+         medical students over the five-year period. Additional training programs will train 15
+
+         psychiatric nurse practitioners and 50 community-based paraprofessionals (e.g., Certified
+
+         Behavioral Health Peer Support Specialists) trainees who are residents of certain high-
+
+         needs rural counties. Funds may be used to support additional training programs to
+
+
+February 17, 2026                                                                              16 | P a g e
+Project Narrative
+
+
+         support critical gaps in the state. Professionals participating in these programs will
+
+         receive hands-on, community-based training on crisis intervention, behavioral health,
+
+         maternal health, and preventive care.
+
+    •    Expand health care apprenticeship programs in rural areas for licensed health
+
+         professions in the State. This includes expanding existing apprenticeship programs,
+
+         developing new bridge programs (e.g., LPN to RN, dental assistant to dental hygienist),
+
+         and adding high-priority new Registered Apprenticeship pathways, including radiologic
+
+         technicians, dental laboratory technicians, and medication aides.
+
+    •    Scale Montana’s HELP-Link workforce initiative to triple current capacity and train
+
+         3,000 more Medicaid expansion beneficiaries in credentialed, in-demand health care
+
+         occupations such as medical assistants radiology technicians, and other early and mid
+
+         career occupations vital to rural health facilities
+
+    •    Build a comprehensive talent attraction campaign that focuses on recruiting health
+
+         care workers to eastern Montana and other rural communities throughout the State for
+
+         critical health care workforce gaps. This effort will build on emerging campaigns led by
+
+         the State’s major health systems (e.g., Billings Clinic/Logan Health), creating a
+
+         coordinated and sustainable approach to recruitment.
+
+         All individuals benefiting from training programs that lead to careers related to
+
+         direct patient care (e.g., physicians, NPs, RNs) will commit to serving a minimum of
+
+         five years in rural communities.
+
+1.2. Expand rural clinical training capacity and opportunities
+
+    •    Expand residency training capacity in high-need specialties by increasing residency
+
+         slots at existing in-state programs (e.g., Billings Family Medicine Residency) and
+
+
+February 17, 2026                                                                            17 | P a g e
+Project Narrative
+
+
+         covering all associated costs. This will support the training of at least 10 additional
+
+         residents during the funding period. Funding may be used to assess feasibility and
+
+         provide start-up costs for a new residency program.
+
+    •    Offer targeted financial incentives and training to attract and increase the capacity
+
+         of qualified preceptors and apprenticeship mentors across the State who supervise
+
+         and train MD/DO students, advanced practice providers (APPs), and apprenticeship
+
+         trainees in rural areas. Recruiting efforts will also focus on increasing the teaching
+
+         capacity of more than 400 new or existing community preceptors through both virtual
+
+         and in-person education modeled after existing WWAMI (Washington, Wyoming,
+
+         Alaska, Montana, and Idaho) Medical Education Program trainings. These incentives are
+
+         designed to strengthen and expand supervisory capacity among already existing and
+
+         tenured providers with no additional career-enabling credentialing.
+
+    •    Expand rural training tracks to provide clinical education experiences for more than 30
+
+         APPs annually, including through the expansion of the Montana Area Health Education
+
+         Center Scholars Program and other rural training opportunities. Additional rural training
+
+         opportunities may include expanding 12-month rural training tracks with out-of-state
+
+         partners, enabling residents from specialties not yet available in Montana (e.g., surgery)
+
+         to complete portions of their training in rural communities.
+
+    1.3. Upskill and retain rural health care workforce
+
+    •    Provide supportive services for health care workers in or relocating to rural
+
+         communities. The program would offer time-bound relocation assistance funds during the
+
+         period of performance, facilitate interfacility collaboration and personalized community
+
+         resource linkages, and fund wellness and resilience programs to reduce isolation, prevent
+
+
+February 17, 2026                                                                            18 | P a g e
+Project Narrative
+
+
+         provider burnout, improve provider behavioral health, and ultimately retain medical and
+
+         dental providers in these communities.
+
+    •    Invest in advanced clinical, operational, and behavioral health training programs
+
+         that strengthen the skills of health care professionals serving rural communities by
+
+         incorporating a train-the-trainer model that equips clinicians and leaders to upskill their
+
+         peers. This will include expanding surgical technology training (e.g., robotics) to enhance
+
+         provider capability and patient care, as well as deploying targeted trainings for rural
+
+         health clinics on team-based care, chronic disease management, telehealth integration,
+
+         and operational best practices that enable clinicians to practice at the top of their license.
+
+         This will also include training all providers to manage non-specialty Behavioral Health,
+
+         including diagnosis, and how to connect to specialized resources. Programs will also
+
+         evaluate additional trainings in priority areas such as pediatrics (e.g., children and youth
+
+         BH, child abuse prevention) to provide tailored resources for health care professionals.
+
+Main strategic goal: Workforce development
+
+Use of funds: D. Training and technical assistance; E. Workforce Recruitment and Retention
+
+Technical score factors: B.1, C.2, D.1
+
+Key stakeholders: Cross-cutting stakeholders listed in the partnership section and the
+
+following initiative specific stakeholders: Community Health Support Network, GME Council,
+
+Montana Area Health Education Center, Montana Office of Public Instruction, Montana State
+
+Workforce Innovation Board, Montana University System, MSU College of Nursing, Rocky
+
+Vista University Montana College of Osteopathic Medicine, Touro College of Osteopathic
+
+Medicine Montana, WWAMI.
+
+Outcomes and Projected Impact (detailed table included in Metrics section):
+
+
+February 17, 2026                                                                             19 | P a g e
+Project Narrative
+
+
+    •    A foundational determinant of access to care is the availability of a qualified health care
+
+         workforce. Current data show that the State faces significant gaps in health care workers,
+
+         particularly in rural regions. In-state health care training capacity, including post-
+
+         secondary education and apprenticeship programs, remains limited. Costs of training and
+
+         a shortage of qualified preceptors further constrain opportunities for potential students to
+
+         train and serve in their home communities.
+
+    •    At the same time, recruiting and retaining providers in rural areas is a persistent
+
+         challenge (to be tracked by rate of position retention; turnover baseline to be collected
+
+         annually, target at least the national average by FY2031). Expanding the number of
+
+         providers delivering care in rural communities by strengthening the entire health care
+
+         workforce pipeline, from entry-level roles such as pharmacy technicians with expanded
+
+         scopes of practice to advanced providers in paramedicine and other high-need disciplines,
+
+         will increase the number of primary care access points and ensure communities are
+
+         better equipped to meet the evolving needs of rural populations (to be tracked by density
+
+         of specific health care workers; nurse practitioners baseline 76.7 per 100k, physician
+
+         baseline 89.2 per 100k, physician assistant baseline 70.6 per 100k, registered nurses
+
+         baseline 860.9 per 100k, dental hygienists baseline 90.7 per 100k, EMTs baseline 115
+
+         per 100k, target across all is 5% annual growth from FY2027 to FY2031).
+
+    •    Clinicians, especially physicians and dentists, experience higher rates of depression,
+
+         burnout, and suicide compared to the general population. In addition, those relocating to
+
+         rural communities may find themselves increasingly isolated from their peers. Expanding
+
+         supportive services for health care workers in or relocating to rural communities,
+
+
+
+
+February 17, 2026                                                                           20 | P a g e
+Project Narrative
+
+
+         including wellness programs will improve provider mental health. By FY2026 State
+
+         will determine rural-specific baseline and precise target, given no current data.
+
+Impacted counties: Montana’s 51 rural counties and rural portions of 5 metropolitan counties.
+
+Estimated required funding: ~$20.5 million for FY2026; Sustainability Plan for this Initiative
+
+is in Sustainability Plan Section below
+
+Workplan and monitoring: High-level Implementation Plan included below; detailed
+
+Implementation Plan for Initiative 1 included in Supporting Documentation
+
+INITIATIVE 2. ENSURE RURAL FACILITY SUSTAINABILITY AND ACCESS THROUGH
+
+PARTNERSHIPS AND RESTRUCTURING
+
+As described in the Rural Health Needs and Target Population section, 89% of Montana rural
+
+hospitals have a negative operating margin, given high operating costs relative to volume and
+
+reimbursement, indicating a care delivery supply and demand mismatch. At the same time, rural
+
+populations face critical access gaps for essential time-sensitive care, such as high-quality
+
+emergency medicine and stroke care and specialized care for residents with intellectual and
+
+developmental disabilities (IDD) and medically complex children, driven partially by long
+
+distances and partially by a lack of transport coordination between health care facilities. The
+
+State will lead a statewide rural care delivery system transformation focused on supporting rural
+
+systems to right-size services and restructure costs to sustainably meet their communities’ needs
+
+by optimizing population health clinical infrastructure, while leveraging remote care
+
+services and rural provider partnerships to protect and expand access. This will include:
+
+         2.1 – Launching a time-limited Montana Rural Health Center of Excellence to develop
+
+         and oversee the implementation of data-backed financial sustainability recommendations
+
+         2.2 – Protecting and increasing access by fostering and incentivizing clinical partnerships
+
+
+February 17, 2026                                                                            21 | P a g e
+Project Narrative
+
+
+         2.3 – Facilitating shared services for rural facility cost efficiency
+
+Sub-initiative detail:
+
+2.1.     Launch a Montana Rural Health Center of Excellence to develop and oversee the
+
+implementation of data-backed financial sustainability recommendations
+
+    •    Stand up the Montana Rural Health Center of Excellence (CoE) to rapidly create a
+
+         rural health supply and demand fact base for Montana and develop recommendations to
+
+         align care delivery services with rural health needs at the county and facility level. The
+
+         State is considering a board-like governance structure to ensure impacted stakeholders,
+
+         including independent hospitals in rural communities, have representation and take part
+
+         in decision-making. The State anticipates discontinuing the CoE after 2028. Leveraging
+
+         the State’s existing analytics from ongoing initiatives, the CoE will conduct a deep
+
+         analysis of rural community disease burden projections and inpatient and outpatient
+
+         utilization trends by service line, and cross-reference this with Montana’s current care
+
+         delivery footprint across access points to identify critical areas of misalignment at the
+
+         county and facility levels. This research will build on the State’s current assessment that
+
+         in many rural communities, inpatient capacity exceeds community needs (with average
+
+         inpatient utilization in Montana rural hospitals below 50% of staffed capacity xxi). The
+
+         CoE will also develop a profile of Montana rural hospital cost structures and the most
+
+         significant areas of financial opportunity through clinical and operational efficiency
+
+         levers, including potential value-based care models. A core CoE deliverable will be a set
+
+         of detailed recommendations, at the facility- and county-level, for restructuring inpatient
+
+         and outpatient services to match projected rural health care demand through the RHTP
+
+         period and beyond, while achieving persistent positive operating margins for the 2031-
+
+
+February 17, 2026                                                                           22 | P a g e
+Project Narrative
+
+
+         2035 period without any additional State support.
+
+    •    Offer an opt-in program providing incentive payments to rural care delivery
+
+         systems to implement Montana Rural Health CoE recommendations, including right-
+
+         sizing select inpatient services to match rural community demand. This program is
+
+         designed to help hospitals align services with community needs, improve financial
+
+         sustainability, and ensure continued access to care.
+
+         During Year One, the CoE will be in the process of developing transformation
+
+         recommendations. Initiative 2 incentives disbursed by DPHHS to participating provider
+
+         organizations in Year One will be allocated for the following purposes:
+
+        (i)         Strategic service provision: Provision of health care services to rural communities
+
+                    to expand access to primary or specialty care (e.g., expanding primary / urgent /
+
+                    emergent care hours, expanding telemedicine capabilities), sustainably improving
+
+                    operating margin (e.g., reducing underutilized staff beds, shifting services out of
+
+                    acute settings, providing post-discharge home visits to reduce avoidable
+
+                    readmissions), and / or measurably improving health outcomes (e.g., expanding
+
+                    evidence based testing, screenings, and medications). Funds will be allocated to
+
+                    provider organizations based on evidence of changes made. Provider
+
+                    organizations will be asked to report on how funds were used after one year.
+
+        (ii)        Cover costs of CoE program entry: To offset in-house or outsourced staff time
+
+                    associated with preparing data requests and participating in administrative
+
+                    processes for CoE program entry. This will directly enable the work of future
+
+                    years, as this data will be necessary for the CoE to develop facility-level service
+
+                    line rightsizing recommendations.
+
+
+February 17, 2026                                                                               23 | P a g e
+Project Narrative
+
+
+         CoE recommendations on financial transformation and health care access will
+
+         be finalized in Year Two (FFY27). Incentives from Year Two onwards will only be
+
+         awarded to support the implementation of these recommendations to ensure appropriate
+
+         care availability for rural residents, sustainably improve rural facilities’ operating
+
+         margins, and measurably improve health outcomes. Participating provider organizations
+
+         will receive an incentive payment linked to the implementation of the recommended
+
+         changes (in line with national best practices, though the exact amount for each hospital
+
+         will depend on scale of patients served, scope of recommendations, and rurality factors).
+
+         Payments will, on average, be equivalent to 10% of net patient service revenue (but not
+
+         necessarily be determined based on organization revenue). Changes will be specific and
+
+         tailored to the circumstances of individual facilities and networks and will enable
+
+         providers to provide the right services at the right scale and at the right time. Examples
+
+         may include:
+
+         •   Rightsizing a given provider's current health care supply to match current and
+
+             projected demand across preventative, ambulatory, pre-hospital, emergency, acute
+
+             inpatient care, outpatient care, and post-acute care including training and
+
+             technical assistance to promote new care pathways. In some cases, this may include
+
+             downsizing, but there is no expectation of across-the-board downsizing. (Category G
+
+             Use of Funds – primary category)
+
+         •   Investing in existing rural health care buildings and infrastructure, including minor
+
+             building alterations or renovations and equipment upgrades to ensure long-term
+
+             overhead and upkeep costs are commensurate with patient volume, subject to
+
+             restrictions in the funding policies and limitations – for example, to transition
+
+
+
+February 17, 2026                                                                             24 | P a g e
+Project Narrative
+
+
+             inpatient operating rooms and other facility resources to outpatient clinic space or
+
+             transition inpatient hospitals to new models leveraging lean infrastructure, swing
+
+             beds, and transport capabilities. (Category J Use of Funds)
+
+         Receiving incentive payments will also be linked to protecting and expanding ambulatory
+
+         services through sub-initiatives 2.2 and 3.4, per CoE recommendations. The CoE and
+
+         implementing partners will tailor each recommendation and contract to the unique needs
+
+         of individual facilities and rural and tribal communities, recognizing rural hospitals often
+
+         represent major employers in these areas, while maintaining a rigorous focus on the
+
+         changes that are required for facilities to achieve breakeven without additional State
+
+         support by 2031. The State’s approach to support care delivery transformation builds on
+
+         the experience of the Pennsylvania Rural Health Model and other experiences from other
+
+         states. Based on stakeholder conversations, the State expects more than half of rural
+
+         hospitals to opt into this transformation program. Incentive payments will be completed
+
+         by the final RHTP budget cycle, with final payment contingent on completion of the
+
+         agreed-upon restructuring.
+
+2.2.     Protect and increase access through clinical partnerships
+
+    •    Support virtual care availability for rural residents to expand access to care. The
+
+         State will support the deployment of virtual interfacility specialty consultations to address
+
+         shortages of critical specialists at rural hospitals and emergency departments through a
+
+         hub-and-spoke model. Building on the success of the existing tele-stroke pilot in 11 rural
+
+         hospitals, the State will support implementation of tele-stroke services along with other
+
+         specialist tele services (e.g., tele-ED, tele-cardiology) across 50+ rural hospitals. Funding
+
+         will cover initial costs, including teleservice equipment, provider onboarding, and in-
+
+
+February 17, 2026                                                                           25 | P a g e
+Project Narrative
+
+
+         person “train the trainer” training for on-site staff. Hospitals will be required to cover
+
+         ongoing costs, replicating the current model of the pilot. The State will also support
+
+         priority rural clinics in regions with critical access gaps (as identified by the CoE) to
+
+         develop telehealth capabilities. In most instances, the State expects this to be achieved
+
+         through Initiative 5.2, which supports rural providers with modern EHRs. In cases where
+
+         priority clinics cannot access this service or otherwise require connectivity, the State will
+
+         support the clinic with upfront technology and implementation costs to enable telehealth,
+
+         with the agreement that the clinic will cover ongoing maintenance costs. Telehealth
+
+         platform access will be offered through the Group Purchasing Organization (GPO)-
+
+         facilitated vendor sourcing process in sub-initiative 2.3.
+
+    •    Scale Intellectual and Developmental Disabilities (IDD) telehealth services. The
+
+         Department’s initial IDD virtual care pilot providing urgent telemedicine services to
+
+         complex members resulted in 91% of acute IDD encounters being treated in place and
+
+         resulting in an estimated cost-avoidance of $2.3M through preventing ~450 avoidable
+
+         ED, urgent care visits, or hospitalizations. Building on the early success of the IDD
+
+         telehealth initiative, the program will expand from two Montana DDP regions to all five
+
+         regions, increasing reach from 19 counties to all 56 counties, and increasing access to
+
+         services to an estimated 1,400 IDD patients. The program will also be expanded to
+
+         incorporate behavioral health services for this population. Given the proven cost-
+
+         avoidance from the pilot, the State will pursue Medicaid coverage through the 1915(c)
+
+         Home and Community-Based Services (HCBS) Waiver to sustain this sub-initiative.
+
+    •    Roll out pediatric virtual care delivery for rural children with special health care needs.
+
+         The State will evaluate vendors providing innovative at-risk models guaranteeing cost
+
+
+February 17, 2026                                                                             26 | P a g e
+Project Narrative
+
+
+         reductions driven by avoidable hospital and emergency utilization (~25%) while
+
+         maintaining high family satisfaction. Services such as virtual pediatric urgent care and
+
+         behavioral health teletherapy would be made available to rural communities in
+
+         partnership with existing Montana pediatric providers.
+
+    •    Establish sustainable interfacility patient transport coordination system to direct
+
+         emergent and non-emergent patients to appropriate sites of care, including coordinating
+
+         transport between facilities. The success of rural care delivery transformation depends on
+
+         ensuring patients can quickly access the right level of care (e.g., trauma care). The State
+
+         will support implementation of a statewide hub to be housed by participating hospitals
+
+         and larger systems in Montana to streamline transfers by tracking inpatient and surgical
+
+         care availability, bed space, and real-time ground and air transport data. The system will
+
+         leverage existing geolocation and communications devices used by EMS and receiving
+
+         facilities. Funding will cover startup costs, including coordination software, system
+
+         integration, and core dispatch setup, with participating hospitals maintaining the system
+
+         beyond year 5 through a cost-sharing agreement based on fees per patient.
+
+2.3.     Facilitate vendors and shared services for rural facility cost efficiency
+
+    •    Facilitate rural providers to collectively access vendors at scale for priority
+
+         functions, including back-office services, other forms of administrative activities, and
+
+         clinical efficiency tools. Rural providers are especially vulnerable to high administrative
+
+         costs relative to revenue, frequently lack access to modern technology, and face low
+
+         purchasing and negotiating power for supplies and vendors. To address these challenges
+
+         and enable rural provider financial sustainability, the State will work with the Montana
+
+         Hospital Association (MHA) and independent and separate coalitions of Critical Access
+
+
+February 17, 2026                                                                           27 | P a g e
+Project Narrative
+
+
+         Hospitals to evaluate the need to facilitate improved vendor access for back-office
+
+         services and other functions, enhancing or extending current offerings. Functions may
+
+         include revenue cycle management, patient engagement, provider credentialing,
+
+         procurement, clinical workflow, remote patient monitoring, clinical decision-making, or a
+
+         340B pharmacy operator. Vendors offering favorable rates to leverage the latest AI-
+
+         enabled technology, with a clearly demonstrated history of success with similar-sized
+
+         providers, will be prioritized. The State may facilitate providers contracting with a single
+
+         GPO to negotiate rates to enable low prices. In addition, the State will also ensure vendor
+
+         selection, and the resulting contracts include favorable terms and conditions, such as
+
+         optimized governance processes, favorable termination and notification clauses, robust
+
+         Service Level Agreements (SLAs), and reporting requirements. The State will assist with
+
+         the coordination of implementation with selected vendors for participating providers and
+
+         will provide technical assistance on how to track and realize cost savings.
+
+Main strategic goal: Sustainable access
+
+Use of funds: B. Provider Payments; G. Appropriate care availability
+
+Technical score factors: B.1, C.1, F.1
+
+Key stakeholders: Cross-cutting stakeholders listed in the partnership section and Montana’s
+
+Stroke Workgroup
+
+Outcomes and Projected Impact (detailed table included in Metrics section)
+
+    •    Inpatient footprint does not match the needs of rural communities. The recommendations,
+
+         incentives, and transformation support will result in most rural facilities making
+
+         sustainable changes. The State will track utilization of staffed beds (baseline 39%, target
+
+         30 p.p. increase) to assess how well inpatient capacity matches community need.
+
+
+February 17, 2026                                                                             28 | P a g e
+Project Narrative
+
+
+    •    Facility changes, in addition to increased back-office vendor usage, are anticipated to
+
+         drive improved rural provider financial performance, measured by operating margin
+
+         improvement (estimated baseline to be refined: -14%; target: 0%). This metric
+
+         complements revenue cycle management improvements from EHR modernization.
+
+    •    Other key components of improving rural provider efficiency and meeting community
+
+         needs include protecting and expanding access through telehealth, anticipated to increase
+
+         the number of Medicaid visits conducted via telehealth (baseline 2%, target 15 p.p.
+
+         increase), improving interfacility coordination to get patients where they need to be, thus
+
+         reducing ED length of stay (baseline 3.9hrs, target 10% reduction), and shifting service
+
+         delivery to outpatient sites of care, increasing the proportion of Medicaid spend on
+
+         outpatient services out of total spend (baseline 73%; target 80%).
+
+Impacted counties: Montana’s 51 rural counties and rural portions of 5 metropolitan counties
+
+Estimated required funding: ~$82.4 million for FY2026; Sustainability Plan for this Initiative
+
+is in Sustainability Plan Section below
+
+Workplan and monitoring: High level Implementation Plan included below; detailed
+
+Implementation Plan for Initiative 2 included in Supporting Documentation
+
+INITIATIVE 3. LAUNCH INNOVATIVE CARE DELIVERY AND PAYMENT MODELS
+
+Montana’s rural health care system faces ongoing challenges in ensuring that care is accessible
+
+and financially sustainable. Primary care clinics face critical capability gaps in technology and
+
+population health, and there are no dedicated programs for Dual-eligible residents. Gaps in EMS
+
+resources driven by lack of infrastructure and use of EMS services for non-emergent cases lead
+
+to gaps in emergent care. Similar gaps are found across rural communities in accessing needed
+
+outpatient and diagnostic services. This initiative aims to innovatively transform how care is
+
+
+February 17, 2026                                                                          29 | P a g e
+Project Narrative
+
+
+delivered both on-demand via rural strategic partnerships, accelerating primary care
+
+participation in Medicaid provider payment incentives, identifying and standing up programs
+
+to provide integrated care for individuals dually eligible for Medicare and Medicaid, and
+
+modernizations that strengthen EMS and, in the community, while simultaneously transforming
+
+financing to incentivize quality care in rural Montana:
+
+         3.1 – Implementing innovative payment and care models that prioritize patient outcomes
+
+         and access to care
+
+         3.2 – Modernizing Emergency Medical Service care model to increase capacity and reach
+
+         3.3 – Extending access to lower-cost care through pharmacist point-of-care testing sites
+
+         3.4 – Increase outpatient services based on Montana Rural Health CoE recommendations
+
+Sub-initiative detail:
+
+3.1. Implement innovative payment models
+
+    •    Expand technical support for Montana PCPs participating in Medicaid value-based
+
+         contracting as part of the State’s Primary Care Case Management (PCCM) program. The
+
+         State currently provides technical support to primary care practices participating in the
+
+         PCCM program. The State will fund additional technical support for an expanded number
+
+         of clinics, accelerating what is currently planned for PCCM. The State expects that
+
+         providing personalized technical assistance will lower the cost and barriers to
+
+         participation and increase the uptake and success rate of providers in the program.
+
+    •    Strengthen Montana’s innovative payment and care delivery models for rural Dual-
+
+         eligible and long-term care members by evaluating programs to improve member
+
+         outcomes and reduce costs. The State will assess the potential impact of strengthening D-
+
+         SNP contracting and oversight through robust governance, data sharing and care
+
+
+February 17, 2026                                                                          30 | P a g e
+Project Narrative
+
+
+         coordination, and evaluate the benefit of deploying integrated care models leveraging
+
+         remote services and community partners to adapt traditional models, such as Program for
+
+         Advanced Care for the Elderly (PACE), in alignment with the challenges faced by rural
+
+         communities. If interventions with a clear value proposition are identified and there is
+
+         sufficient capacity, the State will develop a plan to implement and sequence the proposed
+
+         approach and evaluate the impact over the funding period to determine sustainability. The
+
+         State will also assess acuity-based reimbursement and value-based contracting with
+
+         nursing facilities to determine the anticipated impact on member access, rural nursing
+
+         facility economic sustainability, and long-term care costs and implement payment
+
+         changes dependent on the assessment.
+
+3.2.     Modernize Emergency Medical Service (EMS) care model
+
+    •    Train community paramedics to provide in-home clinical and wellness evaluations,
+
+         chronic disease management, and behavioral health interventions. This is designed to
+
+         reduce the frequency that an individual utilizes emergency departments for routine care
+
+         and to avoid costly readmissions for chronic disease management and crisis services.
+
+         Given the anticipated downstream cost savings through reduced avoidable ED transport
+
+         and hospitalization, the State will pursue Medicaid coverage for “Treat and No
+
+         Transport” codes, such as A0998, along with behavioral health modifiers in the 2027
+
+         legislative session to ensure sustainability of the community paramedicine model onward.
+
+         Additionally, the State will work to collaborate with commercial payers to pursue
+
+         consistency in coverage of these services.
+
+    •    Invest in foundational emergency services infrastructure through a one-time funding
+
+         of essential infrastructure needs (e.g., vehicles, cot systems) to enable lasting operations
+
+
+February 17, 2026                                                                            31 | P a g e
+Project Narrative
+
+
+         and to increase the efficiency and reach of EMS and community paramedicine services in
+
+         rural communities. The State will conduct an assessment to evaluate the need to replace
+
+         Montana’s outdated emergency medical dispatch system to better support advanced
+
+         triage, including nurse navigation services, behavioral health response systems, and
+
+         community paramedicine services. If the State moves forward with the upgrade given
+
+         assessment, the State will commit to covering the minimal ongoing annual costs for
+
+         maintenance of this dispatch system, given the lasting impact and downstream cost
+
+         savings through efficient triage of services. Funding will also be used to purchase
+
+         infrastructure, including ambulances, stretchers, and cardiac monitors, which will enable
+
+         expanded operations and reduced response times in rural counties and tribal communities
+
+         identified as facing critical gaps.
+
+    •    Pilot a pre-hospital blood administration program leveraging the Montana
+
+         Interfacility Blood Network (MT-IBN) to enable ambulances to coordinate with rural
+
+         hospital blood banks to carry blood products on board and deliver to trauma patients in
+
+         need of lifesaving transfusions during transport. Unused products will be returned to the
+
+         hospital partner prior to expiration for use to ensure no waste. Funding will cover the
+
+         startup costs for blood storage equipment and placement into ambulances for targeted
+
+         EMS agencies serving rural counties.
+
+3.3.     Extend access to lower-cost care through pharmacists
+
+    •    Support limited diagnostic and treatment capabilities in pharmacies for prescription
+
+         management of previously diagnosed conditions and for diagnosis of self-limited
+
+         conditions. The State will pursue Medicaid coverage for a select set of services to enable
+
+         this initiative, which is expected to decrease costly clinical interventions otherwise
+
+
+February 17, 2026                                                                           32 | P a g e
+Project Narrative
+
+
+         covered by the State’s existing Medicaid budget. Montana will additionally collaborate
+
+         with private payers to establish consistent reimbursement pathways for these select
+
+         services, ensuring access for more patients and long-term sustainability for participating
+
+         pharmacies. The exact scope of services covered will be determined by state assessment.
+
+         Funding will be used to cover startup costs, including medical equipment and the initial
+
+         purchase of rapid, near-patient diagnostic tests for screenings and monitoring, across
+
+         selected pharmacies in rural communities.
+
+3.4.     Increase needed outpatient services
+
+    •    Protect and increase outpatient access through targeted outpatient site
+
+         improvements for hospitals participating in the rural hospital transformation incentive
+
+         program outlined in sub-initiative 2.1. In line with CoE recommendations, participating
+
+         hospitals will receive funding to pursue minor renovations to existing infrastructure to
+
+         maximize ambulatory capacity for priority services and make limited initial investments
+
+         in outpatient technology and equipment to create the lower-acuity footprint and access
+
+         that rural communities need. Example investments may include renovating inpatient
+
+         rooms to accommodate specialized outpatient services, renovating clinic rooms to
+
+         accommodate more capacity or specialty services, adding observation capacity to a
+
+         hospital that is reducing inpatient capacity, or purchasing the provider-facing technology
+
+         to leverage remote patient monitoring for specialty care. All investments will be one-
+
+         time-only during the funding period to facilitate the changes recommended, with the
+
+         agreement that providers will maintain their infrastructure.
+
+Main strategic goal: Innovative care
+
+Use of funds: G. Appropriate Care Availability; H. Behavioral Health; I. Innovative Care
+
+
+February 17, 2026                                                                          33 | P a g e
+Project Narrative
+
+
+Models
+
+Technical score factors: C.1, C.2, E.1, E.2
+
+Key stakeholders: Cross-cutting stakeholders listed in the partnership section and the following
+
+initiative specific stakeholders: EMS agencies, Montana Association of Sheriffs and Peace
+
+Officers Association, Montana Association of Public Safety Communications Officials,
+
+American Red Cross
+
+Outcomes and Projected Impact (detailed table included in Metrics section)
+
+    •    Montana primary care practices struggle with standing up processes and technology to
+
+         participate in Medicaid value-based payment programs, and the State has no ongoing
+
+         programs focused on Dual-eligible members. Technical assistance to primary care
+
+         practices to incentivize high-value care is expected to increase the proportion of
+
+         Medicaid spend on outpatient care compared to total spending (baseline 72%; target
+
+         80%) and evaluating interventions focused on integrated care for Dual-eligibles is
+
+         anticipated to limit the growth in Medicaid PMPM spending on Duals for rural
+
+         residents (baseline $305, target no net growth from current spend in 2031).
+
+    •    EMS resource shortages and volume of non-emergent calls lead to a 25% rate of
+
+         unanswered emergency calls and EMS access gaps in rural communities. Launching
+
+         community paramedicine programs which are fit to address non-emergent high frequency
+
+         use cases (e.g., chronic disease exacerbation) in the home setting is anticipated to
+
+         decrease the number of high utilizers (baseline: 21%; target: decrease by 4%) that have
+
+         2 ED visits within 60 days and increase the number of uses of the Treat no Transport
+
+         CPT code (baseline: 0; target: 10,000), showing increase of care in non-hospital settings.
+
+
+
+
+February 17, 2026                                                                           34 | P a g e
+Project Narrative
+
+
+         This initiative will additionally reduce avoidable admissions, which is not currently
+
+         tracked by the State and therefore not included as an outcome.
+
+    •    The health care access problem facing rural community members driven by low provider
+
+         density can be addressed by enabling pharmacists to practice at the top of their license.
+
+         The State will pursue Medicaid coverage of selected services such as treatment of minor
+
+         self-limited conditions and chronic disease management. The percentage of pharmacists
+
+         prescribing for Medicaid members under new coverage (baseline: 0%; target 30%)
+
+         will be tracked to show the increase in access to care in rural areas.
+
+Impacted counties: Montana’s 51 rural counties and rural portions of 5 metropolitan counties
+
+Estimated required funding: ~$28.94 million for FY2026; Sustainability Plan for this Initiative
+
+is in Sustainability Plan Section below
+
+Workplan and monitoring: High-level Implementation Plan included below; detailed
+
+Implementation Plan for Initiative 3 included in Supporting Documentation
+
+INITIATIVE 4. INVEST IN COMMUNITY HEALTH AND PREVENTIVE INFRASTRUCTURE
+
+Rural populations in Montana often lack health care infrastructure that provides access to
+
+preventive care and promotes healthy lifestyles, resulting in adverse chronic disease outcomes
+
+and unnecessary hospitalizations for care that could have been delivered in lower acuity settings.
+
+This initiative addresses this gap through investments in community-oriented care that builds out
+
+population health clinical infrastructure and bolsters positive health and lifestyle changes,
+
+including:
+
+         4.1 – Implementing community-based models to make preventive care accessible for
+
+         rural communities
+
+         4.2 – Updating rural health care infrastructure through critical repairs and modernizations
+
+
+February 17, 2026                                                                          35 | P a g e
+Project Narrative
+
+
+         4.3 – Investing in rural healthy lifestyles to prevent root causes of disease
+
+Sub-initiative detail:
+
+4.1.     Implement community-based care
+
+    •    Extend school-based health care by building off the success of 80+ existing sites across
+
+         20+ organizations, including FQHCs, RHCs, and tribal health departments. Funding will
+
+         support startup costs, such as facility renovation and medical equipment for both the
+
+         enhancement of services at existing sites and the establishment of new sites across
+
+         locations in rural counties and tribal communities. Forty-five percent of current school-
+
+         based sites only offer behavioral health services and will be extended to include primary
+
+         and dental care for students. Provider capacity for school-based care coverage will be
+
+         assessed to determine sites for rollout. All services offered are currently reimbursable by
+
+         Medicaid, which will ensure the ongoing sustainability of this initiative. This effort aligns
+
+         with the State’s role in facilitating partnerships between schools and local providers,
+
+         while making preventive care in rural communities more accessible.
+
+    •    Purchase and equip mobile care vans as a one-time investment to travel to targeted
+
+         rural communities at regular cadences to offer preventive services, including dental care,
+
+         mammography screenings, and immunizations. Building off the success of existing
+
+         mobile mammography vans operated by hospital systems, this initiative will increase
+
+         services offered and geographies reached. Funding will allow for the purchase and
+
+         equipment retrofitting of mobile care vans. Providers will be responsible for the
+
+         distribution of funds to procure and retrofit mobile vans for use. The reimbursable
+
+         services offered are intended to cover ongoing operational costs.
+
+    •    Launch community health strengthening efforts for Montana Tribes to increase
+
+
+February 17, 2026                                                                            36 | P a g e
+Project Narrative
+
+
+           access to essential care. Programs include supporting the launch of the Community
+
+           Health Aide Program (CHAP) and extension of training opportunities like the Caring for
+
+           Our Own workforce program to increase access to emergent, acute, and chronic care
+
+           within tribal communities. Funding will be used to cover initial training and development
+
+           costs for CHAP and to initiate training and education opportunities as needed.
+
+4.2.       Update rural health care infrastructure
+
+       •   Fund critical facility repairs and modernization projects across rural facilities,
+
+           including Certified Community Behavioral Health Clinics (CCBHCs), tribally operated
+
+           clinics, Federally Qualified Health Clinics (FQHCs), environmental laboratories, and
+
+           other community-based ambulatory facilities that provide preventive care, behavioral
+
+           health services, and chronic disease management. Investments will focus on minor
+
+           renovations and critical technology upgrades (e.g., IT infrastructure, laboratory safety
+
+           enhancements, updates to modern EHRs) to improve operating efficiency. Rural
+
+           community health centers operating at or near capacity will be prioritized, along with
+
+           those for which repairs can significantly increase access and capacity (e.g., an electrical
+
+           repair that could reopen a set of clinic rooms).
+
+    •      Enhance targeted CCBHCs and establish partner facilities with crisis center “safe
+
+           places for help” as defined by SAMHSA to provide an alternative for crisis patients
+
+           outside of hospitalization (e.g., crisis stabilization centers, respite centers). Montana
+
+           currently only has three receiving and/or stabilization centers; this initiative would help
+
+           extend the reach of the four providers pursuing a demonstration grant for CCBHC
+
+           certification to provide crisis services across the state. CCBHCs will partner with
+
+           facilities hosting “safe places for help” to help provide required CCBHC services and fill
+
+
+February 17, 2026                                                                               37 | P a g e
+Project Narrative
+
+
+         capacity gaps; the ongoing operational costs of these programs will be incorporated into
+
+         the CCBHC’s Medicaid PPS rate through Designated Collaborating Organization (DCO)
+
+         partnerships. Funding will not supplant demonstration grant funding but would be used to
+
+         increase the impact and coverage of CCBHCs through covering initial costs to set up safe
+
+         places, including minor space renovations and the purchase of necessary equipment.
+
+4.3.    Invest in healthy lifestyles to prevent root causes of disease
+
+    •    Invest in creating high-impact community spaces promoting nutrition and healthy
+
+         lifestyles, in accordance with Make rural America healthy again principles. This will
+
+         include one-time grants for communities to create environments that encourage healthy
+
+         eating and engagement with local food systems, such as food banks and farmers, for
+
+         years to come. The program allows communities to establish Food System Action plans
+
+         that may consider launching community gardens, farmers’ markets, school nutrition
+
+         initiatives, and other interventions in rural and tribal communities classified as food
+
+         deserts. These will only be established in communities that identify local sponsors (e.g.,
+
+         MSU Extension).
+
+Main strategic goal: Make rural America healthy again
+
+Use of funds: A. Prevention and chronic disease, F. Information technology advances, G.
+
+Appropriate care availability, H. Behavioral Health, K. Fostering collaboration
+
+Technical score factors: B.1, B.2
+
+Key stakeholders: Cross-cutting stakeholders listed in the partnership section and the following
+
+initiative specific stakeholders: Confluence Public Health Alliance, Farm Connect Montana,
+
+League of Cities, Local Health Departments, Montana Association of Counties, Montana
+
+Department of Commerce, Montana Food Bank, Montana Office of Public Instruction, Montana
+
+
+February 17, 2026                                                                           38 | P a g e
+Project Narrative
+
+
+Partnership to End Childhood Hunger, MSU Extension, Public Health Institute, Rural Behavioral
+
+Health Institute.
+
+Outcomes and Projected Impact (detailed table included in Metrics section)
+
+    •    Rural communities lack access to critical preventive care, such as well-child visits and
+
+         behavioral health screenings. This results in higher downstream spending and adverse
+
+         health outcomes, including high-risk factors. By implementing community-based care
+
+         (e.g., schools) and building out rural infrastructure that encourages healthy lifestyles,
+
+         these initiatives will help increase the percentage of children receiving well child visits
+
+         (baseline: 36.75%, target: 2% increase), improve youth mental health and risk
+
+         behavior (baseline 43%, target: 10% decrease), and improve risk factor controls such as
+
+         glycemic status (baseline: 37.8%, target: 4% increase), BMI (baseline: TBD, target:
+
+         TBD) and high blood pressure (baseline: 36.75%, target: 2% increase). Anticipated
+
+         downstream cost savings are not included as an outcome, given evidence indicating that
+
+         savings would be seen after FY2031.
+
+    •    Limited crisis receiving, stabilization, and safe spaces result in patients with behavioral
+
+         health crisis incidents being hospitalized when they could be cared for at a lower cost of
+
+         care. Through the build-out of SAHMSA-defined crisis safe spaces, crisis patients can
+
+         receive care outside of the hospital setting. The increase in number of SAHMSA
+
+         defined crisis spaces (baseline: 3, target: 11) and the associated decrease in ED
+
+         behavioral health visits (baseline: TBD, target: TBD) in regions with added crisis
+
+         spaces will be tracked along with a reduction in suicide rates (baseline: 26.2 per 100K,
+
+         target: 10% decrease) to reflect the increase of crisis support outside of hospitalization,
+
+         decreased health care costs, and improved health outcomes.
+
+
+February 17, 2026                                                                            39 | P a g e
+Project Narrative
+
+
+Impacted counties: Montana’s 51 rural counties and rural portions of 5 metropolitan counties
+
+Estimated required funding: ~$56.3 million for FY2026 Sustainability Plan for this Initiative is
+
+in Sustainability Plan Section below
+
+Workplan and monitoring: High-level Implementation Plan included below; detailed
+
+Implementation Plan for Initiative 4 included in Supporting Documentation
+
+INITIATIVE 5. DEPLOY MODERN HEALTH CARE TECHNOLOGIES TO GUIDE RURAL
+
+HEALTH INTERVENTIONS
+
+Rural communities often face limited access to care, fragmented clinical infrastructure, and gaps
+
+in data integration that hinder timely, informed decision-making. Strengthening technology and
+
+data capabilities is essential to improve coordination, enable remote care, and enhance
+
+population health outcomes. This initiative focuses on advancing technology innovation and
+
+building data-driven interventions by:
+
+         5.1 – Improving data usability and statewide operational tools (e.g., bed registry) utilizing
+
+         HIE data to drive decisions and population health interventions
+
+         5.2 – Modernizing EHRs for rural providers, including an opt-in model via regional hub
+
+         ‘community connect’ enabling interoperability, telehealth capabilities, and data sharing
+
+         while promoting consumer-facing technologies
+
+This initiative is a key enabler of Montana’s broader rural health transformation strategy and is
+
+intricately linked to financial sustainability and access in Initiative 2, EMS and virtual care
+
+models in Initiative 3, and behavioral health impact in Initiatives 3 and 4.
+
+Sub-initiative details:
+
+5.1. Improve data usability and population health interventions
+
+    •    Develop tools that generate actionable and valuable insights for providers and the
+
+
+February 17, 2026                                                                           40 | P a g e
+Project Narrative
+
+
+         State, leveraging Montana’s existing data (e.g., HIE) to improve provider operations and
+
+         efficient care delivery to rural communities. This effort will include creating and
+
+         validating critical tools for rural care delivery, such as a statewide hospital and behavioral
+
+         health bed registry to enable CAH transfers. The State will demonstrate HIE usability,
+
+         reduce delays in care, and optimize the use of limited rural health care resources.
+
+    •    Deploy monitoring, evaluation, and continuous improvement programs for
+
+         interventions impacting rural communities. This initiative will focus on designing rural
+
+         health interventions to improve outcomes and reduce care costs, with initial investments
+
+         evaluated for impact and long-term sustainability through cost savings. Focus may
+
+         include rigorous evaluation and improvement of interventions targeting:
+
+             o ED utilization for conditions that could be treated in primary care or urgent care
+
+             o Preventable chronic disease exacerbation episodes that drive unnecessary
+
+                    inpatient utilization
+
+             o High-value specialty care, including the creation of a high-value network
+
+                    assessing quality and cost of prioritized specialties
+
+This sub-initiative supports other parts of the RHTP strategy, including the Montana Rural
+
+Health CoE and care delivery transformation for rural systems, and virtual care models.
+
+5.2. Support EHR modernization for select providers
+
+    •    Modernize EHR systems for priority rural providers and facilities currently operating on
+
+         legacy or limited interoperability platforms, focusing on those who are not HITECH
+
+         compliant or who lack full interoperability. This effort will support both shared and
+
+         independent EHR modernization efforts. This program will establish an opt-in regional
+
+         hub model to incentivize larger health systems to provide community connect features
+
+
+February 17, 2026                                                                            41 | P a g e
+Project Narrative
+
+
+         within their EHR platforms to extend access to regional rural providers. Rural facilities
+
+         will gain interoperability and access to shared data infrastructure without needing to
+
+         deploy standalone systems. Incentives for larger systems will also be contingent on
+
+         onboarding, training, and ongoing technical assistance for rural partners. Rural providers
+
+         who choose not to opt in will be eligible for subsidies to purchase new platforms, with
+
+         partial coverage of implementation costs. A special focus will be given to tribal
+
+         providers, with funding used to modernize non-HITECH-certified systems to appropriate
+
+         EHR platforms. The State will not be responsible for ongoing maintenance and
+
+         operations costs, subscription contracts, etc.
+
+    •    Support and fund consumer-facing EHR modules and strengthen provider
+
+         engagement to support nutrition and chronic disease management. As part of EHR
+
+         modernization, providers will be eligible for funding to activate mobile platforms and
+
+         apps to engage patients with nutrition, disease prevention, and chronic disease
+
+         management. Participating providers may integrate evidence-based remote patient
+
+         monitoring devices that interface with selected modules.
+
+Main strategic goal: Technology innovation
+
+Use of funds: C. Consumer tech solutions, F. IT advances
+
+Technical score factors: B.1, F.1, F.2, F.3
+
+Key stakeholders: Cross-cutting stakeholders listed in the partnership section and the following
+
+initiative-specific stakeholders: Montana University System, EMS agencies
+
+Outcomes and Projected Impact (detailed table included in Metrics section)
+
+    •    Montana has developed a comprehensive data warehouse that integrates HIE and claims
+
+         data to inform population health strategies, but lacks dedicated capacity to evaluate how
+
+
+February 17, 2026                                                                            42 | P a g e
+Project Narrative
+
+
+         these insights have an impact on health outcomes and costs of care. As a result, HIE data
+
+         remains underutilized. Without provider-facing tools to translate analytics into actionable
+
+         insights at the point of care, the system delivers limited value to providers and fails to
+
+         realize the potential of data-driven care improvement and reduction in costs of care. This
+
+         initiative will use existing data to create tools such as a bed registry to decrease the wait
+
+         time for placements into behavioral health beds in rural communities (no baseline,
+
+         target to be determined after bed registry is rolled out FY2029).
+
+    •    Increased use of modern EHRs will increase connectivity across providers and
+
+         facilities, particularly for those in rural communities who are currently operating on
+
+         legacy systems (baseline: 88% of hospitals currently have HITECH-certified EHRs,
+
+         target for hospitals 95% by FY2031). EHRs allow providers to operate more efficiently
+
+         and better coordinate care and increase revenue cycle improvements, resulting in
+
+         improved operating margin for participating providers (estimated baseline to be
+
+         refined: -14%; FY2031 target: operating margin at breakeven, 0%).
+
+    •    Increasing HIE data sharing and developing tools within the HIE will increase the State’s
+
+         ability to get patients to the right location faster, evaluate providers, and create a
+
+         foundation for future value-based care models that include clinical data. This initiative
+
+         will improve the percentage of rural facilities and providers participating in the HIE
+
+         (baseline 43% of providers and 73% of hospitals, target over 95% of hospitals and 75%
+
+         of other providers connected by FY2031).
+
+Impacted counties: Montana’s 51 rural counties and rural portions of 5 metropolitan counties
+
+Estimated required funding: ~$33.3 million for FY2026; Sustainability Plan for this Initiative
+
+is in Sustainability Plan Section below
+
+
+February 17, 2026                                                                                 43 | P a g e
+Project Narrative
+
+
+Workplan and monitoring: High-level Implementation Plan included below; detailed
+
+Implementation Plan for Initiative 5 included in Supporting Documentation
+
+IMPLEMENTATION PLAN AND TIMELINE (BACK TO INITIATIVE 1, 2, 3, 4, 5)
+
+Implementation plans for the five initiatives for FY2026 through FY2031 are shown starting on
+
+the next page (including milestones from Stage 0 to Stage 5), and for policy changes below:
+
+ Policy                     Milestones                                                    Completed by
+ B.3 SNAP waivers           •   Waiver designed, USDA application planned, and proposal   End of Fiscal
+                                drafted by Q2 2026                                        Year 2026
+                            •   Waiver sent to USDA for approval by end of Q3 2026
+ B.4 Nutrition CME          •   Proposal drafted Q3 2026 and finalized Q4 2026            End of Fiscal
+                            •   Initial implementation by end of 2027                     Year 2027
+ D.2 Licensure compacts     • Legislative proposal drafted by end of 2026                 End of Fiscal
+                            • Introduce EMS compact in 2027 legislative cycle             Year 2027
+                            • Montana EMS becomes part of compact by end of 2027
+ D.3 Scope                  • Process developed for OHWRC recognition of current dental   End of Fiscal
+ of practice                  hygiene policies by end of Q2 2026                          Year 2027
+                            • Formalization and needed adjustments made by end of 2026
+ F.1 Remote care services   • Reimbursements conceptualized by end of Q2 2026             End of Fiscal
+                            • Medicaid policy formalized in Q1 2027                       Year 2027
+
+
+
+
+February 17, 2026                                                                              44 | P a g e
+Project Narrative
+
+
+
+
+February 17, 2026   45 | P a g e
+Project Narrative
+
+
+
+
+February 17, 2026   46 | P a g e
+Project Narrative
+
+GOVERNANCE AND PROJECT MANAGEMENT STRUCTURE
+
+Lead agency/interagency team: Montana’s Department of Public Health and Human Services
+
+Key personnel: Department Director, Department Deputy Director, Department CFO, State
+
+Medicaid Director/Executive Director of Medicaid and Health Services, Deputy Medicaid
+
+Director, Department CDO, Department Strategy & Transformation Officer, Department Office
+
+of Research and Data Analytics, Department Chief Analytics Officer, Department Office of
+
+Health Data and Analytics
+
+Steering committee: Charlie Brereton (Director), Kim Aiken (Deputy Director), Rebecca de
+
+Camara (Medicaid Director), Gene Hermanson (Deputy Medicaid Director), Natalie Smitham
+
+(CFO), Brett Carter (Strategy & Transformation Officer), Amanda Harrow (Project Manager)
+
+Advisory groups: Stakeholder Advisory Committee, convened by the Montana Office of Rural
+
+Health and including active participation from the Department of Public Health and Human
+
+Services (also responsible for Medicaid) and Montana’s Tribal Nations, among other
+
+stakeholders; Montana Rural Health Center of Excellence designed 2026 Q1 through 2028
+
+Staff: 20 positions (decreasing over the duration of the program); see headcount section below
+
+External partners: See “Partnerships” in the Goals and Strategies section
+
+Headcount and function of DPHHS RHTP unit: 20 positions (decreasing over the duration of
+
+the program) across Program Management, Workforce Development, Data and Evaluation,
+
+Technology and Telehealth, Community Engagement, and Finance and Compliance functions.
+
+
+
+
+February 17, 2026                                                                      47 | P a g e
+Project Narrative
+
+Additional external support: DPHHS expects to engage contractors for care delivery
+
+transformation implementation support, school-based care site development, supporting
+
+implementation of rural provider telemedicine platforms and interfacility transport system
+
+implementation support, IDD telehealth expansion, modernizing EMS system modernizations,
+
+clinic technical support and payment model interventions, facility renovations and community
+
+infrastructure build, HIE usability improvements and population health analytics, and general
+
+administrative support across initiatives.
+
+Stakeholder coordination: Stakeholder engagement is detailed in the following section.
+
+Regarding the coordination of State health agencies, the Stakeholder Advisory Committee will
+
+function as the focal point of this coordination and related communication. Groups within the
+
+Stakeholder Advisory Committee will be responsible for reaching out and communicating with
+
+smaller, specific groups to ensure clear communication channels. Feedback will be solicited
+
+early and often through a robust intake process to ensure the success of the transformation.
+
+
+
+STAKEHOLDER ENGAGEMENT
+
+Stakeholder engagement during plan development
+
+Stakeholders were engaged during the development of this submission through three channels:
+
+    1) The State hosted a public webinar allowing open comment, which attracted 996
+
+         registered participants
+
+    2) The State launched a Request for Information, which attracted >300 responses
+
+    3) Individual, personalized consultations were held separately with the following 20
+
+         stakeholders: Billings Clinic/Logan Health, Blue Cross Blue Shield of Montana,
+
+         Confluence Public Health Alliance, Flathead Industries, Tribal Nations and UIOs, GME
+
+         Council, Touro College of Osteopathic Medicine - Montana, Rocky Vista, Montana
+
+February 17, 2026                                                                         48 | P a g e
+Project Narrative
+
+         Ambulance Association, Behavioral Health Alliance of Montana, Montana Big Sky Care
+
+         Connect, Montana Health Care Foundation, Montana Hospital Association, Montana
+
+         Medical Association, Montana Pharmacy Association, Montana Primary Care
+
+         Association, MSU Office of Rural Health, Pacific Source, Public Health Institute,
+
+         WWAMI
+
+Stakeholder support for submission
+
+The State incorporated many recommendations from stakeholders in creating this submission.
+
+Stakeholder support is reflected in the letter signed by 70 stakeholders, who are included in the
+
+State’s application packet.
+
+Engagement with stakeholders during implementation
+
+During the five-year implementation period, the State will continue to engage with rural health
+
+care stakeholders through biannual meetings with a Stakeholder Advisory Committee, convened
+
+by the Montana Office of Rural Health and including active participation from the Department of
+
+Public Health and Human Services (also responsible for Medicaid), and Montana’s Tribal
+
+Nations, among other stakeholders.
+
+Furthermore, as previously mentioned, Initiative 2 will include a CoE governance board that
+
+includes essential stakeholders to successfully restructure rural facilities for long-term
+
+sustainability. Likewise, other specific initiatives will have work groups that consist of important
+
+rural stakeholders whose valuable input is essential for meeting initiative outcomes.
+
+Through these and other ad hoc engagements, the State will ensure project governance reflects
+
+the communities and individuals across rural Montana. As funds are deployed to various groups
+
+and communities, project governance will track progress toward milestones and assess the
+
+impact of the deployed funds and programs for stakeholders. When feedback is received, the
+
+State will take the time to understand the context and work to incorporate the stakeholder’s
+
+February 17, 2026                                                                            49 | P a g e
+Project Narrative
+
+perspective, as appropriate, and while staying within the RHTP’s guidelines.
+
+METRICS AND EVALUATION PLAN
+
+Across each initiative, metrics have been outlined to track impact and progress on goals. Each
+
+initiative has at least four (4) quantifiable metrics that comprise the outcomes, at least one of
+
+which will be measured at the county or community level. These metrics are outlined in the
+
+tables below, along with additional program implementation metrics. The first five tables are
+
+grouped by initiative, and the final table includes additional “Program implementation” metrics.
+
+Details about how initiatives drive changes in these metrics are included in the “Proposed
+
+initiatives and use of funds” section. Each metric will be tracked, at a minimum, on an annual
+
+basis in partnership with ORDA and DMO. The State will cooperate with any CMS evaluation or
+
+monitoring required.
+
+The metrics and targets included in this application demonstrate the transformative nature of the
+
+proposed initiatives while remaining supported by research on proven examples of what is
+
+possible, Montana’s characteristics both in absolute and in reference, and analysis on how the
+
+initiatives will drive change. The provided targets are not meant to be unachievable aspirations.
+
+Rather, the State views them as ambitious yet grounded goals for what Montana’s rural health
+
+care systems should achieve by the end of FY2031 as a result of the RHTP. The State expects
+
+significant impact to continue accruing from these initiatives after the RHTP project period due
+
+to the nature of the initiatives and the sustainability plans DPHHS is putting in place. In some
+
+cases, the State expects that only a minority of the total impact of initiatives will accrue during
+
+the project period.
+
+INITIATIVE 1 OUTCOMES (BACK TO INITIATIVE 1 DESCRIPTION)
+
+Metric definition               Baseline   Milestones / targets    Evaluation plan / source Category
+Ratio of NPs per 100,000 people 76.7 per   By FY2026, internally   Current data is sourced    4. Workforce
+in rural communities, all rural 100k       sourced baselines       through Definitive         metrics
+counties (county specific)                 developed; every year   Healthcare. Going forward,
+
+February 17, 2026                                                                              50 | P a g e
+Project Narrative
+
+Metric definition                 Baseline      Milestones / targets        Evaluation plan / source Category
+                                                from FY2027 to FY2031, internal source with be
+                                                increase by 5% annually developed; annual tracking
+Ratio of physicians per 100,000 89.2 per        By FY2026, internally       Current data is sourced       4. Workforce
+people in rural communities, all 100k           sourced baselines           through Definitive            metrics
+rural counties                                  developed; every year       Healthcare. Going forward,
+                                                from FY2027 to FY2031, internal source with be
+                                                increase by 5% annually developed; annual tracking
+Ratio of RNs per 100,000 people 860.9 per       By FY2026, internally       Current data is sourced       4. Workforce
+in rural communities, all rural 100k            sourced baselines           through BLS. Going            metrics
+counties                                        developed; every year       forward, internal source with
+                                                from FY2027 to FY2031, be developed; annual
+                                                increase by 5% annually tracking
+Ratio of dental hygienists per    90.7 per      By FY2026, internally       Current data is sourced       4. Workforce
+100,000 people in rural           100k          sourced baselines           through BLS. Going            metrics
+communities, all rural counties                 developed; every year       forward, internal source with
+                                                from FY2027 to FY2031, be developed; annual
+                                                increase by 5% annually tracking
+Ratio of EMTs per 100,000         115.0 per     By FY2026, internally       Current data is sourced       4. Workforce
+people in rural communities, all 100k           sourced baselines           through BLS. Going            metrics
+rural counties                                  developed; every year       forward, internal source with
+                                                from FY2027 to FY2031, be developed; annual
+                                                increase by 5% annually tracking
+Ratio of PAs per 100,000 people 70.6 per        By FY2026, internally       Current data is sourced       4. Workforce
+in rural communities, all rural 100k            sourced baselines           through BLS. Going            metrics
+counties                                        developed; every year       forward, internal source with
+                                                from FY2027 to FY2031, be developed; annual
+                                                increase by 5% annually tracking
+Rate of position turnover (in     Internal data By FY2026, determine        Going forward, internal       4. Workforce
+health care), statewide           on metric is rural specific baseline and source with be developed; metrics
+                                  not collected precise target; by FY2031, annual tracking; target to be
+                                  yet           reach target turnover rate, developed
+                                                at least to national rural
+                                                average
+Metric of provider mental health, State data on By FY2026, determine        Going forward, internal       2. Quality
+such as burnout date,             metric is not rural specific baseline and source with be developed; and health
+professional fulfillment index, collected yet precise target; by FY2031, annual tracking in               outcomes
+Mayo well-being index, or other                 reach target.               partnership with relevant
+similar metric, potentially                                                 stakeholders (e.g., Board of
+sourced through a survey                                                    Medical Examiners)
+
+
+
+INITIATIVE 2 OUTCOMES (BACK TO INITIATIVE 2 DESCRIPTION)
+
+Metric definition      Baseline                Milestones / targets   Evaluation plan /       Metric category
+                                                                      source
+Average ED length-of- 3.9 hours for hospitals By FY2028,              Currently tracked by2. Quality and health
+stay prior to admission located in rural      reductions begin to     PHSD annually       outcomes
+or discharge in hours counties                manifest; by FY2030,
+for Montana Trauma                            5% reduction; by
+Registry records, all                         FY2031, 10%
+rural counties                                reduction
+Rural facility          Estimated -14.48% net By FY2028,           Current baseline       3. Financial metrics
+operating margin, all operating profit        improvement in net   provided by Definitive
+rural counties          margin based on       operating margin; by Healthcare. Going
+
+
+February 17, 2026                                                                                         51 | P a g e
+Project Narrative
+
+Metric definition      Baseline               Milestones / targets      Evaluation plan /       Metric category
+                                                                        source
+                         Definitive data; to be FY2031 operating        forward, internal
+                         validated and refined margin increases to      measures to determine
+                         during FY2026 Q2       0% (i.e., breakeven). financial performance
+                                                By FY2031, hospitals will be implemented to
+                                                will have the           ensure accurate
+                                                foundation to become representation of
+                                                profitable in the       hospitals. The metric
+                                                following years.        will be tracked yearly
+                                                                        at a minimum
+Total facility inpatient 39.49% average across By FY2026, baseline Medicare cost reports 3. Financial metrics
+days divided by staffed hospitals in rural      and target will be      will be used to provide
+beds, all rural counties counties               developed for this      this data and will be
+                                                metric but for licensed used to track results
+                                                beds; by FY2028,        annually
+                                                improvements begin to
+                                                manifest; by FY2030,
+                                                15 percentage point
+                                                increase; by FY2031,
+                                                30 percentage point
+                                                increase
+Percentage of total      Traditional visits:    By FY2030, 10           Progress will be        5. Technology use
+Medicaid visits          2.12%; expansion       percentage point        measured through the
+conducted via            visits: 2.33%          increase; by FY2031, Medicaid claims, with
+telehealth, all rural                           15 percentage point periodic, at least
+counties (county                                increase                annual, review to
+specific)                                                               ensure the State
+                                                                        remains steady with
+                                                                        established goals
+% of Medicaid spend 72.8% of Medicaid           By FY2028,              Medicaid claims will 3. Financial metrics
+on outpatient care over spend, excluding        foundations for         be used to provide this
+total Medicaid spend Medicare crossovers transition established; data and track results
+across critical access                          by FY2031, 80% of annually
+hospitals, all rural                            spend on outpatient
+counties                                        care (7 percentage
+                                                point increase)
+
+
+
+INITIATIVE 3 OUTCOMES (BACK TO INITIATIVE 3 DESCRIPTION)
+
+Metric definition      Baseline               Milestones / targets Evaluation plan /       Metric category
+                                                                   source
+Yearly number of uses 0% (Treat no            By FY2029, new CPT Not currently tracked. 1. Access metrics
+of Treat no Transport Transport not currently code begins to be    Medicaid claims will
+CPT code as           reimbursable)           used; by FY2031, 10% track this annually,
+percentage of ED                              of EMS calls         once policy changes
+encounters, all rural                                              are enacted and CPT
+counties                                                           code is in use
+Percentage of total   0% (Pharmacists         By FY2028, 10%       Not currently tracked. 1. Access metrics
+pharmacists           currently not able to participation; by      Medicaid claims will
+prescribing for       prescribe for Medicaid FY2030, 30%           track this, once policy
+Medicaid members, all members)                participation; by    change enacted, at
+rural counties                                FY2031, 50%          least annually
+                                              participation
+
+
+February 17, 2026                                                                                        52 | P a g e
+Project Narrative
+
+Metric definition      Baseline               Milestones / targets  Evaluation plan /       Metric category
+                                                                    source
+Yearly average          21.03% all; 19.86%    By FY2030, 5%         HIE tracks quarterly 2. Quality and health
+number of individuals Medicaid                absolute decrease; by and annual trends    outcomes
+with 2 transports to                          FY2031, 10% absolute
+ED (high utilizers)                           decrease
+within 60 days divided
+by total ED
+encounters, all rural
+counties (county
+specific)
+Average dollar amount $305 average PMPM, Throughout the first 3 Medicaid claims will 3. Financial metrics
+spent from Medicaid non-disabled, no TPL, years of RHTP,         be used to provide this
+on Duals (PMPM), all dual Medicare         PMPM spend may        data and track results
+rural counties                             increase given pre-   annually
+                                           existing trends. By
+                                           FY2031, return to
+                                           current baseline
+% of Medicaid spend 72.8% of Medicaid      By FY2028,            Medicaid claims will 3. Financial metrics
+on outpatient care over spend, excluding   foundations for       be used to provide this
+total Medicaid spend Medicare crossovers transition established; data and track results
+across critical access                     by FY2031, 80% of annually
+hospitals, all rural                       spend on outpatient
+counties                                   care (7 percentage
+                                           point increase)
+
+INITIATIVE 4 OUTCOMES (BACK TO INITIATIVE 4 DESCRIPTION)
+
+Metric definition      Baseline               Milestones / targets     Evaluation plan /      Metric category
+                                                                       source
+Number of crisis safe 1 crisis safe space      By FY2028, at least 1 SAMHSA-certified         1. Access metrics
+spaces, according to                           new safe space. By      crisis safe spaces
+SAMHSA definition,                             FY2031, 11 crisis safe measured through
+all rural counties                             spaces in rural         CCBCHs at least
+                                               counties                annually
+Percentage of children Internal data on metric By FY2026, internally Going forward,           1. Access metrics
+who receive a well- is not collected yet       sourced baselines and internal paths to source
+child visit in the first                       official target develop this metric will be
+30 months of life                              considering national developed used to
+(W30-CH), all rural                            median of 56.6%. By track this metric at
+counties                                       FY2031, target          least annually.
+                                               reached
+% of those with A1c 37.80% all; 27.31% By FY2030, 5%                   Currently tracked by 2. Quality and health
+less than 8% out of all Medicaid               absolute increase; by HIE at the county level outcomes
+non-excluded                                   FY2031, 10% absolute using metric
+individuals between 18                         increase                methodology and
+and 75 with type 1 or 2                                                patient data at least
+diabetes, all rural                                                    annually
+counties and county
+specific
+% of those with BP       36.75% all; 29.74% By FY2030, 5%              Currently tracked by 2. Quality and health
+less than 140/90         Medicaid              absolute increase; by HIE at the county level outcomes
+mmHg out of all non-                           FY2031, 10% absolute using metric
+excluded individuals                           increase                methodology and
+between 18 and 85                                                      patient data at least
+with hypertension, all                                                 annually.
+
+February 17, 2026                                                                                       53 | P a g e
+Project Narrative
+
+Metric definition      Baseline                Milestones / targets    Evaluation plan /       Metric category
+                                                                       source
+rural counties and
+county specific
+% of adult population Internal data on metric By FY2026, internally Going forward,              2. Quality and health
+with BMI>30, all rural is not collected yet     sourced baselines and internal paths to source outcomes
+counties and county                             official target       this metric will be
+specific, all rural                             developed; by         developed used to
+counties                                        FY2031, target        track this metric at
+                                                reached               least annually. As
+                                                                      internal Montana data
+                                                                      regarding growth does
+                                                                      not exist yet, a specific
+                                                                      target cannot yet be
+                                                                      created
+Behavioral health ED 50.61 per 100k across By FY2028, 3%              Currently tracked by 2. Quality and health
+admissions per 1,000 rural counties             reduction; by FY2031, DPHHS annually            outcomes
+in counties with                                6% reduction
+implemented crisis
+safe spaces, all rural
+counties
+Deaths by suicide per 26.2 per 100k             By FY2026, county- Baseline data currently 2. Quality and health
+100,000 total           statewide               specific and rural-   sourced through CDC outcomes
+population, all rural                           specific baseline     PLACES. Going
+counties                                        developed; by         forward, a consistent
+                                                FY2028, pathways      internal tracking
+                                                developed and active system will be
+                                                that directly impact  implemented to
+                                                deaths by suicide; by establish a rural
+                                                FY2031, decrease by baseline and track this
+                                                10%                   metric at least annually
+Prevalence of students 43% of students          By FY2030, target     Baseline data sourced 2. Quality and health
+reporting mental        reported feeling sad or reached, likely 10% through Montana             outcomes
+health and related risk hopeless for two        reduction at minimum Office of Public
+behaviors (as           weeks or more                                 Instruction
+identified by YRBSS)
+Number of               0 (CHA/P program not By FY2028, CHA/P As the CHA/P                      1. Access metrics
+Community Health / launched)                    pathways developed. program develops,
+Aide Practitioners, all                         By FY2031, 200        program owners will
+rural counties                                  CHA/Ps across rural be responsible for
+                                                Montana               tracking and
+                                                                      monitoring progress to
+                                                                      reach metric goals
+
+INITIATIVE 5 OUTCOMES (BACK TO INITIATIVE 5 DESCRIPTION)
+
+Metric definition      Baseline                Milestones / targets   Evaluation plan /       Metric category
+                                                                      source
+Average wait time for Internal data on metric By FY2028, electronic New bed registry          1. Access metrics
+behavioral health bed is not collected yet    bed registry rolled out analytics for non-State
+placements across                             within HIE; by          facilities within the
+non-State facilities, all                     FY2029 internally       HIE will be used to
+rural counties and                            sourced baselines and assess quarterly and
+county specific                               official target         annual trends
+                                              developed; by
+                                              FY2031, target met
+
+February 17, 2026                                                                                           54 | P a g e
+Project Narrative
+
+Metric definition      Baseline                Milestones / targets    Evaluation plan /       Metric category
+                                                                       source
+Percentage of rural    73% of hospitals,      By FY2029, HIE           Through HIE             5. Technology use
+facilities and clinics 43% of other providers features rolled out; by participation logs, this
+participating in HIE,                         FY2030, participation metric can be tracked
+all rural counties                            increases begin to       annually.
+                                              manifest; by FY2031,
+                                              participation of 95%
+                                              for hospitals and 75%
+                                              for other providers
+Percentage of rural    88% of hospitals       Connections              Baseline sourced        5. Technology use
+sites connected with currently have a         incrementally grow       through Definitive
+HITECH-certified       HITECH-certified       year by year; by         Healthcare. Exact
+EHRs, all rural        EHR                    FY2031, 95% of           evaluation plan to be
+counties                                      hospitals connected; determined and will be
+                                              baseline and target for initially managed by
+                                              non-hospitals will be administration team.
+                                              established once data Upon development,
+                                              is available to baseline data will be tracked
+                                                                       annually at a minimum
+Rural facility         Estimated -14.48% net By FY2028,                Current baseline        3. Financial metrics
+operating margin, all operating profit        improvement in net       provided by Definitive
+rural counties         margin based on        operating margin; by Healthcare. Going
+                       Definitive data; to be FY2031 operating         forward, internal
+                       validated and refined margin increases to       measures to determine
+                       during FY2026 Q2       0% (i.e., breakeven). financial performance
+                                              By FY2031, hospitals will be implemented to
+                                              will have the            ensure accurate
+                                              foundation to become representation of
+                                              profitable in the        hospitals. The metric
+                                              following years.         will be tracked yearly
+                                                                       at a minimum
+
+PROGRAM IMPLEMENTATION METRICS
+
+Metric                      Milestones/ targets           Evaluation plan               Initiative connection
+1.1 Rural service-          By FY2027, 100 contracts Program records through            Initiative 1; education
+commitment education        executed; by FY2029, 200 DLI will provide annual            awards with rural service
+awards / contracts executed executed; by FY2031, ≥250 tracking                          commitments will increase
+(all disciplines)           executed (incl. ≥100 medical                                the pipeline and place
+                            students + ≥150 other                                       clinicians in high-need rural
+                            trainees)                                                   counties
+1.2 New rural residency     By FY2027, 4 new slots        Program records through       Initiative 1; residency
+slots established in high-  filled; by FY2029, 8 slots DLI will provide annual          expansion and rural training
+need specialties            filled; by FY2031, ≥10 new tracking                         tracks will increase long-
+                            rural residency slots filled                                term rural retention and
+                            (at least one cohort in seat)                               supply
+1.3 Rural clinicians/staff  By FY2027, 150                Program records through       Initiative 1; upskilling and
+completing upskilling/      clinicians/staff trained; by DLI will provide annual        resilience programming will
+resilience/ team-based care FY2029, 300 trained; by       tracking                      improve practice at top-of-
+training                    FY2031, ≥450 trained in the                                 license and reduce attrition
+                            specified curricula
+2.1 Number of facilities    By FY2027, 2 facilities       CoE program records will      Initiative 2; execution of
+implementing CoE            implementing; by FY2028, provide annual tracking            CoE recommendations will
+recommendations             additional 25; by FY2031,                                   right-size services, and
+
+
+February 17, 2026                                                                                          55 | P a g e
+Project Narrative
+
+Metric                        Milestones/ targets           Evaluation plan                Initiative connection
+                              around 50% of facilities                                     improve rural financial
+                              implementing                                                 sustainability
+2.2 New tele-delivery         By FY2027, 20 hospitals       Program governance and         Initiative 2; increasing tele-
+systems deployed in rural     live; by FY2029, 40           organization will work to      stroke and tele-specialty
+hospitals                     hospitals live; by FY2031,    track this metric annually     partnerships will protect and
+                              60 hospitals live                                            increase access to critical
+                                                                                           specialty care in rural
+                                                                                           hospitals
+2.3 Rural facilities enrolled By FY2027, 10 facilities        Program governance and       Initiative 2; shared services
+in new shared service/GPO enrolled; by FY2029, 20             organization will work to    and group purchasing will
+contracts                     facilities; by FY2031, ≥30 track this metric annually        lower operating costs and
+                              facilities enrolled in at least                              improve rural financial
+                              one shared service/GPO                                       sustainability
+                              contract
+3.1 Rural practices enrolled By FY2027, 20 practices          Program governance and       Initiative 3; technical
+in Medicaid value-based       enrolled; by FY2028, 40         organization will work to    assistance and contracting
+contracting (with TA          practices; by FY2031,           track this metric annually   support will increase rural
+completed)                    impact and financial                                         participation in Medicaid
+                              sustainability determined                                    value-based models
+3.2 Community                 By FY2027, 4 programs           Program governance and       Initiative 3; modernization
+paramedicine programs         launched; by FY2029, 7          organization will work to    of EMS and treat-in-place
+launched and operating        programs operating; by          track this metric annually   models will enable
+                              FY2031, ≥10 programs                                         community paramedicine in
+                              sustained                                                    targeted rural counties
+3.3 % of Rural pharmacists By FY2028, 10%                     Not currently tracked.       Initiative 3; pharmacy-based
+live with Medicaid-covered participation; by FY2030, Medicaid claims will track            prescribing and point-of-
+prescribing & point-of-care 30% participation; by             this, once policy change     care testing will improve
+testing                       FY2031, 50% participation enacted, at least annually         timely access for minor
+                                                                                           conditions and monitoring
+3.4 Participating hospitals   By FY2027, 10 facilities Program governance and              Initiative 3; targeted
+implementing ambulatory       implementing; by FY2029, organization will work to           outpatient upgrades will
+modernization projects        20; by FY2031, ≥30       track this metric annually          increase ambulatory
+                              facilities                                                   capacity and shift care to
+                                                                                           appropriate lower-acuity
+                                                                                           settings
+4.1 Community access        By FY2027, 70 access      Program governance and               Initiative 4; extension of
+points opened (school-based points opened; by FY2029, organization will work to            school-based care and
+sites + mobile vans)        140 open; by FY2031, ≥210 track this metric annually           mobile services will increase
+                            total (≥200 school-based                                       preventive access for rural
+                            sites and 10 mobile vans)                                      and Tribal communities
+4.2 Community facilities    By FY2027, 15 facilities  Program governance and               Initiative 4; targeted repairs
+receiving updates           receiving updates; by     organization will work to            and crisis-space buildouts
+                            FY2029, 30 modernized; by track this metric annually           will increase capacity and
+                            FY2031, ≥40 facilities                                         stabilize community-based
+                            receiving updates                                              care
+4.3 Community lifestyle     By FY2028, 7 projects     Program governance and               Initiative 4; one-time
+projects completed (e.g.,   completed; by FY2029, 14 organization will work to             investments in healthy
+gardens)                    projects completed; by    track this metric annually           environments will encourage
+                            FY2031, ≥20 projects                                           activity and nutrition,
+                            completed                                                      supporting chronic-disease
+                                                                                           prevention
+5.1 Statewide BH bed          By FY2027, live in 2       HIE and new bed registry          Initiative 5; the electronic
+registry live with facility   regions; by FY2029, 60% of analytics with provide            bed registry will improve
+reporting                     facilities reporting; by   annual tracking                   coordination and reduce
+
+
+February 17, 2026                                                                                             56 | P a g e
+Project Narrative
+
+Metric                    Milestones/ targets          Evaluation plan         Initiative connection
+                          FY2031, ≥85% of relevant                             delays in behavioral-health
+                          facilities reporting daily                           placements
+                          capacity
+5.2 Community connect     By FY2026, 3 community Year-over-year trends from Initiative 5; hub-and-spoke
+implementation and        connect region hubs          the EHR program records community-connect models
+interoperability          implemented; by FY2029,                              will extend modern EHR
+                          achieve 95% interoperability                         capabilities and
+                          throughout participating                             interoperability to rural
+                          rural providers                                      providers
+
+
+
+SUSTAINABILITY PLAN
+
+Sustainability has been an absolute top priority as the State has constructed this plan and ensured
+
+that each proposed initiative does not create a “budget cliff” or unanticipated ongoing costs to
+
+the State or other stakeholders while ensuring lasting change to rural health. Program-specific
+
+sustainability is detailed within each initiative above. Initiatives fall into one of three categories:
+
+    1. Time-limited initiatives with lasting impact: These RHTP funds cover the costs of
+
+         programs or activities that will only be in operation during the RHTP period of
+
+         performance but will have a lasting impact beyond FY2031. Despite the limited time
+
+         frame, these initiatives create lasting and sustainable impact by providing crucial
+
+         resources (e.g., a larger workforce) that will last beyond RHTP funding, unlock
+
+         transformation through features like network effects, and fill existing rural health gaps.
+
+    2. Up-front investments intended to be self-sustaining: These RHTP funds support for
+
+         new systems that are hindered by initial costs. The return on investment (ROI) should
+
+         cover ongoing expenses; if not, the programs will be phased out with no extra cost. These
+
+         programs are pilots requiring impact demonstration through monitoring and evaluation to
+
+         ensure they are self-sustaining beyond FY2031.
+
+    3. Initiatives with a clear plan to transfer responsibility for operating/maintenance
+
+         costs to a third party after the project period: These RHTP funds provide necessary
+
+         upfront investment for programs that require ongoing operating and/or maintenance
+
+February 17, 2026                                                                                57 | P a g e
+Project Narrative
+
+         expenditures after the project period. These initiatives each have a designated
+
+         organization that will be responsible for ongoing costs after FY2031.
+
+INITIATIVE 1 SUSTAINABILITY PLAN (BACK TO INITIATIVE DESCRIPTION)
+
+1.1.     Increase recruitment of rural health care workers through education awards,
+
+tuition payments, and early exposure programs (Time-limited): This sub-initiative provides
+
+time-limited education awards, tuition support, and early-exposure/pre-apprenticeship programs
+
+executed during the five-year period. Funds will be disbursed only during RHTP funding period;
+
+participating health care trainees commit to practice in high-need rural areas for at least five
+
+years after training, creating durable workforce capacity with no ongoing State costs. Pipeline
+
+activities (e.g., HOSA/AHEC) transition to school and employer ownership. This is intended to
+
+increase rural provider supply and access beyond FY2031.
+
+1.2.     Increase rural clinical training capacity and opportunities, including additional
+
+residencies, preceptor incentives, and enhanced rural training tracks (Transfer
+
+responsibility): This sub-initiative covers start-up costs to add rural training capacity (residency
+
+slots, rural tracks, preceptor onboarding) and concludes within the award period. Ongoing
+
+operating costs are absorbed by sponsoring hospitals and academic partners via Medicare GME,
+
+institutional budgets, and commitments finalized during the funding window; preceptor
+
+incentives taper to employer/academic support. No State funding will be required after FY2031,
+
+as the additional slots and training infrastructure will persist.
+
+1.3.     Retain and upskill rural health care workforce through additional supportive
+
+services and enhanced training (including BH) (Self-sustaining): This sub-initiative provides
+
+retention support and upskilling (e.g., resilience programs, team-based care, BH training) as
+
+pilots with explicit ROI targets (reduced turnover and vacancy costs, improved productivity,
+
+quality gains). The State will fund design and initial deployment with required monitoring;
+
+February 17, 2026                                                                           58 | P a g e
+Project Narrative
+
+programs meeting ROI benchmarks transition to provider financing using realized savings, while
+
+non-performing programs sunset at period end. Curricula, protocols, and train-the-trainer assets
+
+remain reusable with minimal maintenance costs. This is expected to lower avoidable staffing
+
+costs and sustain higher-quality rural care post-FY2031.
+
+INITIATIVE 2 SUSTAINABILITY PLAN (BACK TO INITIATIVE DESCRIPTION)
+
+2.1.     Launch the Montana Rural Health Center of Excellence to develop and oversee
+
+implementation of data-backed financial sustainability recommendations (Time-limited):
+
+The State will establish a time-limited CoE that will involve at least one third-party organization
+
+and a stakeholder board. Incentive payments to providers to implement recommended changes
+
+specific to the needs of each participating facility will be provided during the funding period and
+
+will cease at the end of the period. No ongoing program costs will continue after the RHTP
+
+period. This initiative will support long-term financial sustainability for participating providers.
+
+2.2.     Protect and increase access through clinical partnerships (Transfer responsibility
+
+/Self-sustaining): This sub-initiative involves upfront investment in virtual care equipment and
+
+training and upfront investment in an interfacility patient transport coordination system. These
+
+programs will be implemented with the upfront agreement that providers receiving funding will
+
+cover ongoing costs after the funding period (including through projected reimbursement
+
+revenues), with no funding commitment by the State. One program involves leveraging the
+
+existing 1915(c) Home and Community-Based Services (HCBS) Waiver to cover reimbursement
+
+for scaling the IDD virtual care statewide and will be self-sustaining by preventing utilization of
+
+higher cost services (e.g., ED, hospitalization).
+
+2.3.     Facilitate vendors and shared services for rural facility cost efficiency (Self-
+
+sustaining): This involves upfront investment by the State to facilitate rural providers to join or
+
+with other providers to obtain improved GPO pricing for supplies, devices, and pharmaceuticals.
+
+February 17, 2026                                                                           59 | P a g e
+Project Narrative
+
+Once the State facilitates the initial GPO, coalitions of providers will continue to purchase
+
+together without State intervention.
+
+INITIATIVE 3 SUSTAINABILITY PLAN (BACK TO INITIATIVE DESCRIPTION)
+
+3.1.     Implement innovative payment models (Self-sustaining): Technical assistance for
+
+innovative payment participation is time-limited and front-loaded; models for duals/LTC and
+
+other value-based arrangements are identified and evaluated based on savings and quality
+
+thresholds. Programs meeting ROI targets transition to payer/provider financing and formal
+
+contracts (e.g., APMs/ACOs). This ensures sustainability via payment mechanisms that reduce
+
+costs and shift care to lower-cost settings.
+
+3.2.     Modernize Emergency Medical Service (EMS) care model (Transfer responsibility
+
+/Self-sustaining): Upfront funds cover dispatch upgrades, vehicles/equipment, and initial rollout
+
+of community paramedicine to expand access. Ongoing costs associated with infrastructure
+
+investments and a pre-hospital blood program are absorbed by EMS organizations and hospital
+
+partners via agreements, including fee-share agreements. Community paramedicine will be
+
+sustained through the adoption of Medicaid and private payor coverage of treat-in-place CPT
+
+codes. This approach is designed for long-term sustainability while improving access to care.
+
+3.3.     Extend access to lower cost care through pharmacists (Self-sustaining): Start-up
+
+funding would be used to enable point-of-care testing and prescribing workflows through
+
+purchasing of medical equipment and initial supply costs. Funds will also be used for minor
+
+pharmacy infrastructure improvements. The State will evaluate utilization and cost offsets during
+
+the funding window. If outcome targets are met and Medicaid coverage is finalized, pharmacists
+
+continue services under existing fee schedules; if not, pilots phase out at the end of the period.
+
+3.4.     Increase needed outpatient services (Time-limited): Time-limited funding is used to
+
+increase outpatient services across rural providers as needed and as determined by the CoE. No
+
+February 17, 2026                                                                          60 | P a g e
+Project Narrative
+
+State operating support continues after the period. Providers maintain the upgraded footprint
+
+with ongoing operating budgets and participation agreements tied to care-delivery restructuring
+
+centered on long-term financial sustainability. This will create durable access improvements.
+
+INITIATIVE 4 SUSTAINABILITY PLAN (BACK TO INITIATIVE DESCRIPTION)
+
+4.1.     Implement community-based care (Transfer responsibility): Upfront funds cover site
+
+buildouts for school-based care and the purchase of mobile vans. Provider partners absorb
+
+ongoing operating costs with reimbursement revenue and through commitments to post-award
+
+staffing, routing, and maintenance; no State operating funds continue after FY2031. The
+
+footprint remains locally owned and sustained to preserve access.
+
+4.2.     Make critical repairs to community infrastructure (Time-limited/Self-sustaining):
+
+One-time capital funds complete priority repairs, minor modernization, and crisis safe-space
+
+buildouts during the award period; all grants conclude by FY2031. No State operating funds
+
+continue thereafter; facilities fold the upgraded space into routine operations or, for crisis
+
+services, use alternate reimbursement (e.g., CCBHC PPS) or local funds. The improvements
+
+create durable capacity and reliability gains beyond FY2031 with no ongoing State costs.
+
+4.3      Invest in healthy lifestyles (Transfer responsibility): One-time grants to pilot and scale
+
+community-driven programs with no State operating commitment beyond the award. Projects
+
+proceed only with upkeep commitments by municipalities, schools, or community partners (e.g.,
+
+food banks, local health departments). The assets continue to deliver preventative health benefits
+
+in accordance with Make rural America healthy again principles well past FY2031.
+
+INITIATIVE 5 SUSTAINABILITY PLAN (BACK TO INITIATIVE DESCRIPTION)
+
+5.1.     Improve data usability and population health interventions by utilizing HIE data to
+
+drive decisions (Self-sustaining): Upfront funds cover buildout and initial deployment of
+
+targeted analytics-driven interventions and tools that drive value for providers. Continuation after
+
+February 17, 2026                                                                           61 | P a g e
+Project Narrative
+
+FY2031 is contingent on demonstrated ROI (e.g., measurable reductions in avoidable utilization
+
+and costs); programs meeting benchmarks transition to financing via realized savings and partner
+
+cost-sharing. No ongoing State operating funds are assumed beyond the award period.
+
+5.2.     Modernize EHRs for rural providers, activate consumer-facing modules, and enable
+
+interoperability, telehealth capabilities, data sharing, and chronic disease management
+
+(Transfer responsibility): Time-limited subsidies and implementation support end by FY2031;
+
+ongoing license, hosting, and support costs are assumed by hub systems and participating
+
+providers under executed agreements. Any consumer-facing modules and RPM activated
+
+through this effort continue only where providers elect to fund them based on documented value.
+
+No State funds are committed beyond the award period, while interoperability and capabilities
+
+remain in place.
+
+
+
+
+February 17, 2026                                                                      62 | P a g e
+Project Narrative
+
+
+
+
+Endnote 1: Citations
+
+
+i
+  Definitive Healthcare. Accessed Nov. 2025.
+ii
+    U.S. Department of Health and Human Services — Health Resources & Services Administration. “How We
+Define Rural.” Accessed Nov. 2025.
+iii
+     U.S. Department of Health and Human Services, Health Resources and Services Administration, Bureau of Health
+Workforce, Rockville, MD. “Area Health Resources Files (AHRF) 2023-2024.” Accessed Nov. 2025.
+iv
+     The impact of Urban Indian Organizations extends to tribal members in rural areas
+v
+    U.S. Department of Health and Human Services — Health Resources & Services Administration. “How We
+Define Rural.” Accessed Nov. 2025.
+vi
+     Montana State Library. “Area of Montana Counties.” Accessed Nov. 2025.
+https://msl.mt.gov/geoinfo/geography/geography_facts/area_of_montana_counties.
+vii
+     Montana Department of Labor & Industry. Local Area Profiles. https://lmi.mt.gov/LocalAreaProfiles
+. Accessed Nov. 2025.
+viii
+      U.S. Census Bureau. “QuickFacts: Montana.” Accessed Nov. 2025.
+ix
+     Centers for Disease Control and Prevention. “PLACES: Local Data for Better Health.” Accessed Nov. 2025.
+x
+    In order, Centers for Disease Control and Prevention. “Trends in the Prevalence of Chronic Obstructive Pulmonary
+Disease Among Adults Aged ≥18 Years — United States, 2011–2021.” Accessed Nov. 2025.
+https://www.cdc.gov/mmwr/volumes/72/wr/mm7246a1.htm; Centers for Disease Control and Prevention. “National
+Diabetes Statistics Report.” Accessed Nov. 2025. https://www.cdc.gov/diabetes/php/data-research/index.html;
+Centers for Disease Control and Prevention. “Heart Disease Facts.” Accessed Nov. 2025.
+https://www.cdc.gov/heart-disease/data-research/facts-stats/index.html; World Health Organization. “Hypertension.”
+Accessed Nov. 2025. https://www.who.int/news-room/fact-sheets/detail/hypertension
+xi
+     America’s Health Ranking. “Child Mortality in Montana.” Accessed Nov. 2025.
+xii
+     Georgetown Institute for Women, Peace and Security. “Montana — U.S. Women, Peace and Security Index.”
+Accessed Nov. 2025. https://giwps.georgetown.edu/usa-index/state/montana/.
+xiii
+      OpenStreetMap contributors. “OpenStreetMap.” Accessed Nov. 2025.
+xiv
+      Definitive Healthcare. Accessed Nov. 2025.
+xv
+     U.S. Department of Health and Human Services, Health Resources and Services Administration, Bureau of Health
+Workforce, Rockville, MD. “Area Health Resources Files (AHRF) 2023-2024.” Accessed Nov. 2025.
+xvi
+      U.S. Department of Health and Human Services, Health Resources and Services Administration, Bureau of
+Health Workforce, Rockville, MD. “Area Health Resources Files (AHRF) 2023-2024.” Accessed Nov. 2025.
+xvii
+      Montana Department of Labor and Industry 2025 Labor Day Report
+xviii
+      Centers for Disease Control and Prevention. “PLACES: Local Data for Better Health.” Accessed Nov. 2025.
+xix
+      Definitive Healthcare. Accessed Nov. 2025.
+xx
+     American Hospital Association. Accessed Nov. 2025.
+xxi
+      Definitive Healthcare. “Atlas Dataset.” Accessed Nov. 2025
+
+
+
+
+February 17, 2026                                                                                       63 | P a g e
+

@@ -104,8 +104,10 @@ rhtp_use_fields <- function(d) {
 }
 
 #' Whitespace-collapsed, tag-stripped text for the quote check.
-rhtp_use_norm <- function(x) {
-  x <- gsub("<[^>]*>", " ", x)
+rhtp_use_norm <- function(x, html = FALSE) {
+  # Tags are stripped ONLY from an HTML file: in PDF text a stray "<28 days"
+  # and a later ">9%" would swallow everything between them (session 123, NY).
+  if (html) x <- gsub("<[^>]*>", " ", x)
   x <- gsub("&nbsp;|&#160;", " ", x)
   x <- gsub("&amp;", "&", x, fixed = FALSE)
   x <- gsub("[‘’‚′]", "'", x)
@@ -121,7 +123,8 @@ rhtp_use_text <- function(path) {
   if (!exists(path, envir = rhtp_use_text_cache, inherits = FALSE)) {
     raw <- readBin(here::here(path), "raw", file.info(here::here(path))$size)
     txt <- iconv(rawToChar(raw[raw != as.raw(0)]), "UTF-8", "UTF-8", sub = " ")
-    assign(path, rhtp_use_norm(txt), envir = rhtp_use_text_cache)
+    assign(path, rhtp_use_norm(txt, html = grepl("\\.x?html?$", path, ignore.case = TRUE)),
+           envir = rhtp_use_text_cache)
   }
   get(path, envir = rhtp_use_text_cache)
 }

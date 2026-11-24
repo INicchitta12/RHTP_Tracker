@@ -1,0 +1,41 @@
+Appendix A — Summary of Initiatives
+
+Strategic Goals Use of Funds | Technical Score Factors Key Stakeholders Outcomes/ Metrics
+Tech Innovation D, FIL K B.1, B.2, C.1, E.2, C.2, State Health Planning and e 90% of rural provider sites using
+E.1, F.2 Development Agency (SHPDA) and fully interoperable EHRs
+Med-QUEST Division (MQD) in © 70% of referrals made in rural
+coordination with providers, payers. counties with closed-loop referral
+contractors, and the University of access completed and confirmed
+Hawai‘i (UH) (county-level)
+
+e 20% increase in duals enrolled in
+integrated plans
+
+© 50% of rural PCPs providing
+telehealth services
+
+e 50% of rural PCPs or POs in value-
+based model contracts
+
+Pili Ola Telehealth Network: A statewide telehealth network connecting rural communities to providers, integrating digital health access, virtual care,
+
+and telehealth training.
+
+Strategic Goals Use of Funds | Technical Score Factors _| Key Stakeholders Outcomes/ Metrics
+Tech Innovation A, B,C, D, F, | B.1, C.1, C.2, D.1, F.1, UH Social Science Research Institute | e 20% increase in rural patients with
+G, H, K F.2, F.3 (SSRI), Telecommunication and at least one telehealth visit (county-
+
+Sustainable Access Social Informatics (TASI), and level)
+Pacific Basin Telehealth Resource © 200% increase in the number of
+Center (PBTRC), in coordination individuals who manage or prevent
+with the UH John A. Burns School of chronic diseases using telehealth
+Medicine (JABSOM), University resources
+Health Partners, UH School of ¢ 30% reduction in patient travel for
+Nursing and Dental Hygiene, UH rural OB patients
+Health Policy Initiative, health e 30% increase in rural behavioral
+systems and facilities, and health health referrals resulting in a
+plans (AlohaCare and Med-QUEST) completed telehealth visit
+
+State of Hawai‘1 1
+
+PREVIEW Date: Nov 04, 2025 Workspace ID: WS01583162 Funding Opportunity Number: CMS-RHT-26-001

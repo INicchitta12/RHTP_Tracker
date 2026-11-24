@@ -1,0 +1,96 @@
+file: 2026-11-24_sd_rht_project_narrative.pdf
+source_url: https://doh.sd.gov/media/lyfbrd2k/sd_rhtproject-narrative-final.pdf
+fetched_utc: 2026-11-24T14:50:34Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1322262
+sha256: 798df14801cead71d87b779de83c56956cbb0a63abd2beffacae96631aaca1f5
+
+file: 2026-11-24_sd_annual_report.pdf
+source_url: https://doh.sd.gov/media/zmjdtktz/south-dakota-annual-report-website.pdf
+fetched_utc: 2026-11-24T14:51:07Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 284895
+sha256: 10f95066c807d72898b0cf7a7b0da66ae99e42a313d3945e676e6db3b45ccbb3
+
+file: 2026-11-24_sd_rhaq_grants_onepager.pdf
+source_url: https://doh.sd.gov/media/j5gnkywu/rht-medicaid-rural-health-access-and-quality-grants.pdf
+fetched_utc: 2026-11-24T14:51:08Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 108598
+sha256: 69c0a03bf0ca812b8e237671a3c556e4d6a6f5bd18ceb7867b578f1d39275e50
+
+file: 2026-11-24_sd_tech_data_onepager.pdf
+source_url: https://doh.sd.gov/media/b4pkruwi/rht-technology-data-connection.pdf
+fetched_utc: 2026-11-24T14:51:08Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 103534
+sha256: 8115dba919cc438bf4c5666c5279b1650be8f00e868e3dd919e4a5e01a76541a
+
+file: 2026-11-24_sd_ccbhc_onepager.pdf
+source_url: https://doh.sd.gov/media/yqumh1rf/rht-integrated-behavioral-health-system-via-ccbhc-certification.pdf
+fetched_utc: 2026-11-24T14:51:09Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 230776
+sha256: 6408ebdded5614fef1e0820e68e1e6aff1c90515322fc984b954371cce4916c2
+
+file: 2026-11-24_sd_chronic_onepager.pdf
+source_url: https://doh.sd.gov/media/fdbbhyh0/rht-strengthening-chronic-disease-management.pdf
+fetched_utc: 2026-11-24T14:51:09Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 202759
+sha256: 522c50eaea3261f94b226d97ddaa5730e5d7aac0ad75af04e22e5737b6349587
+
+file: 2026-11-24_sd_maternal_onepager.pdf
+source_url: https://doh.sd.gov/media/r5hbzmm4/rht-regional-maternal-infant-health-hubs.pdf
+fetched_utc: 2026-11-24T14:51:09Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 208350
+sha256: 59fb2c15bf4d2f4995c0ec2ac35ee12c2246586b0bd11e4337e52076a3be32f5
+
+file: 2026-11-24_sd_ems_onepager.pdf
+source_url: https://doh.sd.gov/media/ysjno4vs/rht-enhancing-sustainable-ems.pdf
+fetched_utc: 2026-11-24T14:51:10Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 168948
+sha256: 65a0c01c80a6229d8f1c9cfbca184427bfde820dfa42be039189b912d70485d4
+
+file: 2026-11-24_sd_chw_onepager.pdf
+source_url: https://doh.sd.gov/media/u51aicbh/rht-expand-strengthen-chw-workforce.pdf
+fetched_utc: 2026-11-24T14:51:10Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 112251
+sha256: b85456b633a0200fe6b01d7f238d72f26f2e79a148bae87bc29f72e6f2765278
+
+file: 2026-11-24_sd_workforce_onepager.pdf
+source_url: https://doh.sd.gov/media/w1deh0ld/rht-building-a-sustainable-rural-health-workforce.pdf
+fetched_utc: 2026-11-24T14:51:10Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 204874
+sha256: 3d459a1c57dad09fde31c45a7fa5374e9c391d79ccfc44276f4ac6558c9256f8
+
+file: 2026-11-24_sd_rhf_hub_onepager.pdf
+source_url: https://doh.sd.gov/media/egqhytk4/rht-rural-health-forward-training-resource-hub.pdf
+fetched_utc: 2026-11-24T14:51:11Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 185865
+sha256: c68c8beb31686185af742c13d8b44cdc1d08177b309e0f33019e3353a6659e1c
+
+file: 2026-11-24_sd_pact_onepager.pdf
+source_url: https://doh.sd.gov/media/myqhbizp/rht-medicaid-pact.pdf
+fetched_utc: 2026-11-24T14:51:11Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 316439
+sha256: b86380707ec3d70079012dce3c2d0c0fd556b5fd2870e57846081dcd7febfdb3
+

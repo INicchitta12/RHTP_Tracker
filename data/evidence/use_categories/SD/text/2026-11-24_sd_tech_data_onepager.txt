@@ -1,0 +1,58 @@
+    INITIATIVE SUMMARY
+
+
+                                    Technology and Data Connection
+                                      for a Healthier South Dakota
+
+    Overview
+    This initiative addresses the digital divide in rural healthcare by modernizing health IT infrastructure across South Dakota.
+    It supports EHR adoption, health information exchange, and operational resilience through tiered funding and technical
+    assistance. The initiative empowers providers with tools to improve care, coordinate services, and make data-driven
+    decisions, ultimately enhancing health outcomes in rural communities.
+
+
+
+
+    Key Activities
+         Fund EHR adoption and Health Link interoperability for small and rural providers
+         Support advanced integration of telehealth, analytics, and decision support tools
+         Establish regionally innovation centers to mentor and support smaller facilities
+         Modernize operational infrastructure including cybersecurity and emergency systems
+         Launch the South Dakota Health Data Atlas for publicly available aggregate data access
+
+
+
+
+    Partners & Stakeholders
+    Hospitals, Critical Access Hospitals, FQHCs, Tribal Clinics, Behavioral Health Providers, Public Health, Social Services, Rural
+    Health Clinics, and other healthcare stakeholders.
+
+
+
+
+    Amount Requested
+         $500,000,000 over five years
+
+
+
+
+    Expected Outcomes
+         80% of eligible facilities adopt certified EHRs and interoperability solutions by Year 3
+         8% increase in preventive screenings by Year 3
+         15% reduction in hospital-acquired infections and 10% reduction in medication errors
+         Launch 2 innovation center pilots by Year 2
+         25 county-level indicators available in the Health Data Atlas by 2029
+
+
+
+
+    Why This Matters
+    This initiative builds a sustainable digital health and interoperability foundation for rural South Dakota, expanding access,
+    improving care quality, and enabling long-term resilience through use of advanced technology.
+
+
+
+This document is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of the Rural Health Transformation
+Program, a financial assistance award totaling $189,477,607.26, with 100% funded by CMS/HHS. The contents are those of the SDDOH and SD DSS and do not necessarily represent the
+official views of, nor an endorsement by, CMS/HHS, or the U.S. Government.
+

@@ -1,0 +1,8 @@
+file: 2026-11-24_ky_rhtp_project_narrative_cms-rht-26-001.pdf
+source_url: https://ruralhealthplan.ky.gov/Documents/KY%20RHTP%20Project%20Narrative_CMS-RHT-26-001.pdf
+fetched_utc: 2026-11-24T14:49:25Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 4898710
+sha256: ffe2cbe738b9fa1f6b558c3f3259d80a464ee5bfcb837bee7d8080feec8b4245
+

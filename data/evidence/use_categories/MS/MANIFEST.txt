@@ -6,3 +6,19 @@ user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
 bytes: 11437991
 sha256: 732d91618c3f9b953f35d7a5b0cc3f7d4da46612d71d8a300be3554f9913f28c
 
+file: 2026-11-24_ms_rhtp_htam_page.html
+source_url: https://mississippirhtp.com/htam/
+fetched_utc: 2026-11-24T14:51:44Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 211197
+sha256: c8569d8349a97b6e184ad2da686ca7e03fb726bfa1c36334ce5b76a68bfd7a4e
+
+file: 2026-11-24_ms_wei_nofo.pdf
+source_url: https://mississippirhtp.com/wp-content/uploads/2026/07/WEI-NOFO.7.10.26ADAPreflight.pdf
+fetched_utc: 2026-11-24T14:51:44Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 2209148
+sha256: e29a42618ce95c9498dd076a4c26f141bd155c309507a552b508c622bf429825
+

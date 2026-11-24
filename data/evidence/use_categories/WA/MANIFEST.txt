@@ -1,0 +1,8 @@
+file: 2026-11-24_wa_rhtp_project_narrative.pdf
+source_url: https://www.hca.wa.gov/assets/program/rhtp-project-narrative.pdf
+fetched_utc: 2026-11-24T14:52:54Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1102945
+sha256: ddcb704abe40bed8154c2ce622617a8e9ee42101af3a80c79ffa099adbe9f4f2
+
