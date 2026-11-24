@@ -1,0 +1,3042 @@
+Project Abstract / Summary
+Organization: The North Carolina Department of Health & Human Services (NCDHHS),
+as the                   , will lead the North Carolina Rural Health Transformation Program
+(NCRHTP) through its Office of Rural Health. Implementation is guided by a statewide steering
+committee that includes Medicaid, Public Health, and Behavioral Health divisions.
+Key subrecipients include the Duke-Margolis Health Policy Center, UNC The Cecil G. Sheps
+Center for Health Services Research and others to be determined.
+Project Goals: This transformative investment improves health outcomes and access for nearly 3
+million rural North Carolinians across 85 of 100 NC counties through three goals; (1) catalyzing
+innovative care models, 2) transforming the rural care experience, and 3) creating a sustainable
+rural delivery system. By FY2031, NCRHTP will increase rural provider-to-population ratios,
+reduce preventable hospital readmissions and emergency visits, lower chronic disease risk
+factors, and expand access to integrated behavioral, mental health and substance use services. All
+while simultaneously investing directly into communities and stimulating rural economic
+development and job creation.
+Total Budget $1,000,000,000 over 5 years (indicative per CMS guidance)
+Fund Usage: Through 6 integrated initiatives, NCRHTP will sustainably transform rural health.
+1.                           1 Hubs. These locally governed, community-tailored networks
+
+   connect medical, behavioral, and social services--making it easier for rural residents to
+   access comprehensive care in one place. Each hub is tailored to its region, offering in-person
+   services, care coordination, and direct support for families, while also leveraging virtual care
+   and advanced AI to enhance access and share data.
+2. Improve prevention/screening, chronic disease management, maternal health, and
+   nutrition by scaling up effective programs for primary care access, food as medicine,
+   diabetes and hypertension management, cancer screening, and perinatal health.
+3. Expand behavioral health and substance use disorder (SUD) services and integrate into
+   regional care networks through the growth of Certified Community Behavioral Health
+   Clinics (CCBHCs), enhanced assessment and treatment programs to address critical care
+   gaps, as well as new collaborative and non-traditional workforce models to connect residents
+   to care.
+4. Modernize and sustain the rural health workforce through catalyzing investments in rural
+   training centers, fellowships, and certification programs to recruit, train, and retain clinicians,
+   allied health professionals, and community health workers.
+5. Advance value-based payment (VBP) by establishing capabilities for rural primary care
+   practices to participate in advanced VBP models and laying the groundwork for rural hospital
+   participation in VBP arrangements, with a focus on financial sustainability.
+6. Accelerate technological innovation, access, and interoperability through increased health
+   information exchange participation, digital literacy programs to ensure rural residents can
+   access modern, connected care, and the broad implementation of state-of-the-art AI-based
+   technology to support documentation and real-time expert clinical decision support to drive
+   down business costs for rural providers and improve sustainability
+
+
+1
+    Rural Organizations Orchestrating Transformation for Sustainability
+
+                                                           1
+North Carolina Rural Health
+ Transformation Program
+                        CMS-RHT-26-001
+  North Carolina Department of Health & Human Services | Secretary Devdutta Sangvai
+
+
+
+
+                       November 3, 2025
+                                     1   NCRHTP
+Table of Contents
+A. Rural Health Needs and Target Population ......................................................................................................... 3
+         Defining the NC Rural Health Landscape and Primary Health Challenges .........................................................4
+         Rural Health Outcomes ........................................................................................................................................ 5
+         Rural Community Health Care Access ................................................................................................................ 5
+         Rural Facility Financial Health ............................................................................................................................ 6
+         Target Populations and Geographic Areas ........................................................................................................... 7
+         Case for Change -- Why invest in North Carolina? ............................................................................................. 7
+B. North Carolina Rural Health Transformation Plan ............................................................................................8
+         Vision and Goals .................................................................................................................................................. 8
+         Program Strategies & Key Performance Objectives ............................................................................................ 8
+         Legislative and Regulatory Action ..................................................................................................................... 10
+         Other Required Information ............................................................................................................................... 11
+C. Proposed Initiatives and Use of Funds ................................................................................................................ 12
+                                                                                                   .............................................................................. 12
+        Initiative 2: Create Models & Capacity for Expanded Primary Care, Prevention, and Chronic Disease
+        Management ....................................................................................................................................................... 16
+        Initiative 3: Expand and Integrate Behavioral Health and Substance Use Disorder Services ............................ 22
+        Initiative 4: Build a Robust & Resilient Workforce & Innovative Care Team Models for Rural Communities 27
+        Initiative 5: Ensure Fiscal Sustainability of Rural Health Providers Through Innovative Financial Models ..... 32
+        Initiative 6: Modernize Rural Care Delivery Through Digital Forward Solutions ............................................. 37
+D. Implementation Plan ............................................................................................................................................ 45
+E. Stakeholder Engagement ...................................................................................................................................... 50
+F. Metrics and Evaluation Plan ................................................................................................................................ 52
+G. Sustainability Plan ................................................................................................................................................57
+H. Acronym List ........................................................................................................................................................ 60
+Endnotes ........................................................................................................................................................................i
+Annexes (Other Supporting Documents) Attached separately
+      Annex 1: Rural counties by FIPS
+      Annex 2: CCBHC table
+      Annex 3: Detailed Summary of ROOTS Hub Lead and Participant Expectations
+      Annex 4: CON laws and Cicero Scoring Update
+      Annex 5: Program Management & Governance Summary Chart
+      Annex 6: Letters of Support
+
+
+
+
+                                                                              2     NCRHTP
+Project Narrative
+
+A. Rural Health Needs and Target Population
+      From the Outer Banks to the Blue Ridge Mountains, 28.3% of North Carolinians live in
+
+rural areas
+
+These communities face widening gaps in
+                                                          Rural Health in NC       t a Glance
+access, quality, and outcomes that demand
+
+bold, coordinated action. With nearly 3
+
+million residents living in rural
+
+communities, the rural population in North                  2.96 million rural residents 2nd highest in the
+                                                            U.S, spread across 85 counties (in green)
+Carolina (NC) is geographically dispersed in                High proportion of rural health facilities
+                                                            5.5% uncompensated care rate
+85 of 100 NC countiesi, second in size only to              28.4% population in rural areas
+                                                            73,033 people living in FAR level 2 in western
+                                                            NC and parts of the Sandhills region
+Texas, larger than the rural populations of 20              Geographic diversity and rural dispersion
+                                                            create logistical and infrastructure challenges that
+other states combined, and representing 5.23%               mimic those of larger states
+
+of the entire U.S. rural population. According to UNC Sheps Center RHTP Rural Score
+
+Estimates (2025), North Carolina ranks among the top ten of all states for its combined rural
+
+population and facility density under the CMS RHTP methodology.
+
+         The size of the challenge is significant, but the opportunity is clear. NC is poised to
+
+build upon a strong foundational infrastructure, leveraging and braiding in new funds that will
+
+put NC                  care facilities and regional clinical and social programs on a path to long-
+
+term sustainability and further the creation and adoption of evidence-based models that expand
+
+ Income levels: 37% of rural residents live below 200% of the Federal Poverty Level (FPL); rates exceed 50%
+ among African American and American Indian populations, and 64% among Hispanic residents.
+ Employment sectors: Agriculture, manufacturing, services, healthcare.
+ Unemployment rates: Rural and urban counties face similar unemployment rates averaging around 3.7%,
+ though a few rural counties have notably higher rates (e.g., Hyde county around 7.2%).
+ Educational Attainment: Hig
+ vs. 31% urban), 5% of adults (age 25+) hold a graduate degree compared urban NC (13%).
+ Insurance: 13% under age 65 are uninsured. 14 non-metro counties having uninsurance rates above 18%.
+ Veterans: NC ranks second in the highest number of rural veterans (estimated 730,000).
+
+
+                                                3   NCRHTP
+access to prevention-oriented care, leverage data and technology, and promote precision health.
+
+                                                                      NCRHTP) is a critical catalyst for our
+
+work to ensure every rural North Carolinian can access high-quality, integrated, and resilient
+
+care, regardless of where they live.
+
+Defining the NC Rural Health Landscape and Primary Health Challenges
+                                                            rural.                                                 the
+
+Rural Health Grants Eligibility Analyzer and Federal Office of Rural Health Policy (FORHP)
+
+designations implemented by the Health Resources and Services Administration (HRSA). For
+
+the purposes of this application, these include counties of at least one census tract designated as
+
+rural. A full list of rural counties by Federal Information Processing Series (FIPS) codes is
+
+included as Annex 1. NC rural communities face persistent and complex challenges in tackling
+
+the root causes of disease (Table 1).
+
+ Table 1: Specific Rural Health Challenges and Insights from NC
+ Challenge                              Insights
+ Fragmented care delivery and limited Most rural counties lack coordinated systems linking medical,
+ integration of clinical, behavioral, and    behavioral, and social services; care is often siloed, leading to gaps in
+ social services.                            follow-up and support.
+ In Madison County, residents often travel more than 30 miles to Asheville for behavioral health and specialty
+ care. The county lacks a hospital and has limited co-located services. These access challenges were worsened by
+ Hurricane Helene (Sept 2024).
+ High rates of chronic disease,              Diabetes prevalence is 46% higher than in urban areas, and
+ substance use, and unmet behavioral         cardiovascular disease rates are 53% higher in rural NC. Ninety out of
+ health needs.                               100 (90/100) NC counties are designated mental health shortage areas,
+                                             with American Indian communities experiencing disproportionately
+                                             high rates of mental health crises and substance use disorders,
+                                             especially among adolescents aged 12 17.
+ In Robeson County, home to many members of the Lumbee tribe, diabetes prevalence is among the highest in
+ the state, 15.2% (vs. 10.1% in urban counties); 42% of youth report substance use risk factors.ii
+ Persistent provider shortages and          24 rural counties lack adequate primary care supply; NC faces an EMS
+ workforce gaps, especially in primary      shortage of ~800 providers over the next face years to maintain current
+ care, behavioral health, oral health, and staffing levels.
+ emergency medical services.
+ In Bertie County has one primary care physician per 3,500 residents (recommended: 1 per 1,500). Dental and
+ mental health provider ratios are below state average.iii
+ Financial instability among rural          Since 2006, 12 rural hospitals have closed or converted to limited-
+ hospitals and clinics, with closures and service models; 5 more are at immediate risk, jeopardizing emergency
+ conversions threatening local access.      and inpatient care for thousands.
+
+
+
+
+                                                    4   NCRHTP
+ In Martin County, Martin General Hospital closed in 2023. Residents now travel more than 30 miles for
+ emergency and inpatient care. This closure affected 22,000 residents.
+ Barriers to digital health, resource       Many rural communities lack access to reliable broadband, limiting
+ navigation, and broadband                  telehealth access and digital care coordination. Digital literacy and
+ connectivity.                              navigation support are also limited.
+ In Swain County, a mountainous community, residents experience significant gaps in digital literacy. Residents
+                             training person who could support device setup, tutoring and troubleshooting.
+ Gaps in prevention, early                  Rural families have less access to preventive screenings, early
+ intervention, and care coordination for    behavioral health intervention, and coordinated chronic disease
+ vulnerable populations.                    management, especially for children and tribal youth.
+ In Sampson County, only 62% of children in receive recommended well-child visits;iv behavioral health
+ screening rates are below state average.
+
+        The characteristics of NC rural communities are very different. Strategies that recognize
+
+these differences and customize solutions with local rural community input will be critical to
+
+acceptance, and we have designed our program to be responsive to these needs.
+
+Rural Health Outcomes
+        Rural communities in NC experience high rates of chronic disease and adverse maternal
+
+and child health outcomes. These disparities are driven by root causes of disease, such as limited
+
+access to preventive care, food insecurity, and environmental exposures that increase the risk of
+
+disease and poor health outcomes.
+
+
+
+
+Rural Community Health Care Access
+
+        Barriers to care in rural areas       such as long travel distances, further complicated by
+
+geographic features such as mountain regions and coastal barriers, provider shortages, and lack
+
+of transportation contribute to delayed diagnoses and reduced access to timely treatment, which
+
+increase the risk of preventable complications and hospitalizations.
+
+
+
+                                                  5   NCRHTP
+Rural Facility Financial Health
+
+       North Carolina maintains one of the most extensive rural health infrastructures in the
+
+country, with over 880 rural-serving health facilities, including critical access hospitals (CAHs),
+
+rural health clinics, federally qualified health centers (FQHCs), and local health departments
+
+(LHDs). While these facilities are strategically located across 85 rural counties to serve
+
+geographically isolated populations, they are not evenly distributed. Many operate under
+
+significant financial strain, with limited staffing and outdated infrastructure, making them
+
+
+
+health system underscore the need to leverage NCRHTP funds to put facilities on a path of
+
+sustainability through a mix of strategies.
+
+       Current State: Rural Hospitals. The financial and operational fragility of rural hospitals
+
+in North Carolina is at a critical point. Since 2006, 12 rural hospitals have closed or been
+
+converted to limited-service models, including the 2023 closure of Martin General Hospital in
+
+Williamston, which left Martin County and the surrounding region of eastern NC without a
+
+hospital for the first time in decades.v These closures concentrated in high-poverty counties.
+
+Many rural facilities operate under financial strain, low volumes, and high uncompensated care
+
+(5.5% in our state).
+
+
+
+
+                                              6   NCRHTP
+       Rural hospital facilities serve communities with limited alternatives, and additional
+
+closures would further strain regional health systems, increase travel times for emergency care,
+
+and deepen health disparities in already underserved areas.
+
+Target Populations and Geographic Areas
+       NCRHTP is designed to positively impact North Carolinians living in all rural areas of
+
+the state, as defined above. The Initiatives the state plans to deploy will be tailored to the unique
+
+                                                   NC
+
+1. This enables programming to be tailored to the demographic, socioeconomic, and public
+
+health related factors present in a community or region.
+
+Case for Change -- Why invest in North Carolina?
+       North Carolina has built a strong foundation for sustainable rural health transformation
+
+through robust cross-sector partnerships    uniting Medicaid, public health, hospital systems, and
+
+community-based organizations (CBOs)                                                              -
+
+time tracking of rural health outcomes, provider capacity, and community needs, supporting
+
+effective monitoring and accountability.
+
+                                                                                                  -
+
+based care, fair access to care, and workforce development, and can be an engine for broader
+
+economic development. In addition to direct community investment, our program is designed to
+
+support healthier families, leading to a healthier workforce, further positive economic outcomes
+
+and prosperity for communities that have struggled for a generation or more. The state has
+
+developed several building blocks for the NCRHTP, including a robust infrastructure of mobile
+
+clinics, telehealth networks, and integrated physical and behavioral health services, leading
+
+workforce programs anchored                                         and universities, and innovative
+
+partnerships such as North Carolina Area Health Education Centers (AHEC), among others.
+
+
+                                             7   NCRHTP
+With the focused investment planned in NCRHTP, NC is ready to rapidly scale its
+
+transformation efforts to all North Carolinians in all rural areas and put these communities on
+
+paths to a sustainable, high-quality, accessible delivery system and programs.
+
+
+B. North Carolina Rural Health Transformation Plan
+Vision and Goals
+       The State of North Carolina is pursuing a vision to advance community-designed,
+
+community-led innovative solutions that foster independence, improve health, and promote well-
+
+being for rural North Carolinians. Anchored in this vision, North Carolina will achieve three
+
+goals for rural communities: 1) Catalyze Innovative Care Models, changing the way providers
+
+work together to care for patients in rural NC; 2) Transform the Rural Care Experience,
+
+building community-based clinical, behavioral, and social supports close to home; and 3) Create
+
+a Sustainable Rural Delivery System through underlying systems change in rural workforce
+
+pipelines and care team models, and rural provider financial models.
+
+Program Strategies & Key Performance Objectives
+       By 2031, NCRHTP will achieve significant, measurable improvements in each rural
+
+
+
+Program. We set forth six overarching program initiatives linked to six key performance
+
+objectives as organized in Figure 1 below.
+
+Figure 1: Summary of NCRHTP
+
+
+
+
+                                             8   NCRHTP
+9   NCRHTP
+Healthy North Carolina 2030, and are augmented with additional objectives/outcomes that stem
+
+from the priorities and initiatives that will be undertaken as part of NCRHTP and included in our
+
+overall metrics and evaluation plan.
+
+Legislative and Regulatory Action
+        North Carolina is committed to taking bold, sustained action to expand access, improve
+
+quality, and control costs for rural communities within the RHTP implementation timeline. Table 4
+
+                                                            and proposed RHTP actions to achieve this.
+
+ Table 4: Legislative or Regulatory Action Table
+ NC's Current Policy                                      Proposed Action        Access, Quality, Cost Impact
+                                                          and Timeline
+ B.2 Health & Lifestyle (Presidential Fitness Test)
+ NC does not require the Presidential Fitness Test        By Dec. 2028,          This will help lower childhood
+ (PFT) in schools. Some local programs promote            reinstate the PFT      obesity rates (currently ~35% in
+ physical activity, but there is no statewide standard.   statewide and expand   rural NC), encourage healthy
+                                                          school-based           habits, and reduce future chronic
+                                                          prevention programs.   disease costs.
+ B.3 SNAP Waivers (Food Restriction)
+ NC does not restrict SNAP purchases of sugary       NC does not have a          By focusing on SNAP error rate
+ drinks or junk food. No waiver or bill is active.   current waiver. State       reduction, we will improve
+                                                     operational focus is        program integrity and ensure
+                                                     on reducing SNAP            eligible households receive timely
+                                                     error rate from 10.2%       and accurate benefits. This will
+                                                     to below 6% and             improve accuracy in benefit
+                                                     cannot commit to            delivery and reduce
+                                                     specific actions by a       administrative costs.
+                                                     certain date.
+ B.4 Nutrition continuing medical education (CME) Requirement
+ Doctors in NC are not required to take nutrition-   By Dec. 2028, pass a        This will increase nutrition
+ focused continuing education.                       law requiring               counseling rates helping patients
+                                                     nutrition CME for           manage diabetes and heart disease
+                                                     physicians.                 more effectively.
+ C.3 Certificate of Need (CON)
+ As of late 2025, CON laws remain in effect but      NC does not propose         Recent legislative changes have
+ have been partially reformed through recent         additional changes to       reduced CON requirements for
+ legislation (notably House Bill 76), which places   CON laws as part of         specific types of services and
+ NC around 65/100 per the Cicero index (See          this application.           beds in rural counties and across
+ detailed methodology in Annex 4). Further CON                                   the state.
+ reforms will be implemented in November 2025
+ and November 2026 per state law.
+ D.2 Licensure Compacts
+ NC participates in four of the five major licensure By Dec. 2026,               Strengthens rural emergency
+ compacts. The state is a member of the Nurse        implement legislation       response capacity, especially in
+ Licensure Compact (since 2018), Psychology          to join the EMS             counties with EMS staffing
+ Interjurisdictional Compact (effective 2021), and                               shortages. Supports cross-border
+
+
+                                                     10   NCRHTP
+ Table 4: Legislative or Regulatory Action Table
+ NC's Current Policy                                   Proposed Action         Access, Quality, Cost Impact
+                                                       and Timeline
+ the Physician Assistant Compact (enacted July         Compact and begin       EMS deployment, which is
+ 2025). The Interstate Medical Licensure Compact       implementation.         critical during disasters and for
+ (IMLC) was passed via HB 67 (July 2025) and will                              rural regions near state lines.
+ take effect January 1, 2026. NC is not currently a
+ member of the EMS Compact.
+ D.3 Scope of Practice
+ As of Oct. 2025, NC                                   Current practice        Recent changes have increased
+                                                       authority is a matter   provider supply, improved access,
+ according to the AAPA, while Nurse Practitioners      of ongoing interest     and reduced wait times
+                                                       and debate;             especially in counties with few
+ physician supervision. Pharmacists receive a score    accordingly NC          doctors.
+ of 50, with recent legislation (HB 67, July 2025)     cannot commit to
+ expanding their scope but still mandating physician   specific actions by a
+ collaboration. Dental Hygienists also score 50,       date certain.
+ permitted to perform three types of tasks. The
+ average score across these provider types is
+ 43.75/100, indicating moderate progress toward full
+ practice authority.
+ E.3 Short-Term, Limited-Duration Insurance (STLDI)
+ NC follows federal rules; there are no extra STLDI     Maintain current       Helps uninsured rural residents
+ restrictions.                                          policy.                get coverage, reduces care costs.
+ F.1 Remote Care Services (Telehealth/Medicaid)
+ NC Medicaidvi has broadly supportive state policies                           Current policy enables vast
+ (per the NOFO) for access to remote care and           advanced policy        expanded access to telehealth and
+ telehealth services including: reimbursement for       position is aligned    remote monitoring for nearly 1 in
+ live video visits, store-and-forward, and remote       with NOFO criteria,    4 North Carolinians, resulting in
+ patient monitoring (RPM). Providers are not subject we do not anticipate      improved chronic disease
+ to restrictive in-state licensing requirements, and no additional changes.    management, reduced travel
+ special telehealth license is required.                                       costs, and reaching our rural
+                                                                               residents.
+
+Other Required Information
+
+State policies (See Table 4 above for                                 )
+
+Factor A.2: Proportion of Rural Health Facilities. For Certified Community Behavioral
+
+Health Clinics (CCBHCs), all active sites and addresses are listed in Annex 2.
+
+Factor A.7: Medicaid Disproportionate Share Hospital Payment (DSH)
+
+As outlined in the NOFO Appendix, we encourage CMS to use data from the latest DSH audit
+
+available to CMS to calculate NC s score.
+
+
+
+
+                                                 11   NCRHTP
+C. Proposed Initiatives and Use of Funds
+NC                                                                                                             each
+reinforcing the others to build a durable, data-driven rural health system. Every strategy is
+structured for long-term sustainability, transitioning into enduring funding mechanisms through
+multi-payer alignment, value-based payment, community and philanthropic investment.
+
+
+ Challenge: Rural health care in North Carolina is delivered through a fragmented network of providers, many
+ working independently. While each provides essential services, the lack of coordination leads to missed
+ opportunities for collaboration, efficiency, and scaling, resulting in suboptimal health outcomes and health care
+ costs for North Carolinians. Community voice is not reflected in the health system design locally.
+ Future State: Hubs coordinating strategic           Summary of Activities:
+ priorities across community partners and              Procure up to six Hubs based on detailed regional rural
+ supporting the NCDHHS in the distribution of          health needs assessments.
+ supports and services that address the unique         Enhance IT systems and infrastructure for Hubs to fulfill
+ needs of rural North Carolinians. Each Hub            responsibilities (i.e., facilitate and track payments, monitor
+ establishes and oversees a well-governed              progress toward outcomes, and report to NCDHHS).
+ network focused on shared regional priorities         Deploy rural health improvement programs in each region
+ that spans across payers and works to address         anchored in each NCRHTP initiative (2-6) in the application
+ the multigenerational needs of their community        including those relating to primary care, chronic disease,
+ in areas like preventive care, chronic disease,       maternal and infant health, behavioral health, workforce,
+ behavioral health, and maternal health.               digital health, and value-based payment.
+ Main Strategic Goal: Goal 2: Sustainable Access.
+ Use of Funds: D, G, K | Technical Score Factors: B.1, C.1. | Estimated Required Funding: $349M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+        Description: This first initiative will establish North Carolina Rural Organizations
+
+Orchestrating Transformation for Sustainability ( NC ROOTS ) Hubs across the state. NC
+
+ROOTS Hubs will be responsible for tailoring NCRHTP initiatives and activities to meet the
+
+specific rural needs and geography in that region, ensuring maximum impact. Each NC ROOTS
+
+Hub will consist of the Hub Lead and the Hub Network. Each Hub will be responsible for
+
+implementing a set of mandatory projects associated with NCRHTP Initiatives 2-6 as defined by
+
+NCDHHS and will have the option to implement additional projects suited to the needs of their
+
+region. Figure 2 below summarizes the Hubs and their networks, as well as the role they will
+
+have in implementation of NCRHTP.
+
+
+
+
+                                                   12   NCRHTP
+13   NCRHTP
+For each initiative, the Hub Lead will
+
+develop a strategic plan to implement the
+
+projects most aligned with the target
+
+outcomes, as determined with the Hub
+
+Network partners that are jointly
+
+accountable for achieving them. NCDHHS
+
+will require Hubs to coordinate closely
+
+with regional CCBHCs for the provision
+
+of mental health and substance use
+
+services, for which CCBHCs are anchors
+
+in the community. To operationalize Initiative 1, two activities will be undertaken:
+
+1a. NCDHHS will secure Hub Leads in six NC ROOTS Hub regions across the state; for
+
+example, NC ROOTS Hub regions may align with the Medicaid Standard Plan regions.
+
+Prospective entities will be expected to provide detailed proposals describing their:
+
+       Ability to fulfill the Hub Lead role based on NCDHHS definition Hub Network,
+
+       including letters of commitment from required partners and its process for recruiting any
+
+       additional members
+
+       Proposed Hub governance and grantmaking
+
+       structure and process for managing strategy, data
+
+       and communications among the Hub Network
+
+       Assessment of regional needs and potential
+
+       regional RHTP Initiatives projects it will
+
+       implement based on regional needs and barriers
+
+
+
+
+                                            14   NCRHTP
+       How projects and funding will leverage existing local
+
+       or state infrastructure without duplicating existing
+
+       funding or supports
+
+       Processes for routine program monitoring and
+
+       oversight of its Hub Network and assessing progress
+
+       towards outcomes
+
+       Sustainability plan, which includes the utilization of
+
+       public-private partnerships to strengthen the funding
+
+       structure of the Hub Lead and Hub Network
+
+       Budget and budget narrative
+
+1b. NCDHHS will support Hub Leads to ensure the success
+
+of the Hub. Supports include, but are not limited to, technical
+
+assistance, strategic partnership, outcome monitoring,
+
+convening support, policy guidance, and cross-jurisdictional
+
+leverage. Potential uses of funds are summarized in Table 5:
+
+
+
+
+                                           15   NCRHTP
+Initiative 1: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: The proposed activities under Initiative 1 are designed to strengthen the infrastructure, partnerships,
+and operational capacity needed to transform rural health delivery. The selected metrics below ranging from Hub
+establishment to referral success track the sequential and reinforcing steps of this transformation. Together, they
+measure how well the Hubs are being stood up, how representative their networks are, how effectively they are
+deploying community-specific solutions, and whether those solutions are improving care coordination and access
+for patients. The ROOTS Hubs established under Initiative 1 will serve as regional anchors for the expanded
+primary care, prevention, and chronic disease management efforts described in Initiative 2.
+1. Establish NC ROOTS Hubs*
+By PY2 (2027), six NC ROOTS Hubs will be established (baseline: 0). Hubs provide the structure for launching
+and coordinating all other initiatives (Activity 1a).
+2. Safety Net Provider Participation*
+By PY2 (2027), Hubs will engage a representative share of eligible hospitals, providers, and CBOs (baseline:
+0%).** This ensures regionally responsive collaboration (Activity 1b).
+3. Deploy Community-Based Initiatives*
+By PY3 (2028), Hubs will launch targeted initiatives tailored to local needs (baseline: 0).** This demonstrates the
+                                  -level impact (Activity 1b).
+4. Referral Activity for Hub Services*
+By PY5 (2031), Hubs will track successful referrals to community providers (baseline: 0%).** This reflects the
+strength of regional partnerships and integrated care (Activity 1b).
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+** = Proportion depends upon eligible Hub Network entities per region, established via Hub Lead identification.
+
+Initiative 2: Create Models & Capacity for Expanded Primary Care, Prevention, and Chronic
+Disease Management
+ Challenge: Persistent differences in access to health care services in rural communities lead to poorer outcomes
+ in key focus areas for the state, including prevention/wellness, chronic care management, and perinatal health.
+ Future State: NC ROOTS Hubs will serve as          Planned Activities:
+ anchors for whole-person health, connecting            Expand primary care access
+ families to fresh produce and nutrition                Expand access to perinatal services in maternal care deserts
+ education. Schools and community                       through strengthened consultation, transfer systems, and
+ organizations will partner to make movement            networks of academic-community partners
+ and wellness a daily reality with expanded             Create targeted programs in diabetes management,
+ physical activity programs and safe spaces for         hypertension reduction, smoking cessation, physical
+ exercise. NC ROOTS partners will deliver               fitness, and cancer prevention and detection that enhance
+ enhanced primary care, prevention, and chronic         rural facility capacity and service access to patients
+ disease management services, identify and              Expand a fresh produce Rx program in collaboration with
+                   near-                                community partners
+ to optimize aging in place, and provide critical        Near-          program to proactively preempt health events
+ care for pregnant women during and after birth.        for Medicare patients at risk of long-term disability
+ Main Strategic Goal: Goal 1: Make Rural America Healthy Again.
+ Use of Funds: A, B, G, I | Technical Score Factors: B.1, B.2 (Inc. Presidential Fitness Test), C.1, E.2., F.1.
+ Estimated Required Funding: $120M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+
+
+
+                                                    16   NCRHTP
+Description: This initiative organizes programs and supports for rural communities to address
+
+priority public health issues in three areas: 1) Perinatal Health, 2) Chronic Disease, Prevention,
+
+Cancer and Physical Fitness, and 3) Food is Medicine. NC ROOTS Hubs will each pursue a
+
+minimum number of projects which closely align with the needs of their community and address
+
+the three focus areas.
+
+       2a. Perinatal Health:                             Innovations in NC
+
+perinatal health efforts focus on reducing maternal      A postpartum care model that uses a
+                                                         simple but powerful tool: a bracelet worn by
+and infant morbidity and mortality by extending          postpartum patients. Healthcare workers,
+                                                         including emergency department staff, are
+                                                         trained to recognize the bracelet and follow
+evidence-based models to rural communities. These        a standardized protocol to assess and
+                                                         support postpartum needs, including mental
+projects strengthen local capacity, connect rural        health, physical recovery, and care
+                                                         coordination. After the concept and training
+providers to academic specialists, and expand access     program was introduced at ECU Health
+                                                         Medical Center, fewer new moms had to
+                                                         come back to the hospital, readmissions
+to comprehensive prenatal and postpartum services.       dropped by nearly a third because they
+                                                         were getting the right care at the right time.
+Together, they build a coordinated perinatal care
+
+system that supports women and infants across all levels of care. Each NC ROOTS hub region
+
+must expand access in maternity-care deserts by strengthening consultation and transfer
+
+systems. NC ROOTS Hubs will work with a consortium of academic medical partners (ECU,
+
+UNC, MAHEC, etc.) to customize regional approaches that scale AI-enabled ultrasound
+
+technology, simulation-based emergency obstetric training, and emergency medical services
+
+obstetric training. NC ROOTS Hubs will work with existing regional perinatal nurse champions
+
+to complement and align with ongoing evidence-based approaches in the region to promote
+
+                                             model (see textbox) to promote post-partum health
+
+and increase awareness of Post-Birth Warning Signs. In addition to the core work in each region,
+
+regions may pursue additional projects to improve access to perinatal care:
+
+
+
+                                           17   NCRHTP
+ Table 7: Initially Planned Perinatal Health Projects                               * = Required activities
+ Project                         Purpose / Key Activities
+  LOCATe Analysis*               Partner with local health care systems to use the Level of Care Assessment
+                                 Tool (LOCATe) to determine the capacity of local health systems, identify
+                                 gaps, and opportunities for improvement.
+ Expand Access in Maternity      Strengthen consultation and transfer systems and work with a consortia of
+ Care Deserts*                   academic and AHEC partners (ECU, UNC, MAHEC, etc.) to customize regional
+                                 approaches that scale AI-enabled ultrasound technology, simulation-based
+                                 emergency obstetric training, and emergency medical services obstetric training.
+ Perinatal Project ECHO          Virtual mentoring network linking rural prenatal providers with academic
+                                 specialists to improve screening, trauma-informed care, and coordination.
+                                 Also supports patients receiving care with providers in their own rural
+                                 communities to assist with reduced travel and trust building.
+ Academic Regional Obstetrical   Places academic obstetricians in community hospitals while maintaining
+ Collaborative (AROC)            university affiliation to expand local maternity capacity.
+
+       2b. Chronic Disease, Prevention, Cancer and Physical Fitness. This portfolio
+
+advances prevention and chronic-disease management through evidence-based, community-
+
+integrated models addressing diabetes, hypertension, sickle-cell disease, tobacco use, cancer, and
+
+physical fitness. Projects that the NC ROOTS Hubs will undertake combine access, patient
+
+education, and care-coordination infrastructure to reduce disparities and strengthen rural provider
+
+capacity. To ensure a consistent, evidence-based approach to chronic disease prevention across
+
+all ROOTS Hub regions, each region will be charged to increase access to, and utilization of,
+
+evidence-based chronic disease prevention and self-management programs. Each NC ROOTS
+
+region will conduct a structured gap assessment to evaluate disease burden, and the availability,
+
+accessibility, and utilization of the following evidence-based programs for the prevention and
+
+management of chronic conditions, including diabetes, hypertension, tobacco-use, and cancer
+
+based upon regional data. Each region should use existing data sources, such as Community
+
+Heath Assessments and Community Health Improvement Plans. Based on the findings, regions
+
+will identify priority areas for strengthening program delivery and outreach.
+
+approach must include a provider education and engagement strategy designed to:
+
+    o Increase awareness of available programs
+
+
+
+                                                18   NCRHTP
+    o Improve referral workflows through electronic health record (EHR) integration
+
+    o Offer training on eligibility criteria and referral processes
+
+    o Promote culturally and linguistically appropriate outreach materials
+
+    o Expand health care team for chronic disease management (i.e. pharmacists, CHWs, EMTs)
+
+       This dual approach        combining system-level gap analysis with provider-level
+
+engagement      will ensure that high-risk individuals are not only identified but also successfully
+
+connected to the resources they need to prevent or manage chronic disease. Among focus areas
+
+and specific projects that the NC ROOTS Hubs might select include:
+
+ Table 8: Chronic Care/Prevention Initially Planned Projects                              * = Required activities
+ Project              Purpose / Key Activities
+ Risk Factor Gap      Conduct a structured gap assessment to evaluate disease burden, and the availability,
+ Assessment*          accessibility, and utilization of evidence-based programs for the prevention and
+                      management of chronic conditions, including diabetes, hypertension, tobacco-use, and
+                      cancer based upon regional data. Based on the findings, regions will identify priority areas
+                      for strengthening program delivery and outreach.
+ Provider Education   Design and implement a program to increase awareness of available programs, improve
+ and Engagement       referral workflows through EHR integration;
+ Strategy*
+ Expand Healthcare    Conduct training and outreach with providers to expand services, such as tobacco
+ Team for Chronic     treatment program specialists, integrating nutrition support, and enhancing cancer
+ Disease              screening outreach and follow-up within primary care and community settings.
+ Management*
+ Diabetes Services    Train and equip rural providers and FQHCs to deliver Diabetes Self-Management
+ Expansion            Education and Support (DSMES), Diabetes Prevention Program (DPP), and Family
+                      Healthy Weight Programs across the lifespan. This includes deployment of Facilitated
+                      Remote DSMES in rural areas lacking internal capacity, and integration with the FHWP
+                      through electronic referral systems to increase the enrollment of children and families.
+ Hypertension         Scale self-measured blood-pressure (SMBP) programs and embed into clinical workflows,
+ Reduction            embed evidence-based workflows in rural practices, train CHWs and community pharmacists in
+ Initiative           the Healthy Heart Ambassador Program-Blood Pressure Self-Monitoring model.
+ Sickle Cell ECHO     Tele-mentoring that links rural providers with hematology specialists to deliver evidenced
+ Network              based care for individuals living with sickle cell disease (CD) in rural communities.
+ Rural Tobacco-       Partner with existing LHD-based tobacco collaboratives to identify and respond to gaps in
+ Free Futures         tobacco cessation efforts, including QuitlineNC referrals, and training rural providers in
+                      tobacco-treatment protocols.
+ Rural Integrated     The NC ROOTS Hubs will coordinate existing mobile units to deliver cancer and chronic
+ Cancer Hubs          disease screenings, embed CHW-led outreach and navigation, provide telehealth
+                      consultations with specialists, and establish formal referral agreements among FQHCs,
+                      CAHs, and diagnostic centers. These integrated efforts will expand access to care and
+                      ensure timely follow-up.
+ Physical Activity    Implement evidence-based physical activity programs in rural communities. Train CHWs
+ Access &             and local partners to deliver or refer to these programs. Embed physical activity referrals
+ Integration          into EHR workflows. Partner with schools, YMCAs, and senior centers to expand reach.
+
+
+
+                                                 19   NCRHTP
+       -                Train and equip rural providers to identify Medicare patients and provide supports to
+ Services*              connect patients to resources and services that will help to age in place and prevent clinical
+                        events that lead to disability and/or situations where spend down into Medicaid is needed. For
+                        residents that do qualify, services to connect into dual-eligible plans will be provided.
+
+       2c. Food is Medicine. Nutrition insecurity is a                 Potential for Partnership
+
+cornerstone non-medical driver of chronic disease in
+                                                                       measurable impact in rural communities
+rural NC. In this activity, NC ROOTS Hubs will lead                    by expanding access to nutrition
+                                                                       counseling and food benefits through
+                                                                       mobile platforms. This evidence-based
+                                                                       approach connects patients to healthy
+                                                                       food and care
+strategy that advances the Healthy Foods and Healthy                   for rural health transformation.
+
+Families priority from the Make Our Children Healthy
+
+Again plan. The strategy is expected to consider the
+
+coordination of nutrition supports with other non-
+
+medical drivers of health needs in each region, e.g.
+
+transportation access and housing insecurity. All
+
+activities are designed to build sustainable infrastructure and capacity for rural North Carolinians
+
+to experience healthier lives. By embedding nutrition access and education into existing health
+
+and social service networks         and focusing investments on infrastructure capacity, training, and
+
+systems      NC ROOTS Hubs will ensure these efforts are sustainable and locally responsive. Key
+
+approaches include:
+
+ Table 9: Food is Medicine Approaches
+ Project                           Purpose / Key Activities
+ Expand healthy grocery box        Build the partnerships and infrastructure needed to connect patients and
+ and meal initiatives              families to nutrition supports, including healthy food boxes, medically tailored
+                                   meals, and nutrition education through CBOs (e.g. food pantries, clinics, and
+                                   YMCAs).
+ Strengthen NC Regional            Invest in locally based food infrastructure, farmers, community food banks,
+ Food Hubs and facilitate          technology, and logistics to more effectively coordinate whole-person health by
+ farm-to-hospital, mobile food     addressing non-medical drivers of health, including delivering fresh, local, and
+ markets, and community-           culturally relevant foods. Possible strategies include mobile food markets,
+ based food access                 farmers market SNAP/WIC-match voucher access (e.g., Double Bucks
+                                   programs), and farm-to-hospital programs.
+ Build local capacity              Expand CBO and CHW capacity to provide supports that address non-medical
+                                   drivers of health, like evidence-based nutrition education curricula, empowering
+
+
+                                                    20    NCRHTP
+                                  families with practical knowledge such as food preparation, budgeting, and
+                                  making healthy choices regardless of budget or location.
+ Implement electronic referral    Connect patients experiencing non-medical drivers of health like food
+ and tracking systems             insecurity, housing insecurity, and transportation insecurity to resources,
+                                  monitor usage of resources, and ensure efficient program evaluation.
+
+
+
+
+Table 11: Initiative 2: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: Proposed metrics for Initiative 2 capture how expanded access to perinatal care, strengthened chronic
+disease management, increased tobacco cessation, and improved nutrition infrastructure work synergistically to
+prevent avoidable hospitalizations and promote whole-person health for rural North Carolinians.
+1. Increase Access to Perinatal Care*
+By PY5 (2023), % of births to women residing in rural counties who receive prenatal care during first trimester of
+pregnancy increase to 80% (statewide baseline: 72%; rural county rates to be established). Accessing timely
+prenatal care is correlated with positive maternal and early child health outcomes (Activity 3a).
+2. Reduce Chronic Disease High-Cost Comorbidity Burden*
+By PY5 (2031), 9.7% reduction in the % of adults in target population reporting three or more chronic health
+conditions (baseline: NC ROOTS Hubs to develop new baselines). Demonstrates how effectively the five chronic
+disease projects slow disease progression. Note: We expect the number of uninsured people to rise during this
+period so maintaining current outcomes would be a success. (Activity 3b).
+3. Increase Patient Use of Self-Monitoring Blood Pressure*
+By PY3 and PY5 (2029 / 2031), # of eligible patients offered/received SMBP increase by 5% and 10%
+respectively (baseline: to be established per NC ROOTS Hub region). Correlates with better cardiovascular
+outcomes for patients with chronic disease (Activity 3b).
+4. Decrease Tobacco Use*
+By PY3 and PY5 (2029 / 2031), % increase of referrals to QuitlineNC from participating counties / organizations
+increased by 5% and 10% respectively (baseline: to be established per ROOTS Hub region). Referrals to
+QuitlineNC relate to successful smoking cessation result (Activity 3c).
+5. Increase access to healthy food prescriptions
+By PY5 (2031), 15-20% of high-risk individuals (as defined by NC DHHS) receiving healthy food boxes increases
+(baseline: to be established per NC ROOTS Hub region). Healthy food access is linked to lower risk of chronic
+illness (Activity 3c).
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+
+
+
+
+                                                  21   NCRHTP
+Initiative 3: Expand and Integrate Behavioral Health and Substance Use Disorder Services
+ Challenge: Persistent rural gaps in access to behavioral health services including inconsistent availability of
+ mental health and substance use disorder services, gaps in crisis response and school-based care, underdeveloped
+ care coordination, and fragmented service delivery systems.
+ Future State: A             Summary of Activities:
+ foundational behavioral       Expand CCBHCs in rural counties and launch a statewide quality initiative.
+ health system with a          Develop new rural Community Crisis Centers to strengthen 24/7 crisis response
+ standard array of             and stabilization services.
+ services available in         Expand Mobile Outreach Response Engagement and Stabilization programs.
+ every region, supported       Increase access to integrated physical and behavioral health care for youth
+ by integrated care            through the expansion of school-based health centers (SBHCs) in rural areas.
+ networks, school-based        Expand NC Maternal Mental Health Matters program to rural communities.
+ and community-based           Expand paramedic-initiated medication assisted treatment pilot for opioid use
+ programs, mobile              disorder (OUD) to new rural counties
+ services, and data-driven     Deploy mobile and co-located opioid treatment units to improve access to
+ quality improvement.
+                               medications for OUD in underserved rural communities.
+ Main Strategic Goal: Make Rural America Healthy Again
+ Use of Funds: A, D, G, H, I, K | Technical Score Factors: B1, C1, F1 | Estimated Required Funding: $155M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+Description: NC will implement a series of regional activities to expand
+
+programs and models into rural communities more robustly than has been possible given funding
+
+and operational barriers. Our approach is a                                                   . CCBHCs are
+
+specially designated clinics that provide a full range of mental health and substance use
+
+services    like therapy, psychiatric care, peer support, and crisis intervention            all under one
+
+roof, with a focus on care coordination and accessibility.                    Innovations in NC
+                                                                                  Hazel Health Expands
+NCRHTP will fully expand CCBHC reach to rural                                    School-Based Behavioral
+                                                                                     Health Access.
+communities, coordinated with the regional ROOTS Hubs, and                    In March 2025, the NCDHHS
+                                                                              partnered with school-based
+with an enhanced and scaled menu of innovative programs,                      telehealth provider Hazel
+                                                                              Health to provide high-quality,
+established infrastructure, and strong commitment to                          virtual mental health care for
+                                                                              nearly 400,000 K-12 students
+addressing unique rural behavioral health needs. NC is well
+                                                                              student population. The
+positioned to lead this effort and set a national standard for                approaches address provider
+                                                                              shortages and cost barriers,
+integrated, community-based behavioral health (BH) care. NC                   aiming to improve student well-
+                                                                              being, academic performance,
+will undertake nine activities organized to meet three                        and long-term development.
+
+
+objectives:
+
+
+                                                  22   NCRHTP
+        3
+
+        Activity 3a.1. CCBHC Expansion. Expand        Innovations in NC
+                                                       Trillium Ultimate Living Assistant (TULA)
+reach by creating 3-4 new CCBHCs helping rural
+                                                      TULA is a digital platform developed in NC to
+                                                      help individuals and families connect to
+residents access and navigate BH, physical health,
+                                                      mental health, physical health, and
+                                                      intellectual/developmental disability services
+and social services. By expanding the model into      especially in areas with limited provider
+                                                      availability. By reducing the need for in-person
+rural areas and adding services to address critical   navigation and streamlining administrative
+                                                      tasks, TULA enables providers to focus more
+community service gaps, this initiative will ensure   on care delivery, while being responsive to
+                                                      community needs in rural and underserved
+that a standard array of critical mental health and   regions.
+
+substance use services are available in rural parts
+
+of the state.
+
+        Activity 3a.2. CCBHC Quality Improvement (QI). Launch a statewide QI activity to
+
+enhance the performance, accountability, and sustainability of CCBHCs, focusing on data
+
+quality, clinical outcomes, and care coordination. The Department will align this QI initiative
+
+with the existing Health Home model, which NC Medicaid implemented to provide person-
+
+centered care management for Medicaid beneficiaries with BH, intellectual and developmental
+
+disabilities (IDD), traumatic brain injury and SUD needs, and its quality approach.
+
+        3b. Deliver enhanced assessment & treatment programs to address critical care gaps
+
+        Activity 3b.1. First Episode Psychosis Programs. Expand the Coordinated Specialty Care
+
+(CSC) model with rural adaptations to increase access, such as a hub and spoke model that
+
+incorporates tele-psychiatry with community-based teams to reduce geographic barriers. CSC
+
+provides an interprofessional team-based approach for early intervention with youth with
+
+emerging psychosis.
+
+
+
+
+                                            23   NCRHTP
+       The CCBHC structure ensures that robust early serious mental
+                                                                                     out of
+
+illness services (early screening, diagnosis, outpatient and family          Counties in NC still lack
+                                                                             active psychologists, and
+therapy, psychiatric care, peer support, and supported                       youth suicide is now the
+                                                                             leading cause of death
+employment/education) are accessible and integrated into whole               among ages 10 14.
+
+person care. Universal screening practices incorporated across CCBHC services will identify and
+
+support individuals at high risk of developing serious mental illness prior and connect them to
+
+integrated care, mitigating or delaying onset, and often preventing Emergency Department
+
+encounters.
+
+       Activity 3b.2. Rural Crisis Centers. Integrate new community crisis centers into CCBHCs
+
+in total areas to provide 24/7 assessment, stabilization, health evaluations, substance use
+
+interventions, and referral services. By integrating crisis centers with the longer term and more
+
+comprehensive care offered at a CCBHC, individuals who experience a mental health crisis will
+
+be more likely to receive ongoing care to support recovery after a crisis.
+
+       Activity 3b.3. Mobile Outreach Response Engagement and
+
+Stabilization (MORES). On any given night in North Carolina, an
+
+average of 74 youth spends the night in an emergency room due to
+
+a mental health crisis. Often, families seek care at an emergency
+
+room even though another care setting is more appropriate for their
+
+needs. This project will help to reduce ED utilization for youth experiencing a mental health
+
+crisis by expanding access to MORES       a team-based crisis response intervention for youth
+
+experiencing escalating behavioral needs    in 8 10 rural counties to provide timely, community-
+
+based crisis response and stabilization for children and their families, reducing dependence on
+
+emergency services. We intend to further innovate on this model by linking MORES to
+
+
+
+
+                                           24   NCRHTP
+CCBHCs, increasing connections to ongoing care to ensure youth treatment needs are met to
+
+support recovery after a crisis.
+
+       Activity 3b.4. SBHCs: Youth are six times more likely to complete evidence-based
+
+treatment when offered in schools vs. other community settings. This initiative will remove
+
+barriers to care by expanding SBHCs in rural areas to provide youth with integrated behavioral
+
+and physical health services. SBHCs are co-located on school campuses and therefore are
+
+particularly effective in rural areas where residents often face significant access barriers.
+
+       Activity 3b.5. Mobile Opioid Treatment Programs (OTP) and Medication Units (OTP):
+
+Deliver Medications for Opioid Use Disorder (MOUD), including methadone, and other clinical
+
+and supportive wrap-around services in hard-to-reach rural communities. North Carolina is
+
+operating 1 of only 71 Drug Enforcement Administration (DEA) approved Mobile OTPs
+
+nationwide and is in the process of launching an additional 10 to support OTP access for remote
+
+and rural areas. This initiative will further support access for rural areas by connecting brick-and-
+
+mortar OTPs with rural communities that have inadequate access to all FDA-approved forms of
+
+MOUD. This is achieved through strategic partnerships between OTPs and rural community
+
+organizations, enabling service delivery via mobile units or co-located medication units within
+
+existing health centers (e.g. FQHCs). Funds would be used to purchase mobile units and/or re-
+
+purposing existing health centers to serve as OTP medication units. Through flexible, targeted
+
+outreach, this approach will seek to connect high need populations, particularly pregnant and
+
+breastfeeding women, to critical OUD treatment services.
+
+       3c. Leverage collaborative and non-traditional workforce models to connect North
+
+Carolinians to care
+
+
+
+
+                                            25   NCRHTP
+       Activity 3c.1. NC Maternal Mental Health MATTERS (Making Access to Treatment,
+
+Evaluation, Resources, and Screening Better). NC MATTERS
+
+perinatal psychiatry access program that bridges obstetric, primary care, and mental health
+
+providers to create a more coordinated system of care for pregnant and postpartum individuals
+
+with behavioral health and substance use needs. The program, which is unique to NC, has
+
+reached providers in 52 of 100 counties but does not have reach in the most rural areas of the
+
+state. While 1 in 7 women nationally experience perinatal depression, research shows that up to 1
+
+in 3 pregnant women in rural Southern clinics are at risk    underscoring the urgent need to
+
+expand NC MATTERS into rural counties like Chowan, Dare, Ashe, Chatham, Granville, and
+
+Rockingham, where emergency departments and CAHs often serve as the only behavioral health
+
+entry point. Funds will support clinical coverage for phone consultation, clinical onsite leads,
+
+travel for hospital visits and on-site collaborative meetings, training, education, and provider.
+
+       Activity 3c.2. Paramedic Initiated Medication Assisted Treatment Access. Strengthen
+
+access to medications for mental health and SUD in rural communities by leveraging paramedics
+
+to initiate Medication Assisted Treatment after an overdose. Evaluations show that individuals
+
+who receive EMS-initiated buprenorphine are more likely to engage in substance use treatment
+
+after an overdose. NC is currently piloting this initiative in 20 counties and proposes utilizing
+
+this grant to expand to an additional 10 counties in rural areas.
+
+
+
+
+                                            26   NCRHTP
+Initiative 3: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: Proposed Initiative 3 activities are designed to build a cohesive and accessible behavioral health
+system in rural North Carolina. The selected metrics ranging from CCBHC expansion to reduced emergency
+department use track how these efforts strengthen care coordination, expand service availability, and improve
+access to timely, appropriate treatment. Together, they measure how well the activities are closing rural care gaps,
+integrating behavioral health services, and ensuring patients receive the right care in the right setting.
+1. Establish New Rural CCBHCs
+By PY2 (2027), five CCBHCs will be established (baseline: 0). New CCBHCs are foundational to coordinate rural
+provision of planned behavioral health activities (Activity 2a).
+2. Increase in Percent of Medicaid Members Beginning Mental Health Treatment*
+By PY5 (2031), % of Medicaid members beginning mental health treatment increased by 5% each year (baseline:
+20%). Service penetration measures how easily eligible people can reach and use a given service or set of services.
+(Activities 2a, 2b, 2c).
+3. Decrease ED Utilization for Mental Health Needs
+By PY5 (2031), average daily # of individuals in the ED seeking treatment for mental health needs have decreased
+by 8 10% each year (baseline: 409). Demonstrates diversion to more appropriate treatment settings and increase
+in upstream access to treatment (Activities 2a, 2b, 2c).
+4. Decreased ED Utilization for Opioid Overdose
+By PY5 (2031), # of annual ED encounters related to opioid overdose decreased by 20% (baseline: 4,971).
+Demonstrates diversion to more appropriate treatment alternatives through increased availability and accessibility
+of medications for OUD and other clinical services (Activities 2b, 2c).
+5. Decreased ED Occupancy for Youth Mental Health Needs
+By PY5 (2031), average daily ED occupancy rate of members under the 18 for visits &gt; 24 hours will decrease by 8
+  10% (baseline: 74). A decrease demonstrates diversion to more appropriate treatment settings and increase in
+upstream access to treatment (Activities 2b, 2c)
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+
+
+
+
+Initiative 4: Build a Robust & Resilient Workforce & Innovative Care Team Models for Rural
+Communities
+ Challenge: Persistent rural health workforce shortages in North Carolina are driven by uncoordinated and
+ fragmented programming, limited training sites and faculty shortages, and placement and retention challenges.
+ Future State: A modernized,               Activities:
+ sustainable rural health workforce            Launch new rural residencies and fellowships
+ supported by integrated training hubs,        Expand simulation labs and interprofessional training
+ expanded residencies/fellowships and          Increase qualified training sites and clinical faculty
+ upskilling programs.                          Build high school-to-health care and invest in upskilling pipelines
+                                               Expand certification programs in key workforce shortage areas
+                                               Provide paid internships, tuition-free certification, and employment
+                                               incentives/ placement services for five-year rural service
+                                               commitment
+ Main Strategic Goal: Goal 3: Workforce Development.
+ Use of Funds: D, E, H, I |Technical Score Factors: B.1, B.4. (Nutrition CME Policy) C.1, C.2, D.1 | Estimated
+ Required Funding: $136M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+
+
+
+
+                                                   27   NCRHTP
+Description:
+
+through direct investment in CBOs to lead expanded education and training programs. We will
+
+achieve this by:
+
+     1. Expanding existing programs to support education,                                 out of
+                                                                             counties in NC are designated
+        training, and placement into rural communities for                   as a Health Professional
+                                                                             Shortage Areas for primary care
+        more high-need provider types                                        (NC Rural Snapshot, 2025)
+
+
+     2. Ensuring sufficient staff/faculty to educate (precept, train, etc.) students
+
+     3. Translating train into retain - keeping people in rural health positions where turnover
+
+        is currently high, including high school outreach programs such as the NC Chamber High
+
+        School to Healthcare program; and
+
+     4. Leveraging data to tailor solutions to regional specific needs / avoiding one size fits all
+
+        approach.
+
+NC proposes to undertake three projects in support of                              statewide workforce
+
+development goals.
+
+        4a. Establish Regional Rural Training Hubs. Coordinated via the ROOTS Hubs, with
+
+programs led by regional partners including rural hospitals, universities, community colleges, K-
+
+12           career and technical education departments, and other rural community-based
+
+groups, training hubs will organize and deliver a broad menu of technical support, training, and
+
+administrative services to bolster the rural healthcare workforce across the state (Table 13).
+
+Table 13. Rural Training Hub Projects & Use of Funds
+   Launching new rural residencies and fellowships in high-need medical specialties (see table below)
+   Providing simulation labs for medical trainees and practicing clinicians to prepare for high-acuity, low-
+   occurrence events, such as obstetric emergencies and trauma, and offering interprofessional training to foster
+   collaborative care among doctors, nurses, pharmacists, social workers, and paramedics.
+   Offering technical assistance, training, and start-up and operating funding to increase the number of
+   qualified training sites and the number of clinical teaching faculty/preceptors
+   Coordinating outreach, education, and clinical practice pipelines to guide students from high school and
+   community college through health career pathways and into rural clinical practice, with a focus on retention.
+
+
+
+
+                                                 28   NCRHTP
+Table 13. Rural Training Hub Projects & Use of Funds
+   Rural training hubs will also engage NCWorks career centers to connect jobseekers with education, training,
+   and career services.
+   Promoting community-based, interprofessional training and preparation for innovative care models such as
+   shared maternity care, community paramedicine, and models anchored by CHWs
+   Building pipeline programs to                                   and ladders within high-need professions
+   including administrative staff (i.e., practice managers)
+   Building culturally responsive health career pathway programs, including in tribal communities, developed in
+   collaboration with high schools and community colleges, to expand entry into and retention in these communities.
+
+Training Hubs will initially focus on six high-need provider categories and will be coordinated
+
+with existing regional and statewide initiatives and will require a five-year service commitment:
+
+Table 14. Initiative 4 Initial Focus Areas for High Needs
+                                                                                  Mental Health & Emergency
+  Primary Care                           Oral      Nurses, Caregivers & Allied
+                      Specialists                                                  Substance Use    Medical
+   Providers                            Health        Health Professionals
+                                                                                   Professionals    Services
+Physician           Psychiatry,       Dentists;  Licensed Practical Nurses       Social Workers,  Paramedics,
+Assistants (PAs), Maternal Health     Dental     (LPNs), Registered Nurses       Peer Support     Emergency
+Nurse               (OB/GYN,          Hygienists (RNs), Nurse Anesthetists       Specialists      Medical
+Practitioners (NPs) Midwives,                    (CRNA), Direct Care                              Technicians
+Medical Doctors Doulas)                          Workers, Pharmacists,                            (EMTs)
+(MD and DOs)                                     Pharmacy Technicians,
+                                                 Surgical, Radiology, Lab
+                                                 Technicians CHWs
+
+        4b. Expand the Rural Behavioral Health Workforce Development Certification
+
+Program. This statewide program expands the Qualified                        Innovations in NC
+
+Professional (QP) Certification Program in partnership with                   Workforce & Apprenticeships
+                                                                                         (2025)
+the NC Community College System (NCCCS) to strengthen                        Sets ambitious targets for
+                                                                             doubling registered apprentices,
+the behavioral health workforce in rural and underserved                     expanding work-based learning,
+                                                                             and engaging employers across
+counties. The project will provide paid work-based learning,                 key sectors including health
+                                                                             care. These goals align with
+tuition-free certification opportunities, and selective awards
+                                                                             school-to-healthcare pipelines,
+and placement services to prepare and place community-                       expanding rural residencies, and
+                                                                             launching innovative care team
+based practitioners for behavioral health and substance use                  models. Sector-based strategies
+                                                                             and employer partnerships are
+treatment roles. Training will emphasize rural practice,                     central to both statewide and rural
+                                                                             workforce development efforts.
+integrated care, telehealth, and trauma-informed approaches.
+
+Graduates will receive employment placement support and tuition reimbursement for serving in
+
+
+                                                  29   NCRHTP
+designated rural communities, addressing workforce shortages and improving access to
+
+behavioral health care.
+
+       4.c. Expand Social Work Rural Scholars Program: Strengthening Behavioral Health
+
+Access and Leadership. This statewide program will train and retain a new generation of social
+
+workers to serve rural and frontier NC communities. The activity will support paid field
+
+placements and tuition reimbursement for undergraduate and graduate students committed to
+
+rural behavioral health, substance use, and aging services.vii Participants will receive specialized
+
+training in rural practice, tele-behavioral health, and workforce resiliency, and commit to five
+
+years of rural service post-graduation. By focusing on structured training, mentorship, and
+
+service commitments, the program will strengthen the pipeline of licensed professionals and
+
+improve access to behavioral health care in high-need rural counties.
+
+       4.d. Develop a community doula and community health worker program. This program
+
+will train and certify doulas for rural deployment and integrate them with CHWs to provide
+
+culturally appropriate perinatal support in rural communities.
+
+       The CHW will serve as the frontline staff responsible for creating awareness about the
+
+program within the community, using social media, community events, and presentations to
+
+churches, schools and providers, to recruit pregnant women as early in pregnancy as possible in
+
+efforts to increase the number of women receiving prenatal care in the first trimester. The CHW
+
+will also be responsible for facilitating opportunities to build social support among the pregnant,
+
+postpartum, and interconnection women participating in the program. The doulas will each be
+
+assigned a number of women for which they will be the primary doula. The doulas will work
+
+collaboratively to ensure that all pregnant women have continuous labor support; therefore,
+
+
+
+
+                                            30   NCRHTP
+providing back-up coverage for each other. The doula and/or CHW will be expected to maintain
+
+contact with the woman beginning prenatally through the postpartum period.
+
+        Key Stakeholders: Examples of organizations that will partner on these efforts are
+
+summarized in Table 15.
+
+Table 15: Initiative 4 Example Stakeholder Partners
+Partner              Summary
+The University of     North Carolina is home to 16 public universities, including five Historically Black Colleges
+North Carolina        and Universities (HBCUs) such as Elizabeth City State University, located in a rural area.
+System                The state also hosts rural campuses in both the western region Western Carolina University
+                      and Appalachian State University and the eastern region, where UNC Pembroke stands as
+
+                      Center for Health Services Research, known for its rural health expertise, will also support
+                      this initiative.
+NC AHEC               Provides and supports educational activities with a focus on primary care in rural
+                      communities and those with less access to resources to recruit, train, and retain the health
+                      workforce. Includes the NC Center on the Workforce for Health, which works to strengthen
+
+
+The NC Community Includes 58 community colleges, with a campus within 30 miles of almost every North
+College System       Carolinian. NCDHHS has existing educational partnerships with the NCCCS to deliver CHW
+(NCCCS)              and behavioral health training.
+                                                                        including 11 Small Rural Hospitals and 20
+network of rural    Critical Access Hospitals (CAHs) supported through the HRSA FLEX and SHIP programs
+hospitals including forms a critical foundation for statewide transformation. These facilities, many of which serve
+those in the HRSA as the sole source of inpatient and emergency care in their regions, are supported by the Office
+FLEX and SHIP       of Rural Health (ORH) in partnership with the NC Healthcare Association to deliver technical
+Programs            assistance and capacity-building support. Systems like Scotland Health exemplify the
+                    resilience and innovation of rural providers, demonstrating how targeted investment and
+                    collaboration can sustain access to care in underserved communities.
+NC Department of Provide access to braided funding for tuition and work-based learning as well as local job
+Commerce &          placement support at the more than 70 NC Career Centers.
+NCWorks
+Commission
+
+Initiative 4: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: The outcomes and metrics for Initiative 4 are designed to measure progress toward building a
+sustainable rural health workforce and care team infrastructure across North Carolina. By tracking the launch of
+new rural residency and fellowship programs, the placement of CHWs and EMS professionals, reductions in
+clinician vacancy rates, and improvements in primary care clinician ratios, these metrics ensure that each activity
+contributes to long-term workforce stability and capacity.
+
+
+
+
+                                                   31   NCRHTP
+Initiative 4: Outcomes, Metrics, Baseline, Target, and Timeline
+1. Increase Rural Residencies & Fellowship Programs*
+By PY5 (2031), 8 12 new programs in high need specialties (baseline: 10). Expanding rural GME based
+programs is a proven strategy to increase rural provider retention (Activity 4a)
+2. Increase EMS Professionals in Rural Communities*
+For each of PY 2 - 5 (2017 - 2031), 150 new EMTs per year (baseline: 0). Addresses a major workforce gap in
+rural communities, with projections to worsen (Activity 4a).
+3. Improve Rural Clinician Vacancy Rates*
+By PY5 (2031), 10% reduction in county-level xix-month clinician vacancy rate. Filling vacancies is critical to
+ensuring sustainable access to care (Activity 4a, 4b)
+4. Improve Rural County Primary Care Clinician Ratio*
+By PY5 (2031), 15% reduction in # of rural counties where ratio of population to primary care clinician is less
+than 1500:1 (Midwives, NP, PCP). This metric reflects the            impact on access to care (Activity 4a).
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+
+
+Initiative 5: Ensure Fiscal Sustainability of Rural Health Providers Through Innovative
+Financial Models
+ Challenge: Rural patients encounter a fragmented care delivery system, while many providers struggle to stay
+ financially viable. Value-based payment (VBP) can offer a path forward when providers have the experience
+ and skills to succeed.
+ Future State: Coordinated health care VBP programs supporting                Summary of Activities:
+ rural primary care practices and rural hospitals, to facilitate a reliable     Develop and build rural primary
+ revenue stream. This enables providers to invest in team-based care,           care and hospital VBP capacity
+ adopt innovative ways of working, and focus on improving outcomes              building program
+ rather than volume. For patients, this transformation means greater            Develop and build Medicaid rural
+ access to coordinated, preventive, and whole-person care delivered             primary care capitation pilot
+ closer to home.
+ Main Strategic Goal: 2) Sustainable access
+ Use of Funds: D, F, G, K | Technical Score Factors: B.1, C.1, E.1, | Estimated Required Funding: $82M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+
+Description: This initiative will provide technical assistance, infrastructure funding and
+
+coordination of regional coalition networks to develop and administer paired rural value-based
+
+payment (VBP) strategies to build capacity for rural primary care providers and hospitals. VBP
+
+is a model that shifts health care payments from volume to value                   rewarding providers for
+
+delivering high-quality, coordinated care rather than the number of services rendered. This
+
+approach is especially beneficial in rural settings, where providers often face financial instability
+
+and fragmented care systems. This initiative will build on existing NC efforts to move providers
+
+to higher level VBP models. A planned primary care capitation pilot builds on NC
+
+
+
+
+                                                     32    NCRHTP
+years of investment in population health and VBP, including its longstanding commitment to
+
+coordinated patient-centered medical homes and value-based contracting through its managed
+
+care transformation. Planned VBP capacity building for hospitals builds on NC
+
+hospital network in the established Medicare Rural Hospital Flexibility Program (Flex) and the
+
+statewide rural health clinic network at the NC Office of Rural Health (ORH), which provides a
+
+framework to partner with regional networks to prevent or reduce transfers to larger urban
+
+hospitals. Note that RHTP funds will support development and implementation of these pilots,
+
+but will not pay for delivery of patient care, including capitation payments.
+
+                                Where We Are in NC          Rural Value Based Care
+ Primary Care                                                               Hospitals
+                                                                              NC has 55 rural hospitals: 20 CAH
+  locations, with 27% (805) in rural counties.                                and 35 short-term PPS hospitals.
+  Of rural Medicaid medical homes, 57% participate in Tier 3 of the           Many rural hospitals face financial
+  Advanced Medical Home (AMH) program; most Tier 3 contracts are              instability and do not provide
+  pay-for-performance, with some in shared savings and Medicare VBP           optimal service mix or geographic
+  programs.viii                                                               coverage.
+  AMH Tier 3 provides per member per month payments (PMPM) to
+  support care management and infrastructure.                               Rationale for focus:
+                                                                              VBP programs can target resources
+ Rationale for focus:                                                         to community health outcomes, but
+  NC providers support expanding AMH to include prospective                   rural hospitals need foundational
+  payments, replacing fee-for-service.                                        capacity building financial
+  Capitation allows rural practices to invest in team-based care and          expertise, data analysis, and IT
+  provides financial stability, especially for smaller practices vulnerable   systems to participate
+  to unexpected shifts.                                                       successfully.
+
+Proposed Programs:
+
+        NC will use RHTP funds to launch two complementary efforts to support VBP for rural
+
+hospitals and primary care providers:
+
+    Capacity building for rural health care providers and hospital networks - including CAH,
+
+    regional partner hospitals, and primary care providers - to successfully participate in VBP.
+
+    A Medicaid primary care/pediatrics capitation pilot to provide an opportunity for rural
+
+    primary care providers to test an advanced value-based payment program.
+
+
+
+
+                                                  33   NCRHTP
+       These programs will leverage NC ROOTS Hubs to administer VBP capacity building
+
+funds, develop key elements of the primary care capitation pilot with stakeholder input, oversee
+
+hospital quality metric reporting, and promote shared learning across regions to accelerate best
+
+practice adoption. Incorporating regional organizations and partner feedback in the program
+
+design will ensure the programs address specific regional needs and geographies within the
+
+required parameters, rather than relying on a one-size-fits-all approach.
+
+Both components of this initiative share two primary goals:
+
+   Transitioning rural providers to higher level value-based arrangements to improve outcomes
+
+   and reduce total cost of care and promoting eventual multiplayer involvement.
+
+   Maintaining strong access to healthcare services in rural communities strained by provider
+
+   sustainability and healthcare workforce challenges.
+
+       5.a. Rural Hospital VBP Capacity Building: The rural hospital VBP capacity building
+
+program will be administered by the NC Roots Hubs which will implement a competitive
+
+process to select qualified CAHs and their selected primary care partners. The regional hubs will
+
+distribute capacity building funds based on requested components within the selected proposals
+
+                             focus on two community-selected and regionally approved quality
+
+metrics. Through the application process, participating hospitals and their regional hospital
+
+partners will describe how infrastructure investments will be utilized to support the hospital and
+
+one or more local primary care partners. These investments may include some of the following
+
+approaches:
+
+   Investment in technology to support VBP readiness, such as referral systems and population
+
+   health tools.
+
+   Financial expertise or tools.
+
+
+
+                                           34   NCRHTP
+    Acquiring new staff or contracted roles to support quality metric improvement or value-based
+
+    expertise.
+
+        5.b. Primary Care Capitation Pilot: NCDHHS, via NC Medicaid, aims to launch a
+
+primary care capitation pilot for rural providers beginning in 2028. This pilot will provide an
+
+opportunity to design and test a primary care capitation model, which if successful in improving
+
+outcomes and lowering total cost of care, could be implemented more broadly at the end of the
+
+
+
+participation in higher level VBP risk arrangements. In designing the program, NC Medicaid will
+
+continue to align its program design and requirements to opportunities from other payers,
+
+including Medicare                                   , to support increased effectiveness and lower
+
+administrative burden for providers. NC Medicaid will implement this pilot through its
+
+contracted managed care organizations, RHTP funds will not support capitation payments. Key
+
+features of primary care practice pilot will include (to be further developed and designed with
+
+local input):
+
+    Predictable prospective payments. Participating rural primary care practices will receive
+
+    predictable per-member-per-month (PMPM) payments through prospective budgeting. This
+
+    model ensures financial stability while allowing practices to plan and invest in care delivery.
+
+    Select high-value services will remain reimbursed through fee-for-service (FFS) carveouts to
+
+    preserve access and incentivize their use. (As stated above, while RHTP funds would support
+
+    development and implementation of the pilot, Medicaid funds would be used for prospective
+
+    payments; no RHTP funds would be used to pay for delivery of patient care.)
+
+    Performance-based quality incentives. Practices will be evaluated using a set of primary care
+
+    quality measures aligned with existing Medicaid and national standards. Performance
+
+
+
+
+                                           35   NCRHTP
+    incentives will reward improvements in care quality, patient outcomes, and population
+
+    health.
+
+    Upfront transition support. Opportunity for            Innovations in NC
+                                                           Tech companies in NC are implementing AI-
+    pilot participants to receive upfront funds,           powered platforms to streamline clinical
+                                                           documentation, revenue cycle management,
+    administered by the ROOTS hubs, to support             and patient access workflows for rural
+                                                           providers reducing administrative burden and
+    transition to, and initial participation in, a         deployment across health systems has led to:
+
+    capitated model (e.g., technology                        31% reduction in documentation errors
+                                                             24% faster edit times
+                                                             18% reduction in time to complete Histories &
+    investments; financial expertise or tools;               Physicals (H&Ps)
+                                                             2+ hours saved per clinician in documentation
+    acquiring new staff or contracted roles).ix              time
+
+Key Stakeholders: This initiative will be implemented through ROOTS hub partners,
+
+participating CAH and regional system partners, primary care providers, NC Medicaid and its
+
+contracted health plans, the NC ORH, and other partners supporting VBP advancement.
+
+Examples of organizations that will partner on these efforts are summarized in Table 16.
+
+Table 16. Initiative 5 Example Stakeholder Partners
+Partner               Summary
+NC ORH                 Works closely with rural hospitals, FQHCs, RHCs, LHDs, School-based clinics and
+                       other rural health employers. NC ORH also administers provider grant and incentive
+                       programs funded by substantial recurring funds from the NCGA.
+NC Medicaid            Provides health care coverage to more than 3 million eligible low-income adults,
+                       children, pregnant women, seniors and people with disabilities, including through
+                       contract with Medicaid Prepaid Health Plans and implementation of value-based
+                       payment programs.
+NC County EMS Systems                911 response systems, providing assessment, treatment and transport.
+NC AHECs                  Provides and supports educational activities with a focus on primary care in rural
+                          communities and those with less access to resources to recruit, train, and retain the
+                          health workforce. Includes the NC Center on the Workforce for Health, which works to
+                          st                                                            educators, workers,
+                          regulators, and other stakeholders to research, discuss, and develop solutions for the
+
+Rural health care        FQHCs, RHCs, LHDs, other rural primary care providers including Medicaid AMHs,
+providers and their      groups such as the NC Medical Society, Pediatric Society and the North Carolina
+representatives          Academy of Family Physicians.
+Support entities         Accountable Care Organizations, Clinically Integrated Networks
+
+
+
+
+                                                36    NCRHTP
+Initiative 5: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: The activities under Initiative 5 are designed to pilot and implement innovative financial models that
+support the fiscal sustainability of rural health providers. By introducing new payment approaches such as primary
+care capitation and hospital value-based payment pilots and building provider capacity, these efforts aim to create a
+more stable financial environment for rural hospitals and clinics. The outcomes measured in this table, including
+increased access to preventive and ambulatory care for adults, improved rates of well-child visits, greater
+participation in value-based payment models, and reduced transfers to urban hospitals, represent the intended results
+of these approaches. Together, these activities demonstrate how targeted financial innovation can help rural providers
+maintain essential services, respond to community health needs, and achieve long-term sustainability.
+1. PCP Pilot:
+By PY5 (2031), improve the % of persons 20 years of age and older who had an ambulatory or preventative care visit
+(baseline: comparable AAP rate for most recent year data available). Pilot aims to promote preventative care for rural
+residents (Activity 5b).
+2. PCP Pilot: Improving Perinatal Care, Well Child Visits
+By PY5 (2031), improve the % of children receiving recommended well-child visits in the first 30 months of life
+(baseline: comparable WCV rate for most recent year data available). Pilot aims to promote preventative care for
+rural residents (Activity 5b).
+3. VBP: Primary Care
+By PY5 (2031), increase in the # of rural primary care practices participating in a primary care capitation payment
+model (baseline: 0). Pilot aims to promote readiness for VBP models (Activity 5b).
+4. Hospital VBP Capacity Building Pilot: Reduce Transfers to Urban Hospitals*
+By PY5 (2031), reduction, to be determined during implementation planning, in # of patients transferred from
+participating rural hospital to larger, urban hospital for care. Pilot aims to promote readiness for VBP models
+(Activity 5a).
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+
+Initiative 6: Modernize Rural Care Delivery Through Digital Forward Solutions
+ Challenge: Rural providers face persistent barriers to coordinated, tech-enabled care, including limited
+ participation in NC Health Connex, complex and slow IT procurement processes, scarce clinical decision support,
+ and low patient health data literacy that hinders engagement with telehealth and remote monitoring tools.
+ Future state: Rural patients will have more ways       Activities:
+ to get care, more support using technology, and           Institutionalize the Rural Health Innovation Fund (RHIF)
+ better communication with their health team no            Support rural provider use of AI
+ matter where they live. Providers will have better        Increase the number and quality of rural provider
+ tools, easier access to information, and more             connections to the state Health Information Exchange
+ support to deliver high-quality care to rural             (HIE)
+ communities. This connected, equitable digital            Improve digital health literacy in rural communities
+ health system will use real-time data sharing,            Expand virtual care models and technology enabled
+ smart technology, and digital navigators to make          navigation;
+ care more accessible and effective for everyone.
+ Main Strategic Goal: Tech innovation.
+ Use of Funds: C, D, F, G, K, | Technical Score Factors: B.1, C.1, F.1. (Inc. Remote Care Policy), F.2, F3 |
+ Estimated Required Funding: $156M
+ Impacted Counties (FIPS): All 85 rural counties as described in Section IIA (see Annex 1).
+
+Description: This initiative strengthens NC                           infrastructure through a coordinated
+
+set of activities that leverage technology to ease the business of health care , while enhancing
+
+
+
+
+                                                   37   NCRHTP
+rural provider connectivity,
+
+interoperability, digital capacity, and
+
+addressing health data literacy gaps.
+
+NC will achieve this by undertaking
+
+projects to support rural providers and
+
+patients:
+
+       6a. Institutionalize the Rural
+
+Health Innovation Fund (RHIF). x
+
+Administered by NCDHHS, or in
+
+partnership with another entity, the
+
+Rural Health Innovation Fund (RHIF)
+
+is a catalytic investment that will help
+
+rural health providers modernize their business operations and health IT infrastructure, while
+
+testing and scaling novel digital solutions that can help future-proof rural health systems as the
+
+digital landscape evolves. Capitalizing on the       streamlined funding modalities at state level,
+
+the program offers direct financial support to help providers assess current data systems, identify
+
+needs for new health IT, vet vendors, manage procurement and implementation, and establish
+
+effective governance for health information technology. The Fund also enables providers to pilot
+
+and adopt innovative solutions and emerging technologies, giving them the flexibility to test and
+
+integrate tools that improve care, streamline workflows, and enhance patient engagement.
+
+Funding for these efforts will be distributed by the fund office based on a standardized
+
+application process. Key examples of supported technologies and tools include:
+
+       Expanding telehealth and e-consult capabilities
+
+
+
+
+                                            38   NCRHTP
+       Selecting, optimizing, and implementing AI tools,
+
+       such as for clinical decision support (CDS) (see text
+
+       box)
+
+       Upgrading electronic health records (EHRs)
+
+       Implementing business IT platforms
+
+       Support procuring and adopting robotics solutions,
+
+       such as telepresence robots for remote clinical
+
+       support, medication dispensing robots, or logistics
+
+       robots to automate internal hospital deliveries
+
+       Strengthening cybersecurity
+
+       Adopting remote patient monitoring and
+
+       patient/consumer engagement tools (e.g., apps and
+
+       portals)
+
+       Piloting new and emerging technologies to advance
+
+       rural health care delivery
+
+DHHS will work in concert with partners to ensure that
+
+RHIF investments are not only responsive to provider
+
+needs but also scalable, sustainable, and aligned with
+
+broader efforts to improve care quality and reduce
+
+avoidable costs.
+
+       6b. Support Rural Providers in Adopting AI and Emerging Digital Technologies. To
+
+complement the RHIF and ensure rural providers are equipped to adopt and sustain cutting-edge
+
+
+
+
+                                           39   NCRHTP
+digital solutions, this activity will establish the
+
+NC Rural Digital Health Collaborative
+
+(NCRDHC). Currently, there is no centralized
+
+resource to support rural providers in navigating
+
+the rapidly evolving digital health landscape,
+
+including understanding which AI tools are safe,
+
+effective, and sustainable in their practice. The
+
+aim of NCRDHC will be to provide the
+
+infrastructure to assist rural providers in
+
+addressing the unique challenges they face as
+
+they navigate the rapid evolution of AI, remote monitoring, robotics, and other digital solutions
+
+in health care, while maintaining a focus on data protection and privacy. Specifically, NCRDHC
+
+will be composed of two interrelated components: (1) A Rural Community of Practice to foster
+
+collaboration, shared learning, and centralized support for rural providers, and (2) A Rural
+
+Technical Assistance Center (TAC) A hands-on resource center that provides education,
+
+implementation guidance, and real-time feedback loops to help rural providers evaluate, adopt,
+
+and monitor digital health technologies safely and effectively. Together, the NCRDHC will
+
+equip rural providers with the knowledge, tools, and support needed to confidently adopt AI and
+
+other tech solutions that enhance care delivery, safeguard patient outcomes, and promote long-
+
+term sustainability.
+
+        6c. Connect Rural Providers to the state HIE: Advancing Data Sharing and Care
+
+Coordination. NC Health Connex, NC                 -designated HIE operated by the NC Health
+
+Information Exchange Authority (HIEA), is supported by $9 million in annual state
+
+
+
+
+                                              40      NCRHTP
+funding and federal Implementation Advance Planning Document (IAPD) resources,
+
+enabling sustainable, fee-free data exchange for providers statewide. Investment is needed that
+
+builds on that foundation by targeting rural participation, addressing key barriers, and upgrading
+
+rural connections to meet data quality standards    positioning rural communities to lead in
+
+statewide data sharing and precision health innovation.
+
+       While NC Health Connex connects all acute care hospitals and over 10,000 ambulatory
+
+facilities, only 41% of rural providers are actively exchanging data. This project addresses
+
+operational, technical, and financial barriers by providing capacity-building and support to
+
+professional staff across various areas including information exchange, offering tailored
+
+connection solutions, implementation-focused technical assistance, and strategic and
+
+sustainability planning support. Participation Agreements will be required for funding, ensuring
+
+accountability and meaningful engagement. The initiative also upgrades existing rural
+
+connections to meet data quality standards for completeness, timeliness, and accuracy. This
+
+project fills a critical gap by enabling rural providers to leverage the HIE for population health
+
+innovation, care gap identification, clinical decision making and improved health outcomes,
+
+positioning rural communities as leaders in statewide data sharing. Over time, this infrastructure
+
+will also support the advancement of rural precision medicine by enabling more targeted, data-
+
+driven care tailored to local population needs.
+
+       6d. Improve Digital Health Literacy in Rural
+
+Communities: Empowering Patients Through
+
+Embedded Support. Digital health literacy is essential
+
+for ensuring that patients can benefit from the
+
+growing number of technology-enabled health
+
+
+
+
+                                            41    NCRHTP
+services. In rural areas, where access to in-person care may be limited, digital tools offer a
+
+lifeline but only if patients know how to use them. This activity strengthens digital health
+
+literacy among rural residents, enabling them to fully participate in telehealth, health information
+
+exchange, and patient-facing digital tools such as health questionnaires and educational
+
+resources. Critically, the project helps ensure inclusion of the 65 and older population, which has
+
+grown faster in rural areas, particularly in the Western and Northeastern NC (
+
+                   in initiative 1). The project expands a successful partnership between the
+
+NCDIT Division of Broadband and Digital Opportunity and NC 211, leveraging
+
+multilingual, 24/7 support line and statewide digital navigation infrastructure   which has
+
+already assisted over 26,000 residents in 2025. Through this partnership, Digital Navigators will
+
+collaborate with NC AHECs and rural provider practices to deliver personalized, one-on-one
+
+training on essential digital health skills such as scheduling and utilizing telehealth appointments,
+
+accessing patient portals, and using remote monitoring devices. These sessions will be hosted at
+
+regional AHEC hubs, embedding digital literacy support directly into care delivery sites. To
+
+ensure equitable access, the initiative also includes digital skills assessments and connections to
+
+low-cost internet and device programs, helping patients overcome barriers to digital
+
+participation. By aligning digital support with broadband infrastructure and asynchronous care
+
+tools deployed statewide, this initiative transforms technology investments into meaningful
+
+improvements in health access, engagement, and outcomes for rural communities.
+
+       6e. Integrate RPM and CCM into Rural Health Care. This statewide project strengthens
+
+rural health by deploying Remote Patient Monitoring (RPM), Chronic Care Management
+
+(CCM), Hospital at Home, and virtual-first care-type models. Focused on high-risk populations
+
+with chronic conditions, the project will improve patient throughput, enhance workforce
+
+
+
+
+                                            42   NCRHTP
+efficiency, and expand access in underserved communities. A state-selected vendor will deliver
+
+RPM and CCM services integrated with NC Health Connex, beginning with a pilot in two to
+
+three rural provider settings and to scale statewide. Sustainability will be achieved through
+
+reimbursement alignment, workforce optimization, and scalable care pathways. This initiative
+
+supports CMS 2025 pillars of excellence by reducing preventable costs, demonstrating VBC
+
+effectiveness, and empowering healthier living through patient-centered management.
+
+Key Stakeholders: This initiative will be implemented through a broad coalition of state
+
+agencies, CBOs, academic institutions, rural providers, and private-sector partners. Examples of
+
+organizations that will partner on these efforts are summarized in Table 17.
+
+Table 17. Initiative 6 Example Stakeholder Partners
+Partner                    Summary
+NC Department of State     As one of the largest health purchasers in the state, NCDST brings financial acumen and
+Treasurer (NCDST)          alignment with long-term cost containment and quality improvement strategies.
+NC Health Information      The NC HIEA operates NC               -designated health information exchange, NC
+Exchange Authority         HealthConnex, a secure, standardized electronic system in which providers can share
+                           important patient health information.
+NC AHEC                    Provides and supports educational activities with a focus on primary care in rural
+                           communities and those with less access to resources to recruit, train, and retain the health
+                           workforce. Includes the NC Center on the Workforce for Health, which works to
+                           strengthen the workforce by convening employers, educators, workers, regulators, and
+                           other stakeholders to develop solutions.
+NC Department of             The Digital Opportunity Office coordinates 74 partner organizations (e.g., CBOs,
+                             academic institutions) across the state that are working to address the digital needs of
+Office of Digital            rural residents.        BIO specifically manages broadband deployment and mapping,
+Opportunity and              which is critical for rural telehealth and remote monitoring.
+Broadband Infrastructure
+Office (BIO)
+Duke University                    School of Medicine; Clinical & Translational Science Institute; Health AI
+                           Evaluation and Governance Programs provides AI evaluation, safety monitoring, and
+                           governance frameworks for ambient clinical decision support and other AI-enabled
+                           technologies.
+UNC Center for ViVE        Provides expertise in virtual care delivery models and telehealth implementation
+(Virtual care Value and    strategies for rural and underserved communities.
+Excellence):
+Tribal Health Partners: (1 Tribal communities were engaged during stakeholder sessions and are often underserved
+federally recognized and 7 in digital health infrastructure. These partners ensure culturally appropriate
+state-recognized Tribes) implementation of digital tools and equitable access for tribal populations.
+Dogwood Health Trust       A private foundation serving Western NC, the Trust supports broadband expansion,
+                           digital skills training, and the use of libraries and other trusted community spaces as
+                           access points for digital navigation and access to care efforts.
+
+
+
+
+                                                   43   NCRHTP
+Initiative 6: Outcomes, Metrics, Baseline, Target, and Timeline
+Outcomes: The metrics in Initiative 6 are designed to work in concert each one capturing a distinct but
+interconnected aspect of digital transformation in rural health. Together, they reflect a full ecosystem approach:
+from provider readiness and infrastructure (e.g., HIE connectivity, AI tool adoption), to workforce capacity (e.g.,
+participation in technical assistance), to patient empowerment (e.g., digital literacy training). By measuring both
+provider- and patient-facing outcomes, the initiative ensures that technology investments translate into real-world
+improvements in access, engagement, and care quality across rural communities. As providers are rapidly adopting
+these technologies, baselines will be established during implementation to define and drive target rates.
+1. Improve Rural Provider HIE Connectivity*
+By PY3 (2029), improve % of rural provider practices connected to NC Health Connex (baseline: 1,153; target:
+100 new or repaired rural provider practices). Required to bridge the gap of providers who are digitally isolated
+(Activity 6a).
+2. Increase Rural Provider Usage of AI Clinical Decision Support Tools
+By PY5 (2031), improve the % of rural providers utilizing ambient CDS tools (baseline: TBD; target TBD).
+Improves efficiency, information delivery medical decision making, and the range of primary care practices
+(Activity 6a, 6b).
+3. Increase Rural Provider Capacity for Emerging Tech
+By PY5 (2031), increase in # of providers participating in TACs (baseline: TBD; target TBD). Improves overall
+understanding on how to effectively leverage, evaluate, and adopt emerging technologies into their practice
+(Activity 6a, 6b).
+4. Improve Rural Resident Engagement
+By PY5 (2031), increased # of rural residents who receive 1:1 training or attend a group training session (baseline:
+0; target TBD). Ensures rural patients can benefit from existing technology resources and new investments
+(Activity 6a, 6d).
+* = Metrics to be reported at county/rural community level (i.e., ROOTS Hub Region)
+
+
+
+
+                                                   44   NCRHTP
+D. Implementation Plan
+Key:      Stage 0  Stage 1             Stage 2    Stage 3    Stage 4    Stage 5
+  RHT Program Management                      PY1                   PY2                  PY3               PY4               PY5
+                                       Q1   Q2 Q3 Q4        Q1 Q2 Q3 Q4           Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+ Hire NCRHTP team
+ Establish Governance Committees
+ Draft legislative changes
+ Implement legislation to join EMS
+ compact
+ Initiate sustainability planning;
+ stand up NCHRTP reporting
+ Implement PFT; expand school-
+ based prevention programs; pass
+ law requiring nutrition CME
+ Evolve sustainability planning
+ based on early implementation
+ All activities underway via
+ ROOTS Hubs / statewide projects
+ Finalize long-term governance
+ Transition to steady state
+              Initiative 1                    PY1                  PY2                   PY3               PY4               PY5
+                                       Q1   Q2 Q3     Q4    Q1   Q2 Q3      Q4    Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+ Develop/release ROOTS Hub RFP
+ Proposal submission and selection
+ Hub Leads develop and launch
+ ROOTS Hub; conduct regional
+ health needs assessment
+ ROOTS Hub Network deploys
+ Action Plan
+ TA and Refinements
+ Hub Network expands projects
+ ROOTS Hub fully active
+             Initiative 2                     PY1                  PY2                   PY3               PY4               PY5
+                                       Q1   Q2 Q3     Q4    Q1   Q2 Q3      Q4    Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+ Select perinatal, chronic disease
+ and Food is Medicine projects start
+ ROOTS Hubs select additional
+ projects based on Action Plans
+
+
+
+                                                                    45   NCRHTP
+Projects underway; refinements
+ROOTS Hub expand projects
+Projects embedded; dissemination
+            Initiative 3                    PY1               PY2                 PY3               PY4               PY5
+                                     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+Establish CCBHC Quality
+Improvement (QI) Governance
+Begin expansion of mobile OTP
+Initiate CCBHC QI projects
+MORES linking to CCBHCs
+Begin FEP and Mental Health
+MATTERS expansion
+Begin CCBHC expansion
+Integrate community crisis centers
+into CCBHCs
+Expand SBHCs
+Expand EMS MAT access
+CCBHC QI fully embedded
+Finish opening new CCBHCs
+            Initiative 4                    PY1               PY2                 PY3               PY4               PY5
+                                     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+Training sites/partners identified
+Begin expanding Social Work Rural
+Scholars / Rural BH Workforce
+Development Certification Programs
+Establish Regional Rural Training
+Hubs; develop training menu
+Develop doula and CHW program
+TA and Refinements
+Launch doula and CHW program
+All workforce projects operational
+            Initiative 5                    PY1               PY2                 PY3               PY4               PY5
+                                     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+Engage with hospitals and
+practices to clarify needs and
+concerns related to VBP
+Identify pilot sites
+ROOTS Hubs release capacity
+building funds to pilot sites
+
+
+
+                                                             46   NCRHTP
+ROOTS Hubs launch TA
+Initial refinements underway
+TA and capacity building fully
+operational
+Long-term planning and
+refinements
+            Initiative 6                   PY1               PY2                 PY3               PY4               PY5
+                                    Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4     Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4   Q1   Q2 Q3   Q4
+NCRDHC governance established
+Stand up RHIF; pilot sites
+established
+Rural providers submit
+applications to RHIF (annually)
+RHIF releases funds; providers
+implement solutions (annually)
+Providers begin connecting to HIE
+NCRDHC activities begin
+Hubs begin coordinating digital
+literacy projects
+NCRHDHC rural AI study
+developed; released
+Half of identified providers
+connected to HIE
+All identified providers HIE
+connected
+
+
+
+
+                                                            47   NCRHTP
+Governance and Project Management Structure
+
+The NCDHHS will serve as the lead agency for the NCRHTP, with the Office of Rural Health
+
+(ORH) as the administrative home. The ORH will coordinate closely with the Divisions of
+
+Public Health (DPH), NC Medicaid, Mental Health (DMH), Health Service Regulation
+
+(DHSHR), and IT/Data to ensure strategic alignment and programmatic success. Offices within
+
+NCDHHS are designed specifically for the purpose of cross-agency collaboration; NCDHHS has
+
+a track record of success in managing complex programs across its major divisions similar to
+
+what is planned for the RHTP.
+
+Key Personnel and Roles
+We will dedicate a core team of 27 Full-Time Equivalents (FTEs) to support RHTP governance
+
+and implementation across initiatives. Additional FTEs are detailed in the budget narrative
+
+supporting direct implementation across initiatives.
+
+ Table 18: Key Personnel and NC RHTP Program Administration
+ Personnel             FTE       Role
+ Project Director           1    Oversees the program, serves as the primary CMS contact, and coordinates
+                                 across divisions.
+ Program Management        5     Team dedicated to the initiatives being undertaken as part of the plan;
+ Team                            coordinate with teams across NCDHHS as needed.
+ Monitoring,               3     Team manages data collection, dashboard development, CMS reporting,
+ Evaluation & Data               continuous improvement and outcome measurement.
+ Team
+ Finance,                  17    Team ensures budget oversight, compliance with 2 CFR 200/300,
+ Administration, and             procurement, and subrecipient monitoring.
+ Compliance Team
+ Communications &          1     Leads external communications and engagement for the program and
+ Engagement Team                 internal cross-NCDHHS communications.
+
+
+
+Governance Structure and Decision-Making
+To ensure cross-divisional coordination and strategic oversight, NCDHHS will establish a multi-
+
+tiered governance model:
+
+
+
+
+                                              48   NCRHTP
+ Table 19: Program Governance and Decision-Making Bodies
+ Structure         Members                          Role
+ Steering          Senior leaders from ORH, DPH, Provides strategic guidance, policy alignment, and issue
+ Committee         NC Medicaid, DHSR, DMH,          escalation.
+ (Quarterly)       Senior Department leaders
+                   including from legislative
+                   affairs, operational and
+                   technology
+ Program           Initiative leads, program        Oversees day-to-day project execution, resolves
+ Implementation    managers, grant/finance officer, coordination issues across NCDHHS and leads
+ Team (Monthly)    and evaluation lead              stakeholder engagement activities.
+ NC ROOTS Hub      Hub and network partner          Oversees regional hub activities in line with overall
+ Workgroups        leaders, community               program plan; engages key community stakeholders in
+ (Ad Hoc)          representatives                  regional plan design, execution, and reporting, and plans
+                                                    for long-term community sustainability.
+
+This structure ensures frequent communication, defined decision-making protocols, and
+
+flexibility to respond to challenges. Ultimate accountability for decision-making will rest with
+
+the Secretary of NCDHHS should issues arise in program management that are not resolved via
+
+the program Steering Committee.
+
+Key Management & Governance Features
+ Table 20: Key Management & Governance Features
+ Feature           Detail
+ Decision-Making      Decisions regarding program implementation will be made at different levels as by the
+ Processes            Project Director. The Steering Committee will be a forum to discuss major
+                      implementation issues, and the Project Director will bring forward issues and decisions
+                      that require cross-Agency input and coordination.
+ Coordination with    RHTP coordination will leverage both existing interagency workgroups (e.g., Medicaid
+ State Agencies &     Transformation, Rural Health Advisory, Behavioral Health Integration) and others.
+ External             All advisory bodies will follow formal engagement frameworks, and their input will be
+ Stakeholders         integrated into planning, implementation, and evaluation cycles.
+ Oversight &          Fiscal and compliance oversight will be managed by the Grants and Fiscal Officer, in
+ Reporting            coordination with the NCDHHS finance office. ORH will maintain internal tracking
+                      and reporting systems aligned with 2 CFR 200 and 300, including: Subrecipient
+                      agreements, risk-based monitoring plans, budget reconciliations, timely reporting to
+                      CMS using CMS-specified templates
+                      Data and Evaluation activities will use a hybrid model: internal analytics staff and an
+                      external evaluator. Key performance dashboards will monitor the outcomes and metrics
+                      plan described in the application.
+ Sustainability &     From the outset, RHTP governance will be designed to transition into NC
+ Future Governance    rural health strategy. We anticipate that:
+                      The Steering Committee will become a permanent Rural Health Transformation
+                      Oversight Council
+                      The Program Implementation Team structure will remain in place to support future
+                      initiatives and state innovation efforts
+                      Advisory councils will continue as standing forums beyond the grant period
+                      This forward-looking approach demonstrates readiness, ensures accountability, and
+                      supports sustainable transformation.
+
+
+
+                                                49   NCRHTP
+E. Stakeholder Engagement
+Application Development
+       NCDHHS deployed a robust, multi-channel engagement strategy to inform the RHTP
+
+application. Central to this process was the creation of a Stakeholder Input Form, made available
+
+on the NCDHHS website in August 2025, which enabled a wide range of partners         including
+
+hospitals, public health agencies, FQHCs, behavioral health providers, CBOs, advocacy groups,
+
+and technology vendors    to submit feedback directly. In addition to the online form, NCDHHS
+
+received input via targeted emails, listening sessions, webinars, small group convenings, and
+
+virtual town halls, ensuring that voices from every region and sector were represented.
+
+Feedback dashboard. NCDHHS synthesized feedback into a dashboard updated weekly to track
+
+and analyze responses, key themes, interested communities and organization types. NCDHHS
+
+received more than 420 entries, referencing 79 counties and all Medicaid regions. Engagement
+
+was particularly strong in Brunswick, Robeson, Duplin, New Hanover, and Pender counties.
+
+Evidence of support. Our application demonstrates robust and far-reaching support, as
+
+evidenced by the inclusion of 11 Letters of Support in Annex 6. These letters represent a
+
+dynamic, multi-sector coalition of stakeholders and partners spanning philanthropy, academia
+
+                                                  , government, rural health centers, healthcare,
+
+and the North Carolina Commission of Indian Affairs. This coalition reflects a unified
+
+commitment to advancing rural health transformation and innovation across the state.
+
+External discussions. NCDHHS leadership also participated in external meetings and
+
+roundtables organized by rural hospital networks, tribal communities (including the Eastern
+
+Band of Cherokee Indians and NC Commission of Indian Affairs), provider associations, policy
+
+leaders, legislative members, philanthropic groups, business leaders and other key partners.
+
+These sessions provided opportunities for stakeholders to hear directly from NCDHHS about the
+
+
+
+                                          50   NCRHTP
+RHTP vision, share priorities and concerns, and suggest mechanisms for ongoing program
+
+improvement. NCDHHS remains committed to transparent and locally responsive engagement,
+
+with ongoing advisory meetings, tribal engagements, public advisory opportunities, and data
+
+sharing to inform continuous improvement as the program is implemented.
+
+Ongoing Engagement
+       Ongoing stakeholder engagement will be conducted at three levels. First, the NC ROOTS
+
+Hubs will each have a distinct governance structure that is required to include community
+
+stakeholders and groups as members, and NC ROOTS Hubs will be required as part of their
+
+contract with NCDHHS to engage stakeholders: 1) In the design of regional needs assessments
+
+and 2) in the implementation of activities and projects. As part of regular reporting to NCDHHS,
+
+ROOTS Hubs will be required to summarize their engagement processes.
+
+       Second, the overall design of each initiative outside of the NC ROOTS Hubs involves
+
+key stakeholder partners. Examples of those were included in each initiative description.
+
+NCDHHS will require that teams implementing each initiative engage with these stakeholders,
+
+and others, in design and deployment of major projects.
+
+       Third, NCDHHS will establish an external stakeholder engagement plan for the overall
+
+program, including a public website, regular external newsletters/updates, public forums for
+
+input into implementation and review of results and progress, and other mechanisms to ensure
+
+that community members and organizations remain connected to the NCRHTP and help shape it
+                                Innovations in NC
+year over year, in particular
+
+as the state works to create    learned from implementation of other collaborative models such as
+                                the Integrated Care for Kids (INCK) model, which demonstrate how
+long-term sustainability        partnerships across multiple entities and the use of data from
+                                various public sources can identify patient needs, evaluate progress,
+pathways as noted in our        and drive improved outcomes. INCK exemplifies the power of
+                                coordinated multi-sector efforts to improve care for children and
+program plan. As part of this   families by leveraging shared data and continuous evaluation.
+
+
+
+                                           51   NCRHTP
+component, NCDHHS plans to contract with the Duke Margolis Health Policy Institute to lead
+
+regular convenings including listening sessions, lead site visits to NC ROOTS Hubs to engage
+
+communities in design and implementation of programming, partner with local leaders and
+
+officials to document concerns and successes and produce regular reports to the public.
+
+
+F. Metrics and Evaluation Plan
+Overview of Measurement Approach
+       NC will build on experience measuring quality and health outcomes, as well as extensive
+
+investments made in developing structures to support community level quality reporting and develop
+
+digital clinical data. Since its groundbreaking primary care medical home model launched in 1998,xi
+
+                                                 ed the development of coordinating entities that
+
+assist community primary care practices throughout the state with a range of functions including
+
+performance measurement and quality reporting. Since then, North Carolina has continued to build
+
+measurement and reporting capacity through investments in digital quality and performance
+
+reporting, including a range of efforts specifically focused on rural communities in the wake of
+
+Hurricane Helene.xii NC
+
+align with rural community needs as well as Healthy North Carolina 2030 goals.
+
+       NC also recognizes that NCRHTP will be implemented during a broader time of
+
+transformation, as administration promotes new vision for state- and federally funded health
+
+                                                                                 by
+
+           Recognizing that utilization benchmarks based on historical Medicaid data may need
+
+           adjustment to account for changes in approach to eligibility and enrollment
+
+           Emphasizing areas of focus including nutrition and chronic disease burden
+
+           Leveraging technology to minimize provider reporting effort
+
+
+
+
+                                            52   NCRHTP
+Evaluation plan:
+
+           NC will partner with the UNC Sheps Center to assess program performance, with the
+
+goals of gathering all actionable lessons on improving rural health and building a case for multi-
+
+payer participation                               NC Rural Health Research programxiii provides an
+
+extensive base of rural health expertise and experience engaging with rural communities and
+
+leaders. The evaluation will be comprised of annual rapid cycle assessments, targeted at ensuring
+
+real-time learnings to allow NCDHHS to implement data-informed program modifications, and a
+
+summative evaluation which will assess longitudinal progress toward the target outcomes. This
+
+evaluation will include both qualitative and quantitative data and will use quasi-experimental
+
+approaches to compare outcomes associated with different regional approaches to common
+
+challenges, using individual rural regions as laboratories for improvement. NC will cooperate
+
+with any CMS-led evaluation or monitoring. A table
+
+initiative are shown below1:
+
+
+
+
+1
+    Note: Outcomes/metrics noted with a (*) will be analyzed at regional/county level.
+
+
+                                                     53   NCRHTP
+                                                                         Target            Relation to            Data Source(s) /
+                 Outcome              Metric             Baseline
+                                                                        Timeline       Initiative/Activity       Ability to Analyze
+                                                                                      Establishment of NC
+                                                                                      ROOTS Hubs
+               Establish       Number of NC
+                                                                           6          provides the structure NCDHHS/NCDHHS
+               NC ROOTS        ROOTS Hubs                    0
+                                                                        By PY2        for launching other       Overseeing Program
+               Hubs*           established
+                                                                                      initiatives (relates to
+                                                                                      Activity 1a)
+                                                                                      Participation of
+                                                                       Dependent
+                              Proportion of eligible                                  representative
+                                                                      upon eligible
+               Safety Net     hospitals, providers,                                   providers ensures that Self-report from NC
+                                                                      Hub Network                                   ROOTS Hub
+               Provider Hub and CBOs                        0%                        Hubs are engaged and
+                                                                       entities per
+               Participation* participating in Hub                                    working to address        Annual to NCDHHS
+                                                                         region.
+                              collaborative activities                                regional needs (relates
+                                                                        By PY2
+                                                                                      to Activity 1b)
+Initiative 1
+
+
+
+
+                                                                                      Deployment of
+                                                                       Dependent      initiatives
+                               Number of
+               Deploy                                                 upon eligible   demonstrates that NC Self-report from NC
+                               community-specific
+               Community                                              Hub Network     ROOTS Hubs are                ROOTS Hub
+                               targeted initiatives          0
+               Based                                                   entities per   making concrete
+                               deployed, relative to
+               Initiatives*                                              region.      changes in the regions Annual to NCDHHS
+                               baseline
+                                                                        By PY3        they serve (relates to
+                                                                                      Activity 1b)
+                                                                                      Successful referrals
+                                                                       Dependent                                   Derived from
+                                                                                      reinforce relationships
+                                                                      upon eligible                                   Referral
+               Referral      % of successful                                          between regional
+                                                                      Hub Network                               Management   System
+               Activity for  referrals to community         0%                        partners and lay
+                                                                       entities per                             (e.g. NCCARE360)
+               Hub Services* provider network                                         groundwork for future
+                                                                         region.
+                                                                                      joint efforts (relates to Annual to NCDHHS
+                                                                        By PY5
+                                                                                      Activity 1b)
+                                                                                      Accessing timely
+               Perinatal                                                                                        NC State Center for
+                               % of births to women                                   prenatal care is
+               Care:                                                                                              Health Statistics
+                               who receive               Statewide:                   correlated with
+               Increase                                                  80%
+                               prenatal care during        72%2                       positive maternal and            Annual
+               Access to                                                By PY5
+                               the first trimester of                                 early child health          State dashboard
+               Prenatal
+                               pregnancy                                              outcomes (relates to
+               Care*
+                                                                                      Activity 2a)
+               Chronic
+                                                                                      Reduction in
+Initiative 2
+
+
+
+
+               Disease:
+                                                                                      comorbidity is critical
+               Reduction in Reduction in the % of
+                                                                                      for financial solvency     Annual EMR data
+               Chronic       adults in the target
+                                                                                      because patients with
+               Disease High- rural population                            9.7%4                                     Collected at the
+                                                          12.1%3                      multiple chronic
+               Cost          reporting three or more                    By PY5                                    regional level by
+                                                                                      conditions cost
+               Comorbidity chronic health                                                                          ROOTS hubs.
+                                                                                      healthcare systems
+               Burden*       conditions
+                                                                                      more than six times.
+                                                                                      (relates to Activity 2b)
+               Chronic         % increase in # of                         5%          Utilization of SMBP        Annual EMR data
+                                                           TBD5
+               Care:           patients who are                           PY3         correlates with better
+
+2
+  Rural county rates to be established from existing data.
+3
+  Hubs to establish new baselines for region.
+4
+  Note: during this period, we anticipate a boost in uninsured populations. Maintaining would be a success.
+5
+  To be established for each NC ROOTS Region.
+
+
+                                                                 54   NCRHTP
+                                                                       Target            Relation to           Data Source(s) /
+                 Outcome              Metric           Baseline
+                                                                      Timeline       Initiative/Activity      Ability to Analyze
+               Increase       offered/received                          10%        cardiovascular               Collected at the
+               Patient Use of SMBP out of those                         PY5        outcomes for patients       regional level by
+               Self-          eligible                                             with chronic disease         ROOTS hubs.
+               Monitoring                                                          (relates to Activity 2b)
+               Blood
+               Pressure*
+                                                                                   Referrals to               (QuitlineNC
+               Chronic      % increase of referrals                      5%
+                                                                                   QuitlineNC relate to         Vendor)
+               Care:        to QuitlineNC from                          PY 3
+                                                        TBD                        successful smoking
+               Decrease     participating counties /                    10%                                 Quarterly report to
+                                                                                   cessation result
+               Tobacco Use* organizations                               PY5                                    NCDHHS
+                                                                                   (relates to Activity 2c)
+               Food As
+                               % of high-risk
+               Medicine:                                                           Healthy food access
+                               individuals (as defined                                                          Collected at the
+               Increase                                               15-20%       linked to lower risk of
+                               by NCDHHS)              TBD6                                                    regional level by
+               access to                                              By PY5       chronic illness (relates
+                               receiving healthy food                                                           ROOTS hubs.
+               healthy food                                                        to Activity 2c)
+                               boxes.
+               prescriptions
+                                                                                 Necessary to
+               Establish New                                                     coordinate rural
+                             Number of rural                              5                                NCDHHS/NCDHHS
+               Rural                                      0                      provision of planned
+                             CCBHCs                                    By PY2                              Overseeing Program
+               CCBHCs*                                                           activities (relates to
+                                                                                 Activity 3a)
+                                                                                 Indicator of system
+               Increase in
+                                                                                 access is used to
+               Percent of
+                                                                                 characterize how           Quarterly reporting
+               Individuals
+                             % of Medicaid                           5% increase accessible a particular     from Medicaid
+               Medicaid
+                             members beginning           20%          each year  service or group of         Managed Care
+               Members
+                             treatment                                 By PY5    services is for persons Tailored Plans to
+               Beginning
+                                                                                 eligible to receive            NCDHHS
+               Mental Health
+                                                                                 those services (relates
+               Treatment
+                                                                                 to Activities 3a, 3b, 3c)
+                                                                                 Diversion of
+Initiative 3
+
+
+
+
+                                                                                 individuals
+                               Average daily #                                   experiencing mental
+               Decrease ED
+                               individuals in the                      8-10%     health crises to           Quarterly reporting
+               Utilization for
+                               emergency department      409          decrease   appropriate treatment from NC Detect to
+               Mental Health
+                               seeking treatment for                   By PY5    settings and increase in       NCDHHS
+               Needs
+                               mental health needs                               upstream access to
+                                                                                 treatment (relates to
+                                                                                 Activities 3a, 3b, 3c)
+                                                                                 Diversion of
+                                                                                 individuals to more
+                                                                                 appropriate treatment
+               Decrease ED
+                               # of annual ED                                    alternatives through       Monthly reporting
+               Utilization for                                      20% decrease
+                               encounters related to    4,971                    increased availability from NC Detect to
+               Opioid                                                  By PY5
+                               opioid overdose                                   and improved                   NCDHHS
+               Overdose
+                                                                                 accessibility of
+                                                                                 medications (relates to
+                                                                                 Activities 3b, 3c)
+
+
+6
+     To be established for each NC ROOTS Region.
+
+
+                                                               55   NCRHTP
+                                                                         Target             Relation to          Data Source(s) /
+                 Outcome               Metric             Baseline
+                                                                        Timeline        Initiative/Activity     Ability to Analyze
+                                                                                     Diversion of youth
+                             Average daily ED                                        experiencing mental
+               Decrease ED
+                             occupancy rate of                                       health crises to more
+               Occupancy                                                 8-10%                                  Quarterly reporting
+                             members under the age                                   appropriate treatment
+               for Youth                                     74         decrease                                from NC Detect to
+                             of 18 for visits &gt; 24                                   settings and increase in
+               Mental Health                                             By PY5                                      NCDHHS
+                             hours related to mental                                 upstream access to
+               Needs
+                             health needs                                            treatment (relates to
+                                                                                     Activities 3a, 3b)
+                                                                                     Expanding rural GME UNC System Office,
+                                                                        8-12 new                                   Sheps Center
+               Increase Rural # of rural residency                                   based programs is a
+                                                                      programs in                              Technical   Assistance
+               Residencies & and fellowship                                          proven strategy to
+                                                             10        high-need                                   Center   (TAC)
+               Fellowship     programs launched in                                   increase rural provider
+                                                                       specialties                                 Annual   Report
+               Programs*      rural counties                                                    (relates to
+                                                                         By PY5
+                                                                                     activity 4a)               Routinely analyzed
+                                                                                     Major workforce gap
+               Increase EMS # of graduates each                      150 EMTs per                                  Annual Report
+                                                                                     in rural communities
+               Professionals year accepting               0/New           year                                     From regional
+                                                                                     with projections to
+               in Rural       full/part-time positions Baseline For each of PY                                        partners
+Initiative 4
+
+
+
+
+                                                                                     worsen (relates to
+               Communities* in rural counties                              2-5                                   to ROOTS Hubs
+                                                                                     activity 4a)
+                                                                                     Filling vacancies is
+               Improve Rural                                                                                       Annual Report
+                              County-level six-                                      critical to ensuring
+               Clinician                                             10% reduction                                 From regional
+                              month clinician               TBD                      sustainable access to
+               Vacancy                                                   By PY5                                       partners
+                              vacancy rate                                           care (relates to activity
+               Rates*                                                                                            to ROOTS Hubs
+                                                                                     4a and 4b)
+               Improve Rural Number of rural                                                                   NC State Center for
+                                                                                     This metric reflects the Health Statistics
+               County         counties where ratio of
+                                                                     15% reduction                                  Annual State
+               Primary Care population to primary           TBD
+                                                                         By PY5      access to care (relates         Dashboard
+               Clinician      care clinician is less
+                                                                                     to activity 4a)
+               Ratio*         than 1500:1                                                                       Routinely analyzed
+                                                        Comparable                                             Administrative data
+               PCP Pilot -
+                              Preventive/Ambulatory (rural,                                                    stratified  by rurality
+               Adults'
+                              Health Services: The       regional) Improvement Pilot aims to promote                 and  region
+               Access to
+                              percentage of persons AAP rate by greater than preventive care for
+               Preventive
+                              20 years of age and        for most statewide trend rural residents (relates This measure is a
+               /Ambulatory                                                                                     HEDIS measure and
+                              older who had an          recent year      By PY5      to activity 5b)
+               Health Care                                                                                     is routinely assessed
+                              ambulatory or                 data
+               (AAP)
+                              preventive care visit.     available
+                                                        Comparable
+                                                           (rural,                                             Administrative data
+Initiative 5
+
+
+
+
+               PCP Pilot -    % of children                                          Pilot aims to promote stratified by rurality
+                                                         regional) Improvement
+               Improving      receiving                                              preventive care for             and region
+                                                         WCV rate by greater than
+               Perinatal      recommended well-                                      rural residents (relates
+                                                         for most statewide trend                                This measure is a
+               Care: Well     child visits in the first                              to activity 5b)
+                                                        recent year      By PY5                                HEDIS    measure and
+               Child Visits   30 months of life
+                                                            data                                               is routinely assessed
+                                                         available
+                              Increase in number of                       To be                                      PHP Data
+                              rural primary care                       determined Pilot aims to promote PHPs report practice
+               Value-Based
+                              practices participating                    during      readiness for VBP         VBP participation on
+               Care -                                         0
+                              in a primary care                     implementation models (relates to             an annual basis
+               Primary Care
+                              capitation payment                     planning with activity 5b)                  using an existing
+                              model.                                 rural practices                                   format
+
+
+                                                                 56   NCRHTP
+                                                                       Target             Relation to         Data Source(s) /
+                 Outcome              Metric            Baseline
+                                                                      Timeline        Initiative/Activity    Ability to Analyze
+                                                                       By PY5
+                              Number of patients
+               Hospital VBP                                             To be                                     Admission,
+                              transferred from
+               Capacity                                Comparable determined Pilot aims to promote               Discharge  and
+                              participating rural
+               Building                                   rate for      during      readiness for VBP        Transfer  (ADT)  data
+                              hospital to larger,
+               Pilot - Reduce                          most recent implementation models (relates to
+                              urban hospital for care                                                            These data are
+               Transfers to                              year data planning with activity 5a)
+                              (county level                                                                  available for DHHS
+               Urban                                     available rural hospitals
+                              performance based on                                                                  analysis
+               Hospitals*                                              By PY5
+                              hospital county)
+                                                                    100 additional
+                                                                    rural practices
+                                                       1,153 rural                  Required to bridge the
+               Rural          % of rural providers                    connected
+                                                         practices                  gap of providers who NC HealthConnex
+               Provider HIE connected to NC                            (new or                                  routinely tracks
+                                                         currently                  are digitally isolated
+               Connectivity* Health Connex                             repaired
+                                                        connected                   (relates to activity 6a) provider connections
+                                                                     connections)
+                                                                       By PY3
+                                                                                    Improves efficiency,
+                                                                                    information delivery,
+               AI Tools:
+                              % of rural providers                                  medical decision           Provider survey
+               Clinical                                                  TBD
+                              utilizing ambient CDS        TBD                      making, and the range        conducted by
+               Decision                                                By PY5
+                              tools                                                 of primary care            NC ROOTS Hub
+               Support
+                                                                                    practice (relates to
+Initiative 6
+
+
+
+
+                                                                                    activity 6a, 6b)
+                                                                                    Improves overall
+                                                                                    understanding on how
+                              # of rural providers                                  to effectively leverage,
+               Emerging                                                                                      Activity registration
+                              participating in TACs                      TBD        evaluate, and adopt
+               tech: Provider                              TBD                                                 data collected by
+                              (Technical Assistance                    By PY5       emerging technologies
+               Education                                                                                       NC ROOTS Hub
+                              Centers)                                              into their practice
+                                                                                    relates to activity 6a,
+                                                                                    6b)
+                                                                                    Ensures rural patients
+                              Number of rural                                       can benefit directly
+               Rural          residents who receive                                 from existing            Activity registration
+                                                        0 (not yet       TBD
+               Resident       1:1 training or attend a                              technology resources       data collected by
+                                                        launched)      By PY5
+               Engagement group training session                                    and new investments        NC ROOTS Hub
+                                                                                    (relates to activity 6a,
+                                                                                    6d)
+
+
+G. Sustainability Plan
+       N                                                                      with project inception. From the outset,
+
+each initiative will include a clear transition plan, and all subgrantees will be required to submit
+
+sustainability strategies as a condition of funding, anchored in multi-payer models, continued
+
+partnerships with academic and community partners to continue select program operations, and
+
+continued funding from state, local, and private sources.
+
+
+                                                               57   NCRHTP
+Table 21. Sustainability Plan
+ Overall
+ In addition to leveraging durable, multi-payer financing mechanisms such as value-based payment models and
+ continued support via state appropriations, the state will actively engage philanthropic partners to extend the reach
+ and longevity of high-impact programs. Lessons learned will be integrated into ongoing policy through regulatory
+ updates, technical assistance platforms, and alignment with long-term system transformation goals.
+ Initiative 1:
+ This initiative is designed to promote the sustainability of community organizations, including the Hub Lead, with
+ NC ROOTS Hub entities operating as part of North Carolina communities and coordinating across a diverse array
+ of payers and funders. By taking a regional approach through the implementation of the NC ROOTS and requiring
+ robust cross-sector collaboration, Hubs will be able to build resilient and diversified funding structures.
+
+ Over the five-year grant period, NC ROOTS Hubs will develop strategic relationships with the network partners
+ and build financial and operational structures that will support their continued operation. In addition to payers in
+ Medicaid and commercial insurance, we anticipate community-based organizations, local government agencies,
+ and others to be integral parts of the NC ROOTS Hubs that will together lead the work of the entities after the
+ grant funds are expended. We see the grant as seed funding
+ going forward.
+ Initiative 2: Create Models & Capacity for Expanded Primary Care, Prevention, and Chronic Disease
+ Management
+ This initiative is designed with sustainability at its core by leveraging and strengthening existing infrastructure
+ rather than creating new, resource-intensive systems. The regionally tailored approach allows communities to
+ integrate the work into existing workflows and funding streams, ensuring its relevance and durability over time.
+
+ The program pairs NC ROOTS Hubs with subject matter experts at academic institutions to customize and connect
+ providers with existing systems of care. Rather than create new models, the approach aligns with existing perinatal
+ heath models and prioritizes expansion into parts of the state where maternity deserts are pronounced. There are
+ current reimbursement models for some of the named interventions. Provider and community engagement and
+ training build local capacity that can be maintained beyond the life of the grant.
+
+ By aligning with established programs such as DPP, DSMES, SMBP, tobacco cessation, and cancer screening
+ initiatives, it supports continuity of care and reduces fragmentation - including with behavioral health. The focus
+ on referral optimization, provider training, and community engagement builds local capacity that can be
+ maintained beyond the life of the grant. There are active reimbursement models for the named interventions.
+ Initiative 3: Expand and Integrate Behavioral Health and Substance Use Disorder Services
+ North Carolina will sustain Initiative 3 by embedding relevant projects (e.g., CCBHC expansion, FEP) within
+ enduring Medicaid payment and policy frameworks to ensure continued access to high-quality behavioral health
+ services beyond FY31. These efforts leverage prospective payment mechanisms that maintain operations without
+ reliance on time-limited grants. Infrastructure and capacity-building investments made under the RHTP will
+ require minimal ongoing costs and will be supported through existing quality reporting systems. By taking a
+ regional approach for new programs, such as EMS-Initiated MAT, initiative 2 will help communities integrate
+ work into existing workflows and funding streams, supporting its relevance and durability after the grant.
+
+ New SBHCs will follow established sustainability models supported by Medicaid reimbursement, partnerships
+ with local education agencies, and philanthropic contributions. State technical assistance will reinforce sound
+ financial and operational practices.
+ Initiative 4: Build a Robust & Resilient Workforce & Innovative Care Team Models for Rural Communities
+ Universities will continue rural field placement and internship stipends through partnerships with AHEC and
+ philanthropic organizations such as the Duke Endowment and BCBS NC Foundation. Stipends will be sustained
+ through provider partnerships and Medicaid administrative match (50/50). Training programs and faculty
+
+ ongoing program delivery and statewide access. Curriculum materials developed under the RHTP will be
+ integrated into the NCCCS permanent course catalog, supported by AHEC continuing education modules. QP
+
+
+
+
+                                                   58    NCRHTP
+projects will continue through NCCCS Workforce Continuing Education streams, sustained by state appropriations
+and strengthened by partnerships with behavioral health employers.
+
+Most residency programs developed under this initiative will transition to long-term sustainability through
+Medicare Graduate Medical Education (GME) reimbursement, providing a permanent and predictable funding
+mechanism. Programs that do not qualify for full Medicare support will receive continued backing through the
+                                                                                                     Program
+administration and evaluation activities will transition to the NCDHHS Behavioral Health Workforce Portal,
+ensuring continued coordination, data tracking, and performance monitoring.
+Initiative 5: Ensure Fiscal Sustainability of Rural Health Providers Through Innovative Financial Models
+This initiative invests in infrastructure and capacity-building activities that will not require ongoing funding once
+established. The infrastructure and practice transformation payments are one-time investments intended to prepare
+rural providers for participation in capitated VBP models. Once systems are in place, providers will be equipped to
+operate within existing Medicaid payment structures and future VBP arrangements with multiple payers. Technical
+assistance will further build capacity within practices, enabling providers to maintain and evolve their VBP
+participation, while enabling Medicaid managed care strategies and payment reforms alongside multi-payer
+opportunities that will augment sustainability efforts.
+Initiative 6: Modernize Rural Care Delivery Through Digital Forward Solutions
+NC Health Connex provides a fee-free data exchange platform for providers across North Carolina. The system is
+supported by approximately $9 million in annual state appropriations and ongoing federal IAPD resources. This
+stable funding model ensures long-term operational viability. NCRDHC will achieve sustainability by embedding
+developed infrastructure and technical assistance into ongoing programs operated by academic and research
+partners, leveraging existing capacity and funding streams to maintain continuity beyond the RHTP funding
+period. Digital health literacy sustainability planning is underway, with options to be determined based on pilot
+outcomes and stakeholder engagement.
+
+Finally, as VBP models expand, the integration of AI-driven tools, RPM, and CCM will enhance care quality,
+close care gaps, and improve performance on quality metrics tied to incentive payments. The resulting gains in
+quality bonus payments are expected to offset ongoing licensing and operational costs, establishing a self-
+sustaining model that aligns financial incentives with improved clinical outcomes beyond the NCRHTP.
+
+
+
+
+                                                  59   NCRHTP
+H. Acronym List
+Table 22. List of Acronyms and State Specific Programs
+
+AAP         Adults Access to Preventive /                 IMEC     Interstate Medical Licensure Compact
+            Ambulatory Health Care                        LHD      Local Health Department
+AHEC        Area Health Education Centers                 LOCATe   Level of Care Assessment Tool
+AI          Artificial Intelligence                       MAHEC    Mountain Area Health Education Center
+AMH         Advanced Medical Home                         MCO      Managed Care Organization
+AROC        Academic Regional Obstetrical                 MD       Doctor of Medicine
+            Collaborative (AROC)                          MORES    Mobile Outreach Response Engagement
+BCBSNC      Blue Cross Blue Shield of North Carolina               and Stabilization
+BH          Behavioral Health                             MOUD     Medications for Opioid Use Disorder
+BRFSS       Behavioral Risk Factor Surveillance System    NC       North Carolina
+CAH         Critical Access Hospital                      NC HIEA  NC Health Information Exchange
+CBO         Community-based Organization                           Authority
+CCBHC       Certified Community Behavioral Health         NC       Making Access to Treatment, Evaluation,
+            Clinics                                       MATTERS Resources, and Screening Better
+CCM         Chronic Care Management                       NC ROOTS NC Rural Organizations Orchestrating
+CCNC        Community Care of North Carolina                       Transformation for Sustainability
+CD          Sickle cell disease                           NCCCS    NC Community College System
+CDS         Clinical Decision Support                     NCDHHS   North Carolina Department of Health &
+CHC         Community Health Center                                Human Services
+CHW         Community Health Worker                       NCDST    North Carolina Department of State
+CMMI        Center for Medicare and Medicaid                       Treasurer
+            Innovation                                    NCGA     NC General Assembly
+CMS         Centers for Medicare & Medicaid Services      NCRDHC NC Rural Digital Health Collaborative
+CON         Certificate of Need                           NCRHTP   North Carolina's Rural Health
+CSC         Coordinated Specialty Care                             Transformation Program
+DEA         Drug Enforcement Agency                       NCSCHS   North Carolina State Center for Health
+DHB         North Carolina Division of Health                      Statistics
+            Benefits                                      NP       Nurse Practitioners
+DHSR        North Carolina Division of Health Service     ORH      North Carolina Office of Rural Health
+            Regulation                                    OTP      Opioid Treatment Program
+DMH         North Carolina Division of Mental Health      OUD      Opioid Use Disorder
+DO          Doctor of Osteopathic Medicine                PCP      Primary Care Provider
+DPH         North Carolina Division of Public Health      PFT      Presidential Fitness Test
+DPP         Diabetes Prevention Program                   PA       Physician Assistant
+DSMES       Diabetes Self-Management Education            PMPM     Per-member-per-month
+            and Support                                   PY       Program Year
+ECU         Eastern Carolina University                   QI       Quality Improvement
+ED          Emergency Department                          QP       Qualified Professional
+EHR         Electronic Health Record                      RHC      Rural Health Clinic
+EMS         Emergency Medical Services                    RHIF     Rural Health Innovation Fund
+FFS         Fee-for-service                               RPM      Remote Patient Monitoring
+FORHP       Federal Office of Rural Health Policy         SBHC     School-based Health Centers
+FQHC        Federally Qualified Health Center             STLDI    Short-Term, Limited-Duration Insurance
+HIE         Health Information Exchange                   SUD      Substance Use Disorder
+HRSA        Health Resources and Services                 TAC      Technical Assistance Center
+            Administration                                UNC      University of North Carolina
+IAPD        Implementation Advance Planning               VBC      Value-based care
+            Document                                      VBP      Value-based payment
+IDD         Intellectual and Developmental Disabilities
+
+
+
+                                                 60   NCRHTP
+Endnotes
+
+i
+                                       the Health Resources and Services Administration (HRSA) Rural Health
+Grants Eligibility Analyzer and the Federal Office of Rural Health Policy (FORHP) designations and for the
+purposes of this application includes counties of at least one census tract designated as rural.
+ii
+ NC DHHS Minority Health Statistics; North Carolina Institute of Medicine, Healthy North Carolina 2030, HNC-
+REPORT-FINAL-Spread2.pdf; Robeson County Health Department, Community Health Needs Assessment 2023,
+https://schs.dph.ncdhhs.gov/units/ldas/cha2023/Robeson-2023-CHA.pdf.
+iii
+      NC Rural Center, County Data Profile https://www.ncruralcenter.org/county-data/; HRSA Shortage Area Maps.
+iv
+   Health ENC, Sampson County 2024 Community Health Needs Assessment,
+https://schs.dph.ncdhhs.gov/units/ldas/cha2024/SAMPSON-2024-CHA.pdf.
+v
+
+https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/.
+vi
+  NCDHHS NC Medicaid Division of Health Benefits, NC Medicaid Policy on Telehealth, Virtual
+                                               https://medicaid.ncdhhs.gov/1h-telehealth-virtual-
+communications-and-remote-patient-monitoring/download?attachment.
+vii
+    No RHT funds will be used to issue direct student loans or to fund student loan repayment programs. Tuition
+reimbursement and paid field placements are provided only as part of a structured workforce development pipeline,
+contingent on a five-year rural service commitment, and are designed to build sustainable systems and infrastructure
+for rural workforce recruitment and retention not as direct lending or repayment mechanisms.
+viii
+     AMHs are North Carolina tiered vehicle for care management. Under AMH Tiers 1 and 2, Health Plans retain
+primary responsibility for ensuring that beneficiaries receive appropriate care management services. AMH Tier 3
+practices assume primary responsibility for care management, delivered either directly or through a Clinically
+Integrated Network (CIN) or another partner. The requirements for care management are in addition to the AMH
+Tier 1 and 2 primary care practice requirements. AMH Tier 3 practices receive an additional Care Management Fee
+to provide this service to their assigned patients.
+ix
+  Funding Protections: To preserve the integrity of the VBP strategies, all funding distributed through both
+strategies must be used to directly support VBP infrastructure development, quality improvement and VBP
+workforce within designated rural hospitals, practices or communities. Participating health systems must
+demonstrate that capacity building and capitation payments are allocated to rural-serving sites, including primary
+care partners, and not diverted to non-rural operations or administrative overhead unrelated to rural care. As a
+condition of participation, larger health systems applying on behalf of a CAH or rural hospital must submit a rural
+reinvestment plan outlining how funds will be used to enhance access, quality, and sustainability in rural areas.
+NCDHHS reserves the right to audit fund use and require corrective action if funds are not used in alignment with
+rural transformation goals.
+x
+      Per the NOFO, the RHIF is capped at 10% of the total CMS award $20M in any given budget period.
+xi
+                                                            North Carolina Medicaid and NC Health Choice
+Draft Section 1115 Waiver Application, effective March 1, 2016, https://www.ncdhhs.gov/draft-section-1115-
+waiver-2016-03-01/open.
+xii
+
+https://experience.arcgis.com/experience/7892f669bb0e442981b15009c7f2b5f0/page/Helene-
+Retrospective?views=Home.
+xiii
+  UNC The Cecil G. Sheps Center for Health Services Research,
+October 28, 2025, https://www.shepscenter.unc.edu/programs-projects/rural-health/.
+
+
+
+                                                           i
+

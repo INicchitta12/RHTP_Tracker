@@ -10,3 +10,5 @@ note: .txt = pdftotext -layout; .raw.txt = pdftotext (reading order)
 file: text/fsrs_CT_subaward_descriptions_2026-11-20.txt
 source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive); written 2026-11-24
 
+note: the pdftotext .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text between a stray '<' and the next '>'. No other change.
+

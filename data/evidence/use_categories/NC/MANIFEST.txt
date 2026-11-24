@@ -1,0 +1,13 @@
+file: 2026-11-24_nc_rht_application.pdf
+source_url: https://www.ncdhhs.gov/north-carolina-rural-health-transformation-application/download
+fetched_utc: 2026-11-24T14:47:36Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 3481980
+sha256: 6c8f415ff401c45de16d4f415f501d4d2c579cdb9d6b15290f88329269b16d74
+
+file: text/fsrs_NC_subaward_descriptions_2026-11-20.txt
+source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive); written 2026-11-24
+
+note: the pdftotext .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text between a stray '<' and the next '>'. No other change.
+

@@ -14,3 +14,5 @@ user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
 bytes: 2679740
 sha256: 421f1cc381803af2698a75875138c106863e83461b95a68f2e34e7ae96f42955
 
+text/2026-11-24_pa_rhtp_project_narrative_2026-02.escaped.txt: pdftotext -layout of 2026-11-24_pa_rhtp_project_narrative_2026-02.pdf with &, <, > written as HTML entities (&amp; &lt; &gt;) so a tag-stripping quote check cannot delete text between a literal "<" and ">" (e.g. "<250,000" ... "> 5,000"). No other change.
+

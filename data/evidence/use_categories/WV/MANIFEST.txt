@@ -9,3 +9,5 @@ sha256: 2f9cf6e50914a6f66bbf0714059a2a8241da1a80246f6eee2fd95144e82d28fc
 file: text/fsrs_WV_subaward_descriptions_2026-11-20.txt
 source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive); written 2026-11-24
 
+note: the pdftotext .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text between a stray '<' and the next '>'. No other change.
+

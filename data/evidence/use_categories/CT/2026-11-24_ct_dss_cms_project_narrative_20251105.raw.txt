@@ -422,7 +422,7 @@ Table 4 - Primary Care Workforce Shortage
 
 Connecticut faces a critical primary care shortage, with 22.6% of the state’s physicians, nurse
 practitioners, and physician assistants practicing in primary care, compared to 27.2% nationally
-and higher rates in nearby states such as Massachusetts (24.6%) and Rhode Island (>30%). 35
+and higher rates in nearby states such as Massachusetts (24.6%) and Rhode Island (&gt;30%). 35
 In response to these workforce challenges, Connecticut enacted numerous policies in
 recent years that aim to promote telehealth availability and access. From 2020 to 2022, the state
 established multiple provisions in state law to promote the delivery of telehealth services and

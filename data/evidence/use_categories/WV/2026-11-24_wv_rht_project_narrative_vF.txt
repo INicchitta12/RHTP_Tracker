@@ -256,7 +256,7 @@ improve digital access—along with basic digital-skills training.
 
 Shortage Areas as of June 2025. 18 Healthcare capacity is very low, with ~20% of counties having
 
-a population to healthcare worker ratio greater than 40:1 (> 2 times as the national average). 19 In
+a population to healthcare worker ratio greater than 40:1 (&gt; 2 times as the national average). 19 In
 
 rural counties, 22% of healthcare practitioners and technical workers are aged 55 or older,
 
@@ -276,7 +276,7 @@ Stakeholders urged faster credentialing, financial support tied to rural service
 
      Limited access to specialty services: Access to specialty services is limited, with network
 
-adequacy rates <90% in rural counties for Medicaid managed care organizations (MCOs). Key
+adequacy rates &lt;90% in rural counties for Medicaid managed care organizations (MCOs). Key
 
 shortages include OBGYN specialists (85% adequacy), cardiologists (70% adequacy),
 
@@ -1059,7 +1059,7 @@ Metric: Decrease average virtual first response time for immediate provider cons
 Data notes: Medicaid and payer claims, WVHIN encounter data, payer reporting, interoperable
 provider directory and scheduling platform (once available)
 Preliminary baseline & target: Baseline to be collected in Stage 0; Preliminary target to
-increase % of responses <30 min from initiation (call/chat/app) to live clinical triage
+increase % of responses &lt;30 min from initiation (call/chat/app) to live clinical triage
 Outcome 3: Improved connectivity to virtual care
 
 22
@@ -1784,7 +1784,7 @@ Data notes: WV health system billing/EHR data, CMS Physician Fee Schedule (RVU F
 Preliminary baseline & target: To be set during Stage 0
 Metric: Administrative cost reduction rate across participating provider entities
 Data notes: Initiative data tracking, provider financial reporting
-Preliminary baseline & target: Achieve 2% admin cost reduction across >50% of facilities by
+Preliminary baseline & target: Achieve 2% admin cost reduction across &gt;50% of facilities by
 Year 5
 Outcome 2: Expanded participation in VBC payment models
 Metric: Standard payment model definition and state support
@@ -1794,10 +1794,10 @@ Metric: % of rural lives covered by payers implementing new standard VBC payment
 Data notes: Payer reporting, CMS and WV BMS enrollment data; at county level
 Preliminary baseline: Current state contract with MCOs has minimum of 12% of enrollees
 must be within APM arrangements
-Preliminary target: >50% of lives covered by participating payers by Year 5
+Preliminary target: &gt;50% of lives covered by participating payers by Year 5
 Metric: % of eligible providers in new standard VBC payment models with at least one payer
 Data notes: Provider & initiative reporting; at county level
-Preliminary baseline & target: Baseline N/A, >50% eligible providers participating by Year 5
+Preliminary baseline & target: Baseline N/A, &gt;50% eligible providers participating by Year 5
 Metric: Percent of total rural lives attached to new standard VBC payment models
 Data notes: Data to be reported by participating Medicaid MCOs, State Health Benefits TPA,
 and other participating payers; at county level
@@ -1822,12 +1822,12 @@ other participating payers
 
 
 Preliminary baseline & target: Baseline N/A, Reduce preventable inpatient admissions by 5-
-10%, preventable ED visits by >10%, and preventable readmissions by >10% by Year 5
+10%, preventable ED visits by &gt;10%, and preventable readmissions by &gt;10% by Year 5
 Metric: Percent of participating providers achieving improvements in core quality indicators as
 part of new standard VBC payment models
 Data notes: Reporting by participating payers
 Preliminary baseline: N/A
-Preliminary target: >50% of participating providers show measurable improvement in quality
+Preliminary target: &gt;50% of participating providers show measurable improvement in quality
 metrics for majority of core metrics by Year 5
 Outcome 4: Expand community-based resources and improve transitions of care
 Metric: Percent of discharges in which patients receive a follow-up (in-person or virtual) with a
@@ -2288,7 +2288,7 @@ Outcome 3: Reduced chronic disease burden and exacerbations in rural counties
 Metric: Decrease in adult obesity prevalence in rural WV
 Data notes: CDC PLACES data
 Preliminary baseline & target: Baseline: current 41% prevalence of obesity; Preliminary target
-to decrease prevalence by 4 percentage points to <37% in 5 years
+to decrease prevalence by 4 percentage points to &lt;37% in 5 years
 Outcome 4: Improved maternal and child wellness
 
 
@@ -2507,14 +2507,14 @@ Baseline and target: Baseline set upon funding; investment committee to set targ
 Metric: Weight loss achieved for target populations using funded solutions
 Data notes: Payer and solution reporting at county level
 Baseline and target: Baseline set upon funding; investment committee to set targets
-Metric: Decrease diabetes patients with A1C >9%
+Metric: Decrease diabetes patients with A1C &gt;9%
 Data notes: Payer and solution reporting at county level
 Baseline and target: Baseline set upon funding; investment committee to set targets
 Metric: Decrease 30-day all-cause readmission after an HF hospitalization
 Data notes: Payer and solution reporting at county level
 Baseline and target: Baseline set upon funding; investment committee to set targets
 Metric: Percentage of people in target population for funded solutions addressing hypertension
-whose blood pressure (BP) was adequately controlled (<130/80 mm Hg)
+whose blood pressure (BP) was adequately controlled (&lt;130/80 mm Hg)
 Data notes: Payer and solution reporting at county level
 Baseline and target: Baseline set upon funding; investment committee to set targets
 Metric: Decrease avoidable ED and inpatient admission rate in target population for funded
@@ -2541,7 +2541,7 @@ Baseline and target: Baseline set upon funding; investment committee to set targ
 Outcome 3: Innovative solutions are being funded and adopted in the market
 Metric: Number of incubated portfolio companies
 Data notes: Consortium institution reporting
-Preliminary baseline & target: Target of >15 companies by 2030 86
+Preliminary baseline & target: Target of &gt;15 companies by 2030 86
 Metric: Number of healthcare start-ups supported by Accelerator adopted via incubation pilots
 Data notes: Accelerator compliance reporting through Dept. of Health
 Preliminary baseline & target: To be set during Stage 0
@@ -2931,7 +2931,7 @@ care station that delivers real-time virtual healthcare. Kiosks could be equippe
 as stethoscopes, high-resolution cameras, self-cleaning, and other vital sign monitoring to enable clinician-guided
 exams across primary, urgent, behavioral, and post-acute care.
 34
-   Across >30 randomized trials, RPM for diabetes, heart failure, and COPD lowered hospitalizations by 25–30%,
+   Across &gt;30 randomized trials, RPM for diabetes, heart failure, and COPD lowered hospitalizations by 25–30%,
 improved HbA1c by 0.5–1.2 percentage points, and reduced all-cause mortality by up to 20% (BMJ, 2022; JAMA
 Netw Open, 2023; CMS Innovation Center, 2024).
 35
@@ -2955,7 +2955,7 @@ expenditure
 42
    Benchmarked against national average KFF
 43
-   Virtua Health’s transport platform in New Jersey resulted in a >50% reduction in average cost per ride and a 20%
+   Virtua Health’s transport platform in New Jersey resulted in a &gt;50% reduction in average cost per ride and a 20%
 improvement in inpatient bed availability. The Missouri HealthTran program found that every $1 invested in the
 mobility resources generated $7.50 in reimbursed health-care services, reinforcing the potential for strong return on
 investment and long-term sustainability of this mobility investment.
@@ -3013,7 +3013,7 @@ Initiative RFI Response
 59
    Benchmarked off of HRSA minimum adequate ratio
 60
-   Benchmarked off of National Health Service Corps results with >80% of participants practicing in service
+   Benchmarked off of National Health Service Corps results with &gt;80% of participants practicing in service
 communities after initial commitment
 61
    CMS Health Expenditures by State of Residence
@@ -3039,7 +3039,7 @@ healthcare coverage for 12 months
 9/10 worksite health center evaluations reported positive employer ROI, supporting onsite/near-site or mobile
 primary/BH services.
 67
-   Implies population denominator for all award recipients with >12 months of observation
+   Implies population denominator for all award recipients with &gt;12 months of observation
 68
    Informed by industry standards, HR Executive, The Work Institute
 69

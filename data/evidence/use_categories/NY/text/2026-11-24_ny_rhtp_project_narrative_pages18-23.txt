@@ -1,0 +1,305 @@
+PROPOSED INITIATIVES AND USE OF FUNDS
+
+Initiative 1: Rural Community Health Integration
+
+Description: The Rural Community Health Integration initiative is designed to address the unique
+
+challenges faced by rural communities in NY by strengthening the rural health safety net. The
+
+initiative assists rural hospitals and community providers in building or growing integrated health
+
+networks to enhance health care delivery, coordination, and outcomes in rural areas while
+
+increasing the financial sustainability of the rural health network by encouraging collaborative
+
+partnerships with other health care organizations.
+
+Rural hospitals will collaborate with health care organizations to jointly apply for funding and
+
+technical support, based on eligibility criteria consistent with the NOFO and state law. The goal is
+
+to deliver health care services that address the basic needs of rural residents, including access to
+
+quality medical, maternal health, and behavioral health care, while also establishing a path toward
+
+financial sustainability for participating facilities. Each application will include an anchor
+
+institution and partner organizations. Anchor institutions are defined as those which possess strong
+
+institutional capacity, deep community ties, and a record of commitment to serving their
+
+constituents. Examples of anchor institutions include but are not limited to: hospitals including
+
+sole community hospitals, rural emergency hospitals, critical access hospitals, primary care or
+
+multi-specialty practices, FQHCs, Independent Practice Associations, participants in the Medicare
+
+Shared Savings Program, CCBHCs, EMS providers, and Managed Care Organizations. While the
+
+anchor applicants may be any of these organizations, an application must include a rural safety net
+
+hospital partner to ensure that patient care is well coordinated and that there is a path to improve
+
+the financial sustainability of the safety network, including the hospital.
+
+
+
+
+                                                 18
+Crucially, the Rural Community Health Integration initiative will establish new partnerships that
+
+allow organizations to act collectively while maintaining local autonomy. Applicants may request
+
+modest operating and/or capital funding (within the limitations of the NOFO) and may request
+
+certain state regulations be waived for the life of the project to support their proposals. Over five
+
+years, the initiative will allow for strategic planning of health care services to address community
+
+needs, balance patient volumes, and ensure long-term sustainability.
+
+Organizations will jointly apply for funding based on eligibility criteria set forth in the NOFO,
+
+with the goal to keep care local unless a higher level of care is medically indicated. NY will work
+
+with applicants to help meet eligibility criteria through a rolling enrollment period over the 5 years
+
+of the cooperative agreement. Applications that promote partnership and are determined from
+
+scoring criteria to most likely sustain obstetrical care, maternal-child health care, and behavioral
+
+health care integration will be prioritized.
+
+Potential projects eligible for funding include:
+
+• Delivering technical and financial support for anchor institutions and partners to ensure access
+
+ to comprehensive, longitudinal care and services.
+
+• Providing seed funding to develop future-state solutions and mining local innovations for
+
+ scalable best practices, and leveraging and expanding workforce programs, particularly for
+
+ maternal health, pediatric care, and behavioral health care, and EMS.
+
+• Supporting community providers in adopting care coordination and management information
+
+ from the SHIN-NY, including training for primary care practitioners, post-acute rehabilitation
+
+ providers, and skilled nursing facilities on using these resources to guide health interventions,
+
+ while also working to enhance data accessibility given across providers’ varying levels of
+
+ technical capacity. This proactive approach will strengthen coordination, reduce preventable
+
+
+
+
+                                                 19
+ hospitalizations and readmissions, ease transitions in care, and improve overall health outcomes
+
+ for residents in rural communities.
+
+• Working with community providers to utilize local capacity, including referrals to NY’s 1115
+
+ Waiver Social Care Networks, for services such as food, transportation, and socialization.
+
+• Developing and implementing a range of initiatives to maximize the contributions that EMS
+
+ professionals can offer to rural health care partners.
+
+• Engaging with rural school administrators to provide information on the benefits of School-
+
+ Based Health Centers for communities and identifying the need for additional centers. Technical
+
+ assistance will be provided to interested schools for workforce recruitment and retention
+
+ strategies, the establishment of data collection capabilities, and the development of School-
+
+ Based Health Center policies and procedures.
+
+• Encouraging continuous quality improvement for rural health partnerships to develop deep
+
+ understanding of their communities and deploy tailored education to address unmet needs.
+
+The initiative is structured to be transformative relative to the current baseline, aiming to create a
+
+resilient, community-anchored rural health system that can sustain improvements and adapt to
+
+future medical and technological needs. Safety net hospitals and partnering community providers
+
+will be expected to demonstrate reduced funding dependence on the state after the five-year
+
+cooperative agreement ends.
+
+Main Strategic Goal: This initiative aligns with the Sustainable Access strategic goal by building
+
+collaborative networks with hospitals, FQHCs, and essential providers to ensure a coordinated care
+
+
+
+
+                                                 20
+approach to health care. It promotes timely care for rural residents while helping facilities become
+
+efficient, sustainable access points through regional partnerships.
+
+Use of Funds: A, D, F, G, H, I, J, K
+
+Technical Score Factors: B.1, C.1, C.2, E.1, F.1, F.2
+
+Key Stakeholders: Safety Net Hospitals and other hospitals in the 47-county rural region, other
+
+partnering hospitals and health systems, FQHCs, rural health clinics, primary care practices,
+
+behavioral health/substance use disorder providers, EMS agencies, social service agencies, local
+
+government agencies and departments of health, community-based organizations, NY State DOH,
+
+– including the State Office of Rural Health, Office of Mental Health, Office of Health Insurance
+
+Programs, Office of Addiction Services and Supports, and DOH Cyber Preparedness – and external
+
+partners (IT vendors, telehealth platforms, academic institutions).
+
+Outcomes: The objective of the Rural Community Health Integration initiative is to establish
+
+coordinated rural health partnerships that facilitate comprehensive care coordination and enhance
+
+patient access to a wide range of providers across the care continuum, effectively addressing both
+
+health care and social needs. Below please find the key results and measurable outcomes the state
+
+will use to monitor the success of this initiative.
+
+ Key Result 1: Increased access to the right care at the right time
+      Measure             Definition          Baseline              Target               Relation to Initiative
+ Potentially          The rate of              20.90%        By Year 3, 25% gap     PPVs are emergency visits
+ Preventable          emergency                              closure between the    for ambulatory sensitive
+ Emergency Visits     department visits                      rural rate and the     conditions which should be
+ (PPV)                defined as PPV                         non-rural rate.        able to be reduced/averted
+                      per 100 people.                                               with adequate patient
+ *County-Level                                               By Year 5, 50% gap     monitoring and follow-up. In
+                      Denominator                            closure between the    general, the occurrence of
+                      population base                        rural rate and the     high rates of PPVs represents
+                      by county was                          non-rural rate.        a failure of the ambulatory
+                      identified through                                            care provided to the patient.
+                      the use of                             Please note: this      In addition, when a PPV
+                      proprietary                            measure will also be   occurs shortly following a
+                      Claritas files                         used to monitor the    hospitalization, the PPV may
+
+
+
+
+                                                      21
+                                                          effectiveness of the      be the result of actions taken
+                                                          Strengthening Rural       or omitted during the hospital
+                                                          Communities               stay, such as incomplete
+                                                          initiative. As such,      treatment or poor care of the
+                                                          the target for this       underlying problem and/or
+                                                          measure is more           poor coordination with the
+                                                          ambitious.                primary care or specialist
+                                                                                    physician.
+
+                                                                              A core measure to monitor
+                                                                              the effectiveness of the hub’s
+                                                                              ability to avoid unnecessary
+                                                                              acute care.
+Key Result 2: Decreased readmissions due to high quality discharge planning and post-acute supports
+Hospital-Wide All- A hospital-level,   0 hospitals       By Year 3, 50% sole The measure is designed to
+Cause Unplanned     risk-standardized  reporting this    community and        capture unplanned
+Readmission         readmission rate   measure           critical access      readmissions that arise from
+                    of unplanned, all-                   hospitals will be    acute clinical events requiring
+                    cause readmission                    reporting this       urgent rehospitalization
+                    within 30 days of                    measure              within 30 days of discharge.
+                    discharge from an                                         While some readmissions are
+                    index admission                      By Year 5, 100%      unavoidable due to worsening
+                    with an eligible                     sole community and   illness, appropriate
+                    condition or                         critical access      transitional care and clear,
+                    procedure.                           hospitals will be    monitored discharge
+                                                         reporting this       procedures can reduce the
+                                                         measure              risk of readmission.
+
+                                                                                    Quality measure connected to
+                                                                                    the effectiveness of acute and
+                                                                                    post-acute care provided
+                                                                                    through network partners.
+Key Result 3: Increased preventative care spanning primary and specialty care
+Colorectal           Percentage of           60.1%      By Year 3, 25% gap          Screening for colorectal
+Screening            adults 45-75 years                 closure to the 2030         cancer is important for rural
+                     of age who had                     Healthy People goal         health as rural populations
+                     appropriate                                                    have higher rates of
+                     screening for                      By Year 5, 50% gap          colorectal cancer
+                     colorectal cancer.                 closure to the 2030         incidence xxxiv and mortality.
+                                                        Health People goal          Rural populations face unique
+                                                                                    challenges such as limited
+                                                          Please note: this         access to providers and
+                                                          measure will also be      transportation.
+                                                          used to monitor the
+                                                          effectiveness of the
+                                                          Strengthening Rural
+                                                          Communities
+                                                          initiative, but will be
+                                                          measured at the
+                                                          primary care practice
+                                                          level.
+
+
+
+
+                                                    22
+ Key Result 4: Successful establishment of school-based health centers (SBHCs)
+
+ Establishment of     The number of      Baseline to be   Target number of       This metric reflects access
+ school-based         schools engaged    set in Year 1    schools engaged by     expansion to primary care for
+ health centers       and newly                           Year 3                 children and adolescents in
+                      established                                                rural communities. By
+                      SBHCs                               Target number of       tracking school engagement
+                                                          new SBHCs              and SBHC establishment, NY
+                                                          established by Year    can gauge the initiative’s
+                                                          5                      effectiveness in reaching
+                                                                                 underserved populations,
+                                                                                 improving comprehensive
+                                                                                 physical exam rates, and
+                                                                                 facilitating early intervention
+                                                                                 through screenings and care
+                                                                                 coordination. These measures
+                                                                                 are indicators of building
+                                                                                 sustainable, primary care
+                                                                                 infrastructure and ensuring
+                                                                                 rural students receive the
+                                                                                 preventive and ongoing
+                                                                                 health services they need to
+                                                                                 thrive.
+
+Impacted Counties: This initiative will include all 47 rural counties, as listed on page 6.
+
+Estimated Required Funding: Of the hypothetical $200M annual award, this initiative will be
+
+approximately $71-80M/year. Please see Budget Narrative for more information.
+
+Initiative 2: Strengthening Rural Communities with Technology-Enhanced Primary Care
+
+Description: The Strengthening Rural Communities with Technology-Enhanced Primary Care
+
+(Strengthening Rural Communities) initiative is designed to leverage and expand historic
+
+investments in primary care in rural NY. The initiative aims to expand the number of Patient-
+
+Centered Medical Home (PCMH)-recognized providers, no matter where the provider is in the
+
+recognition process at baseline. The PCMH model is evidence-based and has shown particular
+
+value in rural health care settings. Rural primary care practices that adopted PCMH have achieved
+
+outcomes comparable to their urban counterparts, including reduced hospital/emergency
+
+department use and improved quality indicators. xxxv A standout example is the Adirondack
+
+Medical Home Demonstration in upstate NY (a largely rural region): after becoming a PCMH, it
+
+
+
+
+                                                    23
+

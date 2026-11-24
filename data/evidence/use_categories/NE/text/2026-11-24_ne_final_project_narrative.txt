@@ -1,0 +1,3142 @@
+Nebraska Department of Health and Human Services
+
+
+
+Project Narrative
+
+RURAL HEALTH NEEDS AND TARGET POPULATION
+Nebraska is the definition of rural. Nearly 95% of the State’s counties are defined as rural or
+
+frontier according to the Health Resources and Services Administration (HRSA) definition and
+
+United States Census Bureau population density, respectively. Nebraska has one major interstate
+
+that crosses east to west through the middle of the State and the drive takes nearly 8 hours. There
+
+is a central highway that crosses from north to south which is a mix of two-lane and four-lane
+
+sections. The interstate and central highway intersect in York, Nebraska which is nearly 3 hours
+
+from the north border, 3 hours from the south border, 2.5 hours from the east border, and nearly
+
+5.5 hours and 6 hours to the west and southwest borders. Crossing into Nebraska on the east
+
+border, the furthest one can drive before you are in a rural county is only 70 miles. Due to
+
+workforce shortages and care deserts, a pregnant woman may need to drive over two hours just
+
+for a routine clinic visit and a complex diabetic patient needing to see an endocrinologist may
+
+need to drive over four hours. The roads to access those physicians are often two-lane roads with
+
+no hard shoulder on the side of the road. In the summer months temperatures can reach a heat
+
+index of over 105 degrees F, and wind-chill can reach -15 degrees F in winter months, making
+
+trips to the doctor dangerous for elderly patients. More than one-third of Nebraskans live in these
+
+rural and frontier areas with critical workforce shortages and limited access to family practice
+
+physicians, specialty care providers such as obstetricians, and behavioral health services.
+
+Heart disease, cancer, and diabetes are all in the top ten leading causes of death and the high
+
+chronic disease burden in Nebraska, combined with a health care system that relies on the status
+
+quo of mainly face-to-face visits, creates an environment primed for a failing health care
+
+
+
+
+                                                                                                  1
+infrastructure. In addition to health care access challenges, over 36% of Nebraska adults are
+
+clinically obese and 28% of adolescents are considered overweight or obese. Intensifying the
+
+situation, 48 of 93 counties meet the criteria for a food desert and a larger number have limited
+
+access to fresh foods.
+
+Nebraska has the collective will to address health care issues in rural and frontier counties, and
+
+as an agricultural State, it is uniquely situated to address rural health care challenges.
+
+Partnerships between the agricultural and health care sectors can tackle the dichotomy of
+
+circumstances plaguing Midwesterners today: obesity in the midst of food deserts, lack of
+
+maternal care in the center of a heartland that is committed to family values, and an increasing
+
+interest among citizens in consumer-facing technology in a population that is aging. Nebraska
+
+aims to create a prevention-first and technology-enabled, sustainable health care system that will
+
+close care gaps, increase access, and develop health care workforce pipelines.
+
+This will be accomplished through the strong partnerships that exist between the Nebraska
+
+Department of Health and Human Services (DHHS), health care provider associations, schools,
+
+farmers, ranchers, local extension offices, and other State agencies. This also includes
+
+partnerships with the four federally recognized Tribes in Nebraska – Omaha Tribe of Nebraska,
+
+Ponca Tribe of Nebraska, Santee Sioux Tribe of Nebraska, and Winnebago Tribe of Nebraska –
+
+as well as other tribal communities in rural areas throughout the State. DHHS, a super agency
+
+comprised of the Division of Public Health (DPH), Division of Behavioral Health (DBH),
+
+Division of Medicaid and Long-Term Care (MLTC), Division of Children and Family Services,
+
+and Office of Economic Assistance (OEA), will be the governor-appointed State agency of the
+
+Rural Health Transformation Program (RHTP). DHHS will partner with the Rural Health
+
+Advisory Commission (RHAC), a governor-appointed commission representing rural health
+
+
+                                                                                                     2
+care, including rural providers, medical schools, and consumers, for program oversight.
+
+Nebraska will use RHAC as the formal forum for coordination, oversight, and stakeholder
+
+engagement for RHTP.
+
+The health and economic vitality of rural Nebraska is in jeopardy. The comprehensive
+
+transformation envisioned by the RHTP will support rural communities in addressing escalating
+
+health crises and an evolving health care innovation landscape. With RHTP, Nebraska can create
+
+a resilient, modern system that supports healthy people and thriving rural economies. A map of
+
+Nebraska’s rural and frontier counties, along with the counties’ corresponding Federal
+
+Information Processing Standards (FIPS) codes is Figure 1 in the Other Supporting
+
+Documentation section.
+
+RURAL DEMOGRAPHICS: Nebraska is a geographically large, predominantly rural State
+
+spanning 77,000 square miles with 88 of its 93 counties are classified as rural or designated as
+
+frontier, and of our 1.96 million residents, 37% reside in the rural or frontier areas.1 The
+
+population is aging. By 2030 the number of residents over 65 is projected to grow by nearly
+
+30%.2,3
+
+Agriculture is a primary industry in rural Nebraska, producing high-quality food products that
+
+feed people across the world and support one in four jobs across the State.4 The agricultural
+
+workforce struggles with access to care, occupational health risks, and behavioral health issues.
+
+While Nebraska’s unemployment rate is relatively stable at 3%, one of the lowest in the country,
+
+many rural Nebraskans face economic hardship and are underemployed.5
+
+    Category                                       Statistics in Nebraska
+ Economic         •   Rural Nebraskans have a lower per-capita income and a higher poverty rate compared to
+ Hardship             those in urban areas.6
+                  •   In 2022, 23.8% of women aged 18-54 reported living below the Federal Poverty Level
+                      (FPL).7
+
+
+                                                                                                              3
+    Category                                        Statistics in Nebraska
+                  •   In 2022, nearly 200,000 Nebraskan (10%) lived below the federal poverty rate, meaning
+                      about 10% of people in Nebraska live in poverty.8
+                  •   In 2023, 287,240 people were food insecure or facing hunger, and of them, 91,930 were
+                      children.9
+ Lack of          •   In 2023 only 60.1% of children were adequately insured which is significantly lower than
+ Coverage and         the national rate of 66.5%10
+ Access           •   In 2022, 6.1% of Nebraskans lacked health insurance coverage, with 4.6% of children
+                      younger than 19 being uninsured.11,12
+                  •   Between 2017 and 2023 Nebraska lost 57 primary care physicians, and by 2030, the
+                      number of primary care physicians is expected to decline by another 9%.13
+
+HEALTH OUTCOMES: Nebraskans living in rural areas tend to be at higher risk for negative
+
+health outcomes. In 2022, 72.5% of Nebraskans living in rural areas reported being overweight
+
+or obese, a known risk factor for preventable disease including cardiovascular disease and
+
+diabetes. The suicide rate among rural Nebraskans is also higher than among urban Nebraskans,
+
+and the gap continues to widen.14,15 In 2023, the infant mortality rate in rural Nebraska was 7.2
+
+per 1,000 live births, higher than the national average, compared to 6.3 in large urban areas, and
+
+in 2024, 4.1% of women in rural Nebraska had pre-pregnancy hypertension compared to 3.5% in
+
+large urban areas, putting them at higher risk for pre-term birth.16,17 Nearly 52% of Nebraska
+
+counties are maternity care deserts which means pregnant women have to drive long distances
+
+for standard prenatal care, and the lack of maternal specialists in rural areas contributes to the
+
+high mortality rate. Many children in Nebraska do not receive adequate preventive health
+
+services. Older housing with lead-based paint and lead pipes in rural areas can cause high blood
+
+lead levels, which in turn contributes to behavioral and learning issues. Early detection of high
+
+lead levels is imperative to prevent lifelong complications. In 2023, only 16.5% of rural children
+
+received a blood lead test compared to 28.2% of urban children.18 Dental deserts are spread
+
+throughout the State. Only 62.5% of adults reported visiting a dentist or dental clinic in the last
+
+year and children living in rural areas have higher rates of tooth decay compared to children in
+
+urban areas.19,20 Native Americans in Nebraska face significant health challenges, with rates of
+
+                                                                                                                 4
+inadequate prenatal care that are 2.7 times higher, depression rates that are 1.4 times higher, and
+
+sexually transmitted diseases that are 5.3 times higher compared to other populations in the
+
+State.21
+
+Nebraska has experienced notable growth in its aging population. As of 2021, 16% of
+
+Nebraskans were age 65 and older, a share that is projected to grow to 20% by 2030.22 While the
+
+proportion of Nebraska's population over age 60 is growing, the proportion under 60 is
+
+contracting.23 Currently 35.9% of adults age 65 and older live in a rural area, higher than the
+
+national average of 24.1%.24,25 Please see Figures 7 and 8 in the Other Supporting
+
+Documentation section for charts showing the disproportionately older population in Nebraska
+
+rural counties as compared to statewide. An aging population introduces special challenges in
+
+rural areas, especially for managing chronic conditions and age-related illnesses like dementia.
+
+Older adults often require more frequent medical visits, long-term care, and specialized services,
+
+yet rural areas face workforce shortages and limited access to facilities, exacerbated by recent
+
+nursing home closures.26 Please see Figure 2 for a map of Primary Care Health Professional
+
+Shortage Areas (HPSAs), Figure 3 for a map of Obstetrics, Family Medicine, Dental, and
+
+Behavioral Health HPSAs, and Figure 4 for Dental HPSAs in the Other Supporting
+
+Documentation section.
+
+HEALTH CARE ACCESS: In rural Nebraska, rural residents must travel long distances to see
+
+providers. This can become a barrier to receiving necessary care which can contribute to poor
+
+health outcomes particularly for time-sensitive conditions. Please see Figures 9-13 for maps
+
+illustrating the vast travel times for Nebraskans residing in shortage areas and care deserts,
+
+including for maternity care, mental health services, dental services, and long-term care in the
+
+Other Supporting Documentation section. These challenges are compounded by provider
+
+
+                                                                                                      5
+shortages that impact nearly every aspect of rural health care. While real-time video telehealth
+
+offers the potential to address access gaps, nearly 22% of rural Nebraskans lack high-speed
+
+internet service.27 Nebraska will need to be transformative in its adoption of remote patient
+
+monitoring (RPM), which requires significantly less broadband than video telehealth, in order to
+
+bring health care closer to where patients live and address gaps in care.
+
+   Category                                          Statistics in Nebraska
+ Time &          •   The average rural Nebraskan lives about 130 miles (219-minute drive) from a Level I
+ Distance as a       Trauma center.
+ Barrier to      •   The average woman of reproductive age in rural Nebraska lives about 99 miles (168-minute
+ Care                drive) from a perinatology specialist.
+                 •   More than half of Nebraska counties are designated maternity care deserts.28
+                 •   Nebraska only has two crisis stabilization centers. Patients needing crisis services may need
+                     to drive over 4 hours to receive specialized time-sensitive care. .29,30
+ Provider        •   66 counties are primary care shortage areas, 61 are dental shortage areas, and 88 are
+ Shortages           designated psychiatry and mental health shortage areas.31
+                 •   20% of physicians currently practicing in Nebraska have indicated they plan to retire within
+                     the next 10 years.32
+                 •   26% of counties do not have a behavioral health provider.33
+                 •   Utilization of Nebraska’s 988 Crisis line rose nearly 23% in 2025 compared to 2024,
+                     demonstrating increased demand for behavioral health services.34
+ Limited         •   71 counties have an ambulance desert, meaning a person is more than 25 minutes away
+ Emergency           from the nearest ambulance station.
+ Services        •   80% of Nebraska’s Emergency Medical Services (EMS) agencies rely entirely on volunteer
+                     staff who do not receive regular wages.35
+
+
+Please find maps of the Health Care Facilities and Ambulance Deserts and Birthing Hospital
+
+Travel Time as Figures 5 and 9 respectively in the Other Supporting Documentation section.
+
+
+RURAL FACILITY FINANCIAL HEALTH: Nebraska’s health care system is the definition
+
+of rural health care. Rural hospitals make up over 68% of hospitals in Nebraska as compared to
+
+35% nationally.36,37 Rural hospitals and clinics are part of the safety net system in Nebraska, but
+
+despite their critical role, these facilities often operate with thin margins due to lower volumes,
+
+high fixed costs (e.g., staff, equipment, facility upkeep), and payer mix challenges. The financial
+
+fragility of Critical Access Hospitals (CAHs) in Nebraska is widespread as nearly 60% ran
+
+
+
+                                                                                                                     6
+deficits in 2024.3839,40 Hub-and-spoke models to right-size facility operations and ensure
+
+sustainable access to care is a key solution to solving the health care access issue in Nebraska.
+
+                       Facility Type                          Number of Facilities in Nebraska
+ Birthing Facilities                                   44
+ Critical Access Hospitals                             62
+ Rural Health Clinics (Medicare-certified)             127
+ Federally Qualified Health Centers                    7
+ Certified Community Behavioral Health Clinics         7
+ Indian Health Service Clinics                         8
+
+TARGET POPULATIONS AND GEOGRAPHIC AREAS: This application targets rural and
+
+frontier residents in Nebraska, particularly women of reproductive age, children and adolescents,
+
+adults with chronic preventable conditions such as diabetes and metabolic syndrome, adults over
+
+65 and dual eligible patients, adults and children requiring dental care, individuals with unmet
+
+behavioral health needs, and families living below 200% of the FPL. Priority geographic areas
+
+include Nebraska’s 88 HRSA-designated rural counties, which includes 30 frontier counties, as
+
+listed by FIPS code in the Other Supporting Documentation section of this application, tribal
+
+communities in rural areas, and counties adjacent to frontier counties and counties with tribal
+
+lands. Other target geographic areas include counties with high rates of infant and maternal
+
+mortality, EMS volunteer reliance, high health care workforce vacancy rates, and those with a
+
+lack of Supplemental Nutrition Assistance Program (SNAP) Employment and Training (E&T)
+
+programs. Additionally, this application targets counties with hospitals at risk of closure, counties
+
+with limited digital infrastructure, and counties with food, maternity, dental care, and behavioral
+
+health deserts.
+
+
+RURAL HEALTH TRANSFORMATION PLAN: GOALS AND STRATEGIES
+STRATEGIC GOALS ALIGNMENT AND PROGRAM KEY PERFORMANCE
+
+OBJECTIVES: With rural residents making up a significant proportion of Nebraskans, high-
+
+
+                                                                                                        7
+quality rural health care delivery remains essential to meeting the needs of the State. Nebraska
+
+designed its RHTP to focus on seven initiatives that align with the RHTP five strategic goals.
+
+              Nebraska RHTP Initiative                             Aligned RHTP Strategic Goal(s)
+ Initiative 1: Make Rural Nebraska Healthy Again          Making Rural America Healthy Again, Sustainable
+ Through Food as Medicine                                 Access, Innovative Care
+ Initiative 2: Regionalized Rural Access and Navigation   Making Rural America Healthy Again, Sustainable
+                                                          Access, Workforce Development, Innovative Care
+ Initiative 3: Rural Workforce Acceleration               Workforce Development
+ Initiative 4: eHealth and Mobile                         Sustainable Access, Workforce Development,
+                                                          Innovative Care
+ Initiative 5: Rural Emergency Behavioral Health          Sustainable Access, Innovative Care, Technology
+                                                          Innovation
+ Initiative 6: Assisted Living Facility (ALF) Special     Sustainable Access, Workforce Development
+ Needs Population Incentive Model
+ Initiative 7: Nebraska Rural Health Technology           Technology Innovation
+ Catalyst Fund and Partnership Initiative (NETECH)
+
+
+
+
+Within the seven RHTP initiatives are projects that will work together to achieve the following
+
+key programmatic objectives by FY 2031: increase access to healthy whole foods to reduce risk
+
+of chronic conditions; improve recruitment and retention of health care professionals in rural
+
+communities; increase care access in rural communities through the establishment of a statewide
+
+hub-and-spoke system of regionalized care and technology-enabled services; build a continuum
+
+of behavioral health services; and modernize assisted living facilities to improve outcomes and
+
+reduce costs for individuals with complex behavioral and physical health conditions. To measure
+
+progress and impact across all initiatives throughout the funding period, Nebraska developed
+
+specific and measurable outcome metrics with baseline data and targets, as detailed in the
+
+Metrics and Evaluation Plan section of this application.
+
+IMPROVING ACCESS AND OUTCOMES: To improve access for rural residents, Nebraska
+
+will implement regional strategies across preventive care, maternal health, community
+
+
+
+                                                                                                            8
+paramedicine (CP), facility transformation, emergency behavioral health care, and the rural
+
+health care workforce pipeline. For example, Nebraska will utilize the mobile integrated health
+
+model engaging community health workers (CHW) and CP providers to deliver in-home services
+
+such as post-discharge checks, behavioral health support, and wound care, along with remote
+
+care services for chronic disease management and subacute in-home monitoring.
+
+By increasing access to care as well as promoting healthy living, Nebraska’s RHTP aims to
+
+achieve measurable improvements in rural health outcomes. For example, Nebraska will equip
+
+schools with knowledge and support to provide healthy meals for children to lower obesity risk.
+
+By increasing integrated primary care sites, which co-locate behavioral health providers in
+
+physician clinics, Nebraska will improve access to ambulatory behavioral health services before
+
+conditions reach a higher level of need. Please see more details throughout the Project Narrative,
+
+especially Initiative 1: Make Rural Nebraska Healthy Again Through Food as Medicine,
+
+Initiative 2: Regionalized Rural Access and Navigation, Initiative 4: eHealth and Mobile, and
+
+Initiative 5: Rural Emergency Behavioral Health.
+
+PARTNERSHIPS: The current reality: Nebraska is a state that relies heavily on blended state-
+
+provider-community partnerships. In Nebraska, we collectively carry the burden of a struggling
+
+rural health care system, feel the pain of preventable outcomes when care is out of reach, and
+
+celebrate success when a community recruits a needed provider or statewide quality health
+
+scores improve. As a State, we are a mighty alliance that jumps all in when a problem is
+
+identified and work together to find solutions. Nebraska’s implementation of the RHTP
+
+initiatives will be collaboration-driven, leveraging existing partnerships and developing new
+
+agreements, maximizing economies of scale, and sharing best practices in rural health care
+
+
+
+
+                                                                                                     9
+delivery. The State’s approach to collaboration and stakeholder engagement will support the
+
+success of building an interconnected infrastructure for rural communities and foster innovation.
+
+Nebraska will sustain engagement through a formalized governance and stakeholder advisory
+
+structure that ensures ongoing participation and transparency throughout implementation. Please
+
+see more details on the partners that Nebraska will engage in each proposed initiative’s Key
+
+Stakeholder section throughout this application.
+
+WORKFORCE: Nebraska will implement a statewide “grow local” strategy that will recruit,
+
+train, and retain a robust workforce in rural areas. Nebraska will launch the Rural Workforce
+
+Acceleration program to develop and recruit vital clinical disciplines. To maintain continuous
+
+skills transfer and reinforce team-based competency, Nebraska will also establish a statewide,
+
+telehealth-enabled network that will deliver Virtual Reality/Augmented Reality (VR/AR)-based
+
+training to rural providers. Please see more detail in Initiative 3: Rural Workforce Acceleration.
+
+TECHNOLOGY USE AND DATA-DRIVEN SOLUTIONS: Nebraska will leverage emerging
+
+technologies to achieve the goals of Making Rural Nebraska Healthy Again and sustainable
+
+access to care. The State will use data dashboards to monitor local purchasing rates of healthy
+
+whole foods by schools, nutritional quality of school menus, and student participation trends in
+
+its implementation of a statewide “School Food Learning Lab.” Nebraska will leverage AI-
+
+assisted Remote Patient Monitoring (RPM), telehealth-enabled crisis response, and electronic
+
+health record (EHR)-integrated wearable sensors to proactively manage chronic diseases, reduce
+
+preventable health crises, and increase access to preventive care in rural and tribal communities.
+
+The State will evaluate new technologies using a structured framework that assesses clinical
+
+impact, usability, interoperability, sustainability, and alignment with rural and tribal needs,
+
+incorporating input from rural providers and communities through pilot testing and advisory
+
+
+                                                                                                     10
+councils. Nebraska will use real-time, multi-level data to identify gaps, monitor outcomes, drive
+
+continuous quality improvement tailored to the unique needs of rural communities, and guide
+
+future scaling and investment decisions.
+
+For example, Nebraska will deploy an EHR-integrated, hospital-to-home RPM option for
+
+individuals requiring, for example, prenatal and postnatal care, chronic disease management,
+
+acute care patients, and the elderly that includes continuous, multi-parameter wearable sensors
+
+(e.g., heart rate, respiratory rate, temperature) where appropriate, with AI-assisted protocols
+
+routed to clinicians, CHWs, and telehealth providers for timely intervention. Additionally, the
+
+State will employ telehealth technology to ensure all rural and frontier law enforcement agencies
+
+in the western portion of the State have access to mobile crisis providers. Nebraska will also
+
+launch NETECH to identify, vet, and support scalable health technology solutions that address
+
+critical health care access needs and sustainability challenges. Please see more details throughout
+
+the Project Narrative sections, particularly Initiative 1: Make Rural Nebraska Healthy Again
+
+Through Food as Medicine, Initiative 4: eHealth and Mobile, and Initiative 7: NETECH.
+
+FINANCIAL SOLVENCY STRATEGIES AND CAUSE IDENTIFICATION: Nebraska’s
+
+rural hospitals face significant challenges driven by low patient volumes, workforce shortages,
+
+and rising operating costs. These pressures have led many facilities to reduce essential services,
+
+worsening access to critical services for rural and frontier residents. To right-size facilities and
+
+ensure the financial sustainability of rural hospitals and providers, Nebraska will analyze data to
+
+ensure health care delivery best aligns with rural community needs and utilization trends.
+
+Nebraska’s RHTP initiatives are grounded in technology-driven solutions to increase efficiency
+
+and patient capacity in existing rural facilities and promote preventive care. Leveraging
+
+transformative practices such as co-locating CHWs and patient navigators with local health
+
+
+                                                                                                       11
+departments (LHDs) and agricultural extensions offices, along with converting CAHs at risk of
+
+closure to rural emergency hospitals, will ensure health care stays local. This approach empowers
+
+locally governed hospitals and clinics to remain independent while accessing the scale and
+
+shared expertise of a regionalized network.
+
+On a policy level, the State will innovate its payment methodology to promote financial viability
+
+for critical services. The hub-and-spoke regionalization model will ensure Nebraskans can access
+
+necessary care. The RHTP will not be used to maintain failing hospitals. It will instead allow
+
+Nebraska to develop a regionalized health care system that leverages the strengths of larger rural
+
+facilities and aligns incentives for partnering with smaller facilities. See the table below for
+
+examples of legislative and regulatory actions related to payment and rate methodology. The
+
+State also includes additional details on how Nebraska will sustain successful initiatives in the
+
+Sustainability Plan of the application.
+
+LEGISLATIVE AND REGULATORY ACTION: Nebraska commits to making the following
+
+legislative and regulatory actions as part of its implementation plan for the program:
+
+     Legislative or regulatory action               Timeline              Impact to quality, access, and/or
+                                                                                       cost
+ Require maternal/neonatal level of care   Changes to regulation Title   Ensure that rural patients receive
+ designations.                             175 Chapter 9 complete by     appropriate risk level of care to
+                                           CY 2026-2027.                 lower maternal and infant morbidity
+                                                                         and mortality.
+ Enable Medicaid reimbursement for         Submit no later than Q4       Support lowering costs for CP and
+ Community Paramedicine through a          2027.                         lower risk of emergency department
+ Medicaid State Plan Amendment (SPA)                                     (ED) visits and hospitalizations.
+ and State regulatory changes.
+ Obtain legislative authority for State    Implement by CY2026-          Minimize barriers of entry for CHWs
+ CHW certification.                        2027.                         to be certified and grow the
+                                                                         workforce.
+ Create a Medicaid SPA to reimburse        Submit no later than Q4       Increase access to preventive
+ defined CHW services (e.g., education,    2027.                         services.
+ navigation, integration/coaching).
+
+
+
+
+                                                                                                               12
+ Establish statewide recognition of VR-     Achieve by end of CY2027.        Allow providers in remote areas to
+ based competencies for continuing                                           access immersive, standardized,
+ education (CE) credit.                                                      high-quality education.
+ Establish Medicaid coverage of RPM,        Draft policy/request for         Increase access for rural residents to
+ remote therapeutic monitoring, chronic     proposal language in             receive services and increase
+ care management, and maternal transport    CY2026. Pilot under              qualified provider pool which in turn
+ through a Medicaid SPA and State           existing codes in CY2027.        decreases hospital admissions.
+ regulatory changes.                        Implement in CY2028.
+
+OTHER REQUIRED INFORMATION
+
+State Policies: Nebraska identified the following information for each technical score factor that
+
+has a State policy action factor. The chart includes action the State will take to ensure the
+
+strategic goals of the RHTP program are achieved.
+
+   Technical Score Factor                                      Current State Policy
+ Health and Lifestyle           Nebraska will reestablish the Presidential Fitness Test by December 31, 2028,
+                                aligned with any announced federal guidance associated with Executive Order
+                                14327.
+ SNAP Waivers                   Nebraska has a SNAP Food Restriction Waiver that restricts the purchase of
+                                soda and energy drinks, approved on May 19, 2025.41
+ Nutrition Continuing           Nebraska does not currently have a requirement for nutrition to be a component
+ Medical Education (CME)        of physician CME.42
+ Certificate of Need (CON)      Nebraska respectfully submits that the CMS scoring under Factor C.3
+                                (Certificate of Need) requires review. NE’s CON law applies specifically to
+                                hospital rehabilitation beds, long-term care beds, and nursing home beds (Neb.
+                                Rev. Stat. § 71-5829.03). The statutory definition of "hospital" (§ 71-419)
+                                includes psychiatric hospitals but excludes treatment centers. Psychiatric hospital
+                                beds are distinct from rehabilitation hospital beds and fall outside CON
+                                regulation.
+                                CMS appears to have assigned 15 points under Behavioral Inpatient based on the
+                                assumption that psychiatric beds require CON, which is inconsistent with
+                                Nebraska law. Similarly, the 15 points assigned under Medical Outpatient appear
+                                based on the premise that rehabilitation centers fall within the hospital definition.
+                                However, NE's CON applies exclusively to inpatient rehabilitation beds, not
+                                outpatient services.
+                                Nebraska requests a correction of its total CON score to 15 points (rather than
+                                45), consistent with state statutory definitions.
+                                Nebraska policymakers have introduced legislation to modernize the State’s
+                                certificate of need framework. The proposed bill would remove CON
+                                requirements when a non-profit hospital is sold and eliminate the CON
+                                requirement for expansion of long-term-care beds. Although these long-term-
+                                care provisions remain under consideration, Nebraska is actively addressing this
+                                policy area aimed at reducing regulatory barriers and improving rural access to
+                                essential health services.
+ Licensure compacts             • For Physician: Member of the Interstate Medical Licensure Compact (IMLC),
+                                  serving as State of Principal License43
+
+
+
+                                                                                                                        13
+                                • For Nurse: Nurse Licensure Compact (NLC) State44
+                                • For EMS: Licensure compact member of the EMS Compact45
+                                • For Psychology: Psychology Interjurisdictional Compact (PSYPACT)
+                                  participating State46
+                                • For Physician Assistant (PA): Compact member47
+ Scope of practice              •   For PAs: Moderate48
+                                •   For Nurse Practitioners (NPs): Full scope of practice49
+                                •   For Pharmacists: Barriers to innovation in place (0-3 points)50
+                                •   For Dental Hygienists: Semi-restricted scope of practice (3-5 types)51
+ Short-term, limited-duration   STLDI plans are not restricted.52
+ insurance (STLDI)
+ Remote care services53         •    Live video: Reimbursed
+                                •    Store and Forward: Not reimbursed
+                                •    RPM: Reimbursed
+                                •    In-State licensing requirement exception: Nebraska has licensure exceptions
+                                •    Telehealth License/Registration Process: Nebraska does not have a
+                                     registration process
+
+Factor A.2: List of Certified Community Behavioral Health Clinics: As of September 1,
+
+2025, Nebraska has seven active Certified Community Behavioral Health Clinic (CCBHC)
+
+entities. The complete list, including every active site of care and address associated with each
+
+CCBHC entity, can be found in the Other Supporting Documentation section of this application.
+
+Factor A.7: Hospitals Receiving Medicaid Disproportionate Share Payment: In the most
+
+recent State plan rate year of 2023, 22 hospitals received a Medicaid Disproportionate Share
+
+Hospital (DSH) payment.
+
+
+PROPOSED INITIATIVE 1: MAKE RURAL NEBRASKA HEALTHY AGAIN
+THROUGH FOOD AS MEDICINE
+DESCRIPTION: Nebraska has one of the fastest rising obesity rates in the country according to
+
+the Centers for Disease Control and Prevention and ranks 10th highest in the nation for obesity
+
+rates.54 The number of obese individuals in Nebraska would sell out the University of Nebraska’s
+
+football stadium more than 8 times. Obesity rates in Nebraska are 36% for adults, which is
+
+expected to rise to 51% by 2030. Over 28% of adolescents in Nebraska are considered
+
+overweight or obese. The fastest-growing age group affected by obesity is young adults ages 25
+
+
+                                                                                                                   14
+to 34, which is also the age group most likely to be raising young children. For children, if one
+
+parent is obese, there is a 40% chance the child will be obese, and an 80% chance if both parents
+
+are obese.55 Less than 1% of all obesity is caused by medical disorders signifying the remaining
+
+99% is due to lifestyle choices such as eating processed foods and little to no activity.56
+
+Despite agriculture being a prominent industry in Nebraska, over half of Nebraska counties meet
+
+the criteria for a food desert. This initiative aims to directly lower obesity risk and prevent the
+
+associated chronic diseases, such as diabetes or metabolic syndrome, by improving access to
+
+healthy foods, nutrition education, and promoting active living in rural communities. The
+
+initiative leverages partnerships between the agriculture sector and schools to promote healthy
+
+living through proper nutrition and access to healthy whole foods to encourage physical activity
+
+from a young age.
+
+1.1 School Kitchen Modernization Grants: Nebraska will provide grants (with a maximum
+
+award of $100,000 per school or school district per year) to rural schools to transition their food
+
+preparation and storage infrastructure to support whole fresh foods. Eligible schools include any
+
+public or private elementary, middle, or high school in rural and frontier counties. Participating
+
+sites will be prioritized based on several criteria, including rural and frontier counties, food
+
+deserts, and poverty census data. DHHS will manage outreach, technical assistance (TA), intake,
+
+selection, contracting, verification, and payment scheduling. Eligible upgrades may include
+
+equipment such as blast chillers, salad bars, refrigeration units, scratch-cooking appliances, and
+
+greenhouses. These investments will support the transition to scratch cooking and the increased
+
+use of whole foods in school meal programs.
+
+1.2 Regional Food Pantry Development: Nebraska will assess the landscape of food
+
+cooperatives and food pantries that procure locally grown items used in school nutrition
+
+
+                                                                                                      15
+programs and identify readiness for partnerships with schools. For partners that score high on a
+
+readiness assessment, Nebraska will support producers, producer cooperatives’, and food pantry
+
+investments toward cold storage, delivery equipment, and community gardens, including food
+
+safety supplies and equipment. The initiative will provide funding for up to 120 partners to
+
+strengthen regional and local food aggregation hubs through the development of procurement
+
+tools for producers. The initiative will also fund technology needed to maintain adequate records
+
+and data, such as food received, food distributed, food stored, households served, volunteer
+
+coordination, staffing coordination, training, safety of the location for clients and staff, food
+
+safety, and nutrition education and training. Additionally, the State will invest in developing “last
+
+mile” logistics systems to strengthen connections between participating small rural producers
+
+and local school systems through equipment to supply fresh foods, ensuring efficient and reliable
+
+food distribution.
+
+1.3 Farm-to-School Procurement and Policy Technical Assistance (TA): The State will
+
+establish a statewide School Food Learning Lab to support school districts in revising bid
+
+specifications, vendor contracts, and menu cycles to better facilitate local food sourcing. Districts
+
+that apply will receive hands-on TA to navigate the U.S. Department of Agriculture (USDA)
+
+procurement regulations, vendor qualification processes, and food safety requirements. The
+
+initiative will support over 40 partners per year at $150,000 each.
+
+Additionally, the State will provide TA and food infrastructure equipment to local rural farmers,
+
+ranchers, and food suppliers to develop healthy kitchen-ready products that reduce preparation
+
+burden on school kitchens. Priority will be given to those in rural and frontier counties and tribal
+
+communities that have food deserts. Eligible equipment may include trailers, forklifts, pallet
+
+jacks, packaging equipment, refrigeration units or generators, and food safety equipment.
+
+
+                                                                                                        16
+To further streamline local procurement, the State will also develop a digital marketplace that
+
+connects Nebraska producers, food pantries, and school districts. This effort will support menu
+
+planning, vendor management, procurement tracking, and will include data dashboards to
+
+monitor local purchasing rates, nutritional quality of menus, and student participation trends.
+
+1.4 Healthy Menu Design & Culinary Workforce Training: The State will launch a Nebraska
+
+School Nutrition Training Institute with post-secondary institutions such as the University of
+
+Nebraska-Lincoln (UNL) Extension, Metropolitan Community College Institute for the Culinary
+
+Arts and Great Plains Culinary Institute, in partnership with the Nebraska Department of
+
+Education (NDE), for cafeteria staff to receive a certification in healthy, scratch-cooking
+
+techniques and chronic-disease-prevention menu design. Nebraska will design and implement, in
+
+partnership with nutritionists, regional food services training for culinary skill building and
+
+standardized recipe development. By advancing the skills of rural and tribal school cafeteria
+
+staff, Nebraska will increase its local capacity to deliver nutritious meals that promote children’s
+
+health, reduce reliance on processed foods, and reinforce prevention and chronic disease
+
+management through improved nutrition.
+
+1.5 Nebraska Kids Fitness and Nutrition Day: Nebraska will engage school students across
+
+the State through interactive educational events that focus on healthy eating, physical activity,
+
+and wellness through hands-on activities, fitness demonstrations, and nutrition education
+
+sessions. The State will contract with University of Nebraska Kearney Physical Activity and
+
+Wellness Lab, among others, for implementation support. The programs that are developed with
+
+this initiative will establish the infrastructure for ongoing sustainability. Nebraska will also
+
+reestablish the Presidential Fitness Test by December 31, 2028, aligned with any announced
+
+federal guidance associated with Executive Order 14327.
+
+
+                                                                                                       17
+ Main Strategic Goal                                         Use of Funds   Technical Score Factors
+ Making Rural America Healthy Again Sustainable Access       A, D, F, J     B.2, F.2
+ Innovative Care
+
+KEY STAKEHOLDERS:
+
+ Stakeholder             Partners
+ Category
+ State Leadership and    DPH, Department of Education, Department of Agriculture, OEA, MLTC, State Office
+ Agencies                of Rural Health (SORH), Department of Economic Development, Local Health
+                         Departments (LHDs), Nebraska Department of Education (NDE)
+ Health Care and         Nebraska Chapter American Academy of Pediatrics, Nebraska School Board
+ Provider Partners       Association
+ Community and           Nebraska Christian Home Educators Association and Nebraska Homeschool; The
+ Regional Stakeholders   Home Educators Network, Inc.; Chambers of Commerce; UNL Extension Offices;
+                         Nebraska School Nutrition Association; Nebraska Association of Local Health
+                         Directors (NALHD); University of Nebraska Kearney; food retailers; community
+                         leaders and city planning commissions; University of Nebraska-Lincoln (UNL)
+                         Extension; and educational institutions
+ Tribal partners         Tribal nations, schools, and food suppliers
+
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Percentage of locally sourced protein menu items, (2) Percentage of
+
+heat-and-serve items represented on menus for National School Lunch Program (NSLP)/School
+
+Breakfast Program (SBP), (3) School meal fresh food participation rates, and (4) Number of food
+
+producers that have new school purchasing agreements or navigated USDA procurement rules.
+
+Please see the Metrics and Evaluation Plan of this application for more details on the outcome
+
+metrics’ baseline data, data sources, targets, timeframe and level of analysis for this initiative.
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+tribal communities in rural areas, food deserts, and counties that lack access to fresh food. Please
+
+see the Other Supporting Documentation for their associated FIPS codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $22M | Total (FY26–FY31): = $110M |
+
+School Kitchen Modernization Grants: $2.5M/yr | Regional Food Pantry Development: $10M/yr
+
+
+
+                                                                                                            18
+| Farm-to-School Procurement & Policy TA: $8.5M/yr | Healthy Menu Design & Culinary
+
+Workforce Training: $0.5M/yr | Nebraska Kids Fitness and Nutrition Day: $0.5M/yr.
+
+
+PROPOSED INITIATIVE 2: REGIONALIZED RURAL ACCESS AND
+NAVIGATION
+DESCRIPTION: In Nebraska, long travel times contribute to underutilization of preventive care
+
+and reduced follow-up post discharge. The status quo mindset of facilities delivering health care
+
+through the brick-and-mortar model limits access to specialists at the local level leading to
+
+delayed diagnosis and treatment of manageable diseases and inconsistent linkages to essential
+
+heath care resources. Nebraska will build a statewide hub-and-spoke system of regionalized care
+
+and navigation that ensures every rural resident can access the right care, in the right amount, at
+
+the right time, in the right place. The initiative integrates emergency response, maternal and
+
+perinatal systems, post-acute follow-up, preventive care, and local service access through five
+
+interdependent components. Together, these components address longstanding structural
+
+challenges in rural health care delivery, such as fragmented prehospital coordination, maternity
+
+care deserts, gaps in chronic disease management, care for aging adults, and underutilized
+
+facilities that could serve broader local health care needs.
+
+
+The initiative will establish regionalized coordination of emergency medical and perinatal care;
+
+grow CP and telehealth-enabled response capacity; connect veteran EHRs to local EHRs to
+
+improve veteran access to local health care; repurpose local infrastructure into full-spectrum
+
+health access points; and embed CHWs with LHDs and agricultural (ag) extension offices to
+
+strengthen prevention and care navigation. The ag extension offices partner with local counties
+
+and the USDA to provide research-based information and educational programs to the public in
+
+areas including agriculture, 4-H youth development, and nutrition. They aim to provide practical
+
+
+
+                                                                                                      19
+education and resources to strengthen families, communities, and businesses across Nebraska.
+
+Integrating these components increases local health care availability and diversifies revenue
+
+streams for existing facilities, which will sustain the infrastructure beyond the grant period.
+
+
+2.1 EMS and Perinatal Regionalization: Nebraska has the fifth highest percentage of
+
+maternity‑desert counties in the country, with about 52% of counties categorized as maternity
+
+deserts compared to the national average of 32.6%. Patients in rural areas face long
+
+transportation times and inconsistent referral pathways for care.57 Standardized and dependable
+
+protocols for patient transfers or tele-consults will reduce perinatal morbidity and mortality,
+
+shorten transfer times, and improve the quality and consistency of care for pregnant and
+
+postpartum patients.
+
+
+This initiative will organize the State’s maternal and neonatal care infrastructure into a risk-
+
+appropriate regional network. To ensure patients receive timely access to advanced care
+
+Nebraska will formalize high-risk patient referral pathways from rural areas to regional specialty
+
+hubs. A statewide Maternal-Fetal Medicine (MFM) Rural Provider Pairing Program will connect
+
+primary care rural providers with obstetricians. Participating providers will review patient charts
+
+for risk factors and co‑create a care plan within one week of a first visit to an obstetrician.
+
+Providers will co-manage high-risk pregnancies through secure teleconsultation and coordinated
+
+care planning. The MFM Provider Pairing Program will be piloted in the first year of funding at
+
+one rural clinic in a maternity desert using Health Insurance Portability and Accountability Act-
+
+compliant collaboration practices. The pilot will take place in a county with a high number of
+
+births occurring outside the county and will establish protocols that can be scaled to additional
+
+rural sites with on-site and/or virtual education. This allows a high-risk patient to be seen by their
+
+rural physician during pregnancy before being transferred to a specialist for delivery. The
+
+                                                                                                         20
+initiative will also support recruitment of certified nurse midwives to the rural areas of the State.
+
+In order to support safe deliveries, a high-risk obstetrics (OB)/neonatal EMS transport system
+
+will be developed along a maternity desert section of I-80, a major corridor running east-west
+
+across Nebraska that spans 455 miles. Dedicated equipment, protocols, and an on-call MFM
+
+consult line will be provided for the initial pilot EMS teams. Learnings from the initial teams
+
+will provide the foundation for increasing the pilot to the rest of the east-west routes and to the
+
+north-south routes in maternity deserts across western Nebraska. Nebraska and Iowa have
+
+discussed the possibility of cross-border collaboration in this effort to improve access to
+
+specialized care.
+
+
+2.2 Community Paramedicine (CP) Regionalization: In Nebraska, rural EMS are fragmented,
+
+with inconsistent medical direction, protocols, and documentation. More than 80% of EMS
+
+agencies are staffed with volunteers.58 Many communities lack post‑discharge support, chronic
+
+disease follow‑up, behavioral health linkage, and treat‑in‑place options. Community
+
+Paramedicine (CP) is a mobile model that utilizes medical training of EMS providers to support
+
+patients with urgent and non-urgent needs. The initiative will build regional Mobile Integrated
+
+Health Care CP capacity. Through telehealth and updated clinical documentation systems,
+
+community paramedics will deliver new “treat-in-place” services, perform chronic disease
+
+follow-up, assist with high-risk patient outreach, and connect patients to alternate destinations
+
+such as primary-care clinics or behavioral-health providers. Participating EMS agencies will
+
+operate under unified regional medical direction and standardized equipment, protocols, and
+
+tiered response structures that match resources to patient acuity. EMS teams that volunteer to
+
+participate will be assessed for readiness and provided training. Advanced simulation training
+
+and VR technology will be deployed to improve workforce readiness and standardize
+
+
+                                                                                                        21
+competencies across participating rural EMS agencies. Nebraska will also implement a statewide
+
+Emergency Medical Dispatch platform and pilot the adoption of PulsePoint, a 911-connected app
+
+that notifies users of nearby emergencies to improve response coordination. To support rural
+
+emergency needs, regional inventories of essential medical countermeasures will be established
+
+in geographically isolated areas across the State. Local implementation agencies will be
+
+responsible for cycling supplies through local health care systems. Collectively, these reforms
+
+will enable consistent service delivery, reduce unnecessary transport, and integrate EMS as a
+
+vital bridge between emergency, outpatient, and preventive care systems.
+
+
+2.3 Rural Health Hubs and Statewide CHW Network: The Rural Health Hubs and Statewide
+
+CHW Network initiative will increase access to preventive care. The program will enable data-
+
+sharing across rural health care facilities and community partners by embedding CHWs within
+
+LHDs, tribal organizations, ag extension offices, or rural hospitals and facilities. Each
+
+participating LHD district will staff a minimum of 10 CHWs supported by supervisors who
+
+ensure alignment with local needs. LHDs, tribal organizations, ag extension offices, rural clinics,
+
+and rural hospitals and facilities will need to apply to participate in the program and priority will
+
+be given to areas with negative health outcomes as indicated in statewide health data.
+
+Subawardees will fund vendor partners that can provide technological solutions for seamless, bi-
+
+directional interoperability to share data and enhance care coordination. Subawardees will use
+
+technical assistance to engage payers and community partners to ensure sustainable value-based
+
+care.
+
+
+CHWs will focus on connecting residents to medical homes, supporting chronic disease
+
+management through patient education and non-acute remote patient monitoring, coordinating
+
+communication between primary care physicians and behavioral health and maternal health
+
+                                                                                                        22
+services, and facilitating benefits enrollment through ACCESSNebraska, Nebraska’s integrated
+
+eligibility system. Standardized data-sharing agreements (Memoranda of Understanding
+
+[MOUs]/Business Associate Agreements [BAAs]) will allow rural clinics and CHWs to
+
+document referrals within hospital and clinic EHRs, and track outcomes. Nebraska will develop
+
+a formal CHW certification pathway and maintain a statewide registry, defining core
+
+competencies and specialized endorsements such as home visiting and lactation support. A
+
+statewide CHW Community of Practice (COP) will provide training, TA, and quality
+
+improvement, such as quarterly COP meetings for peer learning and resource sharing. DHHS
+
+will work with private insurance and prepare a Medicaid SPA to establish reimbursement for
+
+CHW services, ensuring long-term sustainability. The program will also provide funding for
+
+minimal modifications of existing community space to allow CHWs to be co-located in LHDs,
+
+tribal offices, ag extension offices, and rural facilities. The initiative also includes a pilot with a
+
+tribal organization to employ a market-ready tech-enabled care station for ambulatory care visits,
+
+such as OnMed.
+
+Rural Health Hub regional collaboration initiative includes the development of approximately
+
+three regional coordination and governance (RCG) structures to evaluate health care data and
+
+identify collaboration opportunities. The RCG will be comprised of a cross-representation of
+
+health care associations and will be a non-profit with no lobbying activity. The RCG will
+
+establish regional coordination and governance structures to design and build a referral hub
+
+across the care continuum, evaluate data to detect operational efficiencies, identify opportunities
+
+for group purchasing, and strengthen cybersecurity capability. As part of the group purchasing
+
+evaluation, the RCG will determine how to jointly acquire and share a mobile imaging unit to
+
+
+
+
+                                                                                                          23
+address unmet diagnostic needs and improve access to evidence-based preventive screenings
+
+across rural and frontier areas.
+
+
+2.4 Veteran EHR Coordination: In partnership with the U.S. Department of Veterans Affairs
+
+(VA), Nebraska will implement the External Provider Scheduling (EPS) system across rural
+
+communities to ensure veterans can access timely care at their preferred location, whether at VA
+
+facilities or local rural hospitals and clinics. Currently operational in Nebraska’s urban centers,
+
+EPS enables seamless scheduling between VA and community providers through shared EHR
+
+integration. EPS rollout is a priority of both Congress and the Administration, and this initiative
+
+will extend this capability up to 72 rural facilities statewide by funding the technical integration
+
+of EPS with Nebraska’s rural health EHR infrastructure, connecting CAHs, Rural Health Clinics
+
+(RHCs), and other providers in rural and frontier counties. Through this connectivity, veterans
+
+will experience reduced appointment wait times and improved continuity of care, while rural
+
+providers will see more consistent patient referrals and increased VA reimbursement for
+
+community-based services. Funds will be sub-awarded to an association that represents rural
+
+CAHs and RHCs and will prioritize participating facilities by reviewing historical claims records
+
+where veterans receive care. By linking the VA system with Nebraska’s regional health grid, the
+
+initiative ensures that veterans living in rural areas receive the same coordinated, high-quality
+
+care and scheduling efficiency available in urban centers.
+
+
+2.5 CAH to REH Conversion: Nebraska will assist CAHs at risk of closure in converting to
+
+Rural Emergency Hospitals (REHs) to preserve access to essential health services in rural
+
+communities and stabilize rural health care infrastructure. Many CAHs across the State are
+
+facing insolvency due to declining inpatient volumes and unsustainable operating margins,
+
+placing entire communities at risk of losing their only source of local care. This initiative will
+
+                                                                                                       24
+support up to ten facilities in either completing full CAH-to-REH conversions or implementing
+
+minor modifications to increase and diversify services, such as creating a co-located telehealth
+
+clinic, RPM monitoring stations, behavioral health crisis stabilization units, or subleasing space
+
+to partner hospitals to provide skilled nursing services. Funding will support facility
+
+modifications, clinical equipment, and cloud-based technology integration necessary for
+
+compliance and efficient operations under the REH model. The program will engage the
+
+Nebraska Hospital Association (NHA), Nebraska Rural Hospital Association (NRHA), and
+
+payers to ensure billing and reimbursement readiness, promoting long-term financial viability.
+
+These conversions will help retain emergency and outpatient services in vulnerable communities,
+
+establish new revenue streams for participating facilities, and sustain a rural care network that
+
+prevents service deserts after hospital closures.
+
+
+ Main Strategic Goal                                      Use of Funds        Technical Score Factors
+ Make Rural America Healthy Again                         A, C, D, E, F, G,   B.1, B.2, C.1, C.2, D.1, F.1,
+ Sustainable Access                                       H, I, J, K          F.2, F.3
+ Workforce Development
+ Innovative Care
+
+KEY STAKEHOLDERS:
+
+ Stakeholder             Partners
+ Category
+ State Leadership and    Local governments, LHDs, DHHS advisory boards
+ Agencies
+ Health care and         Hospitals; clinics; Federally Qualified Health Centers (FQHCs); RHCs; CAHs;
+ Provider Partners       Nebraska Perinatal Quality Improvement Collaborative (NPQIC); perinatal hospitals
+                         and hospital regulators; obstetric, pediatric, and MFM providers; EMS agencies,
+                         training organizations, and physician medical directors; NALHD and University of
+                         Nebraska Medical Center (UNMC); rotating specialty providers; Nebraska Health Care
+                         Association; NHA; NRHA; VA facilities; nursing facilities; CHWs
+ Community and           Public Safety Answering Points/dispatch and the Nebraska Public Service Commission,
+ Regional Stakeholders   Medicaid Managed Care Organizations, community-based organizations, professional
+                         associations, health information technology and durable medical equipment vendors,
+                         LeadingAge Nebraska, high schools and post-secondary training programs, patient and
+                         family representatives
+ Tribal Partners         Tribal health organizations
+
+
+                                                                                                               25
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Number of maternity desert counties with newly trained perinatal
+
+providers; (2) Number of licensed community care providers (community paramedics); (3)
+
+Percentage of EMS services participating in regionalization; (4) Number of hospitals with active
+
+LHD MOU/BAA; (5) Number of veterans using EHR to schedule appointments outside the VA;
+
+and (6) Retention in services available locally for CAH facing insolvency. Please see the Metrics
+
+and Evaluation Plan of this application for more details on the outcome metrics’ baseline data,
+
+data sources, targets, timeframe, and level of analysis for this initiative.
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+tribal communities in rural areas, maternity care deserts, counties with high rates of infant and
+
+maternal mortality, and counties with CAHs at risk of closure. Please see the Other Supporting
+
+Documentation for their associated FIPS codes.
+
+
+ESTIMATED REQUIRED FUNDING: Total annual: $58.5M | Total (FY26–FY31): ~$291M59
+
+| EMS & Perinatal Regionalization: $4M/yr | CP Regionalization: $11.1M/yr | Rural Health Hubs
+
+and Statewide CHW Network: $29.3M/yr | Veteran EHR Coordination: $2M/yr | CAH to REH
+
+Conversion: $10M/yr.
+
+
+PROPOSED INITIATIVE 3: RURAL WORKFORCE ACCELERATION
+DESCRIPTION: Rural Nebraska faces critical workforce shortages across primary care, OB,
+
+dental, and behavioral health. This initiative’s five components directly respond to Nebraska’s
+
+rural health workforce needs by establishing a statewide “grow local” strategy that will recruit,
+
+train, and retain a resilient workforce that advances whole-person health and ensures care
+
+availability.
+
+
+
+
+                                                                                                    26
+3.1 Rural Provider Recruitment and Retention Incentive Program: The Rural Provider
+
+Recruitment and Retention Incentive Program will target recruitment and retention of highly
+
+needed clinical disciplines, post-graduation. Awards will be tied to a five-year rural service
+
+obligation at facilities that accept Medicare and Medicaid and meet an annual Medicaid access
+
+threshold. The Nebraska RHAC will maintain and update a prioritization matrix annually based
+
+on health care workforce data, which will determine eligible disciplines and jurisdictions. A
+
+RHAC subcommittee consisting of a cross-representation of health care associations will make
+
+recommendations to the RHAC for regionalized workforce priority areas in rural Nebraska. The
+
+subcommittee will be non-profit and will be prohibited from lobbying activities. Awards can
+
+include hiring incentives, training, apprenticeships, retention incentives, and stipends for
+
+relocation and will be scaled by discipline with awards ranging in amounts up to $75,000 per
+
+year. The total number of awards per year will be determined by the RHAC’s evaluation of high-
+
+priority care needs based on Nebraska workforce data. If an individual is employed by a larger
+
+rural health system, scoring will account for a requirement to practice a portion of the work week
+
+in a rural health care facility. Participants must be United States citizens, hold an active Nebraska
+
+license at the time of award, and practice in a HRSA-designated rural county or a county
+
+adjacent to either a frontier county or a county with tribal lands. The program will require
+
+quarterly verification of employment in a designated shortage area, and cost sharing by local
+
+employers or other private sources. Annual payments are released after successful employment
+
+verification.
+
+3.2 Rural VR and Skills Acceleration Network: RHTP funds will support a statewide,
+
+telehealth-enabled simulation network to bridge gaps in education and training, providing access
+
+to resources and experiences that are otherwise limited by distance, cost, or availability in rural
+
+
+
+                                                                                                        27
+and frontier settings. Using portable VR/AR technology, the network delivers high-acuity, low-
+
+occurrence training directly to local providers. Content will include obstetric drills, EMS
+
+scenarios, and dental safety modules. Mobile training roadshows, regional hubs, and train-the-
+
+trainer cohorts will provide continuous skills transfer and reinforce team-based competency.
+
+Nebraska will partner with an institution of higher learning or vendor to develop this program.
+
+Rural and frontier facilities, CAHs, RHCs, LHDs, and tribal providers will be eligible for
+
+VR/AR technology deployment or hub participation.
+
+3.3 Rural Health Care Workforce Incentive and Sustainability Model: Nebraska will
+
+implement a Rural Health Care Workforce Incentive and Sustainability Model to strengthen the
+
+rural workforce pipeline in rural and frontier communities and support SNAP clients to obtain
+
+jobs that pay a livable wage. Utilizing the SNAP E&T (employment and training) program,
+
+Nebraska will assist SNAP eligible individuals seeking careers in entry-level and advanced
+
+practice health care professions to access employment and training opportunities in rural
+
+communities. Careers examples include nurse aides, medical assistants, registered nurses,
+
+radiology technicians, phlebotomists, and other health care providers based upon statewide
+
+workforce shortage data. Participants receive a layered package of supports coordinated by the
+
+OEA and local employers including (1) supportive services such as transportation, educational
+
+materials, or tuition assistance to help health care workers gain the skills necessary to enter the
+
+health care workforce, (2) case management with a career coach to identify and guide
+
+participants through a health care career pathway, and (3) job retention assistance to ensure the
+
+participants are prepared to enter and remain in rural practice. The initiative provides a pathway
+
+for recipients of economic assistance to earn a living wage by helping them transition off the
+
+assistance program to self-sufficiency while building out the rural workforce. Regional
+
+
+
+                                                                                                      28
+workforce and education partners will receive TA and resources to sustain the “grow local”
+
+workforce model. The OEA will provide partner capacity-building grants to rural SNAP E&T
+
+third party-partners over five years to run their SNAP E&T program focused on health care
+
+career pathways. Employers who participate will receive structured support, ensuring that
+
+investments in staff development translate to enduring rural workforce stability and encourage
+
+providers to practice at the top of their license. Participants must work in HRSA-designated rural
+
+counties, or counties next to frontier areas and counties with tribal communities. The initiative
+
+prioritizes high-vacancy rural facilities, frontier and tribal communities, and counties with
+
+maternity-care deserts.
+
+3.4 School-Age Health Care Pipeline: Nebraska will support two state developed programs that
+
+expose school-age students to health care careers. uBEATS, a web-based platform developed by
+
+UNMC and University of Nebraska at Omaha (UNO), introduces students in grades 6–12 to
+
+health science and behavioral health fields by equipping teachers with modern science,
+
+technology, engineering, and math resources. With this funding, uBEATS offerings will add a
+
+new rural health series and launch a Badge and Job-Shadowing Scholarship Program linking
+
+digital learning and hands-on experience with rural health care providers. uBEATS will also
+
+launch a turnkey middle-school elective and enhance its platform’s user interface and analytics to
+
+improve engagement and track learning outcomes.
+
+Health Care Heroes League is a curriculum for youth in grades 3-6 developed by NHA and the
+
+Nebraska Health Care Foundation. The curriculum focuses on health care career exploration and
+
+hands-on learning, such as mock emergency scenarios. The funding will allow the curriculum to
+
+be provided in rural and frontier counties and tribal communities and through Educational
+
+
+
+
+                                                                                                     29
+Service Unit (ESU) partnerships and workshops, teachers and counselors will receive
+
+professional development.
+
+3.5 Subsidized Short-Term Provider Housing: Provider housing shortages are a major barrier
+
+to rural recruitment. Nebraska will launch a minimum 1:4 public-private cost-sharing model to
+
+help rural hospitals and clinics rent or cosmetically update housing for newly recruited providers
+
+on a short-term basis. These homes will serve as short-term or transitional residences during
+
+relocation or early service to incentivize residency training in rural areas. The program will be
+
+sustained by local philanthropic partners after the cooperative agreement ends. The program will
+
+support no less than five communities per year, prioritizing areas with the greatest workforce
+
+vacancies and demonstrated need.
+
+ Main Strategic Goal                                        Use of Funds       Technical Score Factors
+ Workforce Development                                      D, E, F, G, J, K   C.1, C.2, D.1, F.1
+
+KEY STAKEHOLDERS:
+
+ Stakeholder             Partners
+ Category
+ State Leadership and    DPH, SORH, MLTC, LHDs, OEA, local Workforce Innovation and Opportunity Act
+ Agencies                boards, Department of Labor, local governments
+ Health care and         NHA; RHAC; CAHs; RHCs; FQHCs; primary care, behavioral health, and dental
+ Provider Partners       clinics; UNMC iEXCEL, long-term care facilities, rural hospitals, Nebraska Medical
+                         Association (NMA)
+ Community and           Community-based organizations (CBOs); Nursing Health Care and Emergency
+ Regional Stakeholders   Responder Organization Education through Simulation (HEROES); UNMC College of
+                         Dentistry; regional EMS training agencies; ESUs; community colleges; universities;
+                         high schools; UNO; school districts; teachers, counselors, and schools; philanthropic
+                         partners; community development organizations
+ Tribal Partners         Tribal health organizations
+
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Number of rural and primary care providers; (2) Rural counties
+
+receiving at least one VR deployment annually; (3) Five-year retention among participants in
+
+
+
+                                                                                                                 30
+health care career pathways; (4) Number of unique uBEATS and Health Care Heroes League
+
+student participants per year (Grades 3–12); and (5) Percentage of sustainable housing available
+
+to rural workforce retained post-grant. Please see the Metrics and Evaluation Plan of this
+
+application for more details on the outcome metrics’ baseline data, data sources, targets,
+
+timeframe and level of analysis for this initiative.
+
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+counties with maternity care deserts, tribal communities in rural areas, high EMS volunteer
+
+reliance, workforce vacancy rates, and those with SNAP E&T programs. Please see the Other
+
+Supporting Documentation for their associated FIPS codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $26M | Total (FY26-FY31): 131M60 |
+
+Rural Provider Recruitment and Retention Incentive Program: $17.7M/yr | VR Simulation:
+
+$4.8M/yr | Rural Health Care Workforce Incentive and Sustainability Model: $2M/yr | School-
+
+Age Health Care Pipeline: $500,000/yr | Short-term Subsidized Housing: $1M/yr
+
+
+PROPOSED INITIATIVE 4: EHEALTH AND MOBILE ACCESS
+DESCRIPTION: Rural Nebraskans face compounded barriers to preventive and timely care:
+
+maternity care deserts and inconsistent obstetric readiness; high chronic disease burden with
+
+limited follow-up and care coordination; transportation barriers for the elderly; and persistent
+
+oral health gaps that drive avoidable ED use. Distance, workforce shortages, digital divides, and
+
+fragmented systems translate to delayed detection, higher cost of care, and avoidable morbidity.
+
+This initiative will bring access to high-quality, technology-enabled health care for rural and
+
+frontier Nebraskans by integrating mobile, remote, and eHealth solutions that meet patients
+
+where they are and empower them to make healthy choices. Through mobile clinical units,
+
+
+
+                                                                                                    31
+preventive oral health teams, technology-enhanced pharmacy services, and remote care service
+
+technologies, this initiative strengthens local capacity, reduces emergency utilization, and
+
+advances Nebraska’s vision to Make Rural America Healthy Again. The funds will establish the
+
+systems and infrastructure needed for sustainable and technology-enabled community-based
+
+care.
+
+4.1 Mobile Maternal Care and Training (Mobile OB): This program will pilot and scale Mom
+
+& Baby mobile clinic services to bring essential maternal and infant care directly to Nebraska’s
+
+maternity care deserts. These mobile units will deliver services such as prenatal and postpartum
+
+care, pregnancy confirmation, fetal monitoring, basic ultrasound, general health screening and
+
+disease prevention, health education, RPM monitoring, and referrals. This will bridge critical
+
+gaps in areas where access to OB care is limited. (See Figure 3 in Other Supporting
+
+Documentation section for a map of OB shortage areas.)
+
+The project will begin by deploying three mobile clinics through LHD partnerships. Lessons
+
+learned and evaluation of outcomes will occur before adding three additional units. A regional
+
+assessment and planning phase will map service gaps across LHDs, birthing hospitals, and non-
+
+delivery facilities to determine areas of service for the mobile clinics. The initiative includes
+
+grants for OB readiness carts and creating a CE library featuring evidence-based resources and
+
+learning modules. Medicaid will evaluate the need for an unbundled OB payment.
+
+The Readiness and Training initiative will be coordinated through Nebraska’s statewide perinatal
+
+quality improvement experts, Nebraska Perinatal Quality Improvement Collaborative, with
+
+birthing facility members with proven success in reducing maternal and infant
+
+morbidity/mortality, will deliver assessments, training, support plans, and a multi-modal strategy
+
+to strengthen maternal care deserts.
+
+
+                                                                                                     32
+These coordinated actions will strengthen maternal care capacity, reduce preventable
+
+complications, and ensure that mothers and infants in rural communities receive timely, high-
+
+quality care closer to home.
+
+4.2 Oral Health (Nebraska Teeth Forever (NTF) and Emergency Department Diversion):
+
+This program aims to bring preventive and urgent dental care closer to rural Nebraskans by
+
+partnering with LHDs, tribal organizations, and rural communities to build community-based,
+
+mobile, and sustainable oral health infrastructure. Many rural communities lack routine dental
+
+services, resulting in untreated disease, higher long-term health costs, and preventable ED visits
+
+for dental pain (See Figure 4 in Other Supporting Documentation section for a map of dental
+
+health professional shortage areas). The initiative will fund LHD-based prevention teams, pairing
+
+Public Health Registered Dental Hygienists (PHRDHs) with CHWs to deliver care using
+
+portable dental equipment (e.g., mobile chairs, lighting, ultrasonics, and autoclave) and to
+
+establish small, permanent dental rooms within LHDs for follow-up care. Mobile dental carts
+
+will also be purchased for use by PHRDHs to bring care to isolated communities. In Nebraska,
+
+PHRDHs can practice independently and in a State with a shortage of dentists PHRDHs can
+
+address dental care gaps by providing care locally in a cost-effective way. Funding will support
+
+mobile dental units with x-ray capability to bring dental care to local access points. Access
+
+points will include schools, nursing homes, tribal communities, and community centers.
+
+The program will strengthen Nebraska’s dental workforce pipeline by introducing student
+
+rotations through the UNMC College of Dentistry and Creighton University School of Dentistry.
+
+Students will assist LHD teams in delivering preventive services and gain experience in
+
+community and public health dentistry. Tribal partners will help co-design prevention services
+
+for tribal populations, modestly upgrade facilities to increase access, and collaborate with
+
+
+                                                                                                     33
+neighboring LHDs as needed. Outreach programs in coordination with State colleges of dentistry
+
+will offer portable dental services including exams, cleanings, x-rays, sealants, other preventive
+
+care, and limited urgent procedures such as extractions.
+
+To reduce preventable emergency dental visits, ED Diversion subawards with UNMC,
+
+Creighton, and free or charitable clinics (such as Clinic with a Heart, Heart Ministry Center,
+
+People’s City Mission, and Third City Clinic) will increase urgent care dental capacity for
+
+underserved populations. Standardized infection prevention/control TA will be embedded
+
+throughout the initiative to ensure consistency in sterilization, personal protective equipment
+
+usage, and room turnover across clinical sites.
+
+The DPH Office of Oral Health and Dentistry will lead implementation by coordinating with
+
+LHDs, universities, tribal partners, and free clinics and provide training and site visits. These
+
+efforts will strengthen Nebraska’s oral health infrastructure, reduce preventable diseases, and
+
+create equitable, sustainable access to dental care for rural and underserved residents.
+
+4.3 Technology-Enhanced Pharmacy Services: This component will strengthen rural pharmacy
+
+access and support chronic disease management through digital tools and incentive payments.
+
+With 69 pharmacy closures since 2020 (14% of pharmacies statewide, mostly rural), this
+
+program helps community pharmacies by introducing a mobile application for medication review
+
+and adherence, and chronic disease management. Building on the Nebraska Enhanced Services
+
+Pharmacies (NESP) clinically integrated network, a statewide consortium of community
+
+pharmacies with expertise in patient-centered services, NESP will serve as a sub-awardee to lead
+
+development and implementation. NESP will enhance pharmacy services by deploying a mobile
+
+application that enables monthly medication reviews, synchronizes prescriptions, promotes
+
+adherence, and integrates with EHR systems. The application will feature automated reminders,
+
+
+                                                                                                     34
+secure data exchange, and risk-screening algorithms that flag patients for referral to RPM or
+
+chronic disease programs. Participating pharmacists will receive payments for providing monthly
+
+medication reviews, synchronizing prescriptions, and screening high-risk patients, particularly
+
+those with diabetes, metabolic syndrome, cardiovascular disease, or hyperlipidemia, for chronic
+
+disease management. Other services will include adherence counseling, motivational
+
+interviewing, and use of multi-dose packaging or weekly medication planners to reduce barriers,
+
+such as transportation or language challenges, and lower hospitalizations related to medication
+
+non-adherence. NESP will scale to an anticipated 30 pharmacies per year, providing staff
+
+training, technical support, and quality monitoring while ensuring HIPAA and State privacy
+
+compliance. Procurement of mobile technology will occur through a vendor-neutral process.
+
+Please see Figure 6 in the Other Supporting Documentation section for a map of all independent
+
+pharmacies across the State that would be prioritized for participation by year. This initiative
+
+enhances medication adherence, lowers total health care costs, and helps sustain vital pharmacy
+
+services in Nebraska’s rural and frontier communities.
+
+4.4 Chronic Disease Management/Remote Patient Monitoring (RPM): RPM increases
+
+Nebraska’s capacity to manage chronic illnesses in the community, monitor subacute patients in
+
+their home, monitor acute patients in CAHs or REHs via a larger rural hospital, and promote
+
+healthy living through personal use technology-enabled care. RPMs are transformative solutions
+
+that drive down health care costs and reshape the health care landscape. This initiative will use
+
+consumer-facing hospital-to-home FDA-cleared or FDA-approved RPM technologies that
+
+connect patients, CHWs, EMS, and clinicians through secure, data-driven tools, providing
+
+information to a provider dashboard or through an EHR. The devices deployed will depend on
+
+the patient care needs. Complex patients will receive RPM kits with blood pressure cuffs,
+
+
+
+                                                                                                    35
+glucose monitors, pulse oximeters, and scales that connect directly to EHRs and patient portals
+
+with cellular options for areas lacking broadband. Chronic disease patients with acute
+
+exacerbations will receive technologies that support continuous vital sign monitoring, such as
+
+BioIntelliSense. Stable chronic disease patients, such as those with diabetes or metabolic
+
+syndrome, will receive RPMs that will provide health information directly to the patient and their
+
+provider on the impact of nutrition and activity level on current disease status. Prenatal patients
+
+can use RPM devices to be safely monitored in their home, such as INVU, Novii Patch, or Pylo.
+
+Nurses and CHWs will support device setup, provide home or telephonic check-ins, and use
+
+multilingual, low-literacy materials to ensure accessibility. CHWs will receive specialized
+
+training through community colleges and Area Health Education Centers (AHECs).
+
+The program will also offer virtual group visits for patients with diabetes, metabolic syndrome,
+
+hypertension, congestive heart failure, and chronic obstructive pulmonary disease, allowing
+
+specialists to provide education and monitoring through telehealth hubs at LHDs, clinics, tribal
+
+health facilities, ag extension offices, CAHs, and REHs, in partnership with larger rural health
+
+care facilities. For patients that are seen by FQHCs and CCBHCs, a technology-supported risk
+
+stratified report will identify which patients are at highest risk for negative health outcomes and
+
+the FQHC or CCBHC will manage the patient with RPM or through referrals to community-
+
+based organizations (CBOs). For high-risk patients, the initiative includes continuous, multi-
+
+parameter wearable sensors that track metrics such as heart rate, respiratory rate, temperature,
+
+and activity, with AI-assisted analytics to identify risks and prompt timely clinician action. This
+
+will be especially impactful for older adults and dual-eligible patients as it is estimated that 90%
+
+of individuals over the age of 65 have one or more chronic conditions.61
+
+
+
+
+                                                                                                       36
+Data may integrate with an existing statewide Health Information Exchange (HIE), which most
+
+hospitals and EDs use, or a technology-specific embedded HIE as applicable, for secure, real-
+
+time sharing and pooled monitoring. Implemented in rural clinics, FQHCs, CCBHCs, LHDs,
+
+CAHs, REHs, rural hospitals, and tribal health facilities, coordinated by DHHS, and supported
+
+by vendor-neutral technology partners, the initiative improves disease control, and reduces
+
+readmissions and ED visits. The initiative empowers rural and tribal residents to manage their
+
+health at home and includes integration of products that ensure consumers have access to their
+
+own health data, such as Blue Button 2.0.
+
+ Main Strategic Goal                                          Use of Funds         Technical Score Factors
+ Sustainable Access, Workforce Development, Innovative        A, C, D, E, F, G,    B.1, B.2, C.1, D.1, E.1, E.2,
+ Care                                                         I, J, K              F.1, F.2, F.3
+
+KEY STAKEHOLDERS:
+
+ Stakeholder             Partners
+ Category
+ State Leadership and    LHDs, Title V, DHHS Office of Oral Health & Dentistry
+ Agencies
+ Health care and         Rural CAHs, non‑birthing hospitals, FQHCs/clinics, EMS services, perinatal teams,
+ Provider Partners       infection prevention/control teams, rotating specialists for virtual groups free/charitable
+                         clinics (Clinic with a Heart, Heart Ministry Center, People’s City Mission, Third City),
+                         professional and local health associations, and Nebraska Pharmacists Association
+ Community and           NPQIC, AHEC, community colleges for CHW certificates/CE, UNMC/Creighton
+ Regional Stakeholders   partners, telehealth platform vendors, HIE vendors, EHR vendors, broadband partners
+                         for community hubs, tribal health entities, CBOs, patient/family representatives,
+                         regional councils and quarterly forums, UNMC College of Dentistry, Creighton
+                         University School of Dentistry, UNMC College of Pharmacy, Creighton University
+                         College of Pharmacy
+ Tribal Partners         Tribal health organizations
+
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Percentage of rural birthing hospitals with annual OB readiness
+
+training; (2) Number of individuals who receive Nebraska Teeth Forever dental services; (3)
+
+Number of patients enrolled in the technology enhanced pharmacy services program; and (4)
+
+
+
+                                                                                                                       37
+Number of clinical partners actively enrolling RPM patients. Please see the Metrics and
+
+Evaluation Plan of this application for more details on the outcome metrics’ baseline data, data
+
+sources, targets, timeframe and level of analysis for this initiative.
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+counties with maternity and dental care deserts, and tribal communities in rural areas. Please see
+
+the Other Supporting Documentation for their associated FIPS codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $42.7M; Total (FY26-FY31): $199M.
+
+Mobile OB: $6M/yr | Oral Health: $7.6M/yr | Technology-Enhanced Pharmacy: $2M/yr |
+
+Chronic Disease Management/RPM: $27M/yr
+
+
+PROPOSED INITIATIVE 5: RURAL EMERGENCY BEHAVIORAL HEALTH
+DESCRIPTION: Rural emergency behavioral health will be a statewide initiative in the 88
+
+counties that meet HRSA’s definition of rural to create an integrated care model of emergency
+
+behavioral health services for opioid use disorder treatment services, other substance use
+
+disorder (SUD) treatment services, and mental health services. This initiative will create a
+
+sustainable, community-based emergency behavioral health system that improves outcomes,
+
+reduces costs, and strengthens the State’s behavioral health continuum of care.
+
+5.1 Integrated Primary Care Sites: In many rural areas, primary care physicians are the first
+
+point of contact for individuals seeking behavioral health services. Rural clinics lack access to
+
+mental health therapists, the ability to conduct appropriate screenings, or leverage telehealth
+
+options for behavioral health services. DHHS will partner with the Nebraska Medical
+
+Association (NMA) to establish new integrated rural clinics that co-locate licensed mental health
+
+professionals in physician clinics. This effort will strengthen rural primary care clinics as long-
+
+term access points for behavioral health. NMA will provide education, TA, and start-up costs to
+
+                                                                                                      38
+create sustainable practices. Additionally, Nebraska will leverage best practices from relevant
+
+Center for Medicare and Medicaid Innovation (CMMI) models to strengthen and sustain
+
+integrated care sites.
+
+5.2 Telehealth Crisis Responders for Law Enforcement: In western Nebraska, rural and
+
+frontier law enforcement agencies typically have wait times exceeding two hours when needing
+
+to consult with a behavioral health provider. Nebraska will leverage telehealth technology to
+
+ensure all rural and frontier law enforcement agencies have access to mobile crisis providers to
+
+support de-escalation and diversion from jail or emergency room levels of care. Law
+
+enforcement officers will use a mobile application and have instant access to a crisis
+
+professional, such as Avel eCare. The State will work with local crisis response agencies,
+
+telehealth vendors, and CCBHCs to deploy a comprehensive 24/7 crisis response platform for
+
+law enforcement, train rural officers in Crisis Intervention Team protocols, and integrate the
+
+program with 988 to ensure an immediate face-to-face crisis contact.
+
+5.3 Modification of Existing Clinical Facilities for Mental Health Crisis Stabilization
+
+Centers: Nebraska will increase crisis stabilization and substance use withdrawal management
+
+capacity by retrofitting existing areas in rural hospitals, community health centers, REHs, and
+
+tribal health facilities. These community-based facilities shift care away from costly hospitals
+
+and justice systems. Through minor facility modifications and equipment enhancements, existing
+
+clinical spaces will be adapted to serve individuals experiencing behavioral health or substance
+
+use crises. The initiative will create integrated, trauma-informed crisis units that provide rapid
+
+stabilization, coordinated referrals, and follow-up care through the State’s CCBHC network.
+
+These units will offer accessible alternatives to EDs and incarceration, reduce wait times,
+
+improve care coordination, and strengthen the statewide behavioral health continuum of care.
+
+
+
+                                                                                                     39
+5.4 Behavioral Health Nursing Homes Pilot: Nebraska will implement a Behavioral Health
+
+Nursing Homes Pilot to build post-acute care capacity for individuals with serious mental illness
+
+and complex behavioral needs, particularly for those that are dual-eligible. This targeted
+
+investment will provide the support necessary to integrate behavioral health clinicians into
+
+existing nursing facilities. The integrated clinicians will support evidence-based behavioral
+
+health services and address safety needs with the patients. Funds will also support minimal
+
+infrastructure modifications to meet the specialized needs of behavioral health patients.
+
+Ultimately, this will strengthen the ability of nursing homes to stabilize and manage residents
+
+with aggressive or violent behaviors in a safe, therapeutic environment. This model, consistent
+
+with Centers for Medicare & Medicaid Services (CMS)-approved practices in other states,
+
+targets lengthy hospital stays, improves continuity of care, and strengthens the sustainable,
+
+community-based behavioral health continuum of care across Nebraska. This effort will also
+
+ensure that beds in acute care settings are available for other purposes such as surge capacity to
+
+support emergency response.
+
+ Main Strategic Goal                                        Use of Funds        Technical Score Factors
+ Sustainable Access, Innovative Care, Tech Innovation       D, E, F, G, H, J,   B.1, C.1, E.1, E.2, F.1
+                                                            K
+
+KEY STAKEHOLDERS:
+
+ Stakeholder             Partners
+ Category
+ State Leadership and    Law Enforcement Agencies, 988
+ Agencies
+ Health care and         NMA, rural hospitals, rural primary care providers, hospitals, nonprofit providers,
+ Provider Partners       behavioral health partners, nursing home operators, behavioral health providers, Opioid
+                         Treatment Centers
+ Tribal Partners         Tribal health organizations
+
+
+
+
+                                                                                                                   40
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Number of rural integrated clinics; (2) Number of contacts with a
+
+behavioral health provider at rural integrated clinics; (3) Number of law enforcement officers
+
+that are using the telehealth platform for crisis response in rural and frontier counties; and (4)
+
+reduction in placement times to nursing facilities for individuals in hospitals with complex
+
+behavioral health needs. Please see the Metrics and Evaluation Plan of this application for more
+
+details on the outcome metrics’ baseline data, data sources, targets, timeframe and level of
+
+analysis for this initiative.
+
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+tribal communities in rural areas, and counties with behavioral health and crisis care deserts.
+
+Please see the Other Supporting Documentation for their associated FIPS codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $12.1M | Total (FY26-FY31): 61.7M62 |
+
+Integrated Primary Care: $1.5M/yr | Crisis Responders for Law Enforcement: $4M/yr | Crisis
+
+Stabilization Center Modifications: $4.5M/yr | Behavioral Health Nursing Homes Pilot: $2M/yr
+
+
+PROPOSED INITIATIVE 6: ASSISTED LIVING FACILITY (ALF) SPECIAL
+NEEDS POPULATION INCENTIVE MODEL
+DESCRIPTION: This initiative creates a new payment model to strengthen Nebraska’s long-
+
+term care infrastructure and increase access to specialized services and community-based living
+
+options for medically complex patients in rural counties. The program provides an opportunity
+
+for an improved quality of life for individuals who are dual-eligible or aged 65 and older with
+
+dementia or Alzheimer’s disease, or adults with complex medical and physical disabilities. The
+
+initiative offers 1) service add-ons and 2) targeted facility modernization grants to ALFs that
+
+serve dual-eligible or Medicaid memory care adults as well as individuals with physical
+
+
+
+                                                                                                     41
+disabilities who are ages 64 and below and enrolled in the State’s Section 1915(c) Aged and
+
+Disabled (AD) Waiver.
+
+6.1 Incentive Payments for Memory Care and Complex Care: Memory care is a critical and
+
+specialized service for individuals with Alzheimer's and other dementias. It requires staff who
+
+receive extra training in dementia-specific strategies to help manage agitation and provide
+
+support. ALFs with 1915(c) AD Waiver beds will receive an incentive payment (estimated at
+
+$87/day beyond the existing per diem) for residents requiring memory or specialty medical care
+
+services. Incentive payments can be utilized by the ALFs to invest in programs and additional
+
+training for the staff, leading to long-term access to specialized care staff.
+
+6.2 Facility Modernization Grants: ALFs will be eligible for targeted grants (≤$500,000 per
+
+site) to modify or equip facilities to safely accommodate residents with high acuity needs. This
+
+will include ventilators and other tracheostomy equipment, dementia safe door systems, room-
+
+level Hoyer lift rails, and other mobility equipment. By investing in existing rural ALF
+
+infrastructure, the initiative will make one-time equipment and safety modifications that will
+
+benefit multiple residents over time, promoting long-term, sustainable access for aging
+
+populations and individuals with comorbidities that have complex medical needs.
+
+Nebraska will prioritize ALFs located in HRSA-designated rural, frontier, and tribal communities
+
+and promote partnerships between ALFs, CAHs, primary health clinics, RHCs, long-term care
+
+associations, and EMS to improve efficiency and sustainability and enhance access to specialty
+
+care, so residents no longer need to travel long distances for these services and can stay closer to
+
+their families and communities.
+
+ Main Strategic Goal                                    Use of Funds     Technical Score Factors
+ Sustainable Access, Workforce Development              B, G, J, K       B.1, C.1, C.2, E.1, E.2
+
+
+
+                                                                                                       42
+KEY STAKEHOLDERS:
+
+ Stakeholder Category       Partners
+ State Leadership and       DPH, Division of Developmental Disabilities and Aging
+ Agencies
+ Health care and Provider   ALFs, CAHs, primary health clinics, RHCs, EMS
+ Partners
+ Community and Regional     Long-term care associations
+ Stakeholders
+
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Number of memory care beds in ALFs for Medicaid recipients; (2)
+
+Number of ALF beds for Medicaid population; (3) Number of ALFs with Memory Care Units
+
+participating in the Section 1915(c) AD Waiver; and (4) Number of ALFs outfitted for complex
+
+care statewide. Please see the Metrics and Evaluation Plan of this application for more details on
+
+the outcome metrics’ baseline data, data sources, targets, timeframe and level of analysis for this
+
+initiative.
+
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties.
+
+Please see the Other Supporting Documentation for their associated FIPS codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $16M | Total (FY26-FY31): $92M63 |
+
+Service Add-on Reimbursement: $15M/yr | Facility Modernization Grants: ≈ 1M/yr
+
+
+INITIATIVE 7: NEBRASKA RURAL HEALTH TECHNOLOGY CATALYST
+FUND AND PARTNERSHIP INITIATIVE (NETECH)
+DESCRIPTION: This initiative establishes and manages NETECH, a tech catalyst fund. The
+
+program’s goal is to catalyze cutting-edge, technology-driven transformation in rural health care
+
+delivery by blending public RHTP funding with private investment.
+
+
+
+
+                                                                                                      43
+NETECH will establish a structured, transparent process for identifying, vetting, and evaluating
+
+health technology startups and scalable solutions that directly address Nebraska’s rural health
+
+care needs. Potential innovations will be assessed and prioritized based on the following criteria:
+
+(1) how well they address specific needs such as improving access to care, enhancing disease
+
+management, promoting healthy living, and supporting the health care workforce; (2) ability to
+
+demonstrate a clear, measurable impact on patient health outcomes; (3) ability to leverage data
+
+and technology to help rural providers deliver care as close to a patient's home as possible; and
+
+(4) ability to support the financial stability and operational efficiency of rural hospitals and
+
+clinics.
+
+The initiative will convene investors, health systems, tribal partners, and innovators through
+
+targeted events and matchmaking sessions that highlight opportunities to improve rural care
+
+delivery and workforce resilience. Over time, NETECH will cultivate an investment pipeline that
+
+multiplies initial RHTP seed funding with sustained private-sector co-investment.
+
+Initial seed funding will be used to establish the initiative's operational infrastructure, conduct
+
+technology scouting and vetting, and facilitate initial public-private partnerships. Deployment
+
+will begin with pilot demonstrations in high-need regions including those with high rates of
+
+chronic disease, significant maternal care deserts, and a high proportion of older adults.
+
+Communities will be selected to provide a representative cross-section of rural Nebraska's
+
+population. This ensures the pilot's findings are generalizable to the broader rural population
+
+which is essential for scaling. Pilot projects will include milestones such as increased access to
+
+remote care, improved provider efficiency, and quantifiable reductions in avoidable
+
+hospitalizations or administrative burden. Ultimately, this program intends to position successful
+
+
+
+
+                                                                                                      44
+technologies for acquisition by health systems, payers, or other health care entities seeking to
+
+integrate innovative solutions.
+
+ Main Strategic Goal                                     Use of Funds       Technical Score Factors
+ Tech Innovation                                         A, C, D, F, I, K   C.1, F.1, F.2, F.3
+
+KEY STAKEHOLDERS:
+
+ Stakeholder Category       Partners
+ State Leadership and       Department of Economic Development
+ Agencies
+ Health care and Provider   CAHs, RHCs, FQHCs, primary care and behavioral health clinics
+ Partners
+ Community and Regional     Investors, startup accelerators, UNMC, CBOs
+ Stakeholders
+ Tribal Partners            Tribal Nations
+
+OUTCOMES: Nebraska will measure the progress of this initiative by tracking the following
+
+key outcome metrics: (1) Fund design and legal framework developed; (2) Technology pipeline
+
+established and vetted solutions identified; (3) Investor engagement and matching commitments
+
+secured; and (4) Initial deployments in pilot rural communities. Please see the Metrics and
+
+Evaluation Plan of this application for more details on the outcome metrics’ baseline data, data
+
+sources, targets, timeframe and level of analysis for this initiative.
+
+IMPACTED COUNTIES: Statewide with an emphasis on 88 HRSA-designated rural counties,
+
+tribal communities in rural areas, and counties with limited digital infrastructure and high
+
+provider shortages. Please see the Other Supporting Documentation for their associated FIPS
+
+codes.
+
+ESTIMATED REQUIRED FUNDING: Total annual: $20M | Total (FY26-FY31): $100M
+
+
+IMPLEMENTATION PLAN AND TIMELINE
+
+
+
+
+                                                                                                      45
+Nebraska’s implementation plan applies a strategic framework for each initiative, aligned to
+
+Stages 0-5: planning (Stage 0); piloting new initiatives (Stages 1); refining and scaling initiatives
+
+(Stages 2-3); advancing implementation through continuous quality improvement (Stage 4); and
+
+maintaining and sustaining effective initiatives (Stage 5). Nebraska will complete all Stage 0
+
+planning activities by the end of FY26, positioning the State to quickly and effectively pilot,
+
+scale, and continuously improve initiatives in subsequent program years. This timeline is
+
+designed to maximize overall impact and ensure the sustainable implementation of effective
+
+initiatives interventions no later than FY31.
+
+IMPLEMENTATION PLAN AND TIMELINE: The Gantt chart below provides an overview
+
+of key milestones for each initiative from FY26-31, including estimated timelines for legislative
+
+and regulatory actions, where applicable. A more detailed workplan can be found in the Other
+
+Supporting Documentation section of this application.
+
+                                                                      Stages 0             1-4          5
+                                                                          FY 2026 2027 2028 2029 2030 2031
+Initiative 1: Make Rural Nebraska Healthy Again Through Food as Medicine
+Open application and make first round of awards for school kitchen
+modernization and food pantry infrastructure development (1.1, 1.2)
+Scale and maintain annual award cycles for school kitchen modernization
+(1.1)
+Launch and maintain digital marketplace for farm-to-school
+equipment/supplies (1.3)
+Launch and continue regional training for school culinary skill building and
+menu design (1.4)
+Finalize design of Nebraska Kids Fitness and Nutrition Day and partner
+with Department of Education on pilot (1.5)
+Launch Nebraska Kids Fitness and Nutrition Day in rural areas annually to
+achieve statewide implementation (1.5)
+Reestablish the Presidential Fitness Test, aligned with any announced
+federal guidance associated with Executive Order 14327
+Initiative 2: Regionalized Rural Access and Navigation
+Require maternal/neonatal level of care designations (2.1)
+Introduce and aim to pass legislation for CHW certification (2.2)
+Implement State regulatory change for CP coverage (2.3)
+Draft and submit SPA for CHW and CP coverage (2.2, 2.3)
+Execute go-live of EPS and VA EHR integration in 3 waves (2.4)
+Execute contract with contractors and health care supply vendors for CAH-
+to-REH conversions (2.5)
+
+
+                                                                                                             46
+                                                                   Stages 0            1-4          5
+                                                                      FY 2026 2027 2028 2029 2030 2031
+Complete CAH-to-REH modifications (2.5)
+Initiative 3: Rural Workforce Acceleration
+Launch and maintain annual award process for Rural Provider Recruitment
+and Retention Incentive Program (3.1)
+Establish statewide recognition of VR-based competencies for CE credit
+(3.2)
+Award grants to SNAP E&T third-party partners annually through FY29
+(3.3)
+Transition partners to SNAP E&T 50/50 reimbursement (3.3)
+Launch middle-school elective and badge & job-shadowing scholarship
+(3.4)
+Launch and maintain annual award cycles for provider short-term housing
+(3.5)
+Initiative 4: eHealth and Mobile
+Launch and evaluate pilots of three Mom & Baby mobile clinics (4.1)
+Add one additional Mom & Baby mobile clinic per year (4.1)
+Establish agreements with LHD and launch NTF (4.2)
+Launch and increase technology-enabled pharmacy services and add 15
+pharmacies per year (4.3)
+Transition effective pharmacies to shared savings model for long-term
+sustainability (4.3)
+Implement State regulatory change and submit SPA for coverage of RPM,
+remote therapeutic monitoring, chronic care management, and maternal
+transport (4.4)
+Initiative 5: Rural Emergency Behavioral Health
+Establish and increase integrated behavioral health-primary care sites
+annually (5.1)
+Contract with vendor to stand-up a crisis response platform for law
+enforcement officers (5.2)
+Make annual awards for clinic upgrades for use as mental health crisis
+stabilization centers (5.3)
+Launch the behavioral health nursing home pilot in selected sites (5.5)
+Evaluate behavioral health nursing home pilot and finalize sustainability
+and payment recommendations (5.5)
+Initiative 6: ALF Special Needs Population Incentive Model
+Submit amendment for the 1915(c) AD Waiver to authorize reimbursement
+for memory care and medically complex adult services in ALFs (6.1)
+Award annual grants to ALFs for facility modifications/upgrades (6.2)
+Initiative 7: NETECH
+Finalize the legal structure and governance model for the fund
+Complete the first investment cycle, including applicant screening, due
+diligence, and awarding grants
+Award funding to new cohort annually
+Assist funded projects with transition planning
+All Initiatives
+Hire staff and engage external contractors where applicable
+Collect and analyze data, provide ongoing monitoring
+
+
+
+                                                                                                         47
+GOVERNANCE AND PROJECT MANAGEMENT STRUCTURE: Nebraska Department
+
+of Health and Human Services will serve as the lead agency for this initiative. Sara Morgan,
+
+DHHS Deputy Director, Health Promotion and Prevention, will serve as the Authorized
+
+Organizational Representative (AOR) for RHTP. The RHTP will leverage DHHS’ strong cross-
+
+divisional partnerships to coordinate implementation and will engage key personnel from
+
+collaborating DHHS Divisions.
+
+Nebraska will dedicate 26 full-time employees (FTEs) to RHTP, including existing staff and
+
+newly hired positions. Staff will include one Principal Investigator/Program Director, one
+
+Finance Manager (Administrator II), one Implementation Manager (Administrator II), one
+
+Contracts/Compliance manager (Administrator II), two Implementation Leads, multiple Program
+
+Managers, Coordinators, and Specialists, as well as dedicated contract management and fiscal
+
+staff. Each initiative will be staffed with an Implementation Lead to provide strategic direction,
+
+oversee project plans, and direct program operations, and Program Staff to execute initiative
+
+tasks. There will be overarching project management across initiatives facilitated by the
+
+Implementation Manager. See Organizational Chart in the Other Supporting Documentation
+
+section of this application for the staffing structure. Staffing levels will be sufficient to perform
+
+monitoring and oversight of subrecipient and contract activities.
+
+Additionally, to promote long-term sustainability, Nebraska will engage external vendors to carry
+
+out targeted, time-limited activities that establish the foundational infrastructure upon which
+
+initiatives can expand. This includes engaging vendors to provide TA to the School Food
+
+Learning Lab (Initiative 1); design and implement a community of practice for the CHW
+
+Network (Initiative 2); and provide TA to providers participating in mobile/remote care delivery
+
+models (Initiative 4).
+
+
+
+                                                                                                        48
+Nebraska will implement a structured coordination framework to ensure alignment among the
+
+Divisions and multi-sector partners throughout the program’s lifecycle. DHHS will convene
+
+monthly regular cross-divisional Executive Steering Committee meetings to align priorities,
+
+share data, and coordinate policy actions. An Operating Committee comprised of the Program
+
+Director, Finance Manager, Implementation Manager, Implementation Leads, and the Contracts
+
+and Compliance Manager will meet bi-weekly to monitor implementation progress, resolve inter-
+
+workstream dependencies, and elevate decisions or issues requiring Executive Steering
+
+Committee input. Workstream teams supporting components of each initiative will meet at more
+
+frequent intervals to advance activities outlined in their workplans, address roadblocks, and
+
+ensure timely progress toward milestones. Additionally, Nebraska will leverage the existing
+
+RHAC to ensure broad stakeholder engagement, promote transparency and shared accountability,
+
+and maintain momentum toward statewide transformation goals. See the Stakeholder
+
+Engagement section of this application for more details on the role of the RHAC.
+
+ Program Oversight and               Role
+ Governance
+ Governor’s Rural Health             Provides high-level strategic oversight, ensuring alignment with the
+ Transformation Executive Steering   Governor’s priorities and statewide rural health goals.
+ Committee
+ Rural Health Advisory Commission    The RHAC will provide structured stakeholder engagement and input
+ (RHAC)                              throughout program implementation, promoting transparency,
+                                     accountability, and alignment with community and provider needs.
+ Principal Investigator / Program    Serves as the overall lead for the RHTP, responsible for program
+ Director                            execution, federal reporting, and coordination across divisions and
+                                     partners.
+ Initiative Oversight Team
+ Financial Management Team           Includes the Finance Manager and the Federal Aid Administrators. This
+                                     team manages fiscal and administrative operations, compliance,
+                                     performance monitoring, and reporting to CMS.
+ Contracts and Compliance Team       The Contract/Compliance Manager and Contract Specialists will ensure
+                                     effective management of subawards and vendor agreements in
+                                     accordance with federal and State requirements.
+ Implementation Team                 The Implementation Manager and two Implementation Leads will
+                                     manage initiative execution. Each will oversee Health Program
+
+
+                                                                                                             49
+                                       Managers, Program Coordinators, Program Specialists, and the EMS
+                                       Sustainability Coordinator, supported by an Epidemiologist I to
+                                       planning, implementation, and evaluation activities. These teams are
+                                       embedded within DHHS divisions, ensuring operational integration with
+                                       MLTC, DPH, Division of Behavioral Health (DBH), the OEA, and the
+                                       SORH.
+
+
+
+
+STAKEHOLDER ENGAGEMENT
+ENGAGEMENT DURING THE PLANNING PROCESS: Nebraska adopted a
+
+comprehensive and collaborative approach to collect input and buy-in, bringing together State
+
+agency leaders and stakeholders representing rural and frontier communities, including health
+
+care executives, providers, community partners, and tribal leaders from all regions of the State,
+
+to shape a shared vision for transforming rural health care access, quality, and sustainability.
+
+Specific organizations represented in the RHTP planning process included:
+
+ Stakeholder         Partners
+ Category
+ State Leadership    Governor’s Office, DPH, Department of Education, Division of Developmental Disabilities,
+ and Agencies        RHAC, MLTC, DBH, Children and Family Services, Department of Economic
+                     Development, Department of Labor, SORH, and Medicaid Tribal Liaison
+ Health care and     CAHs, RHCs, FQHCs, community and behavioral health centers (including CCBHCs),
+ Provider Partners   dental and primary care associations, LHDs, Creighton University, UNMC, NHA, Nebraska
+                     Association of Behavioral Health Organizations, Nebraska Association of Service
+                     Providers, Nebraska Health Care Association, and Behavioral Health Regions
+ Community and       University of Nebraska, Medicaid Beneficiary Advisory Committee, LHDs, community
+ Regional            colleges, workforce and economic development organizations, nonprofit and CBOs, and
+ Stakeholders        faith-based and civic partners
+ Tribal Partners     Omaha Tribe of Nebraska, Ponca Tribe of Nebraska, Santee Sioux Tribe of Nebraska, and
+                     Winnebago Tribe of Nebraska, Great Plains Tribal Leaders’ Health Board, Nebraska Urban
+                     Indian Health Coalition, and Indian Health Service representatives
+
+Through a series of large stakeholder meetings, 1:1 consultations, and cross-agency working
+
+sessions, DHHS and its partners engaged hospital and clinic leaders, local public health
+
+departments, behavioral health providers, EMS, CBOs, education partners, and representatives
+
+
+
+
+                                                                                                                50
+from Nebraska’s four federally recognized Tribes. Nebraska also deployed a public website and
+
+mailbox to receive public comments.
+
+Stakeholder feedback was vital to conceptualizing and prioritizing initiatives, ensuring buy-in for
+
+initiatives that will require stakeholder support in implementation. Stakeholders were vital in
+
+identifying implementation challenges at the design stage when they could be most efficiently
+
+addressed. More than 120 participants representing health care, education, and community
+
+partners informed the prioritization of draft initiatives and identified important data points that
+
+tell the story of rural Nebraska’s health care needs. Please see additional examples of stakeholder
+
+feedback in the Community Perspectives on Nebraska’s Health Care Landscape in the Other
+
+Supporting Documentation section. This participatory process reflects the State’s deep
+
+commitment to collaborative planning and to ensuring the application meaningfully advances the
+
+goals of the RHTP and aligns with the Make Rural America Healthy Again strategy.
+
+ENGAGEMENT FRAMEWORK: Engagement in program planning does not end with the
+
+submission of Nebraska’s application. Feedback will directly inform RHTP performance metrics,
+
+program evaluation, and the continuous improvement process, ensuring that initiatives remain
+
+responsive to community needs. Nebraska will sustain engagement through a formalized
+
+governance and stakeholder advisory structure that ensures ongoing participation, accountability,
+
+and transparency throughout implementation. The structure will guide coordination, evaluation,
+
+and adaptation of rural health initiatives to support not only the success of the RHTP grant period
+
+but also the sustainability of initiatives and long-term health of Nebraska’s rural residents.
+
+Nebraska will leverage the existing RHAC as the formal forum for coordination, oversight, and
+
+stakeholder engagement under the RHTP.64 Rather than establishing a new advisory committee,
+
+the State will integrate RHTP discussions into the RHAC’s quarterly public meetings, which are
+
+
+                                                                                                      51
+posted in advance and open to the public in accordance with Nebraska law. RHTP-related items
+
+will be added to each quarterly agenda to review program milestones, fund deployment, and
+
+outcome metrics. These sessions will include panels or presentations from DHHS, DHHS Tribal
+
+Liaisons, Medicaid Beneficiary Advisory Committee, and other invited guests to inform the
+
+Commission’s deliberations. To ensure broad engagement, the RHAC will invite comments
+
+during these public sessions from rural residents, providers, and individuals with experience
+
+navigating rural care gaps. This format allows the State to elevate rural consumer voices while
+
+avoiding duplication of existing structures.
+
+DHHS will maintain a shared data dashboard and reporting calendar to track milestones,
+
+expenditures, and outcomes accessible to RHAC members and other agency partners. Each year,
+
+the RHAC will conduct an annual public review of RHTP progress to assess outcomes,
+
+document lessons learned and recommend adjustments to program priorities for the following
+
+year. A summary of this review will be published in the Commission’s annual report to ensure
+
+transparency and continued stakeholder input.
+
+This approach provides Nebraska with a unified, efficient mechanism to manage funds, monitor
+
+performance, and coordinate across public health, Medicaid, and tribal partners while
+
+strengthening rural participation in policy and program implementation.
+
+
+METRICS AND EVALUATION PLAN
+Nebraska will implement a comprehensive performance measurement framework to measure
+
+progress toward the overarching goals of the RHTP and ensure accountability for achieving
+
+measurable, sustainable improvements in rural health outcomes. Metrics will capture both
+
+process and outcome measures related to access, quality, workforce capacity, and health
+
+
+
+
+                                                                                                  52
+outcomes. This framework will include an evaluation of all pilot initiatives to ensure fidelity to
+
+implementation goals and consistent monitoring of outcomes.
+
+Staff will conduct regular reviews, in coordination with the RHAC and relevant partners, to
+
+assess progress, guide improvements, and inform scaling and sustainability strategies. Each
+
+initiative will maintain feedback loops with funding recipients, where applicable, to provide
+
+actionable insights and support implementation progress. Performance and outcome data will be
+
+systematically reviewed to assess program effectiveness and demonstrate measurable impact on
+
+an ongoing basis. Experienced data analysts will be embedded within each initiative team to
+
+manage data collection, ensure data quality, and conduct regular analyses that inform program
+
+management and quality improvement.
+
+Additionally, Nebraska will contract with an independent evaluator to design and conduct a
+
+formal evaluation. The evaluation contractor will synthesize statewide outcomes to assess
+
+cumulative program impact and document lessons learned. Evaluation results will be
+
+disseminated through publicly available reports to promote transparency and extend the reach of
+
+best practices beyond the program. Nebraska will use evaluation findings to ensure that effective
+
+innovations in chronic disease prevention and management, care delivery, workforce capacity,
+
+and technology adoption are sustained beyond the cooperative agreement period. Nebraska and
+
+its independent evaluator will coordinate with any CMS-led evaluation or monitoring.
+
+METRICS BY INITIATIVE: The table below lists the primary outcome metrics that Nebraska
+
+will use to assess progress and impact, including the data sources, baseline data where available,
+
+timing, and level of analysis (e.g., State- vs. county-level). Additional metrics may be identified,
+
+as needed, to support a comprehensive, data-driven approach to program evaluation. All metrics
+
+will be assessed on an annual basis.
+
+
+                                                                                                       53
+    Outcome metric             Data source             Baseline           Target & timeframe            Level
+
+Initiative 1: Make Rural Nebraska Healthy Again Through Food as Medicine
+Percentage of locally      Required menus       School Year (SY)         Locally sourced        Community/
+sourced protein menu       and invoices for     Y2025-26 (any month      protein will appear on School District,
+items                      NSLP/SBP             prior to FSD skills      menus 5% more times State
+                           purchases            training and nutrition   in a given month by
+                                                education)               FY28
+Percentage of heat-and-    Required menus for SY2025-26 (any month Heat-and-serve items Community/
+serve items represented on NSLP/SBP           prior to FSD skills    will appear on menus School District,
+menus for NSLP/SBP                            training and nutrition 5% fewer times in a  State
+                                              education)             given month by FY28
+
+School meals participation School meal          SY2025-26 total meals 10% increase in school Community/
+rates                      participation data   served                meals participation by School District,
+                                                                      FY29                   State
+Number of food producers Data on agreements Baseline to be set in        15% increase in        Community/
+that have developed        to be reported by FY26                        contracted food        School District,
+contracts with schools and participants                                  producers, per year    State
+navigated USDA                                                           between FY26 and
+procurement rules                                                        FY30
+Initiative 2: Regionalized Rural Access and Navigation
+Number of maternity         Data from         0 (2025)                   Increase by 15 counties County
+desert counties with newly subaward                                      by FY30
+trained perinatal providers agreements,
+                            compared to March
+                            of Dimes data
+
+Number of licensed        DHHS will run        1 (2025)                  Increase to 400        State
+community care providers annual reports from                             community
+(community paramedics) MyLicense Office                                  paramedicine providers
+                          (MLO), the                                     by FY30
+                          software used for
+                          occupational
+                          licensing.
+Percentage of EMS         DHHS will require 0% (2025)                    50% EMS participation Community
+services participating in regional leads to                              by FY30
+regionalization           submit quarterly
+                          reports to include a
+                          listing of each EMS
+                          service
+                          participating, if
+                          they are actively
+                          participating, and
+                          when they joined
+                          regionalization
+                          efforts
+Number of hospitals with Data reported by      0 (2025)                  1 per region by FY29   Region
+active LHD MOU/BAA        participating sites
+
+
+
+
+                                                                                                                   54
+     Outcome metric             Data source            Baseline         Target & timeframe              Level
+
+Number of rural hospitals Data collected        0% (2025)              5% increase by FY28      Community
+connected to the VA EHR through EHR
+                          system
+
+
+
+Services available locally   Data reported by   0% (2025)              Increase in number of    Community
+for CAH converting to        participating                             services offered by
+REH                          facilities                                FY29
+
+
+Initiative 3: Rural Workforce Acceleration
+Number of rural and         SORH practice site 1,088 (2024, Health     Increase by 150          County, State
+primary care providers      logs               Professions Tracing     providers by FY29
+                                               Center/UNMC)
+Rural counties receiving at LMS logs and       Baseline to be set in   75% of rural counties County
+least one VR deployment deployment             FY26                    with annual VR
+annually                    schedule                                   deployments by FY31
+Five-year retention among Participant-reported 0 for health care-      65% retention in FY   County, State
+participants in health care retention          specific pathways       2031
+career pathways                                (2024)
+Number of unique            UNMC uBEATS 1,090 users and                 ≥8,500 student users State, Community
+uBEATS and Health Care data and NHA              participants (SY 2024– annually (FY26 –
+Heroes student participants Health Care Heroes 25)                      FY31)
+per year (Grades 3–12)      data
+Percentage of available     Participant-reported 0 (2025)               100% housing         County
+housing retained post-      data on housing                             availability remains
+grant                       availability                                community-owned by
+                                                                        FY31
+Initiative 4: eHealth and Mobile
+Percentage of rural        Data from         0 (2025)                  95% or more trained      Facility, County
+birthing hospitals with    subaward                                    by FY30
+annual OB readiness        agreements
+training
+Number of individuals      Quarterly reports 27,436 (2025)             5% increase annually     State
+who receive NTF dental     from LHD                                    (25% increase by
+services                   agreements                                  FY31)
+Number of patients         Data reported by  Baseline to be set in     Increase by 3,000        Facility
+interactions using the     participating     FY26                      interactions per year
+technology-enhanced        pharmacies                                  through FY30
+pharmacy services
+program
+Number of hospital-to-     Data reported by  15 (2025)                 Increase by 300          Facility, State
+home patients using RPM participating                                  patients annually,
+for outpatient monitoring providers                                    beginning in FY26
+Initiative 5: Rural Emergency Behavioral Health
+Number of rural integrated NMA data          16 clinics (2025)         Increase to 25 clinics   County, State
+clinics                                                                by FY30
+
+
+
+
+                                                                                                                   55
+    Outcome metric            Data source            Baseline          Target & timeframe          Level
+
+Number of contacts with a NMA data             24,160 (2025)           15% increase in          County, State
+behavioral health provider                                             contacts with BH
+at rural integrated clinics                                            providers by FY31
+Number of law                Data reported by  Baseline to be set in   20 new officers that are County, State
+enforcement officers that participating law    FY26                    using the app/mobile
+are using the telehealth     enforcement                               crisis solution by FY29
+platform for crisis          agencies
+response in rural and
+frontier counties
+Reduce placement times Data reported by        Baseline to be set in   15% decrease in          County, State
+from appropriate BH needs participating        FY26                    placement times FY31
+individuals in hospitals to nursing homes and
+nursing homes                hospitals
+Initiative 6: ALF Special Needs Population Incentive Model
+Number of memory care Nebraska Medicaid 2,656 (29% of all ALF 10% increase by FY31 County, State
+beds in ALFs for Medicaid data                 beds for Medicaid,
+recipients                                     2025)
+Number of ALF beds for Nebraska Medicaid 9,229 (66% of all ALF 10% increase by FY31 County, State
+Medicaid population          data              licensed beds, 2025)
+Number of ALFs with          Nebraska Medicaid Baseline data to be set 10% increase by FY31 State
+Memory Care Units            data              in FY26
+participating in Medicaid
+1915(c) AD Waiver
+Number of ALFs outfitted Data reported by      Baseline data to be set 10% increase by FY31 State
+for complex care statewide participating sites in FY26
+Initiative 7: NETECH
+Fund design and legal        Data tracked and  0 (2025)                Completed by FY27        State
+framework developed          reported by fund
+                             lead
+Technology pipeline          Data tracked and  Baseline data to be set At least 10              State
+established and vetted       reported by fund  in FY26                 technologies by FY28
+solutions identified         lead
+Investor engagement and Data tracked and       Baseline data to be set Minimum of 4:1 in        State
+matching commitments         reported by fund  in FY26                 private co-investment
+secured                      lead
+Initial deployments in pilot Data tracked and  0 (2025)                2–3 cohorts by FY29 County, Facility
+rural communities            reported by fund
+                             lead
+
+
+SUSTAINABILITY PLAN
+Nebraska is committed to ensuring that the transformative initiatives implemented under the
+
+RHTP will continue to benefit rural residents and providers well beyond the five-year
+
+cooperative agreement period. Each initiative includes a detailed plan for transitioning RHTP-
+
+
+
+
+                                                                                                                56
+funded activities to existing State or federal programs, private payer or Medicaid reimbursement
+
+mechanisms, private local investments, or durable local and regional partnerships.
+
+Across all initiatives, Nebraska’s sustainability framework is designed to ensure that investments
+
+made through the RHTP build permanent capacity within the State’s rural health system.
+
+Maintaining active oversight through DHHS divisions and advisory bodies, Nebraska will
+
+achieve durable, self-sustaining transformation well beyond FY31.
+
+INITIATIVE 1 – MAKE RURAL NEBRASKA HEALTHY AGAIN THROUGH FOOD AS
+
+MEDICINE: This initiative will be sustained through partnerships and enhanced training
+
+models that embed expertise in the community. For healthy menu design, a train-the-trainer
+
+model will be used and will equip UNL Extension professionals, food service directors, and
+
+culinary experts to provide ongoing support and mentoring. Trainers certified under the program
+
+will mentor new cohorts each year ensuring statewide continuity.
+
+The regional food hubs will transition to self-sustaining business models and will assist farmers
+
+and ranchers to sell their products locally. These avenues to purchase healthy and nutritious local
+
+options will continue after the funding period ends. Nebraska’s Department of Agriculture and
+
+Economic Development will continue to provide TA. The infrastructure and technical-assistance
+
+model developed through RHTP for the farm-to-school procurement and policy TA will be
+
+embedded within State and regional agencies ensuring that nonprofit and educational partners
+
+can sustain and increase services beyond the initial grant period.
+
+INITIATIVE 2 – REGIONALIZED RURAL ACCESS AND NAVIGATION: To ensure
+
+sustainability of the statewide, regionalized access and navigation system that links EMS,
+
+perinatal care, CP, CHWs, and long-term care models, Nebraska will transition operational
+
+components into established reimbursement and policy frameworks. CHW positions will be
+
+                                                                                                      57
+sustained through a SPA for Medicaid reimbursement of defined CHW services following the
+
+submission planned for early CY2029. Regional EMS and CP systems will align with private
+
+payers and Medicaid coverage for treat-in-place and alternate-destination protocols supported
+
+through future State rulemaking. Facility conversions will continue through billable service lines
+
+(chronic care management and telehealth) and local cost-sharing agreements. The Perinatal
+
+Regionalization and Community Health Home models will be institutionalized through the
+
+NPQIC, the EMS Board, and DPH’s ongoing quality improvement infrastructure. Post-grant,
+
+governance will be led by DPH and the RHAC, with ongoing quality improvement reporting
+
+incorporated into the State’s rural health dashboards.
+
+INITIATIVE 3 – RURAL WORKFORCE ACCELERATION: Nebraska’s Rural Workforce
+
+Acceleration initiative will sustain long-term workforce gains by embedding recruitment,
+
+training, and retention supports within existing funding and policy structures. Recruitment and
+
+retention programs will continue through the statutory programs, leveraging State general funds,
+
+when applicable, and private partnerships. Rural Health Career Pathways and Retention supports
+
+will transition to braided Workforce Innovation and Opportunity Act, Temporary Assistance for
+
+Needy Families, and SNAP E&T 50/50 funding models by FY31. The VR and Skills
+
+Acceleration Network will be maintained through health-system continuing education budgets,
+
+managed-care quality incentives, and periodic technology refreshes supported by DPH. uBEATS
+
+will remain supported through UNMC and UNO co-funding, philanthropic contributions, and
+
+integration into school district curricula. Short-term housing support will be sustained through
+
+philanthropic and community development partners.
+
+Participants in previous workforce programs report they intend to continue to practice in a rural
+
+or underserved area for an additional 20 years following completion of their obligation.65 This
+
+
+                                                                                                     58
+indicates lasting and sustained access to medical professionals due to recruitment and retention
+
+efforts tied to an initial commitment period. Likewise, RHTP investments in bolstering the
+
+workforce in rural and frontier communities will lead to a sustained increase in providers in these
+
+targeted shortage areas.
+
+INITIATIVE 4 – EHEALTH AND MOBILE: Following FY31, mobile maternal services, oral
+
+health outreach, and RPM will be integrated into existing Medicaid and public health structures.
+
+Mobile maternal services will transition to DHHS Title V Maternal and Child Health funding and
+
+partner hospital billing structures. Oral health outreach and prevention will be sustained through
+
+LHDs and university dental partnerships, supported by billing for preventive codes and
+
+community donations. RPM will continue under private payer, Medicare and Medicaid
+
+reimbursement, aligned with the Prospective Payment System (PPS) and Alternative Payment
+
+Models. Infection prevention/control TA will remain within DPH Office of Oral Health &
+
+Dentistry’s ongoing programs. DHHS will conduct monitoring through REDCap software and
+
+existing data-sharing agreements with partner LHDs and providers.
+
+INITIATIVE 5 –RURAL EMERGENCY BEHAVIORAL HEALTH: This initiative will
+
+create a sustainable behavioral health continuum by transitioning to other funding mechanisms.
+
+Integrated primary care sites will continue billing through Medicaid, Medicare, and private
+
+payers for behavioral health services provided in co-located clinics. Telehealth crisis response for
+
+law enforcement will transition to CCBHCs under existing PPS reimbursement. Modified crisis
+
+stabilization and withdrawal management facilities will sustain operations through private payer,
+
+Medicare and Medicaid reimbursement. If successful, the nursing home pilot will be considered
+
+for a Medicaid provider rate adjustment for high need behavioral health clients. DBH will
+
+continue to oversee performance monitoring, fiscal audits, and TA after the cooperative
+
+
+                                                                                                       59
+agreement ends. DHHS may also consider a Medicaid waiver pathway to sustain payments to
+
+nursing homes.
+
+INITIATIVE 6 – ALF SPECIAL NEEDS POPULATION INCENTIVE MODEL: This
+
+initiative creates incentive payments and capital investments for ALFs providing memory care
+
+and medically complex services. MLTC and the Divisions of Developmental Disabilities and
+
+Aging will incorporate memory care and complex medical services into waiver coverage through
+
+nonfederal share appropriations and associated Federal Financial Participation. Facility
+
+modernization projects will transition to standard Medicaid reimbursement and potentially to
+
+State General Fund support for ongoing infrastructure improvements. Partnerships established
+
+during RHTP will continue under long-term collaboration agreements with local long-term care
+
+associations and providers. The State will continue quality oversight through its licensing and
+
+survey processes and integrate policy changes into updated regulations.
+
+INITIATIVE 7 – NETECH: NETECH will use initial RHTP funding to establish the
+
+operational structure of the fund, pilot early projects, and attract private partners with the goal of
+
+becoming a private investment model that continues well beyond the grant period. Governance
+
+will remain under DHHS, ensuring that State oversight and evaluation standards (described in
+
+the Metrics and Evaluation Plan) remain aligned with Nebraska’s RHTP goals.
+
+
+END NOTES
+1
+  Rural designation based on the Health Resources and Services Administration (HRSA) Federal Office of Rural
+Health Policy (FORHP) definition; frontier designation based on U.S. Census Bureau population density of less than
+7 people per square mile. From U.S. Census Bureau (2025). https://www.census.gov/data/tables/time-
+series/demo/popest/2020s-counties-total.html
+2
+  Nebraska Department of Health and Human Services (DHHS). (2025). State Fact Sheet.
+https://dhhs.ne.gov/Reports/UNO%20State%20Aging%20Plan%20Report%20-%202022.pdf
+3
+  Nebraska Legislative Research Office (2024). Counting Cornhuskers: Population Trends in Nebraska.
+https://nebraskalegislature.gov/pdf/reports/research/population_trends_in_nebraska.pdf
+4
+  Nebraska Department of Agriculture (2025). State Fact Sheet. https://nda.nebraska.gov/sites/default/files/facts.pdf
+5
+  U.S. Bureau of Labor Statistics (2025). Local Area Unemployment Statistics. https://www.bls.gov/lau
+
+
+
+
+                                                                                                                        60
+6
+  USDA, Economic Research Service. (2025). State Fact Sheets – State Data.
+https://data.ers.usda.gov/reports.aspx?ID=4035&StateFIPS=31&StateName=Nebraska
+7
+  Nebraska Division of Public Health. (2025). Women’s Health Initiative Report.
+https://nebraskalegislature.gov/FloorDocs/109/PDF/Agencies/Health_and_Human_Services__Department_of/487_2
+0250829-080104.pdf
+8
+  Schafer, J.G., Grell, T. (2022) 2022 Poverty in Nebraska. The University of Nebraska Omaha Center for Public
+Affairs Research. https://digitalcommons.unomaha.edu/cgi/viewcontent.cgi?article=1639&context=cparpubarchives
+9
+  Feeding America. (2023). Food Insecurity among the Overall Population in the United States.
+https://map.feedingamerica.org/
+10
+   U.S. Department of Health and Human Services, Health Resources and Services Administration (HRSA),
+Maternal and Child Health Bureau. National Survey of Children's Health, 2022-2023
+11
+   American Public Health Association. (2025). The Facts: Nebraska.
+https://www.apha.org/getcontentasset/1ec81568-e72c-4d5a-afa9-e28912c78638/7ca0dc9d-611d-46e2-9fd3-
+26a4c03ddcbb/sfh_nebraska.pdf?language=en
+12
+   United Health Foundation. (2022). America’s Health Rankings – Uninsured Children in Nebraska.
+https://www.americashealthrankings.org/explore/measures/Uninsured_children/NE
+13
+   Schafer, J., Vogel, M., Grell, T., Paez, M., & Parker, A. (2023). 2023 Status of the Nebraska Healthcare
+Workforce. University of Nebraska at Omaha, Center for Public Affairs Research.
+https://www.unmc.edu/publichealth/_documents/healthcare-workforce-2024.pdf
+14
+   DHHS. (2023). Suicides in Nebraska Fact Sheet. https://dhhs.ne.gov/Documents/2024-Nebraska-Suicide-Fact-
+Sheet.pdf
+15
+   The Daily Yonder. (2024). In Small-Town Nebraska, With Suicide Rates High, One Family Delivers Hope for
+Thousands. https://dailyyonder.com/in-small-town-nebraska-with-suicide-rates-high-one-family-delivers-hope-for-
+thousands/2024/02/19/
+16
+   Nebraska Vital Statistics. (2025). Infant Mortality Dashboard.
+https://app.powerbigov.us/view?r=eyJrIjoiNGIxOGEzY2QtYmUwOC00MjcyLThmYjktZTQwMjZmZGUzYmE1Ii
+widCI6IjA0MzIwN2RmLWU2ODktNGJmNi05MDIwLTAxMDM4ZjExZjBiMSJ9
+17
+   Nebraska Vital Statistics. (2025). Birth Dashboard.
+https://app.powerbigov.us/view?r=eyJrIjoiZDViNDIwZmEtYjQ2MS00NjVhLThjN2QtYzZiNzM3ZWM5YWE0Iiw
+idCI6IjA0MzIwN2RmLWU2ODktNGJmNi05MDIwLTAxMDM4ZjExZjBiMSJ9
+18
+   DHHS. (n.d.). Increasing Access to Preventive Health Services for Children through Screening & Referrals.
+https://dhhs.ne.gov/Title%20V%20Documents/C%20-
+%20Increasing%20Access%20to%20Preventive%20Health%20Services%20for%20Children%20through%20Scree
+ning%20%26%20Referrals%201.pdf
+19
+   Palm, D., Wang, H., Mickles, M. (2025). An Assessment of the Gaps and Barriers Limiting Access to Health Care
+Services in Rural Nebraska and Recommendations for Improving Access to Essential Health Care Services, Center
+for Health Policy, College of Public Health, University of Nebraska Medical Center.
+20
+   DHHS. (2023). NE Oral Health Survey of Young Children 2021-2022.
+https://dhhs.ne.gov/Reports/Oral%20Health%20Survey%20of%20Young%20Children%20Report%20-%202021-
+2022.pdf
+21
+   HRSA. (2021). HRSA Overview of the State – Nebraska - 2021.
+https://mchb.tvisdata.hrsa.gov/Narratives/Overview/90a02e17-ad6a-4737-8814-
+b1fc7a16e64a#:~:text=American%20Indians%20in%20Nebraska%20(1.4,as%20compared%20to%20Whites
+22
+   Cornett, D. (2024). Counting Cornhuskers: Population Trends in Nebraska. A brief from the Legislative Research
+Office. https://nebraskalegislature.gov/pdf/reports/research/population_trends_in_nebraska.pdf
+23
+   USA Facts. (2022). Our Changing Population: Nebraska. https://usafacts.org/data/topics/people-
+society/population-and-demographics/our-changing-
+population/state/nebraska/#:~:text=Hide%20Hispanic%20ethnicity-
+,How%20old%20is%20the%20population%20in%20Nebraska?,6.1%25%20between%202010%20and%202022.
+24
+   UNO Department of Gerontology (2022). A Report to the Nebraska State Unit on Aging.
+https://dhhs.ne.gov/Reports/UNO%20State%20Aging%20Plan%20Report%20-%202022.pdf.
+25
+   United Health Foundation. (2023). America's Health Rankings – Rural Population – Age 65+ in Nebraska.
+https://www.americashealthrankings.org/explore/measures/rural_senior/NE
+26
+   Nebraska Nursing Facility Association and Nebraska Assisted Living Association. (2025). Nursing Home
+Closures. https://nehca.org/common/Uploaded%20files/Uploads/WWC2025_ClosuresFlyerUpdated.pdf
+
+
+                                                                                                                    61
+27
+   Yan et al. (2025). Health equity in Nebraska: addressing disparities through place-based policy innovation.
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12484117/
+28
+   Where you live matters: Maternity care access in Nebraska | PeriStats | March of Dimes
+29
+   DHHS. (n.d.). 988 Dashboard. https://dhhs.ne.gov/Pages/Public-Data-Dashboards.aspx
+30
+   Mid-Plains Center. (2024). Annual Report. https://www.midplainscenter.org/wp-
+content/uploads/2024/06/2023_Annual_Report.pdf
+31
+   HPSA Find. https://data.hrsa.gov/topics/health-workforce/shortage-areas/hpsa-find
+32
+   University of Nebraska Medical Center. 2024. 2023 Status of Nebraska Healthcare Workforce.
+https://www.unmc.edu/rural-health/_documents/health care-workforce-2024.pdf#2023%20Report
+33
+   University of Nebraska Medical Center. (n.d.). BHECN Dashboard.
+https://app1.unmc.edu/publichealth/bhecn/#/home
+34
+   DHHS. (2025). 988 Nebraska Activity.
+https://app.powerbigov.us/view?r=eyJrIjoiODNiYWIwZDUtOTQwMC00NGFjLWFiZTAtZWJhOTE1ZmRkMGNi
+IiwidCI6IjA0MzIwN2RmLWU2ODktNGJmNi05MDIwLTAxMDM4ZjExZjBiMSJ9
+35
+   SafeTech Solutions. 2024. Nebraska 2023-2024 Emergency Medical Services Assessment.
+https://dhhs.ne.gov/OEHS%20Program%20Documents/NE%20Statewide%20EMS%20Assessment%20v2024.pdf.
+36
+   American Hospital Association (AHA). (2025). Fast Facts on U.S. Hospitals, 2025.
+https://www.aha.org/statistics/fast-facts-us-
+hospitals#:~:text=There%20are%206%2C0934%20hospitals%20in%20the%20United,number%20of%20hospitals%
+2C%20government%20hospitals%2C%20hospitals%20in
+37
+   Nebraska Hospital Association and NRHA. (2025). Roadmap to Strong Rural Care. 91185cf5-ce5e-4aa8-87c0-
+12fbe7556809
+38
+   Becker’s Hospital Review. (2024). Nebraska hospital to close; 59% of critical access hospitals running deficits.
+https://www.beckershospitalreview.com/finance/59-of-nebraska-critical-access-hospitals-are-running-deficits/.
+39
+   Becker’s Hospital Review. (2024). Nebraska hospital to close; 59% of critical access hospitals running deficits.
+https://www.beckershospitalreview.com/finance/59-of-nebraska-critical-access-hospitals-are-running-deficits/
+40
+   Center for Rural Affairs. (2024). Closing of Burt County’s only hospital: A reflection of national trends.
+https://www.cfra.org/blog/closing-burt-countys-only-hospital-part-national-trend
+41
+   USDA. (2025). SNAP Food Restriction Waivers. https://www.fns.usda.gov/snap/waivers/foodrestriction
+42
+   172 Neb. Admin. Code ch. 61 (2023). https://govdocs.nebraska.gov/epubs/H8310/R172.0061-2023.pdf
+43
+   Interstate Medical Licensure Compact (2025). U.S. State Participation in the Compact.
+https://imlcc.com/participating-states/
+44
+   National Council of State Boards of Nursing (NCSBN). (2025). NLC Nurse Licensure Compact.
+https://www.nursecompact.com/
+45
+   The EMS Compact. (2025). The United States Emergency Medical Services Compact. https://emscompact.gov/
+46
+   PSYPACT. (2025). PSYPACT Map. https://psypact.gov/page/psypactmap
+47
+   PA Compact. (2025). PA Licensure Compact. https://www.pacompact.org/#compact
+48
+   American Academy of Physician Associates (AAPA). (2025). PA State Practice Environment.
+https://www.aapa.org/advocacy-central/state-advocacy/state-maps/pa-state-practice-environment/
+49
+   American Association of Nurse Practitioners (AANP). (2024). State Practice Environment.
+https://www.aanp.org/advocacy/state/state-practice-environment
+50
+   Cicero Institute. (2025). 2025 Policy Strategies for Full Practice Authority.
+https://ciceroinstitute.org/research/2025-policy-strategies-for-full-practice-authority/
+51
+   Oral Health Workforce Research Center (OHWRC). (2024). Variation in Dental Hygiene Scope of Practice by
+State). https://oralhealthworkforce.org/infographics/variation-in-dental-hygiene-scope-of-practice-by-state/
+52
+   Nebraska Department of Insurance. (2018). Short-Term Duration Medical Plan Filing Requirements.
+https://doi.nebraska.gov/sites/default/files/doc/Short-TermDurationMedicalPlanFilingReqs.pdf
+53
+   Center for Connected Health Policy (CCHP). (2024). State Telehealth Laws and Reimbursement Policies Report,
+Fall 2024. https://www.cchpca.org/resources/state-telehealth-laws-and-reimbursement-policies-report-fall-2024/
+54
+   American Public Health Association. (2025). The Facts: Nebraska.
+https://www.apha.org/getcontentasset/1ec81568-e72c-4d5a-afa9-e28912c78638/7ca0dc9d-611d-46e2-9fd3-
+26a4c03ddcbb/sfh_nebraska.pdf?language=en
+55
+   Lifshitz, Emily. (2008). Obesity in Children. https://pmc.ncbi.nlm.nih.gov/articles/PMC3005642/
+56
+   DHHS. (2022). Obesity Fact Sheet.
+https://dhhs.ne.gov/CDPCP%20Fact%20Sheets/FINAL%20Obesity%20Facts.pdf
+
+
+                                                                                                                      62
+57
+   March of Dimes. (2024). Nowhere to Go: Maternity Care Deserts Across the US.
+https://www.marchofdimes.org/sites/default/files/2024-09/2024_MoD_MCD_Report.pdf
+58
+   DHHS, Office of Emergency Health Systems. (2024). Emergency Medical Services Assessment: Nebraska
+Statewide EMS Assessment.
+https://dhhs.ne.gov/OEHS%20Program%20Documents/NE%20Statewide%20EMS%20Assessment%20v2024.pdf
+59
+   Project-level funding estimates exclude monitoring and initiative costs, so they may not sum to the total. Please
+see the Budget Narrative for more detail.
+60
+   Project-level funding estimates exclude monitoring and initiative costs, so they may not sum to the total. Please
+see the Budget Narrative for more detail.
+61
+   Nebraska Rural Health Information Hub. (2025). Rural and aging demographics.
+https://www.ruralhealthinfo.org/toolkits/aging/1/demographics
+62
+   Project-level funding estimates exclude monitoring and initiative costs, so they may not sum to the total. Please
+see the Budget Narrative for more detail.
+63
+   Project-level funding estimates for Budget Period 1 are lower with only 10 months; numbers may not sum to the
+total. Please see the Budget Narrative for more details.
+64
+   NE Revised Statutes Section 71-5654. See more information about the RHAC here:
+https://dhhs.ne.gov/Pages/Rural-Health-Advisory-Commission.aspx
+65
+   Provider Retention & Information System Management (PRISM). (2025). Clinicians in the Nebraska Loan
+Repayment Program: End of Year and End of Contract Questionnaire Data.
+
+
+
+
+                                                                                                                       63
+

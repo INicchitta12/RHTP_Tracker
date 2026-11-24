@@ -1,0 +1,16 @@
+file: 2026-11-24_ne_final_project_narrative.pdf
+source_url: https://dhhs.ne.gov/Documents/NE%20Final%20Project%20Narrative%20RHTP%202025.pdf
+fetched_utc: 2026-11-24T14:47:54Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1267671
+sha256: cf40e30a593c76ed478044949891000ba9ce3d14932581d12d104f326800e255
+
+file: 2026-11-24_ne_rht_initiatives.pdf
+source_url: https://dhhs.ne.gov/Documents/RHT-Nebraska-Initiatives.pdf
+fetched_utc: 2026-11-24T14:47:55Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 686081
+sha256: 7f7ddc000d378e39c52060582df8e03f90d983eb4f45626e02a0317a9e04d656
+

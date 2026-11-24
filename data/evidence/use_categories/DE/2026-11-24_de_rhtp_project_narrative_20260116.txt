@@ -1028,7 +1028,7 @@ blood pressure, generating major cost savings. Yet rural implementation of these
 
 faces three barriers: lack of sustainable billing mechanisms, minimal nutrition training in medical
 
-education (<1% of medical curriculum), and a limited workforce of dieticians and community
+education (&lt;1% of medical curriculum), and a limited workforce of dieticians and community
 
 health workers.
 
@@ -1152,9 +1152,9 @@ Food is Medicine Committee, FQHC’s, rural healthcare providers and health syst
 
 Outcomes:
 
-   •   Improved clinical outcomes (target: 40% of participants achieve >/=0.5 point HbA1c
+   •   Improved clinical outcomes (target: 40% of participants achieve &gt;/=0.5 point HbA1c
 
-       reduction and/or >/= 5 mmHg blood pressure reduction by Year 5)
+       reduction and/or &gt;/= 5 mmHg blood pressure reduction by Year 5)
 
    •   Reduced healthcare utilization and food insecurity (target: 20% reduction in ED visits;
 
