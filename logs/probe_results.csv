@@ -3167,3 +3167,37 @@ RI,2026-11-24T19:52:29Z,CHANGED,index,,trig_01WXYStckEw4tjE1Er77BV94
 WY,2026-11-24T21:12:02Z,CHANGED,programme,,trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-11-24T21:12:02Z,CHANGED,submittable,,trig_01CLqQDvGoWCDoSMtS29FJbQ
 WY,2026-11-24T21:12:02Z,TRIPWIRE,programme,"[WY] 'programme' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Year One Award Summaries View Year One Award Summaries Project and Budget Narratives. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01CLqQDvGoWCDoSMtS29FJbQ
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS AK,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS ID,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS IN,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS KS,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS ME,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS ND,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS NE,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS OR,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS SD,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS TX,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,CHANGED,FSRS WV,,trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"AK: 19 FFATA subaward report(s) not in the 2026-11-20 archive ($30,242,096); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"ID: 55 FFATA subaward report(s) not in the 2026-11-20 archive ($77,180,208); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"IN: 4 FFATA subaward report(s) not in the 2026-11-20 archive ($ 7,492,072); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"KS: 14 FFATA subaward report(s) not in the 2026-11-20 archive ($18,339,518); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"ME: 1 FFATA subaward report(s) not in the 2026-11-20 archive ($   264,958); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"ND: 38 FFATA subaward report(s) not in the 2026-11-20 archive ($ 9,093,484); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"NE: 6 FFATA subaward report(s) not in the 2026-11-20 archive ($ 4,766,071); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"OR: 9 FFATA subaward report(s) not in the 2026-11-20 archive ($12,736,621); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"SD: 15 FFATA subaward report(s) not in the 2026-11-20 archive ($16,035,517); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"TX: 138 FFATA subaward report(s) not in the 2026-11-20 archive ($69,392,480); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,TRIPWIRE,(finding),"WV: 1 FFATA subaward report(s) not in the 2026-11-20 archive ($ 1,000,000); read them, then re-archive with --fetch",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new AK FFATA filing to ORCA LABS, LLC ($  658,632, ANCHORAGE, AK) -- in the vendor dictionary as Orca Labs, LLC. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new TX FFATA filing to LIFENET, INC ($  122,543, TEXARKANA, TX) -- in the vendor dictionary as LifeNet Inc. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new TX FFATA filing to LIFENET, INC ($  115,451, TEXARKANA, TX) -- in the vendor dictionary as LifeNet Inc. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new TX FFATA filing to PAMPA REGIONAL MEDICAL CENTER ($  928,647, ONTARIO, CA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new TX FFATA filing to PAMPA REGIONAL MEDICAL CENTER ($  874,901, ONTARIO, CA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new ND FFATA filing to POSTPARTUM SUPPORT INTERNATIONAL ($  112,079, PORTLAND, OR) -- in the vendor dictionary as Postpartum Support International -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new KS FFATA filing to VALLEY HOPE ASSOCIATION ($  219,333, NORTON, KS) -- in the vendor dictionary as Valley Hope Association. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new ND FFATA filing to COMMUNITY HEALTHCARE ASSOCIATION OF THE DAKOTAS ($  105,451, SIOUX FALLS, SD) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new KS FFATA filing to CHILDRENS MERCY HOSPITAL ($5,596,062, KANSAS CITY, MO) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new ID FFATA filing to COMAGINE HEALTH ($1,998,976, SEATTLE, WA) -- in the vendor dictionary as Comagine Health -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new ID FFATA filing to ALZHEIMERS DISEASE & RELATED DISORDERS ASSOCIATION INC ($2,000,000, CHICAGO, IL) -- in the vendor dictionary as Alzheimer's Association -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
+FSRS,2026-11-24T21:18:47Z,VENDOR,FSRS new filings,"[FSRS] VENDOR NAMED, LOGGED: new ID FFATA filing to HEALTH EQUITY SOLUTIONS ($  152,539, SNOHOMISH, WA) -- registered address outside the awarding state. Read it before R/09a --fetch re-archives (session 116f).",trig_01NcEJkGQZVkxSWcEd5rm538
