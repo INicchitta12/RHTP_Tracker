@@ -1,0 +1,1865 @@
+      Rural Health Transformation Program 2026:
+Integrating Community doulas into Clinical Healthcare Teams in Rural
+                        New Jersey (NJ)
+
+                           Request for Applications (RFA)
+                                       Issued by:
+                          Maternal and Child Health Services
+                          Division of Family Health Services
+                          New Jersey Department of Health
+
+                         Application Deadline: April 27, 2026
+
+                                  Submission Portal:
+                          https://dohsage.intelligrants.com/
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 1 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                                                     TABLE OF CONTENTS
+Contents
+  Important Dates ........................................................................................................................................ 4
+  Technical Assistance Webinar.................................................................... Error! Bookmark not defined.
+  Program Overview/Background ............................................................................................................... 4
+  Eligibility .................................................................................................................................................... 7
+  Scope of Work ........................................................................................................................................... 7
+  Available Funding .................................................................................................................................... 10
+  Reporting Requirements and Timeline ................................................................................................... 17
+  Programmatic and Administrative Requirements .................................................................................. 19
+  Allowable Costs and Funding Restrictions .............................................................................................. 21
+  Budget Revisions and Grant Amendments ............................................................................................. 24
+  Review and Evaluation Criteria ............................................................................................................... 25
+  Grant Compliance Requirements............................................................................................................ 25
+  APPENDIX A - Rural New Jersey: Federal Definition ............................................................................... 27
+  APPENDIX B - Rural New Jersey: State Definition ................................................................................... 29
+  APPENDIX C - RFA Application Guidance ................................................................................................ 30
+  APPENDIX D - RFA Application Scoring Guide ......................................................................................... 38
+  APPENDIX E - Project and Budget Submission Form (Activity A) ............................................................ 41
+  APPENDIX F – Required Employment Commitment if Funds Used for Training..................................... 45
+
+
+
+
+Rural Health Transformation Program 2026                                                                         P a g e 2 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(                                                                             f   bl
+              Project Management Officer - Contact Information (Programmatic)
+                                              Sumantha Banerjee
+                                              Program Management Officer
+ Activity A –Community doula integration in
+                                              New Jersey Department of Health
+ Rural New Jersey
+                                              Maternal and Child Health Services
+                                              Phone: (609) 913-5522
+                                              email: Sumantha.banerjee@doh.nj.gov
+
+
+                   Grant Management Officers - Contact Information (Fiscal)
+
+                                                     Name Mark Opdyke
+ Activity A – Community doula integration in
+                                                     Title Grants Management Officer
+ Rural New Jersey
+                                                     New Jersey Department of Health
+                                                     Phone: (609) 913-5463
+                                                     email: Mark.Opdyke@doh.nj.gov
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 3 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Important Dates
+
+•     Application Period Opens: April 9, 2026
+•     Application Deadline: April 27, 2026
+•     Award Date: May 1, 2026
+•     Note: While the application period and deadlines are fixed, funding under this RFA is
+      contingent upon the appropriation of funds through the OBBBA. Applications received
+      after the deadline may be considered at the discretion of the program.
+•     Post-Award Progress and Expenditure Reporting Dates
+
+
+Program Overview/Background
+Although New Jersey is the most densely populated state in the nation, more than one million
+residents live in communities that meet federal or state definitions of rurality. Notably, rural
+New Jerseyans reside across eleven counties, including Atlantic, Burlington, Cape May,
+Cumberland, Hunterdon, Mercer, Monmouth, Ocean, Salem, Sussex, and Warren, and
+experience challenges common to rural regions nationwide despite their proximity to urban
+centers, including fewer healthcare access points and workforce shortages.
+
+Approximately 138,000 New Jersey residents (approximately 1.5% of the state’s population) live
+within 40 federally recognized Rural Census Tracts (RCTs) located across eight (8) counties
+according to the most recent rural definition maintained by the Health Resources and Services
+Administration (HRSA) 1. These rural counties include Atlantic, Burlington, Cumberland,
+Hunterdon, Mercer, Monmouth, Ocean, and Warren. See Appendix A for federally recognized
+rural counties and RCTs.
+
+New Jersey also applies a state-specific rural definition, identifying population densities below
+500 persons per square mile as rural. Under this definition, seven (7) counties - Atlantic, Cape
+May, Cumberland, Hunterdon, Salem, Sussex, and Warren - qualify as rural. This state definition
+acknowledges the unique geographic landscape of rural New Jersey, where most areas are
+located near urban centers but still face barriers like those in federally defined rural areas. See
+Appendix B for state-recognized rural counties.
+
+1 2. Health Resources & Services Administration (HRSA). How We Define Rural. [Online] September 23, 2025. https://www.hrsa.gov/rural-
+
+health/about-us/what-is-rural.
+Rural Health Transformation Program 2026                                                        P a g e 4 | 46
+
+    This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+    and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+    funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+    of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+    This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+          f          (    )                 h     db h                   f l ll    (       )(                                           f   bl
+Rural communities across the United States face significant challenges in accessing quality
+healthcare. These challenges stem from provider shortages, limited specialized care, financial
+constraints, geographic isolation, and limited public transportation. Although New Jersey is the
+most densely populated state in the nation, it contains meaningful pockets of rurality,
+distributed across several counties, that experience similar challenges found in rural regions
+nationwide. These challenges are compounded by the state’s rural geographic distribution,
+diverse population, and significant socioeconomic disparities, all of which influence access to
+healthcare. The result is unique barriers that require targeted, state specific solutions that
+strengthen care access. Among the most promising and necessary strategies are preventive
+programs and activities, as well as telehealth and remote patient monitoring (RPM), which can
+overcome longstanding obstacles to care and improve health outcomes in communities where
+traditional healthcare access is limited.
+
+Rural New Jersey communities face significant challenges related to access to healthcare
+providers, including primary care physicians, specialists, and mental health professionals. These
+limitations make it difficult for residents to receive quality healthcare, particularly for chronic
+conditions such as diabetes, heart disease, and hypertension, as well as preventive services like
+cancer screenings and vaccinations.
+
+Targeted funding for rural communities is essential to expand preventive programs and
+activities, enhance the use of telehealth and RPM, and implement technology solutions that
+streamline appointment scheduling, patient registration, check-in, care coordination, and
+support training and capacity building to strengthen workforce skills, cultural competency, and
+program implementation.
+
+The Rural Health Transformation (RHT) Program was authorized by the One Big Beautiful Bill
+Act (OBBBA) (Section 71401 of Public Law 119-21) and empowers states to strengthen rural
+communities across America by improving healthcare access, quality, and outcomes, with a
+particular focus on uninsured and underinsured populations, through transformation of the
+healthcare delivery ecosystem. Through innovative system-wide change, the RHT Program
+invests in the rural healthcare delivery system to better serve these populations now and for
+future generations.
+
+
+
+Rural Health Transformation Program 2026                                P a g e 5 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+The RHT Program is designed to provide funding for investments that will transform and sustain
+the way care is delivered in rural communities, specifically to improve access and outcomes,
+especially for individuals who are uninsured and underinsured. Additional funding opportunities
+may be found at Health Department Grants. This funding will drive the following strategic goals:
+
+1. Make Rural America Healthy Again: Support rural health innovations and new access points
+   to promote preventative health and address root causes of diseases. Projects will use
+   evidence-based, outcomes-driven interventions to improve disease prevention, chronic
+   disease management, behavioral health, oral health, and prenatal care.
+2. Sustainable Access: Help rural providers become long-term access points for care by
+   improving efficiency and sustainability. With RHT Program support, rural facilities work
+   together, or with high-quality regional systems, to share or coordinate operations,
+   technology, primary and specialty care, and emergency services.
+3. Workforce Development: Attract and retain a highly skilled health care workforce by
+   strengthening recruitment and retention of healthcare providers in rural communities. Help
+   rural providers practice at the top of their license and develop a broader set of providers to
+   serve a rural community’s needs, such as community health workers, pharmacists, and
+   individuals trained to help patients navigate the healthcare system.
+4. Innovative Care: Spark the growth of innovative care models to improve health outcomes,
+   coordinate care, and promote flexible care arrangements. Develop and implement payment
+   mechanisms incentivizing providers or Accountable Care Organizations (ACOs) to reduce
+   health care costs, improve quality of care, and shift care to lower cost settings.
+5. Tech Innovation: Foster use of innovative technologies that promote efficient care delivery,
+   data security, and access to digital health tools by rural facilities, providers, and patients.
+   Projects support access to remote care, improve data sharing, strengthen cybersecurity,
+   and invest in emerging technologies.
+
+For more information about RHT Program’s strategic goals, visit the Centers for Medicare &
+Medicaid Services Rural Health Transformation (RHT) Program website or access the Notice of
+Funding Opportunity (NOFO) here.
+
+Funding under the RHT Program is contingent upon appropriations through the OBBBA. These
+investments will help overcome longstanding barriers to care, improve health outcomes, and
+
+Rural Health Transformation Program 2026                                P a g e 6 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+strengthen access to healthcare in rural New Jersey, with a particular focus on uninsured and
+underinsured populations.
+
+Eligibility
+Eligibility is limited to health care systems that serve uninsured and underinsured individuals
+in the designated rural target-population counties and RCTs identified under federal, state, or
+RRS definitions. This includes the combined federal and state rural-designated counties of
+Atlantic, Burlington, Cape May, Cumberland, Hunterdon, Mercer, Monmouth, Ocean, Salem,
+Sussex and Warren, as well as ten (10) RCTs in Bergen, Hudson, Morris, and Passaic counties
+designated as rural under the RRS. In some cases, only certain areas within a county or a RCT
+may qualify as rural. Eligibility can be verified using Appendix A for federally recognized rural
+counties and RCTs and Appendix B for state recognized rural counties.
+
+Applicants are not required to serve exclusively uninsured or underinsured populations across
+their entire organization, and programs or positions supported by this grant may interact with
+or serve insured individuals. However, grant funds may not be used to pay for or support any
+services or activities that are reimbursable by Medicaid, Medicare, or private insurance.
+
+Eligible applicants are health care institutions that can and will employ community doulas such
+as hospitals and healthcare providers such as clinics and health centers.
+
+Note: Applicants serving areas that meet the federal Health Resources and Services
+Administration (HRSA) definition of rural may receive priority consideration in the funding
+process.
+
+Scope of Work
+The NJDOH’s Rural Health Transformation Program 2026: Integrating Community Doulas into
+Clinical Healthcare Teams in Rural NJ focuses on expanding healthcare access, strengthening
+preventive services, integrating technology-driven solutions, and supporting training and
+capacity building to improve health outcomes in rural New Jersey. To achieve this goal, the
+program supports targeted initiatives that include preventive programs, telehealth and RPM,
+technology-enabled tools to streamline care delivery, and training to enhance workforce skills,
+cultural competency, and program implementation.
+
+Rural Health Transformation Program 2026                                P a g e 7 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Background and need:
+
+The Need
+
+Maternal mortality in the United States continues to be a major issue, and the nation exceeds
+in maternal mortality compared to other high-income countries, according to the Organization
+for Economic Cooperation and Development.2 Data from the CDC’s Pregnancy Monitoring
+Surveillance System (PMSS) indicated the national pregnancy-related mortality ratio (defined as
+the number of pregnancy-related deaths per 100,000 live births) was 33.2 deaths per 100,000
+
+
+live births.3 By race/ethnicity, non-Hispanic (NH) American Indian/Alaska Native and non-
+Hispanic Native Hawaiian/Pacific Islander women experienced the highest pregnancy-related
+mortality, with rates of 118.7 deaths per 100,000 live births and 111.7 deaths per 100,000 live
+births, respectively. New Jersey’s maternal mortality and severe maternal morbidity outcomes
+continue to persist, with disparities evident among the Black, NH population. 4
+
+New Jersey Data
+
+From 2019-2021, the NJ statewide PRMR was 20.5 deaths per 100,000 live births. This ratio
+represents an increase in pregnancy-related mortality compared to 14.4 deaths per 100,000
+live births from 2016-2018. For pregnancy-related deaths from 2019-2021, the Pregnancy-
+Related Mortality Ratio (PRMR, number of deaths for every 100,000 live births) was 20.5 deaths
+per 100,000 live births; however, among Black, NH women, the PRMR was 65.1 per 100,000. 5
+
+As maternal health outcomes are a continuing issue, so are infant health outcomes. When
+assessing infant mortality across OECD countries (2021), the United States has the 6th highest
+infant mortality at 5.4 deaths per 1,000 live births.4 In 2021, the infant mortality rate in New
+2 [1]https://www.oecd.org/en/data/indicators/infant-mortality-rates.html
+
+
+
+3
+ CDC. (2025, April 29). Data from the Pregnancy Mortality Surveillance System. Maternal Mortality Prevention. https://www.cdc.gov/maternal-
+mortality/php/pregnancy-mortality-surveillance-data/?CDC_AAref_Val=https://www.cdc.gov/maternal-mortality/php/pregnancy-mortality-
+surveillance/index.html
+
+4 Nantwi, A.K. & Slutzky, C.B. (2026). New Jersey Maternal Mortality Report 2019-2021. Retrieved from:
+
+https://www.nj.gov/health/fhs/maternalchild/mchepi/mortality-reviews.
+5 Nantwi, A.K. & Slutzky, C.B. (2026). New Jersey Maternal Mortality Report 2019-2021. Retrieved from:
+
+https://www.nj.gov/health/fhs/maternalchild/mchepi/mortality-reviews.
+
+
+Rural Health Transformation Program 2026                                                          P a g e 8 | 46
+
+    This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+    and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+    funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+    of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+    This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+          f          (    )                 h     db h                   f l ll    (       )(                                                 f   bl
+Jersey was 3.5 deaths per 1,000 live births. The Black, NH infant mortality rate was nearly four
+times that of their White, NH counterparts (7.8 deaths per 1,000 live births compared to 2.2
+deaths per 1,000 live births). 6 By geographic location of residence, the Southern region had the
+highest infant mortality rate (5.3 deaths per 1,000 live births) when compared to Central and
+Northern regions (3.4 and 2.7 deaths per 1,000 live births, respectively). 7 The Southern region
+is predominantly rural, with the four most Southern counties in NJ meeting the federal and
+state definitions of rural. With limited and/or inconsistent access to necessary healthcare,
+many rural residents face compromising situations that have negative and long-term impacts
+on their health, including women seeking perinatal care during and after pregnancy.
+
+A Solution: NJFamilyCare Doulas (“Community doulas”)
+
+Doulas are trained professionals who provide physical, emotional, and informational support
+before, during, and after childbirth. Multiple studies show that doula care can improve
+maternal and infant health outcomes; reduce pre-term births and low-birth-weight infants;
+lower rates of cesarean sections; and increase rates of breastfeeding. 8, 9, 10
+
+Community doulas are doulas who are trusted members of the communities they serve and
+who often offer services at low to no cost to the recipient. Community doulas often provide an
+expanded set of services beyond those seen through a private-pay doula, including connecting
+individuals with community-based resources and increasing the number of home visits prenatal
+and postpartum.
+
+The New Jersey Department of Health (NJDOH) is requesting proposals to integrate NJ FamilyCare
+Community doulas into the maternal child health care landscape. The program is intended to
+bolster services offered by maternal health professionals in healthcare institutions that serve
+
+6 OECD. “Infant Mortality Rates.” OECD, 2021, www.oecd.org/en/data/indicators/infant-mortality-rates.html.
+
+
+7 Deparment of Health. (2022). NJSHAD - Summary Health Indicator Report - Infant Mortality. Nj.gov. https://www-doh.nj.gov/doh-
+
+shad/indicator/summary/EPHTInfMort.html
+8 Farewell, C. V., Gahrns, J., Pangalangan, J., Curl, E., & Pangalangan, A. (2025). Community-based doulas and medicaid expansion: a resource-
+
+based approach to support the well-being of low-income postpartum women. BMC Pregnancy & Childbirth, 25(1), 1–12. https://doi-
+org.resources.njstatelib.org/10.1186/s12884-025-07855-y
+9 Heuberger, A., Ramos, G., Weerasuriya, W., Barrientos, N., Applequist, J., & Louis-Jacques, A. F. (2025). Doula Support and Breastfeeding
+
+Outcomes: A Systematic Review. Breastfeeding Medicine, 20(10), 685–706. https://doi-
+org.resources.njstatelib.org/10.1177/15568253251367430
+10 Dias, Y., Achebe, N. E., Doering, M. M., Montiel, C., Paul, R., Lawlor, M., Malloy, A. T., McMillian, C., Frazier, T., Standard, V., Haley, S., Urrutia,
+
+R., Tang, J. H., Slaughter-Acey, J., Frolova, A., Raghuraman, N., Kelly, J. C., & Carter, E. B. (2025). Intrapartum Doula Support and Cesarean
+Delivery Rates: A Systematic Review and Meta-analysis. Obstetrics and Gynecology, 146(1), 73–84. https://doi-
+org.resources.njstatelib.org/10.1097/AOG.0000000000005937
+Rural Health Transformation Program 2026                                                                   P a g e 9 | 46
+
+  This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+  and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+  funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+  of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+  This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+        f          (    )                 h     db h                   f l ll    (       )(                                                                   f   bl
+rural NJ residents.
+
+The primary goal of this RFA is to grow the size and capacity of the NJ FamilyCare Community
+doula workforce serving rural NJ and support their engagement in various health environments.
+The opportunity for such workforce development will expand the possibilities for pregnant and
+post-partum women who reside in rural areas of our State and help to reframe the current
+healthcare model.
+
+These initiatives promote early detection, health education, and interventions that reduce
+disease progression, while telehealth and RPM help bridge provider gaps by giving residents
+access to specialists, follow-up care, and chronic disease management without the need for
+travel. Additionally, technology-enabled tools, such as scheduling platforms, digital registration
+systems, automated appointment reminders, and electronic check-in processes, can further
+reduce barriers to care by decreasing wait times, improving workflow efficiency, and simplifying
+patient navigation. As New Jersey invests in transforming its rural health care delivery system,
+there is a need for comprehensive training and capacity building that strengthens cultural
+competency, supports stigma-sensitive approaches, and equips providers and community
+partners with the knowledge and skills necessary to engage diverse rural populations and
+ensure more equitable access to care.
+
+By expanding provider access, integrating technology-driven care and prevention programming,
+and supporting training and capacity building to strengthen workforce readiness and cultural
+competency, the funding helps reduce health disparities and strengthens the overall health of
+rural New Jersey communities, in line with the state’s vision of making New Jersey the
+healthiest state in the union.
+
+Available Funding
+Funding for this program is dependent on the final award received by NJDOH through the
+OBBBA. NJDOH anticipates distributing funds among eligible applicants that propose activities
+benefiting uninsured and underinsured residents within the designated rural target areas.
+
+Applicants serving areas that meet the federal HRSA definition of rural, providing Letters of
+Collaboration from planned partners, and/or submitting vendor quotes for proposed grant
+activity purchases may receive priority consideration in the funding process.
+
+Rural Health Transformation Program 2026                                P a g e 10 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Note: NJDOH may adjust eligibility or prioritization criteria if the federal award limits or
+excludes the use of state-specific rural designations or the RRS.
+
+Total Funding Available:
+• Activity A – Integrating Community doulas into Clinical Healthcare Teams in Rural NJ:
+   $1,875,000 for 3 to 5 awards, depending on number of applicants and availability of funds.
+
+Program Goal and Objectives:
+
+Component A: The primary goal of this COMPONENT is to support the integration of one or
+more Community doulas into Interdisciplinary healthcare teams (Hospitals/Clinics/FQHC’s)
+within or adjacent to rural areas of the State and mentor(s) to provide support for newly
+trained doulas. The doulas will be hired as full-time or part-time staff, and work the same
+shifts as doctors, nurses and midwives. A secondary goal of these funds is for pregnant
+individuals throughout the state to have access to person-centered, community-based, and
+culturally competent healthcare services throughout the perinatal period.
+
+Strong applicants will demonstrate an ability to expand interdisciplinary team function within
+their health center/hospital system by creating and implementing a plan for Community doula
+integration beyond the grant period. Eligible applicants are clinics, hospitals and federally
+qualified health centers (FQHCs) that serve pregnant and post-partum populations in NJ.
+Awardees must possess the ability to serve rural counties within the state of New Jersey.
+
+Applicants should note which tier they are applying for. The selected Tier will affect the amount
+of funding received.
+
+Tier 1 – recruit, deploy, and support 1 – 2 doulas and 1 mentor – MAX $300,000
+Tier 2 – recruit, deploy, and support 3-5 doulas and 2 mentors– MAX - $500,000
+Tier 3 – recruit, deploy, and support 6 or more doulas and 3 or more mentors. - MAX
+$750,000
+
+Number of awards will be determined by the number of successful applicants and funding
+availability.
+
+   1) Hiring, training and integrating Community doulas into interdisciplinary maternal health
+      serving clinical care teams within or adjacent to rural areas of the State
+Rural Health Transformation Program 2026                                P a g e 11 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+     2) Hiring/contracting a doula mentor to ensure that newly hired and/or trained
+        Community doulas are receiving the support they need as they transition into the
+        interdisciplinary team
+     3) Creating a plan or policy that standardizes the integration of the Community doula role
+        into an interdisciplinary team within a health system
+
+Rural health systems and organizations must be in or adjacent to one of the State’s rural
+areas as defined by federal and state definitions of rurality (see Appendix A and B for specific
+areas) and clearly establish that they are serving rural health residents:
+
+
+I.      Component A: Integration of Community doulas within Maternal and Child
+        Health (MCH) Clinical Care teams Serving, Adjacent to or Located Within Rural Areas
+        of the State
+
+Objective 1:
+
+The hiring and integration of Community doulas into an Interdisciplinary Team in a healthcare
+should be conducted in Year 1. One or more of these community doulas must serve as a
+mentor to newly trained community doulas from community doula training organizations
+across the state. NJFamilyCare Doulas (“Community doulas”). NJ FamilyCare is defined as a
+program that is currently approved by NJDOH/DHS for doulas interested in serving NJ
+FamilyCare members and receiving NJ FamilyCare reimbursement for doula care. These
+Community doulas will be integrated into a rural-serving health system’s Maternal and Child
+Health professional’s team. Examples of Maternal and Child Health teams include Labor and
+Delivery (L&D) Units and Primary Care teams located within clinics/FQHCs/hospitals that serve
+maternal and child health populations. If the health care facility will seek reimbursement from
+Medicaid or other insurance or funding source for services rendered by the community doula as
+part of these grant activities, this needs to be reflected in the budget clearly. These funds
+cannot be used for services and activities that are rendered or billed from other sources.
+
+Successful applicants are expected to facilitate the creation and full integration of this position
+into the maternal health interdisciplinary team at the grantee organization. Core Clinical Team
+Practices reflect expectations for all grantee sites to support doula integration per (P.L. 2023, c.
+286).
+Rural Health Transformation Program 2026                                P a g e 12 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Grantees must ensure the following:
+
+   1) Clinical team understands the doula’s scope of practice and role on the team
+   2) Doulas are welcomed into huddles to discuss patient needs and desires, and participate
+      in clinical care team recommendations
+   3) Doulas have access to all clinical care team training materials
+   4) Doulas are given a doula point of contact (See below regarding “Community doula
+      mentors”)
+   5) Hospital check-in procedures for doulas are clearly defined
+   6) Legislation (P.L. 2023, c. 286) is well understood by the entire interdisciplinary team
+          a. “Authorizes every hospital and birthing center maintain policies and procedures,
+               authorizing a patient to select a doula of the patient's choice to accompany the
+               patient within the facility's premises for the purpose of providing support before,
+               during, and after labor and childbirth”
+
+Additionally, grantees are expected to:
+   1) Hire a community doula mentor to support the integration of community doulas into an
+       interdisciplinary team within a clinical setting.
+           b. Community doula mentors will be hired on a per diem basis
+
+
+The addition of this position mandates:
+
+   1. The production of an implementation plan (Logic Model), as well as protocols and
+      materials associated with the plan such as implementation guidelines, educational
+      materials, training design, etc. by the end of Year 1 (October 30, 2026)
+   2. The production of a formal timeline related to the creation of the position, hiring and
+      full integration of the Community doula staff by the end of Year 1 (October 30, 2026).
+   3. Logic Model within 30 days of grant award, to include quantifiable outcomes expected
+       from the activities engaged:
+       1) Huddle #’s
+       2) Team meetings/process orientation
+       3) Training organization connections
+
+
+Rural Health Transformation Program 2026                                P a g e 13 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Ex. Logic Model
+
+
+
+
+Subsequent Years and Sustainability of the Doula Integration Model
+
+Funding for subsequent years is not guaranteed; however, it is the goal of this initiative to
+ensure sustainability of the Doula Integration Model. It is expected that awardees outline a
+sustainability plan during this period funding and submit it to the NJDOH before the end of Year
+1 (October 30, 2026). If the sustainability plan is to eventually seek reimbursement through
+Medicaid or other insurance or funding source because they are currently not billing for these
+services, please note this in the plan.
+
+Note: NJDOH reserves the right to adjust award amounts, and the number of awards based on
+project scope and available funding. Funding for subsequent years may be available and
+disbursed based on meeting the grant requirements and availability of funds.
+
+Note: Grant funds may not be used to support services, activities, or costs that are reimbursable
+by Medicaid, Medicare, or private insurance nor should they be used to cover costs that are
+covered by other sources of funding. If the applicant or the doula is receiving reimbursement or
+funding from other sources, in addition to these funds, it cannot be for the same service or
+activity.
+
+
+Objective 2:
+
+Rural Health Transformation Program 2026                                P a g e 14 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Plan and Evaluation of the process of Implementation of Integrating Community doulas onto
+MCH Healthcare Teams
+Evaluation provides important feedback to planners and implementers, elucidating the impact
+of implementation strategies. All grantees are expected to engage an evaluation of the process
+of implementation of the additional role of Community doulas into an Interdisciplinary team of
+maternal and child health professionals. Important to note, this is an evaluation of the process
+of implementation rather than measuring potential impact on a population.
+
+Utilizing the RE-AIM 11 (Reach Effectiveness Adoption Implementation and Maintenance)
+Framework, grantees need to conduct semi-structured interviews with staff at the conclusion
+of Q4 [each year of the grant], to understand the Reach, Effectiveness, Adoption
+Implementation and Maintenance of the Implementation of Doulas onto an interdisciplinary
+team. The evaluation plan outline must be complete by the end of Year 1, with evaluation
+beginning Q1 of Year 2 (should funds be available).
+
+The evaluation protocol and timeline must be submitted by the end of Year 1, with a final
+evaluation summary to be submitted by close of Year 1.
+   • Outline the specific strategies, activities, or approaches that will be implemented to
+       achieve project goals and objectives.
+   • Outline the methods, techniques, or procedures that will be implemented to address
+       project goals and objectives.
+   • Provide a program timeline for the scope of work with key performance indicators,
+       milestones, or deadlines and the person responsible for each.
+   • Ensure methods are feasible, realistic, and achievable.
+   • If the project involves collaborations with other organizations or institutions, describe
+       the collaboration and how it will be measured and enhance the project.
+   • Describe when and how the project will be monitored, accessed, and evaluated to
+       ensure outcomes are being achieved.
+
+Submit a proposed budget:
+           a. Agency(s) should submit a proposed budget based on training and integration of
+              community doulas at a full-time basis into the L&D Unit/Maternal Healthcare
+              Team.
+
+
+11 RE-AIM – Home – Reach Effectiveness Adoption Implementation Maintenance
+
+Rural Health Transformation Program 2026                                     P a g e 15 | 46
+
+  This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+  and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+  funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+  of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+  This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+        f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                     i. Include a separate line item in the budget mentor hourly support, ranging
+                        from $40-50 an hour.
+             b. Budgets should be adjusted if the applicant health care facility or the doula plans
+                to seek reimbursement through Medicaid or other insurance for the services
+                provided by the community doula.
+             c. Both objectives of Component A are expected to be met by any grantee agency
+                to receive the grant award.
+
+Five-year Commitment and Enforcement (summary below; see Appendix F for full terms):
+
+      a. If the Community doulas are fully trained before becoming onboarded into the role,
+         then no fixed term commitment is necessary. However, if Community doulas are hired
+         while becoming trained, or finishing training, and grant funds are needed to pay for the
+         training hours in part or full, then these doulas must commit to five-years of service in
+         the role of Integrated Community doulas (see Attachment G for details).
+      b. If a trained community doula leaves the position before the five-year commitment has
+         been completed, a full re-coup of the funds spent is required.
+
+
+II.      FUNDING
+For Year One (1), a total of up to $1,875,000 in funding is expected to be available for the
+Integration of Doulas in rural NJ Serving Healthcare Institutions and training of doulas to serve
+rural communities in the State each year for up to five years. The final funding amount will
+depend on project structure and abilities to carry out the RFA components. Awards will be made
+based on the quality of the applicant’s proposal(s) and the availability of funds. Funding decisions
+will be made to ensure the greatest alignment with the goals of the RFA.
+
+This competitive RFA is for a period of six (6) months (5/1/26 through 10/30/26), with the
+potential for additional years of funding. In subsequent years, the grantee must submit a
+noncompetitive multi-year health service grant application. Continuation of funding for
+subsequent years is contingent upon the availability of funds; timely accurate submission of
+reports; an approved annual plan; and satisfactory progress toward completion of the current
+year’s grant objectives.
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 16 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Reporting Requirements and Timeline
+Project and Budget Period
+The first annual project and budget period is May 1, 2026 – October 30, 2026.
+
+Note: Although the OBBBA funding period is December 31, 2025 - October 30, 2026, the first
+annual project and budget period for grantees is estimated to be February 1, 2026 - October 30,
+2026, to allow for posting, application review, and award processing.
+
+Reporting Requirements
+Grantees are required to submit quarterly Progress Reports in SAGE and monthly Metrics and
+Expenditure Reports according to the schedule established at the time of account set up with
+the NJDOH.
+
+ Report Period*                Metric Report #                        Report Due Date
+ May 1 – June 1, 2026          1                                      June 1, 2026
+ June 2, 2026 – July 1,        2                                      July 1, 2026
+ 2026
+ July 2, 2026 – August 1,      3                                      August 1, 2026
+ 2026
+ August 2, 2026 –              4                                      September 1, 2026
+ September 1, 2026
+ September 2, 2026 –           5                                      October 1, 2026
+ October 1, 2026
+
+Grantees are also required to submit quarterly Progress Reports according to the timelines
+outlined by the NJDOH. These progress reports must include the following information:
+
+           1) Current process of deliverables
+           2) Challenges & ways the organization is working through the challenges
+           3) Next steps
+
+*Applicants should plan to submit quarterly Progress Reports following the established
+schedule, which may be adjusted by NJDOH after award.
+
+
+Rural Health Transformation Program 2026                                P a g e 17 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+IMPORTANT: Timely submission of required reports is a key performance indicator and may
+influence future funding decisions, budget modifications, and grant amendments. Failure to
+submit reports on time may result in delays in payment or other administrative action.
+
+If an extension is needed for any report, grantees must submit written justification to the
+NJDOH Project Management Officer (PMO) and Grant Management Officer (GMO). The
+extension is only valid upon written approval by NJDOH.
+
+The final expenditure report must be submitted no later than November 15, 2026. If additional
+time is needed, a final submission must be received by November 30, 2026, or the grant may be
+closed based on the last report submitted.
+
+Note: For projects that utilize the full project and budget period for start-up or implementation,
+NJDOH reserves the right to continue programmatic and fiscal oversight, monitoring, and
+reporting requirements beyond the grant end date, regardless of whether continuation funding
+is awarded. All grantees remain responsible for required reporting and close-out activities until
+the grant is formally closed.
+
+Reporting Procedures and Documentation Requirements
+• Expenditure reporting
+       • Grantees must upload supporting documentation to the expenditure report for any
+          staff positions. This documentation must include:
+              • The name of the individual
+              • The title of the position
+              • % dedicated
+              • Salary
+       • Grantees must upload supporting documentation to the expenditure report for all
+          Schedule B items. While NJ SAGE may not require documentation for every expense,
+          providing clear records help ensure transparency and supports reimbursement.
+              • The format of this summary document is at the discretion of the grantee, but
+                  it must clearly reflect reimbursable expenses by budget category.
+
+Note: Expenditure reports will only be approved after the corresponding progress report has
+been submitted and any required modifications have been satisfactorily addressed.
+
+•     Progress/Metrics Reporting
+Rural Health Transformation Program 2026                                   P a g e 18 | 46
+
+    This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+    and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+    funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+    of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+    This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+          f          (    )                 h     db h                   f l ll    (       )(              f   bl
+       •   Upon receiving award, the NJDOH will provide grantees with a progress report
+           template and a supplemental data collection tool for submitting quarterly progress
+           reports.
+              • The content and metrics required in each report may change based on
+                  program priorities. Any updates will be communicated directly to the
+                  grantee by the NJDOH PMO for the respective activity (Activity A, B, or C).
+
+
+Programmatic and Administrative Requirements
+Grantees are responsible for ensuring effective program implementation, staff accountability,
+fiscal stewardship, and compliance with all grant requirements. This section outlines key
+operational and administrative expectations under the Rural Health Transformation Program
+2026: Integrating Community doulas into Clinical Healthcare Teams in Rural New Jersey (NJ).
+
+Program Staffing and Oversight
+• All staff must devote time according to the percentage allocations outlined in Schedule A -
+   Personnel Costs.
+• Ensure staffing levels and time allocations are aligned with the scope of work.
+• Be prepared to adjust staff time percentages if the scope of work changes, subject to review
+   and approval by NJDOH as appropriate.
+
+Performance and Reimbursement Conditions
+• Reimbursement is contingent on the Grantee’s ability to:
+      • Meet all grant terms and conditions.
+      • Complete activities by established deadlines.
+      • Demonstrate measurable progress.
+• Timely submission of required reports is a performance indicator and may affect:
+      • The Grantee’s risk rating.
+      • Eligibility for future funding, budget modifications, or grant amendments.
+• NJDOH reserves the right to terminate, reduce, or suspend the grant in whole or in part,
+   under any of the following circumstances:
+      • Unavailability of funds - if anticipated funding becomes unavailable, is reduced, or is
+          withdrawn.
+
+
+
+Rural Health Transformation Program 2026                                P a g e 19 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+       •   Changes in program priorities - if programmatic priorities, statutory requirements, or
+           organizational strategies change such that continuation of the grant is no longer
+           aligned with NJDOH objectives.
+       •   Failure to meet performance requirements - if the grantee fails to make satisfactory
+           progress toward stated goals, deliverables or performance benchmarks, or
+           otherwise fails to comply with the terms and conditions of the award.
+       •   Failure to expend funds in a timely manner - if the grantee does not demonstrate
+           adequate fiscal management or fails to draw down or spend funds within the
+           established timelines.
+
+Note: In the event of termination, reduction, or suspension, NJDOH will provide written notice
+specifying the reason and effective date of the action. The grantee will be permitted to submit
+final requests for reimbursement for allowed costs incurred up to the effective date, and NJDOH
+will issue payment for those allowable final expenditures in accordance with applicable closeout
+requirements.
+
+Reporting and Monitoring Requirements
+• Grantees must:
+       • Comply with all site visits and program meetings for monitoring and technical
+          assistance.
+       • Submit all required reports and request for information in accordance with NJDOH
+          deadlines.
+       • Use NJDOH supplied templates and tools as directed.
+• NJDOH reserves the right to withhold, reduce, or deny payment due to:
+       • Delinquent or deficient reporting
+       • Inadequate progress
+       • Poor stewardship of funds
+       • Failure to meet stated goals, objectives, or deliverables
+
+Fiscal Accountability and Procurement
+• Grantees are responsible for all purchasing and fiscal oversight in accordance with:
+        • The grant specifications
+        • NJDOH Terms and Conditions for Administration of Grants
+• Expenses reimbursed under this program must not be submitted for reimbursement
+    through:
+        • Other NJDOH grants
+Rural Health Transformation Program 2026                                P a g e 20 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+          • Insurance or other federal/state funding channels
+•     All procurement of professional services, contracts, or vendors must follow:
+          • The grantee’s internal procurement policies, including any competitive bidding
+              requirements. Grantees are responsible for ensuring that all vendor selections and
+              agreements comply with applicable state and federal laws, regulations, and grant
+              requirements.
+          • NJDOH does not endorse or show preference for specific vendors.
+
+Note: For reference, a comprehensive vendor list can be requested by contacting your Project
+Management Officer.
+
+Sub-Grantee and Third-Party Oversight
+• Any agreements with third-party service providers under this grant must be pre-approved
+   by NJDOH through the PMO and GMO.
+• Reimbursement for sub-grantee services will only be authorized if a legal agreement has
+   been submitted to and approved by the NJDOH.
+• The Grantee must:
+      • Ensure sub-grants are managed in accordance with all primary grant conditions and
+          deliverables and requirements specified in the Attachment C.
+      • Monitor sub-grantee expenditures and compliance through:
+              • Adequate financial controls
+              • Required audits and performance reviews
+              • Submission of a compliance report to NJDOH verifying the sub-grantee has
+                 fulfilled all obligations
+
+
+
+Allowable Costs and Funding Restrictions
+Allowable Costs
+Allowable expenditures under this grant must directly support the Rural Health Transformation
+Program 2026: Integrating Community doulas into Clinical Healthcare Teams in Rural New
+Jersey (NJ).
+
+Funding Restrictions and Exclusions
+The following restrictions apply to the use of grant funds:
+
+Rural Health Transformation Program 2026                                   P a g e 21 | 46
+
+    This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+    and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+    funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+    of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+    This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+          f          (    )                 h     db h                   f l ll    (       )(              f   bl
+•   No purchases may be made until the grant period begins and NJDOH has provided written
+    approval.
+• Pre-award costs, including salaries or expenditures incurred before the start date of the
+    grant, are not reimbursable.
+• All sub-awards, professional service agreements (PSAs), and consultant agreements must be
+    submitted for NJDOH review and approval before execution.
+        • Exception: Consultants used solely for auditing grant compliance or expenditures are
+            exempt from this pre-approval requirement.
+        • Once executed, signed agreements must be uploaded to the Shared Documents
+            folder in SAGE.
+• Funds may be used to supplement, but not supplant, existing state or federal funding for
+    proposed activities.
+• Due to federal funding caps, administrative and indirect costs are restricted under this
+    grant. Applicants interested in requesting these costs must include them in the applicable
+    section of the Project and Budget Submission Form for NJDOH review and consideration.
+Note: Inclusion of administrative and indirect costs does not guarantee approval and is
+dependent on the availability of funds within the established cap.
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+Note: NJDOH reserves the right to modify requirements related to administrative and indirect
+costs at any time and is not bound by the current guidance.
+
+•     Funds may not be used for:
+         • Supplanting existing funding: use of grant funds to replace, reduce, or offset existing
+            or anticipated funding from other sources (including federal, state, local, private, or
+            third-party reimbursement)
+         • Food, catering, or light refreshments for staff or participants
+         • Fundraising activities or costs
+         • Personal use goods or services
+         • Lobbying or legislative activities
+         • Repayment of bad debt or interest on loans
+         • Promotional items, memorabilia, gifts, souvenirs, or similar materials
+         • New construction of any kind
+         • Supplanting funding of in-process or planned construction projects, or directing
+            funding towards new construction builds
+
+Rural Health Transformation Program 2026                                   P a g e 22 | 46
+
+    This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+    and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+    funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+    of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+    This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+          f          (    )                 h     db h                   f l ll    (       )(              f   bl
+       •   Using grant funds to support staff or activities unrelated to the approved program
+           scope
+       •   Offsetting reductions in Medicaid reimbursement or other payer rate cuts
+       •   Replacing payment for clinical services that are reimbursable, or otherwise billable,
+           to Medicaid, Medicare, private insurance, or other third-party payers
+       •   Broadband infrastructure or connectivity efforts
+       •   Payments to employees not tied to specific quality improvements or an initiative
+           within the scope of the RHT Program
+       •   Enhanced payment rates or incentives for currently billable services without ties to
+           outcomes
+       •   Uncompensated care that is not tied to a specific initiative within the Rural Health
+           Transformation Plan
+       •   Student loan or educational loan repayment programs
+
+Note: For a full list of unallowable expenses, please refer to Public Law 119-21, Section 71401.
+
+Funding Requirements and Non-Compliance
+Failure to comply with grant terms may result in enforcement actions by NJDOH. If a Grantee or
+sub-grantee materially fails to meet award requirements, NJDOH may take one or more of the
+following actions:
+• Temporarily withhold cash payments pending correction
+• Disallow costs not in compliance
+• Suspend or terminate the grant in whole or in part
+• Withhold future funding under the program
+• Implement any other remedies legally available
+
+Hearings and Appeals
+Before taking enforcement action, NJDOH will provide the Grantee an opportunity for a
+hearing, appeal, or other administrative process, as applicable.
+
+Effects of Suspension or Termination
+Costs incurred during suspension or after termination are not allowable unless:
+• Specifically authorized in writing by NJDOH
+• Result from non-cancelable obligations made before the effective suspension/termination
+    date and would have been allowable if the grant continued normally
+
+Rural Health Transformation Program 2026                                P a g e 23 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Grant Termination
+Grants may be terminated:
+• By NJDOH with mutual agreement from the Grantee, including negotiated terms and
+   effective date
+• By the Grantee, via written notice including the reason, effective date, and any portion of
+   the project being terminated
+       • If a portion of the project is discontinued after receiving funding, or if equipment is
+           purchased or facility improvements are made but associated program activities are
+           not implemented, the grantee must provide a plan for proper use of the completed
+           project or resources to support program goals.
+• By NJDOH in full if it determines that a partial termination would not fulfill the intended
+   program purpose
+• Due to the unavailability of funds, changes in program priorities, failure to meet
+   performance requirements or inadequate expenditure of funds
+
+Budget Revisions and Grant Amendments
+All budget revision and grant amendment requests must receive prior approval from the NJDOH
+before any actions are initiated in the SAGE.
+
+Submission Process
+• Step 1: Initiation
+      • Upon NJDOH approval to proceed, the Grantee must initiate the request in SAGE
+          within three (3) business days, or by the deadline specified by NJDOH
+• Step 2: Submission
+      • After NJDOH unlocks the applicable forms or sections in SAGE, the Grantee must
+          complete and formally submit the budget revision or grant amendment request
+          within ten (10) business days, or by the NJDOH-specified deadline
+
+Limitations
+• Grantees are permitted a maximum of two (2) budget revision or grant amendment
+   requests during the approved grant period, unless otherwise authorized by NJDOH.
+• NJDOH reserves the right to extend submission deadlines or nullify requests not submitted
+   by the designated due date.
+
+Rural Health Transformation Program 2026                                P a g e 24 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Future Funding Consideration
+• Based on program performance, availability of funds, and public health need, Grantees may
+   be invited by NJDOH to apply for a continuation of funding, in one or more subsequent
+   years, through October 30, 2030.
+
+Review and Evaluation Criteria
+Grant applications will be reviewed by a panel designated by the NJDOH. Applications must be
+complete and fully compliant with all RFA requirements. Please refer to Appendix C for RFA
+Application Guidance.
+
+Applications will be evaluated on the information submitted through the electronic grants
+system, including the required project and budget submission form (see the appropriate
+appendix for Activity A, Activity B, or Activity C). Scoring will be based on the materials submitted
+and how well they align with the criteria outlined in RFA Application Scoring Guide included in
+Appendix D. Refer to Appendix E, and Appendix F, for corresponding forms.
+
+Final funding decisions will be based on the application scores, available funding, and alignment
+with NJDOH priorities, including the RHT program priorities, with priority given to applications
+serving areas designated as rural under the federal HRSA definition.
+
+Grant Compliance Requirements
+If awarded funding, the Grantee must comply with the following:
+• The Terms and Conditions for Administration of Grants issued by the New Jersey
+    Department of Health (NJDOH), available at:
+    www.nj.gov/health/grants/documents/terms_conditions.pdf.
+• All applicable federal cost principles, based on the Grantee’s organization type (e.g., 2 CFR
+    Part 200 for non-profits and government entities).
+• The general and specific programmatic compliance requirements as detailed in Attachment
+    C - Program Specifications, which are incorporated into the grant agreement executed by
+    NJDOH.
+
+Duplication of Efforts
+
+Rural Health Transformation Program 2026                                P a g e 25 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Applicants must disclose any potential overlap between this application and existing activities,
+other applications or awards received or submitted to other funding sources within the same
+fiscal year. Overlap can occur in the following ways:
+• Programmatic Overlap
+    Occurs when substantially the same project or objectives are proposed in more than one
+    application or awarded funding from multiple sources. This includes situations where the
+    project design or specific goals are identical or closely related across existing activities,
+    applications or awards, regardless of the funding source.
+• Budgetary Overlap
+    Occurs when duplicate or equivalent budget items (e.g., equipment, personnel salaries) are
+    requested in this application but are already covered by other funding sources.
+• Commitment Overlap
+    Occurs when an individual’s total time commitment across all funded projects exceeds
+    100%, regardless of whether salary support is requested for that time.
+
+Duplication of effort whether programmatic, budgetary, or commitment overlap is prohibited.
+Any identified overlap must be resolved with the NJDOH in collaboration with the applicant’s
+Project Coordinator prior to award.
+
+Applicants must upload a detailed report addressing programmatic, budgetary, commitment
+overlap, and potential supplanting on the Attachments Form in SAGE. The document should be
+clearly labeled
+• “Report on Programmatic, Budgetary, Commitment Overlap, and Supplanting”
+
+Applicants must also submit a signed certification confirming that grant funds will not be used
+to supplant existing funding from any source.
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 26 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+              APPENDIX A - Rural New Jersey: Federal Definition
+
+
+                                                           Federally Recognized Counties
+                                                               Atlantic                      Mercer
+
+                                                              Burlington                Monmouth
+
+                                                           Cumberland                        Ocean
+
+                                                            Hunterdon                        Warren
+
+
+
+
+                    Federally Recognized Rural Census Tracts (RCTs)
+ Atlantic County RCTs
+ 108              109              110               111
+ Burlington County RCTs
+ 7021.01          7022.06          7022.07           7022.08              7022.09            7022.10
+ 7048.01          9821.11          9822
+ Cumberland County RCTs
+ 101.03           104.02           106               107.02               201                202
+ 203.01           203.02           204               205.02               205.03             206
+ Hunterdon County RCTs
+ 113.01           113.03           113.04            113.05               113.06             114
+ 115              118              119
+ Mercer County RCTs
+ 33.04            38
+ Monmouth County RCTs
+ 8099.03
+ Ocean County RCTs
+ 9800             9801
+Rural Health Transformation Program 2026                                   P a g e 27 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+ Warren County RCTs
+ 317
+
+
+
+
+ Rural Health Grants Eligibility Analyzer
+ 2020 Census - Census Tract Reference Map
+Rural Health Transformation Program 2026                                P a g e 28 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                APPENDIX B - Rural New Jersey: State Definition
+
+
+
+       State-Recognized Counties
+        Atlantic                   Salem
+
+      Cape May                    Sussex
+
+     Cumberland                   Warren
+
+      Hunterdon
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 29 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                      APPENDIX C - RFA Application Guidance
+
+    Rural Health Transformation Program 2026: Integrating
+   Community doulas into Clinical Healthcare Teams in Rural
+                       New Jersey (NJ).
+
+New Jersey Department of Health (NJDOH) requires all grant applications to be submitted
+electronically through SAGE at Login (intelligrants.com). If your organization does not have an
+existing account in SAGE, an account will need to be created to apply for this grant.
+
+If you are a first time NJDOH applicant whose organization has never registered in the NJDOH
+SAGE system, you must contact the SAGE System Administrator via email at
+njdoh.grants@doh.nj.gov or at 609‐376‐8508. A new organization form can be found at
+nj.gov/health/grants/documents/SAGE_registration_form.pdf and must be completed and
+submitted to NJDOH. The submitted documents will be reviewed to ensure that applicants have
+satisfied all applicable requirements. Please allow up to three (3) business days for processing.
+
+When approved, the organization’s status will be activated in SAGE. The SAGE System
+Administrator will inform the organization’s Authorized Official via email or by phone of their
+authorized access to the grant application in SAGE. Organizations will not have access to any
+application in SAGE until all documents are received and all procedures are satisfied.
+
+Note: All forms within the grant application should be completed as per the instructions on each
+page and saved. This document provides guidance and additional information for some of the
+forms. Adherence to this guidance will facilitate timely review and approval of a grant
+application. NJDOH reserves the right to extend grant application closing dates.
+
+Please refer to the FAQ for Applicants and Grantees that is available in SAGE under the
+“Training Materials” tab. This resource outlines how to initiate, compile, and submit your
+application in SAGE.
+
+Note: SAGE will automatically reject applications after the closing date and time listed in the
+RFA.
+
+
+Rural Health Transformation Program 2026                                P a g e 30 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Log in and search for the “Rural Health Transformation: Technology Innovation & Preventive
+Programming 2026” application in SAGE Login (intelligrants.com).
+
+FORM - ORGANIZATION PROFILE
+   • Name of Organization & Contact Information
+   • Name of CEO & Contact Information
+   • Name of CFO & Contact Information
+   • Officers/Directors
+   • Annual Audit Report - Upload your organization’s most current Annual Audit Report
+      o If your organization is not required to submit to an annual audit, please submit a
+         letter on letterhead explaining the reason this is waived. You must also submit a
+         copy of your most recent submitted tax return.
+   • Organization Type
+   • IRS Determination Letter (For Non-Profits)
+   • NJ Charities Registration Letter (For Non-Profits)
+   • Tax Clearance Certificate - required for all entities
+   • Minority Managed
+   • Minority Population Served
+   • Languages in Which Services Are Provided
+
+FORM - PROJECT CONTACTS
+   • Name of Project Director, title, and contact information
+   • Name of Fiscal Contact, title, and contact information
+
+FORM - GRANT PERIOD AND PAYMENT
+   • Both project period and budget period: February 1, 2026 - October 30, 2026
+   • Payee: NJ Vendor ID Number - remittance address
+   • Payment method: Monthly cost reimbursement
+
+FORM - SERVICE AREA
+   • Area of Impact – local, statewide
+   • If applicable, select the county(s) and municipality(s) where the program will be
+      implemented
+
+FORM - NEEDS & OBEJCTIVES
+   • Assessment of Need(s)
+
+Rural Health Transformation Program 2026                                P a g e 31 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+       o   Describe the need(s) to be addressed through this pilot program, with supporting
+           up-to-date data and facts. Data sources should be referenced.
+       o   Define the organization’s mission, purpose, and population serviced. Data sources
+           should be referenced.
+       o   Describe current organizational capabilities, the need to sustain or enhance those
+           capabilities, and the required work to complete requirements in accordance with
+           this RFA.
+       o   Share a brief description of current technology innovation and/or preventive
+           programming experience.
+
+   •   Objective(s) of Program
+       o Set and share SMART (Specific, Measurable, Attainable, Realistic, and Timebound)
+          program goals and objectives.
+       o Describe the goals and scope of work/activities and strategies to achieve, key
+          performance indicators or outcomes to measure success.
+       o Describe the target population(s) and the geographic area(s) where the program will
+          be implemented.
+       o Describe how the funding will help improve or expand upon your existing
+          work/efforts.
+       o Provide a program timeline for the scope of work with key performance indicators,
+          milestones, or deadlines and the responsible person for each.
+
+FORM - METHODS & EVALUATIONS
+   • Outline the specific strategies, activities, or approaches that will be implemented to
+      achieve project goals and objectives.
+   • Outline the methods, techniques, or procedures that will be implemented to address
+      project goals and objectives.
+   • Provide a program timeline for the scope of work with key performance indicators,
+      milestones, or deadlines and the responsible person for each.
+   • Ensure methods are feasible, realistic, and achievable.
+   • If the project involves collaborations with other organizations or institutions, describe
+      the collaboration and how it will be measured and enhance the project.
+   • Describe when and how the project will be monitored, accessed, and evaluated to
+      ensure outcomes are being achieved.
+
+FORM - SCHEDULE A, PART 1 - PERSONNEL COSTS
+
+Rural Health Transformation Program 2026                                P a g e 32 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Note: All staff positions funded through this grant must be limited to allowable programmatic
+activities. Administrative functions are not allowable.
+    • Enter Position Title(s).
+    • Enter legal first name, last name of person(s) listed in position(s).
+    • Annual Salary/Wages - enter the total amount to be paid to the employee(s) by the
+         organization for work performed during the budget period; for temporary employee(s),
+         this is the total amount to be paid for the actual period, within the annual budget
+         period, that work is performed.
+    • Percentages of Time on Project - enter the employee(s) percentage of time that will be
+         devoted to this project. Do NOT use a modified percentage solely to produce a desired
+         result.
+Note: An individual’s time commitment should not exceed 100 percent across all activities and
+should not be duplicated on other grant programs.
+    • Fringe Benefit Rate - enter the employee’s fringe benefit rate.
+Note: Upload of the organization’s fringe benefit breakdown is required. If there are different
+rates for individuals, include a justification with the uploaded fringe breakdown.
+
+FORM - SCHEDULE A, PART 2 - PERSONNEL JUSTIFICATION
+    • Weeks on the Project - enter the number of weeks over which work will be performed
+       by the employee on the project.
+    • Weekly Work Hours - enter the average number of hours that are devoted each week to
+       the project.
+Note: This number must align with the percentages of time on the project that was entered in
+the Schedule A, Part 1 - Personnel Costs.
+    • Roles and Responsibilities - state the role and responsibilities for the position, not the
+       incumbent.
+    • Minimum Qualifications - state the minimum qualifications for the position, not the
+       incumbent. Briefly state education/degree, years of experience, license/certifications,
+       etc. required for the position.
+
+FORM - SCHEDULE B - OTHER DIRECT COSTS
+   • Complete the Schedule B form, listing other direct costs by cost category for the
+      project.
+   • A budget narrative/basis for cost estimate is required for each line item - provide a brief
+      item description, basis for its need, itemization (unit price and quantity needed), and
+      supporting documentation if applicable.
+
+Rural Health Transformation Program 2026                                P a g e 33 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+Note: Sufficient detail must be included so that it is clear to the NJDOH application reviewers as
+to what specifically is being requested with the funds. Any vague and/or unclear budget items
+submitted will result in the return for modifications or may result in being denied.
+
+
+   •   Cost Category - Equipment
+       o As per the Department’s Terms and Conditions for Administration of Grants,
+          organizations may follow their own equipment policy. Non-profit organizations,
+          excluding governments and hospitals, that do not have a written policy shall
+          capitalize equipment with an acquisition cost of $500 and a life expectancy of 1 year
+          or greater. Grantees may use a different acquisition threshold provided it is in a
+          written policy, is customary and reasonable for the organization type, is agency-
+          wide, and complies with Generally Accepted Accounting Principles and the
+          applicable Federal cost principles. Any exception requires prior approval by the
+          awarding division.” Items that do not meet the equipment criteria must be classified
+          as Supplies or Other and should not be referred to as “equipment” in its
+          justification.
+       o A vendor generated quote must be obtained and uploaded directly to the
+          corresponding Schedule B line, “Supporting Documents”.
+       o Grantees may allocate funds for the purchase, lease, or upgrade of technology or
+          equipment necessary to support the approved project activities.
+
+   •   Cost Category - Facility
+   Note: Facility costs funded under this grant must align with allowable programmatic
+   functions. Administrative functions are restricted. General office space, workstations, or
+   other facilities used solely for administration tasks, routine office operations, or activities not
+   directly tied to the approved program are restricted. All facility costs must be clearly justified
+   in the budget and linked to specific project activities.
+
+       o   Facility costs, including office space, meeting, or conference facilities, are restricted
+           unless they are directly attributable to the implementation of program activities.
+           Examples of allowable facility costs include:
+           o Training or workshop space required for program participants or staff
+               development.
+           o Audio-visual equipment for presentations or program activities.
+
+Rural Health Transformation Program 2026                                P a g e 34 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(               f   bl
+           o   Space used for delivering health screenings, counseling sessions, or other
+               program interventions directly to participants.
+           o   Meeting space used for grant program activities required to implement the
+               project.
+
+   •   Cost Category - Professional Service Agreements
+       o Professional Service Agreements (PSA) must be reviewed and approved by the New
+          Jersey Department of Health (NJDOH) prior to its execution, with the exception of
+          auditing. Basis for cost estimate must be clearly stated.
+       o A draft contract must be uploaded directly to the corresponding Schedule B line,
+          “Supporting Documents”.
+       o A cost reimbursement payment method is required for PSAs.
+       o Grantees must ensure that any contracts with subgrantees contain clauses necessary
+          to guarantee that all data security, retention, and access requirements will be
+          satisfied. Additional information may be found in the New Jersey Statewide
+          Information Security Manual, (effective 2/21/2021), at
+          NJ_Statewide_Information_Security_Manual.
+       o All PSAs must comply with the terms outlined in this RFA, including rules regarding
+          allowable cost categories, including personnel costs, facility costs,
+          equipment/technology costs, travel costs, and administrative/indirect costs.
+          o PSAs must follow all other applicable federal, state, and NJDOH requirements
+              listed herein the RFA.
+
+   •   Cost Category - Subaward
+       o Subaward agreements must be reviewed and approved by the New Jersey
+          Department of Health (NJDOH) prior to its execution, with the exception of auditing.
+          Basis for cost estimate must be clearly stated.
+       o A draft agreement must be uploaded directly to the corresponding Schedule B line,
+          “Supporting Documents”.
+       o A cost reimbursement payment method is required for subawards.
+       o Grantees must ensure that any agreements with sub awardees contain clauses
+          necessary to guarantee that all data security, retention, and access requirements
+          will be satisfied. Additional information may be found in the New Jersey Statewide
+          Information Security Manual, (effective 2/21/2021), at
+          NJ_Statewide_Information_Security_Manual.
+
+
+Rural Health Transformation Program 2026                                P a g e 35 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+       o   All subawards must comply with the terms outlined in this RFA, including rules
+           regarding allowable cost categories, including personnel costs, facility costs,
+           equipment/technology costs, travel costs, and administrative/indirect costs.
+       o   All subawards must follow all other applicable federal, state, and NJDOH
+           requirements listed herein the RFA.
+
+   •   Cost Category - Supplies
+       o All tangible personal property other than “equipment” that directly support or
+          benefit the project.
+       o Itemization of office supplies is not required.
+
+   •   Cost Category - Travel
+   Note: Travel costs funded under this grant are subject to federal funding caps and fall under
+   the administrative and indirect cost restrictions. Applicants interested in requesting these
+   costs must include them in the applicable section of the Project and Budget Submission Form
+   for NJDOH review and consideration.
+
+       o Travel costs are subject to the administrative and indirect cost restrictions and
+         federal funding caps. Inclusion in the budget does not guarantee approval. The
+         following guidance applies for travel if approved under the grant:
+         o Organizations must follow their established travel policy. Travel costs for
+             employees working on the project may include associated per-diem or
+             subsistence allowances and other travel-related expenses, such as mileage
+             allowances if travel is by personal automobile.
+         o Local and domestic travel is allowable where such travel will provide direct
+             benefit to the project, i.e., travel for a conference or training that is significant to
+             the scope of work or professional development.
+         o Itemization of travel expenses for project personnel is required.
+         o Foreign travel is not permitted.
+
+   •   Cost Category - Training
+       o Training costs are allowable if necessary to accomplish scope of work.
+       o Conferences, courses, workshops for employees working on the grant or
+          stakeholders providing education, support, or intervention related to technology
+          solutions, telehealth services, or remote patient monitoring.
+
+
+Rural Health Transformation Program 2026                                P a g e 36 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+   •   Cost Category - Other
+       o Various other expenses that don’t neatly fit into the other predefined cost
+          categories but are specific to the project.
+       o Other cost items should be listed separately by type and itemized if applicable.
+
+FORM - COST SUMMARY
+    • Verify the direct costs listed, and if applicable enter indirect costs and program income.
+    • Indirect Costs
+        o Due to federal funding caps, administrative and indirect costs are restricted under
+           this grant. Applicants interested in requesting these costs must include them in the
+           applicable section of the Project and Budget Submission Form for NJDOH review and
+           consideration.
+Note: Inclusion of administrative and indirect costs does not guarantee approval and is
+dependent on the availability of funds within the established cap.
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+Note: NJDOH reserves the right to modify requirements related to administrative and indirect
+costs at any time and is not bound by the current guidance.
+
+FORM - DISCLOSURE & CERTIFICATION
+   • Review and respond to each statement listed.
+
+FORM - FFATA CERTIFICATION
+   • In accordance with the Federal Funding Accountability and Transparency Act (FFATA),
+      review and answer each question. Additional information may be found at
+      www.fsrs.gov.
+
+FORM - ATTACHMENTS
+   • Upload the project/budget submission form to support the application.
+Note: Applicants may apply to one or more activities (Activity A, Activity B, and/or Activity C).
+Separate project and budget submission forms must be submitted for each activity. Each activity
+must be designed to benefit uninsured and underinsured populations.
+Upload and submit a signed certification confirming that grant funds will not be used to
+supplant existing funding from any source. See section on duplication of efforts.
+   • If applicable, attach other documents to support the application. For each document
+       attached, provide a brief description in the space indicated in SAGE.
+
+Rural Health Transformation Program 2026                                P a g e 37 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                  APPENDIX D - RFA Application Scoring Guide
+Applications will be evaluated on the information submitted through the electronic grants
+system, including the required project and budget submission form (see the appropriate
+appendix for Activity A, Activity B, or Activity C). Scoring will be based on the materials submitted
+and how well they align with the criteria outlined in RFA Application Scoring Guide.
+
+Final funding decisions will be based on the application scores, available funding, and alignment
+with NJDOH priorities, including the RHT program priorities, with priority given to applications
+serving areas designated as rural under the federal HRSA definition.
+
+Grant Program: Rural Health Transformation Program 2026: Advancing Technology,
+Prevention, and Workforce Capacity in Rural New Jersey
+
+Assessment of Need
+Total Point Value = 5
+    •   Description of need(s) that illustrate the reason for the project.
+Project Design, Objective(s) of Project
+Total Point Value = 35
+   • The importance of the project is addressed and is supported by known facts and current
+       quantitative or qualitative data.
+   • Identified gaps in existing research or surveillance data.
+   • The project’s target population and service area are clearly defined, including
+       demographics, geographic location, needs, or other specific characteristics.
+   • The organization’s purpose aligns with the grant’s goals.
+   • The organization demonstrates the qualifications and capacities needed to implement
+       the project.
+   • The project timeline is described, with realistic planning and expectations. The timeline
+       includes important milestones, deadlines, or benchmarks for the project to be executed
+       successfully and the responsible party for each.
+   • The project goals and objectives are described and aligned with the grant program. The
+       objectives clarify what changes are expected as a result of the proposed work. The
+       strategies and indicators for measuring success are described.
+   • Goals and objectives adhere to SMART (Specific, Measurable, Achievable, Relevant, and
+       Time-Limited) goal principles.
+
+Rural Health Transformation Program 2026                                P a g e 38 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+   •   The project activities and sub-activities to be completed and their respective outcomes
+       are described for each objective. The project activity list contains a detailed description
+       of each activity, including the sequence of their completion, their timeline, the start and
+       end dates, and any required resources.
+   • The project design describes proposed collaborations with potential partners or
+       stakeholders and how the proposed collaboration will benefit the overall project is
+       described.
+   • Project risks and challenges that could negatively impact the project progress are
+       identified. Mitigation strategies plans and strategies for potential problems are
+       described.
+   • All requirements and criteria for the grant program are addressed and grant application
+       sections are completed.
+Methods and Evaluation
+Total Point Value = 30
+   • The project methods, strategies, and approaches to achieve project objectives are
+       described and includes a timeline.
+   • The reasoning for chosen project methods, strategies, and approaches is described and
+       supported by research, expert opinion, or experience.
+   • The project methods detail who will perform particular activities.
+   • The project methods are reasonable and feasible/achievable given the
+       applicant/organization’s resources and the project’s time frame and budget.
+   • The project evaluation plan/strategy is developed and describes the intended
+       outcomes/results of the project and details the plans to evaluate the project during its
+       implementation and after the completion of the project.
+   • The project evaluation plan/strategy includes progress monitoring and improvement,
+       and modification plans to adapt to project risks or challenges.
+Project Budget
+Total Point Value = 20
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 39 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+   •   The project costs and budget are well defined, align with the proposed project goals
+       and objectives, and are reasonable, precise, and itemized. Project costs should take into
+       consideration current organization capacity, patient needs, and programmatic needs.
+   •   The Schedule A - Personnel Justification, Part 1 and 2, and respective supporting
+       document sections are completed in NJ SAGE.
+   •   For each position - the position title, name (if available), annual salary/wages,
+       percentage of time devoted to the project, fringe benefit rate, number of weeks and
+       weekly hours on the project, the roles/responsibilities, and minimum qualifications are
+       completed. NOTE: if the applicant organization or the doula plans to seek reimbursement for
+       services rendered under this grant funding, budgets need to be adjusted to reflect this.
+   •   The project budget includes a Project Coordinator/Project Director to serve as the
+       primary contact for the grant and oversee grant management and compliance
+       requirements.
+   • The Schedule B - Other Direct Costs, and respective supporting document sections are
+       completed in NJ SAGE.
+RHT Grant Program Key Principals
+Total Point Value = 10
+   •   The project demonstrates potential for significant change in rural healthcare, including
+       improvements to services or systems, lasting impact, innovative solutions to unmet
+       needs, and scalability or replicability.
+   •   The project includes a clear plan to sustain activities and outcomes beyond the grant
+       period, addressing financial, operational, and community engagement strategies to
+       maintain long-term impact and continued benefits for the rural population.
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 40 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+                         APPENDIX E - Project and Budget Submission Form (Activity A)
+
+     Rural Health Transformation Program 2026: Integrating Community doulas into
+                   Clinical Healthcare Teams in Rural New Jersey (NJ).
+Section 1: Applicant Information
+
+1. Organization Name:
+2. Project Director:
+       a. Email:
+       b. Phone:
+3. Fiscal Contact:
+       a. Email:
+       b. Phone:
+
+Section 2: Project Overview
+
+1. Project Title:
+
+2. Rural counties, Rural Census Tracts (RCTs), and target rural populations this project will serve. See Appendix A, B, and C for
+   eligible areas:
+
+Rural Health Transformation Program 2026                                P a g e 41 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+3. Project Start and End Dates:
+
+4. Provide a summary of the project (2-3 sentences):
+
+5. Describe the project goals and expected outcomes for the grant period. Include whether these goals are expected to be achieved
+   within the proposed timeframe and whether additional funding or time may be needed.
+
+6. Describe the transformational impact of this project on rural health, including how it will improve healthcare, services, or
+   systems, create lasting change, address unmet needs innovatively, and/or be scalable or replicable.
+
+7. Describe how this project is not duplicating existing programs or supplanting other funding. Describe any other projects under
+   RHT funding for which the organization is applying or has applied.
+
+Section 3: Project Activities
+
+1. List the specific activities the project will carry out to achieve the project goals and expected outcomes.
+
+2. Please explain your organization’s readiness to develop the project plan. What is the anticipated timeline for project planning
+   and execution over the 9-month grand period?
+
+3. List each collaborating organization and indicate whether the partnership currently exists or will be established upon award. For
+   existing partnerships, describe any current contracts or agreements and include Letters of Collaboration, if available. For new
+   partnerships, include Letters of Collaboration, if available, and provide a timeline for establishing a formal agreement.
+
+Rural Health Transformation Program 2026                                P a g e 42 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+4. Describe risks or challenges and how they will be addressed timely.
+
+Section 4: Staffing
+
+1. Are positions already filled or still to be hired? If to be hired, describe whether they are new, being dedicated, or enhanced.
+
+
+Section 5: Administrative/Indirect Cost Request
+1. Complete the table by providing all administrative/indirect costs being requested for NJDOH review and consideration.
+
+                                             Administrative/Indirect Cost Request Table
+ Note: Due to federal funding caps, administrative and indirect costs are restricted under this grant. The costs listed in this table are
+ considered administrative and indirect and are subject to the overall cost cap. Applicants interested in requesting these costs must
+ list them below for NJDOH review and consideration. Inclusion of administrative and indirect costs does not guarantee approval
+ and is dependent on the availability of funds within the established cap.
+ Cost Category            Description/Justification                  Total Amount Requested Notes
+ Personnel
+ Travel
+ Facility
+ Other Administrative/
+ Indirect Costs
+ Total Amount
+ Requested
+
+Rural Health Transformation Program 2026                                P a g e 43 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+ REQUIRED - If requesting these funds, briefly explain why they are essential for the project’s implementation and whether the
+ project could proceed without them. Click or tap here to enter text.
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 44 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+  APPENDIX F – Required Employment Commitment for Community Doulas Trained Using Rural
+                              Health Transformation Funds
+   1. Employment Commitment Requirement
+      As a condition of funding, applicants that use these funds to train and certify community doulas, they must commit to
+      employing each Community doula funded through this grant for a minimum period of five (5) years from the Community
+      doula’s initial date of hire in the rural communities outlined in the application subject to the terms outlined below. This
+      commitment is intended to promote workforce stability, continuity of community-based services, and long-term investment
+      in the Community doula workforce in rural communities.
+
+   2. Eligible Employment Arrangements
+      Community doulas funded through this grant must be:
+          • Employed directly by the applicant organization or
+          • Employed by a partner organization identified in the application, provided that the partner organization agrees in
+              writing to all grant requirements, including the five-year employment commitment.
+
+   3. Documentation of Commitment
+      Applicants must submit, as part of the application:
+              • If a community doula voluntarily resigns, is terminated or is otherwise unable to continue employment, the 100% of
+              funds need to be recouped and returned to DOH.
+              •Documented hardships will be reviewed on a case by case basis to determine if recoupment of funds Is required.
+      Failure to submit requirement documentation may render the application incomplete and ineligible for funding.
+
+Rural Health Transformation Program 2026                                P a g e 45 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+   4. Conditions and Allowable Exceptions
+      The five-year employment commitment is subject to the following conditions:
+         • If a community doula voluntarily resigns, is terminated for cause, or is otherwise unable to continue employment, the
+              100% of funds need to be recouped.
+         • Periods of approved leave (e.g. medical, family, or military leave) do not constitute a break in the employment
+              commitment.
+
+   5. Reporting and Monitoring
+      Funded organizations will be required to:
+         • Report annually on Community doula retention, turnover, and vacancies
+         • Notify NJDOH within 5 business days of any Community doula separation; and
+         • Provide documentation demonstrating continued compliance with the employment commitment upon request.
+
+   6. Non-Compliance
+      Failure to make good-faith efforts to meet the five-year employment commitment may result in:
+          • Corrective action requirements
+          • Withholding of funds
+          • Repayment of grant funds; and/or
+          • Ineligibility for future funding opportunities at the discretion of NJDOH
+
+
+
+
+Rural Health Transformation Program 2026                                P a g e 46 | 46
+
+ This RFA is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health
+ and Human Services (HHS) as part of a financial assistance award totaling $147,250,805 with 100 percent
+ funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views
+ of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural Health
+       f          (    )                 h     db h                   f l ll    (       )(              f   bl
+

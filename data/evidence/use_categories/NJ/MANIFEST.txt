@@ -1,0 +1,63 @@
+file: 2026-11-24_njrht_2026_rfa_improving_chronic_disease_outcomes.pdf
+source_url: https://nj.gov/rural-health-transformation/documents/njrht-2026-rfa-improving-chronic-disease-outcomes.pdf
+fetched_utc: 2026-11-24T15:06:23Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1017959
+sha256: 8db70f3c92a062a5bfbbb56b1a8638d912c7c5f651b462a5962dda6bd8ece709
+
+file: 2026-11-24_nj_dohp26rht_rfa.pdf
+source_url: https://healthapps.nj.gov/noticeofgrant/documents/DOHP26RHT_rfa.pdf
+fetched_utc: 2026-11-24T15:07:21Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 925676
+sha256: 97284381578ccc8a397ae181a74cbb8c5b3d2019b6d08b3fde05724fde5c52b1
+
+file: 2026-11-24_nj_ohcf26rhc_rfa.pdf
+source_url: https://healthapps.nj.gov/noticeofgrant/documents/OHCF26RHC_rfa.pdf
+fetched_utc: 2026-11-24T15:07:22Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 823071
+sha256: c2dcde18d8f4dc694204bbefce3df2f511a6ec7052b864e274918a86ffe8157b
+
+file: 2026-11-24_nj_dfhs26rdi_rfa.pdf
+source_url: https://healthapps.nj.gov/noticeofgrant/documents/DFHS26RDI_rfa.pdf
+fetched_utc: 2026-11-24T15:07:22Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1052501
+sha256: 0b3a7db5a00dd8c54b38d8744f548cdfca02c13747353d5f673958ea9c1518b6
+
+file: 2026-11-24_nj_dpre26aed_rfa.pdf
+source_url: https://healthapps.nj.gov/noticeofgrant/documents/DPRE26AED_rfa.pdf
+fetched_utc: 2026-11-24T15:07:23Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 3013086
+sha256: 3e180102745743b2f55a295ae230333092a415b631ed78ce0c17c73a0512f2a6
+
+file: 2026-11-24_njrht_2026_rfa_community_health_workers.pdf
+source_url: https://nj.gov/rural-health-transformation/documents/njrht-2026-rfa-community-health-workers.pdf
+fetched_utc: 2026-11-24T15:07:24Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 830803
+sha256: b5f1dc3960480679d5f492e9914ec4640e3483b26f32fd4da1cdae0c68addd02
+
+file: 2026-11-24_njrht_2026_rfa_advancing_technology_prevention_workforce_capacity.pdf
+source_url: https://nj.gov/rural-health-transformation/documents/njrht-2026-rfa-advancing-technology-prevention-workforce-capacity.pdf
+fetched_utc: 2026-11-24T15:07:25Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 931500
+sha256: 9c19450a19f8bb226bd515d3d6bbefacc0176d5e83926d2d0952aeabb0d753bb
+
+file: text/njrht_funding_allocations_2026-07-31.raw.txt and text/njrht_funding_allocations_2026-07-31.txt
+source: pdftotext (reading order) and pdftotext -layout of data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf (committed award source); written 2026-11-24
+
+note: the RFAs above were archived to look for CMS use-of-funds letters; none prints any. The NJ application (https://www.nj.gov/humanservices/dmahs/home/NJ_RHT_Application_2025-12.pdf) answered HTTP 404 on 2026-11-24; archive.org lists a 2026-01-18 snapshot, but web.archive.org resets at TLS from this environment. UNREADABLE.
+
+note: the derived .txt files in this folder have '<' and '>' written as '&lt;' and '&gt;' (2026-11-24), so that rhtp_use_norm()'s tag stripping does not delete text. No other change.
+

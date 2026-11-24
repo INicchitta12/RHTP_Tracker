@@ -1,0 +1,1883 @@
+Rural Health Transformation Program 2026:
+Improving Chronic Disease Outcomes in Rural New
+                      Jersey
+
+                         Request for Applications (RFA)
+                                     Issued by:
+                         Community Health & Wellness Unit
+                           Division of Health Promotion
+                         New Jersey Department of Health
+
+                   Application Deadline: April 10th, 2026
+
+                                  Submission Portal:
+                         https://dohsage.intelligrants.com/
+
+ This RFA is being issued in advance of the receipt of funds appropriated through the Rural
+ Health Transformation (RHT) Program, as authorized by the One Big Beautiful Bill Act
+ (OBBBA) (Section 71401 of Public Law 119-21).
+
+ Issuance of this RFA does not obligate the New Jersey Department of Health (NJDOH) to
+ award funding. Any awards under this RFA are contingent upon the availability of funds
+ appropriated through OBBBA and applicable state approvals.
+
+
+This [project/publication/program/website, etc.] [is/was] supported by the Centers for Medicaid
+Services (CMS) of the U.S. Department of Health and Human Services (HHS) as a part of a
+financial assistance award totaling $147,250,805 with 100 percent funded by CMS/HHS. The
+contents are those of the author(s) and do not necessarily represent the official views of, nor an
+endorsement, by CMS/HHS, or the U.S. government
+
+
+
+
+Rural Health Transformation Program 2026                            P a g e 1 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+Request for Applications (RFA)
+
+Rural Health Transformation Grant
+
+Issuing Agency: Division of Health Promotion
+Unit: Community Health & Wellness Unit
+RFA Number: DOHP26CDO
+Release Date: March 16th, 2026
+Application Deadline: April 10th, 2026
+______________________________________________________________________________
+
+1. Program Overview & Background
+
+The Division of Health Promotion, through its Community Health and Wellness Unit (CHWU),
+announces the availability of funding awarded to the State under the Rural Health
+Transformation (RHT) Grant Program. This funding opportunity is designed to support
+innovative and sustainable strategies that improve chronic disease outcomes, increase access
+to quality healthcare services, address health disparities, and strengthen healthcare systems in
+rural communities.
+
+The grant seeks to advance community-driven solutions that promote health equity, improve
+health outcomes, and enhance care coordination across rural health systems.
+
+Although New Jersey is the most densely populated state in the nation, more than one million
+residents live in communities that meet federal or state definitions of rurality. Notably, rural
+New Jerseyans reside across eleven counties, including Atlantic, Burlington, Cape May,
+Cumberland, Hunterdon, Mercer, Monmouth, Ocean, Salem, Sussex, and Warren, and
+experience challenges common to rural regions nationwide, despite their proximity to urban
+centers, including fewer healthcare access points and workforce shortages.
+
+According to the most recent rural definition maintained by the Health Resources and Services
+Administration (HRSA)1 approximately 138,000 New Jersey residents (approximately 1.5% of
+the state’s population) live within 40 federally recognized rural census tracts (RCTs) located
+across eight (8) counties. These rural counties include Atlantic, Burlington, Cumberland,
+Hunterdon, Mercer, Monmouth, Ocean, and Warren. See Appendix A for federally recognized
+rural counties and RCTs.
+
+
+
+Rural Health Transformation Program 2026                           P a g e 2 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+New Jersey also uses a state-specific rural definition, identifying areas with population densities
+below 500 persons per square mile as rural. Under this definition, seven (7) counties - Atlantic,
+Cape May, Cumberland, Hunterdon, Salem, Sussex, and Warren - qualify as rural. This state
+definition acknowledges the unique geographic landscape of rural New Jersey, where most
+areas are near urban centers but still face barriers similar to those in federally defined rural
+areas. See Appendix B for state-recognized rural counties.
+
+Other metrics, such as the Road Ruggedness Scale (RRS), developed by the United States
+Department of Agriculture, highlight additional areas in the northeastern portion of New Jersey
+that are considered rural. Under this metric, ten (10) RCTs across four (4) counties - Bergen,
+Hudson, Morris, and Passaic - are designated as rural. See Appendix C for RRS-designated rural
+counties and RCTs. These examples exemplify how rural barriers persist even within the
+nation’s most densely populated state.
+
+Rural New Jersey communities face significant challenges in accessing healthcare providers,
+including primary care physicians, specialists, and mental health professionals. These limitations
+make it difficult for residents to receive quality healthcare, particularly for chronic conditions
+such as diabetes, heart disease, and hypertension, as well as preventive services like cancer
+screenings and vaccinations.
+
+Targeted funding for rural communities is essential to expand preventive programs and
+activities, enhance the use of telehealth and remote patient monitoring (RPM), and implement
+technology solutions that streamline appointment scheduling, patient registration, check-in,
+care coordination, and support training and capacity building to strengthen workforce skills,
+cultural competency, and program implementation.
+
+The Rural Health Transformation (RHT) Program was authorized by the One Big Beautiful Bill
+Act (OBBBA) (Section 71401 of Public Law 119-21) and empowers states to strengthen rural
+communities across America by improving healthcare access, quality, and outcomes, with a
+particular focus on uninsured and underinsured populations, through transformation of the
+healthcare delivery ecosystem. Through innovative system-wide change, the RHT Program
+invests in the rural healthcare delivery system to better serve these populations now and for
+future generations.
+
+The RHT Program is designed to provide funding for investments that will transform and sustain
+the way care is delivered in rural communities, specifically to improve access and outcomes by
+addressing medical gaps such as provider shortages while also addressing social determinants
+of health (SDOH) that impede access and utilization of services such as transportation,
+especially for individuals who are uninsured and underinsured. Additional funding opportunities
+may be found on the Health Department Grants page. This funding will drive the following
+strategic goals:
+
+1. Make Rural America Healthy Again: Support rural health innovations and new access points
+   to promote preventative health and address root causes of diseases. Projects will use
+
+Rural Health Transformation Program 2026                            P a g e 3 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   evidence-based, outcomes-driven interventions to improve disease prevention, chronic
+   disease management, behavioral health, oral health, and prenatal care.
+2. Sustainable Access: Help rural providers become long-term access points for care by
+   improving efficiency and sustainability. With RHT Program support, rural facilities work
+   together, or with high-quality regional systems, to share or coordinate operations,
+   technology, primary and specialty care, and emergency services.
+3. Innovative Care: Spark the growth of innovative care models to improve health outcomes,
+   coordinate care, and promote flexible care arrangements. Develop and implement payment
+   mechanisms that incentivize providers or Accountable Care Organizations (ACOs) to reduce
+   health care costs, improve quality of care, and shift care to lower-cost settings.
+4. Tech Innovation: Foster use of innovative technologies that promote efficient care delivery,
+   data security, and access to digital health tools by rural facilities, providers, and patients.
+   Projects support access to remote care, improve data sharing, strengthen cybersecurity,
+   and invest in emerging technologies.
+
+
+______________________________________________________________________________
+2. Purpose and Goals
+
+The purpose of the Rural Health Transformation Grant is to support projects that transform
+rural healthcare delivery by addressing systemic challenges and community-identified needs.
+
+Grant goals include, but are not limited to:
+• Improving access to healthcare services in rural and underserved areas
+• Strengthening rural healthcare infrastructure and workforce capacity
+• Enhancing care coordination and integration of services
+• Addressing SDOH impacting rural populations
+• Promoting preventive care, wellness, and chronic disease management
+
+______________________________________________________________________________
+3. Funding Information
+
+Funding for this program is dependent on the final award received by NJDOH through
+the OBBBA. NJDOH anticipates distributing funds among eligible applicants that propose
+activities benefiting uninsured and underinsured residents within the designated rural target
+areas. Applicants serving areas that meet the federal HRSA definition of rural, providing Letters
+of Collaboration from planned partners, and/or submitting vendor quotes
+for proposed grant activity purchases may receive priority consideration in the funding
+process.
+
+Activity 5.2a: NJ Rural Southern Physical Activity and Nutrition Program (NJ R-SPAN)
+
+Rural Health Transformation Program 2026                            P a g e 4 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+• Total Funding Available: $1,170,000
+• Anticipated Number of Awards: 7 awards
+• Award Amount: Up to $200,000 per award
+• Project Period: [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Activity 5.2b: Umbrella Hub Organization
+• Total Funding Available: $200,000
+• Anticipated Number of Awards: Up to 5 awards
+• Award Amount: Depending on the number of awards and availability of funds.
+• Project Period: [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Activity 5.3b: Enhancing Rural Cancer-Focused Healthcare (ERCH)
+• Total Funding Available: $330,000
+• Anticipated Number of Awards: Up to 8 awards
+• Award Amount: Up to $87,500 per award
+• Project Period: [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Activity 5.3c: Rural Pharmacy Medication Management Therapy Program
+• Total Funding Available: $500,000
+• Anticipated Number of Awards: Up to 5 awards
+• Award Amount: Up to $400,000 per award
+• Project Period: [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Activity 5.3d: Rural Health Screening and Education
+• Total Funding Available: $1,088,000
+• Anticipated Number of Awards: Up to 4 awards
+• Award Amount: Depending on the number of awards and availability of funds.
+• Project Period: [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Activity 5.4b: Safe Communities: Youth Violence Prevention in Rural Communities
+• Total Funding Available: $710,000
+• Anticipated Number of Awards: 1
+• Award Amount: $710,000
+• Project Period: – [5/1/2026] – [10/30/2026]
+• Funding Type: Grant
+
+Funding awards are subject to the availability of funds and compliance with program
+requirements.
+
+Rural Health Transformation Program 2026                          P a g e 5 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+______________________________________________________________________________
+
+4. Eligible Applicants
+
+Eligible applicants may include:
+• Rural hospitals and critical access hospitals
+• Federally Qualified Health Centers (FQHCs) and rural health clinics
+• Local health departments
+• Nonprofit organizations serving rural communities
+• Tribal health organizations
+• Academic or healthcare-affiliated institutions partnering with rural entities
+
+ Eligibility is limited to applicants that operate programs or propose activities serving uninsured
+and underinsured individuals in the designated rural target-population counties and
+RCTs identified under federal, state, or RRS definitions. This includes the combined federal and
+state rural-designated counties of Atlantic, Burlington, Cape May, Cumberland, Hunterdon,
+Mercer, Monmouth, Ocean, Salem, Sussex, and Warren, as well as ten (10) RCTs in Bergen,
+Hudson, Morris, and Passaic counties designated as rural under the RRS. In some cases, only
+certain areas within a county or an RCT may qualify as rural. Eligibility can be verified
+using Appendix A for federally recognized rural counties and RCTs, Appendix B for state-
+recognized rural counties, and Appendix C for RRS-designated RCTs.
+
+Applicants are not required to serve exclusively uninsured or underinsured populations across
+their entire organization, and programs or positions supported by this grant may interact with
+or serve insured individuals. However, grant funds may not be used to pay for or support any
+services or activities that are reimbursable by Medicaid, Medicare, or private insurance.
+
+Eligible applicants include municipal and county governments; educational institutions;
+hospitals; public and private non-profit organizations; healthcare providers such as clinics and
+health centers; community-based organizations, including libraries, community centers, and
+local service groups; and tribal organizations.
+
+Note: Applicants serving areas that meet the federal Health Resources and Services
+Administration (HRSA) definition of rural may receive priority consideration in the funding
+process.
+
+
+Applicants must serve populations located in designated rural areas as defined by state or
+federal definition.
+
+______________________________________________________________________________
+
+
+
+Rural Health Transformation Program 2026                             P a g e 6 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+5. Scope of Work, Program Requirements, and Allowable Activities
+
+Activity 5.2a: NJ Rural Southern Physical Activity and Nutrition Program (NJ R-SPAN)
+
+This program will support evidence-based physical activity, nutrition, and obesity prevention
+initiatives for rural communities by leveraging partnerships and resources from various sectors
+(e.g., agriculture, transportation, education, healthcare, parks/recreation, business, housing,
+and defense/military) to address health disparities related to poor nutrition, physical inactivity,
+and/or obesity in Atlantic, Cumberland, Salem, Cape May counties. This project aims to address
+the lack of access to care, nutritious food, and safe spaces for physical activity. Objectives
+include the following:
+     • Increased access to evidence-based arthritis management & physical activity;
+     • Increased access to nutritious foods;
+     • Increased access to preventive and clinical care;
+     • Increased access to health screenings; and
+     • Increased proportion of employers offering worksite wellness initiatives.
+
+Intervention 1 - Workforce Health & Wellness Interventions
+The purpose of Intervention 1 - Workforce Health & Wellness funding is to improve health
+outcomes in rural communities by promoting early detection, health education, and
+interventions that reduce disease progression and support overall well-being, with a particular
+focus on uninsured and underinsured populations in employment-based settings. Programs
+should address chronic conditions such as diabetes, hypertension, and heart disease, as well as
+immunizations, mental health, oral health services, and other preventive services. Funding is
+intended to support evidence-based approaches that increase access to, not limited to,
+webinars, videos, newsletters, and worksheets to help participants improve their knowledge
+and intention to embrace healthier habits and foster healthier working environments.
+
+Example Initiatives: Funded initiatives may include, but are not limited to, the following:
+          • Health screenings for mental health, chronic conditions, and age-appropriate
+               cancer screenings.
+          • Vaccination and immunization campaigns, including vaccine procurement.
+          • Routine screenings and immunization administration.
+          • Coordinating referrals.
+          • Nutrition, physical activity, and chronic disease prevention education.
+          • Mental health awareness and substance misuse prevention programs.
+          • Outreach through pop-up events, health fairs, and partnerships with local
+               organizations.
+          • Supporting healthy lifestyle behaviors by providing resources that improve
+               access to nutritious foods, enhance opportunities for physical activity, and offer
+               tools for employees to monitor health goals.
+
+
+
+Rural Health Transformation Program 2026                            P a g e 7 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+           •   Deploying portable health kiosks, telehealth-enabled stations, or digital outreach
+               tools at employment settings to provide preventive services and health
+               education.
+           •   Screening for non-clinical factors affecting employee well-being (e.g., food
+               insecurity, housing instability, transportation barriers) and connecting
+               employees to community resources or on-site support services.
+           •   Retrofitting an existing area within the workspace to designate as a workplace
+               wellness center
+           •   Hiring staff (e.g., nurses, public health educators, community health workers,
+               patient navigators, and behavioral health counselors) to deliver screenings,
+               education, and follow-up services on-site at workplace settings.
+
+Workforce Health & Wellness - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+              • Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters,
+                 cholesterol kits, weight scales, wearable biometric devices).
+              • Vaccine-related supplies and equipment (e.g., vaccines, storage and
+                 refrigeration units, syringes, personal protective equipment (PPE)).
+              • Educational materials and printed handouts.
+              • Computers, tablets, or software for patient tracking, scheduling, education,
+                 and follow-up.
+              • Portable health kiosks, telehealth-enabled stations, or outreach equipment.
+
+Intervention 2 – Nutrition Access
+The purpose of Intervention 2 - Funding is to strengthen community-clinical collaborations by
+increasing the number of community-based organizations providing population-based primary
+prevention services and facilitating access to nutrition within rural local communities. The
+project should focus on technological approaches to improving access to preventive care and
+behavioral health services, with a particular emphasis on uninsured and underinsured
+populations experiencing food insecurity.
+
+Note: This funding does not support the purchase of food or beverages. Awarded grantees will
+be responsible for ensuring that all services and products adhere to current national guidelines,
+state-specific requirements, and any future regulatory updates throughout the term of the
+grant.
+
+Nutrition Access -Example Initiatives
+Funded initiatives may include, but are not limited to, the following:
+               • Provide provider-assisted health screenings & referrals for vaccinations,
+                   Medicaid enrollment, health insurance, food pantries, prescriptions, and
+                   primary care in community-based food settings.
+               • Reduce geographic barriers to preventive care and nutrition (i.e., mobile
+                   units, mobile application services, etc.)
+
+Rural Health Transformation Program 2026                            P a g e 8 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+              •   Provide consumer-facing technology solutions that link residents & patients
+                  to nutrition access (e.g., mobile application services, electronic health record
+                  referrals, etc.)
+              •   Providing technical support for staff and residents, including troubleshooting
+                  telehealth technology and digital health platforms.
+              •   Providing technical support for staff and residents, including nutrition
+                  education, screening education & health promotion
+              •   Using AI to optimize workflows, predict patient needs, and enhance
+                  engagement.
+              •   Hiring staff or assigning existing staff (e.g., IT support, workflow coordinators,
+                  administrative staff) to implement, maintain, and support solutions.
+              •   Installing self-service health kiosks in high-traffic community sites (e.g.,
+                  community corner stores, convenience stores, grocery stores, farmer’s
+                  markets, community centers, pharmacies) equipped with basic diagnostic
+                  tools and digital interfaces to increase access to nutritious foods, preventive
+                  screenings, and chronic disease management resources.
+              •   Establishing community nutrition access points in trusted locations (e.g.,
+                  libraries, community centers, pharmacies) to reduce geographic barriers.
+              •   Offering telehealth appointments for follow-up care, sick care, mental health
+                  services, maternal health, school-based chronic condition management, and
+                  specialty care coordination.
+              •   Providing phone-based appointments for patients without video or internet
+                  access.
+              •   Coordinating with local hospitals and specialists for diagnostic testing,
+                  imaging, and specialty care.
+              •   Using telerobotic ultrasound devices to support remote diagnostic imaging in
+                  collaboration with credentialed clinicians.
+              •   Marketing and community outreach to raise awareness of nutrition
+                  education, nutrition access & telehealth services.
+
+Nutrition Access - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+           • Personal protective equipment
+           • Preventive Screening tools (e.g., blood pressure monitors, scales, refrigerators,
+              etc.)
+           • Kiosks, tablets, or computers for registration, referrals, and scheduling.
+           • Software for electronic health records (EHR) and patient portals.
+           • Technical support tools and software for troubleshooting.
+           • Mobile hotspots or Wi-Fi boosters to improve connectivity in rural areas.
+           • AI-enabled analytics platforms or workflow optimization tools.
+           • Portable presentation equipment (e.g., projectors, screens, portable monitors)
+           • Laptops, tablets, or mobile devices
+           • Audio equipment
+
+Rural Health Transformation Program 2026                            P a g e 9 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+           •   Video recording equipment
+           •   Virtual meeting platform subscriptions
+           •   Training binders, folders, and organizational materials
+           •   Translation and interpretation tools
+           •   Culturally appropriate education materials (e.g., posters, brochures, visual aids)
+           •   Print materials or handouts, writing materials, flip charts, whiteboards, markers
+           •   Survey tools (digital or paper-based)
+           •   Accessibility tools (e.g., closed-captioning software, assistive listening devices)
+           •   Data analysis software
+           •   Software for virtual training
+           •   Content creation platforms
+           •   Computers, laptops, tablets, or smartphones for video visits.
+           •   Webcams or devices with front-facing cameras.
+           •   Landline phones for areas with unreliable internet.
+           •   Software for video conferencing and telehealth management.
+           •   Marketing materials (brochures, signage, social media ads, etc.)
+           •   AI-powered virtual assistants, chatbots, or triage software.
+           •   Telerobotic ultrasound devices, peripherals, and software platforms that enable
+               remote clinician-guided imaging.
+
+Nutrition Access & Remote Patient Monitoring (RPM) - Example Initiatives
+Funded projects may include, but are not limited to, the following:
+           • Monitoring chronic conditions (e.g., diabetes, hypertension, heart disease) using
+              RPM monitoring devices in areas that lack access to nutritious foods.
+           • Collecting and securely sharing patient-generated health data with care teams
+              for follow-up and care coordination.
+           • Integrating remote monitoring data with electronic health records (EHR) systems
+              for clinical decision-making.
+           • Training staff and patients on proper use of remote monitoring devices and data
+              reporting.
+           • Coordinating with healthcare providers to adjust care plans based on remote
+              monitoring data.
+           • Using AI to analyze remote monitoring data, identify trends, flag abnormal
+              readings, and support clinical decision-making.
+           • Hiring staff (e.g., nurses, care coordinators, community health workers, data
+              analysts) to monitor, manage, and act on RPM data.
+
+   •   Nutrition Access & Remote Patient Monitoring (RPM) - Equipment and Supply Items
+       Allowable purchases may include, but are not limited to, the following:
+           • Remote monitoring devices (e.g., blood pressure cuffs, glucose meters,
+               cholesterol kits, weight scales, wearable biometric devices).
+           • Computers, tablets, or devices to integrate monitoring data with EHR systems.
+
+
+Rural Health Transformation Program 2026                            P a g e 10 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+           •   Software or platforms to collect, analyze, and securely store patient-generated
+               health data.
+           •   Communication tools for provider-to-provider or provider-to-patient data
+               sharing.
+           •   Technical support tools for troubleshooting remote monitoring devices.
+           •   AI-enabled RPM platforms or software for predictive analytics and decision
+               support.
+
+Intervention 3 – Arthritis & Physical Activity
+The purpose of Intervention 3 – Funding is to support evidence-based physical activity
+interventions in the counties of interest. Interventions will also include a specific focus on
+enrollment in Arthritis Appropriate Evidence-Based Interventions (AAEBI). Projects should focus
+on building capacity and infrastructure to sustainably and equitably disseminate AAEBIs.
+Projects should improve access to obesity management and physical activity by engaging with
+healthcare providers and health services, with a particular focus on uninsured and
+underinsured populations.
+
+   •   Arthritis & Physical Activity - Example Initiatives
+       Funded projects may include, but are not limited to, the following:
+       • Participating in presentations, workshops, or other training sessions led by local
+          cultural leaders, subject matter experts in selected AAEBI.
+       • Increasing accessibility of AAEBI and physical activity in rural counties
+       • Promotion of available AAEBI and physical activity interventions in rural counties
+          and the larger New Jersey population
+       • Organizing community listening sessions to understand stigma, misinformation, and
+          resistance to engaging with healthcare services.
+       • Exploring ways to integrate local traditional practices or community norms with
+          conventional healthcare approaches.
+       • Strategize to embed AAEBI supports and physical activity interventions into
+          organizational operations
+       • Incorporating evaluation components to assess the AAEBI & physical activity
+          training's effectiveness.
+       • Providing training on topics including, but not limited to, cultural competency, rural
+          health disparities, rural cultural characteristics, strategies for building and sustaining
+          trust, case studies and testimonials, role-playing or scenario-based activities, and
+          levels of community engagement.
+
+Arthritis & Physical Activity - Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+            o Portable presentation equipment (e.g., projectors, screens, portable monitors)
+            o Laptops, tablets, or mobile devices
+            o Audio equipment
+            o Video recording equipment
+
+Rural Health Transformation Program 2026                             P a g e 11 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+           o   Virtual meeting platform subscriptions
+           o   Training binders, folders, and organizational materials
+           o   Translation and interpretation tools
+           o   Culturally appropriate education materials (e.g., posters, brochures, visual aids)
+           o   Print materials or handouts, writing materials, flip charts, whiteboards, markers
+           o   Survey tools (digital or paper-based)
+           o   Accessibility tools (e.g., closed-captioning software, assistive listening devices)
+           o   Data analysis software
+           o   Software for virtual training
+           o   Content creation platforms
+
+Activity 5.2b: Umbrella Hub Organization
+The purpose of Activity 5.2b is to reduce barriers and increase reimbursement for education on
+diabetes, cardiovascular, and other chronic diseases covered by public and private insurers.
+
+Objective 1.1: Increase reimbursement for chronic disease education programs in rural
+communities.
+Objective 1.2: Increase participation in chronic disease education programs in rural
+communities.
+Objective 1.3: Increase provider referrals to chronic disease education programs.
+
+Potential Activities:
+   • Develop an Umbrella Hub Organization consistence with the requirements outlined by
+       the Centers for Disease Control and Prevention for Diabetes Self-Management
+       Education and Support Diabetes Self-Management Education and Support (DSMES)
+       Toolkit | Diabetes Self-Management Education and Support (DSMES) Toolkit | CDC
+       and/or National Diabetes Prevention Program (NDPP) Umbrella Hub Arrangements -
+       National DPP Coverage Toolkit
+   • Expanding or creating education programs reimbursed by Medicare, such as DSMES,
+       NDPP, and Chronic Disease Self-Management Program (CDSMP).
+   • Partnering with a state Umbrella Hub Organization to expand the number of Medicare
+       reimbursed education programs in locations that are accessible to rural residents.
+   • Modifying curriculum and education materials to meet the needs of rural residents.
+   • Updating Electronic Health Records to identify, track, and refer patients to chronic
+       disease education programs through a closed-loop system.
+   • Updating Electronic Health Records to screen, track, and refer patients to social services
+       through a closed-loop system.
+   • Partnering and educating medical providers on the availability of chronic disease
+       education programs, participant eligibility, and provider referrals.
+   • Partner with community-based organizations to deliver Medicare-reimbursed education
+       programs.
+   • Offering training to Health Educators to deliver Medicare reimbursed education
+       programs or enhance their skills.
+
+Rural Health Transformation Program 2026                            P a g e 12 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •   Integrating digital tools to support scheduling, patient education, and follow-up care.
+   •   Screening for non-clinical factors affecting patient well-being (e.g., food insecurity,
+       housing instability, transportation barriers) and connecting individuals to community
+       resources or on-site support services.
+   •   Hiring staff (e.g., nurses, public health educators, community health workers, patient
+       navigators, and behavioral health counselors) to deliver screenings, education, and
+       follow-up services.
+
+Umbrella Hub Arrangement- Equipment and Supply Items
+Allowable purchases may include, but are not limited to, the following:
+    • Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters, cholesterol
+      kits, weight scales, wearable biometric devices).
+    • Educational materials and printed handouts.
+    • Computers, tablets, or software for patient tracking, scheduling, education, and follow-
+      up.
+    • Portable health kiosks, telehealth-enabled stations, or community outreach equipment.
+
+Activity 5.3b: Enhancing Rural Cancer Healthcare
+Program Goals: The Enhancing Rural Cancer Healthcare program aims to implement
+sustainable policy, systems, and environmental change approaches across the rural areas of 8
+Regional Chronic Disease Coalitions to reduce the burden of cancer and other chronic and
+reproductive diseases. There will also be a focus on supporting/providing cancer survivorship
+care to residents of rural areas. Residents of the rural areas served by this project will receive
+culturally specific cancer education, outreach, referrals to appropriate screening services, and
+survivorship care services. These project efforts may reduce cancer incidence and mortality in
+rural New Jersey.
+
+Objective 1.1: Reduce cancer mortality and morbidity in New Jersey rural communities.
+
+Objective 1.2: Establish PSE change strategies to improve the health and well-being of New
+Jersey rural communities with relation to cancer primary prevention, early detection, and
+survivorship.
+
+Objective 1.3: Increased education, outreach, and screening within rural communities related
+to various cancer, chronic, and reproductive diseases.
+
+Potential Program Activities:
+   • Develop a plan for sharing rural community/area cancer burden data with decision-
+       makers for policy agenda setting, stakeholders, and New Jersey residents to garner
+       support and public awareness for policy, system, and environmental change that is
+       centered around the priorities of the Comprehensive Cancer Control Plan.
+
+Rural Health Transformation Program 2026                             P a g e 13 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •   Utilize data sources to provide cancer prevention education, outreach, and awareness
+       activities and implement evidence-based strategies that promote cancer screening
+       designed to meet the specific needs of the rural community, which includes groups that
+       have been economically/socially marginalized and groups who are traditionally
+       underserved and often disparately impacted by cancer and other chronic diseases.
+   •   Review policies that need to be reassessed, amended, and changed. This review of
+       policies will reduce the impact of social determinants of health barriers to prevention,
+       screening, survivorship, health, and wellness.
+   •   Conduct evidence-based Cancer Thriving and Surviving Workshops specifically for cancer
+       survivors and their caregivers within rural communities. The CTS workshop may be
+       offered either virtually or in person.
+   •   Partner with a local faith-based or community-based organization to host a Women’s
+       Health Awareness program. The program will focus on women ages 40 to 74. Awareness
+       program topics will include breast, cervical, and colorectal cancers. Program
+       sustainability and Screening Ambassador recruitment are essential aspects of this
+       program.
+   •   Increase access to clinical trials in rural communities by collaborating with program
+       partners to implement a policy or systems change, which will educate decision makers
+       as well as cancer survivors about the clinical trial enrollment opportunities available
+       within their region.
+
+Funds will support:
+   • Program Staff,
+   • Training and curriculum materials,
+   • Program evaluation,
+   • Educational materials and printed handouts,
+   • Equipment necessary to perform the functions of the program,
+   • In-state travel to meetings and conferences,
+   • Administrative and indirect costs, which should not exceed 10% of the total funding.
+
+
+Activity 5.3c: Rural Pharmacy Medication Management Therapy Program
+Program Goals and Objectives
+
+The purpose of Activity 5.3c- Rural Pharmacy Medication Management Therapy Program is to
+improve health outcomes in rural communities through Medication Therapy Management
+(MTM), tobacco cessation services, and chronic disease prevention and management that are
+not covered by medical insurance. This program aims to address medication
+adherence/polypharmacy and tobacco use for people with or at risk for chronic conditions,
+delay disease progression, and support overall well-being, with a particular focus on uninsured
+and underinsured populations. Programs should address chronic conditions such as diabetes,
+
+Rural Health Transformation Program 2026                          P a g e 14 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+hypertension, heart disease, and hyperlipidemia, in addition to addressing related risk factors
+such as tobacco product use. Funding is intended to support community-based approaches that
+increase access to disease management tools and services, strengthen patient engagement,
+and foster healthier communities.
+
+Goal 1: Reduce risk factors associated with chronic disease and tobacco use through
+pharmacy services.
+
+   •   Objective 1.1: Develop training for pharmacists, federally qualified health centers
+       (FQHCs), and rural health clinics on best practices for chronic disease prevention and
+       management, such as medication management therapy and tobacco cessation
+       counseling.
+   •   Objective 1.2: Increase access to evidence-based MTM and tobacco cessation services
+       for uninsured and underinsured individuals in rural communities through pharmacy-led
+       and community-based service delivery models.
+   •   Objective 1.3: Increase the number of pharmacists, pharmacies, FQHCs, and health
+       clinics within rural areas that implement medication therapy management (MTM) and
+       tobacco cessation services.
+   •   Objective 1.4: Implement telehealth and virtual service delivery models to expand reach
+       and reduce access barriers in rural communities.
+
+Potential program activities may include, but are not limited to:
+   • Establish partnerships to provide technical assistance to pharmacies, FQHCs, and/or
+       rural health clinics on medication management therapy (MTM), tobacco cessation
+       counseling, and chronic disease prevention and management.
+   • Integrate pharmacy cessation services and Medication Management Therapy (MTM) to
+       enhance coordination and sustainability, prioritizing populations with higher tobacco‐
+       use prevalence, limited cessation service access, and overlapping comorbidities (e.g.,
+       COPD, cardiovascular disease, diabetes).
+   • Increase access to evidence-based MTM therapy and tobacco cessation services in rural
+       communities through pharmacy-led interventions.
+   • Establish a training program for pharmacists/organizations to deliver MTM and tobacco
+       cessation services in person and virtually to designated rural populations.
+   • Create and implement a standardized workflow for each participating pharmacy.
+
+Funds will support:
+
+   •   Program staff and facilitators
+   •   Medical devices such as:
+          o Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters,
+             cholesterol kits, weight scales, wearable biometric devices).
+
+Rural Health Transformation Program 2026                         P a g e 15 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+           o Tobacco cessation-related supplies and medication, such as nicotine
+               replacement therapy (NRT).
+           o Computers, tablets, or software for patient tracking, scheduling, education, and
+               follow-up.
+           o Portable health kiosks, telehealth-enabled stations, or community outreach
+               equipment.
+   •   Training and curriculum materials
+   •   Educational materials and printed handouts related to chronic diseases such as heart
+       disease, diabetes, tobacco, and nicotine addiction.
+   •   Evaluation and data collection
+   •   Travel and outreach for rural service delivery
+   •   Administrative and indirect costs (10% cap)
+
+Activity 5.3d: Rural Health Screening and Education:
+The Rural Health Screening and Education program will increase access to chronic disease
+screening and education for rural residents and expand awareness of chronic disease risk factors
+and their health impacts. The Rural Health Screening and Education Program aims to improve
+chronic disease outcomes among rural residents by providing walk-in and scheduled screenings,
+transportation, insurance enrollment, SDOH referrals, follow-up care coordination, and
+enrollment in evidence-based education programs to manage chronic conditions.
+
+Goal: Enhance and expand early detection, prevention, and management of chronic diseases
+through coordinated screening and education initiatives encouraging proactive engagement in
+preventive care, healthier behaviors, and improvement in long-term health outcomes among
+residents.
+
+Objective 1.1: Increase access to chronic disease screening for residents.
+
+Objective 1.2: Increase access to evidence-based educational programs supporting chronic
+disease self-management among residents.
+
+Objective 1.3: Strengthen care coordination for residents with chronic conditions by
+implementing centralized tracking, monitoring, and case management to ensure timely follow-
+up, referral completion, and improved chronic disease management.
+
+Potential program activities may include, but are not limited to:
+   • Conducting chronic disease screenings to identify risk factors and indicators of
+       undiagnosed chronic conditions in rural communities.
+
+
+
+
+Rural Health Transformation Program 2026                           P a g e 16 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •   Integrating digital tools with multidirectional referral/feedback capabilities to track
+       and monitor screening results and provide referrals to primary care, specialty care, or
+       community resources.
+   •   Delivering evidence-based education programs to referred residents, including Diabetes
+       Prevention Program (DPP), Diabetes Self-Management Education (DSME), Chronic
+       Disease Self-Management Program (CDSMP), High Blood Pressure Education Series,
+       Asthma/COPD Education Workshops, Nutrition & Weight Management Classes, Smoking
+       Cessation Programs, Cancer Prevention and Wellness Classes, and/or other approved
+       Evidence Based Education Programs to referred residents.
+   •   Deploying telehealth or other home health services to increase access to care for
+       residents with chronic conditions.
+   •   Training community organizations, FQHCs, local health departments, and other health
+       systems on how to safely and adequately conduct chronic disease screenings to identify
+       risk factors and indicators of undiagnosed chronic conditions.
+   •   Training community organizations, FQHCs, local health departments, and other health
+       systems to implement evidence-based educational programs for chronic disease self-
+       management.
+   •   Supporting healthy lifestyle behaviors by providing resources that improve access to
+       nutritious foods, enhance opportunities for physical activity, and offer tools for
+       residents to track health goals.
+   •   Hiring staff (e.g., nurses, public health educators, community health workers, patient
+       navigators, and behavioral health counselors) to deliver screenings, education, and
+       follow-up services.
+
+Funds will support:
+   • Program staff and educators
+   • Medical devices, including blood pressure monitors, blood glucose meters, A1C devices,
+      cholesterol testing devices, digital scales, and BMI calculation tools.
+   • Computers, tablets, or software for patient tracking, scheduling, education, and follow-
+      up.
+   • Portable health kiosks, telehealth-enabled stations, or community outreach equipment.
+   • Screening and diagnostic tools (e.g., blood pressure cuffs, glucose meters, cholesterol
+      kits, weight scales, wearable biometric devices).
+   • Travel, including conferences, in-person meetings, and workshops
+   • Administrative and indirect costs (10% cap)
+
+Funded projects must focus on rural health transformation efforts that may include:
+• Expansion or enhancement of primary care or behavioral health services
+• Telehealth and digital health innovations
+• Community health worker or care coordination models
+
+Rural Health Transformation Program 2026                         P a g e 17 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+• Integration of physical, behavioral, and social services
+• Data-driven approaches to improve health outcomes
+
+
+Activity 5.4b: Safe Communities: Youth Violence Prevention in Rural Communities
+Program Goals and Objectives
+
+Goal 1: Reduce risk factors associated with youth violence in rural communities
+
+   •   Objective 1.1: Provide violence prevention and conflict-resolution education to at least
+       [number] youth annually.
+   •   Objective 1.2: Increase participants’ knowledge of nonviolent coping strategies by at
+       least [percentage], as measured by pre- and post-surveys.
+
+
+Goal 2: Strengthen protective factors through positive youth development
+
+   •   Objective 2.1: Match youth with trained adult or near-peer mentors.
+   •   Objective 2.2: Improve school engagement and attendance among participants.
+
+
+Goal 3: Enhance family and community capacity to prevent youth violence
+
+   •   Objective 3.1: Conduct family workshops focused on communication, trauma
+       awareness, and youth support.
+   •   Objective 3.2: Establish or strengthen a local violence prevention coalition in each
+       target community.
+
+
+Program Description
+
+This program will implement a multi-component, community-based approach:
+
+1. Youth Education and Skill-Building
+
+   •  Evidence-informed curricula focused on conflict resolution, emotional regulation, peer
+      mediation, and decision-making
+    • Trauma-informed and culturally responsive instruction
+    • Delivered in schools, community centers, and mobile outreach settings
+2. Mentoring and Positive Adult Relationships
+
+   •   One-on-one and group mentoring models adapted for rural settings
+   •   Focus on building trust, resilience, and future orientation
+   •   Regular mentor supervision and training
+
+Rural Health Transformation Program 2026                           P a g e 18 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+3. Family Engagement
+
+   •  Parent and caregiver workshops addressing trauma, substance misuse, and youth
+      development
+    • Resources to strengthen family communication and stability
+    • Flexible scheduling and virtual options to address transportation barriers
+4. Community Outreach and Collaboration
+
+   •   Partnerships with schools, faith-based organizations, law enforcement, and health
+       providers
+   •   Youth-led community service and leadership activities
+   •   Local awareness campaigns promoting nonviolence and help-seeking
+
+Funds will support:
+
+   •   Program staff and facilitators
+   •   Training and curriculum materials
+   •   Mentoring program operations
+   •   Evaluation and data collection
+   •   Travel and outreach for rural service delivery
+   •   Administrative and indirect costs (10% cap)
+
+Reporting Requirements: If awarded funding, the Grantee must comply with the following:
+
+Grantees are required to submit monthly Expenditure Reports according to the schedule
+established at the time of account set up with the NJDOH.
+
+Grantees are also required to submit quarterly Progress Reports in accordance with the NJDOH
+timelines.
+
+ Report Period*                 Progress Report #                Report Due Date
+ May 1 - July 31, 2026          1                                August 15, 2026
+ August 1 - October 30, 2026    2 (Final)                        November 15, 2026
+*Applicants should plan to submit quarterly Progress Reports following the above estimated
+schedule, which NJDOH may adjust after award.
+
+IMPORTANT: Timely submission of required reports is a key performance indicator and may
+influence future funding decisions, budget modifications, and grant amendments. Failure to
+submit reports on time may result in payment delays or other administrative action.
+
+
+
+
+Rural Health Transformation Program 2026                         P a g e 19 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+If an extension is needed for any report, grantees must submit a written justification to the
+NJDOH Project Management Officer (PMO) and Grant Management Officer (GMO) for the
+respective activity (Activity 5.2a, 5.2b, 5.3b, 5.3c, 5.3d, 5.4b). The extension is valid only upon
+written approval from NJDOH.
+
+The final expenditure report must be submitted no later than November 15, 2026. If additional
+time is needed, the final submission must be received by November 30, 2026, or the grant may
+be closed based on the last submitted report.
+
+Note: For projects that utilize the whole project and budget period for start-up or
+implementation, NJDOH reserves the right to continue programmatic and fiscal oversight,
+monitoring, and reporting requirements beyond the grant end date, regardless of whether
+continuation funding is awarded. All grantees remain responsible for required reporting and
+close-out activities until the grant is formally closed.
+
+Reporting Procedures and Documentation Requirements
+• Expenditure reporting
+       • Grantees must upload supporting documentation to the expenditure report for any
+          staff positions. This documentation must include:
+              • The name of the individual
+              • The title of the position
+              • % dedicated
+              • Salary
+       • Grantees must upload supporting documentation to the expenditure report for all
+          Schedule B items. While NJ SAGE may not require documentation for every expense,
+          helping clear records ensures transparency and supports reimbursement.
+              • The format of this summary document is at the discretion of the grantee, but
+                  it must clearly reflect reimbursable expenses by budget category.
+
+Note: Expenditure reports will only be approved after the corresponding progress report has
+been submitted and any required modifications have been satisfactorily addressed.
+
+•   Progress Reporting
+       • Upon award, the NJDOH will provide grantees with a progress report template and a
+           supplemental data collection tool for submitting quarterly progress reports.
+              • The content and metrics required in each report may change based on
+                 program priorities. Any updates will be communicated directly to the grantee
+                 by the NJDOH PMO for the respective activity (Activity 5.2a, 5.2b, 5.3b, 5.3c,
+                 5.3d, 5.4b).
+
+
+
+
+Rural Health Transformation Program 2026                              P a g e 20 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       •   The Terms and Conditions for Administration of Grants issued by the New Jersey
+           Department of Health (NJDOH), available at:
+           www.nj.gov/health/grants/documents/terms_conditions.pdf.
+       •   All applicable federal cost principles, based on the Grantee’s organization type (e.g.,
+           2 CFR Part 200 for non-profits and government entities).
+       •   The general and specific programmatic compliance requirements as detailed in
+           Attachment C - Program Specifications, which are incorporated into the grant
+           agreement executed by NJDOH.
+
+Duplication of Efforts
+Applicants must disclose any potential overlap between this application and existing activities,
+other applications, or awards received or submitted to other funding sources within the same
+fiscal year. Overlap can occur in the following ways:
+         • Programmatic Overlap
+             Occurs when substantially the same project or objectives are proposed in more than
+             one application or when funding is awarded from multiple sources. This includes
+             situations where the project design or specific goals are identical or closely related
+             across existing activities, applications, or awards, regardless of the funding source.
+         • Budgetary Overlap
+             Occurs when duplicate or equivalent budget items (e.g., equipment, personnel
+             salaries) are requested in this application but are already covered by other funding
+             sources.
+         • Commitment Overlap
+             Occurs when an individual’s total time commitment across all funded projects
+             exceeds 100%, regardless of whether salary support is requested for that time.
+
+Duplication of effort, whether programmatic, budgetary, or commitment-wise, is prohibited.
+Any identified overlap must be resolved with the NJDOH in collaboration with the applicant’s
+Project Coordinator before award.
+
+Applicants must upload a detailed report addressing programmatic, budgetary, and
+commitment overlap, as well as potential supplanting, on the Attachments Form in SAGE. The
+document should be clearly labeled
+       • “Report on Programmatic, Budgetary, Commitment Overlap, and Supplanting.”
+
+Applicants must also submit a signed certification confirming that grant funds will not be used
+to supplant existing funding from any source.
+
+______________________________________________________________________________
+
+6. Application Components
+
+Applicants must submit a complete application package that includes:
+
+Rural Health Transformation Program 2026                             P a g e 21 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+FORM - ORGANIZATION PROFILE
+   • Name of Organization & Contact Information
+   • Name of CEO & Contact Information
+   • Name of CFO & Contact Information
+   • Officers/Directors
+   • Annual Audit Report - Upload your organization’s most current Annual Audit Report
+      o If your organization is not required to submit to an annual audit, please submit a
+         letter on letterhead explaining the reason this is waived. You must also submit a
+         copy of your most recent submitted tax return.
+   • Organization Type
+   • IRS Determination Letter (For Non-Profits)
+   • NJ Charities Registration Letter (For Non-Profits)
+   • Tax Clearance Certificate - required for all entities
+   • Minority Managed
+   • Minority Population Served
+   • Languages in Which Services Are Provided
+
+FORM - PROJECT CONTACTS
+   • Name of Project Director, title, and contact information
+   • Name of Fiscal Contact, title, and contact information
+
+FORM - GRANT PERIOD AND PAYMENT
+   • Both project period and budget period: April 1, 2026 - October 30, 2026
+   • Payee: NJ Vendor ID Number - remittance address
+   • Payment method: Monthly cost reimbursement
+
+FORM - SERVICE AREA
+   • Area of Impact – local, statewide
+   • If applicable, select the county(s) and municipality(s) where the program will be
+      implemented
+
+FORM - NEEDS & OBJECTIVES
+   • Assessment of Need(s)
+   • Describe the need(s) to be addressed through this pilot program, with supporting up-to-
+      date data and facts. Data sources should be referenced.
+   • Define the organization’s mission, purpose, and population served. Data sources should
+      be referenced.
+   • Describe current organizational capabilities, the need to sustain or enhance those
+      capabilities, and the required work to complete requirements in accordance with this
+      RFA.
+   • Share a brief description of current technology innovation and/or preventive
+      programming experience.
+
+
+Rural Health Transformation Program 2026                         P a g e 22 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+______________________________________________________________________________
+
+7. Evaluation and Selection Process
+
+Applications will be reviewed and scored using the following criteria:
+• Alignment with the goals of the Rural Health Transformation Grant
+• Demonstrated need and potential impact
+• Feasibility and clarity of the proposed approach
+• Strength of partnerships and community engagement
+• Organizational capacity and experience
+• Budget appropriateness and cost-effectiveness
+
+Applications will be evaluated on the information submitted through the electronic grants
+system, including the required project and budget submission form (see Appendix F for
+details regarding Activity 5.2A, Activity 5.2B, Activity 5.3B, Activity 5.3C, Activity 5.3D, or
+Activity 5.4B). Scoring will be based on the materials submitted and how well they align
+with the criteria outlined in RFA Application Scoring Guide.
+
+Final funding decisions will be based on the application scores, available funding, and
+alignment with NJDOH priorities, including the RHT program priorities, with priority given to
+applications serving areas designated as rural under the federal HRSA definition.
+
+Grant Program: Rural Health Transformation Program 2026: Improving Chronic Disease
+Outcomes in Rural New Jersey.
+
+
+
+A successful application includes the following criteria. This is not an exhaustive list, and
+applicants are encouraged to include all pertinent information that would support program
+objectives.
+
+
+
+
+Rural Health Transformation Program 2026                           P a g e 23 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+                        Assessment of Need and Organizational Capacity
+                                         Total Point Value = 15
+         •   Describe the need(s) to be addressed through this pilot program, with supporting
+             up-to-date data and facts on the proposed population served and service area.
+             Data sources should be referenced.
+         •   Define the organization’s mission, purpose, and current population served.
+         •   Describe current organizational capabilities, specific program experience, the
+             need to sustain or enhance those capabilities, and the required work to complete
+             requirements in accordance with this RFA.
+         •   Share a brief description of current technology innovation and/or preventive
+             programming experience.
+                               Project Design, Objective(s) of Project
+                                         Total Point Value = 25
+         •   Describe the importance of the project and how it is supported by known facts
+             and current quantitative or qualitative data.
+         •   Identify gaps in existing research or surveillance data.
+         •   Describe the project’s target population and service area, including
+             demographics, geographic location, needs, or other specific characteristics.
+         •   Describe how the organization demonstrates the qualifications and capacities
+             needed to implement the project. Include any previous experience in
+             implementation of proposed activities.
+         •   Describe the project timeline, with realistic planning and expectations. The
+             timeline includes important milestones, deadlines, or benchmarks for the project
+             to be executed successfully and the responsible party for each.
+         •   Describe how the project goals and objectives are aligned with the grant program.
+             The objectives clarify what changes are expected as a result of the proposed
+             work. The strategies and indicators for measuring success are described.
+         •   Share goals and objectives that adhere to SMARTIE (Specific, Measurable,
+             Achievable, Relevant, Time-Limited, Inclusive and Equitable) goal principles.
+         •   Describe how the project activities and sub-activities to be completed and their
+             respective outcomes are described for each objective. The project activity list
+             contains a detailed description of each activity, including the sequence of their
+             completion, their timeline, the start and end dates, and any required resources.
+         •   Describe how collaborations with potential partners or stakeholders and how the
+             proposed collaboration will benefit the overall project is described.
+         •   Describe potential project risks and challenges that could negatively impact the
+             project progress are identified. Include mitigation strategies plans and strategies
+             for potential problems are described.
+         •   Ensure all requirements and criteria for the grant program are addressed and
+             grant application sections are completed.
+                                       Methods and Evaluation
+                                         Total Point Value = 30
+
+Rural Health Transformation Program 2026                           P a g e 24 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+         •   Include the project methods, strategies, timeline, and approaches to achieving
+             project objectives.
+         •   Provide a program timeline for the scope of work with key performance indicators,
+             milestones, or deadlines, and the person responsible for each activity.
+         •   Provide detailed reasoning for chosen project methods, strategies, and
+             approaches is described and supported by research, evidence-based
+             interventions, or promising practices.
+         •   Detailed project methods, and who will perform specific activities.
+         •   Describe how the project methods are reasonable and achievable given the
+             applicant/organization’s resources and the project’s time frame and budget.
+         •   Ensure the project evaluation plan/strategy is developed and describe the
+             intended outcomes/results of the project and details the plans to evaluate the
+             project during its implementation and after the completion of the project.
+         •   Describe the project evaluation plan/strategy, including progress monitoring and
+             improvement, and modification plans to adapt to project risks or challenges.
+         •   If the project involves collaborations with other organizations or institutions,
+             describe the collaboration and how it will be measured to enhance the project.
+                                             Project Budget
+                                          Total Point Value = 20
+         •   The project costs and budget are well defined, align with the proposed project
+             goals and objectives, and are reasonable, precise, and itemized. Project costs
+             should take into consideration current organization capacity, patient needs, and
+             programmatic needs.
+         •    The Schedule A - Personnel Justification, Part 1 and 2, and respective supporting
+             document sections are completed in NJ SAGE.
+         •   For each position - the position title, name (if available), annual salary/wages,
+             percentage of time devoted to the project, fringe benefit rate, number of weeks
+             and weekly hours on the project, the roles/responsibilities, and minimum
+             qualifications are completed.
+         •   The project budget includes a Project Coordinator/Project Director to serve as the
+             primary contact for the grant and oversee grant management and compliance
+             requirements.
+         •   The Schedule B - Other Direct Costs, and respective supporting document
+             sections are completed in NJ SAGE
+         •   The budget does not include any unallowable costs.
+                                  RHT Grant Program Key Principles
+                                          Total Point Value = 10
+         •   The applicant demonstrates potential for significant change in rural healthcare,
+             including improvements to services or systems, lasting impact, innovative
+             solutions to unmet needs, and scalability or replicability.
+         •    The applicant includes a clear plan to sustain activities and outcomes beyond
+             the grant period, addressing financial, operational, and community engagement
+             strategies to maintain long-term impact and continued benefits for the rural
+             population.
+
+Rural Health Transformation Program 2026                          P a g e 25 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+______________________________________________________________________________
+
+8. Reporting and Accountability
+
+Grantees are responsible for ensuring effective program implementation, staff accountability,
+fiscal stewardship, and compliance with all grant requirements. This section outlines key
+operational and administrative expectations under the Rural Health Transformation Program
+2026: Improving Chronic Disease Outcomes in Rural New Jersey.
+
+Program Staffing and Oversight
+• The Grantee must appoint a Program Coordinator, who will serve as the Project Director
+   and primary point of contact for the Rural Health Transformation Program 2026:
+   Improving Chronic Disease Outcomes in Rural New Jersey.
+      • This individual will lead the coordination and implementation of program activities,
+          ensure progress toward project goals, and provide required program updates to the
+          NJDOH Office of Community Health and Wellness.
+      • Administrative functions are restricted in this role.
+• Staff funded under this grant must:
+      • Devote time according to the percentage allocations outlined in Schedule A -
+          Personnel Costs.
+      • Ensure staffing levels and time allocations are aligned with the scope of work.
+      • Be prepared to adjust staff time percentages if the scope of work changes, subject to
+          review and approval by NJDOH as appropriate.
+
+Performance and Reimbursement Conditions
+• Reimbursement is contingent on the Grantee’s ability to:
+      • Meet all grant terms and conditions.
+      • Complete activities by established deadlines.
+      • Demonstrate measurable progress.
+• Timely submission of required reports is a performance indicator and may affect:
+      • The Grantee’s risk rating.
+      • Eligibility for future funding, budget modifications, or grant amendments.
+• NJDOH reserves the right to terminate, reduce, or suspend the grant in whole or in part,
+   under any of the following circumstances:
+      • Unavailability of funds - if anticipated funding becomes unavailable, is reduced, or is
+          withdrawn.
+      • Changes in program priorities - if programmatic priorities, statutory requirements, or
+          organizational strategies change such that continuation of the grant is no longer
+          aligned with NJDOH objectives.
+
+
+Rural Health Transformation Program 2026                         P a g e 26 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       •   Failure to meet performance requirements - if the grantee fails to make satisfactory
+           progress toward stated goals, deliverables, or performance benchmarks, or
+           otherwise fails to comply with the terms and conditions of the award.
+       •   Failure to expend funds promptly - if the grantee does not demonstrate adequate
+           fiscal management or fails to draw down or spend funds within the established
+           timelines.
+
+Note: In the event of termination, reduction, or suspension, NJDOH will provide written notice
+specifying the reason and effective date of the action. The grantee will be permitted to submit
+final requests for reimbursement for allowed costs incurred up to the effective date, and NJDOH
+will issue payment for those allowable final expenditures in accordance with applicable closeout
+requirements.
+
+Reporting and Monitoring Requirements
+• Grantees must:
+       • Comply with all site visits and program meetings for monitoring and technical
+          assistance.
+       • Submit all required reports and requests for information in accordance with NJDOH
+          deadlines.
+       • Use NJDOH-supplied templates and tools as directed.
+• NJDOH reserves the right to withhold, reduce, or deny payment due to:
+       • Delinquent or deficient reporting
+       • Inadequate progress
+       • Poor stewardship of funds
+       • Failure to meet stated goals, objectives, or deliverables
+
+Fiscal Accountability and Procurement
+• Grantees are responsible for all purchasing and fiscal oversight in accordance with:
+        • The grant specifications
+        • NJDOH Terms and Conditions for Administration of Grants
+• Expenses reimbursed under this program must not be submitted for reimbursement
+    through:
+        • Other NJDOH grants
+        • Insurance or other federal/state funding channels
+• All procurement of professional services, contracts, or vendors must follow:
+        • The grantee’s internal procurement policies, including any competitive bidding
+           requirements. Grantees are responsible for ensuring that all vendor selections and
+           agreements comply with applicable state and federal laws, regulations, and grant
+           requirements.
+        • NJDOH does not endorse or show preference for specific vendors.
+
+Note: For reference, a comprehensive vendor list can be requested by contacting your Project
+Management Officer.
+
+Rural Health Transformation Program 2026                          P a g e 27 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+Sub-Grantee and Third-Party Oversight
+• Any agreements with third-party service providers under this grant must be pre-approved
+   by NJDOH through the PMO and GMO.
+• Reimbursement for sub-grantee services will only be authorized if a legal agreement has
+   been submitted to and approved by the NJDOH.
+• The Grantee must:
+      • Ensure sub-grants are managed in accordance with all primary grant conditions,
+          deliverables, and requirements specified in Attachment C.
+      • Monitor sub-grantee expenditures and compliance through:
+              • Adequate financial controls
+              • Required audits and performance reviews
+              • Submission of a compliance report to NJDOH verifying the sub-grantee has
+                 fulfilled all obligations
+
+Awardees will be required to:
+• Submit periodic progress and financial reports
+• Participate in program monitoring and evaluation activities
+• Comply with all grant terms and conditions
+
+   •   Objective(s) of Program
+   o   Set and share SMART (Specific, Measurable, Attainable, Realistic, and Timebound)
+       program goals and objectives.
+   o   Describe the goals and scope of work/activities and strategies to achieve, key
+       performance indicators, or outcomes to measure success.
+   o   Describe the target population(s) and the geographic area(s) where the program will be
+       implemented.
+   o   Describe how the funding will help improve or expand upon your existing work/efforts.
+   o   Provide a program timeline for the scope of work with key performance indicators,
+       milestones, or deadlines, and the responsible person for each.
+
+FORM - METHODS & EVALUATIONS
+   • Outline the specific strategies, activities, or approaches that will be implemented to
+      achieve project goals and objectives.
+   • Outline the methods, techniques, or procedures that will be implemented to address
+      project goals and objectives.
+   • Provide a program timeline for the scope of work with key performance indicators,
+      milestones, or deadlines, and the responsible person for each.
+   • Ensure methods are feasible, realistic, and achievable.
+   • If the project involves collaborations with other organizations or institutions, describe
+      the collaboration and how it will be measured to enhance the project.
+   • Describe when and how the project will be monitored, assessed, and evaluated to
+      ensure outcomes are being achieved.
+
+Rural Health Transformation Program 2026                           P a g e 28 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+Failure to meet reporting requirements may result in corrective action or termination of
+funding.
+
+______________________________________________________________________________
+
+9. Submission Instructions
+
+Applications must be submitted no later than March 20, 2026, via:
+• https://dohsage.intelligrants.com/
+
+New Jersey Department of Health (NJDOH) requires all grant applications to be submitted
+electronically through SAGE at Login (intelligrants.com). If your organization does not have an
+existing SAGE account, one will need to be created to apply for this grant.
+
+If you are a first-time NJDOH applicant whose organization has never registered in the NJDOH
+SAGE system, you must contact the SAGE System Administrator via email at
+njdoh.grants@doh.nj.gov or at 609‐376‐8508. A new organization form is available at
+nj.gov/health/grants/documents/SAGE_registration_form.pdf and must be completed and
+submitted to NJDOH. The submitted documents will be reviewed to ensure that applicants have
+satisfied all applicable requirements. Please allow up to three (3) business days for processing.
+
+When approved, the organization’s status will be activated in SAGE. The SAGE System
+Administrator will inform the organization’s Authorized Official via email or by phone of their
+authorized access to the grant application in SAGE. Organizations will not have access to any
+application in SAGE until all documents are received and all procedures are satisfied.
+
+Note: All forms in the grant application should be completed according to the instructions on
+each page and saved. This document provides guidance and additional information for some of
+the forms. Adherence to this guidance will facilitate the timely review and approval of a grant
+application. NJDOH reserves the right to extend grant application closing dates.
+
+Please refer to the FAQ for Applicants and Grantees that is available in SAGE under the
+“Training Materials” tab. This resource outlines how to initiate, compile, and submit your
+application in SAGE.
+
+______________________________________________________________________________
+
+10. Key Dates
+• RFA Release Date: March 16th, 2026
+• Information Session: March 23th, 2026 1:00pm-3:00PM Improving Chronic Disease Outcomes
+Microsoft Teams meeting
+
+Rural Health Transformation Program 2026                           P a g e 29 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+Join: https://teams.microsoft.com/meet/2166450438818?p=R0CT9B0e6aLXIME6od
+Meeting ID: 216 645 043 881 8
+Passcode: Ri9Ms6rE
+
+
+Need help? | System reference
+
+
+Dial in by phone
++1 856-338-7074,,12063416# United States, Camden
+Find a local number
+Phone conference ID: 120 634 16#
+
+
+For organizers: Meeting options | Reset dial-in PIN
+
+• Application Due Date: April 10thth, 2026
+• Award Notification: April 30th, 2026
+• Project Start Date: May 1st, 2026
+______________________________________________________________________________
+Appendices: A-D
+
+               APPENDIX A - Rural New Jersey: Federal Definition
+
+
+
+
+Rural Health Transformation Program 2026                 P a g e 30 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+     Federally Recognized Counties
+       Atlantic                Mercer
+
+      Burlington             Monmouth
+
+     Cumberland                Ocean
+
+      Hunterdon                Warren
+                    Federally Recognized Rural Census Tracts (RCTs)
+Atlantic County RCTs
+108              109            110             111
+Burlington County RCTs
+7021.01          7022.06        7022.07         7022.08   7022.09         7022.10
+7048.01          9821.11        9822
+Cumberland County RCTs
+101.03           104.02         106             107.02    201             202
+203.01           203.02         204             205.02    205.03          206
+Hunterdon County RCTs
+113.01           113.03         113.04          113.05    113.06          114
+115              118            119
+Mercer County RCTs
+33.04            38
+Monmouth County RCTs
+8099.03
+Ocean County RCTs
+9800             9801
+Warren County RCTs
+317
+
+
+
+
+                  APPENDIX B - Rural New Jersey: State Definition
+
+
+
+
+Rural Health Transformation Program 2026                    P a g e 31 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       State-Recognized Counties
+       Atlantic                 Salem
+
+      Cape May                  Sussex
+
+     Cumberland                Warren
+
+      Hunterdon
+
+
+       APPENDIX C - Rural New Jersey: Rural Ruggedness Scale (RRS)
+
+       RRS - Designated Counties
+        Bergen                  Morris
+
+       Hudson                  Passaic
+                     RSS - Recognized Rural Census Tracts (RCTs)
+Bergen County RCTs
+63.02           130.02          130.04          160      191.02
+Hudson County RCTs
+150.01          152.01          173
+Morris County RCTs
+438.01
+Passaic County RCTs
+
+Rural Health Transformation Program 2026                   P a g e 32 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+1434.02
+
+
+
+
+                     APPENDIX D - RFA Application Guidance
+
+          Rural Health Transformation Program 2026:
+    Improving Chronic Disease Outcomes in Rural New Jersey
+
+New Jersey Department of Health (NJDOH) requires all grant applications to
+be submitted electronically through SAGE at Login (intelligrants.com). If your organization does
+not have an existing SAGE account, one must be created to apply for this grant.
+
+If you are a first-time NJDOH applicant whose organization has never registered in the NJDOH
+SAGE system, you must contact the SAGE System Administrator via email
+at njdoh.grants@doh.nj.gov or at 609‐376‐8508. A new organization form can be found
+at nj.gov/health/grants/documents/SAGE_registration_form.pdf and must be completed
+and submitted to NJDOH. The submitted documents will be reviewed to ensure that applicants
+have satisfied all applicable requirements. Please allow up to three (3) business days for
+processing.
+
+When approved, the organization’s status will be activated in SAGE. The SAGE System
+Administrator will inform the organization’s Authorized Official via email or by phone of their
+authorized access to the grant application in SAGE. Organizations will not have access to any
+SAGE application until all documents are received and all procedures are completed.
+
+Note: All forms within the grant application should be completed as per the instructions on each
+page and saved. This document provides guidance and additional information for some of the
+
+Rural Health Transformation Program 2026                           P a g e 33 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+forms. Adherence to this guidance will facilitate the timely review and approval of a grant
+application. NJDOH reserves the right to extend grant application closing dates.
+
+Please refer to the FAQ for Applicants and Grantees that is available in SAGE under the
+“Training Materials” tab. This resource outlines how to initiate, compile, and submit your
+application in SAGE.
+
+Note: SAGE will automatically reject applications after the closing date and time listed in the
+RFA.
+
+Log in and search for the “Rural Health Transformation: Technology Innovation & Preventive
+Programming 2026” application in SAGE Login (intelligrants.com).
+
+FORM - ORGANIZATION PROFILE
+     • Name of Organization & Contact Information
+     • Name of CEO & Contact Information
+     • Name of CFO & Contact Information
+     • Officers/Directors
+     • Annual Audit Report - Upload your organization’s most current Annual Audit Report
+     • Organization Type
+     • IRS Determination Letter (For Non-Profits)
+     • NJ Charities Registration Letter (For Non-Profits)
+     • Tax Clearance Certificate - required for all entities
+     • Minority Managed
+     • Minority Population Served
+     • Languages in Which Services Are Provided
+If your organization is not required to submit to an annual audit, please submit a letter on
+letterhead explaining the reason this is waived. You must also submit a copy of your most
+recent submitted tax return.
+FORM - PROJECT CONTACTS
+     • Name of Project Director, title, and contact information
+     • Name of Fiscal Contact, title, and contact information
+
+FORM - GRANT PERIOD AND PAYMENT
+   • Both project period and budget period: April 1, 2026 - October 30, 2026
+   • Payee: NJ Vendor ID Number - remittance address
+   • Payment method: Monthly cost reimbursement
+
+FORM - SERVICE AREA
+   • Area of Impact – local, statewide
+   • If applicable, select the county(s) and municipality(s) where the program will be
+      implemented
+
+
+
+Rural Health Transformation Program 2026                            P a g e 34 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+FORM - NEEDS & OBJECTIVES
+Assessment of Need(s)
+   • Describe the need(s) to be addressed through this pilot program, with supporting up-to-
+      date data and facts. Data sources should be referenced.
+   • Define the organization’s mission, purpose, and population served. Data sources should
+      be referenced.
+   • Describe current organizational capabilities, the need to sustain or enhance those
+      capabilities, and the required work to complete requirements in accordance with this
+      RFA.
+   • Share a brief description of current technology innovation and/or preventive
+      programming experience.
+
+Objective(s) of Program
+   • Set and share SMART (Specific, Measurable, Attainable, Realistic, and Timebound)
+       program goals and objectives.
+   • Describe the goals and scope of work/activities and strategies to achieve, key
+       performance indicators, or outcomes to measure success.
+   • Describe the target population(s) and the geographic area(s) where the program will be
+       implemented.
+   • Describe how the funding will help improve or expand upon your existing work/efforts.
+   • Provide a program timeline for the scope of work with key performance indicators,
+       milestones, or deadlines, and the responsible person for each.
+
+FORM - METHODS & EVALUATIONS
+   • Outline the specific strategies, activities, or approaches that will be implemented to
+      achieve project goals and objectives.
+   • Outline the methods, techniques, or procedures that will be implemented to address
+      project goals and objectives.
+   • Provide a program timeline for the scope of work with key performance indicators,
+      milestones, or deadlines, and the responsible person for each.
+   • Ensure methods are feasible, realistic, and achievable.
+   • If the project involves collaborations with other organizations or institutions, describe
+      the collaboration and how it will be measured to enhance the project.
+   • Describe when and how the project will be monitored, assessed, and evaluated to
+      ensure outcomes are being achieved.
+
+
+FORM - SCHEDULE A, PART 1 - PERSONNEL COSTS
+Note: All staff positions funded through this grant must be limited to allowable programmatic
+activities. Administrative functions are not permissible.
+    • Enter Position Title(s).
+
+Rural Health Transformation Program 2026                           P a g e 35 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •    Enter legal first name, last name of person(s) listed in position(s).
+   •    Annual Salary/Wages - enter the total amount to be paid to the employee(s) by the
+        organization for work performed during the budget period; for temporary employee(s),
+        this is the total amount to be paid for the actual period, within the annual budget
+        period, that work is performed.
+    • Percentages of Time on Project - enter the employee(s) percentage of time that will be
+        devoted to this project. Do NOT use a modified percentage solely to produce a desired
+        result.
+Note: An individual’s time commitment should not exceed 100 percent across all activities and
+should not be duplicated on other grant programs.
+    • Fringe Benefit Rate - enter the employee’s fringe benefit rate.
+Note: Upload of the organization’s fringe benefit breakdown is required. If there are different
+rates for individuals, include a justification with the uploaded fringe breakdown.
+
+FORM - SCHEDULE A, PART 2 - PERSONNEL JUSTIFICATION
+    • Weeks on the Project - enter the number of weeks over which the employee will
+        perform work on the project.
+    • Weekly Work Hours - enter the average number of hours that are devoted each week to
+        the project.
+Note: This number must align with the percentages of time on the project of what was entered
+in the Schedule A, Part 1 - Personnel Costs.
+    • Roles and Responsibilities - state the role and responsibilities for the position, not the
+        incumbent.
+    • Minimum Qualifications - state the minimum qualifications for the position, not the
+        incumbent. Briefly state the education/degree, years of experience,
+        license/certifications, etc., required for the position.
+ Note: Funds may not be used for clinician salaries. Funds also may not be used for
+clinician salaries or wage supports for facilities that subject clinicians to non-compete
+contractual limitations. This applies only to salaries and wages funded by the cooperative
+agreement award through an approved initiative described in the approved application.
+FORM - SCHEDULE B - OTHER DIRECT COSTS
+    • Complete the Schedule B form, listing other direct costs by cost category for the
+        project.
+    • A budget narrative/basis for cost estimate is required for each line item - provide a brief
+        item description, basis for its need, itemization (unit price and quantity needed), and
+        supporting documentation if applicable.
+
+Note: Sufficient detail must be included so that it is clear to the NJDOH application reviewers as
+to what specifically is being requested with the funds. Any vague and/or unclear budget
+items submitted will result in the return for modifications or may result in being denied.
+
+   •   Cost Category - Alterations and Renovations
+
+
+Rural Health Transformation Program 2026                            P a g e 36 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       o Eligibility - The Department may provide funding support
+         for minor alterations or retrofits of existing sites when directly related to creating or
+         improving areas for telehealth services, technology hubs, or patient workflow
+         improvements. Major construction projects or general facility renovations are
+         not permitted.
+       o All alteration or retrofit requests must be reviewed and approved by the NJDOH
+         before design, planning, or execution.
+       o As per the Department’s Terms and Conditions for Administration of Grants,
+         organizations may include their own requirements and practices for vendor bidding,
+         bid guarantees, performance bonds, and payment bonds for the construction of
+         facility improvements (including alterations and renovations of real property).
+
+   •   Cost Category - Equipment
+       o As per the Department’s Terms and Conditions for Administration of Grants,
+          organizations may follow their own equipment policy. Non-profit organizations,
+          excluding governments and hospitals, that do not have a written policy shall
+          capitalize equipment with an acquisition cost of $500 and a life expectancy of 1 year
+          or greater. Grantees may use a different acquisition threshold provided it is in a
+          written policy, is customary and reasonable for the organization type, is agency-
+          wide, and complies with Generally Accepted Accounting Principles and the
+          applicable Federal cost principles. Any exception requires prior approval by the
+          awarding division.” Items that do not meet the equipment criteria must be classified
+          as Supplies or Other and should not be referred to as “equipment” in its
+          justification.
+       o A vendor-generated quote must be obtained and uploaded directly to the
+          corresponding Schedule B line, “Supporting Documents”.
+       o Grantees may allocate funds for the purchase, lease, or upgrade of technology or
+          equipment necessary to support the approved project activities.
+
+   •   Cost Category - Facility
+   Note: Facility costs funded under this grant must align with allowable programmatic
+   functions. Administrative functions are restricted. General office space, workstations, or
+   other facilities used solely for administration tasks, routine office operations, or activities not
+   directly tied to the approved program are restricted. All facility costs must be clearly justified
+   in the budget and linked to specific project activities.
+
+       o Facility costs, including office space, meeting, or conference
+         facilities, are restricted unless they are directly attributable to the implementation
+         of program activities. Examples of allowable facility costs include:
+       o Training or workshop space required for program participants or staff
+         development.
+       o Audio-visual equipment for presentations or program activities.
+
+
+
+Rural Health Transformation Program 2026                              P a g e 37 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       o Space used for delivering health screenings, counseling sessions, or other program
+         interventions directly to participants.
+       o Meeting space used for grant program activities required to implement the project.
+
+   •   Cost Category - Professional Service Agreements
+       o Professional Service Agreements (PSA) must be reviewed and approved by the New
+          Jersey Department of Health (NJDOH) before their execution, except for auditing.
+          The basis for the cost estimate must be clearly stated.
+       o A draft contract must be uploaded directly to the corresponding Schedule B line,
+          “Supporting Documents”.
+       o A cost reimbursement payment method is required for PSAs.
+       o Grantees must ensure that any contracts with subgrantees contain clauses necessary
+          to guarantee that all data security, retention, and access requirements will be
+          satisfied. Additional information may be found in the New Jersey Statewide
+          Information Security Manual (effective 2/21/2021),
+          at NJ_Statewide_Information_Security_Manual.
+       o All PSAs must comply with the terms outlined in this RFA, including
+          rules regarding allowable cost categories, including personnel costs, facility
+          costs, equipment/technology costs, travel costs, and administrative/indirect costs.
+       o PSAs must follow all other applicable federal, state, and NJDOH requirements
+          listed in the RFA.
+
+   •   Cost Category - Subaward
+       o Subaward agreements must be reviewed and approved by the New Jersey
+          Department of Health (NJDOH) before their execution, except for auditing. The basis
+          for the cost estimate must be clearly stated.
+       o A draft agreement must be uploaded directly to the corresponding Schedule B line,
+          “Supporting Documents”.
+       o A cost reimbursement payment method is required for subawards.
+       o Grantees must ensure that any agreements with sub-awardees contain clauses
+          necessary to guarantee that all data security, retention, and access requirements
+          will be satisfied. Additional information may be found in the New Jersey Statewide
+          Information Security Manual (effective 2/21/2021),
+          at NJ_Statewide_Information_Security_Manual.
+       o All subawards must comply with the terms outlined in this RFA, including
+          rules regarding allowable cost categories, including personnel costs, facility
+          costs, equipment/technology costs, travel costs, and administrative/indirect costs.
+       o All subawards must follow all other applicable federal, state, and NJDOH
+          requirements listed in the RFA.
+
+   •   Cost Category - Supplies
+       o All tangible personal property other than “equipment” that directly supports
+          or benefits the project.
+
+
+Rural Health Transformation Program 2026                        P a g e 38 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       o Itemization for office supplies is not required.
+
+   •   Cost Category - Travel
+   Note: Travel costs funded under this grant are subject to federal funding caps and fall under
+   the administrative and indirect cost restrictions. Applicants interested in requesting these
+   costs must include them in the applicable section of the Project and Budget Submission Form
+   for NJDOH review and consideration.
+       o Travel costs are subject to the administrative and indirect cost restrictions and federal
+           funding caps. Inclusion in the budget does not guarantee approval. The following guidance
+           applies to travel if approved under the grant:
+       o   Organizations must follow their established travel policy. Travel costs for employees
+           working on the project may include associated per-diem or subsistence allowances and
+           other travel-related expenses, such as mileage allowances if travel is by personal
+           automobile.
+       o   Local and domestic travel is allowable where such travel will provide direct benefit to the
+           project, i.e., travel for a conference or training that is significant to the scope of work or
+           professional development.
+       o   Itemization of travel expenses for project personnel is required.
+       o   Foreign travel is not permitted.
+
+   •   Cost Category - Training
+       o Training costs are allowable if necessary to accomplish the scope of work.
+       o Conferences, courses, workshops for employees working on the grant or
+          stakeholders providing education, support, or intervention related to technology
+          solutions, telehealth services, or remote patient monitoring.
+
+   •    Cost Category - Other
+        • Various other expenses that don’t neatly fit into the other predefined cost
+            categories but are specific to the project.
+        • Other cost items should be listed separately by type and itemized if applicable.
+Funding Restrictions and Exclusions:
+The following restrictions apply to the use of grant funds:
+   • No purchases may be made until the grant period begins and NJDOH has provided
+        written approval.
+   • Providing services to undocumented individuals.
+   • Pre-award costs, including salaries or expenditures incurred before the start date of the
+        grant, are not reimbursable.
+   • All sub-awards, professional service agreements (PSAs), and consultant agreements
+        must be submitted for NJDOH review and approval before execution.
+   • Exception: Consultants used solely for auditing grant compliance or expenditures are
+        exempt from this pre-approval requirement.
+   • Once executed, signed agreements must be uploaded to the Shared Documents folder
+        in SAGE.
+
+
+Rural Health Transformation Program 2026                                 P a g e 39 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •    Funds may be used to supplement, but not supplant, existing state or federal funding
+        for proposed activities.
+    • Due to federal funding caps, administrative and indirect costs are restricted under this
+        grant. Applicants interested in requesting these costs must include them in the
+        applicable section of the Project and Budget Submission Form for NJDOH review and
+        consideration.
+Note: Inclusion of administrative and indirect costs does not guarantee approval and is
+dependent on the availability of funds within the established cap.
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+Note: NJDOH reserves the right to modify requirements related to administrative and indirect
+costs at any time and is not bound by the current guidance.
+Funds may not be used for:
+    • Supplanting existing funding: use of grant funds to replace, reduce, or offset existing or
+        anticipated funding from other sources (including federal, state, local, private, or third-
+        party reimbursement)
+    • Food, catering, or light refreshments for staff or participants
+    • Fundraising activities or costs
+    • Personal use goods or services
+    • Lobbying or legislative activities
+    • Repayment of bad debt or interest on loans
+    • Promotional items, memorabilia, gifts, souvenirs, or similar materials
+    • New construction of any kind
+    • Supplanting funding of in-process or planned construction projects, or directing funding
+        towards new construction builds
+    • Using grant funds to support staff or activities unrelated to the approved program scope
+    • Offsetting reductions in Medicaid reimbursement or other payer rate cuts
+    • Replacing payment for clinical services that are reimbursable, or otherwise billable, to
+        Medicaid, Medicare, private insurance, or other third-party payers
+    • Broadband infrastructure or connectivity efforts
+    • Payments to employees not tied to specific quality improvements or an initiative within
+        the scope of the RHT Program
+    • Enhanced payment rates or incentives for currently billable services without ties to
+        outcomes
+    • Uncompensated care that is not tied to a specific initiative within the Rural Health
+        Transformation Plan
+    • Student loan or educational loan repayment programs
+    • Costs related to providing Continuing Education Units (CEU) credits for professional or
+        academic purposes.
+Note: For a full list of unallowable expenses, please refer to Public Law 119-21, Section 71401.
+
+FORM - COST SUMMARY
+
+
+Rural Health Transformation Program 2026                            P a g e 40 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+   •    Verify the direct costs listed, and if applicable, enter indirect costs and program
+    income.
+    • Indirect Costs
+        o Due to federal funding caps, administrative and indirect costs are restricted under
+           this grant. Applicants interested in requesting these costs must include them in the
+           applicable section of the Project and Budget Submission Form for NJDOH review and
+           consideration.
+Note: Inclusion of administrative and indirect costs does not guarantee approval and
+is dependent on the availability of funds within the established cap.
+Note: A separate cost category with a defined funding limit may be created to support approved
+administrative and indirect costs.
+Note: NJDOH reserves the right to modify requirements related to administrative and indirect
+costs at any time and is not bound by the current guidance.
+
+FORM - DISCLOSURE & CERTIFICATION
+   • Review and respond to each statement listed.
+
+FORM - FFATA CERTIFICATION
+   • In accordance with the Federal Funding Accountability and Transparency Act (FFATA),
+   review and answer each question. Additional information may be found at www.fsrs.gov.
+
+FORM - ATTACHMENTS
+   • Upload the project/budget submission form Appendix F to support the application.
+Note: Applicants may apply to one or more activities (Activity 5.2a, 5.2b, 5.3b, 5.3c, 5.3d, 5.4b).
+Separate project and budget submission forms must be submitted for each activity. Each activity
+must be designed to benefit uninsured and underinsured populations. Refer to Appendix F
+   • Upload and submit a signed certification confirming that grant funds will not be used to
+       supplant existing funding from any source. See the section on duplication of efforts.
+   • If applicable, attach other documents to support the application. For each document
+       attached, provide a brief description in the space indicated in SAGE.
+
+
+
+APPENDIX F - Project and Budget Submission Form
+
+Rural Health Transformation Program 2026:
+Improving Chronic Disease Outcomes
+Activity #:
+
+Section 1: Applicant Information
+
+1. Organization Name:
+2. Project Director:
+
+Rural Health Transformation Program 2026                            P a g e 41 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+       a. Email:
+       b. Phone:
+3. Fiscal Contact:
+       a. Email:
+       b. Phone:
+
+Section 2: Project Overview
+
+1. Project Title:
+
+2. Rural counties, Rural Census Tracts (RCTs), and target rural populations this project will
+   serve. See Appendix A, B, and C for eligible areas:
+
+3. Project Start and End Dates:
+
+4. Provide a summary of the project (2-3 sentences):
+
+5. Describe the project goals and expected outcomes for the grant period. Include whether
+   these goals are expected to be achieved within the proposed timeframe and whether
+   additional funding or time may be needed.
+
+6. Describe the transformational impact of this project on rural health, including how it will
+   improve healthcare, services, or systems, create lasting change, address unmet needs
+   innovatively, and/or be scalable or replicable.
+
+7. Describe how this project is not duplicating existing programs or supplanting other funding.
+   Describe any other projects under RHT funding for which the organization is applying or has
+   applied.
+
+Section 3: Project Activities
+
+1. List the specific activities the project will carry out to achieve the project goals and expected
+   outcomes.
+2. Please explain your organization’s readiness to develop the project plan. What is the
+   anticipated timeline for project planning and execution over the 9-month grand period?
+3. List each collaborating organization and indicate whether the partnership currently exists or
+   will be established upon award. For existing partnerships, describe any current contracts or
+   agreements and include Letters of Collaboration, if available. For new partnerships, include
+   Letters of Collaboration, if available, and provide a timeline for establishing a formal
+   agreement.
+Describe risks or challenges and how they will be addressed timely.
+
+Section 4: Staffing
+
+
+Rural Health Transformation Program 2026                             P a g e 42 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+1. Are positions already filled or still to be hired? If to be hired, describe whether they are
+   new, being dedicated, or enhanced.
+
+
+
+
+Section 5: Administrative/Indirect Cost Request
+1. Complete the table by providing all administrative/indirect costs being requested for NJDOH
+   review and consideration.
+
+
+ Administrative/Indirect Cost Request Table
+ Note: Due to federal funding caps, administrative and indirect costs are restricted under this grant. The
+ costs listed in this table are considered administrative and indirect and are subject to the overall cost
+ cap. Applicants interested in requesting these costs must list them below for NJDOH review and
+ consideration. Inclusion of administrative and indirect costs does not guarantee approval and is
+ dependent on the availability of funds within the established cap.
+                                                         Total Amount
+ Cost Category             Description/Justification     Requested                  Notes
+ Personnel
+ Travel
+ Facility
+ Other
+ Administrative/
+ Indirect Costs
+ Total Amount
+ Requested
+
+
+
+Rural Health Transformation Program 2026                             P a g e 43 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+ REQUIRED - If requesting these funds, briefly explain why they are essential for the project’s
+ implementation and whether the project could proceed without them. Click or tap here to enter text.
+
+11. Contact Information
+
+For questions regarding this RFA, contact:
+
+Carolyn Thompson, MA
+Executive Director
+Division of Health Promotion – Community Health & Wellness Unit
+Email: Carolyn.thompson@doh.nj.gov
+
+
+
+
+Rural Health Transformation Program 2026                        P a g e 44 | 44
+Improving Chronic Disease Outcomes in Rural New Jersey
+
