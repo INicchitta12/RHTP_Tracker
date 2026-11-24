@@ -1,0 +1,8 @@
+file: 2026-11-24_wi_rhtp_application_narrative.pdf
+source_url: https://www.dhs.wisconsin.gov/business/dhs-rhtp-application-narrative.pdf
+fetched_utc: 2026-11-24T14:46:23Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1745649
+sha256: 92d9f59c41575d2733b390827eee2b9af60bbf7988e453824b246d84c81990f2
+

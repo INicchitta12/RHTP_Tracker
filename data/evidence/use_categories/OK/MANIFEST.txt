@@ -1,0 +1,16 @@
+file: 2026-11-24_ok_y2_project_narrative_bp2.pdf
+source_url: https://oklahoma.gov/content/dam/ok/en/rhtp/documents/year-2/OK_Y2%20Project%20Narrative_BP2.pdf
+fetched_utc: 2026-11-24T14:45:13Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 831414
+sha256: 54b4b3e30a8bcc0cdf0318d1bedcc6a18f5a626afb940ead14dd1fa4a7658e07
+
+file: 2026-11-24_ok_rhtp_project_narrative_application.pdf
+source_url: https://oklahoma.gov/content/dam/ok/en/rhtp/documents/Project%20Narrative.pdf
+fetched_utc: 2026-11-24T14:45:33Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 925012
+sha256: 3a4ab894cdbf90965006284f82398a0944dcf6c2578886b790c62c68c8382a39
+

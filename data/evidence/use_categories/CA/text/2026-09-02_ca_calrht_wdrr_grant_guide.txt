@@ -1,0 +1,2163 @@
+Et at
+
+
+
+
+     CalRHT Workforce Development
+    Recruitment and Retention Program
+                         Grant Guide
+                     For Grant Year 2026
+                                    Revised 20260715
+                                       Version 4.0
+
+
+        2020 WEST EL CAMINO AVENUE, SUITE 1222 • SACRAMENTO, CA 95833
+
+ “A healthier California where all receive equitable, affordable, and quality health care.”
+
+If your program requires approval to contract from a coordinating authority, please inform
+the authority of the terms and conditions contained in the sample grant agreement.
+Applicants must agree to the terms and conditions before receiving funds. The Department
+of Health Care Access and Information will not make changes to the terms and conditions
+specified in the Grant Agreement.
+
+The CalRHT program is supported by the Centers for Medicare & Medicaid Services
+(CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial
+award totaling $233,639,308.46 with 100 percent funded by CMS/HHS. The contents are
+those of CalRHT and do not necessarily represent the official views of, nor an
+endorsement, by CMS/HHS, or the U.S. Government.
+                                                Table of Contents
+ PURPOSE ....................................................................................................................... 3
+ BACKGROUND AND MISSION ............................................................................................. 3
+ AWARD FUNDING ............................................................................................................ 4
+ ELIGIBILITY REQUIREMENTS ............................................................................................. 5
+   Eligible Organizational Settings ................................................................................ 5
+   Eligible Health Professions for WDRR Program Funds............................................. 6
+   Eligible Funding Categories for Organizational Applicants ........................................ 7
+ ALLOWABLE USES OF FUNDS ........................................................................................... 9
+   Allowable Uses of Funds Include: ............................................................................. 9
+   Budget Category Limitations ..................................................................................... 9
+   Unallowable Costs .................................................................................................... 9
+ WDRR SERVICE COMMITMENTS .................................................................................... 10
+   Restriction on Health Professionals Receiving Both a Recruitment Bonus and a
+   Retention Bonus...................................................................................................... 10
+   Program Structure: Organizational Grant and the Health Professional Award
+   Process ................................................................................................................... 11
+   Organizational WDRR Program Application Phase................................................. 11
+   Health Professional WDRR Verification and Award Phase ..................................... 11
+   Initiating an Organizational WDRR Program Application ........................................ 12
+ ORGANIZATIONAL APPLICATION DOCUMENTATION ............................................................ 13
+   Organizational Application Requirements. .............................................................. 13
+   Site Verification Form (SVF) ................................................................................... 14
+   Health Professional Award Documentation ............................................................. 15
+   Verification Responsibility ....................................................................................... 15
+   Cybersecurity Attestation (Where Applicable) ......................................................... 15
+ BUDGET AND WORKPLAN ............................................................................................... 15
+   Budget Format ........................................................................................................ 15
+   Workplan Elements ................................................................................................. 16
+   Budget Adjustment .................................................................................................. 17
+   Program Costs Allowance ....................................................................................... 17
+ ORGANIZATIONAL WDRR REVIEW, EVALUATION, AND SCORING ....................................... 18
+ ORGANIZATIONAL WDRR AWARD PROCESS ................................................................... 18
+ POST AWARD AND PAYMENT PROVISIONS ....................................................................... 19
+ WDRR PROGRAM RESOURCES ..................................................................................... 20
+ WDRR PROGRAM AND THE MEDIA ................................................................................. 20
+ HCAI DEPARTMENT CONTACT ....................................................................................... 21
+ ATTACHMENT A: ORGANIZATIONAL WORKFORCE DEVELOPMENT RECRUITMENT AND
+ RETENTION (WDRR) EVALUATION CRITERIA ................................................................... 22
+   Scoring Framework ................................................................................................. 22
+ ATTACHMENT B: WORKFORCE DEVELOPMENT RECRUITMENT AND RETENTION (WDRR)
+ HEALTH PROFESSIONAL SERVICE OBLIGATION TERMS ..................................................... 25
+ ATTACHMENT C: SAMPLE WORKFORCE DEVELOPMENT RECRUITMENT AND RETENTION
+ (WDRR) GRANT AGREEMENT........................................................................................ 29
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                                                            Page 2 of 49
+Purpose
+This CalRHT Workforce Development Recruitment and Retention Program Grant
+Guide for Grant Year 2026 (Grant Guide) explains what the Workforce
+Development Recruitment and Retention (WDRR) Program is and what is required
+to apply. It includes step-by-step instructions for applicants and important rules that
+Subrecipients must follow. Every organizational applicant must agree to and meet
+the program requirements to be awarded any funding. The Department of Health
+Care Access and Information (HCAI) does not allow any changes to the rules listed
+in this guide.
+
+
+Background and Mission
+The Workforce Development Recruitment and Retention Program (WDRR), established
+under Initiative 2: Workforce Development of the California Rural Health Transformation
+(CalRHT) Program, aims to strengthen and sustain the rural healthcare workforce by
+improving recruitment, retention, and training for Health Professionals. WDRR funds
+eligible organizations to retain Health Professionals already practicing in rural
+communities and to recruit eligible Health Professionals to qualifying rural sites.
+WDRR is an organizational grant program. HCAI awards grants to eligible rural-serving
+organizations who will provide bonuses to Health Professionals at their qualifying rural
+sites. Every bonus to Health Professionals carries a uniform five-year service obligation.
+The key goals of the WDRR are:
+   •   Improved recruitment and retention of rural Health Professionals as
+       evidenced by an increased number of licensed Health Professionals in rural
+       areas of California, as defined by the Health Resources and Services
+       Administration (HRSA).
+   •   Reduced vacancy rates and improved continuity of care as illustrated by
+       reduction in turnover and increase in average tenure in rural service.
+   •   Support a responsive and sustainable healthcare workforce to support rural
+       California communities.
+
+In December 2025, CMS approved HCAI’s CalRHT program authorizing $233 million in
+funding across three distinct rural health initiatives over a one-year period. HCAI
+administers health workforce development programs that build a skilled, responsive,
+and sustainable healthcare workforce for California. HCAI provides scholarships, loan
+repayments, and grants designed to attract and retain qualified Health Professionals to
+underserved communities across the state.
+The WDRR Program provides targeted financial incentives to help rural California
+communities recruit, retain, and sustain a stable pipeline of skilled Health Professionals.
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                              Page 3 of 49
+Allowable uses must support recruitment and retention of Health Professionals at
+qualifying rural sites. Whether an allowable use carries the uniform five (5) year rural
+service commitment depends on whether it is awarded to a specific Health Professional.
+
+Not subject to a five (5) year rural service commitment, because they are not awarded
+to a specific individual: faculty and preceptor support; micro-grants and added training
+slots; shared regional staffing pools and regional coordination and scheduling
+infrastructure; and the program costs allowance.
+
+These actions will reduce the time to fill priority roles, improve multi-year retention and
+average tenure, and stabilize community anchored teams that deliver whole person
+care close to home.
+
+WDRR may also support a capped program costs allowance for documented
+Subrecipient staff time coordinating WDRR.
+
+
+Award Funding
+This grant year, $54,170,000 in CalRHT Budget Period 1 (BP1) funding will be available
+for the WDRR.
+
+WDRR awards will support both individual rural facilities and regional collaboratives,
+consortia, or systems, that link rural facilities through staff sharing agreements or other
+resource sharing mechanisms. The funds will target rural facility needs, including Tribal
+clinics. Eligible Health Professional services rendered must constitute direct
+patient/client care and may include clinical services, behavioral health services, or
+eligible allied health services.
+
+Awards may be used to support:
+
+   1. Recruitment bonuses up to $150,000 are available for eligible Health
+      Professionals who are recruited to qualifying sites with fixed-term service
+      requirements.
+   2. Retention bonuses up to $150,000 per Health Professional to help rural health
+      service sites maintain and support Health Professionals that are already
+      practicing in rural and Frontier and Remote (FAR) communities.
+   3. Clinical training, faculty, and preceptor activities, as described by the applicant,
+      are eligible if the WDRR funding flows through eligible Healthcare Professional
+      bonuses or allowable program-cost coordination.
+   4. Tribal health programs implementing organization-based recruitment and
+      retention efforts, subject to set-aside requirements and consultation outcomes.
+
+Under the WDRR, approved organizations will provide or distribute bonuses to eligible
+Health Professionals who commit to the five (5) year service obligation providing direct
+patient or client care at an approved qualifying rural site in California. Health
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                              Page 4 of 49
+Professionals cannot apply directly to WDRR under this program and must be provided
+bonuses via an approved and funded organization.
+
+
+Eligibility Requirements
+Eligible Organizational Settings
+A parent organization may apply as a single organizational applicant on behalf of
+multiple sites or may instead choose to have each site submit their own independent
+application.
+
+To be eligible, an applicant must be categorized as one of the following service site
+types:
+
+ Eligible organization type           Notes
+
+ Hospital (rural)                     General acute care hospitals, including Critical
+                                      Access Hospitals (CAH) and rural non-CAH
+                                      hospitals; facility must be physically located in a
+                                      rural area of California, as defined by the Health
+                                      Resources and Services Administration (HRSA)
+
+ Federally Qualified Health Center    HRSA-certified FQHC site or FQHC Look-Alike,
+ (FQHC) or FQHC Look-Alike            including Tribal FQHC sites; facility must be
+                                      physically in a rural area of California, as defined
+                                      by the Health Resources and Services
+                                      Administration (HRSA)
+
+ Rural Health Clinic (RHC)            CMS-certified rural ambulatory care site
+                                      physically located in a rural area of California, as
+                                      defined by the Health Resources and Services
+                                      Administration (HRSA)
+
+ Tribal Clinic or Native American     Includes Indian Health Service (IHS)-designated
+ Health Center                        facilities and Tribal Health Organizations
+                                      physically located in a rural area of California, as
+                                      defined by the Health Resources and Services
+                                      Administration (HRSA)
+
+ Other Comprehensive Community        Direct-service rural health facility providing
+ Health Clinic                        comprehensive community health services
+
+ Regional Collaboration or            A collaborative arrangement among multiple
+ Consortium                           eligible organizations (applies in addition to the
+                                      eligible org types listed, not as a standalone
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                             Page 5 of 49
+ Eligible organization type            Notes
+
+                                       type); collaborative or consortium applicant with
+                                       a lead organization, documented partners, and
+                                       shared workforce or service-delivery model
+                                       serving qualifying rural sites
+
+ Health Care District                  District-based rural Health Professional or
+                                       service site serving qualifying rural communities
+
+Temporary staffing agencies, management services companies, and applicants or
+principals that are debarred, suspended, proposed for debarment, declared ineligible, or
+voluntarily excluded from federal assistance programs are not eligible.
+
+
+Eligible Health Professions for WDRR Program Funds
+To be eligible for recruitment and retention bonuses, WDRR applicant organization(s)
+and the eligible Health Professional(s) must accept Medicaid, Medicare, other public
+insurance, and offer a sliding fee discount program. Health Professionals must have a
+current, unrestricted California license, certification, or registration where applicable.
+Professions that do not require state-issued licensure or certification, including medical
+assistants, community health workers, and Promotores, remain eligible without this
+requirement. Eligible disciplines include, but are not limited to, those listed in the table
+below:
+
+
+ Discipline area                       Eligible professions (highest priority)
+
+ Primary Care (highest priority)       Primary care physicians, including Family
+                                       Medicine (FM), Internal Medicine (IM), Pediatrics,
+                                       Obstetrics/Gynecology (OB/GYN) and
+                                       Gerontology; Nurse Practitioner (NP); Physician
+                                       Assistant (PA)
+
+ Maternity Care (highest priority)     Physician (OB/GYN); Certified Nurse Midwife
+                                       (CNM); Licensed Midwife; Doula; Certified
+                                       Lactation Consultant
+
+ Nursing (highest priority)            Registered Nurse (RN); Licensed Vocational
+                                       Nurse (LVN) (limited to those serving on primary
+                                       care or maternal health care teams)
+
+ Community-Based Direct Care           Medical Assistant (MA); Community Health
+ (highest priority)                    Worker (CHW); Promotor/Promotora; other
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                              Page 6 of 49
+ Discipline area                      Eligible professions (highest priority)
+
+                                      direct-care allied health on primary or maternal
+                                      teams
+
+ Behavioral Health Professionals      Licensed Clinical Social Worker (LCSW);
+ (secondary priority when             Licensed Marriage and Family Therapist (LMFT);
+ integrated into primary or           Licensed Professional Clinical Counselor
+ maternal care teams; Behavioral      (LPCC); Psychologist
+ Health-only roles excluded)
+
+ Other Advanced Practice Health       Specialty physicians and specialty advanced
+ Professionals and Allied Health      practice Health Professionals (e.g., Emergency
+ Professionals (highest priority      Medicine Physicians); Pharmacist; Physical
+ when on primary or maternal          Therapist; Occupational Therapist; Respiratory
+ care teams; otherwise secondary      Therapist; Medical Laboratory Scientist;
+ priority)                            Radiologic Technician; Registered Dietitian;
+                                      diagnostic and imaging Health Professionals;
+                                      other direct-care allied Health Professionals
+
+ Oral Health (secondary priority)     Dentists; Registered Dental Hygienists (RDH);
+                                      Registered Dental Assistants (RDA)
+
+
+Behavioral-health-only roles are not eligible; behavioral Health Professionals on
+integrated primary or maternal care teams may be eligible at secondary priority.
+
+Eligible Funding Categories for Organizational Applicants
+As an organizational applicant, you may apply for funding for one or more of the
+following categories:
+    1. Recruitment bonuses for eligible Health Professionals accepting employment or
+       a binding offer of employment at qualifying rural sites.
+    2. Retention bonuses to help clinics maintain and support eligible Health
+       Professionals that are already practicing at qualifying rural sites.
+    3. Program costs allowance of up to 10% of the total award for documented
+       Subrecipient staff time coordinating WDRR at the facility, consortium,
+       collaborative, or system level.
+    4. Tribal health programs implementing organization-based recruitment and
+       retention efforts, subject to Tribal set-aside requirements and consultation
+       outcomes.
+
+All WDRR funding described in the following sections must ultimately be paid to eligible
+Health Professionals. Funds shall not be paid to third-party contractors or service
+providers for any reason; the program cost allowance is limited to documented
+Subrecipient staff time spent on WDRR coordination.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 7 of 49
+HCAI aims to fund up to 40 organizations and regional collaboratives, consortiums, or
+systems, and up to 400 Health Professionals awarded through those organizations.
+
+Award amounts should not exceed $1,000,000 per facility or $2,000,000 per
+consortium, collaborative, or system for BP1 award cycle.
+
+Health Professional recruitment and retention award caps are up to $150,000 per
+Health Professional. Every Health Professional Award carries the full uniform five (5)
+year service obligation regardless of amount. HCAI may award full, partial, or no funding
+based on:
+
+•   The applicant's evaluation score relative to the eligible applicant pool;
+•   The total amount of available funding;
+•   Geographic and facility-type distribution priorities, workforce need, and applicable
+    Tribal set-aside requirements.
+
+Awards are structured as a one-time prospective payment to the Subrecipient during the
+grant cycle. Subrecipients must divide the total bonus amount across the five (5) year
+obligation period and issue the payments annually to Health Professionals in arrears
+with the exception of BP1 award amount for recruitment, which may be given in
+advance by discretion of the Subrecipient. The level of bonus issued to a Health
+Professional should take into consideration the role and scope of practice of the Health
+Professional, facility need, labor market demand, and experience. Subrecipients may
+apply for additional awards in subsequent cycles provided they continue to meet all
+eligibility requirements, abide by documented caps and maximums on a per Health
+Professional basis, and submit a new application.
+
+As funding permits, a Subrecipient may apply annually for an additional award. HCAI
+requires a new application for any subsequent award cycle. Each award requires a
+separate service obligation contract and will not be considered a continuation of a
+previous agreement.
+
+WDRR grant funds must be used to support the Subrecipient’s direct costs associated
+with retaining or recruiting eligible healthcare professionals to a qualifying healthcare
+position in a qualifying rural area of California, as defined by the Health Resources and
+Services Administration (HRSA), within the allowable funding categories and award
+caps. Below is an overview of each eligible funding category and the requirements
+associated with them.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                             Page 8 of 49
+Allowable Uses of Funds
+Allowable Uses of Funds Include:
+   •   Recruitment bonuses tied to a five (5) year rural service commitment to support
+       the recruitment of new Health Professionals to qualifying rural and FAR
+       communities, including sign-on bonuses and other recruitment incentives paid
+       directly to Health Professionals.
+   •   Retention bonuses tied to a five (5) year rural service commitment to help clinics
+       maintain and support Health Professionals that are already practicing in rural and
+       FAR communities.
+   •   Program costs allowance of up to 10% of the total award for documented
+       Subrecipient staff time coordinating WDRR.
+   •   Clinical training, faculty, and preceptor capacity-building activities, including
+       support for faculty and preceptors, may be described in the workplan; WDRR
+       funding must flow through eligible healthcare professional bonuses or allowable
+       program-cost coordination.
+   •   Shared regional staffing pools across rural facilities.
+   •   Regional coordination and scheduling infrastructure.
+   •   Tribal health program recruitment and retention efforts.
+   •   Other direct costs pre-approved by HCAI as necessary and allocable to the
+       program.
+
+
+Budget Category Limitations
+Each healthcare professional WDRR award may not exceed $150,000. Organizations
+have discretion to set healthcare professional award amounts up to the per-healthcare
+professional cap; every healthcare professional award carries the full uniform five-year
+service obligation regardless of amount. Recruitment and retention must be
+documented and verified.
+
+Supplanting: WDRR funds may not be used to replace (supplant) funding from any
+other state, federal, local, or private source. If an employer reimburses any of the same
+costs, WDRR funds cannot also be applied to those same costs. The WDRR bonus
+may not be used to replace, offset, or partially cover a provider or Health Professional’s
+salary or wages.
+
+Indirect costs are not an allowable budget category for WDRR. In place of indirect costs,
+a 'program costs' allowance of up to 10% of the total award amount may be used to pay
+for organization staff time coordinating WDRR at the facility level, or consortium staff
+time organizing the awards and funds. The 10% program costs allowance is taken from
+the total award amount (it reduces funds available for recruitment and retention
+bonuses) and must be documented against actual staff time spent on WDRR
+coordination.
+
+Unallowable Costs
+The following costs are not eligible uses of WDRR award funds:
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 9 of 49
+   •   Pre-award costs incurred before the grant agreement start date.
+   •   Construction, renovation, or building improvements.
+   •   Capital equipment purchases (computers, vehicles, medical equipment).
+   •   Promotional items, advertising and public relations promoting the non-federal
+       entity, meals except in limited circumstances allowed by federal cost principles,
+       personal entertainment, or gifts.
+   •   Lobbying activities or political contributions.
+   •   Costs covered by any other HCAI program, federal grant, or employer
+       reimbursement (non-supplantation).
+   •   Provider Payments (CalRHT Use of Funds Category B) under the CalRHT
+       initiative.
+   •   Duplicate payments to the same Health Professional across CalRHT initiatives or
+       HCAI programs, per the Rural Health Transformation Program (RHTP) Terms
+       and Conditions (T&Cs) §14.
+   •   Indirect costs.
+   •   Payment to third-party contractors or service providers (all funds must be paid to
+       eligible Health Professionals).
+   •   Any other cost determined by HCAI or CMS to be unallowable under applicable
+       CMS Standard or Program Terms and Conditions, or under 2 CFR Part 200
+       Subpart E. For more information, please reference
+       https://www.cms.gov/files/document/5-year-service-commitment-fact-sheet.pdf
+
+
+WDRR Service Commitments
+Eligible Health Professionals receiving recruitment or retention bonuses must commit to
+practicing full-time (32 hours per week) providing direct patient or client care at an
+eligible rural practice site for a uniform five-year service commitment and in accordance
+to Category E Guidance. Reference Attachment C: Sample Grant Agreement section
+Health Professional Service Obligation Terms for more detail.
+
+Restriction on Health Professionals Receiving Both a Recruitment Bonus
+and a Retention Bonus
+An eligible Health Professional who receives a recruitment bonus is not eligible for a
+retention bonus from WDRR until the full recruitment bonus service obligation has been
+completed. A Health Professional receiving a retention bonus may not simultaneously
+hold a recruitment bonus from WDRR. The Health Professional must not have any other
+existing service obligation. No duplicative funding for the same service obligation (non-
+supplantation per CMS RHT T&Cs Section 14; 2 CFR 200.306(b)). This restriction does
+not preclude a Health Professional from receiving unrelated HCAI program support,
+subject to non-supplantation requirements and no other service obligation restrictions.
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 10 of 49
+Program Structure: Organizational Grant and the Health Professional
+Award Process
+The WDRR Program is structured as an organizational grant program. Organizations
+apply first through the WDRR organizational application. Awarded organizational
+Subrecipients then administer Health Professional award selection, distribution,
+monitoring, service obligation enforcement, reporting, and recoupment for Health
+Professionals.
+
+Organizational WDRR Program Application Phase
+a. Organizational WDRR Program Application Timeline
+The Organizational WDRR Program Application will be open July 31, 2026, to August
+31, 2026. Organizations that meet eligibility criteria may apply for WDRR Program
+funding to support Health Professional recruitment and retention.
+
+b. Organizational WDRR Grant Agreements with HCAI
+HCAI will enter into grant agreements directly with awarded organizations. Once a grant
+agreement is executed, the awarded organization assumes responsibility for:
+• Any necessary recruitment of or communication to potential Health Professional
+   applicants.
+• Verifying Health Professional eligibility and selecting Health Professional(s) for
+   recruitment and retention funding categories (see Category E Guidance).
+• Entering into agreements with Health Professional(s) (HCAI will not enter into grant
+   agreements with Health Professional participants).
+• Providing funding to selected Health Professionals.
+• Monitoring and reporting upon completion of all required Health Professional service
+   obligations.
+• Implementing and enforcing the HCAI-provided Health Professional service
+   obligation terms in Attachment B: Workforce Development Recruitment and
+   Retention (WDRR) Program Health Professional Service Obligation Terms.
+• Recouping funds from Health Professionals in cases of service obligation breach
+   based on the terms stated in Attachment B.
+
+Awarded organizations, not HCAI, are responsible for all Health Professional award
+components.
+
+Health Professional WDRR Verification and Award Phase
+a. Health Professional WDRR Verification Timeline
+After organizational grant agreements are executed, the Subrecipient must verify each
+Health Professional’s eligibility before issuing WDRR-supported funds. HCAI may
+require Health Professional information through an HCAI-provided form or portal before
+or after award.
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                        Page 11 of 49
+b. Health Professional WDRR Verification and Documentation
+Organizational Subrecipients are responsible for collecting and retaining the
+documentation needed to confirm Health Professional eligibility, funding category,
+acceptance of service commitments, and direct-care placement at a qualifying rural site.
+HCAI may request this information at any time for monitoring, reporting, or audit
+purposes. Reference Attachment C: Sample Grant Agreement Section C.9 Award
+Roster; Disbursement Schedule; Incremental Disbursements for more detail.
+
+c. Purpose of Health Professional WDRR Documentation
+Health Professional WDRR documentation is used to:
+1. Confirm eligibility
+2. Validate the appropriate funding category
+3. Document the Health Professional’s acceptance of required service commitments
+4. Ensure compliance with program requirements outlined in the organization’s grant
+    agreement
+
+Initiating an Organizational WDRR Program Application
+Organizational applicants must submit their applications by August 31, 2026, through
+the web-based WDRR Application located at https://hcai.ca.gov/rural-
+health/calrht/funding/
+1. Organizational applicants with application questions or technical difficulties should
+   contact HCAI staff at info@calruralhealth.org.
+2. Organizational applicants must submit applications that are complete and accurate.
+   HCAI may reject an application that is incomplete or conditional.
+   •   An individual authorized to represent the organizational applicant shall submit the
+       Organizational CalRHT Workforce Development Recruitment and Retention
+       (WDRR) Program Application.
+3. HCAI may modify this Grant Guide prior to the final application submission deadline
+   by issuing an addendum at https://hcai.ca.gov/rural-health/calrht/funding/
+4. Organizational applicants are entirely responsible for costs incurred in developing
+   applications in anticipation of an award and shall not charge the State of California
+   for these costs.
+   •   HCAI considers the submission of an application as acceptance of all terms
+       therein. All organizational applicants must agree to the terms and conditions as
+       outlined in Attachment C: Sample Workforce Development Recruitment and
+       Retention (WDRR) Grant Agreement.
+   • HCAI does not accept alternate grant agreement language from a prospective
+       Subrecipient. HCAI will consider an application with such language to be a
+       counteroffer and will reject it. HCAI will not negotiate the terms and conditions
+       outlined in Attachment C.
+5. If your program requires approval from a coordinating authority to enter into a grant
+   agreement with HCAI, please inform the authority of the terms and conditions
+   contained in this document and contact HCAI before submitting an application.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                             Page 12 of 49
+   •   Prospective Subrecipients must sign and submit grant agreements by the HCAI
+       due date. The signed grant agreement is due to HCAI within 45-60 days of award
+       notifications to allow time to redistribute funds if necessary. Failure to sign and
+       return the grant agreement by the due date may result in denial of an award.
+   •  When the prospective Subrecipient is a county or other local public body, the
+      prospective Subrecipient must include a copy of the resolution, order, motion,
+      ordinance, or other similar document from the local governing body authorizing
+      execution of the grant agreement with HCAI and confirming the prospective
+      Subrecipient’s authority to accept, receive, and expend the awarded grant funds,
+      including up to the applicable maximum award amount per award funding cycle
+      ($1,000,000 per individual facility or $2,000,000 per consortium, collaborative, or
+      system), with the signed grant agreement.
+6. Applicants must verify their authority to accept and expend funds by September 30,
+   2027.
+   •     If, upon reviewing all application deliverables, HCAI finds that the prospective
+         Subrecipient has not met all requirements and/or expended all funds, HCAI will
+         withhold payment(s) and/or request the remittance of funds from the prospective
+         Subrecipient.
+7. HCAI may waive an immaterial deviation in an application. HCAI’s waiver of an
+    immaterial deviation shall in no way modify the Grant Guide or excuse the applicant
+    from full compliance with all requirements, if awarded.
+8. The California Public Records Act (CA Gov. Code § 7920.000 et seq.) applies to all
+    grant materials and deliverables, including applications, reports, and supporting
+    documentation.
+9. HCAI will not consider any oral understanding or agreement to be binding on either
+    party.
+10. If, in the opinion of HCAI, an application contains false or misleading information, or
+    if provided documentation does not support an attribute or condition claimed, HCAI
+    shall reject the application.
+11. HCAI reserves the right to reject any or all applications, or to reduce the amount
+    funded to an applicant based on cause (failure to comply with grant agreement) or in
+    any case prior to the grant agreement being signed by both parties.
+
+
+Organizational Application Documentation
+Organizational Application Requirements.
+Each organizational application must include the following:
+   • Organizational identification and authorized representative information (legal
+      name, state and federal identifiers including Unique Entity Identifier (UEI),
+      Employer Identification Number (EIN), National Provider Identifier (NPI) per site;
+      primary site address; all proposed qualifying sites).
+   •   Active SAM.gov registration record and current Unique Entity Identifier (UEI).
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 13 of 49
+   •   National Provider Identifier (NPI) and Employer Identification Number (EIN) for
+       each proposed practice site, consistent with CMS Std T&Cs §31 Affirmative Duty
+       to Track All Parties to the Award.
+   •   Eligibility documentation demonstrating that each proposed site meets one of the
+       eligible organizational settings.
+   •   Workforce need documentation.
+   •   List of priority professions to be supported by grant funds, with role count,
+       proportion of requested funds allocated to priority professions, and proposed
+       funding category allocation.
+   •   Payor mix data, including Medi-Cal, Medi-Cal/Medicare, and IHS-covered patient
+       mix, as applicable.
+   •   Proposed rural service site assignments for each bonus-supported Health
+       Professional.
+   •   Service obligation monitoring and verification plan.
+   •   Consortium or collaborative documentation, if applying as part of a regional
+       collaborative or consortium (signed MOU or collaborative agreement; lead/fiscally
+       responsible organization identification; fund-sharing description; Tribal
+       participation documentation; and/or other formal documentation if applicable).
+   •   Federal compliance certifications, signed by the authorized representative.
+   •   Single Audit history disclosure if the applicant has expended $1 million or more in
+       federal awards in any of the three most recent fiscal years.
+   •   Organizational capacity confirmation that the organization can administer Health
+       Professional award selection, distribution, monitoring, and reporting; enter into
+       and enforce Health Professional service obligation agreements; recoup funds
+       from the Health Professional(s); be liable to repay HCAI any funds it cannot
+       recoup from the Health Professional(s); and submit annual reports through the
+       program reporting endpoint.
+   •   For counties and public-body applicants: governing body resolution, order,
+       motion, ordinance, or other authorizing action, as applicable, authorizing
+       execution of the grant agreement with HCAI and confirming the applicant's
+       authority to accept, receive, and expend the awarded grant funds, including up to
+       the maximum applicable award amount, $1,000,000 per individual facility or
+       $2,000,000 per consortium, collaborative, or system.
+   •   High-level budget and workplan; detailed budget required after tentative award
+       notification.
+   •   Any other documentation requested by HCAI in the published application
+       instructions.
+
+
+Site Verification Form (SVF)
+The SVF requires, at minimum, the following fields for each proposed practice site:
+   •   Site name, address, and site type (from eligible organization type list).
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 14 of 49
+   •   NPI and EIN for the site.
+   •   Payor mix / percentage of patients who are Medi-Cal, Medi-Cal/Medicare, IHS-
+       eligible, or uninsured.
+   •   Participation attestation signed by the site's authorized representative confirming
+       intent to participate, eligibility, and capacity.
+
+
+Health Professional Award Documentation
+After organizational grant agreements are executed, Health Professionals being
+considered for WDRR-supported awards must provide the Subrecipient with
+documentation sufficient to verify the Health Professional’s eligibility. Confirmation of
+eligibility (license, certification, and direct-care role). The documentation, at minimum,
+will require the following fields for each Health Professional:
+   •   Validation of the appropriate funding category (recruitment or retention).
+   •   Documentation of acceptance of required service commitments under
+       Attachment B.
+   •   Required identifying information for Health Professional award agreement
+       execution between the Subrecipient and the Health Professional.
+
+HCAI may require a separate HCAI-provided form or portal submission.
+
+
+Verification Responsibility
+Organizational Subrecipients are responsible for verifying Health Professional eligibility,
+funding category, qualifying rural practice site, service obligation acceptance, and
+direct-care placement before distributing WDRR funds. Subrecipients must retain
+supporting documentation and make it available to HCAI upon request for monitoring,
+reporting, or audit purposes.
+
+Cybersecurity Attestation (Where Applicable)
+Applicants who, if awarded, will have ongoing access to HHS information or technology
+systems and who will handle Personally Identifiable Information (PII) or Protected
+Health Information (PHI) from HHS, must submit a cybersecurity plan attestation
+consistent with the HHS Administrative and National Policy Requirements. The
+cybersecurity plan does not need to accompany the application; the attestation confirms
+the plan will be in place at the time of grant agreement execution.
+
+
+Budget and Workplan
+Budget Format
+Each organizational applicant must submit a high-level budget during the application
+phase using the HCAI-approved template which includes, but is not limited to, the
+requested funding categories. After tentative award notification, organizations selected
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 15 of 49
+for award will submit a detailed budget with annual allocations by site and by funding
+category. Applicants should list and cost their priority workforce needs in rank order,
+including amounts above the cap, so HCAI can assess and allocate based on
+demonstrated need:
+   •   Recruitment bonuses: number of Health Professionals, profession type, expected
+       award per Health Professional (cap $150,000).
+   •   Retention bonuses: number of Health Professionals, profession type, expected
+       award per Health Professional (cap $150,000).
+   •   Budget broken out by Subrecipient organization within the consortium or
+       collaborative, with each participating Tribal entity flagged separately.
+   •   Program costs allowance: up to 10% of total award, taken from the total award,
+       documented against projected staff time on WDRR coordination.
+   •   Tribal set-aside: amount and Tribal entity or entities, if applicable.
+   •   Non-supplantation budget narrative confirming no overlap with other HCAI,
+       federal, state, local, private, or employer reimbursement sources.
+
+Budget must not exceed documented eligible expenses. Other federal funding must be
+subtracted, if applicable. HCAI will not release the first payment until the detailed budget
+is approved.
+
+Workplan Elements
+A workplan is required as part of the application package to describe the Subrecipient’s
+intended procedures and approaches for managing CalRHT grant subaward funds.
+WDRR organizational Subrecipient workplans must align with the CalRHT goals and
+objectives. Each organizational applicant must submit a workplan using the HCAI
+approved template which includes, but is not limited to, the following elements:
+   •   Candidate outreach and sourcing plan for identifying eligible Health Professional
+       applicants for recruitment and retention bonuses.
+   •   Recruitment and/or retention plan describing service obligation monitoring, mid-
+       year and annual check-ins, and continuity-of-care planning.
+   •   Service obligation enforcement plan and employee bonus recoupment plan (e.g.,
+       in the event of an employee service obligation breach if bonus funds were
+       provided in advance of service credit being earned).
+   •   Policies and procedures service obligation exceptions, suspensions, approved
+       leave, and extensions of obligation period.
+   •   Coordination plan with regional partners (when applying as a collaborative).
+   •   Reporting plan aligned to annual Financial Reports, annual Activity Reports,
+       streamlined quarterly financial and performance reports, and streamlined monthly
+       Subrecipient activity and financial reporting.
+   •   Procedures for financial management, internal controls, accounting, auditing, and
+       tracking of grant subaward funds.
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                                Page 16 of 49
+   •   Annual milestones and key activity dates aligned to CalRHT BP1 federal
+       obligation October 30, 2026, notice of award (NOA) September/October 2026,
+       execute grant agreements September/October 2026, and final Health
+       Professional Award payment no later than September 30, 2027.
+
+Budget Adjustment
+After full review, HCAI intends to issue tentative organizational awards. Organizations
+selected for tentative awards will be required to submit a detailed budget that aligns with
+the award amount offered by HCAI.
+HCAI may adjust requested amounts based on total available funding, geographic and
+facility type distribution priorities, applicable Tribal set-aside requirements, workforce
+need, and application score relative to the eligible applicant pool.
+Once the detailed budget is approved and the grant agreement is issued, the
+Subrecipient has seven (7) business days to electronically sign and accept or decline
+the agreement. Agreements not signed within this period may be considered declined.
+Subsequent budget adjustment requests during the award period must be submitted to
+HCAI in writing at least 90 days before the Grant Agreement end date. Adjustments
+must remain within the total approved award amount; a budget adjustment may not
+increase the total award.
+
+
+Program Costs Allowance
+Policy for WDRR Subrecipients:
+   •   Indirect costs are NOT allowed for WDRR Subrecipients.
+   •   In place of indirect costs, WDRR allows a 'program costs' allowance of up to 10%
+       of the total award amount. The 10% program costs allowance may be used to
+       pay for organization staff time spent coordinating the WDRR program at the
+       facility level, or consortium staff time spent organizing the awards and disbursing
+       funds across collaborative members.
+   •   The 10% program costs allowance is taken from the total award amount (it
+       reduces funds available for recruitment and retention bonuses, it is not in addition
+       to them).
+   •   Subrecipients must document program costs against actual staff time spent on
+       WDRR coordination. Program costs may not be used to bypass the Executive
+       Level II salary cap or to fund unallowable activities.
+   •   The 10% program costs election must be documented in the Subrecipient’s
+       approved budget. Subrecipients that elect not to use the full 10% may direct the
+       remainder to recruitment and retention bonuses.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 17 of 49
+Organizational WDRR Review, Evaluation, and Scoring
+HCAI will make final selections using the Evaluation and Scoring Criteria described in
+Attachment A: Organizational Workforce Development Recruitment and Retention
+(WDRR) Evaluation Criteria.
+
+HCAI intends for the WDRR Program to support geographic distribution of Health
+Professionals in California and a balanced distribution of awards by facility type.
+Applicants seeking to support geographic regions or facility types not addressed by
+other scored applications may receive preference. Geographic shortage and facility type
+may operate as tiebreakers, and HCAI retains discretion where the eligible applicant
+pool would otherwise produce concentrated awards.
+
+HCAI reserves the right to determine the number of grant agreement(s) awarded and to
+modify the amount awarded to each Subrecipient. Competitive proposals will meet the
+WDRR evaluation criteria and demonstrate commitment to fulfill the conditions of the
+grant.
+
+During the review process, HCAI staff will verify the presence or absence of required
+information as specified in this Grant Guide and score applications using the evaluation
+criteria described in Attachment A: Workforce Development Recruitment and Retention
+(WDRR) Evaluation Criteria. The most competitive applicants will be those most
+consistent with the intent of this grant opportunity.
+
+
+Organizational WDRR Award Process
+After full review, HCAI intends to issue tentative organizational awards. Organizations
+selected for tentative awards will then be required to submit a detailed budget, including
+annual allocations by site and by funding category. This budget must align with the
+award amount offered by HCAI. The milestones and timeline table is for planning
+purposes only and can fluctuate depending on acceptance of grant agreement terms.
+
+
+ Milestone                                          Timeline
+
+ RFA release date                                   July 31, 2026
+ Application window opens                           July 31, 2026
+ Application window closes                          August 31, 2026
+ Completeness review complete                       September 2026
+ Scoring review complete                            September 2026
+ Award notifications issued                         September/October 2026
+ Grant agreements executed                          September/October 2026
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 18 of 49
+ First payment disbursed to Subrecipient             October/November 2026
+ Final Health Professional Award Payment             No later than September 30, 2027
+
+
+Post Award and Payment Provisions
+Subrecipient agreements will expire on November 30, 2032, or earlier. Under no
+circumstances shall payments to the Subrecipient be made after September 30, 2027.
+
+Subrecipients must submit annual Financial Reports, annual Activity Reports, a
+streamlined quarterly financial and performance report, and streamlined monthly
+Subrecipient activity and financial reporting. Monthly and quarterly reporting captures
+obligation, expenditure, Health Professional award status, and Service Obligation
+compliance to support HCAI reporting to CMS.
+
+States will work with the RHTP CMS Program Office to establish internal controls and
+reporting mechanisms that ensure the 5-year service requirement is met both during
+and after the CalRHT Program.
+
+Recruitment and retention funds may only be used for approved eligible positions and
+Health Professionals. If a Subrecipient is unable to retain, recruit, place, or verify an
+eligible Health Professional for a position originally approved for recruitment or retention
+funding, the Subrecipient must notify HCAI and may not retain or redirect those funds
+without prior written approval. Any unused recruitment or retention funds must either be
+reallocated through an HCAI-approved budget adjustment or returned to HCAI in
+accordance with the grant agreement.
+
+HCAI and/or its designee will make prospective payments beginning in 2026 after
+required detailed budgets, Financial Reports, Activity Reports, and other required
+documentation have been reviewed and approved by HCAI and/or its designee for
+quality and accuracy. Under no circumstances shall payments be made after
+September 30, 2027.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 19 of 49
+WDRR Program Resources
+For more Program information, please use the below resources:
+
+1. Technical Assistance: Assists applicants and Subrecipients with navigating the
+   application portal.
+   • Email: info@calruralhealth.org
+   • Phone: +1 855-CAL-RHTP (855-225-7487)
+2. Application Portal and submitting required deliverables.
+   • https://hcai.ca.gov/rural-health/calrht/funding/
+3. Webinar: A formal presentation to provide information to prospective applicants.
+   • https://hcai.ca.gov/rural-health/calrht/
+
+
+WDRR Program and the Media
+As a state department, HCAI is responsible for what it releases to the public and is
+required to provide information to anyone who requests it under the California Public
+Records Act. HCAI’s Director’s Office reviews all information for accuracy, risk,
+relevancy, and other factors. The office also coordinates timing for all HCAI news and
+press engagements in conjunction with other news coming out from the California
+Health and Human Services Agency (CalHHS) and the Governor’s Office. Subrecipient
+organizations must take this into consideration when preparing media statements or
+press releases about its programs. If an entity is engaging with the media to promote its
+grant award and/or program activities, there are important steps to follow:
+    • All Subrecipient organizations are required to submit press releases for review by
+       HCAI for review and approval a minimum of two weeks in advance of the
+       intended publication date.
+    • Subrecipient organizations understand that portions, or the entirety, of its press
+       release may be used by HCAI, CalHHS, or the Governor’s office, and may be
+       changed without notice to the Subrecipient.
+    • If HCAI, CalHHS, or the Governor’s Office issues a press release or statement
+       about an award the Subrecipient received, but does not use the awarded
+       organization’s press announcement, the Subrecipient may issue its release after
+       HCAI, CalHHS, or the Governor’s Office issues a statement. The draft release
+       must still be reviewed by HCAI before release.
+    • For some grants or programs, a pre-approved press release template may be
+       developed in a tool kit for the program, which may reduce the review/approval
+       time by HCAI. (This does not apply to all grants; please contact your program
+       officer for this information at info@calruralhealth.org.)
+    • Any discussion regarding media engagements or press releases should only be
+       directed to and approved by HCAI staff.
+    • Subrecipient organizations should stay in close contact with grant managers and
+       provide any detailed plans related to news media engagement.
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 20 of 49
+HCAI Department Contact
+For questions related to the WDRR Program and/or application, please email HCAI staff
+at info@calruralhealth.org.
+
+Thank you!
+
+We thank you for your interest in applying for the CalRHT Workforce Development
+Recruitment and Retention Program.
+
+HCAI may reach out to Subrecipient’s periodically during and after the Subrecipient
+agreement and ask you to complete a survey. Your participation is vital to our ability to
+demonstrate the effectiveness of programs such as this one and advocate for future
+funding to organizations such as yours. We ask that you take the time to complete the
+surveys.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 21 of 49
+Attachment A: Organizational Workforce Development
+Recruitment and Retention (WDRR) Evaluation Criteria
+
+Scoring Framework
+HCAI will use the 65-point evaluation rubric set forth in Attachment A to score eligible
+applications. The rubric assesses language access, payor mix, organization type and
+rural health role, consortium or shared workforce models, priority professions supported
+by grant funds, clinical training, faculty, and preceptor capacity.
+HCAI reserves the right to make funding and scoring decisions that account for baseline
+capacity and regional or programmatic need, including considerations specific to priority
+professions. In evaluating applications, HCAI may apply a capacity‑adjusted
+methodology that reflects each applicant’s existing workforce infrastructure,
+documented gaps, and readiness to expand support for priority professions, ensuring
+that decisions balance equity, feasibility, and potential for meaningful workforce impact.
+
+
+Scoring Criteria for CalRHT WDRR Program
+
+Core Categories       Guideline                                               Max
+                                                                              Points
+                                                                              Possible
+
+Language              Enter the total number of your organization's current 10
+                      Health Professionals who provide direct services in
+                      any Indigenous and/or Tribal language fluently
+                      without additional translation services.
+                      • 5 points for each health professional who speaks
+                      at least one Indigenous and/or Tribal language, up
+                      to 10 points total.
+                      • 0 points if the organization's healthcare
+                      professionals do not speak any Indigenous and/or
+                      Tribal language.
+
+Payor Mix             Does your organization accept Medicaid/Medi-Cal         15
+                      and/or serve Indian Health Service (IHS) eligible
+                      patients?
+                      • 15 points: Combined Medi-Cal, Medi-Cal/Medicare
+                      (also known as Medi-Medi), and/or IHS payor mix of
+                      75% to 100%.
+                      • 10 points: Combined Medi-Cal, Medi-Medi, and/or
+                      IHS payor mix of 50% to 74.99%.
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 22 of 49
+                     • 5 points: Combined Medi-Cal, Medi-Medi, and/or
+                     IHS payor mix of 25% to 49.99%.
+                     • 0 points: Combined Medi-Cal, Medi-Medi, and/or
+                     IHS payor mix of 0% to 24.99%.
+
+Organization Type Does the site that will receive the highest proportion     5
+and Rural Health  of your organization’s funding fall under one of the
+Role              following priority applicant types?
+                     • 5 points if the highest-funded site is one of the
+                     following: rural hospital; Rural Health Clinic;
+                     Federally Qualified Health Center or Look-Alike;
+                     rural Tribal health organization; or Native American
+                     health organization.
+                     • 0 points: None of the above.
+                     Total score may not exceed 5 points.
+
+Consortium,          Is the applicant part of a consortium, collaborative, 10
+Collaborative, or    network, or formal partnership that shares workforce
+Shared Workforce     resources or service delivery across rural settings
+Model                and will share benefits of this award?
+                     Consider shared Health Professionals, staff, training
+                     infrastructure, preceptors, recruitment and retention
+                     strategies, care teams, or clinical capacity.
+                     • 10 points: Formal collaborative with documented
+                     partners and a clear shared-resource model.
+                     • 5 points: Informal or emerging partnership that may
+                     support shared rural workforce capacity.
+                     • 0 points: No collaborative or shared-resource
+                     model identified.
+
+Priority             What proportion of requested grant funds will           15
+Professions          support priority professions?
+Supported by         Priority professions include primary care and
+Grant Funds          maternal care Health Professionals, including Family
+                     Medicine, Internal Medicine, Pediatrics, OB/GYN,
+                     and Gerontology physicians; Nurse Practitioners;
+                     Physician Assistants; Certified Nurse Midwives;
+                     Licensed Midwives; Registered Nurses; Licensed
+                     Vocational Nurses; Doulas; Certified Lactation
+                     Consultants; Community Health Workers; and other
+                     direct-care Health Professionals on primary care or
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                         Page 23 of 49
+                     maternal health teams, excluding behavioral health-
+                     only roles.
+                     Secondary professions include specialty physicians
+                     and specialty advanced practice Health
+                     Professionals; oral Health Professionals, including
+                     dentists, registered dental hygienists, and registered
+                     dental assistants; emergency medicine physicians;
+                     and diagnostic and imaging Health Professionals.
+                     • 15 points: 50% or more of requested grant funds
+                     support priority professions.
+                     • 10 points: 25% to 49.99% of requested grant funds
+                     support priority professions.
+                     • 5 points: 1% to 24.99% of requested grant funds
+                     support priority professions.
+                     • 0 points: No requested grant funds support priority
+                     professions.
+                     Total score may not exceed 15 points.
+
+Clinical Training,   Applicants should describe plans for whether and      10
+Faculty, and         how award funding will be used to support: training
+Preceptor            for students, residents, fellows, interns, or other
+Capacity - CalRHT    health professions trainees; faculty support;
+Participation        preceptor incentives; supervision; training placement
+                     slots; or other plans to build new or expand rural
+                     clinical training capacity.
+                     • 10 points: Clear description outlining clinical
+                     training capacity expansion.
+                     • 5 points: Limited or unclear description of intent to
+                     expand clinical training capacity.
+                     • 0 points: No plans.
+
+Total Points         Total Proposed Points                                     65
+Possible
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 24 of 49
+Attachment B: Workforce Development Recruitment and
+Retention (WDRR) Health Professional Service Obligation Terms
+
+1. Full-time Service Obligation Requirement
+
+Health Professionals must provide full-time services delivering direct patient or client
+care for the duration of the Service Obligation period associated with their funding
+category. Full-time service: a minimum of 32 hours per week providing direct patient or
+client care at an approved practice site. The required 32 hours of services coverage
+may be allocated across multiple service sites, as long as each site was included and
+approved as part of the grant application submitted by the subrecipient organization.
+This provision supports organizations with multiple rural clinic locations and consortium
+models in which Health Professionals are shared across participating sites.
+
+Direct patient or client care includes face-to-face care, telehealth-based care subject to
+the physical rural location and rural service delivery requirements in this Grant Guide,
+and first-line supervision over staff providing direct patient or client care. Direct care
+encompasses prevention, early intervention, assessment, treatment, counseling,
+procedures, patient self-care, patient education, and documentation relating to
+encounters with patients. Health Professionals are not permitted to work less than full-
+time during the fulfillment of their Service Obligation.
+
+2. Service Obligation Period
+
+The WDRR Service Obligation period is a uniform five (5) years for all recruitment and
+retention bonuses awarded under this program (i.e., “Health Professional Awards”). The
+Service Obligation applies to all Health Professionals regardless of bonus amount.
+
+The Service Obligation begins on the start date specified in the Health Professional
+Award Agreement.
+
+The Service Obligation must be fulfilled at an approved qualifying site physically located
+in a rural area of California, as defined by the Health Resources and Services
+Administration (HRSA).
+
+Failure to fulfill the Service Obligation within the terms specified constitutes breach and
+triggers recoupment.
+
+3. Approved Practice Site Requirements
+
+Health Professionals must serve at an approved qualifying site physically located in a
+rural area of California, as defined by the Health Resources and Services Administration
+(HRSA). Approved practice sites must meet WDRR eligibility criteria and be
+documented through the Employer Verification Form (EVF) or other HCAI-required site
+documentation.
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 25 of 49
+Site changes during the obligation period require prior written approval from the
+organizational Subrecipient and notification to HCAI within 30 days of the site change.
+
+If the Health Professional transitions to a site that is not an eligible WDRR qualifying
+site, the Health Professional may be required to seek a suspension or will be
+considered in breach.
+
+4. Leave Allowance
+
+Health Professionals may have up to seven (7) weeks per year away from their
+approved practice site for vacation, holidays, continuing professional education, illness,
+or any other reason as approved by the site. This provision does not apply to school
+vacations during which the Health Professional is practicing at an approved practice site
+in a school setting (school-based clinic).
+
+Leave up to seven (7) weeks per year: no Service Obligation extension required.
+
+Leave exceeding seven (7) weeks per year: the Health Professional must agree to
+extend the Service Obligation day-for-day for each day of absence over the seven (7)
+week allowance. The organizational Subrecipient must approve the extended leave in
+writing.
+
+5. Waiver of Service Obligation
+
+The Health Professional may request a waiver of their remaining Service Obligation on
+the basis of an extraordinary circumstance, such as long-term medical condition or
+disability that prevents completion of the obligation. No circumstance results in a waiver
+automatically, and neither the Subrecipient nor HCAI has authority to grant a waiver.
+CMS is the sole approver of any waiver, excusal, suspension, or modification of a
+Service Obligation, and no waiver is effective unless approved by CMS. To request a
+waiver, the Health Professional shall submit the request and supporting documentation
+to the Subrecipient. The Subrecipient shall review the submission for completeness and
+forward it to HCAI, together with the Subrecipient’s related records, promptly and in no
+event later than ten (10) business days after receipt. HCAI will submit the request and
+required documentation to CMS. HCAI may request additional documentation at any
+time, and an incomplete submission will not be forwarded to CMS until complete.
+
+In the event of the Health Professional’s death, the Subrecipient shall notify HCAI and
+submit the documentation HCAI requires to request excusal of the remaining Service
+Obligation from CMS. Amounts earned through the completed service before the death
+are not subject to return.
+
+Unless and until CMS approves a waiver, the Service Obligation continues. If CMS
+approves a waiver, the remaining Service Obligation is excused on the terms CMS
+approves; amounts earned through completed service are retained by the Health
+Professional, and unearned Disbursements are not paid except as CMS or HCAI
+directs.
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 26 of 49
+6. Failure to Complete the Five (5) Year Service Requirement: Prorating and
+   Extenuating Circumstances (CMS Guidance)
+   • In cases where a Health Professional is unable to complete the five (5) year
+       service requirement at their initially committed healthcare organization (e.g., due
+       to hospital closure), they may fulfill the remainder of their five (5) year
+       commitment through work for other rural health organizations or in other rural
+       communities within the State. The State may also consider prorating the
+       incentive payment amount to reflect the service provided to the rural community
+       up to that point.
+   • It may be allowable for the State to forgive the five (5) year Service Obligation in
+       cases where the educational and/or credentialing requirements that are
+       prerequisite to clinical practice have not been met or the five (5) year service
+       requirement has not been fulfilled due to extenuating circumstances such as
+       death or disability of the committed Health Professional. The State must submit a
+       request with documentation substantiating a Health Professional’s death or
+       disability to CMS for review and approval in order to write-off or otherwise forgive
+       the five (5) year Service Obligation.
+
+7. Suspension of Service Obligation
+
+The Health Professional may request that the fulfillment of their Service Obligation be
+suspended. All suspension requests must be documented by the organizational
+Subrecipient. HCAI may request applicable documentation at any time and may deny a
+suspension decision if documentation is not provided or is insufficient.
+
+The following circumstances may result in suspension of the Service Obligation:
+
+   •   Natural Disaster, Act of God, or Declared Emergency: a major natural disaster,
+       catastrophic event, or declared local, state, or federal emergency significantly
+       disrupts the Health Professional's ability to fulfill the obligation.
+   •   Institution or Site Closure or Program Disruption: the assigned service site,
+       educational institution, or program closes or becomes non-operational, and an
+       alternative placement is not immediately available.
+   •   Temporary Disability: the Health Professional experiences a disability that is
+       temporary in nature and temporarily precludes the Health Professional from
+       fulfilling the Service Obligation.
+   •   Military Deployment or Activation (Involuntary): same standard as B.5.
+
+8. Reemployment Following Suspension
+
+Health Professionals who are granted a suspension are given six (6) months to become
+reemployed in an eligible WDRR setting. The organizational Subrecipient may extend
+the suspension period on a case-by-case basis with documented justification.
+
+9. Protected Leave
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 27 of 49
+If the Health Professional plans to be away from the approved practice site for paternity,
+maternity, adoption, and other types of Protected Leave, the Health Professional
+awardee must inform the organizational Subrecipient at least 60 calendar days before
+taking the leave.
+
+HCAI allows Health Professionals to be away from approved practice sites within the
+timeframes established by the Family and Medical Leave Act (FMLA, up to 12 weeks) or
+other applicable federal and state leave protections. The Health Professional must
+adhere to the leave policies of the approved practice site. Protected Leave extends the
+Service Obligation completion date by the duration of the leave and does not count
+toward completion of the Service Obligation. Protected Leave shall not constitute a
+breach of the Service Obligation or a Recoupment of Funds, and shall not reduce
+amounts already earned.
+
+10. Breach and Payment Recoupment
+
+A Health Professional who does not complete the Service Obligation retains amounts
+earned for completed service periods, forfeits entitlement to unearned Disbursements,
+and, where funds were disbursed ahead of earned service credit, the unearned portion
+is subject to return in accordance with the grant agreement. The organizational
+Subrecipient must return recouped funds to HCAI within the timeframe specified in
+Section 10.5 (60 days from date of breach for organizational Subrecipient to HCAI). If
+the organizational Subrecipient is unable to recoup the full amount from the Health
+Professional, the organizational Subrecipient is responsible for repaying any and all
+missing funds to HCAI within the Section 10.5 timeframe.
+
+Partial completion: in cases where the Health Professional has completed a portion of
+the Service Obligation, recoupment may be calculated on a pro-rated basis at the
+organizational Subrecipient’s discretion, subject to HCAI policy guidance.
+
+Interest and collection costs may be added to the recoupment amount per applicable
+state law and the executed award agreement.
+
+11. Service Obligation Completion Date
+
+The organizational Subrecipient must structure Health Professional Award agreements
+to ensure the five (5) year Service Obligation can be completed within this window. The
+earlier the bonus is awarded, the more flexibility the Health Professional has for leave
+and suspension within the obligation period.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 28 of 49
+Attachment C: Sample Workforce Development Recruitment and
+Retention (WDRR) Grant Agreement
+
+             SAMPLE GRANT AGREEMENT BETWEEN THE
+       DEPARTMENT OF HEALTH CARE ACCESS AND INFORMATION
+                              AND
+              [SUBRECIPIENT NAME], [PROGRAM NAME]
+CalRHT WORKFORCE DEVELOPMENT RECRUITMENT AND RETENTION (WDRR)
+ PROGRAM — SUBRECIPIENT GRANT AGREEMENT NO. [WDRR AGREEMENT
+                            NUMBER]
+THIS GRANT AGREEMENT (“Agreement”) is entered into on [Agreement Start Date]
+(“Effective Date”) by and between the State of California, Department of Health Care
+Access and Information (hereinafter “HCAI”) and [Subrecipient Name], [Program Name]
+(hereinafter “Subrecipient”).
+WHEREAS, the Centers for Medicare & Medicaid Services (CMS), an agency of the
+U.S. Department of Health and Human Services (HHS), has awarded HCAI a federal
+cooperative agreement under the Rural Health Transformation Program (RHTP),
+authorized by Section 71401 of Public Law 119-21 (the “Federal Award”), and HCAI
+administers the California Rural Health Transformation (CalRHT) program under that
+Federal Award.
+WHEREAS, the Workforce Development Recruitment and Retention (WDRR) Program
+is established under Initiative 2 (Workforce Development) of CalRHT to strengthen and
+sustain the rural health care workforce through recruitment and retention bonuses and
+tied supports for Health Professionals serving at qualifying rural sites in California.
+WHEREAS, HCAI is the CMS Recipient and pass-through entity for the Federal Award
+and is authorized to make subawards to qualified organizations to carry out WDRR
+program-delivery activities; and the Subrecipient is defined under 2 CFR 200.331 with
+respect to such funds. A beneficiary is considered an entity or individual that receives
+programmatic benefit from CalRHT-funded activities but does not carry out program
+implementation.
+WHEREAS, HCAI supports health care accessibility through the promotion of a
+culturally and linguistically competent workforce while providing analysis of California's
+healthcare infrastructure and coordinating healthcare workforce issues.
+WHEREAS, the Subrecipient applied to participate in the Workforce Development
+Recruitment and Retention (WDRR) Program, and was selected by HCAI to receive
+Grant Funds through procedures duly adopted by HCAI.
+NOW THEREFORE, HCAI and the Subrecipient, for the consideration and under the
+conditions hereinafter set forth, agree as follows:
+
+A. Definitions
+ A.1 “Application” means the grant application submitted by an organization applying
+     for the WDRR Program.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 29 of 49
+ A.2 “Award Roster” means the list, in a form approved or required by HCAI, identifying
+     each Health Professional selected by the Subrecipient to receive a Health
+     Professional Award, the funding category, total award amount, disbursement
+     schedule, approved qualifying rural site or sites, Service Obligation start date, and
+     any other information required by HCAI.
+ A.3 “Deputy Director” means the Deputy Director of Health Workforce Development of
+     HCAI.
+ A.4 “Disbursement” means a scheduled payment of a portion of a Health Professional
+     Award by the Subrecipient to a Health Professional. Grant Funds” means the
+     money provided by HCAI for the Project, which derives from the Federal Award.
+ A.5 “Grant Guide” means the CalRHT Workforce Development Recruitment and
+     Retention (WDRR) Program Grant Guide for Grant Year 2026, hereby made a
+     part of this Agreement by reference.
+ A.6 “Federal Award” means the CMS RHTP cooperative agreement awarded to HCAI,
+     including all CMS Notice of Award (NOA) Standard and Program Terms and
+     Conditions and NOFO requirements incorporated therein.
+ A.7 “Health Professional” means an individual who receives a recruitment or retention
+     award provided from the Subrecipient under this Agreement. Health Professionals
+     are beneficiaries, not Subrecipients or contractors.
+ A.8 “Health Professional Award” means the individual recruitment or retention
+     approved bonus amount awarded by the Subrecipient to an eligible Health
+     Professional.
+ A.9 “Protected Leave” means leave protected by applicable law, including the federal
+     Family and Medical Leave Act, the California Family Rights Act, California parity
+     pregnancy disability leave, leave protected under the Uniformed Services
+     Employment and Reemployment Rights Act, and any other legally protected
+     leave. Protected Leave extends the Service Obligation completion date by the
+     duration of the leave and does not count toward completion of the Service
+     Obligation. Protected Leave shall not constitute a breach of the Service Obligation
+     or a Recoupment of Funds, and shall not reduce amounts already earned.
+ A.10 “Recoupment of Funds” has the meaning given in Section H.
+ A.11 “Repayment Amount” means the amount the Subrecipient must return to HCAI
+     following a Recoupment of Funds, consisting of the unallowable, unsupported,
+     unearned, duplicative, or misapplied Grant Funds, together with any interest or
+     other amounts required by applicable law or the Federal Award.
+ A.12 “Service Obligation” means the activities and terms described in Attachment B of
+     the WDRR Grant Guide.
+ A.13 “State” means the State of California and includes all its Departments, Agencies,
+     Committees and Commissions.
+ A.14 “Subrecipient” means the non-federal entity receiving funding from HCAI under
+     this agreement to carry out WDRR program activities, consistent with 2 CFR
+     200.1 and 200.331.
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 30 of 49
+  A.15 “Subrecipient Award” means the total amount of Grant Funds committed by HCAI
+      to the Subrecipient under this Agreement for administration of the WDRR
+      Program.
+  A.16 “Supplantation” refers to the act of replacing or taking the place of funds from
+      federal, state, local, and private resources.
+B. Terms of the Agreement
+This Agreement shall take effect on October 30, 2026, or earlier. Under no
+circumstances shall HCAI make payments to the Subrecipient after September 30,
+2027. The Subrecipient’s obligations to monitor, enforce, and recoup Health
+Professional Service Obligations survive termination of this Agreement as provided in
+Section H and Attachment B.
+
+C. Scope of Work
+ C.1 Program description and structure. This Agreement implements the CalRHT
+     Workforce Development Recruitment and Retention (WDRR) Program established
+     under Initiative 2 (Workforce Development) of the California Rural Health
+     Transformation (CalRHT) Program. WDRR is an organizational grant program:
+     HCAI awards the Subrecipient, and the Subrecipient in turn administers Health
+     Professional awards to Health Professionals at qualifying rural sites. HCAI does
+     not draft, review, approve or enter into agreements with Health Professionals.
+ C.2 Subrecipient responsibilities. The Subrecipients shall:
+      (a) Conduct any necessary recruitment of, and communication with, potential
+          Health Professional applicants.
+      (b) Collect and verify Health Professional candidate data including but not limited
+          to active licensure (where applicable), work authorizations, service
+          agreements consistent with WDRR requirements and provide this information
+          to HCAI upon request.
+      (c) Verify Health Professional eligibility and select Health Professionals for
+          recruitment and retention funding categories, consistent with the Grant Guide
+          and HCAI instructions.
+      (d) Enter into bonus agreements with each Health Professional (HCAI will not
+          enter into agreements with Health Professional participants).
+      (e) Distribute funding to Health Professional(s).
+      (f) Monitor and report upon completion of all required Health Professional
+          Service Obligations.
+      (g) Implement and enforce the Health Professional service obligation terms set
+          forth in Attachment B (Health Professional Service Obligation Terms).
+      (h) Recoup funds from any Health Professional in cases of service obligation
+          breach, on the terms in Attachment B, and remit recouped funds to HCAI.
+ C.3 Eligible funding categories. Grant Funds may be used to support the following
+     categories, subject to the caps and limits in Exhibit B (Budget and Award Caps):
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                         Page 31 of 49
+       (a) Recruitment bonuses tied to a five (5) year rural service commitment, up to
+           $150,000 per eligible Health Professionals recruited to qualifying rural sites.
+       (b) Retention bonuses tied to a five (5) year rural service commitment, up to
+           $150,000 per Health Professional, to help qualifying sites maintain Health
+           Professionals already practicing in rural and FAR communities.
+       (c) Program-costs allowance of up to 10% of the total award, taken from the total
+           award amount, for documented Subrecipient staff time spent coordinating
+           WDRR.
+       (d) Clinical training, faculty, and preceptor capacity-building activities may be
+           described in the workplan; WDRR funds must flow through eligible Health
+           Professional award or allowable program-cost coordination unless otherwise
+           approved by HCAI.
+       (e) Support for faculty and preceptors to increase clinical training opportunities at
+           rural sites.
+       (f) Regional collaborative, consortium, shared workforce, and service-delivery
+           coordination activities through allowable program-cost coordination and
+           Health Professional award awards.
+       (g) Shared regional staffing pools across rural facilities and regional
+           coordination/scheduling infrastructure.
+       (h) Tribal health programs implementing organization-based recruitment and
+           retention efforts (funding set aside specifically for Tribal applicants).
+ C.4 Allowable uses of Grant Funds. Within the categories in C.3, allowable uses
+     include recruitment and retention bonuses tied to the five (5) year rural service
+     commitment; documented program coordination costs up to 10% of the total
+     award; Tribal health program recruitment and retention efforts; supporting faculty
+     and preceptors to increase clinical training opportunities; shared regional staffing
+     pools; regional coordination and scheduling infrastructure; and other direct costs
+     pre-approved by HCAI as necessary and allocable to the program. All funds must
+     ultimately be paid to eligible Health Professionals;
+ C.5 Unallowable uses of Grant Funds. Grant Funds shall not be used for:
+       (a) Pre-award costs incurred before the Effective Date.
+       (b) Construction, renovation, or building improvements.
+       (c) Capital equipment purchases (computers, vehicles, medical equipment).
+       (d) Personal entertainment, meals, or gifts.
+       (e) Lobbying activities or political contributions.
+       (f) Costs covered by any other HCAI program, federal grant, or employer
+           reimbursement (non-supplantation).
+       (g) Provider Payments (CalRHT Use of Funds Category B) under the CalRHT
+           initiative. The WDRR bonus may not be used to replace, offset, or partially
+           cover a provider's salary or wages.
+       (h) Duplicate payments to the same Health Professional across CalRHT
+           initiatives or HCAI programs (per RHTP T&Cs §14).
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 32 of 49
+       (i) Indirect costs..
+       (j) Payment to third-party contractors or service providers.
+       (k) Any other cost determined by HCAI or CMS to be unallowable under
+           applicable CMS Standard or Program Terms and Conditions, or 2 CFR Part
+           200 Subpart E.
+ C.6 Subrecipient Award Administration and Stewardship of Grant Funds. HCAI
+     commits the Subrecipient Award to the Subrecipient for administration of
+     approved WDRR Program activities. HCAI will disburse the full Subrecipient
+     Award to the Subrecipient no later than September 30, 2027, consistent with the
+     Federal Award and applicable CMS terms. The Subrecipient shall deposit funds
+     received in advance of scheduled Disbursements in an insured account, interest-
+     bearing unless exempt under 2 CFR 200.305(b)(8), and shall remit interest earned
+     as required by 2 CFR 200.305(b)(9). Advanced funds remain Grant Funds subject
+     to this Agreement until earned and disbursed.
+     Commitment or receipt of any portion of the Subrecipient Award does not convert
+     Grant Funds into unrestricted operating funds of the Subrecipient. The
+     Subrecipient shall administer, safeguard, document, and disburse the
+     Subrecipient Award solely for purposes authorized by this Agreement, the Grant
+     Guide, the approved application, the approved budget, Attachment B, and
+     applicable federal requirements.
+     The Subrecipient shall not make any Disbursement unless the Subrecipient has
+     first confirmed and documented that the Health Professional: (a) satisfies all
+     applicable eligibility criteria in the Grant Guide; (b) is employed by, or has a
+     binding offer of employment from the Subrecipient or an approved participating
+     site; (c) holds an active, unrestricted license or certification required for the Health
+     Professional’s role; (d) will provide qualifying care at an approved qualifying rural
+     site or approved rural service arrangement (including mobile, paramedic, and
+     multi-site arrangements physically serving rural communities); (e) has executed a
+     written bonus agreement meeting the requirements of this Section C; (f) is not
+     receiving a duplicative payment or prohibited benefit for the same purpose or
+     service obligation; and (g) has not made any certification or representation known
+     by the Subrecipient to be false, incomplete, or misleading. The Subrecipient
+     remains responsible to HCAI for the proper administration, allowability,
+     accounting, monitoring, and return of Grant Funds, regardless of whether funds
+     have been disbursed to a Health Professional.
+ C.7 Required Health Professional Award Agreements. Before making any
+     Disbursement, the Subrecipient shall enter into a written bonus agreement with
+     the applicable Health Professional, in a form approved or prescribed by HCAI or, if
+     HCAI does not approve or prescribe a form, in a form consistent with this
+     Agreement, the Grant Guide, and Attachment B. At a minimum, each bonus
+     agreement shall include:
+       (a) The total amount and funding category of the Health Professional Award.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 33 of 49
+       (b) The Disbursement schedule, and a statement that each Disbursement is
+           earned only upon, and is conditioned on, verified eligibility, active licensure,
+           and continued qualifying rural service through the applicable verification date.
+       (c) A statement that entitlement to any future Disbursement ceases upon failure
+           to satisfy a condition, subject to Protected Leave and any approved leave,
+           suspension, waiver, or site transfer.
+       (d) The approved qualifying rural site or approved rural service arrangement, and
+           the process for approved site changes.
+       (e) The Service Obligation start date and projected completion date.
+       (f) The requirement of qualifying care for a minimum of thirty-two (32) hours per
+           week as set forth in Section D.
+       (g) Leave, suspension, waiver, and site-change terms no less protective of HCAI
+           and the Federal Award than as stated in Attachment B, including express
+           Protected Leave terms and the death and disability terms in Section I.
+       (h) Documentation and certification obligations sufficient for the Subrecipient and
+           HCAI to verify continued eligibility and service compliance.
+       (i) A prohibition against duplicate awards, supplantation, and use of funds for
+           unallowable purposes.
+       (j) The Health Professional’s consent to disclosure to HCAI, CMS, HHS,
+           auditors, or other authorized governmental reviewers of information
+           necessary to administer, verify, audit, monitor, or enforce the award, subject
+           to applicable privacy and employment laws.
+       (k) An acknowledgement that HCAI is not the Health Professional’s employer
+           and is not a party to the employment relationship.
+       (l) Any additional terms required by HCAI.
+     No bonus agreement may include a term requiring the Health Professional to
+     repay amounts already disbursed based on separation from employment or
+     nonrenewal of the employment relationship, except as approved in writing by
+     HCAI following legal review. The Subrecipient shall maintain a fully executed copy
+     of each bonus agreement and shall provide copies to HCAI within five (5)
+     business days of request.
+ C.8 Award Roster; Disbursement Schedule; Incremental Disbursements. The
+     Subrecipient shall maintain an Award Roster for all Health Professionals selected
+     to receive Health Professional Awards, updated promptly upon any selection,
+     Disbursement, site change, leave event, suspension, waiver request, breach,
+     return of funds, or completion of the Service Obligation, and provided to HCAI in
+     the form and frequency HCAI requires and, in all events, within five (5) business
+     days of written request.
+     Each Health Professional Award shall be paid in Disbursements according to a
+     schedule stated in the bonus agreement and consistent with the Grant Guide and
+     approved budget. No Health Professional Award may be paid in a single lump
+     sum at or near execution of the bonus agreement. Each annual Disbursement
+     shall be conditioned on the Subrecipient’s documented verification that the Health
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 34 of 49
+     Professional remains eligible, holds active required licensure, is performing
+     qualifying rural service under Section D or is in an approved or protected status,
+     and has provided each required certification.
+     No later than each Disbursement date, the Subrecipient shall document: the
+     amount disbursed; the funding category; the date; the approved site or sites;
+     current employment or service status; verification of the thirty-two (32) hour
+     weekly requirement or the applicable approved or protected status; any amount
+     withheld, deferred, returned, or repaid; and the remaining balance of the Health
+     Professional Award. The Subrecipient shall not accelerate, increase, reallocate, or
+     substitute a Health Professional Award except as authorized in writing by HCAI or
+     expressly permitted by the Grant Guide and approved budget.
+ C.9 Eligible Health Professionals. Each Health Professional funded under this
+     Agreement must (a) must provide direct patient or client care in an eligible
+     discipline; hold a current, unrestricted California license, certification, or
+     registration where applicable; have no other service obligation; be employed by,
+     or hold a binding offer of employment from, the Subrecipient at a qualifying rural
+     site; and accept the uniform five (5) year service obligation. Professions that do
+     not require state-issued licensure or certification, including medical assistants,
+     community health workers, and Promotores, remain eligible without this
+     requirement. Behavioral-health-only roles are not eligible; behavioral Health
+     Professionals on integrated primary or maternal care teams may be eligible at
+     secondary priority; and (b) serve at an approved qualifying rural site as defined in
+     the Grant Guide.
+ C.10 Service obligation. Every Health Professional award carries a uniform five (5)
+     year rural service obligation, on the terms set forth in Attachment B (Health
+     Professional Service Obligation Terms). Health Professionals must provide full-
+     time direct patient or client care (minimum 32 hours per week) at an approved
+     qualifying rural site for the duration of the obligation. This restriction does not
+     preclude a Health Professional from receiving unrelated HCAI program support,
+     subject to non-supplantation.
+ C.11 Health Professional award process. After this Agreement is executed, the
+     Subrecipient shall conduct a process at their discretion to determine Health
+     Professional selection and eligibility, review, and validate prospective Health
+     Professionals, review and select eligible applicants, execute a Health Professional
+     award agreement with each selected Health Professional incorporating
+     Attachment B, and disburse funds.
+ C.12 Reporting and monitoring. The Subrecipient shall submit annual financial
+     reports, annual activity reports, streamlined quarterly financial and performance
+     reports, and streamlined monthly Subrecipient activity and financial reports to
+     HCAI through HCAI's web-based Funding Portal or other HCAI-designated
+     reporting endpoint, in accordance with the schedule provided by HCAI. Maintain
+     real-time records of all expenditures and provide supporting documentation to
+     HCAI within five (5) business days of any written HCAI request, to support HCAI's
+     Federal Financial Report (FFR) submissions to CMS (see Exhibit A, A.4).
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                         Page 35 of 49
+ C.13 Required Award Reporting and Certifications. In addition to all other reporting
+     obligations, the Subrecipient shall submit reports and certifications regarding
+     Subrecipient Award administration and Health Professional Award compliance in
+     the form, manner, and frequency required by HCAI. Unless HCAI specifies a
+     different schedule, the Subrecipient shall certify at least annually that: all Grant
+     Funds received have been used only for allowable purposes; each Health
+     Professional Award was made only to an eligible Health Professional under an
+     executed bonus agreement; each Health Professional is satisfying, has satisfied,
+     or is in a protected or approved status under the Service Obligation; each Health
+     Professional in active service is meeting the thirty-two (32) hour weekly
+     requirement unless an approved exception applies; all known actual or potential
+     Recoupment of Funds have been identified and reported; all amounts required to
+     be returned have been reported and returned; and records are complete,
+     accurate, and available for review by HCAI, CMS, HHS, auditors, or other
+     authorized governmental representatives. Each certification shall be signed by an
+     authorized financial officer and an authorized program officer of the Subrecipient,
+     or by other officials approved by HCAI. A false, incomplete, or misleading
+     certification may constitute breach and may result in return of funds, suspension,
+     termination, or other remedies available under this Agreement or applicable law.
+       (a) Monitor each Health Professional's compliance with the five (5) year service
+           obligation throughout the obligation period, including for the period after this
+           Agreement terminates (per Section H — Recoupment and Survival).
+       (b) Notify HCAI immediately of any Health Professional departure, breach, or
+           other event that triggers a recoupment obligation under Attachment B.
+       (c) Submit any additional reports requested by HCAI to support program
+           evaluation or CMS reporting obligations.
+       (d) The Subrecipient must retain all records related to the WDRR subaward for
+           no less than three years from the date of submission of their final financial
+           report to HCAI, or any longer period required by the Federal Award, litigation,
+           claim, audit, or written HCAI direction.
+ C.14 Term and payment limitations. This Agreement expires on November 30,
+     2032, or earlier. Under no circumstances shall HCAI make payments to the
+     Subrecipient after September 30, 2027. Awards are structured as a one-time
+     payment during the annual grant cycle; subsequent-year awards (if any) require a
+     new application and a separate agreement and are not a continuation of this
+     Agreement.
+ C.15 Conflict between this Section and the Application or Grant Guide. In the
+     event of a conflict between this Scope of Work and the Subrecipient’s Application,
+     this Scope of Work prevails. In the event of any conflict between this Agreement
+     and Exhibit A (Federal Award Requirements), Exhibit A prevails, as provided in
+     General Terms and Conditions, Section O.1 (Order of Precedence).
+
+D. Health Professional Service Obligation Terms
+The Health Professional Service Obligation Terms applicable to each Health
+Professional are set forth in Attachment B of the WDRR Grant Guide (Health
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 36 of 49
+Professional Service Obligation Terms), which the Subrecipient shall incorporate into
+every Health Professional award agreement. Every WDRR bonus carries a uniform five
+(5) year rural service obligation. The Subrecipient is responsible for implementing,
+monitoring, enforcing, and recouping the Service Obligation as provided in Attachment
+B and Section H.
+Full-Time Rural Practice Verification. The Subrecipient shall monitor and verify each
+Health Professional’s satisfaction of the full-time rural practice requirement throughout
+the five (5) year Service Obligation. Unless Protected Leave or an approved leave,
+suspension, waiver, or site-change arrangement applies, each Health Professional must
+provide qualifying care for not less than thirty-two (32) hours per week at one or more
+approved qualifying rural sites located in rural California or through an approved rural
+service arrangement.
+The Subrecipient shall obtain and maintain documentation sufficient to verify the weekly
+requirement, which may include payroll records, time and attendance records,
+schedules, encounter or productivity records, supervisor certifications, site attestations,
+approved telehealth documentation, or other reliable records appropriate to the role and
+setting. The Subrecipient shall require the Health Professional and an authorized
+representative of the approved site to certify service compliance at least annually and
+more frequently if required by HCAI, and shall promptly notify HCAI of any material
+reduction in hours, site or employment change, extended leave, suspension or waiver
+request, termination, or other circumstance that may affect completion of the Service
+Obligation.
+Failure to maintain qualifying service, unless excused by Protected Leave or an
+approved leave, suspension, waiver, or transfer, terminates entitlement to future
+Disbursements as provided in Section C and the Health Professional Award agreement.
+
+
+E. Reports and Deliverables
+Subrecipient shall submit all deliverables for this Agreement no later than the due dates
+stated in Section C. Subrecipient shall record all expenditures in real time and provide
+supporting financial documentation to HCAI within five (5) business days of any written
+HCAI request, to support HCAI’s Federal Financial Report (FFR) submissions to CMS
+(see Exhibit A, A.4).
+
+F. Invoicing
+ F.1 For services satisfactorily rendered in accordance with the Scope of Work, and
+     upon receipt and approval of each annual report, HCAI agrees to compensate
+     Subrecipient in accordance with the rates specified herein.
+ F.2 HCAI will release annual prospective payments upon receipt and review of the
+     required financial reports.
+ F.3 Each invoice/report shall be certified by the Subrecipient’s authorized financial
+     contact and program director (or designees) that costs are true, correct, and
+     allowable under 2 CFR Part 200 Subpart E and the Federal Award.
+G. Budget Detail and Payment Provisions
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 37 of 49
+ G.1 HCAI and/or its designee will make prospective payments to Subrecipient in the
+     year(s) specified in the Grant Guide, once the specified financial and activity
+     reports have been reviewed and approved.
+ G.2 Under no circumstances shall HCAI make payments after September 30, 2027.
+ G.3 Program-costs allowance of up to 10% of the total award (taken from the award)
+     applies, documented against actual staff time, consistent with the Grant Guide.
+     Direct salary at or above the federal Executive Level II rate must be paid above
+     the cap only from non-HHS funds (see Exhibit A, A.3).
+
+H. Recoupment and Survival
+ H.1 HCAI shall recoup any funds used by the Subrecipient for purposes outside the
+     Scope of Work.
+ H.2 The Subrecipient’s duty to monitor each Health Professional’s five (5) year
+     Service Obligation, and to recoup and return funds to HCAI upon any breach,
+     survives the termination of this Agreement and the close of the Federal Award
+     period of performance, and continues until every Service Obligation is completed,
+     waived, or fully recouped. Any amounts recovered that are attributable to the
+     Federal Award shall be returned to HCAI for return to the U.S. Treasury as
+     required by Public Law 119-21.
+ H.3 Recoupment of Funds; Return of Funds. Each of the following is a
+     Recoupment of Funds: use of Grant Funds for an unallowable cost or outside the
+     approved scope of work or approved budget; a Disbursement made without the
+     verification and documentation required by this Agreement; a Disbursement to an
+     ineligible recipient; a duplicate or prohibited payment; a false, inaccurate,
+     incomplete, or misleading certification, payment request, or supporting record
+     submitted by the Subrecipient; failure to maintain records sufficient to substantiate
+     eligibility, Disbursement, allowability, or service compliance; or any other event
+     requiring return of funds under this Agreement, the Grant Guide, or applicable
+     federal requirements. Unless a different timeframe is required by Attachment B or
+     written HCAI direction, the Subrecipient shall return the Repayment Amount to
+     HCAI within sixty (60) calendar days after the earlier of (a) written demand by
+     HCAI or (b) the date the Subrecipient knew or, in the exercise of reasonable
+     diligence, would have known of the Recoupment of Funds. HCAI may withhold,
+     offset, reduce, suspend, or recover amounts from current or future payments to
+     the extent permitted by law and the applicable federal award requirements.
+ H.4 Survival of Monitoring, Recordkeeping, and Return Duties. The Subrecipient’s
+     duties to monitor each Service Obligation, verify qualifying service, maintain
+     records, report compliance status, notify HCAI of any Recoupment of Funds,
+     return funds, and cooperate with audits and federal reviews shall survive
+     expiration or termination of this Agreement, and shall continue until the latest of:
+     completion of each five (5) year Service Obligation; final resolution of any leave,
+     suspension, waiver, transfer, breach, return, audit, or enforcement matter; return
+     to HCAI of all required amounts; expiration of the applicable record-retention
+     period under 2 CFR 200.334; or any later date required by applicable law, the
+     Federal Award, audit, litigation hold, or written HCAI direction. Duties performed
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 38 of 49
+      after the end of the period of performance shall be performed at the Subrecipient’s
+      own expense, and such costs are not chargeable to the award. Termination of this
+      Agreement, expiration of the grant payment period, closeout of the Federal Award,
+      or termination of a Health Professional’s employment shall not release the
+      Subrecipient from any surviving obligation.
+
+I. Breach Provisions
+Subrecipient shall return to HCAI any funds paid to Health Professionals who fail to fulfill
+required Service Obligations under Attachment B in the WDRR Grant Guide.
+Subrecipients shall require Health Professionals to return the unearned portion of the
+award to the Subrecipient so the Subrecipient can return these funds to HCAI.
+Subrecipient is responsible to repay all such funds to HCAI irrespective of whether
+Subrecipient is able to recoup funds from Health Professionals per this Section I.
+Subrecipient Responsibility. The Subrecipient remains fully responsible to HCAI for
+return of all amounts required to be returned under this Agreement. That responsibility
+is independent of, and not conditioned upon, the Subrecipient’s recovery of any amount
+from any third party, and is not excused by any third party’s refusal, inability, insolvency,
+or bankruptcy, except to the extent HCAI grants a written waiver or CMS or another
+applicable federal authority approves other treatment. The Subrecipient shall notify
+HCAI promptly, and in no event later than five (5) business days after discovery, of any
+actual or potential Recoupment of Funds, repayment dispute, threatened litigation,
+bankruptcy notice, or other circumstance that may affect return of Grant Funds.
+Death and Permanent Disability. If a Health Professional dies or becomes
+permanently disabled such that qualifying service cannot continue or be completed, the
+remaining Service Obligation shall be addressed through HCAI’s request to CMS as
+provided in Attachment B; and neither the death or disability, nor amounts properly
+disbursed for service completed before the death or disability, shall constitute a
+Recoupment of Funds.
+
+J. Accounting Records and Audits
+ J.1 Accounting for Grant Funds shall follow generally accepted accounting principles
+     consistently applied. Supporting records must show the exact amount and nature
+     of expenditures.
+ J.2 Subrecipient shall permit the HCAI Director, the California State Auditor, the State
+     Controller, HCAI, CMS, HHS, the U.S. Comptroller General, or their authorized
+     representative’s access to records for audit and examination.
+ J.3 Subrecipient shall preserve and make available its records for a period of three (3)
+     years from the date of final payment or final closeout of the Federal Award,
+     whichever is later, consistent with 2 CFR 200.334 (see Exhibit A, A.5), and longer
+     if required by statute, litigation, claim, or audit.
+ J.4 If the Subrecipient expends $1,000,000 or more in federal awards in its fiscal year,
+     it shall arrange a Single Audit under 2 CFR Part 200 Subpart F and provide HCAI
+     a copy within fifteen (15) calendar days of submission to the Federal Audit
+     Clearinghouse (see Exhibit A, A.5).
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                             Page 39 of 49
+ J.5 Accounting, Segregation, and Documentation of Subrecipient Award and
+     Health Professional Awards. The Subrecipient shall maintain financial
+     management systems, internal controls, accounting records, and supporting
+     documentation sufficient to identify, trace, reconcile, and substantiate all Grant
+     Funds received, obligated, disbursed, retained, returned, or repaid under this
+     Agreement, consistent with 2 CFR 200.302 and 200.303 and the applicable cost
+     principles. The Subrecipient shall account for the Subrecipient Award separately
+     from unrestricted operating funds so that HCAI, CMS, HHS, the California State
+     Auditor, the State Controller, the U.S. Comptroller General, or their authorized
+     representatives can determine the source, amount, timing, purpose, recipient,
+     allowability, and status of each use of Grant Funds. A separate bank account is
+     not required unless required by HCAI or applicable law, but the Subrecipient shall
+     not commingle Grant Funds in a manner that prevents tracing, reconciliation, or
+     audit.
+     For each Health Professional Award, the Subrecipient shall maintain, at a
+     minimum: eligibility documentation; the executed bonus agreement; the approved
+     amount and funding category; Disbursement records; documentation supporting
+     qualifying service; records of any Protected Leave or approved leave, suspension,
+     waiver, site change, or transfer; annual and other required certifications;
+     documentation of any Recoupment of Funds; amounts returned to HCAI; and
+     related HCAI correspondence. Records shall be retained for the period required
+     by 2 CFR 200.334 or any longer period required by the Federal Award. The
+     Subrecipient shall reconcile award records at least quarterly, or more frequently if
+     required by HCAI, and shall promptly investigate and correct any discrepancy,
+     unsupported cost, duplicate payment, or potentially unallowable expenditure.
+
+K. Budget Contingency Clause
+ K.1 If the Budget Act of the current or any subsequent year does not appropriate
+     sufficient funds for the program, this Agreement shall be of no further force and
+     effect, and HCAI shall have no liability to pay any funds.
+ K.2 This Agreement is additionally contingent on the continuation of the Federal
+     Award. If CMS reduces, suspends, or terminates the Federal Award (2 CFR
+     200.340), HCAI may immediately reduce or terminate this Agreement with written
+     notice and will reimburse only allowable costs incurred through the effective date
+     of reduction or termination (see Exhibit A, A.10).
+
+L. Budget Adjustments
+Budget adjustments that do not change the total amount or other terms may be made
+on written request and HCAI approval. Requests must be submitted to HCAI in writing
+at least ninety (90) days before the Grant Agreement end date and may not increase
+the total award.
+
+M. Media and Press Engagements
+Before undertaking or responding to any media inquiry or press engagement regarding
+this Agreement, Subrecipient shall contact the HCAI Program Officer for written
+approval. All press releases must be submitted to HCAI at least two weeks before the
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                         Page 40 of 49
+intended publication date; release is prohibited until HCAI grants approval. Subrecipient
+shall also comply with the federal pre-release review timelines and the Stevens
+Amendment acknowledgment in Exhibit A, A.9 and A.11.
+
+N. Executive Order N-6-22 — Russia Sanctions
+On March 4, 2022, Governor Gavin Newsom issued Executive Order N-6-22 (the EO)
+regarding Economic Sanctions against Russia and Russian entities and individuals.
+“Economic Sanctions” refers to sanctions imposed by the U.S. government in response
+to Russia’s actions in Ukraine, as well as any sanctions imposed under state law. The
+EO directs state agencies to terminate contracts with, and to refrain from entering any
+new contracts with, individuals or entities that are determined to be a target of Economic
+Sanctions. Accordingly, should the State determine Contractor is a target of Economic
+Sanctions or is conducting prohibited transactions with sanctioned individuals or
+entities, that shall be grounds for termination of this agreement. The State shall provide
+Contractor advance written notice of such termination, allowing Contractor at least 30
+calendar days to provide a written response. Termination shall be at the sole discretion
+of the State.
+
+O. General Terms and Conditions
+ O.1 Order of Precedence. In the event of any conflict, the federal requirements in
+     Exhibit A (Federal Award Requirements) control over the body of this Agreement,
+     Attachment B, and the Grant Guide. Federal flow-down provisions cannot be
+     waived or modified by any other provision of this Agreement.
+ O.2 Final Agreement. This Agreement, with its Application, exhibits, and forms,
+     constitutes the entire agreement subject to the Order of Precedence above.
+ O.3 Ownership and Public Records Act. All reports and supporting documentation
+     become State property and are subject to the California Public Records Act. In
+     addition, CMS retains a royalty-free, nonexclusive, irrevocable license to
+     reproduce, publish, and use all works developed under the Federal Award for
+     federal purposes (2 CFR 200.315(b); Exhibit A, A.12).
+ O.4 Non-Discrimination. Subrecipient shall comply with the California
+     nondiscrimination requirements (Gov. Code §12900 et seq.; Cal. Code Regs. tit. 2
+     §11000 et seq.) and the federal antidiscrimination laws certified in Exhibit A, A.7
+     (Title VI, Section 504, Title IX, Age Act, ACA §1557).
+ O.5 Independence; Waiver; Approval; Amendment; Assignment;
+     Indemnification; Disputes; Termination for Cause; Governing Law; Survival;
+     Unenforceable Provision. These provisions are preserved from the base
+     agreement without substantive change and apply to this Agreement.
+ O.6 Mandatory Disclosure. Subrecipient shall promptly disclose in writing to HCAI
+     and the HHS OIG all violations of federal criminal law involving fraud, bribery, or
+     gratuity potentially affecting the Federal Award (2 CFR 200.113; Exhibit A, A.8).
+ O.7 No Dilution of Federal Requirements; Downstream Consistency. No Health
+     Professional award agreement, employment agreement, personnel policy,
+     repayment plan, site agreement, consortium agreement, or other downstream
+     document may waive, reduce, delay, or otherwise dilute the Subrecipient’s
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 41 of 49
+      obligations under this Agreement, the Grant Guide, Attachment B, or applicable
+      federal award requirements. If any downstream document conflicts with this
+      Agreement, Attachment B, or applicable federal requirements, this Agreement and
+      the federal requirements control as between HCAI and the Subrecipient. The
+      Subrecipient shall not enroll a Health Professional whose governing collective
+      bargaining agreement or employment terms conflict with the program
+      requirements unless the conflict is resolved or HCAI approves an accommodation
+      in writing. Each bonus agreement shall expressly state that its service obligation,
+      documentation, reporting, and Disbursement terms are intended to satisfy the
+      WDRR Program requirements and are subject to this Agreement, the Grant
+      Guide, Attachment B, and applicable federal award requirements. The
+      Subrecipient shall not modify, waive, compromise, forgive, or release any material
+      Service Obligation or return obligation without prior written notice to HCAI and,
+      where required, written approval by HCAI, CMS, or another applicable authority.
+
+P. Project Representatives
+The representatives of HCAI and the Subrecipient, and their contact information, are set
+forth in the table the parties complete at execution. Direct all inquiries as indicated
+therein. By signing this Grant Agreement, I acknowledge that I am subject to the
+eligibility requirements identified in the Workforce Development Recruitment and
+Retention Grant Guide for Cycle Year 2026 (the “Grant Guide”), which is incorporated
+into this Agreement in its entirety by reference. I understand that I may be disqualified
+from the process if an eligibility conflict is identified based on the criteria set forth in the
+Grant Guide.
+
+
+IN WITNESS WHEREOF, the parties have executed this Agreement.
+
+ DEPARTMENT OF HEALTH CARE
+                                                    SUBRECIPIENT
+ ACCESS AND INFORMATION
+
+ Signature:                                         Signature:
+ ____________________________                       ____________________________
+
+ Name: ____________________________                 Name: ____________________________
+
+ Title: ____________________________                Title: ____________________________
+
+ Date: ____________________________                 Date: ____________________________
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                               Page 42 of 49
+EXHIBIT A — FEDERAL AWARD REQUIREMENTS (CalRHT / CMS RHTP)
+Federal Award Identification (2 CFR 200.332(a))
+Federal awarding agency             Centers for Medicare & Medicaid Services (CMS), HHS
+
+                                    California Dept. of Health Care Access and Information
+Pass-through entity
+                                    (HCAI)
+
+Federal Award Identification
+                                    [FAIN — HCAI to insert]
+Number (FAIN)
+
+Federal award date                  [Award date — HCAI to insert]
+
+Assistance Listing No. &            [Listing # — HCAI to insert] — Rural Health
+name                                Transformation Program
+
+Statutory authority                 Section 71401, Public Law 119-21
+
+Subaward period of
+                                    [Start] through September 30, 2027
+performance
+
+Is the Federal Award R&D?           No — program delivery, not research
+
+
+ A.1 Subrecipient status and cost principles. The Subrecipient is subject to 2 CFR
+     Part 200 Subparts D, E, and F and Part 300. Health Professional award recipients
+     are Subrecipient beneficiaries; federal flow-down stops at the Subrecipient tier.
+ A.2 SAM.gov entity tracking. Maintain active SAM.gov registration and a current UEI
+     throughout the term (2 CFR Part 25). Provide HCAI the UEI, EIN, Tax ID, and NPI
+     for all sites/key personnel within 30 days of the Effective Date, and verify that no
+     party is debarred or suspended (2 CFR 200.214; NOA Std T&C §31).
+ A.3 Allowable and prohibited costs. All costs charged to this Agreement must be
+     allowable under 2 CFR Part 200 Subpart E and the HHS-specific modifications at
+     2 CFR Part 300. The following uses of Grant Funds are expressly prohibited per
+     NOA Standard T&C §27 (Prohibited Uses of Grant or Cooperative Agreement
+     Funds), CMS Program T&C §14 (Use of Funds), the CMS RHTP NOFO (CMS-
+     RHT-26-001), and 2 CFR Part 200 Subpart E: (a) pre-award costs; (b) costs used
+     to meet matching requirements for any other federal funds or local entities; (c)
+     services, equipment, or supports that are the legal responsibility of another party
+     under federal, State, or tribal law (e.g., vocational rehabilitation or education
+     services) or under any civil rights law (e.g., workplace accommodations); (d)
+     goods or services not allocable to the approved Scope of Work; (e) supplanting
+     existing State, local, tribal, or private funding of infrastructure or services,
+     including staff salaries; (f) construction, building expansion, or significant
+     retrofitting; (g) capital expenditures for improvements to land, buildings, or
+     equipment that materially increase value or useful life as a direct cost, except with
+     prior written CMS approval; (h) independent research and development costs,
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                               Page 43 of 49
+     including their proportionate share of indirect costs (2 CFR §300.477); (i) profit to
+     any recipient, even a for-profit recipient (amounts in excess of allowable direct and
+     indirect costs); (j) lobbying and any activity designed to influence the enactment of
+     legislation, appropriations, regulation, administrative action, or executive order
+     proposed or pending before Congress or any state or local legislative body (31
+     U.S.C. §1352; 45 CFR Part 93; 2 CFR §200.450); (k) covered telecommunications
+     and video surveillance equipment or services (2 CFR §200.216); (l) promotional
+     items and memorabilia, including models, gifts, and souvenirs; (m) advertising and
+     public relations designed solely to promote the non-Federal entity; (n) meals,
+     except in the limited circumstances permitted by §27 (subjects/patients under
+     study; specifically approved program activity; or as part of allowable per diem
+     during approved travel); (o) duplicate payments for clinical services reimbursable
+     by insurance; and (p) CalRHT “Provider Payments” (Use of Funds Category B)
+     under the CalRHT initiative. Direct salary at or above the federal Executive Level
+     II rate is payable above the cap only from non-HHS funds (see Section G.4; NOA
+     Standard T&C §24).
+ A.4 Reporting and real-time records. Subrecipients must maintain timely, accurate
+     financial records of expenditures; submit required financial and activity reports
+     through HCAI’s designated reporting systems (e.g., Funding Portal); and provide
+     supporting documentation promptly upon HCAI request to support state and
+     federal reporting, including CMS Federal Financial Reports, in accordance with
+     the Notice of Award terms and conditions.
+ A.5 Records retention and audit. Retain all records for at least three (3) years after
+     final closeout (2 CFR 200.334). HCAI, CMS, HHS, and the Comptroller General
+     may audit all related records. A Single Audit is required if the Subrecipient
+     expends $1,000,000+ in federal awards in its fiscal year (2 CFR Part 200 Subpart
+     F); provide HCAI a copy within 15 calendar days of FAC submission.
+ A.6 Noncompliance and remedies. Noncompliance with this Exhibit is a material
+     breach. HCAI may withhold payments, require a corrective action plan within 15
+     calendar days, reduce or terminate the subaward, or require repayment of federal
+     funds. Subrecipients shall indemnify HCAI for any costs, penalties, or repayment
+     imposed on HCAI by CMS due to the Subrecipient’s noncompliance.
+ A.7 Federal certifications. By executing this Agreement, and as a material condition
+     of receiving and retaining federal funds, the Subrecipient certifies the following.
+     (i) Federal antidiscrimination laws (NOA Standard T&C §2).
+         Compliance with Title VI of the Civil Rights Act of 1964 (42 U.S.C. §2000d et
+         seq.; 45 CFR Part 80); Section 504 of the Rehabilitation Act of 1973 (29 U.S.C.
+         §794; 45 CFR Part 84); Title IX of the Education Amendments of 1972 (20
+         U.S.C. §1681 et seq.; 45 CFR Part 86), including Executive Order 14168; the
+         Age Discrimination Act of 1975 (42 U.S.C. §6101 et seq.; 45 CFR Part 91); and
+         Section 1557 of the Patient Protection and Affordable Care Act (42 U.S.C.
+         §18116; 45 CFR Part 92). The Subrecipient further acknowledges that
+         compliance is a material condition of the award and that a knowing false
+         certification may subject it to liability under the False Claims Act (31 U.S.C.
+         §3729) and 18 U.S.C. §§287, 1001.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 44 of 49
+     (ii) Debarment and suspension (NOA Standard T&C §23; 2 CFR Part 200.214;
+     2 CFR Parts 180 and 376).
+         Neither the Subrecipient nor any principal of the Subrecipient is presently
+         debarred, suspended, proposed for debarment, declared ineligible, voluntarily
+         excluded, or otherwise disqualified from participation in federal nonprocurement
+         transactions, and the Subrecipient will not make any subaward or procurement
+         contract to any party that is so excluded.
+     (iii) Prohibited uses of grant funds (NOA Standard T&C §27; CMS Program
+     T&C §14; 31 U.S.C. §1352; 45 CFR Part 93; 2 CFR §200.450; 2 CFR §200.216;
+     2 CFR §300.477).
+         The Subrecipient certifies that it will not use Grant Funds for any purpose
+         prohibited under NOA Standard T&C §27, CMS Program T&C §14, the CMS
+         RHTP NOFO, or 2 CFR Part 200 Subpart E. The complete operative list of
+         prohibited uses is set forth at Exhibit A, A.3 (Allowable and Prohibited Costs)
+         and includes, without limitation: pre-award costs; matching for other federal
+         funds; supplanting; construction; goods or services not allocable to the Scope
+         of Work; independent research and development (2 CFR §300.477); profit;
+         lobbying or any activity to influence federal or state legislation (31 U.S.C.
+         §1352; 45 CFR Part 93; 2 CFR §200.450); covered telecommunications and
+         video surveillance equipment (2 CFR §200.216); promotional items and
+         memorabilia; advertising and public relations promoting the Subrecipient; meals
+         outside §27 limited circumstances; duplicate payments for insurance-
+         reimbursable clinical services; and CalRHT Provider Payments (Use of Funds
+         Category B). The Subrecipient will complete and submit the Disclosure of
+         Lobbying Activities (SF-LLL) if required by 31 U.S.C. §1352, and will flow the
+         §27 prohibitions down to any subaward or procurement contract.
+     (iv) Equal treatment of faith-based organizations (NOA Standard T&C §33; 45
+     CFR Part 87).
+         The Subrecipient will not discriminate against any individual or potential
+         individual on the basis of religion or religious belief, and will administer the
+         funded program in a manner consistent with 45 CFR Part 87.
+     (v) Mandatory disclosures (NOA Standard T&C §22; 2 CFR §200.113).
+         The Subrecipient will promptly disclose in writing to HCAI and the HHS Office of
+         Inspector General all violations of federal criminal law involving fraud, bribery,
+         or gratuity that may affect the Federal Award. The Subrecipient will include this
+         disclosure requirement in every subaward and contract under this Agreement.
+     (vi) Conflict of interest (NOA Standard T&C §16; 2 CFR §200.112; 2 CFR
+     §300.112).
+         The Subrecipient will maintain and follow a written conflict-of-interest policy
+         meeting the standards of 2 CFR §200.112 and HHS supplementation, and will
+         disclose to HCAI in writing any actual or potential conflict.
+     (vii) Employee whistleblower protections (NOA Standard T&C §21; 41 U.S.C.
+     §4712).
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                           Page 45 of 49
+        The Subrecipient will inform all of its employees in writing, in the predominant
+        native language of the workforce, of the rights and remedies under 41 U.S.C.
+        §4712 protecting employees who disclose evidence of waste, fraud, abuse, or
+        violations of law related to a federal award.
+     (viii) Telecommunications and video surveillance restriction (NOA Standard
+     T&C §18; 2 CFR §200.216).
+        The Subrecipient will not use Grant Funds to procure or obtain, or to extend or
+        renew a contract to procure or obtain, equipment, services, or systems that use
+        covered telecommunications equipment or services as described in 2 CFR
+        §200.216.
+     (ix) Federal regulations and HHS Grants Policy Statement incorporated by
+     reference (NOA Standard T&C §1).
+        The Subrecipient will comply with all requirements of 2 CFR Part 200 and 2
+        CFR Part 300; with the HHS Grants Policy Statement (effective October 1,
+        2025), which NOA Standard T&C §1 incorporates by reference; and with the
+        statutory and national-policy requirements at 2 CFR §300.300. This includes
+        federal Subrecipient certifications addressed in the HHS GPS but not
+        separately named in the NOA, including: drug-free workplace (41 U.S.C.
+        §§8101–8106; HHS GPS); Hatch Act limitations on political activity by
+        employees paid with federal funds (5 U.S.C. §§1501–1508; HHS GPS);
+        prohibition on trafficking in persons (22 U.S.C. §7104(g); 2 CFR Part 175);
+        environmental compliance (Clean Air Act, 42 U.S.C. §7401 et seq.; Clean
+        Water Act, 33 U.S.C. §1251 et seq.); and any other certification the HHS GPS
+        requires as a condition of federal financial assistance.
+ A.8 Mandatory disclosure. Promptly disclose in writing to HCAI and the HHS OIG all
+     violations of federal criminal law involving fraud, bribery, or gratuity potentially
+     affecting the Federal Award (2 CFR 200.113). Include this requirement in any
+     subaward or contract.
+ A.9 Stevens Amendment acknowledgment. All publications, presentations, and
+     public communications must state: “This [project] is supported by the Centers for
+     Medicare & Medicaid Services (CMS) of the U.S. Department of Health and
+     Human Services (HHS) as part of a financial assistance award totaling $[amount]
+     with 100 percent funded by CMS/HHS. The contents are those of the author(s)
+     and do not necessarily represent the official views of, nor an endorsement by,
+     CMS/HHS, or the U.S. Government.”
+ A.10 Termination tied to the Federal Award. If CMS reduces, suspends, or
+     terminates the Federal Award (2 CFR 200.340), HCAI may immediately reduce or
+     terminate this subaward with written notice and will reimburse only allowable costs
+     incurred through the effective date. Any amounts withheld or recovered
+     attributable to the Federal Award are returned to the U.S. Treasury (P.L. 119-21).
+ A.11 Pre-release review of communications. Submit publications and external
+     presentations to HCAI at least 30 days before release, and press releases/media
+     advisories at least 7 days before release, for forwarding to the CMS Project
+     Officer (NOA Std T&C §29(F)). This is in addition to the State media review in
+     Section M.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 46 of 49
+ A.12 CMS federal IP license. CMS retains a royalty-free, nonexclusive, irrevocable
+     license to reproduce, publish, and use — and authorize others to use — all
+     copyrightable works developed under the Federal Award for federal purposes (2
+     CFR 200.315(b)). This applies to all deliverables, materials, and reports.
+ A.13 Privacy, security and cybersecurity. Protect individually identifiable health
+     information with safeguards at least as protective as HIPAA (45 CFR Parts 160 &
+     164). Where the Subrecipient has ongoing access to HHS systems or handles
+     PII/PHI from HHS, maintain a cybersecurity plan consistent with the HHS
+     Administrative and National Policy Requirements (NOA Std T&C §25).
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                      Page 47 of 49
+EXHIBIT B — BUDGET AND AWARD CAPS (WDRR)
+B.1 Program funding context. Total CalRHT funding awarded to HCAI by CMS for
+Grant Year 2026 is $233,639,308.46 (100 percent federally funded). The WDRR
+Program allocation for Grant Year 2026 is $54,170,000 (the “WDRR Pool”). This
+Agreement is funded from the WDRR pool. (Grant Guide cover page; Award Funding.)
+B.2 Award caps per Subrecipient. Award amounts under this Agreement shall not
+exceed the following:
+      (a) Individual facility: not to exceed $1,000,000.
+      (b) Consortium, collaborative, or system: not to exceed $2,000,000.
+      (c) HCAI may award full, partial, or no funding based on the applicant's
+          evaluation score relative to the eligible applicant pool, the total amount of
+          available funding, and geographic distribution priorities.
+      (d) Total award to this Subrecipient under this Agreement: $[TBD — HCAI to
+          insert award amount].
+B.3 Per-Health Professional sub-caps. For each Health Professional award the
+Subrecipient makes to a Health Professional under this Agreement:
+      (a) Recruitment bonus: not to exceed $150,000 per Health Professional per
+          subaward cycle.
+      (b) Retention bonus: not to exceed $150,000 per Health Professional per
+          subaward cycle.
+      (c) A Health Professional may not concurrently hold a recruitment bonus and a
+          retention bonus from WDRR; the restriction in Section C.7 applies.
+B.5 Budget Amount:
+        (a) Tribal set-aside: HCAI to specify amount or percentage reserved for Tribal
+            applicants if this Agreement participates in the Tribal set-aside.
+B.6 Program costs allowance (in lieu of indirect costs). Indirect costs are not an
+allowable budget category under WDRR. In their place, a program costs allowance of
+up to ten percent (10%) of the total award amount applies, on the following terms:
+       (a) The allowance may be used to pay for organization staff time coordinating
+           WDRR at the facility level, or consortium staff time organizing the awards and
+           disbursing funds across collaborative members.
+       (b) The 10% allowance is taken FROM the total award amount; it reduces the
+           funds available for recruitment and retention bonuses, rather than being
+           added to them.
+       (c) The allowance must be documented against actual staff time spent on
+           WDRR coordination.
+       (d) The allowance may not be used to bypass the federal Executive Level II
+           salary cap or to fund unallowable activities.
+       (e) The Subrecipient’s election (full 10%, partial, or none) must be reflected in
+           the approved budget; any unused portion may be redirected to recruitment or
+           retention or bonuses.
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                            Page 48 of 49
+B.7 Unallowable costs. Costs unallowable under this Agreement are set out in Section
+C.5 (Unallowable Uses) and Exhibit A, A.3 (Allowable & Prohibited Costs). In any
+conflict, the more restrictive provision controls.
+B.8 Payment structure. Awards under this Agreement are structured as a one-time
+prospective payment during the annual grant cycle, made by HCAI or its designee
+following HCAI's review and approval of the required financial and activity reports.
+Subsequent year’s awards (if any) require a separate new application and a separate
+new agreement. Under no circumstances shall HCAI make payments to the
+Subrecipient after September 30, 2027.
+B.9 Budget adjustments. Budget adjustments that do not change the total award or
+other terms may be made on written request and HCAI approval. Adjustment requests
+must be submitted at least ninety (90) days before the Grant Agreement end date and
+may not increase the total award. (See Section L of this Agreement.)
+B.10 Detailed budget and supporting documentation. The Subrecipient's detailed
+budget, including annual allocations by site and by funding category, is submitted by the
+Subrecipient post-tentative-award per the Grant Guide and is approved by HCAI before
+the first payment is released. The approved detailed budget is incorporated into this
+Agreement and this Exhibit B upon HCAI's written approval, without need for a formal
+amendment. In the event of any conflict between the approved detailed budget and the
+caps and limits in this Exhibit B, this Exhibit B controls. Any revision to the approved
+detailed budget shall be made only in accordance with Section L and Section B.9. The
+approved detailed budget is incorporated into this Agreement by reference upon HCAI
+approval.
+
+
+
+
+CalRHT Workforce Development Recruitment and Retention Program
+Grant Guide 2026                                                          Page 49 of 49
+

@@ -1,0 +1,1893 @@
+Budget Narrative (revised to reflect Budget Period 1 only)
+Proposed Initiatives
+As described in the Project Narrative, California’s Rural Health Transformation
+(CA-RHT) program includes three interrelated initiatives designed to achieve the goals
+in Section 71401 of Public Law 119-21 and the CMS-RHT-26-001 Notice of Funding
+Opportunity (NOFO). Together, they form a comprehensive strategy to expand access,
+strengthen the workforce, and modernize technology infrastructure in rural and frontier
+communities, each aligned with authorized uses of funds and sustainability
+requirements.
+Initiative 1: The Rural Health Transformative Care Model Initiative
+Description: Establish coordinated, regional Hub-and-Spoke networks that link rural
+hospitals, clinics, alternate birth centers, and community providers to hubs and
+telehealth systems, so patients get the right care, at the right time, close to home. The
+model integrates standardized care pathways, evidence-based models, evaluates rural
+payment approaches, and supports a digital “nervous system” to stabilize services, and
+improve health outcomes.
+Initiative 2: The Rural Health Workforce Development Initiative
+Description: Build and sustain a homegrown rural health workforce so people can
+access high-quality care close to home. The initiative aligns data-informed planning with
+pipeline development, practical training, and retention supports to expand primary,
+maternity, specialty, and behavioral health capacity across rural and frontier California.
+Initiative 3: The Rural Health Technology & Tools Initiative
+Description: Equip California’s rural providers with modern technology, skills, and
+shared services to deliver coordinated, high-quality primary, maternity, and specialty
+care. The Technology & Tools initiative helps to ensure technology infrastructure is in
+place (e.g., connectivity, cybersecurity, virtual care platforms, consumer-facing apps
+and technology) to advance clinical integration and efficiency.
+Program Structure
+The CA-RHT program aims to address longstanding rural health divides, workforce
+shortages, and technology infrastructure deficits in California’s rural communities. To
+ensure its success, the program will be led by a dedicated team in the California
+Department of Health Care Access and Information (HCAI). Within the departmental
+structure, the CA-RHT program will be supported by the California State Office of Rural
+Health (CalSORH). CalSORH’s mission directly aligns with the goals of the RHTP: “To
+transform rural health systems through innovation, collaboration, and targeted
+investment.”
+
+HCAI’s health workforce development team is well-positioned to coordinate with
+California’s integrated state Medicaid agency, State Mental Health Authority, Single
+State Agency for Substance Abuse, Department of Public Health, behavioral health
+agencies, and state policymakers. By leveraging current relationships with the rural
+health leaders and organizations, such as the California Association of Rural Health
+Clinics, California Hospital Association, California Primary Care Association, Area
+
+
+Revised 03/27/2026                                                                        1
+Health Education Centers, and more, HCAI is situated to create a program that involves
+the majority of California. HCAI already maintains strong relationships with rural
+hospitals, clinics, Tribal organizations, local health departments, and community-based
+organizations. These established partnerships provide an immediate foundation for
+CA-RHT program implementation, avoiding costly delays in relationship-building and
+trust development that a new or external agency would face. Additional resources will
+allow HCAI to administer this program sufficiently and expediently. The following
+proposed plan for staffing allows for the most impact.
+
+HCAI envisions a structure for the CA-RHT program that aligns the three initiatives
+under the direction and management of a Program Director guided by department
+executives and informed by a Rural Health Policy Council. The Council will leverage
+HCAI’s current relationships among health-related state departments, community and
+Tribal organizations, and partners on the front lines of rural health care delivery. The
+inputs will inform and direct the CA-RHT program with support from other business units
+and central program management coordination. The program organization is illustrated
+below.
+
+
+
+
+               Figure 1 -       CA-RHT program organization chart 1
+
+This proposal requests federal grant funds in the amount of $233.6 million in the first
+1
+    HCAI – CA Department of Health Care Access and Information
+    DHCS – CA Department of Health Care Services
+    CDPH – CA Department of Public Health
+    DMHC – CA Department of Managed Health Care
+    EMSA – CA Emergency Medical Services Authority
+    CalPERS – CA Public Employees Retirement System
+
+
+Revised 03/27/2026                                                                        2
+budget period (federal fiscal years 2026 through 2027) for the following categories:
+Personnel, Fringe Benefits, Travel, Supplies, Consultants/ Contractors/ Subrecipients,
+and Indirect Costs. HCAI is committed to being a strong steward of this cooperative
+agreement through clear policies and procedures, strong performance-based subaward
+agreements, and regular monitoring of subrecipients (including financial reviews, data
+validation, and follow-up on any corrective actions). HCAI will monitor expenditures,
+including those of subrecipients, to comply with appropriate uses of funds described in
+the NOFO, uniform guidance (e.g., 2 CFR Part 200), and applicable state requirements.
+HCAI’s grant management practices will be supported by internal controls that help
+ensure costs are allowable, reasonable, and allocable under the terms of the grant
+award.
+
+The Rural Health Transformation Program represents a critical opportunity in California
+to advance accessibility and sustainability in California’s rural health systems. These
+opportunities include structural IT and telehealth changes, substantial investments in
+rural and hospital workforce, and opportunities to increase the financial stability and
+sustainability of rural entities for years into the future. Housing the plan within HCAI
+ensures alignment with state goals, continuity with existing efforts, and responsiveness
+to the unique needs of rural Californians.
+A. Personnel (Salaries and Wages)
+HCAI is requesting federal grant funds to support 29 Full Time Equivalent (FTE) staff
+resources in a range of roles and classifications as further described below.
+Program Leadership Staff Resources
+The CA-RHT program will be led by the interim Program Director until a full-time,
+permanent director is recruited specifically for CA-RHT. The Program Director will be
+supported by a Senior Health Program Specialist and Information Officer to help ensure
+the program remains aligned with federal requirements and engaged with statewide
+stakeholders. Additional staffing for CalSORH will help ensure rural health strategies
+are coordinated, consistent, and remain engaged with appropriate stakeholders
+throughout California’s rural communities.
+• Program Director – Hovik Khosrovian (interim) – Future Recruitment (1 FTE)
+    The CA-RHT Program Director will be responsible for the coordination and
+    implementation of HCAI’s three rural health initiatives throughout the program
+    period. From program initiation, this position will be filled by Hovik Khosrovian,
+    HCAI’s Senior Policy Advisor for Health Workforce Development. This will provide
+    the CA-RHT program with leadership directly connected to HCAI’s workforce
+    development, rural health, and policy resources. During the first year of program
+    implementation, HCAI plans to recruit a full-time Program Director to provide
+    longevity and focus to the CA-RHT program for its duration. The Program Director
+    will serve as the principal point for gaining input from the Rural Health Policy
+    Council, directing the activities of the project initiatives, and helping ensure the
+    program has the proper resources to achieve agreed upon outcomes. The Program
+    Director will be the primary point of contact for the CMS Project Officer throughout
+    the duration of the RHTP cooperative agreement.
+• Senior Health Program Specialist – Future Recruitment (1 FTE)
+
+
+Revised 03/27/2026                                                                         3
+    Will work closely with the Program Director and senior executives of HCAI to provide
+    overall program and policy support through the CA-RHT initiative design and
+    management. This position will help direct policy analysis, program planning, and
+    stakeholder engagement activities.
+•   Information Officer – Future Recruitment (1 FTE)
+    Will provide overall leadership for formal program communications, stakeholder
+    outreach, and engagement with inter-departmental stakeholders (e.g., sibling
+    departments within the California HHS agency). This position will work closely with
+    the Program Director to coordinate stakeholder engagement among all program
+    initiatives.
+•   CalSORH Senior Manager – Future Recruitment (1 FTE)
+    Serves as senior manager overseeing RHT program team within State Office of
+    Rural Health. This position will provide strategic leadership and direction for program
+    implementation, ensuring alignment with HCAI’s rural health transformation goals
+    and compliance with state and federal requirements. Will manage program
+    operations, supervise senior specialists, and coordinate with executive leadership,
+    stakeholders and the Rural Health Policy Council to advance program objectives.
+    This position is separate in its role and function from the positions funded through
+    SORH grants.
+•   CalSORH Senior Health Program Specialists – Future Recruitment (4 FTEs)
+    Will serve as the senior health program leads for RHT within CalSORH, providing
+    expert-level policy and program guidance. Will lead complex analysis, develop
+    program strategies, and coordinate implementation activities for rural health
+    initiatives. Works closely with Program Director, stakeholders, and internal teams to
+    ensure effective delivery of program objectives and requirements. These positions
+    are separate in their roles and functions from the positions funded through SORH
+    grants.
+Legal Office Staffing
+HCAI requests one FTE (Senior Attorney) to provide legal support for CA-RHT.
+• Senior Attorney – Future Recruitment (1 FTE)
+   Will provide legal counsel and expert level support for contracts, grant agreements,
+   and federal grant award terms and conditions.
+Transformative Care Model Initiative Staff Resources
+Transformative Care Facility Financing Staffing
+One health facility financing specialist will administer provider transformation payments
+for CA-RHT.
+
+•   Health Facility Financing Specialist – Future Recruitment (1 FTE)
+    Will administer provider transformation payments under the RHT program. This
+    position will manage financial transactions, ensure compliance with state and federal
+    funding requirements, and provide technical assistance to rural health providers
+    participating in transformation initiatives. Will oversee payment processing, maintain
+    accurate financial records, and coordinate with internal teams to ensure timely and
+    accurate disbursement of funds.
+
+
+
+Revised 03/27/2026                                                                          4
+Transformative Care Clinical Innovation Staffing
+The Transformative Care Model team will include one physician medical officer, one
+senior health program specialist, one health program specialist, and a senior research
+data scientist to support the program design and establishment.
+
+•   Physician Medical Officer – Future Recruitment (1 FTE)
+    Serves as the clinical lead for the Transformative Care Model team, providing expert
+    medical guidance and oversight for program design and implementation. This
+    position will help ensure that clinical strategies align with evidence-based practices
+    and meet the needs of rural health providers participating in CA-RHT initiatives. Will
+    collaborate with internal teams, external stakeholders, and consulting partners to
+    develop innovative care models that improve access and quality of care in rural
+    communities.
+•   Senior Health Program Specialist – Future Recruitment (1 FTE)
+    Serves as the senior program specialist supporting the development and
+    implementation of the Transformative Care Model. This position will lead policy
+    analysis, program planning, and stakeholder engagement activities to ensure
+    successful adoption of innovative care strategies. Works closely with the Physician
+    Medical Officer to coordinate program activities, monitor performance and prepare
+    reports for leadership.
+•   Health Program Specialist – Future Recruitment (1 FTE)
+    Provides independent programmatic support for the Transformative Care Model
+    team, assisting with implementation activities, research, and stakeholder
+    coordination. Tracks program progress and supports evaluation efforts.
+•   Senior Research Data Scientist – Future Recruitment (1 FTE)
+    Lead technical expert for advanced data science and analytics supporting RHT
+    program evaluation and rural health transformation modeling. This position will
+    design and implement predictive models and advanced statistical methodologies to
+    assess program impact and forecast rural health workforce trends. The Senior
+    Research Data Scientist will manage large, complex datasets, develop innovative
+    analytical tools, and produce actionable insights for leadership and stakeholders.
+    Responsibilities include leading research design, ensuring data integrity, and
+    delivering high-level reports and visualizations to inform strategic decisions.
+Rural Health Workforce Development Initiative Staff Resources
+Health Workforce Policy Staffing
+To implement the CA-RHT program, HCAI will create a new workforce development
+team dedicated to implementing this rural health transformation program. This team will
+be composed of one senior health program specialist and two health program
+specialists to assist in rural policy development and analysis.
+
+•   Senior Health Program Specialist – Future Recruitment (1 FTE)
+    Will serve as senior subject matter experts for rural health workforce policy and
+    program development. Leads complex policy analysis, program design, and
+    evaluation activities to enhance RHT objectives. Provides technical guidance to
+
+
+
+Revised 03/27/2026                                                                       5
+   program staff, coordinates stakeholder engagement, and ensures alignment with
+   federal and state requirements.
+• Health Program Specialists – Future Recruitment (2 FTEs)
+   Will provide independent programmatic and policy support for RHT initiatives.
+   Implements program activities, conducts landscape analysis research, and
+   coordinates stakeholder engagement with a high degree of sensitivity. Prepares
+   reports for leadership and external partners.
+Health Workforce Research and Evaluation Staffing
+To assist with evaluation of grant program scoring criteria and outcome measures,
+HCAI proposes adding one research data specialist that will act as a rural health data
+subject matter expert.
+
+•  Research Data Specialist – Future Recruitment (1 FTE)
+   Leads data collection, analysis, and reporting to support RHT program evaluation
+   and outcomes development. Designs methodologies for assessing rural health
+   workforce trends, analyze complex datasets, and produces actionable insights for
+   program improvement. Collaborates with internal and external stakeholders to
+   ensure data integrity and relevance.
+Health Workforce Grants Management Staffing
+To create and administer this program, HCAI will need a new unit for grants
+management that includes one supervisor and two analysts. This team would also take
+on additional grant funding opportunities to support CA-RHT, including grant
+implementation, administrative oversight, and grantee reporting.
+
+•   Grants Management Supervisor – Future Recruitment (1 FTE)
+    Oversee policy and operational functions for RHT program. The position will manage
+    grant analysts and provide leadership in grants management in coordination with
+    interdepartmental partners. Will supervise analysts and provide guidance on
+    administrative processes, monitor budgets, contracts, and other procurement
+    activities.
+•   Grants Management Analysts – Future Recruitment (2 FTEs)
+    Provides analytical and administrative grants management support for RHT
+    program. Develops policies, tracks program performance, and prepares reports.
+    Coordinates meetings and maintains documentation for program activities.
+Technology & Tools Initiative Staff Resources
+Information Services Staffing
+The Technology & Tools team will deploy consulting support to staff the Technical
+Assistance Center and administer IT grants. In addition, two information technology
+specialists will provide general IT support for the new program.
+
+•   Senior IT Specialist – Future Recruitment (1 FTE)
+    Serve as the lead for technology project management and contract administration for
+    the RHT program. This position will oversee information technology vendor and
+    consultant management, ensuring deliverables meet program objectives and state
+
+
+Revised 03/27/2026                                                                       6
+    technology standards for digital grant solutions. Responsibilities include managing
+    complex IT projects, monitoring contractor performance, coordinating system
+    integration efforts, and ensuring compliance with security, accessibility, and
+    procurement requirements. Primary liaison between program leadership and
+    technology vendors to ensure timely and cost-effective delivery of solutions.
+•   Information Technology Specialist – Future Recruitment (1 FTE)
+    Provides project coordination and contract oversight for the RHT program and
+    related technology solutions. This position will assist in managing vendor
+    deliverables, tracking project milestones, and supporting IT infrastructure for
+    program operations. Responsibilities include monitoring contractor performance,
+    assisting with procurement and compliance documentation, and ensuring technology
+    solutions meet program requirements. Supports system administration and provide
+    technical assistance to program staff.
+Administrative Services Staffing
+Finance and Accounting Staffing
+HCAI requests six FTEs (one administrator, one supervisor, one senior accountant,
+three analysts) for CA-RHT fiscal services support for the new program to support new
+accounting and general administrative workload, including monitoring of federal fund
+usage, and ensuring necessary reporting of federal funds.
+
+•   Accounting Administrator– Future Recruitment (1 FTE)
+    Senior fiscal manager overseeing all accounting operations for the RHT program.
+    This position will provide leadership in financial planning, budgeting, and reporting,
+    ensuring compliance with state and federal requirements. The role includes
+    managing subordinate accounting staff, developing fiscal policies, and coordinating
+    audits and financial reviews.
+•   Accounting Supervisor – Future Recruitment (1 FTE)
+    Supervises accounting staff and manages day-to-day fiscal operations for RHT
+    program activities. This position will oversee accounts payable, accounts receivable,
+    and grant disbursements, ensuring accuracy and timeliness. The role includes
+    preparing financial statements, monitoring budgets, and supporting audits.
+•   Senior Accountant – Future Recruitment (1 FTE)
+    Performs complex accounting tasks related to RHT program funds, including
+    reconciliations, expenditure tracking, and financial reporting. This position will ensure
+    accuracy in transactions and compliance with state accounting standards.
+•   Accounting Analyst – Future Recruitment (1 FTE)
+    Provides analytical support for RHT program fiscal operations, including budget
+    analysis, expenditure projections, and financial trend reporting. This position will
+    assist in developing fiscal recommendations and preparing reports for management.
+•   Accountant – Future Recruitment (1 FTE)
+    Provides accounting support for RHT program fiscal operations, performs entry-level
+    accounting tasks to support RHT program fiscal operations. This position will assist
+    with data entry, reconciliations, and preparation of basic financial reports under
+    supervision.
+•   Senior Program Analyst – Future Recruitment (1 FTE)
+
+
+Revised 03/27/2026                                                                         7
+   Senior-level policy and fiscal analyst for RHT program implementation. This position
+   will lead complex analyses related to program funding, performance metrics, and
+   policy impacts. Prepares high-level reports, develop recommendations for
+   leadership, and coordinate with stakeholders to ensure effective resource allocation.
+
+Table 1 -     Personnel Levels and Cost by Position, Budget Period 1
+                                                                                   Salary Totals,
+                                                   Annual                 Months
+Position Title                  Name (if known)               Positions            all positions
+                                                   Salary*                (BP 1)
+                                                                                   over duration
+Program Leadership
+Chief Deputy Director
+(Authorized Organizational      Scott Christman     In kind      0.1        10                $0
+Representative)
+Deputy Director for Clinical
+                                Lemeneh Tefera,
+Innovation, Chief Medical                           In kind      0.1        10                $0
+                                MD, MSc
+Officer (CMO)
+Deputy Director, Chief Data
+                                Michael Valle       In kind      0.1        10                $0
+Officer (CDO)
+Program Director (Interim)      Hovik Khosrovian    In kind      0.5        10                $0
+                                Future
+Program Director (PD)                              $168,384      1          10          $ 140,320
+                                recruitment
+Senior Health Program
+Specialist (Overall program
+                                Future
+design and policy support for                      $98,292       1          10           $ 81,910
+                                recruitment
+initiative design and
+management)
+Information Officer (Overall
+                                Future
+leadership for formal program                      $81,480       1          10           $ 67,900
+                                recruitment
+communications, outreach)
+CalSORH Senior Manager
+(Manage rural health program    Future
+                                                   $105,912      1          10           $ 88,260
+operations in alignment with    recruitment
+CalSORH initiatives)
+CalSORH Senior Health
+Program Specialist (Guide rural
+health workforce development Future
+                                                   $98,292       4          10          $ 327,640
+policy and program design in    recruitment
+alignment with CalSORH
+initiatives)
+Senior Attorney (Legal support
+for contracts, grant           Future
+                                                   $168,534      1          10          $ 140,445
+agreements, CMS award          recruitment
+terms)
+Transformative Care Model initiative
+personnel
+
+
+
+
+Revised 03/27/2026                                                                                  8
+                                                                                   Salary Totals,
+                                                   Annual                 Months
+Position Title                   Name (if known)              Positions            all positions
+                                                   Salary*                (BP 1)
+                                                                                   over duration
+Health Facility Financing
+                             Future
+Specialist (Transformation                         $89,472       1          10           $ 74,560
+                             recruitment
+grant design and management)
+Physician Medical Officer
+(Clinical lead for the           Future
+                                                   $225,700      1          10          $ 188,083
+Transformative Care Model        recruitment
+team)
+Senior Health Program
+Specialist (Program and policy Future
+                                                   $98,292       1          10           $ 81,910
+design for Transformative Care recruitment
+Model team)
+Health Program Specialist
+(Support development and         Future
+                                                   $89,472       1          10           $ 74,560
+implementation of the            recruitment
+Transformative Care Model)
+Senior Research Data Scientist
+                               Future
+(Outcomes data modeling and                        $108,690      1          10           $ 90,575
+                               recruitment
+program evaluation guidance)
+Rural Health Workforce Development
+initiative personnel
+Senior Health Program
+Specialists (Program and         Future
+                                                   $98,292       1          10           $ 81,910
+policy design for rural health   recruitment
+workforce development)
+Health Program Specialists
+(Program and policy design       Future
+                                                   $89,472       2          10          $ 149,120
+support for rural health         recruitment
+workforce development)
+Research Data Specialist
+(Rural health workforce
+                                 Future
+development program                                $104,910      1          10           $ 87,425
+                                 recruitment
+evaluation and outcomes
+development)
+Grant Management Supervisor
+(Rural health workforce      Future
+                                                   $96,492       1          10           $ 80,410
+development grant design and recruitment
+management)
+Grant Management Analysts
+(Rural health workforce      Future
+                                                   $82,830       2          10          $ 138,050
+development grant design and recruitment
+management support)
+
+Technology and Tools initiative personnel
+Senior IT Specialist (Oversee
+                                 Future
+Rural Technical Assistance                         $123,174      1          10          $ 102,645
+                                 recruitment
+Center contractor)
+
+
+
+
+Revised 03/27/2026                                                                                  9
+                                                                                   Salary Totals,
+                                                   Annual                 Months
+Position Title                  Name (if known)               Positions            all positions
+                                                   Salary*                (BP 1)
+                                                                                   over duration
+IT Specialist (Support oversight
+                                 Future
+of Rural Technical Assistance                      $104,184      1          10           $ 86,820
+                                 recruitment
+Center)
+Administrative Services personnel
+Accounting Administrator,
+Senior fiscal manager (Manage Future
+                                                   $105,918      1          10           $ 88,265
+RHTP financial planning,      recruitment
+budgeting, and reporting)
+Accounting Supervisor
+                                Future
+(Supervise RHTP accounting                         $96,480       1          10           $ 80,400
+                                recruitment
+staff)
+Senior Accountant (Accounting Future
+                                                   $72,330       1          10           $ 60,275
+support for RHTP funds)       recruitment
+Accounting Analyst
+                                Future
+(Accounting support for RHTP                       $86,964       1          10           $ 72,470
+                                recruitment
+funds)
+Accountant (Accounting          Future
+                                                   $59,376       1          10           $ 49,480
+support for RHTP funds)         recruitment
+Program Analyst (Program
+                                Future
+funding, performance metrics,                      $82,830       1          10           $ 69,025
+                                recruitment
+and policy impact analysis)
+Total                                                            29                   $ 2,502,458
+
+
+The table above reflects annualized mid-range salaries by position classification in Year
+1. The requested staffing budget includes annual cost of living adjustments (COLA) of
+2.5 percent. The following table summarizes the proposed CA-RHT Personnel Costs by
+Budget Period.
+Table 2 -    Personnel Costs, Budget Period 1
+Personnel Category                                   Positions        Amount Requested BP 1 only
+Program Leadership positions                             9                              $846,475
+Transformative Care Model initiative positions           5                              $509,688
+Health Workforce Development initiative
+                                                         7                              $536,915
+positions
+Technology and Tools initiative positions                2                              $189,465
+Administrative positions                                 6                              $419,915
+                                       Subtotals        29                             $2,502,458
+
+B. Fringe Benefits
+Rates for fringe benefits are identical for all the personnel classifications listed above.
+The current benefit rates for the proposed positions are listed in the table below.
+
+
+
+
+Revised 03/27/2026                                                                             10
+Table 3 -     Fringe Benefit Rates and Costs for Personnel, Budget Period 1
+                                                      Total Salary      Amount Requested
+Fringe Benefits                            Rate       Requested            BP 1 only
+OASDI, Tax                                   7.65%        $2,502,458             $191,438
+Retirement                                  26.31%        $2,502,458             $658,397
+Health and related benefits                 19.10%        $2,502,458             $477,969
+Total                                                                           $1,327,804
+
+C. Travel
+HCAI is proposing periodic travel to several rural regions throughout the state to support
+the Transformative Care Model initiative, meet with stakeholders, and directly observe
+outcomes at the county and community level. For budgeting purposes, we have
+estimated these “site visit” travel costs based on the following assumptions:
+    • There will be three (3) site visits in northern California and four (4) site visits in
+       southern California per quarter. Each site visit will involve two (2) HCAI staff
+       members. Each site visit will average three (3) days in total duration.
+    • Site visits in northern California will typically utilize personal vehicles within an
+       average roundtrip of 440 miles from-to Sacramento.
+    • Mileage reimbursement follows federal standards for business mileage and is
+       estimated to increase 1.5 cents per year.
+    • Costs for hotel accommodation, per diem, and incidentals are based on standard
+       rates from United States General Services Administration (GSA).
+    • Site visits in southern California will typically involve flights and rental vehicles.
+    • Airfares are estimated based on average mid-week, fully refundable, coach class
+       tickets on standard in-state airlines.
+    • Rental vehicle costs are estimated based on average mid-week, short-term,
+       standard size vehicles from rental agencies typically found at southern California
+       airports.
+    • Costs for accommodations, airfare, rental vehicles, ground transportation, and
+       per diem assume increases of 2.5 percent annually.
+Table 4 -     Travel (in-state northern California), Budget Period 1
+Category                      BP 1
+Personal vehicle mileage       $7,550
+Lodging                        $7,920
+Per diem                       $4,536
+Incidentals                     $360
+Subtotals                     $20,366
+
+Table 5 -     Travel (in-state southern California), Budget Period 1
+Category                      BP 1
+Airfare                        $8,000
+Ground transportation          $2,400
+
+
+
+Revised 03/27/2026                                                                       11
+Category                       BP 1
+Lodging                        $13,632
+Per diem                         $7,200
+Incidentals                       $480
+Subtotals                      $31,712
+Note: HCAI has classified travel related to site visits as Non-administrative Expenses
+and anticipates the majority of in-state travel will be in direct support of the Rural Health
+Transformative Care Model initiative.
+
+In addition to the in-state travel, HCAI understands the expectation for annual meetings
+with CMS to be held in or around the CMS headquarters in Baltimore, MD. For
+budgeting purposes, we have estimated these CMS-related travel costs based on the
+following assumptions:
+    • There will be one (1) meeting per year in Baltimore, MD or Washington, DC (or
+       similar). Each meeting will involve three (3) HCAI staff members. Each trip will
+       average four (4) days in total duration, inclusive of travel time.
+    • Costs for hotel accommodation, per diem, and incidentals are based on standard
+       rates from United States GSA for Washington, DC and Baltimore, MD. Where
+       GSA provided varying rates based on time of year, the budget used peak rates
+       for planning purposes given future CMS meeting dates are not yet available.
+    • Airfares are estimated based on average mid-week, fully refundable, coach class
+       tickets on standard domestic airlines.
+    • Rental vehicle costs are estimated based on average mid-week, short-term,
+       standard size vehicles from rental agencies typically found at Baltimore-area
+       airports.
+    • Ground transportation (e.g., taxicabs) may be used in lieu of rental vehicles,
+       depending on availability and distances between airports, meeting venues, and
+       lodging.
+    • Costs for accommodations, airfare, rental vehicles, ground transportation, and
+       per diem assume increases of 2.5 percent annually.
+Table 6 -     Travel for CMS meetings in Budget Period 1, by Location
+                        If meeting is in    If meeting is in
+Category
+                        Washington, DC       Baltimore, MD
+Airfare                          $2,280             $2,280
+Ground transportation              $300              $300
+Lodging                          $3,300             $1,800
+Per diem                         $1,044             $1,032
+Incidentals                           $60              $60
+Subtotals                        $6,984             $5,472
+Note: HCAI has classified CMS meeting travel as Administrative Expenses in its budget.
+D. Equipment
+None.
+
+
+Revised 03/27/2026                                                                         12
+E. Supplies
+HCAI is proposing a modest budget of $349,233 in Budget Period 1 for supplies,
+primarily related to laptops, technology peripherals, and training materials required for
+new employees as well as typical consumable items (e.g., paper, copier/printer ink).
+The planned expenditures are aligned with the addition of 29 FTEs in Year 1, and allow
+for periodic replacement of technology, refreshing of consumables, and staff turnover
+prompting new and/or added supplies over the five-year program period.
+Table 7 -       Supplies, Budget Period 1
+Category                                                     Cost per Individual   Total Cost
+General ofice supplies                                                  $1,000         $29,000
+Training sies      (including licensed training materials)              $1,000         $29,000
+Informatiechnology       supplies                                     $10,000         $290,000
+Specializraining materials for workforce programs
+                                                                           n/a           $1,233
+(manuals,oolkits)
+Subtotals                                                             $12,000         $349,233
+
+
+F. Consultant/Subrecipient/Contractor Costs
+In accordance with the permissible uses of RHT program grant funds, the proposed
+initiatives are based on new programs as well as expansions of past or current
+programs specifically designed to address rural regions. The cost estimates,
+timeframes, and rationale for the consultants, subrecipients, and contractors listed
+below are based on prior experience, input from existing regional care networks, and
+relevant prior proposals from technology providers. HCAI expects to finalize service
+scope, budgets, and timeframes with CMS input and approval prior to drawing down
+federal funds for the services described. A description and cost breakdown is provided
+below for each consultant, subrecipient, and contract proposed.
+Consultants
+Consultant Selection Process and Criteria
+Selection of awardee(s) for each consulting role described below will be based on
+factors specific to the services required. In all cases, selection criteria will include:
+    • Proven experience delivering similar, relevant services
+    • Prior work with federal, state, or local government agencies
+    • Availability and experience of appropriate staff resources
+    • Location in, near, or accessible to rural communities as needed for participation
+        in CA-RHT initiatives
+    • Reasonableness of cost
+In support of the Rural Health Transformative Care Model Initiative:
+Evaluating Rural Pathways to Value Based Payment                               $2,000,000
+Consultants with specialized experience in health care financing and rural payment
+models will be instrumental in helping California evaluate payment model types that can
+provide long-term support for rural hospitals. This funding will support a consultant to
+
+
+Revised 03/27/2026                                                                              13
+conduct a national and state landscape assessment of rural primary care, maternity,
+and hospital payment models. The consultant will evaluate hospital payment models,
+including their evidence base, financial sustainability, and identify the specific
+operational, workforce, technology, and revenue generating options that rural facilities
+could adopt to support rural hospitals’ long-term financial stability. Lastly, the consultant
+will provide recommendations on how to successfully incorporate innovative payment
+models into the CA-RHT’s Transformative Care Model and other CA-RHT future
+investments.
+In support of the CA-RHT Implementation:
+Program Management Support                                                      $23,500,000
+HCAI is proposing to engage program management consultants to support the Program
+Director and HCAI staff members during the CA-RHT period of performance. Due to the
+fixed duration of federal RHTP funding and the temporary need for certain services, it is
+more cost-effective to acquire limited duration consulting services than add sufficient
+full-time, permanent civil service staff positions to address all the temporary service
+needs. Program management services should include:
+     • Development and implementation services for CA-RHT: Assist HCAI with
+        CA-RHT development, strategic planning, and technical assistance to guide
+        effective and efficient plan implementation. Support HCAI in communicating and
+        coordinating with grantees and stakeholders to help ensure successful
+        implementation of the initiative. Aid in establishing CA-RHT governance to
+        include a new Rural Health Policy Council. Subject matter expertise in rural
+        health systems, financing, and information technology infrastructure will
+        accelerate progress and help maintain compliance with state and federal grant
+        requirements.
+     • Initiative-level support and evaluation: Provide a range of subject matter
+        expertise in developing initiative-level evaluation plans for CA-RHT to measure
+        the near-term and long-term impacts of systemic changes and improvement of
+        the rural health capabilities. This work includes support on program design,
+        evaluation methodology, performance metrics, and impact analysis.
+     • Research and data development support: Aid HCAI in collecting, analyzing, and
+        interpreting rural health data, identifying gaps, and generating actionable insights
+        to support evidence-based decision-making including assessment of health
+        workforce needs and health service delivery.
+     • Community outreach and communications: Consultants experienced in rural
+        community engagement can develop targeted messaging, design outreach
+        campaigns, and foster strong partnerships with local stakeholders helping ensure
+        CA-RHT initiatives are visible, accessible, and well-supported through the
+        duration of the implementation period.
+Developer Support for Electronic Grant Applications                              $5,000,000
+Provide development resources for electronic applications to facilitate efficient
+management of subaward grant agreements from request through award. This includes
+applications to aid the oversight and administration of grant agreements and funding
+distribution, accounting and budget services for fund tracking, contract and grant
+agreement processing, data collection, and analysis and evaluation of the proposed
+
+
+Revised 03/27/2026                                                                         14
+grant type. Consultant services will be inclusive of project management activities,
+requirement planning and lifecycle management, software configuration and
+development, and knowledge transfer.
+Consultant Budget Summary
+Table 8 -     Consultant Budget, Budget Period 1 (figures in millions)
+            Initiative                                Purpose                      BP 1
+
+Transformative Care Model         Evaluate Rural Pathways to Value Based Payment          $ 1.00
+
+Support for all Initiatives and
+                                  Program Management                                      $ 4.70
+Administration
+Administrative                    Developer Support for Electronic Applications           $ 1.90
+Subtotals                                                                                 $ 7.60
+
+Subrecipients
+HCAI is proposing to provide several different types of subawards to a wide variety of
+subrecipients that will fulfill the RHTP objectives in targeted rural regions and statewide.
+Subrecipients will include hospitals, clinics, Tribal health programs, and healthcare
+facilities throughout rural regions that HCAI identifies as suitable partners to develop
+Hub-and-Spoke networks. Some of the subawards will be specifically to add, expand, or
+enhance critical technology and tools to enable widespread interoperability and
+coordination among healthcare providers in targeted rural regions.
+Subrecipient Selection Process and Criteria
+HCAI will determine subaward recipients based on factors including:
+   • Strategic locations to directly support rural communities in greatest need
+   • Hospital and facility capability, readiness, and willingness to participate in
+      Transformative Care Models (e.g., as demonstrated by processes and programs
+      in use)
+   • Financial criteria that indicate hospital hubs are not in immediate danger of
+      closure
+HCAI intends to provide subawards to community colleges and other educational
+institutions in or near rural regions that will contribute to learning pathways, clinical
+education, licensing programs, education awards, and other approaches to expand a
+capable workforce throughout rural California.
+
+Additionally, HCAI will dedicate a minimum of five percent (5%) of its overall budget to
+support participation of Tribal clinics and health centers in fulfilling the RHTP objectives.
+
+To ensure accountability, transparency, and effective management of these funds,
+HCAI will implement a structured grant administration process spanning the full lifecycle
+of each subaward. Budgets and timelines will be aligned during funding setup, and
+standardized materials will be prepared to support consistent administration. Eligible
+entities will submit proposals through a formal review and scoring process, with award
+criteria finalized following community needs and capacity assessments. Prior to
+
+
+Revised 03/27/2026                                                                            15
+disbursement, HCAI will verify selected applications, issue agreements, and confirm
+funding commitments. Monitoring and closeout activities will include deliverable
+tracking, financial reconciliation, and performance evaluation to ensure responsible
+implementation and measurable impact aligned with CA-RHT objectives.
+
+In support of the Rural Health Transformative Care Model Initiative:
+Transformative Payments to Support Strategically Located Hospitals:             $35,000,000
+HCAI will issue these funds through grants for approximately 16 subrecipient hospitals
+with financial and operational challenges that are strategically important to retain in
+effective operations for targeted rural regional access. If appropriate, awardees will
+implement feasible Transformative Care Model components. This proposal offers
+upfront funding to these rural hospitals, paired with a five-year transformation plan
+modeled on RHTP to implement financial solvency strategies. In Year 1, hospitals will
+conduct root-cause analyses of financial instability; in Years 2-5, they will implement
+targeted reforms (e.g., modernizing billing, adopting sustainable staffing models,
+participating in Hub-and-Spoke to reduce rural bypass, and strengthening community
+partnerships) to address systemic vulnerabilities. These funds are not intended to
+replace payment for billable services or to supplant existing adequate sources of
+hospital funding. HCAI intends to execute agreements with each subrecipient specifying
+allowable uses of funds that are compliant with CMS requirements– including those
+related to permissible uses of funds, subaward monitoring, financial reporting, and
+compliance.
+
+ Preamble                      Changed from previous budget revision (2/13/26) $50.0M, decreased
+                               revised proposed budget amount by $15.0M in Budget Period 1 (BP1)
+                               funds made available under the CMS NOA for California, for a revised total
+                               of $35M. Budget amount scaled for feasibility, condensed timeline, and
+                               expedited obligation requirements during the program’s first year. This one-
+                               time funding will stabilize qualifying rural facilities and support meaningful
+                               engagement in CA-RHTP TCM activities. Funds will be distributed through
+                               a structured subaward process designed to meet expedited obligation
+                               requirements during the program’s first year.
+ Budget period 1 amount        BP1 $35.0M (one-time)
+ Number of awards              Refer to Appendix A, page 35 of this document
+ How big per award             Refer to Appendix A, page 35 of this document
+ Type and number of            Refer to Appendix A, page 35 of this document
+ awardees
+ Process and scoring           Refer to Appendix A, page 35 of this document
+ mechanics
+ Data and                      Refer to Appendix A, page 35 of this document
+ documentation
+ Risk and compliance           Refer to Appendix A, page 35 of this document
+ Initiative and use of funds   Initiative: The Rural Health Transformative Care Model Initiative (TCM) (1)
+ categories                    Use of funds: A. Prevention and Chronic Disease, C. Consumer tech
+                               solutions, D. Training and Technical Assistance, E. Workforce, F. IT
+                               Advances, G. Appropriate Care Availability, I. Innovative Care, H.
+                               Behavioral Health, K. Fostering Collaboration
+
+
+
+
+Revised 03/27/2026                                                                                        16
+Establish Regional Hub-and-Spoke Networks                                         $39,010,000
+Participating hospitals, clinics, and affiliated rural providers will receive annual grant
+funding to directly implement the Transformative Care Model (TCM) within their regional
+Hub-and-Spoke networks. Funding will enable each facility to operationalize the
+evidence-based care delivery, workforce, and technology changes identified through
+regional planning and gap assessments. Facilities (hubs and spokes) will focus on
+redesigning internal care flows, integrating telehealth and interoperable EHR systems,
+establishing transfer and referral pathways, and expanding service lines such as
+maternity, chronic disease, and specialty care. Additionally, spoke partners will use
+funds to extend access to coordinated, specialty-supported care (e.g., CHWs), align
+with new regional governance and protocols, and integrate digital health and data-
+sharing capabilities needed for active participation in the network. This could also
+include consumer-facing app-based technology with prevention-based programs that
+can target chronic disease conditions, link patients to clinical teams, and promote
+healthy habits for patients. 2
+Grant funds will also support workforce expansion and training essential to sustaining
+new care models in rural settings. Facilities may hire or retrain staff in care coordination
+or telehealth operations; provide stipends for clinical staff to complete evidence-based
+training (e.g., Project ECHO, OB Nest, tele-OB and tele-cardiology modules); and
+establish shared scheduling, call coverage, or transfer coordination systems that
+strengthen service continuity across the network. Hospitals and clinics will be expected
+to embed these workforce and operational changes into their local structures, ensuring
+that care transformation is integrated, measurable, and sustainable beyond the grant
+period.
+While the statewide contractor provides overall technical assistance and facilitates
+regional collaboration, facilities serve as the operational engines of transformation —
+implementing care redesign, adopting new technologies, and maintaining workforce and
+governance systems on the ground. Annual funding will thus prioritize tangible
+improvements in care delivery capacity, interoperability, and local system performance
+— ensuring that rural hospitals and clinics are fully equipped to function as active,
+resilient participants within California’s evolving Hub-and-Spoke model for rural health
+transformation.
+In Year 1, the CA-RHT program will launch select “Accelerator Partners”— hospitals or
+other organizations in rural regions that demonstrate strong readiness and commitment
+to implement the TCM through a Hub-and-Spoke network. These early partners will
+serve as testing sites for new innovations and models, demonstrating how integrated
+service delivery and value-based care can strengthen access, quality, and sustainability
+in rural and frontier communities. Accelerator regions will receive $6-8 million annually
+to support hospitals, clinics, Tribal health programs, and affiliated providers in
+implementing evidence-based care models, building workforce capacity, expanding
+telehealth, and advancing interoperability. Lessons learned from these Accelerator
+
+
+2
+ This application is in alignment with the CMS Health Technology Ecosystem referenced at
+https://www.cms.gov/health-technology-ecosystem/categories
+
+
+Revised 03/27/2026                                                                         17
+Partners will inform statewide scaling and continuous improvement of the Hub-and-
+Spoke framework in future years.
+Preamble                      Change from original $27M, increased original proposed budget
+                              amount by $12.1M in additional Budget Period 1 (BP1) funds made
+                              available under the CMS NOA for California, for a revised total of
+                              $39.01M. Budget amount scaled for feasibility, condensed timeline, and
+                              expedited obligation requirements during the program’s first year This
+                              funding supports implementation of regional Hub-and-Spoke networks
+                              and year-over-year scaling. It will fund consultants with specialized
+                              expertise in health care policy, delivery system transformation, rural
+                              payment models, and health system coordination to develop statewide
+                              program policy and design regional Hub-and-Spoke networks. These
+                              networks will leverage economies of scale in clinical operations,
+                              workforce, technology, and revenue generation strategies. Together,
+                              these efforts will create regional collaborative networks that strengthen
+                              long-term financial stability for rural hospitals, clinics, and other related
+                              providers, while reducing rural bypass. The regional network counts
+                              and participating hub-and-spoke counts will be set, and funds will be
+                              distributed through a structured award process and/or CA-RHT
+                              strategic selection. Eligibility will be determined by regional planning
+                              efforts and ability to support meaningful engagement in CA-RHT TCM
+                              activities (including primary, maternity, chronic condition, geriatric, oral
+                              health, and/or specialty care).
+Budget period 1 amount        BP1 $39.01M.
+How big per award             Tiered award planning ranges: Hub-and-Spoke regions $6M to $8M
+                              annually; scaling regions $3M to $6M annually; spoke facility
+                              subawards by scope (for example $250K to $1.5M per year) based on
+                              demand, eligibility, and applicant needs. Awards will be tiered, not
+                              equal, based on rurality, community needs, regional network needs,
+                              applicant readiness.
+Number of awards              Up to 4 regional awards in BP1.
+Justification for number of   Up to 4 Hub-and-Spoke regional awards concentrating resources to
+subawardees                   support measurable care redesign, governance, and interoperability
+                              improvements rather than thin distribution. Scaling is paced to match
+                              regional implementation capacity and technical assistance availability.
+                              This count is a directional planning assumption and will be validated
+                              through the assessment of the applicant pool and system readiness.
+                              Planning assumption: BP1 funds multiple Accelerator Partnerships
+                              based on readiness with an expectation to identify regional partners
+                              among northern, central and southern regions of the state. Additional
+                              partnerships and regions will be added in BP2-BP5 based on readiness
+                              and need.
+Process and scoring           Two-step process: (1) threshold eligibility screening of applicants; and
+mechanics                     where appropriate (2) Request for Application (RFA) with a scored
+                              rubric with rank ordering. Proposed rubric domains include: regional
+                              need and access gaps, readiness and leadership commitment,
+                              applicant ability to participate in a regional network or accelerator
+                              partnership, interoperability and telehealth plan, workforce and care
+                              model implementation plan, and sustainability plan.
+Data and documentation        • Regional gap assessment
+                              • Network governance documentation (MOUs, referral and transfer
+                                   protocols, participation agreements)
+                              • Interoperability baseline and target-state architecture
+
+
+
+
+Revised 03/27/2026                                                                                            18
+                               •    Telehealth, primary, maternity, chronic condition, and/or specialty
+                                    care plan
+                               • Care model implementation milestones
+                               • Workforce plan and training commitments
+                               • Detailed budget with hub and spoke allocations
+                               • To be eligible to receive funds, other data and documentation may
+                                    be requested of awardees in addition to the items listed to confirm
+                                    initial and continued alignment, and agreement to, RHTP initiatives,
+                                    metrics and reporting compliance requirements and activities per
+                                    the CA-RHTP Project Narrative and Work Plan.
+ Tribal participation          HCAI will track the 5% minimum Tribal commitment across the full
+                               subaward portfolio and operationalize the 5% minimum via one or more
+                               mechanisms: dedicated solicitation track for Tribal participation,
+                               minimum award floor for Tribal hubs and/or spokes, and/or scoring
+                               preference for networks with strong Tribal partnership plans. Awards
+                               and expenditures will be tracked by Tribal entity and by initiative for
+                               reporting.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost
+                               tracking, milestone tracking, quarterly financial and performance
+                               reporting, audit and site-visit rights, state procurement compliance, and
+                               corrective-action and repayment remedies for unallowable or
+                               unsupported costs. Permissible uses of funds are restricted to the use
+                               of funds disclosed in the CMS-approved proposal, in addition to
+                               required compliance with applicable state and HHS/CMS
+                               subrecipient/awardee terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Transformative Care Model Initiative (TCM)
+ categories                    (1)
+                               Use of funds: A. Prevention and Chronic Disease, C Consumer tech
+                               solutions, D. Training and Technical Assistance, E. Workforce, F. IT
+                               Advances, G. Appropriate Care Availability, I. Innovative Care, H.
+                               Behavioral Health, K. Fostering Collaboration
+
+
+Expand Support for Non-Physician Clinical Roles                                         $0
+This component will help address critical workforce shortages in primary, maternity, and
+specialty care by expanding the utilization of doulas, midwives, and perinatal CHWs.
+Intended programs include five midwifery education programs, which includes licensed
+midwife and certified nurse midwife programs ($2 million each annually) and 10 varied
+health professions education programs, based on regional need, supported by funding
+for program development for rurally located schools ($1 million per program annually).
+This will support the growth of CHWs, LVNs, doulas, midwives, entry level behavioral
+health providers, and other allied health roles who provide critical frontline care and
+improve access, quality, and continuity of services.
+
+ Preamble                      Change from original $5.0M decreased original proposed budget amount
+                               by $5.0M in Budget Period 1 (BP1) funds made available under the CMS
+                               NOA for California, for a revised total of $0. Budget amount scaled for
+                               feasibility, condensed timeline, and expedited obligation requirements
+                               during the program’s first year. BP1 planned funds are now allocated to
+                               the relocation program. During this time, the workforce development team
+
+
+
+
+Revised 03/27/2026                                                                                         19
+                               will be working with educators and stakeholders to prepare for BP2
+                               planned activities and program development.
+ Budget period 1 amount        BP1 $0.
+ Initiative and use of funds   Initiative: The Rural Health Transformative Care Model Initiative (TCM)
+ categories                    (1)
+                               Use of funds: A. Prevention and Chronic Disease, C Consumer tech
+                               solutions, D. Training and Technical Assistance, E. Workforce, F. IT
+                               Advances, G. Appropriate Care Availability, I. Innovative Care, H.
+                               Behavioral Health, K. Fostering Collaboration
+
+
+Expand Rural Health Train-the-Trainer                                           $2,000,000
+Launch scalable “train-the-trainer” programs for physicians, nurse practitioners, nurses
+and allied staff to build competencies in maternal health, chronic disease management,
+behavioral health, and telehealth delivery. Intended training includes integrating
+behavioral health into primary and maternal care through clinician train-the-trainer
+programs including providers working with the aging population. HCAI will design and
+introduce the program in Year 1, then expects to support the mentoring relationships for
+approximately 50 trainer-student teams per year estimated at $0.5-1 million annually in
+Years 1-5.
+
+ Preamble                      Changed from previous budget revision (2/13/26) $1.0M, increased
+                               revised proposed budget amount by $1.0M in additional Budget Period 1
+                               (BP1) funds made available under the CMS NOA for California, for a
+                               revised total of $2.0M. Budget amount scaled for feasibility, condensed
+                               timeline, and expedited obligation requirements during the program’s first
+                               year. Activities funded during award period include program planning and
+                               development and initial program launch. Subawards will be determined
+                               by program applicant eligibility based on qualifiers such as priority
+                               competencies, regional population needs, and facility capacity.
+ Budget period 1 amount        BP1 $2.0M.
+ How big per award             Up to $20k per participant for mentorship time, curriculum, and
+                               participation costs, plus centralized program administration and
+                               evaluation within the annual budget.
+ Justification for number of   Funding supports up to 50 health care providers within the primary care
+ subawardees                   team and maternal health team participate in train-the-trainer tracks to
+                               build competencies in behavioral health, chronic disease management,
+                               geriatric care, and telehealth. Unit of support is a trainer-the trainer track
+                               with co-distribution of training aligning to Hub-and-Spoke priorities. 50
+                               participants per year is sufficient to create repeated practice change
+                               across multiple sites while maintaining a manageable mentorship model
+                               that is more durable than one-time training.
+ Process and scoring           Request for Application (RFA). Selection based on program applicant /
+ mechanics                     team fit to priority competencies (maternal health, chronic disease,
+                               behavioral health integration, telehealth), site readiness to operationalize
+                               changes, and commitment to share learning within the regional network.
+ Data and documentation        • Applicant site readiness plan
+                               • Trainee baseline competency self-assessment
+                               • Supervisor endorsement
+                               • Planned practice-change project tied to Hub-and-Spoke workflows
+                               • Budget and protected time plan
+                               • To be eligible to receive funds, other data and documentation may
+                                   be requested of awardees in addition to the items listed to confirm
+
+
+
+Revised 03/27/2026                                                                                          20
+                                    initial and continued alignment, and agreement to, RHTP initiatives,
+                                    metrics and reporting compliance requirements and activities per the
+                                    CA-RHTP Project Narrative and Work Plan.
+ Tribal participation          Apply a preference to recruit qualifying team(s) to ensure meaningful
+                               Tribal participation and to support the 5% minimum commitment.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost tracking,
+                               require documentation of participation and practice-change deliverables,
+                               quarterly financial and performance reporting, audit and site-visit rights,
+                               and corrective-action and repayment remedies for unallowable or
+                               unsupported costs. Permissible uses of funds are restricted to the use of
+                               funds disclosed in the CMS-approved proposal, in addition to required
+                               compliance with applicable state and HHS/CMS subrecipient/awardee
+                               terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Transformative Care Model Initiative (TCM)
+ categories                    (1)
+                               Use of funds: A. Prevention and Chronic Disease, C Consumer tech
+                               solutions, D. Training and Technical Assistance, E. Workforce, F. IT
+                               Advances, G. Appropriate Care Availability, I. Innovative Care, H.
+                               Behavioral Health, K. Fostering Collaboration
+
+
+Expand and Support Rural Workforce Capacity                                          $11,500,000
+HCAI will build this program in Year 1 and in Years 2-5, will invest $4-8 million annually
+to implement clinician upskilling programs, family medicine obstetric fellowships, and
+Project ECHO and OB Nest programs. This will include offering obstetric training
+fellowship opportunities to family medicine physicians and advanced practitioners to
+train in obstetric care. It will leverage entry-level and allied roles to build skills aligning
+with system priorities like telehealth and remote monitoring, integrating these
+capabilities into clinical workflows. The program will help incentivize allied health
+professionals including nurses, pharmacy technicians, and emergency medical service
+personnel to pursue CHW training that enhances collaborative care for chronic
+conditions, care coordination, and transport support.
+
+ Preamble                      Changed from previous budget revision (2/13/26) $8M, increased revised
+                               proposed budget amount by $3.5M in additional Budget Period 1 (BP1)
+                               funds made available under the CMS NOA for California, for a revised
+                               total of $11.5M. $6.5M for all non-tribal fellowships and $5M tribal. Budget
+                               amount scaled for feasibility, condensed timeline, and expedited
+                               obligation requirements during the program’s first year. Dedicated funding
+                               of $5.0M will prioritize Tribal entities currently providing or developing
+                               cohorts and fellowships. Funds during BP1 will go toward program
+                               development, planning and direct program funding for family medicine
+                               obstetric training fellowship sites; supporting oral health care; and funding
+                               allied health professionals including nurses, pharmacy technicians, and
+                               emergency medical service personnel to pursue CHW training that
+                               enhances collaborative care for chronic conditions, and care coordination.
+                               HCAI has previous and current workforce programs to assist in
+                               developing out structure and implementing processes to have funding
+                               obligated to support an annual cohort for qualifying fellowship sites in the
+                               program’s first year.
+ Budget Period 1 amount        BP1 $11.5M.
+
+
+
+Revised 03/27/2026                                                                                           21
+Number of awards              Up to 20 sites.
+How big per award             Tiered award planning ranges: Award sizes vary by program type and site
+                              capacity. Across up to 20 awards in BP1, awards are expected to range
+                              from $150K up to $500K per site per year, with participant stipends and
+                              training costs bundled. A portion of funds may support shared curriculum
+                              and technical assistance.
+Justification for number of   Up to 20 subawards balances statewide rural coverage with manageable
+subawardees                   award sizes under the $11.5M BP1 cap and aligns with known
+                              supervision and preceptor capacity limits. This volume supports a mix of
+                              higher-intensity fellowship placements and lower-intensity cohort and
+                              upskilling sites, enabling regional distribution across multiple Hub-and-
+                              Spoke networks while maintaining feasible participant-to-preceptor ratios,
+                              recruitment pipelines, and reporting oversight. Final volumes will be set
+                              through RFAs based on demonstrated regional workforce gaps,
+                              documented training capacity, and readiness to launch within BP1.
+Process and scoring           Request for Application (RFA). Proposed rubric domains include:
+mechanics                     measurable rural service expansion, shortage alignment, training capacity
+                              and preceptor availability, linkage to Hub-and-Spoke operational needs,
+                              participant recruitment and retention plan, budget reasonableness.
+Data and documentation        • Training program design
+                              • Preceptor and supervision plan
+                              • Participating site letters
+                              • Curriculum and schedule
+                              • Participant selection process
+                              • Budget and stipend plan
+                              • Outcome measurement plan for skills gained and service expansion.
+                              • To be eligible to receive funds, other data and documentation may be
+                                   requested of awardees in addition to the items listed to confirm initial
+                                   and continued alignment, and agreement to, RHTP initiatives, metrics
+                                   and reporting compliance requirements and activities per the CA-
+                                   RHTP Project Narrative and Work Plan.
+Tribal participation          Total $5.0M. Enable Tribal clinics to participate as training sites and or as
+                              recipients of upskilling support. Track Tribal participation and
+                              expenditures toward the 5% minimum commitment.
+Risk and compliance           Subaward agreements will include allowable-use language (including
+                              non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                              Provider Payments), non-supplanting attestation, separate cost tracking,
+                              require documentation of participation and practice-change deliverables,
+                              quarterly financial and performance reporting, deliverable verification,
+                              audit and site-visit rights, and corrective-action and repayment remedies
+                              for unallowable or unsupported costs. Permissible uses of funds are
+                              restricted to the use of funds disclosed in the CMS-approved proposal, in
+                              addition to required compliance with applicable state and HHS/CMS
+                              subrecipient/awardee terms and conditions.
+Initiative and use of funds   Initiative: The Rural Health Transformative Care Model Initiative (TCM)
+categories                    (1)
+                              Use of funds: A. Prevention and Chronic Disease, C Consumer tech
+                              solutions, D. Training and Technical Assistance, E. Workforce, F. IT
+                              Advances, G. Appropriate Care Availability, I. Innovative Care, H.
+                              Behavioral Health, K. Fostering Collaboration
+
+
+
+
+Revised 03/27/2026                                                                                        22
+In support of the Rural Health Workforce Development Initiative:
+Career Pathways Grants                                                         $7,000,000
+Beginning in Year 1 and growing in Years 2-5, provide funding to rural region high
+schools, community colleges, and California State University campuses to connect local
+students to health professions through career education and counseling, mentorships,
+internships, and fellowships. Connect entry-level job roles (e.g., CNA/technicians) to a
+career lattice for apprenticeships and continuing education to expand the ability and
+breadth of medical professional capabilities. Funds will include wrap-around support to
+enable students to access these programs. The budget plans for $5 million in the first
+year as HCAI establishes grant terms and identifies up to 20 participating schools. As
+more schools and students opt into the programs, grants will grow to $12 million per
+year to support up to 50 locations.
+
+ Preamble                      Changed from original $6.0M increased original proposed budget amount
+                               by $1.0M in additional Budget Period 1 (BP1) funds made available under
+                               the CMS NOA for California, for a revised total of $7.0M. Participant
+                               counts are directional and depend on opt-in and readiness. Budget
+                               amount scaled for feasibility, condensed timeline, and expedited
+                               obligation requirements during the program’s first year. Activities funded
+                               during award period include program planning and development and
+                               initial program launch. Subawards will be determined by a competitive
+                               grant application process / request for application (RFA) with eligibility
+                               based on qualifiers such as priority competencies and commitment to
+                               fulfilling program requirements.
+ Budget Period 1 amount        BP1 $7.0M.
+ Number of awards              Up to 20.
+ How big per award             Up to $750k per location to establish pathways, counseling, mentorship,
+                               and wraparound supports. Later years may include tiered awards based
+                               on enrollment volume and program scope.
+ Justification for number of   A cohort up to 20 locations balances statewide access impact with
+ subawardees                   sufficient per location funding up to $750K to support planning,
+                               development, and initial program launch. This count scales the program
+                               from 20 to 50 locations to ensure supporting broad coverage across rural
+                               regions while allowing meaningful per-site investment for program launch
+                               and aligns with expected growth in participating schools and students.
+ Process and scoring           Request for Application (RFA). Rubric emphasizes pipeline / pathway
+ mechanics                     impact, rural need and student reach, strength of partnerships with local
+                               providers and training programs, quality of career lattice design and
+                               supports, feasibility and sustainability.
+ Data and documentation        • Program design and timeline
+                               • Student recruitment and support plan
+                               • Partnership letters (facilities, colleges, workforce boards)
+                               • Budget
+                               • Proposed metrics for enrollment, completion, credentials, and
+                                     placement
+                               • To be eligible to receive funds, other data and documentation may be
+                                     requested of awardees in addition to the items listed to confirm initial
+                                     and continued alignment, and agreement to, RHTP initiatives, metrics
+                                     and reporting compliance requirements and activities per the CA-
+                                     RHTP Project Narrative and Work Plan.
+
+
+
+
+Revised 03/27/2026                                                                                          23
+ Tribal participation          Include Tribal schools and Tribal serving institutions through scoring
+                               preference. Track awards and outcomes for Tribal participants toward the
+                               5% minimum.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost tracking,
+                               quarterly financial and performance reporting, annual outcome reporting,
+                               audit and site-visit rights, and corrective-action and repayment remedies
+                               for unallowable or unsupported costs. Permissible uses of funds are
+                               restricted to the use of funds disclosed in the CMS-approved proposal, in
+                               addition to required compliance with applicable state and HHS/CMS
+                               subrecipient/awardee terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Workforce Development Initiative (2)
+ categories                    Use of funds: A. Prevention and Chronic Disease, D. Training and
+                               Technical Assistance, G. Appropriate Care Availability, E. Workforce
+                               Development and Recruitment, H. Behavioral Health, K. Fostering
+                               Collaboration
+
+
+Rural Clinical Placement Support and Training Pathways                           $6,400,000
+Develop a clinical placement network to connect health profession students (e.g., RNs,
+AA, BS and MS degree level professions) with rural facilities, including Tribal clinics.
+Expand regional training capacity in rural areas including clinical rotations and
+practicum opportunities for health professionals This network and training capacity
+expansion will create opportunities for students to gain increased access to rural health
+training and allows local rural colleges and training programs to have consistent and
+reliable clinical opportunities for their students in rural communities. HCAI proposes to
+build this program in Year 1 following the design of similar successful programs. In
+Years 2-5, the CA-RHT program will expand opportunities for individuals pursuing
+health careers or currently in entry level health professions to receive education awards,
+stipends, upskilling, and apprenticeships to find right-fit training and education programs
+in rural counties/regions focused on meeting the workforce needs of those communities
+aligned with service commitments following their education and training.
+
+ Preamble                      Changed from original $0, increased original proposed budget amount by
+                               $6.4M in additional Budget Period 1 (BP1) funds made available under
+                               the CMS NOA for California, for a revised total of $6.4M. Budget amount
+                               scaled for feasibility, condensed timeline, and expedited obligation
+                               requirements during the program’s first year. Activities funded during the
+                               award period include clinical placement tool planning, design,
+                               development, and coordination with potential users such as rural facilities
+                               and education programs. Subaward will be determined through a
+                               competitive grant application / request for application (RFA) process with
+                               eligibility based on experience with clinical placement strategies, previous
+                               experience in design of related tools and commitment to fulfilling program
+                               requirements.
+ Budget Period 1 amount        BP1 $6.4M.
+ Number of awards              Up to 2.
+ How big per award             Up to 2 grantees for a total of $6.4M in award funds, will be selected to
+                               build a statewide rural clinical placement tool.
+ Justification for number of   Centralizing the development of the placement tool allows for operational
+ subawardees                   efficiency and improved statewide planning of training needs. The
+
+
+
+
+Revised 03/27/2026                                                                                        24
+                               statewide network approach reduces administrative burden and improves
+                               reliability for schools and facilities.
+ Process and scoring           Request for Application (RFA). Selection prioritizes organizations that
+ mechanics                     have demonstrated experience in clinical placement knowledge,
+                               experience coordinating with education programs and health facilities to
+                               meet clinical training needs, experience in the development of related
+                               tools, and budget reasonableness.
+ Data and documentation        • Agreements with education programs and clinical sites
+                               • Process document for use of the tool
+                               • Training availability for education programs and facilities on the use
+                                    of the tool
+                               • To be eligible to receive funds, other data and documentation may be
+                                    requested of awardees in addition to the items listed to confirm initial
+                                    and continued alignment, and agreement to, RHTP initiatives, metrics
+                                    and reporting compliance requirements and activities per the CA-
+                                    RHTP Project Narrative and Work Plan.
+ Tribal participation          Efforts will be made so that the tool includes tribal facilities as participants
+                               for training placement.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost tracking,
+                               quarterly financial and performance reporting, annual outcome reporting,
+                               audit and site-visit rights, and corrective-action and repayment remedies
+                               for unallowable or unsupported costs. Permissible uses of funds are
+                               restricted to the use of funds disclosed in the CMS-approved proposal, in
+                               addition to required compliance with applicable state and HHS/CMS
+                               subrecipient/awardee terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Workforce Development Initiative (2)
+ categories                    Use of funds: A. Prevention and Chronic Disease, D. Training and
+                               Technical Assistance, G. Appropriate Care Availability, E. Workforce
+                               Development and Recruitment, H. Behavioral Health, K. Fostering
+                               Collaboration
+
+
+Expand Rural Provider Retention and Relocation                                     $54,170,000
+Funds awarded within this initiative will focus on supporting regional collaborations of
+rural facilities to ensure coordination of services across the community and sharing of
+funds between organizations of varying sizes and resources. The funds will focus on
+rural facility needs, including Tribal clinics. Support includes facilities’ use of funds for
+retention and relocation bonuses for providers who commit to the five-year service
+obligation. HCAI proposes expanding prior programs and extending them to specifically
+targeted rural regions to help ensure pipelines of new, qualified resources are prepared
+to complement the Transformative Care Model. This will include:
+    • Retention bonuses to help clinics maintain and support providers that are already
+        practicing in rural and frontier communities
+    • Relocation bonuses with fixed-term service requirements
+    • Funding for onboarding, precepting, temporary housing, and the supervision of
+        students to ensure rural facilities have the capacity to offer licensure and or
+        certificate-mandated supervision time for providers that are in greatest need for
+        that region or community.
+    • A funding set-aside specifically for Tribal health programs to implement
+        organization-based retention and relocation efforts.
+
+
+Revised 03/27/2026                                                                                            25
+HCAI proposes spending $20-30 million annually in Years 1-5. HCAI will require
+facilities in a community or region to work together to ensure providers are fully utilized
+across the community.
+
+ Preamble                      Changed from previous budget revision (2/13/26) $43.67M, increased
+                               revised proposed budget amount by $10.5M in additional Budget
+                               Period 1 (BP1) funds made available under the CMS NOA for
+                               California, for a revised total of $54.17M. Significant increase due to
+                               allocating funds from TCM Expansion of Clinical Non-physician Support
+                               Roles and increase of overall RHTP award funds. Budget amount scaled
+                               for feasibility, condensed timeline, and expedited obligation requirements
+                               during the program’s first year. Activities funded during the award period
+                               include program planning and development and initial program launch.
+                               Subawards will be determined through a request for application process
+                               with eligibility based on priority competencies and commitment to fulfilling
+                               program requirements.
+ Budget Period 1 amount        BP1 $54.17M.
+ Number of awards              Awards to organizations and regional collaboratives, up to 40 subawards
+                               with up to 400 health providers awarded through those subawards.
+ How big per award             Retention and relocation packages are expected to be tiered by
+                               profession, shortage severity, and participation in other CA-RHT
+                               activities. Planning ranges: retention bonuses up to $75k per clinician;
+                               relocation bonuses up to $100k per clinician; additional supports for
+                               onboarding, temporary housing, and supervision costs as needed.
+ Justification for number of   Annual investment levels align with the scale of rural provider shortages
+ subawardees                   and the five-year service obligation. Regional collaborative awards
+                               promote coordinated placement and reduce competition among
+                               neighboring rural facilities.
+ Process and scoring           Request for Application (RFA). Based on the output of the workforce
+ mechanics                     planning tool, the rubric prioritizes shortage severity and likelihood of
+                               retention: regional need and vacancy rates, collaborative governance and
+                               sharing model, recruitment and retention strategy, service obligation
+                               enforcement plan, budget reasonableness, and participation in other CA-
+                               RHT activities.
+ Data and documentation        • Provider vacancy and turnover data
+                               • Recruitment pipeline / pathway plan
+                               • Collaborative agreements among facilities
+                               • Bonus policy and service obligation terms
+                               • Budget
+                               • Onboarding and housing support plan
+                               • Tracking system for service completion
+                               • To be eligible to receive funds, other data and documentation may be
+                                    requested of awardees in addition to the items listed to confirm initial
+                                    and continued alignment, and agreement to, RHTP initiatives, metrics
+                                    and reporting compliance requirements and activities per the CA-
+                                    RHTP Project Narrative and Work Plan.
+ Tribal participation          Structure a Tribal set-aside or dedicated solicitation for Tribal health
+                               programs and track Tribal awards and expenditures to meet the 5%
+                               minimum commitment.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost tracking,
+                               quarterly financial and performance reporting, annual outcome reporting,
+                               audit and site-visit rights, documentation requirements, and corrective-
+
+
+
+Revised 03/27/2026                                                                                         26
+                               action and repayment remedies for unallowable or unsupported costs as
+                               well as repayment provisions for unmet service obligations. Permissible
+                               uses of funds are restricted to the use of funds disclosed in the CMS-
+                               approved proposal, in addition to required compliance with applicable
+                               state and HHS/CMS subrecipient/awardee terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Workforce Development Initiative (2)
+ categories                    Use of funds: A. Prevention and Chronic Disease, D. Training and
+                               Technical Assistance, G. Appropriate Care Availability, E. Workforce
+                               Development and Recruitment, H. Behavioral Health, K. Fostering
+                               Collaboration
+
+
+In support of the Rural Health Technology & Tools Initiative:
+Technology & Tools: EHR Modernization Grants                                    $11,650,000
+Provide funds to upgrade, enhance, and extend needed infrastructure technology,
+including Electronic Health Record (EHR) systems, with a focus on rural, frontier, and
+Tribal health facilities that are currently unable to effectively exchange patient data with
+other providers. These funds are allocated separately from other technology grants as a
+safeguard to remain within the constraints of the permissible use of funds for EHR
+replacements.
+
+ Preamble                      Changed from original $10.0M, increased original proposed budget
+                               amount by $1.6M in additional Budget Period 1 (BP1) funds made
+                               available under the CMS NOA for California, for a revised total of $11.6M.
+                               Funds will upgrade, enhance, and extend needed infrastructure
+                               technology, including EHR systems, for rural, frontier, and Tribal facilities
+                               that cannot effectively exchange patient data. Funds are allocated
+                               separately from other technology grants to safeguard compliance with
+                               permissible use constraints related to EHR replacements.
+ Budget Period 1 amount        BP1 $11.6M.
+ Number of Awards              Up to 18 awards sized to support higher cost interoperability upgrades
+                               and an intended mix of rural, frontier, and Tribal facilities.
+ How big per award             Tiered grants with an increased floor: small $100K to $500K, medium
+                               $500K to $1.0M, large $1.0M to $2.0M for complex interoperability
+                               upgrades and EHR modernization. Planning assumption based on market
+                               pricing is approximately $2.0M per major upgrade.
+ Justification for number of   Award volume is calibrated to the expected unit cost of major
+ subawardees                   interoperability upgrades and to keep awards large enough to fund
+                               meaningful modernization work. The planned count supports a mix of
+                               higher intensity upgrades and smaller readiness activities while
+                               maintaining HCAI capacity to verify allowability and compliance with EHR
+                               replacement constraints.
+ Process and scoring           Request for Application (RFA). Rubric emphasizes interoperability impact:
+ mechanics                     baseline capability gap, feasibility and vendor readiness, regional network
+                               integration value, cybersecurity and privacy plan, budget and
+                               sustainability.
+ Data and documentation        • Current-state interoperability baseline
+                               • EHR certification and replacement status documentation
+                               • Vendor quotes and implementation plan
+                               • Cybersecurity risk assessment
+                               • Data-sharing agreements
+                               • Budget and project timeline
+
+
+
+
+Revised 03/27/2026                                                                                         27
+ Tribal participation          Apply a Tribal set-aside and or scoring preference to ensure Tribal
+                               facilities have access to modernization funds; track Tribal expenditures
+                               toward the 5% minimum.
+ Risk and compliance           Subaward agreements will include allowable-use language (including
+                               non-permissible use of funds under the CA-RHTP initiative(s), e.g. B.
+                               Provider Payments), non-supplanting attestation, separate cost tracking,
+                               quarterly financial and performance reporting, annual outcome reporting,
+                               audit and site-visit rights, milestone reporting, and corrective-action and
+                               repayment remedies for unallowable or unsupported costs. Permissible
+                               uses of funds are restricted to the use of funds disclosed in the CMS-
+                               approved proposal, in addition to required compliance with applicable
+                               state and HHS/CMS subrecipient/awardee terms and conditions.
+ Initiative and use of funds   Initiative: The Rural Health Technology & Tools Initiative (3)
+ categories                    Use of funds: A. Prevention and chronic disease, C. Consumer tech
+                               solutions, D. Training and technical assistance, F. IT Advances, G.
+                               Appropriate Care Availability, K. Fostering Collaboration
+
+
+Technology & Tools: Improvement Grants                                                     $0
+Support and optimize technical systems needed for rural hospitals, clinics, and other
+facilities to effectively collaborate with regional care partners. HCAI proposes to institute
+a technology grant program funding approximately $38 million annually in Years 2-5 to
+help rural providers and Tribal health programs implement and enhance their technical
+capabilities to support access to telehealth and transformative care models. HCAI
+intends to utilize the services of a third-party administrator to help award and disburse
+these grants efficiently.
+
+ Preamble                      No change from original budget amount.
+ Budget Period 1 amount        BP1 $0.
+ Initiative and use of funds   Initiative: The Rural Health Technology & Tools Initiative (3)
+ categories                    Use of funds: A. Prevention and chronic disease, C. Consumer tech
+                               solutions, D. Training and technical assistance, F. IT Advances, G.
+                               Appropriate Care Availability, K. Fostering Collaboration
+
+
+Subrecipient Budget Summary
+Table 9 -      Subrecipient Budget, Budget Period 1 (figures in millions)
+Initiative              Purpose                                                                     BP 1
+Transformative Care
+                        Transformation Payments to Support Strategically Located Hospitals            35.00
+Model
+Transformative Care
+                        Establish Regional Hub-and-Spoke Networks                                     39.01
+Model
+Transformative Care
+                        Expand Support for Non-Physician Clinical Roles                                0.00
+Model
+Transformative Care
+                        Expand Rural Health Train-the-Trainer                                          2.00
+Model
+Transformative Care
+                        Expand and Support Rural Workforce Capacity                                    6.50
+Model
+
+
+
+
+Revised 03/27/2026                                                                                           28
+Initiative            Purpose                                                        BP 1
+Transformative Care
+                      Expand and Support Tribal Rural Workforce Capacity                5.00
+Model
+
+Workforce
+                      Career Pathways Grants                                            6.99
+Development
+Workforce
+                      Rural Clinical Placement Support and Training Pathways            6.40
+Development
+Workforce
+                      Expand Rural Provider Retention and Relocation                   54.17
+Development
+Technology & Tools    EHR Modernization Grants                                         11.65
+Technology & Tools    Improvement Grants                                                0.00
+Subtotals                                                                            166.72
+
+Contractors
+Contractor Selection Process and Criteria
+HCAI will award services contracts in accordance with California’s Public Contract
+Code, standard procurement practices, and using leveraged procurement agreements
+(LPAs) where appropriate. Selection of awardee(s) for each contract described below
+will be based on factors specific to the services required. In all cases, selection criteria
+will include:
+     • Proven experience delivering similar, relevant services
+     • Prior work with federal, state, or local government agencies
+     • Availability and experience of appropriate staff resources
+     • Location in, near, or accessible to rural communities as needed for participation
+         in CA-RHT initiatives
+     • Reasonableness of cost
+In support of the Rural Health Transformative Care Model Initiative:
+Hub-and-Spoke Implementation and Change Management Support                      $12,447,250
+The contractor will provide specialized consulting and technical assistance services to
+help rural hospitals and healthcare providers successfully design, implement, and
+sustain regional Hub-and-Spoke (H&S) networks that strengthen primary, maternal,
+specialty, and behavioral health care across rural California. While the state has used
+H&S structures in other program areas, adapting this model to meet the diverse needs
+of rural regions requires targeted expertise in network design, workforce development,
+technology integration, and governance. The contractor will conduct regional gap
+assessments to identify workforce, telehealth, and care delivery infrastructure needs;
+support the establishment of appropriate governance and partnership structures; and
+facilitate implementation of hospital and clinic levels of care for primary, maternity,
+chronic disease, and specialty services. This work will help ensure that each regional
+hub is focused on the right components to upskill and enhance its spokes through
+effective technical assistance and coordinated support.
+Through a structured change management process, the contractor will work directly with
+subrecipients to redesign workflows and adopt evidence-based care models including
+
+
+Revised 03/27/2026                                                                          29
+Project ECHO, OB Nest, CalMAP, and Perinatal Psychiatry Access Program (PPAP).
+Activities will include developing tailored implementation plans, change management,
+facilitating workforce training around new evidence-based models, when appropriate
+implementing new payment models and providing on-site and virtual assistance and
+implementation support to ensure successful operationalization of new systems and
+practices. The contractor will also assist regional partners in creating shared call
+centers, transfer protocols, and governance structures that promote continuity of care
+and resource sharing. These services will ensure that TCM Hub-and-Spoke networks
+are not only well-designed but also fully supported through ongoing, hands-on technical
+assistance to achieve sustainable transformation in rural health delivery.
+Increased from original proposed budget amount BP1 $4.0M to $12.45M.
+Initiative: The Rural Health Transformative Care Model Initiative (TCM) (1)
+
+In support of the Rural Health Workforce Development Initiative:
+Workforce Mapping Tool Expansion                                                 $6,000,000
+HCAI will develop a dynamic data platform to map existing rural and frontier workforce
+supply, identify demand trends, and pinpoint regional capacity gaps across licensed
+professionals, support staff, and allied health roles. This work will be completed during
+Year 1 of RHTP funding to focus the training and pathway initiatives on areas and
+professions with greatest need and address maldistribution of providers in targeted rural
+regions. HCAI will develop a request for information opportunity to identify potential
+contractors to develop this tool. Criteria used to select the contractor includes
+experience in workforce data modeling; knowledge of multiple data/technology tools
+such as geographic information systems, statistical analysis software, and multiple
+programming languages; and a proven track record of completing services on time and
+meeting the needs of their clients.
+Unchanged from original proposed budget amount BP1 $6.0M to $6.0M.
+Initiative: The Rural Health Workforce Development Initiative (2)
+
+In support of the Rural Health Technology & Tools Initiative:
+Rural Technical Assistance Center Contractor                                    $23,550,000
+Develop a Rural Technical Assistance Center (RTAC) that provides expert advice and
+hands-on, on-site support to grantees. The RTAC will support improved access to
+technology and tools, including connectivity and health information exchange,
+telehealth, remote patient monitoring, and e-consult and cybersecurity fortification. The
+RTAC will support the technical implementation of TCM, Rural Health Workforce
+Development, and Rural Health Technology & Tools Initiatives through progress
+measurement, learning and diffusion. Services will range from access to hands-on
+implementation support; technology coaching and other technical assistance; security
+risk assessments; guidance on vendor management; and technical training and
+certification to develop and sustain local expertise. Based on its front-line experience
+with rural health care facilities and providers, RTAC teams will aim to reduce technology
+costs and staffing burden for rural providers by creating opportunities for group
+purchasing, shared management of technological services, and shared service
+development. The budget plans for $23.6 million in Year 1 as HCAI solicits, selects, and
+onboards a qualified RTAC contractor and evaluates existing telehealth platforms, e-
+
+
+Revised 03/27/2026                                                                      30
+consult tools, interoperability solutions, and population health and revenue cycle
+systems to help identify persistent technology or workflow gaps that limit efficiency or
+scalability. Years 2-5 are planned at approximately $21-24 million annually.
+Increased from original proposed budget amount BP1 $5.0M to $23.55M.
+Initiative: The Rural Health Technology & Tools Initiative (3)
+
+In support of the CA-RHT implementation:
+Third-Party Administrators for Grants                                           $6,910,530
+Serve as third-party administrators for grants related to rural health technology & tools
+improvement, and Hub-and-Spoke implementations. Assist HCAI with execution of
+subaward payments by creating grant management plans, award and monitoring
+protocols, and oversight processes. Additionally, provide technical assistance to
+grantees in relation to documentation required to issue payments, monitor grantees’
+service obligations, and close grant agreements. Working closely with HCAI, third-party
+administrators will help ensure adequate controls over the award of grants, provision of
+subrecipient monitoring, permissible use of federal funds, pre-authorization for
+equipment purchase, and overall expenditure tracking. The contractor will also design a
+data dashboard to track a subrecipient’s site-specific outcomes and performance,
+enabling continuous improvement and accountability.
+Increased from original proposed budget amount BP1 $1.6M to $6.91M. Not initiative specific.
+
+Financial Audit Services                                                                              $0
+In recognition of federal and state requirements related to grant awards, HCAI is
+budgeting funds to support annual external auditor services beginning in Year 2.
+Unchanged from original proposed budget amount BP1 $0 to $0. Not initiative specific.
+
+Contractor Budget Summary
+Table 10 - Contractor Budget, Budget Period 1 (figures in millions)
+            Initiative                                  Purpose                                BP 1
+                                 Hub-and-Spoke Implementation and Technical
+Transformative Care Model                                                                       12.45
+                                 Assistance Support
+Workforce Development            Workforce Mapping Tool Expansion                                6.00
+Technology & Tools               Rural Technical Assistance Center                              23.55
+Administrative                   Third Party Administrators for Grants                           6.91
+Administrative                   Financial Audit Services                                        0.00
+Subtotals                                                                                       48.91
+
+G. Construction
+Not applicable.
+H. Other
+None.
+
+
+
+
+Revised 03/27/2026                                                                                    31
+I. Total Direct Costs
+The following table summarizes the proposed CA-RHT total Direct Costs described in
+the sections above.
+Table 11 - Total Direct Costs, Budget Period 1
+Category                                    BP1
+a. Personnel                                2,502,458
+b. Fringe Benefits                          1,327,804
+c. Travel                                     57,550
+d. Equipment                                       -
+e. Supplies                                  349,233
+f. Consultant/ Contractor/ Subrecipient   223,227,780
+g. Construction                                        -
+h. Other                                               -
+Subtotals                                 227,464,826
+
+J. Indirect Costs
+HCAI has never received an indirect cost rate agreement and is opting to charge a
+de minimis rate based on modified total direct costs (MTDC). The table below provides
+the MTDC by year used as the basis for calculating the 10 percent de minimis rate for
+Indirect Costs.
+
+Table 12 - Modified Total Direct Costs and Indirect Cost, Budget Period 1
+Category                                    BP 1
+a. Personnel                                2,502,458
+b. Fringe Benefits                          1,327,804
+c. Travel                                      57,550
+e. Supplies                                  349,233
+f. Consultant/ Contractor services         56,507,780
+f. Subawards
+                                            1,000,000
+(up to first $50,000 only)
+Number of new subawards anticipated                20
+Subtotal MTDC                              61,744,826
+Subtotals Indirect Cost                     6,174,483
+
+Cost Summary
+The tables below summarize the proposed CA-RHT cost by initiative and budget period
+based on an award of $233.6 million in Budget Period 1 and the hypothetical model of
+$200 million in future Budget Periods. This illustrates the overall planned rate of
+expenditure is consistent with the allowable two-fiscal-year timeframe for expending
+funds disbursed in each of the five budget periods. In addition, the budgeted
+Administrative Cost is under the maximum 10 percent allowed by the NOFO.
+
+
+
+Revised 03/27/2026                                                                   32
+Table 13 - Spending by initiative, Budget Period 1
+Initiative                             BP 1
+1: Transformative Care Model         112,219,100
+2: Workforce Development              62,364,799
+3: Technology & Tools                 35,689,045
+0: Administrative Cost                23,366,364
+Subtotals                            233,639,308
+
+
+
+
+Revised 03/27/2026                                   33
+          Figure 2 -   CA-RHT Subrecipient, Contractor, and Consultant Process Overview For Illustrative Purposes Only
+
+
+
+
+Revised 03/27/2026                                                                                                       34
+Appendix A
+
+Transformative Payments Under the Rural Health Transformative Care Model
+
+Purpose and Context
+Transformative Payments within the Rural Health Transformative Care Model (TCM) are
+investments in a select group of rural hospitals whose stabilization is essential to
+increasing rural access in California. As described in the Project Narrative, California’s
+rural communities are geographically expansive, demographically diverse, and operate
+under widely varying conditions. Rural hospitals vary substantially in service mix,
+financial condition, workforce capacity, and community health needs. Transformative
+Payments recognize this heterogeneity and provide time-limited support tied to
+structured initiatives with clear metrics that will drive measurable rural hospital
+improvements and transformation. These payments are not provider reimbursement for
+billable services and will not supplant existing payment streams. Rather, they are
+conditional, milestone-based transformation investments to support hospital
+participation in feasible components of the Transformative Care Model (TCM) to
+advance long-term sustainability, improve local utilization, and optimize rural and
+frontier health outcomes. Transformative Payments are exclusively under Initiative 1:
+The Rural Health Transformative Care Model and are aligned with the program’s
+strategic goals of sustainable access, innovative care, workforce development, and
+technology modernization.
+
+Eligibility and Selection Framework
+California will apply a structured, multi-stage process to identify hospitals eligible for
+Transformative Payments. The objective is to ensure that awards are directed to
+hospitals that are (1) strategically important to regional access, (2) capable of engaging
+in transformation, and (3) positioned to demonstrate measurable improvement.
+
+Filter 1: Objective Eligibility Criteria
+HCAI will narrow the universe of California’s rural hospitals (approximately 108
+statewide) to an estimated subset of approximately 25 hospitals meeting the following
+criteria:
+    • Fewer than 200 licensed beds
+    • Positive but minimal operating margin (greater than 0.01%)
+    • Greater than 60 days cash on hand
+    • Located in rural or frontier Medical Service Study Areas (MSSAs) and HRSA-
+        defined rural areas
+Consistent with subrecipient selection criteria in the Budget Narrative, this filter ensures
+that participating hospitals serve rural communities, have leadership with demonstrable
+revenue management skills, and are not in immediate danger of closure.
+
+Filter 2: Strategic and Readiness Criteria
+HCAI will apply additional criteria to further narrow the cohort. These criteria include:
+    • Geographic necessity (e.g., maternity care desert, high chronic disease burden,
+       Tribal service area)
+
+
+Revised 03/27/2026                                                                        35
+   •   Demonstrated willingness to participate in site-specific data reporting and award
+       monitoring
+   •   An HCAI assessment of the applicant’s management and operations to confirm
+       that the hospital is capable to implement feasible TCM components and
+       demonstrate measurable improvement in outcomes such as utilization, access,
+       quality, coordination, or sustainability
+   •   Commitment to service line operations assessment and willingness to align with
+       TCM objectives and receive technical assistance
+   •   Evidence of readiness to implement feasible workforce and technology
+       components
+   •   Commitment to employ targeted care coordination strategies focused on
+       improving rural health care and achieving financial and operational goals
+
+Filter 3: Capacity and Access Profile
+HCAI will conduct a structured capacity and access profile to narrow from the identified
+25 hospitals to a finite number that Transformative Payments can sufficiently fund with
+the $35 million budget. This profile will assess:
+    • Catchment area
+    • Number of rural and frontier residents served
+    • Local disease and chronic condition burden
+    • Lines of business and service mix (e.g., maternity, primary care, specialty care,
+       chronic disease, emergency, behavioral health)
+    • Utilization
+    • Workforce configuration and reliance on locums
+    • Technology maturity and interoperability gaps
+
+This individualized profile ensures that transformation is tailored to each hospital’s
+unique role within its community and region.
+
+Structured Transformation Process
+For each Transformative Payment grantee, HCAI will administer a standardized four-
+step process to successfully implement the hospital-identified feasible TCM
+component(s).
+
+1. Line of Business Analysis
+HCAI, with consultant support as outlined in the Budget Narrative, will conduct a
+detailed analysis of each hospital’s lines of business. The purpose is to identify which
+service lines are strategically important, performing well, underperforming, at risk, or
+underutilized.
+
+2. Operations Analysis
+HCAI will conduct a focused analysis that will evaluate the hospital’s operational,
+workforce, financial, and technological baseline. The analysis will then identify barriers
+preventing the hospital from stabilizing or expanding targeted service lines and propose
+solutions, including technical assistance, for any identified barrier. The analysis will
+identify existing site resources, clinical expertise, and other relevant capabilities that can
+
+
+
+Revised 03/27/2026                                                                         36
+be leveraged to participate in and support feasible TCM components and the hospital’s
+potential participation in a regional care collaborative. The analysis will explicitly
+examine opportunities to implement TCM components such as hub-and-spoke
+collaboratives, telehealth, workforce development, evidence-based care models,
+eConsult, revenue cycle management, and care coordination.
+
+3. Collaborative Transformation Plan
+Based on the operations analysis, hospitals will implement transformation activities tied
+to overcoming the identified barriers and enhancing specific lines of business. These
+transformation activities may include:
+Maternal Health
+    • Implementation of OB Nest prenatal model
+    • Establishment of telehealth or eConsult pathways
+    • Development of perinatal Community Health Worker programs
+    • Standardized transfer protocols and readiness drills
+Chronic Disease and Primary Care
+    • Deployment of evidenced-based care models such as Project ECHO
+    • Expansion of remote patient self-monitoring
+    • Integration of behavioral health through collaborative care or psychiatry access
+       programs, such as Train-the-Trainer
+Specialty Access
+    • Telehealth and eConsult expansion
+    • Regional referral and scheduling optimization
+    • Shared staffing or rotating specialty coverage
+Operational Sustainability
+    • Billing modernization and revenue cycle optimization
+    • Shared service agreements within regional collaboratives
+    • Transition of low-volume inpatient services to outpatient or telehealth-enabled
+       pathways
+    • Efficiencies through care coordination
+    • Regional workforce sharing
+    • Revenue diversification
+    • Administrative services simplification.
+
+Allowable uses will align with the intent of Rural Health Transformation and will be
+detailed in grant agreements. Hospitals must comply with all applicable federal
+requirements, including allowable use of funds, financial reporting, and compliance
+standards, and participate in required monitoring and ongoing coordination with the
+awarding agency and regional care collaborative support contractors.
+
+Hospitals may also participate in separate Workforce or Technology & Tools grants for
+additional support; however, activities funded through those initiatives must be
+financially and operationally distinct.
+
+No Duplication of Payments
+
+
+
+
+Revised 03/27/2026                                                                     37
+HCAI will implement strict accounting, budget attestation, and milestone tracking
+protocols to ensure that Transformative Payments do not duplicate:
+    • Medicaid, Medicare, or commercial provider reimbursement
+    • Workforce Development grants
+    • Technology & Tools grants
+    • Other state or federal funding streams
+Each Transformation Plan will include a line-item budget mapping uses of funds to
+discrete transformation activities. Annual audits and reporting will verify compliance.
+Funds may not be used to pay for routine operating losses, billable services, or activities
+already funded under other CalRHT initiatives.
+
+4. Utilization and Outcome Targets
+Each hospital will establish baseline utilization metrics tied to the targeted line of
+business, and will be accountable for reporting year-over-year progress on the agreed-
+upon metrics. Metrics may include:
+    • Increase in local maternity deliveries
+    • Increase in empaneled primary care patients
+    • Increase in telehealth or eConsult billing
+    • Improvement in operating margin or service line contribution margin for targeted
+        programs
+The YoY utilization targets will reflect realistic, data-informed improvement expectations.
+
+Payment Structure and Accountability
+Hospitals will receive payments to support implementation of agreed transformation
+activities. Hospitals must demonstrate engagement and progress toward TCM goals to
+remain eligible. Prior to disbursing funds, HCAI will confirm that the hospital has the
+leadership commitment, operational readiness, and implementation plan necessary to
+begin transformation activities.
+
+Transformative Care Facility Financing Staffing
+One health facility financing specialist will administer Transformative Payments under
+the CalRHT program. This position will manage financial transactions, ensure
+compliance with state and federal funding requirements, provide technical assistance to
+rural health providers participating in transformation initiatives, oversee payment
+processing, maintain accurate financial records, and coordinate with internal teams to
+ensure timely and accurate disbursement of funds.
+Expected Impact
+Transformative Payments are intended to:
+    • Preserve and expand access to primary, maternity, chronic, and specialty care,
+       or other identified lines of business needed in a given rural area
+    • Increase rural care utilization
+    • Strengthen integration within local regional care collaboratives
+    • Provide technical assistance to help strategically important rural hospitals solve
+       barriers identified in their operations analysis
+
+
+
+
+Revised 03/27/2026                                                                      38
+By pairing structured financial support with measurable transformation, the program
+advances the CalRHT vision of a connected, resilient rural health system that delivers
+person-centered care close to home.
+
+
+
+
+Revised 03/27/2026                                                                       39
+

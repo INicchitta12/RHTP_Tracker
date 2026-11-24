@@ -48,8 +48,7 @@ test_that("every rule is an activity match, quoted verbatim, on an archived sour
   expect_true(all(file.exists(here::here(rules$quote_text_path))))
   # rhtp_use_rules() refuses a quote it cannot find; re-check here explicitly
   for (i in seq_len(nrow(rules))) {
-    expect_true(grepl(rhtp_use_norm(rules$quote[i]), rhtp_use_text(rules$quote_text_path[i]), fixed = TRUE),
-                info = rules$rule_id[i])
+    expect_true(rhtp_use_quote_found(rules$quote[i], rules$quote_text_path[i]), info = rules$rule_id[i])
   }
 })
 

@@ -79,11 +79,11 @@ RHTP_USE_MATCH_FIELDS <- c(
   row = 1L,
   fsrs_description = 2L, project_description = 2L, project_summary = 2L, description = 2L,
   use_of_funding = 2L, project_title = 2L, activity = 2L, activity_raw = 2L,
-  activity_type_raw = 3L, initiative_raw = 3L, initiative = 3L, sub_initiative = 3L,
-  grow_initiative = 3L, initiative_fund_use = 3L, strategy = 3L, project = 3L,
-  project_type = 3L, category = 3L,
-  round_name = 4L, funding_opportunity = 4L, solicitation_number = 4L, list_section = 4L,
-  section = 4L, award_pool = 4L, source_document_title = 4L)
+  sub_initiative = 3L, strategy = 3L, project = 3L, project_type = 3L, category = 3L,
+  activity_type_raw = 4L, initiative_raw = 4L, initiative = 4L, grow_initiative = 4L,
+  initiative_fund_use = 4L,
+  round_name = 5L, funding_opportunity = 5L, solicitation_number = 5L, list_section = 5L,
+  section = 5L, award_pool = 5L, source_document_title = 5L)
 
 rhtp_use_groups <- function() {
   g <- readr::read_csv(here::here(RHTP_USE_CATEGORIES_CSV), col_types = readr::cols(.default = "c"),
@@ -124,6 +124,30 @@ rhtp_use_text <- function(path) {
     assign(path, rhtp_use_norm(txt), envir = rhtp_use_text_cache)
   }
   get(path, envir = rhtp_use_text_cache)
+}
+
+#' A quote is found when every SEGMENT of it appears verbatim in the text file
+#' (whitespace collapsed, tags stripped). Segments are separated by " [...] "
+#' (an elision) or " | " (a table-cell boundary the text layout breaks across
+#' lines): a table row whose cells pdftotext prints on several lines is quoted
+#' cell by cell, never paraphrased.
+rhtp_use_quote_segments <- function(q) {
+  seg <- trimws(unlist(strsplit(q, " \\[\\.\\.\\.\\] | \\| ")))
+  seg[nzchar(seg)]
+}
+RHTP_USE_QUOTE_WINDOW <- 3000L
+rhtp_use_quote_found <- function(q, path) {
+  t <- rhtp_use_text(path)
+  seg <- vapply(rhtp_use_quote_segments(q), rhtp_use_norm, "")
+  if (!length(seg)) return(FALSE)
+  pos <- lapply(seg, function(x) { g <- gregexpr(x, t, fixed = TRUE)[[1]]; if (g[1] < 0) integer(0) else as.integer(g) })
+  if (any(lengths(pos) == 0)) return(FALSE)
+  if (length(seg) == 1) return(TRUE)
+  # PROXIMITY: every segment must occur within RHTP_USE_QUOTE_WINDOW characters
+  # of some occurrence of the longest one, so cells stitched from a table come
+  # from the same place in the document.
+  a <- which.max(nchar(seg))
+  any(vapply(pos[[a]], function(p0) all(vapply(pos, function(pp) any(abs(pp - p0) <= RHTP_USE_QUOTE_WINDOW), TRUE)), TRUE))
 }
 
 rhtp_use_split <- function(x) {
@@ -181,9 +205,7 @@ rhtp_use_rules <- function(check_quotes = TRUE) {
   key <- paste(r$file_key, r$match_field, r$match_value, r$basis, sep = "\r")
   bad(duplicated(key) | duplicated(key, fromLast = TRUE), "two rules share file + field + value + basis")
   if (check_quotes) {
-    miss <- !vapply(seq_len(nrow(r)), function(i) {
-      grepl(rhtp_use_norm(r$quote[i]), rhtp_use_text(r$quote_text_path[i]), fixed = TRUE)
-    }, TRUE)
+    miss <- !vapply(seq_len(nrow(r)), function(i) rhtp_use_quote_found(r$quote[i], r$quote_text_path[i]), TRUE)
     bad(miss, "quote not found verbatim in its quote_text_path")
   }
   r$letters_v <- lt

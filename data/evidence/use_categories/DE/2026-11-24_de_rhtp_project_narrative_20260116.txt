@@ -1,0 +1,2943 @@
+Rural Health Needs and Target Population
+
+
+Delaware's rural health landscape reflects the pressures of a small but rapidly transforming state
+
+with stark disparities between its northern urban areas and southern rural counties. According to
+
+the Health Resources and Services Administration (HRSA) Federal Office of Rural Health
+
+Policy definition, Sussex County is fully rural (all census tracts designated rural), while Kent is
+
+partially rural and New Castle
+
+County is not. Roughly 38-40% of
+
+Delaware residents - about
+
+400,000 people - live in these rural
+
+areas, facing healthcare challenges
+
+that far exceed their geographic
+
+footprint. 1
+
+
+Sussex County embodies
+
+Delaware’s rural health crisis.
+
+With a total population of 271,000,
+
+it is one of the fastest growing
+
+counties in the nation – expanding 29.3% from 2010-2022, compared to 7.7% nationally and
+
+13.2% statewide. 2 Growth is projected to continue through at least 2032, placing extraordinary
+
+strain on healthcare infrastructure. Yet despite this growth, Sussex County is designated entirely
+
+as a Medically Underserved Area (MUA) and a Health Professional Shortage Area (HPSA) for
+
+primary care, dental care, and mental health services. The same is true for Kent County. In fact,
+
+Delaware ranks dead last - 50th nationally - in meeting primary care needs, with only 14.85% of
+
+
+                                                                                                      1
+demand met and a shortfall of 71 primary care physicians statewide to remove HPSA
+
+designation. 3 In Sussex County, the healthcare workforce crisis is acute: there are only 130
+
+active primary care physicians serving 271,000 residents - a ratio exceeding 2,000:1, well above
+
+HRSA's shortage threshold. 4 Kent County fares slightly better at 1,700:1 compared to 960:1 in
+
+urban New Castle County. Forty percent of Sussex County residents lack a primary care provider
+
+entirely, and average wait times for new appointments have more than doubled—from 11.5 days
+
+in 2013 to 27 days in 2021. 5
+
+
+The pressure on this already thin healthcare workforce will only intensify. More than 26% of
+
+Sussex County's population is aged 65 and older—significantly higher than the national rate of
+
+17% and rising as retirees from neighboring states continue to move to Delaware’s rural coastal
+
+communities. By 2035, this aging cohort will demand 36% more trauma services, 30% more
+
+rehabilitation services, 23% more lab services, and 15% more cardiac services. 6 Yet the provider
+
+pipeline remains limited. Delaware has no medical school, limited rural clinical rotation
+
+opportunities, and in turn, has not been able to implement the "train here, stay here" model that
+
+has successfully placed physicians in underserved communities nationwide.
+
+
+These workforce shortages translate directly into poor health outcomes. Seven of Delaware's ten
+
+leading causes of death stem from chronic disease, with rates of hypertension, diabetes, and
+
+cancer exceeding national benchmarks. 7 Approximately 10% of Delaware residents manage
+
+multiple chronic conditions simultaneously, and the state ranks in the bottom fifth nationally for
+
+prevalence of high cholesterol and chronic kidney disease—conditions requiring consistent
+
+primary care management. The burden falls heaviest on Sussex County and rural Kent County.
+
+Adult obesity rates in Sussex are 36% - the highest in Delaware, more than one in eight adults
+
+
+                                                                                                     2
+(13.1%) have diabetes, and 20%
+
+have poor or fair health overall.
+
+These poor health measures
+
+reflect not only limited access to
+
+preventive care but also the
+
+compounding effects of poverty,
+
+food insecurity, and poor health
+
+education. Geography itself is also a barrier to health. Residents in western Sussex County
+
+routinely travel 50 miles to reach hospitals or specialty providers, often without reliable public
+
+transportation. The result is deferred care, preventable complications, and high health care costs.
+
+
+Rural Health Transformation Plan: Key Performance Objectives
+
+The Delaware Rural Health Transformation Plan (RHTP) confronts these realities through 15
+
+integrated initiatives spanning workforce development, expanded access to care in rural
+
+communities, technology innovation, and prevention. Together, they will expand access through
+
+community-based delivery; strengthen the workforce pipeline through medical education and
+
+rural training opportunities; modernize rural facility operations and payment models; improve
+
+population health and chronic disease management; and offer technological innovations to
+
+promote better health. The primary beneficiaries will be the residents of rural Sussex County
+
+(271,000 residents) and Kent Counties (~50% rural, 193,000 total residents), totaling
+
+approximately 400,000 rural residents. By investing in coordinated, community-anchored
+
+strategies, Delaware will not only prevent the loss of critical rural health capacity but create a
+
+resilient, connected, and sustainable healthcare system that truly makes rural America healthy
+
+again.
+
+                                                                                                     3
+Rural Health Transformation Plan: Goals and Strategies
+Figure 1: Rural Health Transformation Plan Logic Model
+
+
+
+
+Improving Access: Delaware’s RHTP includes proven healthcare access strategies that address
+
+needs identified through data and community input. These strategies build on existing efforts and
+
+partnerships to create a strong network of community providers that leverages innovative
+
+technology to serve patients virtually and in-person. A Hope Center will provide transitional
+
+housing, primary care, and behavioral health services to rural homeless residents - services
+
+proven to reduce overall healthcare costs while improving health outcomes. Strategically
+
+deployed mobile health units and health pods, along with library- and school-based health
+
+centers will serve as convenient care sites that use technology and community resources to
+
+provide low-cost access points critical to value-based payment model success. Meanwhile,
+
+FQHCs and rural health systems will collaborate with payers and other stakeholders to rethink
+
+health care delivery, using new technologies to reshape both patient engagement and health care
+
+                                                                                                4
+workforce needs. The Milford Wellness Village in Milford, DE, demonstrates a successful
+
+community-anchored model that will guide RHTP initiatives. This integrated wellness campus
+
+delivers skilled nursing, rehabilitation, long-term chronic care support, and wrap-around services
+
+to help older adults live longer, healthier lives.
+
+
+
+Improving Outcomes: The RHTP’s coordinated approach to workforce expansion, access
+
+points, service innovations, and technology aims to deliver measurable improvements in the
+
+health of Delaware’s rural residents. Delaware will track population health, service utilization
+
+and workforce adequacy measures, establish baseline metrics and provide public reports. Each
+
+initiative includes specific outcomes measures and quantifiable targets. Anticipated patient-
+
+focused outcomes include:
+
+    •   Earlier interventions through screenings at mobile units, health pods, libraries, and
+
+        school-based health centers, resulting in earlier diagnoses, less complex illnesses, lower
+
+        medical costs and improved self-management
+
+    •   Adherence to lifestyle programs that complement medical interventions and mitigate
+
+        disease progression with support from dieticians, behavioral health clinicians, and
+
+        community health workers.
+
+    •   Improved glucose and blood pressure control through remote monitoring, “Food is
+
+        Medicine” counseling, and the Diabetes Wellness Program
+
+    •   Reductions in potentially avoidable hospitalizations and emergency department visits.
+
+Workforce: Delaware ranked last among all states in meeting primary care needs, with only
+
+14.85% of need met1, and faces growing workforce demands from a rising and aging
+
+population2 and workforce. One challenge is that Delaware is one of only three states without an
+
+
+                                                                                                     5
+in-state medical school – neither public nor private. As a result, Delaware has been challenged to
+
+offer medical students crucial clinical rotations in its rural facilities and cultivate the next
+
+generation of primary care physicians. Moreover, Delaware’s existing programs for Advanced
+
+Clinical Practitioners (NPs, PAs) and other critical positions remain financially out of reach for
+
+qualified students. In response, Delaware’s RHTP will support programs that train medical
+
+professionals in a defined range of licensed roles who commit to five years of rural service. Key
+
+RHTP components include establishing Delaware’s First Medical School, a “Train Here, Stay
+
+Here" residency program that encourages physician trainees to build roots in the rural
+
+community through educational awards, and new and expanded training programs for NPs, PAs,
+
+behavioral health professionals, long-term care staff, and other key roles. A newly developed
+
+Healthcare Workforce Data Center will monitor progress towards full staffing and report on
+
+RHTP success related to Delaware’s medical workforce.
+
+
+
+Technology Use: Delaware recognizes the need to optimize the healthcare experience for rural
+
+patients, providers and caregivers in a tech-enabled world. Through the Rural Provider and
+
+FQHC Value-Based Care Readiness initiative, the state will competitively fund providers and
+
+health facilities to adopt technological solutions that enable patient-centered and efficient care
+
+delivery. Healthcare providers will identify health IT investments that prepare them for value-
+
+based payment initiatives, enable participation in CMS’ Aligned Networks pledge and promote
+
+CMS Interoperability Framework goals. Eligible investments will include AI Scribes and other
+
+HIPAA-compliant tools to reduce documentation burden, allowing providers to “kill the
+
+clipboard” and focus more fully on patients; software and technical assistance to model the
+
+financial impact of value-based payment methodologies; and EHR Integration. Separately, the
+
+
+                                                                                                     6
+state will launch a Catalyst Fund to help health tech vendors bring new innovations to rural
+
+Delawareans. Delaware also will support a Diabetes Wellness Pilot that integrates new
+
+technologies with high-touch care management and lifestyle changes to improve outcomes.
+
+
+
+Partnerships and Stakeholder Engagement: Delaware state agencies have built strong
+
+relationships across health policy issues. The RHTP will be led by the Delaware Department of
+
+Health and Social Services (DHSS), the Division of Public Health (DPH), and the Governor’s
+
+Office, who will engage health systems, payers, consumers, educators and others in
+
+implementing the RHTP. To expand training opportunities, our plan supports the creation of a
+
+Delaware medical school and related training programs. We will partner with community-based
+
+organizations to implement “Food is Medicine” programs and deploy mobile “health hubs” in
+
+accessible locations. Our initiative to expand health access services at Delaware's public libraries
+
+leverages existing infrastructure and established partnerships among the Division of Substance
+
+Abuse and Mental Health (DSAMH), DPH, and DHSS. The technology-centered Catalyst Fund
+
+will directly support companies as they develop and deploy consumer-facing solutions.
+
+
+
+To develop this application and the various RHTP initiatives, the Governor’s Office requested
+
+input on rural health priorities. Delawareans responded with over 200 ideas and
+
+recommendations, which were used to develop the comprehensive plan. Governor Meyer
+
+embarked on a Rural Health Tour in Delaware, visiting multiple major hospitals systems and
+
+rural-focused FQHCs. This tour culminated in an open press roundtable where the Governor
+
+directly heard feedback from doctors, nurses, FQHCs, hospital leaders, state legislative leaders
+
+and others to refine Delaware’s plan. The Governor’s Office also reached out to both of
+
+
+                                                                                                   7
+Delaware's recognized tribes — the Lenape Indian Tribe, largely located in central Kent County,
+
+and the Nanticoke Indian Tribe, largely in Sussex — and closely engaged with Delaware’s
+
+Community Health Advocacy Mobilization Group for feedback on the State’s approach. Most
+
+notably, Delaware has secured unprecedented statewide support for the RHTP, as documented in
+
+the Other Supporting Documentation section of this application. The State has received a letter
+
+of support from Delaware's entire legislature committing to regulatory changes around scope of
+
+practice and certificate of need—critical policy reforms that will enable the full implementation
+
+of this transformation plan. Additionally, every hospital in Delaware has signed a letter
+
+supporting the RHTP approach, demonstrating the unified commitment across Delaware's
+
+healthcare delivery system to implement these evidence-based strategies. This extraordinary
+
+level of legislative and provider alignment ensures that RHTP’s initiatives will not face
+
+regulatory or institutional barriers, and positions Delaware to implement reforms that have
+
+stalled in other states.
+
+
+
+State leadership will provide ongoing guidance on measures, outcomes and reporting through
+
+existing committees and workgroups. This leadership includes Delaware DHSS (which includes
+
+Medicaid); DPH; the Delaware Health Care Commission (DHCC) ; the Delaware Department of
+
+Insurance (DOI); the Primary Care Reform Collaborative (PCRC) and its ongoing Value-Based
+
+Care Model Workgroup; the Delaware Office of Rural Health; the Delaware Institute for
+
+Medical Education and Research (DIMER); and the Delaware Workforce Development Board.
+
+
+
+Financial Solvency and Cause Identification: Delaware's rural hospitals operate within
+
+integrated health systems rather than as standalone facilities, which has helped the state avoid the
+
+widespread closures affecting rural America. However, these facilities face mounting financial
+                                                                                                    8
+pressures: declining inpatient volumes, high Medicare and Medicaid payer mix, rising labor costs
+
+driven by housing unaffordability, and workforce shortages exacerbated by the lack of in-state
+
+medical training programs. Without intervention, Delaware's rural healthcare system risks
+
+gradual erosion through service reductions and increasing emergency department (ED) reliance
+
+for primary care. The RHTP addresses these underlying causes through multiple interconnected
+
+strategies:
+
+    •   Value-Based Care Readiness: Technology infrastructure funding for EHR integration,
+
+        telehealth, and remote patient monitoring will enable participation in value-based
+
+        payment models that create new revenue streams.
+
+    •   Reduce ED Utilization: Mobile Health Hubs, library-based health services, and school-
+
+        based health centers will expand preventive care access and reduce costly ED utilization.
+
+    •   Improved Behavioral Healthcare: Supporting CCBHC development and expanding
+
+        behavioral health workforce training will address the Mental Health HPSA designation
+
+        and improve payer mix.
+
+    •   Data-Driven Optimization: The expanded Health Care Workforce Data Center and RHTP
+
+        program vendors will use system-wide data to maximize federal Disproportionate Share
+
+        Hospital (DSH) payments and coordinate resources across Delaware.
+
+By addressing root causes—workforce and training gaps, outdated care delivery models, and
+
+underutilized payment mechanisms—rather than providing temporary subsidies, the RHTP
+
+creates sustainable financial stability for rural providers while improving access and outcomes.
+
+
+
+Data-driven solutions: Delaware brings a strong health data infrastructure, including My
+
+Healthy Community for public health data, the Delaware Health Information Network (DHIN)
+
+
+                                                                                                   9
+which oversees a leading health information exchange and advanced all-payer claims database,
+
+and Delaware Health Force providing interactive workforce planning dashboards. Through
+
+RHTP funding, Delaware will strengthen these systems with a rural health focus, enabling real-
+
+time tracking of progress toward measurable and quantifiable targets across all initiatives. The
+
+state will expand the legislatively-supported Health Care Workforce Data Center to track supply,
+
+demand, distribution, Health Professional Shortage Areas, medically underserved populations,
+
+workforce research, and policymaking—with particular emphasis on rural communities facing
+
+the most severe workforce constraints. This comprehensive data infrastructure will support
+
+continuous monitoring of clinical outcomes, access improvements, workforce development
+
+milestones, and technology adoption metrics, ensuring that each RHTP initiative demonstrates
+
+tangible impact and can be adjusted based on performance data.
+
+
+
+Data Driven Factors A.2 and A.7
+
+Delaware is one of four states that does not have a Certified Community Behavioral Health
+
+Clinic (CCBHC). However, DHSS is currently developing two providers for CCBHC readiness
+
+with plans to release a Request for Information assessing additional provider interest in CCBHC
+
+operation. The state has a CCBHC planning grant from SAMHSA to support this capacity
+
+building and prep work, with a goal to open two CCBHCs in Kent or Sussex County. One acute
+
+care hospital in Delaware qualifies for Medicaid DSH payments. Per Delaware’s Medicaid State
+
+Plan, qualifying hospitals must have inpatient facilities located in Delaware, meet other federal
+
+and state requirements and in some cases must also have been enrolled as providers with
+
+DMMA's MCOs and the Medicaid fee-for-service program in the consecutive 24 months
+
+immediately preceding the month of DSH payment.
+
+
+                                                                                                   10
+Legislative and Regulatory Action:
+
+ State Policy       Current State Policy                                     Actions Delaware Commits To Pursuing
+ Technical Factor
+ B.2 Health and     Delaware has established a comprehensive health          Delaware commits to requiring schools to reestablish
+ Lifestyle          policy framework through the Benchmark Initiative        the Presidential Fitness Test aligned with federal
+                    for tracking health care spending and quality, the       guidance associated with Executive Order 14327.
+                    Primary Care Reform Collaborative, and the Office of     Timeline: Executive action to be taken by December
+                    Value Based Health Care Delivery. The state's Title 18   31, 2028.
+                    insurance code regulates commercial health insurance     Improvement to Access, Quality, Cost of Care:
+                    spending and coverage, establishes prescription drug     Establishes baseline fitness data for early
+                    payment caps, and sets requirements for Pharmacy         identification of rural youth at risk for obesity and
+                    Benefits Managers (PBMs). Executive Order 8              chronic diseases, enabling targeted school-based
+                    created the Delaware Interagency Collaborative to        interventions and connections to health resources.
+                    End Homelessness, aiming to reduce homelessness by
+                    half and eliminate youth homelessness within five
+                    years.
+ B.3 SNAP           DHSS received USDA approval to waive the Able-           None
+ Waivers            Bodied Adults Without Dependents (ABAWD) SNAP
+                    three-month time limit in Kent and Sussex counties
+                    due to unemployment rates being over 20% above
+                    national average for FY 2025. 8
+ B.4 Nutrition      Delaware’s Title 24, Chapter 1700 requires physicians    Delaware commits to requiring nutrition to be a
+ Continuing         to complete 40 hours of continuing medical education     component of continuing medical education for
+ Medical            through approved Category 1 AMA courses for each         physicians.
+ Education          registration period, with 20 hours required for first    Timeline: Regulatory amendments drafted by March
+                    time renewals. 9                                         31, 2028; Board of Medical Licensure and Discipline
+                                                                             approval by September 30, 2028; effective for
+                                                                             licensure renewals beginning January 1, 2029.
+                                                                             Improvement to Access, Quality, Cost of Care:
+                                                                             Provides rural physicians evidence-based nutrition
+                                                                             knowledge to counsel patients on dietary
+
+
+                                                                                                                                 11
+State Policy       Current State Policy                                     Actions Delaware Commits To Pursuing
+Technical Factor
+                                                                            interventions, improving preventive care and reducing
+                                                                            specialist referrals.
+C.3 Certificates   Delaware’s Title 16, Chapter 9303 requires a Health      Delaware commits to eliminating or loosening
+of Need            Resources Management Plan to guide health resource       Certificate of Need laws (known as “Certificate of
+                   allocation, including regulating hospital and nursing    Public Review” in DE) to reduce regulatory barriers
+                   home bed capacity and preventing excessive               for providers establishing new facilities in rural areas.
+                   purchasing of medical equipment. 10                      Timeline: Legislation drafted by September 30, 2026;
+                                                                            legislative sponsor identified by January 31, 2027;
+                                                                            brought to vote by June 30, 2027.
+                                                                            Improvement to Access, Quality, Cost of Care:
+                                                                            Removes regulatory barriers that prevent new
+                                                                            facilities from opening in underserved rural areas,
+                                                                            increasing local access to care and reducing
+                                                                            transportation costs and time for rural patients.
+D.2 Licensure      Delaware’s Division of Professional Regulations has      Delaware commits to maintaining participation in
+Compacts           enacted Medical 11, Nursing 12, EMS 13, Psychology 14,   existing licensure compacts (Medical, Nursing, EMS,
+                   and Physician’s Assistant 15 licensure compacts,         Psychology, and Physician Assistant) and promoting
+                   establishing multi-state licensure eligibility and       their utilization by rural providers.
+                   recognizing telemedicine authority.                      Timeline: Outreach campaign to rural providers
+                                                                            launched by March 31, 2027; annual compact
+                                                                            utilization reports published December 31, 2027.
+                                                                            Improvement to Access, Quality, Cost of Care:
+                                                                            Increases the pool of providers available to serve rural
+                                                                            communities through telehealth and cross-state
+                                                                            practice, reducing wait times and expanding access to
+                                                                            specialty services without provider relocation.
+D.3 Scope of       Delaware’s Title 24, Chapter 17 Medical Practice Act     Delaware commits to expanding scope of practice
+Practice           establishes the Board of Medical Licensure and           regulations to allow nurse practitioners, physician
+                   Discipline as the exclusive authority to issue and       assistants, pharmacists, and dental hygienists to
+                   regulate medical practice certificates, 16 sets          practice at the top of their training and licensure.
+                   accreditation requirements for office-based surgery
+
+                                                                                                                                   12
+State Policy       Current State Policy                                    Actions Delaware Commits To Pursuing
+Technical Factor
+                   facilities, and requires state oversight of physician   Timeline: Legislation drafted by September 30, 2026;
+                   services.                                               legislative sponsor identified by January 31, 2027;
+                                                                           brought to vote by June 30, 2027.
+                                                                           Improvement to Access, Quality, Cost of Care:
+                                                                           Enables advanced practice providers to practice
+                                                                           independently in rural areas, allowing them to open
+                                                                           practices and deliver appropriate care without costly
+                                                                           oversight requirements, improving access.
+E.3 Short-term,    Delaware’s Title 18 Insurance Code 1320 establishes     None
+Limited-duration   minimum standards requiring policies be issued for
+Insurance          no longer than three months, maintain consistent
+                   underwriting standards, provide required notice,
+                   achieve 60% minimum loss ratios, and receive
+                   Insurance Commissioner approval. 17
+F.1 Remote Care    Delaware’s Title 24, Chapter 60 authorizes licensing    Delaware commits to enacting comprehensive
+Services           boards to allow telehealth and telemedicine delivery    telehealth reimbursement parity requiring all payers to
+                   by some out-of-state providers with interstate          reimburse telehealth services at the same rate as in-
+                   compacts, requiring remote services meet the same       person services without restriction.
+                   standard of care as in-persons services. 18             Timeline: Legislation drafted by September 30, 2026;
+                                                                           legislative sponsor identified by January 31, 2027;
+                                                                           brought to vote by June 30, 2027
+                                                                           Improvement to Access, Quality, Cost of Care:
+                                                                           Ensures sustainable telehealth programs through
+                                                                           adequate reimbursement, expanding rural access to
+                                                                           specialty and behavioral health services.
+
+
+
+
+                                                                                                                                13
+Proposed Initiatives and Use of Funds
+
+1. Rural “Hope Center” Initiative
+
+Description: The State of Delaware proposes replicating its highly successful Hope Center
+
+model 19 by establishing two new, geographically essential Hope Centers to serve the homeless
+
+rural populations of Kent and Sussex Counties. These Centers will be created through the
+
+strategic renovation, staffing, and equipping of existing state-owned facilities, transforming
+
+underutilized infrastructure into comprehensive, integrated hubs for healthcare, behavioral
+
+health, and housing stability services. The Delaware State Housing Authority, in partnership with
+
+DHSS, will lead the development of each Hope Center. These centers will offer critical non-
+
+congregate temporary housing—including at least 20 transitional beds specifically for
+
+individuals with serious mental illness (SMI) and substance use disorder, plus safe individual and
+
+family units. Each center will integrate social services and evidence-based interventions to
+
+promote long-term stability and self-sufficiency. This initiative directly addresses critical gaps in
+
+the rural healthcare safety net by enhancing access to primary care, behavioral health treatment,
+
+and chronic disease management for unhoused residents and those at high risk for substance use
+
+disorder (SUD). Data demonstrates the urgent, unmet need for integrated services in rural
+
+Delaware:
+
+   •   Growing Homelessness: Delaware’s homeless population rose from 1,245 in 2023 to
+
+       1,358 in 2024, a 9% increase, according to the latest Point-in-Time Count report 20.
+
+   •   Existing Service Strain: Currently, 25% of individuals served at the existing New Castle
+
+       County Hope Center travel from rural Kent and Sussex Counties. This documents a
+
+       significant geographic barrier and unmet need for services within home communities.
+
+
+
+                                                                                                  14
+   •   Health and Cost Disparities: Homeless individuals enrolled in Medicaid incur excess
+
+       costs of $4,611 to $5,218 per person annually, compared to housed enrollees (2019 data),
+
+       primarily due to high use of acute care. Moreover, 19% of individuals who received
+
+       publicly funded substance use and mental health treatment in DE between 2019 and 2021
+
+       reported homelessness, with the rate rising to 22% for Black clients.
+
+The geographic isolation of rural homeless residents creates persistent and profound barriers to
+
+continuity of care, effective care coordination, and successful transitions to stable housing. By
+
+strategically locating new Hope Center facilities within Kent and Sussex Counties, Delaware will
+
+immediately eliminate travel burdens, dramatically enhance service access, and build robust
+
+partnerships with local healthcare systems, Federally Qualified Health Centers (FQHCs),
+
+community-based organizations, and housing providers. On-site, interdisciplinary teams
+
+(including partnered homelessness response organizations, licensed medical providers,
+
+behavioral health specialists, SUD treatment professionals, community health workers, state
+
+social workers, and care coordinators) will deliver a holistic continuum of care that addresses
+
+both acute health needs and the critical underlying social determinants of health. The Centers
+
+will integrate with electronic records systems and provide related technical training to on-site
+
+providers. Services offered at the Centers will include:
+
+   •   Integrated Healthcare: Primary and behavioral healthcare.
+
+   •   Transitional Housing with Wraparound Services: Designated transitional housing beds
+
+       for individuals with SMI and substance use disorders, providing evidence-based
+
+       treatment including cognitive behavioral therapy, MAT, life skills training, relapse
+
+       prevention, and employment support.
+
+
+
+
+                                                                                                   15
+   •   Intensive Case Management: Individualized care planning, benefits enrollment, and
+
+       assistance with rapid permanent housing placement.
+
+   •   Self-Sufficiency Programs: Connections to vocational training and workforce readiness
+
+       programs.
+
+   •   Community Coordination: Robust coordination with local social service agencies and
+
+       community support networks.
+
+Critical to the success of these integrated services is the implementation of a closed-loop referral
+
+tracking system. Each Hope Center will deploy technology infrastructure to ensure that all
+
+referrals for healthcare, behavioral health, housing, and social services are formally opened,
+
+actively tracked throughout the service delivery process, and systematically closed upon
+
+completion. This closed-loop system will enable real-time monitoring of service utilization,
+
+identify gaps in care coordination, ensure accountability across partner organizations, and
+
+generate data-driven insights to continuously improve service delivery and patient outcomes. By
+
+sustaining rural residents' connection to integrated care within their home communities, the new
+
+Hope Centers will:
+
+   1. Drive Significant Improvements in Long-Term Health Outcomes.
+
+   2. Reduce Costly and Avoidable Emergency Department Visits and Hospitalizations.
+
+   3. Strengthen the Resilience of Local Care Networks.
+
+
+This initiative directly aligns with federal priorities of advancing rural health equity, improving
+
+comprehensive behavioral health access, and reducing homelessness through a proven, integrated
+
+service delivery model. Buses will not need to be purchased as the facility as the properties under
+
+consideration for the project are on transit routes. Initial renovations will include general repairs
+
+to the building, updating any ADA related concerns, as well as any expected general
+
+                                                                                                   16
+maintenance repairs such as electrical or compliance concerns. The Rural Hope Centers will not
+
+require major renovations. We are in the process of reviewing vacant state properties that can be
+
+converted to provide the services, including former prisons that could be updated. We are also
+
+looking at acquiring a soon to be vacant building currently owned by Delaware State University
+
+that was once a hotel. It is currently being used as a dormitory and early childhood education
+
+center. If the building is acquired, it will be at state cost.
+
+
+Main strategic goal: Make Rural America Healthy Again
+
+Permissible Uses of funds: A, B, G, H, J, K
+
+Technical score factors: B.1, B.2, C.1
+
+Key stakeholders: Governor's Office (lead); Delaware State Housing Authority; DHSS
+
+including DPH, the Division of Social Services (DSS), DSAMH, Division of State Service
+
+Centers, and the Division of Social Services; Rural Health Clinics; FQHC’s; CCBHC’s; local
+
+healthcare providers; community-based organizations and foundations
+
+Outcomes:
+
+    •   Reduction in avoidable emergency department visits among program participants
+
+        (baseline to be established from participant data 6 months pre-enrollment; target: 15%
+
+        reduction by Year 3)
+
+    •   Number of successful transitions to stable housing in home county (target: 25% within 12
+
+        months of leaving the Center by Year 3)
+
+    •   Reduction in rates of rural residents from Kent and Sussex Counties traveling to New
+
+        Castle County for homeless services (baseline: 25% of New Castle Hope Center residents
+
+        from rural counties; target: 25% reduction by Year 4)
+
+
+
+
+                                                                                                 17
+   •   Number of established partnerships with local rural healthcare providers and community
+
+       organizations for care coordination and referrals (target: minimum 5 new partnerships by
+
+       Year 5
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Direct Funding: $97.5 million for two new Hope Center locations
+
+Sustainability plan: By Year 4, the state will pursue formal partnerships with local jurisdictions
+
+for ongoing operational support and integrate the new Hope Centers into the state's healthcare
+
+delivery infrastructure. Housing, clinical and care coordination services will transition to a
+
+subsidized fee-for-service model while maintaining a safety net for uninsured individuals
+
+through state funding and community partnerships.
+
+
+
+2. Rural Community Health Hubs
+
+Description: Establish a comprehensive network of mobile health units throughout rural Sussex
+
+and Kent Counties to eliminate transportation barriers and deliver evidence-based preventive
+
+care, chronic disease management, behavioral health services, and specialty care directly to
+
+underserved rural communities. This initiative responds to persistent provider shortages and high
+
+rates of chronic disease in rural Delaware, where geographical and financial barriers continue to
+
+limit access to essential health services and insurance coverage.
+
+
+
+Delaware DHSS will award funds through competitive procurement to FQHCs and qualified
+
+organizations demonstrating capacity to deploy staff, equip, and operate mobile health units in
+
+Delaware’s rural communities. Preference will be given to applicants partnering with existing
+
+health systems for clinical integration and continuity of care. Funding will also be used for a
+
+
+                                                                                                  18
+dedicated State Coordinator of Mobile Health who will oversee the initiative and ensure
+
+optimization. All mobile health units will connect to the patient electronic medical record (EMR)
+
+and link with the DHIN – Delaware’s Health Information Exchange (HIE). As part of the public
+
+comment period for the RHTP funds in August 2025, Delaware received strong proposals from
+
+multiple healthcare organizations—including ChristianaCare, Highmark Health Options,
+
+Nemours Children's Health, and Westside Family Healthcare—expressing readiness to
+
+implement and expand their mobile health solutions to address access gaps in rural communities.
+
+These organizations identified critical needs including cancer and chronic disease screening,
+
+stroke care, maternal and infant health, substance use disorder treatment, pediatric services, and
+
+emergency medical services, outlining their capacity and commitment to immediate
+
+implementation. Mobile health units will be strategically deployed to familiar, accessible
+
+community locations including schools, churches, town centers, and community parking lots,
+
+bringing medical services directly to rural residents where they live and gather, especially for
+
+physically disabled, elderly residents, and Native American residents. Deployment will be guided
+
+by Delaware’s community data and the Centers for Disease Control and Prevention’s Social
+
+Vulnerability Index (SVI), a data tool that identifies areas with the greatest barriers to healthcare
+
+access based on socioeconomic status, household composition, housing type, and transportation.
+
+The SVI assigns each area a percentile score from 0 (lowest need) to 1 (highest need). DHSS will
+
+use county and census tract SVI data, along with community profile reports, to prioritize
+
+applications to deploy mobile health units to rural locations with the greatest service gaps.
+
+Main strategic goal: Make Rural America Healthy Again
+
+Permissible Uses of funds: A, B, G, H, K
+
+Technical score factors: B.1, B.2, C.1, C.2
+
+
+                                                                                                   19
+Key stakeholders: Delaware DHSS (lead), healthcare systems, FQHC’s, schools, faith-based
+
+organizations, community centers, Native American organizations, pharmacies.
+
+Outcomes:
+
+   •   Number of new mobile units and health pods deployed in rural Sussex and Kent counties
+
+       (target: minimum of 8 new units by Year 2)
+
+   •   Number of patient encounters at mobile health units annually (target: 2500 encounters
+
+       across Sussex and Kent counties annually by Year 3)
+
+   •   Number of chronic disease screenings conducted through mobile units (cancer, diabetes,
+
+       hypertension, HIV) (target: 1,000 screenings across Sussex and Kent counties annually
+
+       by Year 3)
+
+   •   Number of individuals receiving specialty services through mobile units (maternity care,
+
+       dental care, substance use disorder treatment) (target: 200+ annually across Sussex and
+
+       Kent counties by Year 3)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Direct Funding: $20 million
+
+Sustainability plan: By Year 4, transition to sustainable operational models through fee-for-
+
+service billing and health system investment. DHSS will also pursue ongoing state
+
+appropriations and explore cost-sharing and value-based payment models to maintain long-term
+
+operations.
+
+
+
+3. School-Based Health Centers Expansion Initiative
+
+Description: Expand Delaware's network of school-based health centers (SBHCs) in rural
+
+Sussex and Kent Counties to provide comprehensive physical, behavioral, and preventive health
+
+
+                                                                                                 20
+services directly to students and families, eliminating transportation barriers and improving
+
+access to primary care, mental health services, chronic disease management, and nutrition
+
+counseling. SBHC’s have historically been associated with better access to care, support for
+
+children’s behavioral health, fewer absences and better learning outcomes. 2122 Currently, 73% of
+
+Delaware's 40 SBHCs are in New Castle County, leaving rural communities, particularly in
+
+Sussex County, with limited access to school-based healthcare. In Sussex County, only 1 middle
+
+school and 1 elementary school currently have SBHCs, despite the county having 22 elementary
+
+schools and 12 middle schools across seven school districts. 2324 Expanding SBHCs to these
+
+grades in Sussex and rural Kent Counties will allow early interventions, increase preventive care,
+
+and reduce behavioral health referrals. To allocate the RHTP funding, the Delaware Division of
+
+Public Health’s Adolescent Health Program will conduct a competitive procurement to establish
+
+four new SBHCs in Sussex and Kent elementary and middle schools over the funding period.
+
+Awards will be given to “medical sponsor partnerships” (e.g., hospital systems, FQHCs, or
+
+clinics) capable of staffing, coordinating care with a medical home or primary care provider, and
+
+supporting ongoing operations at schools with school board approval and readiness for
+
+implementation. Preference will also be given to SBHCs that can expand services to nearby
+
+schools through a “hub and spoke” model increasing impact and efficiency. Seaford Middle
+
+School and Indian River School District in Sussex County have already expressed readiness to
+
+implement centers immediately. Funding will also support minor building renovations to
+
+establish clinical space (exam rooms, counseling offices, screening areas), purchase equipment
+
+and supplies, and establish operations. Renovations will be limited to minor interior
+
+improvements within existing school facilities, such as non-structural partition walls and space
+
+reconfiguration to support clinical use. The project does not include structural or load-bearing
+
+
+                                                                                                   21
+construction, building expansion, or major capital improvements; any required permits would be
+
+routine and associated with standard interior fit-out. The four new SBHCs will provide
+
+interdisciplinary care teams including physicians or physician assistants, nurses, mental health
+
+counselors, dietitians, and community health workers, delivering services by appointment during
+
+school days with parental consent. Services will include well-child exams, chronic disease
+
+management (asthma, diabetes), physical fitness testing, depression and substance use
+
+screenings, mental health counseling, nutritional counseling, sexual and reproductive health
+
+services including STI screening and testing (with parental and school board approval), and
+
+referrals to specialty care, coordinated with a medical home or primary care provider.
+
+Main strategic goal: Make Rural America Healthy Again
+
+Permissible Uses of funds: A, B, G, H, J, K
+
+Technical score factors: B.1, B.2, C.1
+
+Key stakeholders: Delaware DPH (lead), Sussex County school districts, healthcare systems,
+
+FQHC’s, school boards, families
+
+Outcomes:
+
+   •   Number of new SBHCs established in rural Sussex and Kent County elementary and
+
+       middle schools (baseline: 0; target: minimum 4 additional centers by Year 4)
+
+   •   Number of students receiving preventive services through the new SBHCs (well-child
+
+       exams, preventive services, STI screenings) annually (baseline:0; target: 400+ annually
+
+       by Year 3)
+
+   •   Number of mental health evaluations and behavioral risk assessments delivered through
+
+       the new SBHCs (baseline:0; target: 150+ annually by Year 3)
+
+
+
+
+                                                                                                   22
+   •   Number of completed new applications for Delaware-recognized SBHC status (target: 4+
+
+       applications submitted by Year 4)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Direct Funding: $10 million
+
+Sustainability plan: By Year 4, establish sustainable operational models through Medicaid
+
+reimbursement for eligible services and medical sponsor commitments to incorporate SBHCs
+
+into their community benefit programs and value-based care arrangements. Schools and districts
+
+will integrate SBHCs into their educational support infrastructure. The state will pursue ongoing
+
+appropriations for core SBHC operations.
+
+
+
+
+4. Food is Medicine Infrastructure Initiative
+
+Description: In rural Kent and Sussex counties, food-insecure older adults show 59.7%
+
+hypertension and 27.8% diabetes prevalence rates, adding $1,800 in annual medical costs per
+
+person. Food is Medicine (FIM) interventions - including food prescriptions, medically tailored
+
+meals/groceries, and culinary medicine - have been proven to significantly reduce A1C and
+
+blood pressure, generating major cost savings. Yet rural implementation of these interventions
+
+faces three barriers: lack of sustainable billing mechanisms, minimal nutrition training in medical
+
+education (<1% of medical curriculum), and a limited workforce of dieticians and community
+
+health workers.
+
+
+
+
+                                                                                                 23
+As part of this initiative, DHSS will establish a FIM infrastructure in rural Kent and Sussex
+
+counties through competitively procured vendor(s) working in partnerships with Delaware’s
+
+primary rural health providers. The Delaware Food is Medicine Committee will provide ongoing
+
+advisory support to DHSS through the development and implementation of all three
+
+infrastructure elements described below.
+
+   •   Element 1 (Payment Infrastructure & Research): Vendors and participating rural
+
+       health providers will develop and implement sustainable billing mechanisms including
+
+       CPT code 99213 culinary medicine consultations, Medicaid “in lieu of services”
+
+       pathways, and Accountable Care Organization (ACO) payment arrangements. This
+
+       element also includes deployment of an EMR-integrated billing toolbox for provider use
+
+       and establishment of a rigorous evaluation framework with published findings. The goal
+
+       is to secure value-based payment arrangements with at least two payers.
+
+   •   Element 2 (Technology & Workforce): Vendors will hire 4-5 community health workers
+
+       and 1 registered dietician to serve patients in rural health practices across Kent and
+
+       Sussex counties by providing nutrition counseling, education and coordination. Vendors
+
+       will also deploy an EMR-decision support tools for participating providers, a telehealth
+
+       nutrition consultation platform, a patient-facing mobile application, and remote patient
+
+       monitoring systems.
+
+   •   Element 3 (Training & Pilot): The program will certify 15 Culinary Medicine Teachers
+
+       to train 150 rural practitioners (70% rural serving) and implement a pilot for 375
+
+       participants with diabetes or hypertension in rural Kent and Sussex counties. Specific
+
+       communities will be identified in consultation with the Delaware Council on Farm &
+
+
+
+
+                                                                                                  24
+       Food Policy. The pilot will provide a six-month intervention including nutrition
+
+       education, culinary medicine consultation, and remote monitoring.
+
+DHSS will provide program oversight, vendor procurement, and coordination with the Delaware
+
+Council on Farm & Food Policy for community identification and technical assistance. The
+
+Delaware Food is Medicine Committee will provide advisory support throughout development
+
+and implementation. Vendor(s) will manage day-to-day program operations, ensure CMS
+
+compliance, hire and deploy workforce resources, implement technology platforms, and provide
+
+quarterly progress reporting. Participating rural health providers will provide patient referrals,
+
+clinical integration, and billing implementation. This model is systems focused and ensures
+
+replicable FIM infrastructure that lowers healthcare costs and improves rural health outcomes.
+
+These initiatives are evidence based with clear measurable health related outcomes as the state
+
+standards to be set by the Delaware Food is Medicine Committee are based on healthcare
+
+systems requiring that enrollees must be patients with diagnosed clinical conditions and
+
+interventions assigned based on science related, interventions to include baseline testing,
+
+identifying specific indicators to test, monitoring of changes in conditions overtime, and
+
+nutrition education evaluation of retention. Delaware will engage with community partners to
+
+implement and monitor the initiative through existing frameworks where community leaders,
+
+community practitioners and healthcare professionals have been identified and are already
+
+convening through regular meetings including the Delaware Council on Farm & Food Policy and
+
+Delaware Food is Medicine Committee. Will also add new opportunities to convene stakeholders
+
+in-person and virtually through workshop and townhall models that state agencies have
+
+employed to communicate information and collect feedback and insights for other initiatives and
+
+processes (hosting a minimum of 3 convenings during the implementation period). Additionally,
+
+
+                                                                                                     25
+will package written communications and use the state public meeting website and state agency
+
+websites to intake written comments and survey responses. This initiative does not include the
+
+purchase of food. Expenses associated with this initiative will build capacity for workforce,
+
+practitioner training, digital tools like integrated billing platforms and other technology.
+
+Main strategic goal: Make America Healthy Again
+
+Permissible Uses of funds: A, B, C, D, G, I, K
+
+Technical score factors: B.1, B.2, C.1,
+
+Key stakeholders: Delaware DHSS (lead), DPH, Delaware Council on Farm & Food Policy,
+
+Food is Medicine Committee, FQHC’s, rural healthcare providers and health systems, payers
+
+Outcomes:
+
+   •   Improved clinical outcomes (target: 40% of participants achieve >/=0.5 point HbA1c
+
+       reduction and/or >/= 5 mmHg blood pressure reduction by Year 5)
+
+   •   Reduced healthcare utilization and food insecurity (target: 20% reduction in ED visits;
+
+       25% reduction in food insecurity by Year 5)
+
+   •   Workforce capacity (target: hire 5-6 FTE staff with 80% retention; train 150 rural
+
+       practitioners with 80% implementing FIM within 6 months; certify 15 Culinary Medicine
+
+       Teachers by Year 3)
+
+   •   Sustainable infrastructure (target: $500,000 annual FIM reimbursement; value-based
+
+       payment agreements with 2+ payers by Year 4; 20 rural sites with EMR-integrated tools;
+
+       2 peer-reviewed publications; 5+ new partnerships annually)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Direct Funding: $8 million
+
+
+
+
+                                                                                                 26
+Sustainability Plan: The recently launched a Delaware Food is Medicine Committee leads
+
+statewide efforts to integrate nutrition into healthcare. Building on Delaware’s First State Food
+
+System Grant Program (now State-funded), this initiative provides a policy foundation for
+
+sustainable FIM infrastructure. RHTP start-up funds will demonstrate clinical and cost-saving
+
+impacts, supporting long-term payer reimbursement. By Year 4, value-based agreements with 2+
+
+payers, $500,000 annual reimbursements, EMR-integrated billing tools, trained workforce, and
+
+statewide culinary medicine educators will sustain operations. Partnerships among producers,
+
+retailers, and healthcare systems, reinforced by evaluation data and publications, will embed FIM
+
+into Delaware’s systems, ensuring enduring health and economic improvements.
+
+
+
+5. Rural Libraries Health Access Initiative
+
+Description: Expand health access services and operating hours at nine rural libraries up and
+
+down Delaware to deliver telehealth, health navigation, and social services support at locations
+
+within seven miles of most rural residents. Rural libraries serve as trusted community anchors
+
+where residents already gather, making them ideal access points for health services that would
+
+otherwise require travel. Children and older adults are frequent library patrons, and Delaware's
+
+public libraries have developed a nationally recognized telehealth and service delivery model
+
+leveraging existing infrastructure such as high-speed internet, private spaces, and trained
+
+specialists to address healthcare access barriers in underserved communities. The Delaware
+
+Division of Libraries has established partnerships with several DHSS divisions, including DPH
+
+and DSAMH to connect library patrons to primary care, substance use disorder treatment, and
+
+mental health services. DSAMH specifically promotes private library spaces for medication-
+
+assisted treatment (MAT) appointments, recognizing libraries as safe and accessible locations for
+
+
+                                                                                                    27
+sensitive services. This initiative builds upon proven success by expanding library services
+
+through additional specialized staff and hours of operation. Newly hired library-based
+
+community health specialists will assist rural residents with scheduling and completing virtual
+
+health visits, supporting health insurance applications (Medicare, Medicaid), facilitating
+
+Electronic Benefits Transfer (EBT)/ Supplemental Nutrition Assistance Program (SNAP)
+
+benefits applications, providing referrals to community partners, offering courses on health
+
+literacy, and delivering other health programming including Aging in Place support, chronic
+
+disease management, naloxone training, nutrition education, and wellness activities. Specialists
+
+will also provide non-health services including job interview coaching and legal resources,
+
+addressing broader barriers to economic and social stability that impact health outcomes. By
+
+meeting people where they already are, this initiative eliminates transportation barriers and
+
+reduces stigma associated with seeking health services. Funding will support a project
+
+coordinator across all libraries to supervise staff and manage outreach; three full-time telehealth
+
+specialists; three full-time digital navigation specialists; a part-time specialist for on-site support
+
+and resource connections; extended operating hours at nine rural libraries; software upgrades;
+
+outreach and marketing supplies; and technical assistance and staff training.
+
+Main strategic goal: Make Rural America Healthy Again
+
+Permissible Uses of funds: A, C, F, G, H
+
+Technical score factors: B.1, F.1, F.3
+
+Key stakeholders: DE Division of Libraries (lead), DHSS, DPH, DSAMH, community-based
+
+organizations
+
+Outcomes:
+
+    •   Number of rural libraries with expanded services (baseline: 0; target 9 by Year 3)
+
+
+                                                                                                     28
+   •   Number of residents assisted with telehealth appointments through library assistance
+
+       annually (target: 250+ by Year 2)
+
+   •   Number of health insurance and/or benefits applications completed through library
+
+       assistance annually (target: 250+ by Year 2)
+
+   •   Number of new partnerships established between libraries and local healthcare providers,
+
+       community organizations, and social service agencies to deliver programming (county-
+
+       level tracking; target: minimum 4 new partnerships by Year 3)
+
+Impacted Counties: Nine rural library locations across Sussex and Kent Counties
+
+Estimated Required Direct Funding: $3 million
+
+Sustainability plan: By Year 4, establish sustainable operational funding through state and local
+
+appropriations. Libraries will leverage existing partnerships with DSAMH, DPH, DHSS, and
+
+other partners to ensure services continue beyond the funding period.
+
+
+
+6. Rural Provider and FQHC Value-Based Care Readiness Initiative
+
+Description: Delaware has made significant progress in transitioning its healthcare system from
+
+one dependent on fragmented, misaligned fee-for-service payments to one focused on caring for
+
+whole populations in value-based care models: more than half of the state’s primary care
+
+providers participate in a commercial value-based payment arrangement; four of the state’s
+
+largest provider organizations participate in a Medicaid accountable care program; and Delaware
+
+has high participation in the Medicare Shared Savings Program. Yet, value-based payment
+
+adoption among rural providers and FQHCs has been slow, held back by smaller patient
+
+populations that make it difficult to assume risk, limited resources for technology investments,
+
+and challenges in expanding care teams and services without funding and stable payment
+
+
+                                                                                                   29
+structures. This initiative will build upon current state policies and investments while also setting
+
+up Delaware for durable transformation after funding ends.
+
+
+
+Delaware is interested in participating in an AHEAD model and has had direct conversations
+
+with staff at the Center for Medicare and Medicaid Innovation about the feasibility of this
+
+approach. However, even if not selected for an AHEAD award, Delaware—and our rural health
+
+providers— are committed to a future built on value-based care and look forward to using these
+
+funds to hasten our progress. To address barriers and accelerate rural providers’ transition to
+
+value-based care, this initiative establishes three complementary strategies overseen by DHSS: 1)
+
+innovative technology investments to reduce administrative burden and promote patient-
+
+centered data exchange; 2) strategic funding to expand high-value services and care teams;
+
+and 3) a sustainable framework for collaboration between providers and payers that informs
+
+the design of new payment models that position rural providers for sustainability and helps guide
+
+implementation. Together, these components create a pathway for Delaware’s rural providers
+
+and FQHC’s to successfully engage in value-based payment arrangements while increasing their
+
+service offerings to residents.
+
+   1. Innovative Technology Investments: Rural providers, including FQHCs La Red Health
+
+       Center and Westside Family Healthcare, along with rural health systems like Tidal
+
+       Health, Beebe Healthcare, and Bayhealth will participate in a competitive procurement
+
+       process to fund health IT investments that prepare providers for value-based payment
+
+       initiatives; enable participation in CMS’ Aligned Networks pledge, and promote CMS
+
+       Interoperability Framework goals. A significant portion of the total cost of care for
+
+       attributed beneficiaries in value-based models occurs outside the primary care setting,
+
+
+                                                                                                  30
+including procedures performed at other institutions. To improve care quality and reduce
+
+costs, rural primary care providers need visibility into, and actionable data, across the
+
+care continuum. Examples of eligible investments include:
+
+   •   AI Scribes: HIPAA-compliant tools that reduce documentation burden, allowing
+
+       providers to “kill the clipboard” and focus more fully on patients.
+
+   •   Software and Technical Assistance to Model Financial Impact of Value-Based
+
+       Payment Methodologies: Health systems and other provider organizations need to
+
+       understand the potential financial benefits and risks of participating in various
+
+       models. Actionable reports and unbiased, expert consultation will support
+
+       providers in successfully identifying models well suited to their needs and
+
+       modifying care delivery to ensure successful implementation.
+
+   •   Value Based Payment EHR Integration: Integrated platforms within Epic to
+
+       facilitate more efficient communication between FQHCs, payers, and value-based
+
+       payment programs. Beebe Healthcare, which serves rural Delaware, recently
+
+       invested $50 million in enhancements to its EPIC electronic health record (EHR)
+
+       system. This investment provides patients across 50 sites –
+
+       including many in rural Delaware – a seamless, integrated EHR. With RHT
+
+       program funds, Delaware will amplify and scale this investment across additional
+
+       providers allowing for more coordinated rural care delivery and improved
+
+       information sharing with patients, which are foundational to value-based care.
+
+   •   Hub-and-Spoke Telehealth: Enhanced telehealth platforms that position
+
+       community health centers, rural health clinics, hospitals, and other community-
+
+       based organizations as central hubs coordinating care delivery. These hubs will
+
+
+                                                                                            31
+          connect patients to specialized services and specialty providers, including
+
+          behavioral health and long-term care support “spokes”, creating a more integrated
+
+          approach to physical health, behavioral health, long-term care, and social services.
+
+      •   Cybersecurity: Software, hardware, and monitoring to protect sensitive patient
+
+          data, ensure compliance with federal standards, and safeguard continuity of care.
+
+      •   Remote Patient Monitoring (RPM): RPM devices and services not covered by
+
+          insurance. In public comments, providers proposed RPM solutions to address a
+
+          wide variety of needs ranging from chronic condition management to complex
+
+          pediatric care previously requiring a hospital visit.
+
+   Priority will be given to technology vendors that have endorsed applicable CMS’ Make
+
+   Health Tech Great Again pledges.
+
+2. Innovating and Strengthening the Rural Health Care Delivery Model: Through a
+
+   separate competitive procurement, this initiative will fund rural health providers such as
+
+   hospitals, long-term care facilities, FQHC’s, and other critical providers to deliver
+
+   optimized, tech-enable healthcare. Funding will directly support providers in expanding
+
+   services and care teams to improve patient outcomes and care delivery efficiency.
+
+   Eligible expenses include:
+
+      •   Strategic planning for patient-centered care delivery in a tech-enabled world
+
+      •   Adding in-house laboratory, imaging, pharmacy, and behavioral health services to
+
+          increase convenience, accelerate diagnoses, and improve adherence to care plans.
+
+      •   Additional care managers, patient navigators, clinical pharmacists, and other care
+
+          team members focused on primary care, maternal health, long-term care, and
+
+          behavioral health.
+
+
+                                                                                            32
+       Award recipients will receive funding over a three-year glidepath plus technical
+
+       assistance on how to optimize existing payment structures and expand participation in
+
+       value-based payment models to ensure sustainability beyond the initial funding period.
+
+   3. Framework for Sustainable, Ongoing Collaboration: DHSS and the Department of
+
+       Insurance’s Office of Value-Based Health Care Delivery (OVBHCD) have collaborated
+
+       with payers and stakeholders for over five years to expand value-based care delivery in
+
+       Delaware. This work has identified persistent barriers preventing rural health providers,
+
+       FQHCs, and independent practices from effectively engaging in value-based care,
+
+       including small patient populations that make risk assumption and expanded care teams
+
+       difficult to sustain. Building on established relationships – including regular meetings
+
+       with each commercial payer - DOI OVBHCD will convene payers to gain commitments
+
+       to detailed sustainability plans. DOI OVBHCD will also bring together public health
+
+       professionals, rural providers, FQHCs, food is medicine hubs, community organizations,
+
+       employers, and other stakeholders to assess value-based care participation benefits and
+
+       barriers, including those related to the AHEAD model. Discussions will focus on
+
+       prevention, chronic disease management, maternal health, nutrition access, and pediatric
+
+       health outcomes. DOI OVBHCD will then lead development and implementation of a
+
+       plan to address these barriers - such as through state-facilitated rural value-based payment
+
+       programs and provider access to outsourced services (clinical pharmacy, patient
+
+       navigation, behavioral health integration) from larger organizations. The plan will include
+
+       measurable milestones to ensure that efforts are scaled, sustained, and impactful.
+
+Main strategic goal: Innovative Care
+
+Permissible Uses of funds: A, B, C, D, G, H, I, K
+
+
+                                                                                                  33
+Technical score factors: B.1, B.2, C.1, F. 1, F.2
+
+Key stakeholders: Delaware DHSS (lead), DPH, DOI, FQHCs, local rural healthcare providers
+
+and health systems, payers
+
+Outcomes:
+
+   •   Number of rural Delawareans receiving care paid via a value-based arrangement
+
+       (baseline: TBD based on data collected within six months of award; target: 30% 20%
+
+       increase by Year 5)
+
+   •   Use of statin prescriptions for high cholesterol among patients attributed to participating
+
+       providers, living in Sussex and/or Kent County (baseline: TBD based on claims data from
+
+       state APCD post award; target: 10% 8% increase by Year 5)
+
+   •   Increase in cervical cancer screening rates among patients attributed to participating
+
+       providers, living in Sussex and/or Kent County (baseline: TBD based on claims and/or
+
+       Uniform Data System data post award; target: 10% 8% increase by Year 5)
+
+   •   Increase in depression screening rates among patients attributed to participating
+
+       providers, living in Sussex and/or Kent County (baseline: TBD based on claims and/or
+
+       Uniform Data System data post award; target: 20% 15% increase by Year 5)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $186 million
+
+Sustainability Plan: Project milestones focus on developing a sustainability plan and securing
+
+commitments from payers to expand value-based payment models that meet the needs of rural
+
+providers, and from providers to participate. Delaware will learn from other states and pursue
+
+well-aligned federal opportunities such as AHEAD. Existing state law already requires
+
+commercial insurers and Medicaid Managed Care organizations to reimburse providers for care
+
+
+                                                                                                 34
+management and other advanced primary care services covered by Medicare. RHTP funding will
+
+cover necessary health IT and infrastructure investments and partially offset provider salaries
+
+during a three-year transition period until they can be sustained using a combination of fee-for-
+
+service and value-based payments.
+
+
+
+
+7. Catalyst Fund for Telehealth and Remote Monitoring
+
+Description: The expansive field of remote health technology is evolving quickly, yet residents
+
+of rural areas are often slower to adopt these advances. To bridge this gap, Delaware will
+
+establish a Catalyst Fund to encourage the development and adoption of emerging health tech
+
+innovation focused on rural populations. Unlike the technology investments described in the
+
+previous initiative – which funds health IT infrastructure for FQHC’s and rural healthcare
+
+providers – this fund will directly support technology companies and vendors in developing and
+
+deploying consumer-facing solutions for rural residents. Through a competitive procurement
+
+process, DHSS will select vendors to provide remote patient monitoring, wearable devices, and
+
+other consumer-facing, technology-driven solutions that are proven to prevent disease, manage
+
+chronic conditions, and improve health outcomes. Priority will be given to solutions that
+
+integrate with hub-and-spoke telehealth models, enabling rural providers and FQHC’s to serve as
+
+central coordination hubs while giving patients specialized monitoring and support services.
+
+Successful vendors will be required to endorse applicable CMS’ Make Health Tech Great Again
+
+Patient Friendly Apps pledges. DHSS will ensure adherence to federal requirements and CMS
+
+compliance, ensuring CMS retains a royalty-free, nonexclusive, and irrevocable right to
+
+
+                                                                                                  35
+innovations. Funded products may include AI-enabled sensors for wound and infection risk
+
+detection, conversational AI for wellness monitoring and social connection, and hospital-at-home
+
+monitoring systems.
+
+Main strategic goal: Tech Innovation
+
+Permissible Uses of funds: A, C, G, K
+
+Technical score factors: B.2, F.1, F.3
+
+Key stakeholders: Delaware DHSS (lead), Health Systems, Payors, Academic Institutions,
+
+Providers, Patients and Consumers, Private Investors and Venture Capital Firms, Tech Industry.
+
+Outcomes:
+
+   •   Percent of Medicaid beneficiaries living in rural areas who are reached or served through
+
+       the funded innovations (target: 5% 1% of rural Medicaid population by Year 3)
+
+   •   Improved glucose control (target: 85% of diabetes tool users improve HbA1c by Year 5)
+
+   •   Weekly Active Health Participants (WAHP) or percent of eligible users who log at least
+
+       one meaningful health activity per week: (target: all chosen innovations meet predefined
+
+       WAHP target at least 75% of weeks beginning 6 months after launch)
+
+   •   7-day retention rate: (target: all chosen innovations meet or exceed predefined WAHP
+
+       target specific to innovation at least 75% of weeks beginning 6 months after launch)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $25 million
+
+Sustainability plan: The Fund will prioritize innovations that demonstrate a clear return on
+
+investment. Applicants will need to show how their solutions will reduce costs, improve
+
+outcomes, or generate savings that can be leveraged through existing payment structures, such as
+
+shared savings arrangements, reduced hospital admissions, or improved chronic disease
+
+
+                                                                                               36
+management. By selecting technologies with measurable ROI, DHSS will ensure that cost
+
+savings and quality improvements generated by the new technologies will promote ongoing
+
+adoption and scale beyond the initial funding period.
+
+
+
+
+8. Rural Delaware Diabetes Wellness Pilot Program
+
+Description: Delawareans have higher rates of diabetes and prediabetes than the national
+
+average, and rates of the disease have nearly doubled since 2003. Delaware Medicaid and
+
+Delaware state Group Health Insurance Plan spend more on diabetes than any other chronic
+
+condition. Addressing diabetes early improves health and generates savings. 25 This initiative will
+
+bring together the Delaware Information Network (DHIN) - the state health information
+
+exchange (HIE) which also serves as its all-payer claims database (APCD)- a technology
+
+partner, rural Delaware diabetes patients, providers and payers in a three-year pilot study to
+
+understand the impact of hands-on care management paired with continuous glucose monitoring
+
+(CGM) devices. The pilot would provide a CGM to 500 patients with diabetes living in rural
+
+Delaware and monitor whether real-time adjustments in health behaviors (e.g., diet, exercise,
+
+eating whole foods) paired with appropriate medication use, improves health outcomes.
+
+Physician-led care teams including diabetic care coordinators will then utilize predictive and
+
+prescriptive analytics to identify health and cost trends and adjust care plans accordingly.
+
+Tailored guidance to patients will be provided to patients using a combination of clinicians and
+
+AI-enabled virtual platforms. The state’s APCD will provide analytic resources to track longer
+
+term outcome measures. RHTP funding will support the purchase and distribution of the CGMs
+
+
+                                                                                                 37
+when not covered by insurance; administrative support to oversee the pilot initiative and ensure
+
+compliance; payments to participating providers to support enhanced diabetes care including
+
+individualized healthcare management plans; a specialized analytics vendor to deliver predictive
+
+and prescriptive analytic capabilities; a standards-based platform that integrates and stores health
+
+data from CGMs and existing health records, enabling seamless exchange, real-time monitoring,
+
+and actionable patient and provider alerts; and, technical assistance and training to providers and
+
+patients to integrate the digital solutions. Community engagement will be embedded throughout
+
+the pilot, with rural Delaware patients with diabetes, primary care providers, FQHCs, and care
+
+coordinators engaged during project design and recruitment, and through scheduled feedback
+
+checkpoints during implementation. Patient and provider input will be collected at baseline, mid-
+
+pilot, and annually thereafter, and used to refine care management protocols, digital tools, and
+
+patient-facing guidance to ensure the intervention remains responsive to community needs.
+
+Main strategic goal: Sustainable Access
+
+Permissible Uses of funds: A, C, D, G, K
+
+Technical score factors: B.1, B.2, C.1, F. 1, F.2
+
+Key stakeholders: Delaware Health Information Network (lead), FQHCs, local rural healthcare
+
+providers and health systems, community-based organizations, payers
+
+Outcomes:
+
+   •   Recruitment goals achieved by Year 3 (target: providers recruit 500 patient participants)
+
+   •   Increased virtual engagement by primary care team for participating patients (target: 6
+
+       virtual provider “touches” by Year 3)
+
+   •   Engagement by patient (target: weekly engagement by each participant, by Year 3)
+
+
+
+
+                                                                                                   38
+   •   Improved glucose control (target: 75% of participants improve HbA1c during
+
+       participation)
+
+Impacted Counties: Sussex County
+
+Estimated Required Funding: $6.5 million
+
+Sustainability plan: Delaware law and regulation require commercial insurance carriers to
+
+reimburse providers at Medicare parity for services including setup, provision and patient
+
+education for continuous glucose monitoring (CGM) systems, remote patient monitoring and all
+
+Medicare eligible chronic care management services. The RHTP would provide funding for data
+
+systems to integrate patient data, technical assistance and training to overcome knowledge gaps,
+
+and a formal pilot study to demonstrate effectiveness.
+
+
+
+9. Delaware Medical School
+
+Description: Delaware is one of only three states without an in-state medical school – neither
+
+public nor private. As a result, Delaware cannot offer medical student’s crucial clinical rotations
+
+in its rural facilities and cultivate the next generation of physicians committed to serving the
+
+state’s rural communities. To address this, the Governor’s Office will conduct an expedited
+
+competitive procurement process to select a partner institution to establish a “Primary Care –
+
+Rural Health” track medical school program in Delaware, focused on the health priorities most
+
+critical to rural populations: community medicine, preventive care through lifestyle changes,
+
+substance use disorder treatment, behavioral health, and integration of care with community
+
+providers. The four-year program will leverage Delaware’s existing healthcare infrastructure and
+
+clinical training sites to prepare physicians for rural practice. Funds will also support parallel
+
+programs for physicians’ assistants and nurse practitioners to help meet primary care needs. In
+
+
+                                                                                                     39
+parallel with this new undergraduate medical education program, Delaware’s six major health
+
+systems operate graduate medical education (GME) programs that have been expanding over the
+
+last five years. The state will continue to support these expansions, and the new medical school
+
+will work with GME programs to establish residency linkages, creating a pathway from medical
+
+school through residency training in Delaware’s rural communities.
+
+
+
+This medical school initiative is the foundation of Delaware's comprehensive 'Train Here, Stay
+
+Here' workforce development strategy. It works in concert with two complementary initiatives:
+
+the Medical School Rural Workforce Development Program (Initiative #10), which provides
+
+financial awards to students enrolled in the Primary Care - Rural Health track, and the Rural
+
+Medical Residency Recruitment Program (Initiative #11), which supports graduates as they
+
+transition to residency training in Delaware's rural communities. Together, these three initiatives
+
+create a complete educational pipeline from medical school admission through residency, with
+
+each stage reinforcing a commitment to stay and practice in the State’s rural communities. RHTP
+
+funding will support program infrastructure and facility development, including:
+
+   •   Building conversion and renovation: Transforming an existing building in Delaware into
+
+       purpose-built medical education space, including creating simulation labs, anatomy labs,
+
+       clinical skills training areas, lecture halls, small group learning rooms, and study spaces.
+
+   •   Medical equipment and technology: Purchasing essential medical education equipment
+
+       including simulation mannequins, diagnostic equipment, and clinical examination tools
+
+   •   Furniture, fixtures, and educational infrastructure: Outfitting classrooms, labs, and
+
+       clinical training spaces with desks, chairs, examination tables, storage cabinets,
+
+       whiteboards, and other furnishings necessary for effective medical education.
+
+
+                                                                                                 40
+   •   IT equipment and software: Purchasing computers and laptops for students and faculty,
+
+       servers, learning management systems, electronic health record training platforms,
+
+       medical education software, video conferencing systems, and cybersecurity tools.
+
+   •   Faculty recruitment, program administration, and curriculum development: Recruiting
+
+       qualified medical school faculty, establishing administrative operations including
+
+       admissions, student services, and accreditation compliance, and developing a
+
+       comprehensive Primary Care – Rural Health curriculum aligned with national medical
+
+       education standards.
+
+By partnering with an established medical school through competitive procurement, Delaware
+
+can accelerate the development timeline and ensure academic rigor from day one, creating a
+
+sustainable pipeline of primary care physicians dedicated to serving the state's rural
+
+communities. RHTP funds will not be used for major renovations.
+
+Main Strategic Goal: Workforce Development
+
+Permissible Uses of Funds: E,G,H, J, K
+
+Technical Score Factors: B.1, D.1.
+
+Key Stakeholders: Governor’s Office; DHSS through DPH, Delaware Health Care
+
+Commission, DE GME Programs; Rural Health Providers; see also Initiative #10 and #11
+
+Outcomes:
+
+   •   Number of students enrolled annually (target: 40+ students beginning Year 3 – Fall 2028)
+
+   •   Number of qualified faculty and administrative leaders recruited and credentialed (target:
+
+       minimum 10 core faculty by Year 3)
+
+   •   Number of residency linkage agreements with rural GME programs (target: 3+ by Year 4)
+
+
+
+
+                                                                                               41
+   •   Number of rural healthcare facilities and clinical training sites in Kent and Sussex
+
+       Counties participating (target: 5+ by Year 4)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $94 million
+
+Sustainability plan: After the initial RHTP-funded period, tuition payments will cover most
+
+operational costs. With the plan for a competitive procurement to an established medical school,
+
+the medical school will have an efficient path to administrative operations. Furthermore, the
+
+scope of work will include developing a robust fundraising program with outreach to charitable
+
+foundations and medical systems operating in Delaware. The partner medical school institution
+
+will integrate the Primary Care – Rural Health track into its sustainable funding model.
+
+
+
+10. Medical School Rural Workforce Development Program
+
+Description: As part of Delaware's integrated 'Train Here, Stay Here' workforce development
+
+strategy anchored by the new Delaware Medical School (Initiative #9), the State will establish a
+
+Medical School Rural Workforce Development Program, administered by the Delaware Health
+
+Care Commission, which will provide comprehensive financial awards to medical students
+
+enrolled in the new medical school who commit to practice and care of Delaware’s rural
+
+population. The initiative will support two pathways: 1) students enrolled in Delaware’s new
+
+medical school’s Primary Care – Rural Health track, and 2) students who complete their third-
+
+and fourth-year clinical rotations in Delaware, gaining exposure to the state’s communities and
+
+rural healthcare needs. By reducing the financial burden on medical students dedicated to rural
+
+practice through educational awards tied to rural service commitments, Delaware can help
+
+overcome the barrier that the high cost of medical education poses to expanding the rural
+
+
+                                                                                                  42
+physician workforce. This workforce-first approach ensures that federal investments produce
+
+tangible results: more doctors practicing in rural Delaware. The program’s eligibility criteria will
+
+require either enrollment in the new medical school’s Primary Care - Rural Health track or
+
+completion of third- or fourth-year clinical training in Delaware and will prioritize awards to
+
+those electing specialties such as primary care, behavioral health, substance use disorder
+
+treatment, or chronic disease prevention. In exchange for educational support, recipients will
+
+commit to five years of practice in Delaware's rural areas upon completion of their medical
+
+education and any residency training (initiative #11). In this way, this initiative will “bridge”
+
+students from medical school to residency training, ensuring continuous support throughout the
+
+entire medical education continuum. This service-for-education model will directly translate into
+
+long-term rural physician workforce expansion.
+
+The Delaware Health Care Commission (DHCC) will work in collaboration with other state
+
+offices and medical educators to develop the application process, establish eligibility criteria,
+
+create and monitor binding contractual agreements with participants and maintain ongoing
+
+documentation. The state will retain external legal services to draft enforceable contracts that
+
+clearly define service obligations and repayment terms to ensure program accountability and
+
+protect the state's investment in participants. The State will finalize standardized policies
+
+governing the timing and structure of education disbursements, recipient selection, monitoring
+
+and evaluation, and compliance oversight, consistent with federal grant requirements and best
+
+practices. These policies will establish clear procedures for competitive award determination,
+
+ongoing performance and expenditure monitoring, and mechanisms—such as service agreements
+
+and clawback provisions—to ensure recipients fulfill the five-year service obligation. Specific
+
+contractors, selection methods, performance periods, scopes of work, accountability measures,
+
+
+                                                                                                    43
+and itemized budgets will be determined through an open, competitive procurement process in
+
+accordance with federal and state requirements.
+
+Main Strategic Goal: Workforce Development
+
+Permissible Uses of Funds: E,G,H
+
+Technical Score Factors: B.1, D.1
+
+Key Stakeholders: DHCC (lead), Delaware Medical Association; Rural Health Providers,
+
+Sussex Economic Development Action Committee, Delaware Academy of Family Physicians
+
+Outcomes:
+
+   •   Number of educational awards distributed annually to students enrolled in Delaware’s
+
+       new medical school (target: minimum 20 students by Year 3 (Fall 2028), scaling to 40+
+
+       students by Year 5)
+
+   •   Number of educational awards distributed annually to students completing their third-
+
+       and fourth-year clinical training in Delaware (target: minimum 15 awards by Year 2,
+
+       scaling to 30 by Year 5)
+
+   •   Percentage of award recipients who complete DE medical school and enter residency
+
+       program in DE (target: 50%)
+
+   •   Number of rural zip codes in Kent and Sussex Counties with at least one practicing
+
+       physician who received educational awards through this initiative (baseline: 0, target: 10+
+
+       by end of funding period – 9/30/31).
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $29.75 million
+
+Sustainability plan: By the end of the RHTP funding period, this program will have provided
+
+educational awards to approximately 140 physicians who are contractually committed to
+
+
+                                                                                               44
+practicing in Delaware's rural communities for a minimum of five years and an additional 150
+
+who have completed clinical rotations in Delaware. The binding service agreements ensure that
+
+the initial federal investment creates sustained impact without requiring ongoing program
+
+funding. Delaware will monitor compliance with service commitments and track retention rates
+
+beyond the initial five-year obligation, as physicians trained in rural settings and with strong
+
+community connections are significantly more likely to continue practicing in those communities
+
+long-term. Additionally, the state will work with rural health systems and the medical school to
+
+establish complementary programs that support subsequent cohorts of rural physicians, building
+
+on the foundation created through RHTP funding.
+
+
+
+11. Rural Medical Residency Recruitment Program
+
+Description: As the third component of Delaware's 'Train Here, Stay Here' workforce
+
+development strategy, this initiative completes the educational pipeline established by the
+
+Delaware Medical School (Initiative #9) and the Medical School Rural Workforce Development
+
+Program (Initiative #10). Residency programs reliably retain physicians in the communities
+
+where they train, with retention rates increasing significantly when medical school and residency
+
+occur in the same state. For graduates of Delaware's new medical school who received financial
+
+awards through Initiative #10, this residency recruitment program provides seamless transition
+
+support, maintaining financial assistance as they move from medical school to residency
+
+training—all while deepening their commitment to Delaware's rural communities.
+
+
+
+Medical education institutions continue to face significant recruitment challenges for rural
+
+residency positions, despite strong interest from candidates. The barrier is financial: reported
+
+
+                                                                                                   45
+salaries for early-year medical residents in Delaware range from $70,000 to $75,000, with
+
+apartment rentals consuming at least 30% of this amount. This financial pressure is so significant
+
+that over 25% of medical residents report that debt from school and living expenses directly
+
+influences their choice of specialization and practice location, often steering them toward higher-
+
+paying urban programs or specialties rather than rural primary care positions. 26 Rural residency
+
+programs and clinical training programs also face unique housing challenges due to smaller
+
+rental markets. This creates a competitive disadvantage for rural graduate programs.
+
+
+
+This initiative establishes a Rural Medical Residency Recruitment Program administered by the
+
+DHCC that provides awards for wraparound services, short-term housing, and relocation
+
+expenses to medical residents training in rural Delaware or clinical program participants
+
+committed to serving rural Delawareans. The program will provide:
+
+   •   Temporary housing and wrap-around services awards of up to $2,000 per month for a
+
+       maximum of 6 months ($12,000 total) to offset initial rental and other costs as residents
+
+       and clinical program participants transition to rural Delaware practice locations.
+
+   •   One-time relocation awards of up to $8,000 to cover moving expenses, security
+
+       deposits, and initial setup costs.
+
+DHCC will establish a streamlined application process. Selection criteria will prioritize awards
+
+to residents and physician extenders committed to primary care and rural practice, while
+
+requiring recipients to commit to five years of employment at a rural Delaware facility upon
+
+completing their residency or training program. The DHCC will administer the program in
+
+collaboration with the Delaware Office of Healthcare Workforce, graduate medical education
+
+programs, clinical training institutions, and rural healthcare stakeholders. The state will retain
+
+
+                                                                                                     46
+external legal services to draft enforceable contracts that clearly define service obligations and
+
+repayment terms to ensure program accountability and protect the state's investment in
+
+participants. Specific contractors, selection methods, performance periods, scopes of work,
+
+accountability measures, and itemized budgets will be determined through an open, competitive
+
+procurement process in accordance with federal and state requirements. These processes will be
+
+determined with CMS input upon award.
+
+Main Strategic Goal: Workforce Development
+
+Permissible Uses of Funds: E,G,H
+
+Technical Score Factors: B.1, D.1.
+
+Key Stakeholders: DHCC (lead), DPH Office of Healthcare Provider Resources, DE Office of
+
+Healthcare Workforce, FQHCs, graduate medical education programs, rural health systems
+
+Outcomes:
+
+   •   Number of medical residents and physician extenders receiving housing and relocation
+
+       awards annually (target: minimum 50+ residents beginning Year 3)
+
+   •   Number and percentage of award recipients who previously received medical school
+
+       educational awards (Initiative #10) (target: 40% by Year 5)
+
+   •   Percentage of rural residency positions filled annually in participating programs
+
+       (baseline: establish in Year 2, target: 70% by Year 5)
+
+   •   Number of rural zip codes in Kent and Sussex Counties with at least one practicing
+
+       physician who received educational awards through this initiative (baseline: 0, target: 10+
+
+       by end of funding period).
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $11.5 million
+
+
+                                                                                                     47
+Sustainability plan: By the end of the RHTP funding period, this program will have provided
+
+housing and relocation awards to approximately 250 medical residents and/or clinical training
+
+program participants who are contractually committed to practicing in Delaware's rural
+
+communities for a minimum of five years. The binding service agreements ensure that the initial
+
+federal investment creates sustained impact without requiring ongoing program funding.
+
+Delaware will monitor compliance with service commitments and track retention rates beyond
+
+the initial five-year obligation, as physicians trained in rural settings and with strong community
+
+connections are significantly more likely to continue practicing in those communities long-term.
+
+Additionally, the state will work with rural health systems and graduate medical education
+
+programs to establish employer-sponsored housing assistance programs that support subsequent
+
+residents.
+
+
+
+12. Training Programs for Clinical Support Roles in Rural Areas
+
+Description: This initiative launches a competitive grant program to fund health systems,
+
+facilities, and educational institutions to expand clinical training programs for Non-Physician
+
+Practitioners, “physician extenders”, community health workers (CHWs), dental professionals,
+
+and clinical support staff in rural Delaware. This competitive grant program will work in tandem
+
+with the Rural Health Workforce Education Program (Initiative #13), which provides educational
+
+awards to students enrolled in these training programs. Together, these initiatives create a
+
+comprehensive support system: this training program initiative builds institutional capacity and
+
+training infrastructure, while Initiative #13 addresses financial barriers to participation.
+
+During the August 2025 public comment period, the state received compelling proposals from
+
+Delaware State University, University of Delaware, Delaware Technical Community College,
+
+
+                                                                                                  48
+Bayhealth, Beebe Healthcare, Westside Family Healthcare, the Sussex Economic Development
+
+Action Committee (SEDAC), and others, demonstrating strong institutional interest and capacity
+
+to address rural workforce challenges through additional and improved training programs. For
+
+example, the University of Delaware proposed a new Physician Assistant program that could
+
+train 40 new clinicians per year to staff mobile units and expand community access sites of care
+
+envisioned as part of the RHP.
+
+
+
+Administered by jointly by Delaware DHSS and the DHCC, this competitive grant program will
+
+award funding to organizations that develop and deliver new training programs, apprenticeships,
+
+and fellowships to a broad array of healthcare professionals - including physician assistants,
+
+nurses, midwives, paramedics, phlebotomists, laboratory technicians, occupational therapists,
+
+nutritionists, long-term care staff, dental hygienists, dental assistants, dentists-in-training, and
+
+CHWs providing health education, preventive care, and care coordination. The competitively
+
+procured program administration and evaluation vendor will oversee initiative operations, collect
+
+outcome metrics, and provide regular reporting to DHSS and DHCC. Training programs will
+
+focus on critical service gaps in rural communities, including dementia care, substance use
+
+disorder outreach and training, emergency medical services, preventative oral health services,
+
+community education, and programs to improve nutrition and lifestyle choices. Programs must
+
+also demonstrate partnerships with rural healthcare facilities to ensure trainees gain hands-on
+
+clinical experience in underserved communities. Expanding training programs will create a
+
+sustainable pipeline of qualified clinicians, CHWs, and dental professionals ready to serve rural
+
+communities while establishing an efficient delivery system for timely and effective medical,
+
+behavioral health and preventive care in underserved areas.
+
+
+                                                                                                       49
+Main Strategic Goal: Workforce Development
+
+Permissible Uses of Funds: E,G,H
+
+Technical Score Factors: B.1, D.1.
+
+Key Stakeholders: Delaware DHSS, DHCC, DPH Office of Healthcare Provider Resources,
+
+FQHCs, rural health systems
+
+Outcomes:
+
+   •   Number of new or expanded clinical training programs (baseline: 0, target: minimum of 7
+
+       by Year 3)
+
+   •   Number of new healthcare professionals, CHWs, and dental professionals trained
+
+       annually across funded programs, by county of program (baseline: 0, target 125+ in each
+
+       county, by Year 3)
+
+   •   Percentage of program participants achieving certification or completion in their
+
+       respective fields (target: 80% of first cohort by Year 5)
+
+   •   Number of rural healthcare facilities in Kent and Sussex Counties with new clinical
+
+       support staff attributable to funded training programs (target: 30+ facilities by Year 5)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $132 million
+
+Sustainability plan: Training programs funded through this initiative will be integrated into the
+
+ongoing operations of established educational institutions and health systems. Successful
+
+grantees will be required to develop sustainability plans through student tuition and fees,
+
+partnerships with rural facilities that provide training sites, and other philanthropic support.
+
+DHSS and DHCC will work with grantees to link training programs with existing state initiatives
+
+
+
+
+                                                                                                   50
+to ensure long-term viability and continued impact on both clinical and community-based
+
+services in rural communities.
+
+
+
+13. Rural Health Workforce Education Program
+
+Description: Delaware’s rural communities face critical shortages across the entire healthcare
+
+workforce spectrum - not just physicians. As part of the August 2025 public comment period for
+
+RHTP funding, this challenge emerged as a consistent priority. Major Delaware health systems
+
+including Highmark, Bayhealth, and TidalHealth, as well as the State Office of Rural Health and
+
+the University of Delaware all highlighted acute shortages of clinical staff at every level – from
+
+nurse practitioners and physician assistants, community health workers, occupational therapists,
+
+emergency medical technicians, skilled long term care workers, and dental professionals such as
+
+hygienists, dental assistants, and dentists-in-training. The barrier is clear: the costs of advancing
+
+education prevents otherwise qualified candidates from entering or progressing in these essential
+
+roles. Beyond tuition and housing, many trainees face additional barriers including childcare
+
+costs, transportation challenges, lack of educational supplies, and other essential needs that can
+
+derail training completion.
+
+
+
+Working in partnership with the competitive grant program for clinical training programs
+
+(Initiative #12), this initiative establishes a Rural Healthcare Workforce Education Program
+
+administered by the DHCC. While Initiative #12 supports institutions in building and expanding
+
+training capacity, this program invests directly in training the next generation of rural healthcare
+
+professionals by giving financial awards to those enrolled in clinical training programs who
+
+pledge to serve in Delaware's underserved rural communities. This workforce-first approach
+
+
+                                                                                                   51
+ensures that federal investments produce tangible results: more healthcare professionals
+
+practicing in rural America, addressing the access crisis that has left rural Delaware behind.
+
+
+
+DHCC will establish a streamlined application process for individuals actively enrolled in
+
+Delaware-based, accredited programs leading to credentials such as nurse practitioners,
+
+physician assistants, community health workers, occupational therapists, emergency medical
+
+technicians, skilled long-term care workers, dental professionals, and other critical healthcare
+
+roles. Medical residents training in rural Delaware or committed to serving rural Delawareans
+
+(Initiative #11) are also eligible for awards through this program. Selection criteria will prioritize
+
+Delaware residents and Delaware-based programs, while requiring recipients to commit to five
+
+years of employment at a rural Delaware facility upon graduation or program completion. Award
+
+recipients enrolled in physician extender training programs and medical residents are also
+
+eligible for housing assistance, relocation support, and wraparound services through Initiative
+
+#11 to address financial barriers to training completion. This service-for-education model ensures
+
+that RHTP investments directly translate to improved access in the communities that need it
+
+most. The DHCC will administer the program in collaboration with the Delaware Office of
+
+Healthcare Workforce, educational institutions, and rural healthcare stakeholders. The
+
+Commission will develop the application process, establish eligibility criteria, create and monitor
+
+binding service commitment agreements with participants, and maintain ongoing documentation
+
+and compliance tracking. The state will retain external legal services to draft enforceable
+
+contracts that clearly define service obligations and repayment terms to ensure program
+
+accountability and protect the state's investment in participants. The competitively procured
+
+program administration and evaluation vendor will oversee initiative operations, collect outcome
+
+
+                                                                                                   52
+metrics, and provide regular reporting to DHCC. Specific contractors, selection methods,
+
+performance periods, scopes of work, accountability measures, and itemized budgets will be
+
+determined through an open, competitive procurement process in accordance with federal and
+
+state requirements. These processes will be finalized with CMS input upon award.
+
+Main Strategic Goal: Workforce Development
+
+Permissible Uses of Funds: E,G,H
+
+Technical Score Factors: B.1, D.1.
+
+Key Stakeholders: DHCC (lead), DPH Office of Healthcare Provider Resources, Tidal Health,
+
+Highmark, Bayhealth, Rural Providers
+
+Outcomes:
+
+   •   Number of advanced practice clinicians and critical health personnel receiving
+
+       educational awards annually (target: minimum 40 students per year beginning Year 2)
+
+   •   Number of award recipients who complete their training programs and enter practice in
+
+       rural Delaware (target: 60% completion by Year 4)
+
+   •   Number of award recipients actively practicing in rural Delaware healthcare facilities
+
+       (target: 150+ by Year 5)
+
+   •   Number of rural healthcare facilities in Kent and Sussex counties employing award
+
+       recipients (target: 10+ facilities in Kent and Sussex county each, by Year 5)
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $19 million
+
+Sustainability plan: By the end of the RHTP funding period, this program will have provided
+
+educational support to approximately 500+ healthcare professionals who are contractually
+
+committed to practicing in Delaware's rural communities for a minimum of five years. The
+
+
+                                                                                                53
+binding service agreements ensure that the initial federal investment creates sustained impact
+
+without requiring ongoing program funding. Delaware will monitor compliance with service
+
+commitments and track retention rates beyond the initial five-year obligation. Additionally, the
+
+state will work with rural health systems and educational institutions to establish complementary
+
+programs that support subsequent cohorts of rural healthcare professionals, building on the
+
+foundation and proven model created through RHTP funding.
+
+
+
+14. Healthcare Workforce Data Center Initiative
+
+Description: According to the US Department of Health and Human Services (HHS) and the
+
+Kaiser Family Foundation’s report from 2025, Delaware ranked last among all states in meeting
+
+its need for primary care professionals, with only 14.85% of need met 27. Understanding and
+
+addressing this crisis, and tracking all outcomes related to Delaware’s RHTP, requires
+
+comprehensive, real-time data on Delaware’s healthcare workforce, particularly in the rural areas
+
+of Kent and Sussex Counties and in FQHC’s that serve as critical safety nets for underserved
+
+populations. Currently, the Delaware Health Force, in partnerships with the Delaware Academy
+
+of Medicine and Delaware Public Health Association, has developed three data tools tracking
+
+licensed and employed workforce in Delaware by county, as well as key access metrics for rural
+
+areas in the state. While valuable, these tools represent only the beginning of what's needed to
+
+effectively monitor workforce trends, measure program impact, and inform evidence-based
+
+policymaking. In September of 2025, the Governor signed Senate Bill 122 into law 28, which
+
+empowers DPH and the DHCC to access comprehensive workforce data collected by the
+
+Division of Professional Regulation, and use it to track supply, demand, distribution, Health
+
+
+
+
+                                                                                                   54
+Professional Shortage Areas (HPSAs), maternity care targets, and medically underserved
+
+populations.
+
+Building on this foundation, this initiative establishes a dedicated Health Care Workforce Data
+
+Center that leverages the expanded authority granted in SB122 to develop robust database
+
+infrastructure capable of tracking granular health workforce insights. The Center will monitor
+
+employment status and activity, practice settings and payment types, Medicaid and Medicare
+
+acceptance, time spent seeing patients, and other critical indicators that reveal that true state of
+
+healthcare across Delaware. Data will be collected from all licensed healthcare providers.
+
+Insights derived from this database will inform dashboards and annual reports that focus on
+
+identifying where workforce shortages remain, which specialties are underrepresented, and how
+
+demographic or geographic disparities impact access to care. In turn, policymakers and
+
+healthcare institutions can use this information to better target recruitment, funding, and training
+
+efforts, ultimately supporting a more responsive and equitable healthcare system.
+
+Main strategic goal: Tech Innovation
+
+Permissible Uses of funds: E, F, G, K
+
+Technical score factors: A.2, B.1, B.2, C.1, D.1, D.2, D.3, F.2, F.3
+
+Key stakeholders: Delaware Health Force, Delaware Academy of Medicine, Delaware Public
+
+Health Association, Division of Professional Regulation, DHIN
+
+Outcomes:
+
+   •   Establish and staff Health Care Workforce Data Center, building on work currently
+
+       underway through the Delaware Health Force Initiative, by Year 1
+
+   •   Develop survey tools to embed in the healthcare licensure application process, by Year 1
+
+
+
+
+                                                                                                       55
+   •   Develop dashboards that track priority topics to inform state policy efforts (target: add
+
+       between 5 and 10 dashboards to Delaware Health Force Data Tools by Year 3)
+
+   •   Develop comprehensive, publicly available registry of active providers, by Year 4
+
+Impacted Counties: Sussex County and Kent County
+
+Estimated Required Funding: $16.25 million
+
+Sustainability plan: By Year 3, the state will pursue formal legislation building on SB 122 to
+
+establish authority and funding for the Health Care Workforce Data Center for ongoing
+
+operational and analytic support.
+
+
+
+15. Statewide Health Information Technology Infrastructure for Real-Time Insurance
+
+   Verification and Prior Authorizations
+
+Description: Nationally, insurance verification and prior authorization requirements delay
+
+treatment for 89% of patients, 29 causing unnecessary stress, administrative delays, and, in some
+
+cases, poor health outcomes – with rural providers facing particularly severe impacts due to
+
+limited staff and resources. Rural patients face compounded challenges from prior authorization
+
+delays when treatment requires specialist referrals, or transportation barriers mean multiple trips
+
+for authorization-related appointments, leading some patients to abandon treatment entirely.
+
+In August 2025, Delaware enacted the Pre-Authorization Reform Act (SB 12) to reduce
+
+administrative burdens, improve patient access to timely care and increase transparency in the
+
+pre-authorization process. The law establishes processing time limits (2-48 hours), requires
+
+electronic provider portals by 2027, limits prior authorizations to one per care episode, and
+
+mandates that denials are made by qualified, non-financially incentivized physicians with
+
+detailed justifications reported to the Delaware Health Information Network (DHIN). To fully
+
+
+                                                                                                   56
+realize SB12's promise and address persistent connectivity gaps in rural Delaware, this initiative
+
+creates comprehensive digital infrastructure connecting all rural providers, payers, hospital
+
+systems, and patients through the Smart Health Network (SHN) and the DHIN. This electronic
+
+health information exchange will dramatically accelerate prior authorization processing by
+
+allowing providers to exchange data electronically and allowing payers to report faster
+
+authorization decisions. Cloud-based infrastructure will minimize maintenance and operations
+
+management, while vendor-neutral standards will prevent vendor lock-in and stakeholder
+
+councils will ensure fair governance. By building streamlined conduits for data transmission,
+
+physicians, non-physician providers, and other support staff’s time will be freed up for direct
+
+patient care. This unified system will also directly improve rural health by eliminating
+
+geographic barriers to specialist consultations, reducing the need for multiple trips, and
+
+supporting telehealth and remote patient monitoring that depend on seamless data exchange. The
+
+state will track key health metrics including reduced readmissions, increased preventive care
+
+utilization, improved chronic disease management, enhanced behavioral health coordination,
+
+reduced provider burnout, increased value-based care participation, and lower total cost of care.
+
+Main strategic goal: Tech Innovation
+
+Permissible Uses of funds: A, D, F, H, I, K
+
+Technical score factors: B.1, C.1, E.1, E.2, F.1, F.2, F.3
+
+Key stakeholders: SMART Health Network, DHIN, DHSS, DPH Office of Provider Resources,
+
+Provider Organizations, payers, Medicare, Health Systems, VA
+
+Outcomes:
+
+    •   Reduction in elapsed time for response to prior authorization request (Target: 75%
+
+        reduction by Year 3)
+
+
+                                                                                                  57
+    •   Reduction in first pass denials related to coverage errors (Target: 90% reduction, initially
+
+        15-20% to less than 2% by Year 3 for enrolled payers)
+
+    •   Rural healthcare provider adoption (Target: Year 1 at 30%+, Year 2 at 55%+, Year 3 at
+
+        70%+, Year 4 at 80%+, Year 5 at 90%+)
+
+    •   Clean claims rate (Target: Year 3 at 85%, Year 5 at 90%+)
+
+    •   Patient portal launch by year 3 (Target: patient adoption of 30% by Year 5)
+
+Impacted Counties: All three counties, with targeted focus on Sussex and Kent Counties
+
+Estimated Required Funding: $50 million
+
+Sustainability plan: After initial implementation, the model will break even in Year 4 and
+
+become fully self-sustaining in Year 5 through a utility fee model of 0.05% of revenue equally
+
+applicable for all payer and provider participants – including state agencies, state Medicaid
+
+programs, rural and non-rural healthcare providers, and public (including Medicare) and private
+
+insurers.
+
+
+
+Governance and Project Management Structure for RHTP
+
+The Delaware DHSS will serve as the lead agency for the RHTP, with the Director of the
+
+Division of Public Health serving as the primary contact for the entire Program. The Director
+
+will dedicate 20% of his time to RHTP oversight and will report directly to the DHSS Secretary
+
+and the Governor's Office. Point people from DPH, DHSS, and the Governor's Office will
+
+participate in all calls with CMS and dedicate substantive effort to support the operation and
+
+coordination of the RHTP. As the lead on several initiatives, the DHCC will participate in
+
+meetings as well. Additionally, by Year 2, DHSS will establish an administrative coordinator
+
+position to provide support to the core state team as the program scales and matures. The core
+
+
+                                                                                                  58
+state team will continuously monitor program demands and staffing needs, adding resources as
+
+necessary to ensure effective program management and compliance. Delaware will competitively
+
+procure a program administration and evaluation vendor to ensure rigorous oversight and
+
+accountability across all RHTP initiatives. This vendor will oversee implementation of several
+
+initiatives (see Proposed Initiatives section for more detail), manage all awardees (where
+
+applicable), collect and analyze performance data, provide regular reporting to DHSS leadership
+
+and CMS, and facilitate stakeholder engagement meetings. The vendor will ensure adherence to
+
+all federal requirements and CMS compliance standards while serving as a liaison between
+
+grantees and RHTP state leadership.
+
+
+Metrics and Evaluation Plan for RHTP: Delaware will leverage existing state data resources
+
+to produce annual progress reports, including the Health Care Claims Database, DOI tracking of
+
+value-based payments and affordability metrics, and workforce data collection standards
+
+established by 2025 legislation. All RHTP contracts and grants will include mandatory reporting
+
+schedules to monitor progress and enable timely course corrections. Delaware will competitively
+
+procure a program administration and evaluation vendor to provide rigorous oversight and
+
+accountability. Following grant award, the program administration and evaluation vendor will
+
+develop a comprehensive evaluation, reporting, and analytics infrastructure for stakeholder
+
+review and approval – based on each initiative’s specific outcome metrics and implementation
+
+milestones. The RHTP team will publish annual public reports detailing program activities,
+
+lessons learned, and accomplishments.
+
+
+
+
+                                                                                                 59
+                                                      Milestones and Implementation Timeline
+                                                                                                                        Stg   Stg   Stg   Stg   Stg   Stg
+Initiative Name/ Milestone                                                                                 Date         0     1     2     3     4     5
+#1. Rural "Hope Center" Initiative
+Complete community needs assessments in Sussex and Kent to identify optimal locations                       3/31/2026
+Secure site location for first Hope Center and execute contract                                             6/30/2026
+Launch first Hope Center location with initial resident admissions                                          9/30/2026
+Launch second Hope Center location with initial resident admissions                                         9/30/2027
+First Regular Quarterly Reporting of Outcomes (both centers) b                                              3/31/2028
+Sustainability plan operational with both Centers fully integrated into state healthcare delivery system    9/30/2029
+#2. Rural Community Health Hubs
+Finalize RFP and select vendors                                                                             9/30/2026
+Four New Mobile Units Deployed and Operational                                                              9/30/2027
+First Regular Quarterly Reporting of Outcomes due to DHSS                                                  12/31/2027
+#3. School-Based Health Centers Expansion Initiative
+Finalize RFP and select school partners                                                                     9/30/2026
+Renovations to establish new SBHCs completed - SBHCs operational                                            9/30/2027
+First Annual Reporting of Outcomes due to DPH                                                               9/30/2028
+Develop sustainability plan for funding SBHCs                                                               9/30/2030
+#4. Food is Medicine Infrastructure Initiative
+Issue competitive procurements for vendors                                                                  9/30/2026
+Vendors and partners complete needs assessment, hire workforce, and deploy billing toolbox                  9/30/2027
+Certify 15 Culinary Medicine Teachers and begin training rural practitioners; launch pilot program          9/30/2028
+#5. Rural Libraries Health Access Initiative
+Identify nine library locations based on needs assessment and develop implementation plan                   9/30/2026
+Recruit and hire necessary staff and launch expanded services                                               6/30/2027
+First annual outcomes reporting by library, establish MOU's with local provider and community orgs          9/30/2028
+Secure sustainable operational funding through state and local appropriations                               9/30/2031
+#6. Rural Provider and FQHC Value-Based Care Readiness Initiative
+Issue competitive procurements for provider awards; Recruit stakeholders for VBP workgroup                  9/30/2026
+
+                                                                                                                                                        60
+Awardees complete needs assessment and submit final implementation plans; Care team expansion
+(cohort 1) begin hiring key positions; VBP workgroup releases plan for rural health VBP barriers             9/30/2027
+Awardees implement tech upgrade; Care team expansion (cohort 2) begin hiring key positions; Awardees
+enrolled in VBP TA. VBP workgroup engage at least one payer and provider in VBP adoption strategy            6/30/2028
+Providers complete assessment of provider/patient satisfaction with tech upgrades; VBP workgroup
+supports at least one payer and provider in implementing VBP adoption among rural providers                  6/30/2029
+Providers complete sustainability plan; VBP workgroup supports at least one payer and provider in
+implementing strategy to expand VBP adoption among rural providers                                           6/30/2030
+VBP workgroup supports at least three payers and five providers in implementing strategy to expand VBP
+adoption among rural providers; Outcome metrics demonstrate targeted improvements                            9/30/2031
+#7. Catalyst Fund for Telehealth and Remote Monitoring
+Issue competitive procurement for backbone organization, award funds                                         9/30/2026
+Backbone organization completes survey to identify consumer/provider needs for wearables and tech            6/30/2027
+Awards to at least 10 consumer health technology devices, reaching at least 1,000 Delawareans                6/30/2028
+Backbone organization completes sustainability plan                                                          6/30/2030
+Catalyst Fund identifies one to three consumer tech innovations it will fund through sustainability model    6/30/2031
+#8. Rural Delaware Diabetes Wellness Pilot Program
+Issue competitive procurement for technology lead, award funds                                               9/30/2026
+Providers and at least 500 patients enrolled in the research study                                           6/30/2027
+Providers enrolled in program receive routine analytic reports to inform care plans                          6/30/2028
+At least 400 patients remain enrolled in the study at the two-year mark                                      6/30/2029
+Technology lead develops sustainability plan to expand pilot post grant period                               6/30/2030
+Technology lead releases analysis based on pilot study                                                       6/30/2031
+#9. Delaware Medical School
+Issue expedited competitive procurement and award contract                                                   9/30/2026
+Form Steering Committee and appoint Dean                                                                    12/31/2026
+Faculty appointments for first medical school class completed                                                9/30/2027
+Curriculum developed, first class admitted and classes begin in fall 2028.                                   6/30/2028
+#10. Medical School Rural Workforce Development Program
+Program established and application process complete                                                         9/30/2026
+Develop application process, contractual agreements, oversight methods                                       9/30/2027
+First class enrolled, with binding 5-year service commitments                                                9/30/2028
+#11. Rural Medical Residency Recruitment Program
+
+                                                                                                                         61
+Program established and application process complete, Program opens for applications.                          9/30/2026
+First awards distributed, with five year binding service commitments                                           9/30/2027
+#12. Training Programs for Clinical Support Roles in Rural Areas
+Develop requirements, issue competitive procurement and award contract(s) or grants                            9/30/2026
+Program(s) enroll first cohort of new trainees                                                                 6/30/2027
+First Regular Annual Reporting of program outcomes to DHSS                                                     6/30/2028
+Enroll 50 students per program year across diverse roles and professions                                       9/30/2029
+Ongoing enrollment of 50 students per year                                                                     9/30/2031
+#13. Rural Health Workforce Education Program
+Program established and application process complete, Program opens for applications.                          9/30/2026
+First awards distributed, with five-year binding service commitments                                           9/30/2027
+#14. Healthcare Workforce Data Center Initiative
+Develop requirements, staff Data Center                                                                        9/30/2026
+Legislation to establish authority and funding; Engage stakeholders to determine key metrics                   3/30/2027
+Finalize data collection fields, develop data governance requirements, begin database infrastructure           4/30/2028
+Finalize database infrastructure and initial data intake and cleaning                                          3/30/2029
+Develop 5-10 initial workforce dashboards and develop registry of active providers                            12/31/2029
+Ongoing data intake and data center updates                                                                    7/30/2030
+#15. Statewide Health Information Technology Infrastructure for Prior Authorizations
+Develop requirements, issue competitive procurement and award contract(s) or grants                            9/30/2026
+Establish governance structure, stakeholder engagement plan, pilot site selection and baseline assessment      3/30/2027
+Deploy core infrastructure, engage 5 hospital pilot, and integrate with Medicaid                               9/30/2027
+Connect 10 facilities, process 10,000 prior authorizations, and engage 25,000 patients                         3/31/2028
+Connect Sussex and Kent County rural facilities, connect all commercial payers, and launch patient portal     12/31/2029
+Connect rural facilities and integrate all payers, with 95% provider adoption and self-sustained operations   12/31/2030
+
+
+
+
+                                                                                                                           62
+1
+  https://www.hrsa.gov/rural-health/about-us/what-is-rural/data-ﬁles
+2
+  https://usafacts.org/data/topics/people-society/population-and-demographics/our-changing-
+population/state/delaware/county/sussex-county/
+3
+  https://www.beckershospitalreview.com/rankings-and-ratings/primary-care-provider-gaps-ranked-by-state/
+4
+  Primary Care Physicians in Delaware 2021, DHSS DPH, February 2022. https://dhss.delaware.gov/wp-
+content/uploads/sites/4/dhcc/pdf/pcpdelawarestudy2021.pdf
+5
+  Beebe Healthcare. Supplemental Information in Response to Governor Meyer’s Request for Information,
+October 9, 2025.
+6
+  Beebe Healthcare. Partnering for a Healthier Sussex. April 8, 2025.
+7
+  The Burden of Chronic Disease in Delaware 2024, Delaware Health and Social Services (DHSS), Division of
+Public Health, June 2024. https://dhss.delaware.gov/wp-
+content/uploads/sites/10/dph/pdf/BurdenOfChronicDiseaseInDelaware2024Final.pdf
+8
+  https://fns-prod.azureedge.us/sites/default/ﬁles/resource-ﬁles/de-abawd-response-fy2025.pdf https://fns-
+prod.azureedge.us/sites/default/ﬁles/resource-ﬁles/de-abawd-response-fy2025.pdf
+9
+  https://regulations.delaware.gov/AdminCode/title24/1700.shtml
+https://regulations.delaware.gov/AdminCode/title24/1700.shtml
+10
+   https://dhss.delaware.gov/dhcc/hrb/dhrbhome/ https://dhss.delaware.gov/dhcc/hrb/dhrbhome/
+11
+   https://delcode.delaware.gov/title24/c017a/index.html
+https://delcode.delaware.gov/title24/c017a/index.html
+12
+   https://delcode.delaware.gov/title24/c019a/ https://delcode.delaware.gov/title24/c019a/
+13
+   https://delcode.delaware.gov/title16/c098a/index.html
+https://delcode.delaware.gov/title16/c098a/index.html
+14
+   https://delcode.delaware.gov/title24/c019a/ https://delcode.delaware.gov/title24/c019a/
+15
+   https://delcode.delaware.gov/title24/c017b/index.html
+https://delcode.delaware.gov/title24/c017b/index.html
+16
+   https://delcode.delaware.gov/title24/c017/index.html
+https://delcode.delaware.gov/title24/c017/index.html
+17
+   https://regulations.delaware.gov/AdminCode/title18/1320
+https://regulations.delaware.gov/AdminCode/title18/1320
+18
+   https://delcode.delaware.gov/title24/c060/index.html
+https://delcode.delaware.gov/title24/c060/index.html
+19
+   https://www.newcastlede.gov/2156/Hope-Center
+20
+   https://www.destatehousing.com/wp-content/uploads/2025/05/2025-PIT-COUNT-1.pdf
+21
+   https://www.cdc.gov/high-impact-prevention/php/case-studies/health-care-clinical-
+schools.html#:~:text=SBHCs%20can:%20*%20Improve%20students'%20health%20and,transmitted%20dis
+ease%20(STD)%20and%20pregnancy%20prevention%20counseling
+22
+   Ran T, Chattopadhyay SK, Hahn R; the Community Preventive Services Task Force. Economic evaluation of
+school-based health centers. Am J Prev Med 2016;51:129–38.
+23
+   https://dhss.delaware.gov/dph/chca/dphsbhcceninfo01/
+24
+   https://sussexcountyde.gov/public-schools
+25
+   impact-of-diabetes-report-2025.pdf
+26
+   Hsu AL, Caverzagie K. Educational debt and specialty choice. Virtual Mentor. 2013 Jul 1;15(7):615-9. doi:
+10.1001/virtualmentor.2013.15.7.oped1-1307. PMID: 23890437.
+27
+   https://www.beckershospitalreview.com/rankings-and-ratings/primary-care-provider-gaps-ranked-by-
+state/
+28
+   https://legis.delaware.gov/BillDetail/142169
+29
+   https://www.ama-assn.org/practice-management/prior-authorization/1-3-doctors-has-seen-prior-auth-
+lead-serious-adverse-
+
+
+
+                                                                                                         63
+event#:~:text=Bad%20outcomes%2C%20delayed%20care,Patients%20abandoning%20treatment%E2%80
+%9480%25.
+
+
+
+
+                                                                                       64
+

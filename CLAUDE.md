@@ -712,6 +712,8 @@ R/
   03cq_mo_smart_growth_awardees.R # Missouri — Smart Growth CONTINGENT roster, 25 rows, $39.4M, 23 intents (BUILT, s114)
   10_contract_registers.R      # contract files (KY TX CO OK MS + CMS lines); never award files (BUILT, s116f)
   utils_spend_category.R       # rhtp_spend_category(): spend_category on every award and contract row (BUILT, s116f)
+  utils_use_category.R         # rhtp_use_category(): CMS use-of-funds category on every award row (BUILT, s123)
+  11_use_categories.R          # --apply LAST: the seven use_* columns; --validate; --report (BUILT, s123)
   01b_rcj_pull_diff.R          # two RCJ pulls diffed + the EXPOSED SET (states on no Routine) (BUILT)
   utils_page_watch.R           # the shared READ-ONLY fetch/reduce/digest for probes (BUILT)
   probe_coverage.R             # a Routine firing with no log line FAILS, by name (BUILT)
@@ -1537,6 +1539,32 @@ Every award row and contract row carries `spend_category` (one of `HOSPITAL`, `C
   are `ADMINISTRATOR` (Trillium and Vaya `vendor_public`); Kinney, Spirit, Fond of You and Jefferson fail V9 (`OTHER`).
 - **Probes:** a dictionary consultant or tech vendor newly named on a page the name tripwire reads logs `VENDOR`
   (logged, never raised). A contract register on a state probe logs CHANGED when it moves and trips on a new contract.
+
+#### Use categories (session 123, owner direction)
+
+Every award row carries the RHTP activity it funds, on CMS's own uses of funds (NOFO letters A-K, Section 71401
+of Public Law 119-21; `data/reference/rhtp_use_categories.csv`, quoted from the archived NOFO under
+`data/evidence/cms/nofo/`). "Not stated" is an acceptable answer; a guess is not.
+- **Read the activity, never the recipient** (the mirror of §0.3a). A rule matches only activity fields
+  (`RHTP_USE_MATCH_FIELDS`); a hospital award is not "service lines" because a hospital received it. `test_11`
+  scrambles every recipient field and requires nothing to move.
+- **One function writes the columns:** `rhtp_use_category()` (`R/utils_use_category.R`), run by
+  `R/11_use_categories.R --apply` LAST of all (after R/09b and R/07). Columns: `use_category_primary`,
+  `use_group_primary`, `use_categories_all`, `use_category_basis`, `use_category_confidence`,
+  `use_category_quote`, `use_category_source`. A rebuild drops them; `R/11 --validate` fails until re-run.
+- **Evidence, strongest first:** `AWARD_SOURCE` (HIGH; the award document states the letter; `config/use_category_cases.csv`),
+  `INITIATIVE_CROSSWALK` (MEDIUM; the state's plan ties the award's initiative or round to letters;
+  `config/initiative_use_crosswalk.csv`; a round's own NOFO is plan evidence, not an award source),
+  `PURPOSE_TEXT` (LOW; the award's own description, one hand call per description), else `NOT_STATED`.
+- **Every rule is quoted and archived.** The loader refuses a quote not found verbatim (whitespace collapsed; table
+  cells joined by " | " each found within 3,000 characters), a missing archive, or a rule that reaches no row.
+- **Primary.** One group in the evidence is primary; several groups are `MULTIPLE` unless the award's own text points
+  to one (`primary_letter` + quote). C, D and F are one group (Health IT). A letter-level primary inside one group with
+  no pointer is the first letter in NOFO order; only the group is reported. **Never divide an award's dollars.**
+- **Reports (R/08 "By use category").** Groups (MULTIPLE and NOT_STATED included) sum to awards published, and the
+  HOSPITAL split to the hospital best estimate, state by state (asserted); pool-level money takes its ROUND's category.
+  Provider payments (B) and capital (J) against the 15% / 20% caps are **published awards only, not the state's
+  budget**: never call a state over a cap on this basis.
 
 #### Hospital foundations and affiliated arms
 

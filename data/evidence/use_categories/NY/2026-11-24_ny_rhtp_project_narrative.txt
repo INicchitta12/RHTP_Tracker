@@ -1,0 +1,3035 @@
+             NEW YORK STATE RURAL HEALTH
+         TRANSFORMATION PROGRAM APPLICATION
+                                           PROJECT NARRATIVE
+TABLE OF CONTENTS
+NY’s Rural Health Needs and Target Population ........................................................................... 2
+   Rural Demographics .....................................................................................................................2
+   Health Outcomes ..........................................................................................................................2
+   Health Care Access .......................................................................................................................3
+   Rural Facility Financial Health.....................................................................................................5
+   Target Populations and Geographic Areas ...................................................................................6
+Rural Health Transformation Plan: Goals and Strategies ............................................................... 7
+   Improving Access and Outcomes .................................................................................................7
+   Technology Use and Data Driven Solutions ................................................................................8
+   Partnerships ..................................................................................................................................9
+   Workforce ...................................................................................................................................11
+   Cause Identification and Financial Solvency Strategies: Risks Facing Rural Hospitals ............12
+   Strategies to Address Service Reductions and Closure ..............................................................15
+   Legislative or Regulatory Action ...............................................................................................16
+Other Required Information.......................................................................................................... 16
+   State Policies...............................................................................................................................17
+   Factor A.2: Certified Community Behavioral Health Clinics (CCBHCs) .................................17
+   Factor A.7: Disproportionate Share Hospital (DSH) Payment...................................................17
+   Factor F.2: Transformed Medicaid Statistical Information System (T-MSIS) Data ..................17
+Proposed Initiatives and Use of Funds.......................................................................................... 18
+   Initiative 1: Rural Community Health Integration .....................................................................18
+   Initiative 2: Strengthening Rural Communities with Technology-Enhanced Primary Care ......23
+   Initiative 3: Rural Roots: Building a Sustainable Rural Health care Workforce........................29
+   Initiative 4: Investments in Technology Innovation and Cybersecurity Enhancements for Rural
+   NY ..............................................................................................................................................36
+Implementation Plan and Timeline ............................................................................................... 45
+   Governance and Project Management Structure ........................................................................50
+Stakeholder Engagement .............................................................................................................. 53
+Metrics and Evaluation Plan ......................................................................................................... 56
+Sustainability Plan ........................................................................................................................ 57
+
+
+
+                                                                          1
+NEW YORK STATE’S RURAL HEALTH NEEDS AND TARGET POPULATION
+
+Rural Demographics
+New York’s (NY) rural communities are home to about 2.1 million residents, representing 10.6%
+
+of the state's total population. i With an average population density of 72.87 people per square
+
+mile, ii a median income of $67,882, iii and an average unemployment rate of 3.8%, iv these regions
+
+face persistent and well-documented health challenges that threaten both individual well-being and
+
+community vitality. Figure 1 below describes employment, education, and health insurance factors
+
+impacting NY’s rural population.
+
+ Socioeconomic Factor        Rural NY Experience
+ Employment v                The average unemployment rate is 3.8%. The top 5 employment sectors in rural NY
+                             are: Educational services, Health care and social assistance (28.9%), Retail trade
+                             (11.3%), Manufacturing (9.6%), Professional, Scientific, Management, and
+                             Administrative and Waste management services (9.0%), and Arts, Entertainment,
+                             Recreation, Accommodation and Food services (8.2%).
+ Educational Attainment vi   Among 18–24-year-olds, 11.3% lack a high school diploma, and only 9% of rural
+                             residents 18-24 hold bachelor’s degrees or higher. In the over 25 population, 34.1%
+                             have a high school diploma or equivalency, and only 14.1% hold a bachelor’s degree
+                             or higher.
+ Health Insurance vii        5% of the rural, noninstitutionalized population aged 19 – 64 is uninsured.
+                              Figure 1. NY Rural Health Socioeconomic Conditions
+
+Health Outcomes
+In developing NY’s Rural Health Transformation Program (RHTP) initiatives, a set of
+
+comprehensive health outcomes measures was reviewed to assess the unique challenges and needs
+
+of rural communities across the state (Figure 2). Per different data sources within the New York
+
+State Department of Health (DOH), these measures include rates of chronic conditions, child and
+
+maternal health outcomes, and indicators related to care coordination, follow-up after
+
+hospitalization, primary care access, and behavioral health. By evaluating these key factors, the
+
+initiatives support targeted improvements in health services and outcomes for rural residents.
+
+
+
+
+                                                       2
+ Indicator viii                                                                             Rural     Non-Rural
+ (Sources otherwise noted)                                                                 Counties    Counties
+ Care Coordination
+ Potentially Preventable Emergency Department Visits Risk-Adjusted rate (PPV) (2022 20.90%             14.74%
+ Discharge) ix
+ Patients Receiving Follow-Up After Hospitalization for Mental Illness -7 Days x (2024)     52.7%      44.1%
+ Primary Care %
+ Child and Adolescent Well-Care Visits (3-21yr) xi                                          71.3%      72.4%
+ Rate of Weight Assessment and Counseling for Children/Adolescents: Counseling for          77.6%      79.1%
+ Nutrition (3–17 yr) xii
+ Behavioral Health
+ Suicide mortality rate per 100,000 (2022)                                                   12.8        7.8
+ Suicide mortality among youth, rate per 100,000 population aged 15-19 years (2020-2022)      7.1        4.1
+ Rate of Depression Screening and Follow-Up for Adolescents and Adults: Depression
+                                                                                             3.9%       7.8%
+ Screening – Electronic xiii
+ Overdose rate per 10,000 (2023)                                                             23.5       22.0
+ Unique individuals enrolled in NY State Office of Addiction Services and Supports-
+ certified substance use disorder treatment programs who reported heroin as a primary       416.1       360.2
+ substance, crude rate per 100,000 population - Aged 12+ years (2023)
+ Chronic Conditions
+ Percentage of individuals aged 45–75 who have had appropriate colorectal cancer
+                                                                                            60.1%      59.7%
+ screening (2024) xiv
+ Cardiovascular disease mortality rate per 100,000 (2022)                                   313.3       264.3
+ Cardiovascular disease premature death (aged 35-64 years) rate per 100,000 (2022)          133.1       105.1
+ Potentially preventable diabetes short-term complications hospitalization rate per 10,000
+                                                                                              7.3        6.8
+ - Aged 18 years and older (2022)
+ Potentially preventable hypertension hospitalization rate per 10,000, aged 18+ (2022)        4.1       7.4
+ Public-school students with obese weight status                                            22.8%      18.6%
+ Maternal & Child Health
+ Infant mortality rate per 1,000 live births (2022)                                           5.4       4.0
+ Mortality rate per 1,000 live births - Neonatal (<28 days) (2022)                            3.0       2.6
+ Women who report depression during pregnancy (2023)                                        17.0%      8.2%
+ Women who experienced depressive symptoms after giving birth (2023)                        12.9%      10.4%
+ Women who report cigarette use in the last 3 months of pregnancy (2023)                    10.9%      1.6%
+ Newborns with neonatal withdrawal symptoms and/or affected by maternal use of opioid
+                                                                                             13.2        4.4
+ or other substance (any diagnosis), crude rate per 1,000 newborn discharges (2022)
+                 Figure 2: Comparison of Health Outcomes between Rural and Non-Rural Counties
+
+Health Care Access
+Transportation poses a significant barrier to health care access for rural residents. With only 0.6%
+
+of the rural workforce relying on public transportation between 2019 and 2023, and just 19.5%
+
+using alternate commuting methods such as carpooling, biking, walking, or telecommuting,xv
+
+many individuals face challenges reaching health care facilities. Limited or non-existent public
+
+transit options, combined with greater distances to hospitals or clinics, can delay preventive care
+
+and treatment, often resulting in poorer health outcomes for rural populations. These transportation
+
+
+
+
+                                                       3
+issues are further compounded for individuals with disabilities and those without access to a
+
+personal vehicle, making timely and regular health care even less attainable.
+
+There are also significant gaps in access to the maternal health system of care in NY. In rural areas
+
+across the state, 47.6% of women live more than 30 minutes from a birthing hospital compared to
+
+3.8% of women living in urban areas of NY. xvi Rural and underserved areas in NY continue to
+
+experience suboptimal outcomes in maternal and child health. Many communities face elevated
+
+risks of infant mortality and neonatal complications, such as neonatal withdrawal symptoms,
+
+affected by maternal use of opioids or other substances (13.2 per 1,000 newborn discharges). xvii
+
+Most striking, the rate of women who report depression during pregnancy is 17% in NY’s rural
+
+counties, which is more than double the rate in the state’s non-rural counties. xviii Contributing
+
+factors include disparities in access to prenatal care, socioeconomic inequities, and persistent gaps
+
+in mental health support for mothers and families.
+
+Behavioral health risks in rural NY are higher compared to other areas of the state, with gaps
+
+observed in access to care and support services. The suicide rate in rural NY has increased by 83%
+
+since 2004, now double that of urban areas, with pronounced social isolation as a contributing
+
+factor. xix The 16 most rural counties in NY have 6.9 mental health practitioners per 10,000 people,
+
+which is less than half the statewide ratio of 16.1. xx Herkimer County, one of those 16 counties,
+
+has the lowest ratio at 2.5 mental health practitioners per 10,000 people. xxi Improving health in
+
+rural areas requires approaches that consider the distinct characteristics of these communities.
+
+Factors like low population density, extended travel times to population centers, limited public
+
+transportation, fewer health care providers, and lower broadband availability contribute to
+
+restricted access. Workforce shortages of health care professionals affect multiple fields and
+
+specialties, indicating a need for comprehensive solutions.
+
+
+
+
+                                                 4
+Rural Facility Financial Health
+Hospitals in rural communities often operate at lower occupancy rates and experience financial
+
+instability due to declining patient volumes, aging infrastructure, and reimbursement challenges.
+
+Per NY cost report data, rural hospitals in NY have an average government payer mix of 65.3%,
+
+and 9 rural hospitals have experienced negative operating margins for the past three consecutive
+
+years. These financial pressures can limit a hospital’s ability to maintain critical services, invest in
+
+and maintain infrastructure, and recruit and retain qualified staff. As more rural facilities face
+
+mounting challenges, the risk of closure or service limitations increases, further jeopardizing
+
+access for rural residents and compounding disparities in health outcomes. Health Resources and
+
+Services Administration (HRSA) Data Explorer and Healthcare Cost Report Information System
+
+(HCRIS) and a current analysis by Stroudwater shows the current patient volumes for rural critical
+
+access hospitals (CAH), prospective payment system (PPS) hospitals, psychiatric hospitals,
+
+Federally Qualified Health Centers (FQHC), Rural Health Clinics (RHC), and Skilled Nursing
+
+Facilities (Figure 3).
+
+In NY, there have been four rural hospital closures since 2005. While a relatively low number,
+
+rural hospitals have felt increasingly threatened with their financial viability given their aging
+
+infrastructure, workforce challenges exacerbated by the COVID-19 pandemic, and difficulty
+
+recruiting in specialty areas such as obstetrics and behavioral health.
+
+
+
+
+                                                   5
+ Hospitals
+ Volume Type                          CAH                    PPS                  Psych                Total
+ Beds                                  416                  2,868                  108                 3,392
+ Discharges                           7,495                 91,784                 226                99,505
+ Labor & Delivery Days                 N/A                  4,112                  N/A                 4,112
+ Nursery Total Days                    134                  18,515                 N/A                18,649
+ Swing Bed Days                      45,456                 7,178                  N/A                52,634
+ Clinic Federally Qualified Health Centers (FQHC) and Rural Health Clinic (RHC)
+ Volume Type                         FQHC            Free Standing RHC Provider-Based RHC           Total Visits
+ Visits                            1,230,094                33,682               261,455             1,525,231
+ Skilled Nursing Facilities
+ Volume Type                     Free-Standing         Provider-Based                    Total Days
+ Days                              3,602,719               577,327                        4,180,046
+                      Figure 3: Utilization Levels and Patient Volumes at Rural Facilities xxii
+
+Target Populations and Geographic Areas
+According to HRSA’s Federal Office of Rural Health Policy definition and including counties with
+
+10% or more of the population in rural census tracts or with fewer than 200,000 residents, NY has
+
+identified 47 out of 62 counties that have been classified as rural for the purposes of this
+
+application. All of NY’s RHTP initiatives have been carefully designed to address the needs of the
+
+rural populations within the counties listed below.
+
+List of Counties with FIPS codes: Allegany (36003), Broome (36007), Cattaraugus (36009),
+
+Cayuga (36011), Chautauqua (36013), Chemung (36015), Chenango (36017), Clinton (36019),
+
+Columbia (36012), Cortland (36023), Delaware (36025), Dutchess (36027), Essex (36031),
+
+Franklin (36033), Fulton (36035), Genesee (36037), Greene (36039), Hamilton (36041), Herkimer
+
+(36043), Jefferson (36045), Lewis (36049), Livingston (36051), Madison (36053), Montgomery
+
+(36057), Oneida (36065), Ontario (36069), Orange (36071), Orleans (36073), Oswego (36075),
+
+Otsego (36077), Putnam (36079), Rensselaer (36083), Schenectady (36093), Schoharie (36095),
+
+Schuyler (36097), Seneca (36099), St. Lawrence (36089), Steuben (36101), Sullivan (36105),
+
+Tioga (36107), Tompkins (36109), Ulster (36111), Warren (36113), Washington (36115), Wayne
+
+(36117), Wyoming (36121), Yates (36123).
+
+
+
+
+                                                        6
+RURAL HEALTH TRANSFORMATION PLAN: GOALS AND STRATEGIES
+
+NY envisions a rural health system that is resilient and sustainable—where every resident,
+
+regardless of geography, has timely access to high-quality, coordinated care. As such, NY’s RHTP
+
+is designed to address persistent disparities in rural health outcomes, workforce shortages, and
+
+infrastructure gaps by investing in innovative models, technology, and partnerships. Informed by
+
+input from nearly 170 stakeholder organizations and community partners, NY’s RHTP strategy
+
+seeks to improve health care access for rural patients and communities through a set of interrelated
+
+initiatives that strategically leverage local assets, regional partnerships, and statewide
+
+infrastructure. This proposal has the full support of the Commissioner of the NYS DOH and of
+
+Governor Hochul.
+
+Improving Access and Outcomes
+As described in the “Proposed Initiatives and Use of Funds” section on page 18, NY’s RHTP
+
+initiatives are designed to address longstanding access barriers and transform care delivery across
+
+rural communities. NY’s RHTP is aligned with the Strategic Goals of the Notice of Funding
+
+Opportunity (NOFO) and aims to:
+
+• Expand access to primary and specialty care by establishing collaborative networks anchored
+
+ by hospitals, FQHCs, and essential providers, so that rural residents will experience “no wrong
+
+ door” into the health care system. This will ensure timely triage, treatment, and navigation to
+
+ appropriate care, reducing avoidable complications, and unnecessary emergency visits.
+
+ Complementing this network will be investments and technical support for rural primary care
+
+ practices, which will include assistance with obtaining and maintaining Patient-Centered
+
+ Medical Home (PCMH) recognition and incorporating artificial-intelligence (AI) into core
+
+ clinical and business operations. With strong evidence for PCMH’s role in improving access,
+
+
+
+
+                                                 7
+ care coordination, and outcomes in rural settings, stabilizing and bolstering the primary care
+
+ network will directly enhance the capacity of rural providers to meet community needs.
+
+• Improve health outcomes with a focus on reducing rates of chronic disease, maternal and child
+
+ health disparities, mental health crises, and preventable hospitalizations among rural residents.
+
+ Enhanced care coordination and expanded telehealth services will support better management of
+
+ conditions such as diabetes, heart disease, and behavioral health challenges. For example, EMS
+
+ may utilize the telehealth platform to engage in NY’s treatment-in-place and transportation-to-
+
+ alternative-destination programs. Learning collaboratives among rural primary care practices
+
+ and their partners may include, but not be limited to, pediatric health, maternal health, behavioral
+
+ health, geriatric health, nutrition education, oral health, and chronic disease management.
+
+• Strengthen the rural health workforce by cultivating homegrown talent, expanding clinical
+
+ rotations, and supporting employer-based training and recruitment pipelines. The
+
+ implementation of the proposed remote learning platform for EMS ensures that qualified trainers
+
+ are accessible to provide support for personnel in remote locations. NY’s RHTP will increase
+
+ the availability of skilled providers for rural areas, helping to address specialty gaps and promote
+
+ continuity of care.
+
+Technology Use and Data Driven Solutions
+NY will harness data and technology to deliver high-quality health care services closer to rural
+
+patients’ homes through a multifaceted strategy. NY’s RHTP will emphasize deploying innovative
+
+digital health tools such as telehealth platforms, remote monitoring tools, and AI solutions. These
+
+technologies will streamline care delivery, enable remote consultations, and support data-driven
+
+decision-making, allowing rural providers to offer timely and integrated care without requiring
+
+patients to travel long distances. Additionally, NY will provide training and technical assistance
+
+to health care providers to ensure they are well-equipped to adopt and utilize these advanced
+
+
+
+                                                 8
+technologies. By integrating these solutions, NY aims to enhance patient outcomes and improve
+
+the overall efficiency of health care delivery in rural areas.
+
+Additionally, NY’s RHTP includes expanding remote monitoring capabilities and technological
+
+tools to allow primary care providers to electronically consult with specialists. This will reduce
+
+unnecessary referrals and support improved patient outcomes. The Statewide Health Information
+
+Network for NY (SHIN-NY) will be leveraged to enhance data exchange, real-time practitioner
+
+alerts, and population health tools, ensuring that rural providers can respond quickly to critical
+
+events and manage chronic conditions more effectively. Together, these efforts aim to create a
+
+resilient, technologically advanced rural health infrastructure across NY.
+
+Evaluating the suitability of new technologies for rural providers and patients involves a
+
+comprehensive assessment of their specific needs and challenges. NY will fund projects and
+
+programs designed to test the effectiveness and usability of these technologies in real-world
+
+settings. Feedback from rural health care providers and patients will be crucial in this evaluation
+
+process. Furthermore, NY will analyze data on health outcomes, patient satisfaction, and cost-
+
+effectiveness to determine the impact of these technologies. These data will be leveraged to shape
+
+the future use of these technologies and the design and expansion of the overall program. For long-
+
+term sustainability, NY will develop a robust governance and project management structure,
+
+ensuring continuous support and maintenance of the adopted technologies. This includes investing
+
+in IT infrastructure, providing ongoing training, and fostering strategic partnerships with
+
+technology providers and other stakeholders over the 5 years of the program to ensure the
+
+technologies remain relevant and effective.
+
+Partnerships
+NY’s RHTP is designed to strengthen current collaborations and create new partnerships among
+
+health care institutions, community-based organizations, and workforce programs to improve rural
+
+
+
+                                                   9
+patients’ access to health care services. The initiatives draw significantly on cross-continuum and
+
+multi-institutional partnerships to drive change at the community, county, regional, and state levels.
+
+New York proposes four major, complementary initiatives, each with subprojects that promote
+
+partnerships and support the state’s overall transformation goals.
+
+1) The Rural Community Health Integration initiative is fundamentally a formal partnership
+
+   network that provides rural residents with a coordinated approach to health care. The networks
+
+   will be anchored by traditional health care institutions such as hospitals, FQHCs, primary care
+
+   and multi-specialty practices, sole community hospitals, rural emergency hospitals, and critical
+
+   access hospitals. Early implementation of the initiative will draw on the existing infrastructure
+
+   and capacity of anchor institutions to develop regional health networks, enhance coordination
+
+   with community-based providers, integrating services and supporting needed community
+
+   services such as EMS, and support the financial stability of struggling hospitals. The initiative
+
+   will partner hospitals in-need with more stable hospitals or health systems, so that local care
+
+   providers are proactively managing rural patients’ access to services and supports. Partner
+
+   organizations commit to supporting the network during and beyond the RHTP performance
+
+   period, and the model will embed shared financial responsibility within the network.
+
+2) The Strengthening Rural Communities with Technology-Enhanced Primary Care
+
+   (Strengthening Rural Communities) initiative leverages formal and informal partnerships to
+
+   accelerate rural primary care practices’ adoption of PCMH recognition and utilization of
+
+   advanced analytics to improve operational efficiency, quality, and financial sustainability. Key
+
+   partnership components include formal cross-continuum care compacts that enable and
+
+   incentivize co-management among primary care practices, hospitals, specialists, and patients.
+
+   This proven-effective strategy is successful at managing chronic metabolic conditions and
+
+
+
+
+                                                 10
+   behavioral health issues. Furthermore, developing collaboratives across rural NY will facilitate
+
+   learning among practices and accelerate methods for risk identification and stratification,
+
+   community-based collaboration, and remediating care gaps.
+
+3) As part of the state’s long-term rural workforce strategy, the Rural Roots: Building a
+
+   Sustainable Rural Health care Workforce initiative will expand and evolve partnerships among
+
+   academic institutions, health care providers, Area Health Education Centers (AHEC), Boards
+
+   of Cooperative Educational Services (BOCES), and Career and Technical Education (CTE)
+
+   programs to support workforce development, training, and retention.
+
+4) Additionally, NY’s Investments in Technology Innovation and Cybersecurity Enhancements
+
+   for Rural NY initiative addresses the challenges of rural hospitals having outdated IT systems,
+
+   limited access to telehealth, and insufficient cybersecurity measures that leave these hospitals
+
+   vulnerable to operational disruptions and compliance challenges. Strategic efforts to partner
+
+   health care facilities and practices with the SHIN-NY health information exchange,
+
+   cybersecurity experts, and Artificial Intelligence-enablement are planned through this RHTP.
+
+Workforce
+NY’s rural communities face a health care workforce crisis that demands urgent and transformative
+
+action. A recent report by the NYS Comptroller revealed that across 16 of NY’s most rural
+
+counties, the average number of primary care physicians is just 4 per 10,000 residents—less than
+
+half the statewide ratio of 8.1 and far below the national average of 8.4. The report also noted that
+
+pediatricians are even scarcer, with only 0.5 per 10,000 people compared to 2.8 statewide, and 3
+
+of the 16 counties have no pediatricians at all. The shortage of obstetricians and gynecologists
+
+(OB-GYNs) is equally dire, with a ratio of 0.4 per 10,000—meaning some counties have no OB-
+
+GYNs, forcing pregnant individuals to travel long distances or rely on emergency rooms for care.
+
+
+
+
+                                                 11
+Mental health provider shortages are the most severe: all 16 counties in the report are federally
+
+designated as Health Professional Shortage Areas for mental health. xxiii
+
+These workforce gaps translate directly into poorer health access and outcomes. Rural New
+
+Yorkers experience higher rates of chronic disease, preventable hospitalizations, and maternal and
+
+infant mortality. Economic hardships, limited transportation, and outdated infrastructure further
+
+compound these disparities, leaving communities without reliable care. Without bold investment,
+
+these trends will worsen, jeopardizing the health and well-being of NY’s rural population.
+
+NY considers the RHTP a critical opportunity to reverse these trends, strengthen the health care
+
+workforce, and ensure every rural resident has access to high-quality, sustainable care. As such,
+
+one of NY’s signature initiatives for the RHTP is the Rural Roots: Building a Sustainable Rural
+
+Health care Workforce (Rural Roots) initiative. As described further on page 29, the Rural Roots
+
+initiative is a comprehensive strategy to recruit and train more practitioners for rural areas by
+
+combining planning, targeted education, and innovative support. NY’s RHTP will use a data-
+
+driven approach to identify local specialty gaps, invest in early career exposure for students,
+
+support enhanced clinical rotations, strengthen employer-based training programs, and expand
+
+EMS education through new remote supported training technologies. The initiative will also
+
+establish a self-sustaining recruitment-to-service pipeline with practices contributing revenue to
+
+support future trainees. Through these interconnected methods, NY aims to create a resilient rural
+
+health care workforce that meets immediate needs and builds long-term capacity.
+
+Cause Identification and Financial Solvency Strategies: Risks Facing Rural Hospitals
+Hospitals in rural NY are at risk of service reduction or closure due to several interrelated factors
+
+including workforce shortages, a high public payer mix, quality challenges, outdated infrastructure
+
+and technology, and fragmented service networks and care continuation.
+
+
+
+
+                                                 12
+• Workforce Shortages: Rural hospitals face persistent difficulties in recruiting and retaining
+
+ clinical staff, including nurses, behavioral health professionals, and specialty providers, which
+
+ limit hospitals’ ability to maintain essential services. These shortages are exacerbated by
+
+ geographic isolation, limited training opportunities, and competition with urban facilities. As a
+
+ result, rural hospitals must often resort to part-time (or per diem), locums, or contract clinical
+
+ staffing, which comes at a price premium. In NY, from 2019 to 2024, hospital labor expenses
+
+ increased by nearly 40% overall and contract labor costs doubled. xxiv
+
+• High Public Payer Mix and Uncompensated Care: Hospitals in rural communities often serve
+
+ populations with a higher proportion of Medicaid, Medicare, or uninsured patients. A 2020
+
+ Health Affairs study by Bai et al. found stark differences in margins based on payer mix where
+
+ rural hospitals with a higher share of private insurance and higher negotiated prices had
+
+ significantly better profit margins than those reliant on government payers. xxv A lower payer mix
+
+ leads to reduced reimbursement rates, higher levels of uncompensated care, and reimbursement
+
+ models that may not adequately represent the actual cost of service delivery. According to the
+
+ Rural Policy Research Institute, rural hospitals often have limited ability to cross-subsidize
+
+ money-losing services such as emergency and obstetric services because of their payer mix and
+
+ thin margins. xxvi These factors, in combination with low patient volumes, lead to financial
+
+ instability that can force reductions in service lines or facility closures.
+
+• Quality Challenges: The lower patient volumes often experienced by rural hospitals are
+
+ associated with difficulties in maintaining high-quality care, meeting accreditation standards,
+
+ and supporting robust care coordination. For example, an analysis by the University of
+
+ Washington’s Rural Health Research Center found that Medicare beneficiaries discharged from
+
+ rural hospitals were significantly less likely to have timely post-hospitalization follow-up visits,
+
+
+
+
+                                                  13
+ compared to those from urban facilities. Lack of robust care management can lead to higher
+
+ emergency department use and readmissions in rural regions, as minor issues go unmanaged
+
+ until they become serious. xxvii
+
+• Fragmented Service Networks: Relatedly, the lack of integration or a lack of access to broader
+
+ health and social care networks can result in inefficient care transitions, xxviii limited access to
+
+ specialty services, xxix and missed opportunities for preventive care and chronic disease
+
+ management. Even in areas with a hospital, fragmentation can cause preventive care to slip
+
+ through the cracks, as rural patients often do not get consistent reminders or care navigation that
+
+ integrated health systems provide. xxx
+
+• Infrastructure and Technology Gaps: Many rural hospitals have outdated IT systems, limited
+
+ access to telehealth, and insufficient cybersecurity measures that leave these hospitals vulnerable
+
+ to operational disruptions and compliance challenges. A recent 2025 study by Anzalone et al.
+
+ showed that in the outpatient realm, rural clinicians had significantly lower Promoting
+
+ Interoperability scores than urban clinicians, highlighting ongoing gaps in effective use of health
+
+ IT. In addition, 24.6% of rural hospitals still had less-than-basic EHR functionality, versus only
+
+ ~15% of urban hospitals – a gap reflecting resource limitations and poor broadband connectivity
+
+ in some areas. xxxi Such IT shortcomings translate to inefficiencies, potential errors in
+
+ documentation, and difficulty engaging in modern quality improvement programs that rely on
+
+ electronic data. These gaps hinder care coordination, data sharing, and the adoption of innovative
+
+ care models.
+
+These factors contribute to a cycle of declining revenue, high fixed and variable costs, workforce
+
+shortages, and reduced service availability resulting in negative operating margins that perennially
+
+place rural hospitals at heightened risk of reducing service lines or closure altogether. xxxii
+
+
+
+
+                                                  14
+Strategies to Address Service Reductions and Closure
+NY’s RHTP proposes a multi-pronged approach to mitigate risks, bolster rural hospitals’
+
+sustainability, and avert further closures. The state’s complementary initiatives will enable
+
+hospitals to make vital investments in technology, cross-continuum partnerships, care model
+
+transformation, and workforce that will lower costs, improve quality, and yield shared savings.
+
+Workforce Development and Retention
+
+Due to ongoing labor shortages and labor cost increases that have consistently outpaced inflation
+
+since 2019, NY’s RHTP workforce plan will develop a comprehensive long-term strategy aimed
+
+at alleviating shortages of essential clinicians. As described in detail in the Rural Roots initiative
+
+on page 29, NY will implement early career exposure programs, enhanced clinical rotations, and
+
+employer-based training to cultivate local talent in rural areas. Recruitment-to-service pipelines
+
+with multi-year commitments will foster long-term staffing stability. This will, in turn, enable
+
+hospitals to develop a stable, local workforce, removing the need for expensive per diem clinicians.
+
+The two care transformation initiatives, Strengthening Rural Communities (described in detail on
+
+page 23) and Rural Community Health Integration (described in detail on page 18), are designed
+
+to expand care access and coordination among providers across the continuum.
+
+The Rural Community Health Integration initiative will develop networks that include rural
+
+hospitals, FQHCs, Certified Community Behavioral Health Clinics (CCBHCs), primary care
+
+practices, non-primary outpatient providers, including EMS providers, specialty hospitals, and
+
+community service providers. Hospitals’ central role in these networks will enable better and more
+
+coordinated access to the range of care that will keep rural New Yorkers healthier. Additionally,
+
+shared savings resulting from reduced acute care will be allocated strategically among network
+
+partners to promote the long-term financial stability and sustainability of the entire network.
+
+
+
+
+                                                 15
+The Strengthening Rural Communities initiative will expand and innovate upon the high-quality
+
+PCMH model in rural settings. A strengthened primary care environment enables hospitals to focus
+
+on serving higher-acuity needs without having to staff expensive emergency departments to serve
+
+non-acute patient volume. Further, by shifting care upstream to the primary care setting, rural
+
+hospitals can reduce uncompensated care. xxxiii
+
+Technology and Cybersecurity Investments
+
+NY will strategically invest in cybersecurity upgrades and develop regional strategies for
+
+compliance, risk-management, and preparedness to strengthen rural health facilities. As described
+
+in more detail on page 36, NY will fund digital health tools and telehealth platforms, such as the
+
+SHIN-NY, to promote greater care coordination, expand service offerings, and increase patient
+
+access. By pooling resources and leveraging shared infrastructure, NY aims to enhance service
+
+delivery, support the health care workforce, and respond to outbreaks in real time, while
+
+strengthening care delivery across the state’s most remote areas.
+
+Legislative or Regulatory Action
+
+NY acknowledges the impact that state policies have on health care access, quality, and
+
+affordability in rural areas. NY is pleased to report ongoing advancements across multiple areas
+
+since the publication date of some of the external data sources CMS cited in the NOFO. On page
+
+16 of “Other Supporting Documentation” please find a synopsis of NY’s current state policies for
+
+each of the eight state policy factors identified. In particular, please see updates for C.3 Certificate
+
+of Need (CON) and D.3 Scope of Practice.
+
+OTHER REQUIRED INFORMATION
+
+NY has closely reviewed the data and sources provided in the RHTP NOFO (CMS-RHT-26-001)
+
+Table 4 “Data Source Definitions and Sources” and confirms that most of the data is sourced from
+
+
+
+
+                                                  16
+recent reporting and accurately reflects NY. As requested, NY provides the following updates for
+
+current state policies, Factor A.2, Factor A.7, and Factor F.2.
+
+State Policies: Please refer to the NY State Policy table on page 16 of “Other Supporting
+
+Documentation” for the current state policies as related to the State Policy Actions Factor.
+
+Factor A.2: Certified Community Behavioral Health Clinics (CCBHCs): Please see page 10
+
+of “Other Supporting Documentation” for the full listing of CCBHCs, including the address of
+
+every active site of care in NY as of September 1, 2025.
+
+Factor A.7: Disproportionate Share Hospital (DSH) Payment: Based on the most recently
+
+submitted and finalized 2021 CMS DSH Audit, 156 of the 162 hospitals (96.3%) in NY received
+
+DSH payments. Six hospitals did not receive payments because they either chose not to receive
+
+DSH or did not report any uncompensated care costs.
+
+Factor F.2: Transformed Medicaid Statistical Information System (T-MSIS) Data: As of the
+
+August 2025 reporting month, NY data meets the Critical-Priority criterion and Expenditures data
+
+content category. NY is 2% below the ≥ 99% target for High-Priority criterion with 445 out of 458
+
+high-priority checks meeting CMS expectations. NY is actively addressing the CMS identified
+
+data quality associated with the high-priority Outcomes Based Assessment compliance criteria to
+
+meet blue status. Closing 8 out of 13 issues will enable the state to achieve blue status, which is
+
+the highest level of compliance, by December of 2025.
+
+
+
+
+                                                 17
+PROPOSED INITIATIVES AND USE OF FUNDS
+
+Initiative 1: Rural Community Health Integration
+
+Description: The Rural Community Health Integration initiative is designed to address the unique
+
+challenges faced by rural communities in NY by strengthening the rural health safety net. The
+
+initiative assists rural hospitals and community providers in building or growing integrated health
+
+networks to enhance health care delivery, coordination, and outcomes in rural areas while
+
+increasing the financial sustainability of the rural health network by encouraging collaborative
+
+partnerships with other health care organizations.
+
+Rural hospitals will collaborate with health care organizations to jointly apply for funding and
+
+technical support, based on eligibility criteria consistent with the NOFO and state law. The goal is
+
+to deliver health care services that address the basic needs of rural residents, including access to
+
+quality medical, maternal health, and behavioral health care, while also establishing a path toward
+
+financial sustainability for participating facilities. Each application will include an anchor
+
+institution and partner organizations. Anchor institutions are defined as those which possess strong
+
+institutional capacity, deep community ties, and a record of commitment to serving their
+
+constituents. Examples of anchor institutions include but are not limited to: hospitals including
+
+sole community hospitals, rural emergency hospitals, critical access hospitals, primary care or
+
+multi-specialty practices, FQHCs, Independent Practice Associations, participants in the Medicare
+
+Shared Savings Program, CCBHCs, EMS providers, and Managed Care Organizations. While the
+
+anchor applicants may be any of these organizations, an application must include a rural safety net
+
+hospital partner to ensure that patient care is well coordinated and that there is a path to improve
+
+the financial sustainability of the safety network, including the hospital.
+
+
+
+
+                                                 18
+Crucially, the Rural Community Health Integration initiative will establish new partnerships that
+
+allow organizations to act collectively while maintaining local autonomy. Applicants may request
+
+modest operating and/or capital funding (within the limitations of the NOFO) and may request
+
+certain state regulations be waived for the life of the project to support their proposals. Over five
+
+years, the initiative will allow for strategic planning of health care services to address community
+
+needs, balance patient volumes, and ensure long-term sustainability.
+
+Organizations will jointly apply for funding based on eligibility criteria set forth in the NOFO,
+
+with the goal to keep care local unless a higher level of care is medically indicated. NY will work
+
+with applicants to help meet eligibility criteria through a rolling enrollment period over the 5 years
+
+of the cooperative agreement. Applications that promote partnership and are determined from
+
+scoring criteria to most likely sustain obstetrical care, maternal-child health care, and behavioral
+
+health care integration will be prioritized.
+
+Potential projects eligible for funding include:
+
+• Delivering technical and financial support for anchor institutions and partners to ensure access
+
+ to comprehensive, longitudinal care and services.
+
+• Providing seed funding to develop future-state solutions and mining local innovations for
+
+ scalable best practices, and leveraging and expanding workforce programs, particularly for
+
+ maternal health, pediatric care, and behavioral health care, and EMS.
+
+• Supporting community providers in adopting care coordination and management information
+
+ from the SHIN-NY, including training for primary care practitioners, post-acute rehabilitation
+
+ providers, and skilled nursing facilities on using these resources to guide health interventions,
+
+ while also working to enhance data accessibility given across providers’ varying levels of
+
+ technical capacity. This proactive approach will strengthen coordination, reduce preventable
+
+
+
+
+                                                 19
+ hospitalizations and readmissions, ease transitions in care, and improve overall health outcomes
+
+ for residents in rural communities.
+
+• Working with community providers to utilize local capacity, including referrals to NY’s 1115
+
+ Waiver Social Care Networks, for services such as food, transportation, and socialization.
+
+• Developing and implementing a range of initiatives to maximize the contributions that EMS
+
+ professionals can offer to rural health care partners.
+
+• Engaging with rural school administrators to provide information on the benefits of School-
+
+ Based Health Centers for communities and identifying the need for additional centers. Technical
+
+ assistance will be provided to interested schools for workforce recruitment and retention
+
+ strategies, the establishment of data collection capabilities, and the development of School-
+
+ Based Health Center policies and procedures.
+
+• Encouraging continuous quality improvement for rural health partnerships to develop deep
+
+ understanding of their communities and deploy tailored education to address unmet needs.
+
+The initiative is structured to be transformative relative to the current baseline, aiming to create a
+
+resilient, community-anchored rural health system that can sustain improvements and adapt to
+
+future medical and technological needs. Safety net hospitals and partnering community providers
+
+will be expected to demonstrate reduced funding dependence on the state after the five-year
+
+cooperative agreement ends.
+
+Main Strategic Goal: This initiative aligns with the Sustainable Access strategic goal by building
+
+collaborative networks with hospitals, FQHCs, and essential providers to ensure a coordinated care
+
+
+
+
+                                                 20
+approach to health care. It promotes timely care for rural residents while helping facilities become
+
+efficient, sustainable access points through regional partnerships.
+
+Use of Funds: A, D, F, G, H, I, J, K
+
+Technical Score Factors: B.1, C.1, C.2, E.1, F.1, F.2
+
+Key Stakeholders: Safety Net Hospitals and other hospitals in the 47-county rural region, other
+
+partnering hospitals and health systems, FQHCs, rural health clinics, primary care practices,
+
+behavioral health/substance use disorder providers, EMS agencies, social service agencies, local
+
+government agencies and departments of health, community-based organizations, NY State DOH,
+
+– including the State Office of Rural Health, Office of Mental Health, Office of Health Insurance
+
+Programs, Office of Addiction Services and Supports, and DOH Cyber Preparedness – and external
+
+partners (IT vendors, telehealth platforms, academic institutions).
+
+Outcomes: The objective of the Rural Community Health Integration initiative is to establish
+
+coordinated rural health partnerships that facilitate comprehensive care coordination and enhance
+
+patient access to a wide range of providers across the care continuum, effectively addressing both
+
+health care and social needs. Below please find the key results and measurable outcomes the state
+
+will use to monitor the success of this initiative.
+
+ Key Result 1: Increased access to the right care at the right time
+      Measure             Definition          Baseline              Target               Relation to Initiative
+ Potentially          The rate of              20.90%        By Year 3, 25% gap     PPVs are emergency visits
+ Preventable          emergency                              closure between the    for ambulatory sensitive
+ Emergency Visits     department visits                      rural rate and the     conditions which should be
+ (PPV)                defined as PPV                         non-rural rate.        able to be reduced/averted
+                      per 100 people.                                               with adequate patient
+ *County-Level                                               By Year 5, 50% gap     monitoring and follow-up. In
+                      Denominator                            closure between the    general, the occurrence of
+                      population base                        rural rate and the     high rates of PPVs represents
+                      by county was                          non-rural rate.        a failure of the ambulatory
+                      identified through                                            care provided to the patient.
+                      the use of                             Please note: this      In addition, when a PPV
+                      proprietary                            measure will also be   occurs shortly following a
+                      Claritas files                         used to monitor the    hospitalization, the PPV may
+
+
+
+
+                                                      21
+                                                          effectiveness of the      be the result of actions taken
+                                                          Strengthening Rural       or omitted during the hospital
+                                                          Communities               stay, such as incomplete
+                                                          initiative. As such,      treatment or poor care of the
+                                                          the target for this       underlying problem and/or
+                                                          measure is more           poor coordination with the
+                                                          ambitious.                primary care or specialist
+                                                                                    physician.
+
+                                                                              A core measure to monitor
+                                                                              the effectiveness of the hub’s
+                                                                              ability to avoid unnecessary
+                                                                              acute care.
+Key Result 2: Decreased readmissions due to high quality discharge planning and post-acute supports
+Hospital-Wide All- A hospital-level,   0 hospitals       By Year 3, 50% sole The measure is designed to
+Cause Unplanned     risk-standardized  reporting this    community and        capture unplanned
+Readmission         readmission rate   measure           critical access      readmissions that arise from
+                    of unplanned, all-                   hospitals will be    acute clinical events requiring
+                    cause readmission                    reporting this       urgent rehospitalization
+                    within 30 days of                    measure              within 30 days of discharge.
+                    discharge from an                                         While some readmissions are
+                    index admission                      By Year 5, 100%      unavoidable due to worsening
+                    with an eligible                     sole community and   illness, appropriate
+                    condition or                         critical access      transitional care and clear,
+                    procedure.                           hospitals will be    monitored discharge
+                                                         reporting this       procedures can reduce the
+                                                         measure              risk of readmission.
+
+                                                                                    Quality measure connected to
+                                                                                    the effectiveness of acute and
+                                                                                    post-acute care provided
+                                                                                    through network partners.
+Key Result 3: Increased preventative care spanning primary and specialty care
+Colorectal           Percentage of           60.1%      By Year 3, 25% gap          Screening for colorectal
+Screening            adults 45-75 years                 closure to the 2030         cancer is important for rural
+                     of age who had                     Healthy People goal         health as rural populations
+                     appropriate                                                    have higher rates of
+                     screening for                      By Year 5, 50% gap          colorectal cancer
+                     colorectal cancer.                 closure to the 2030         incidence xxxiv and mortality.
+                                                        Health People goal          Rural populations face unique
+                                                                                    challenges such as limited
+                                                          Please note: this         access to providers and
+                                                          measure will also be      transportation.
+                                                          used to monitor the
+                                                          effectiveness of the
+                                                          Strengthening Rural
+                                                          Communities
+                                                          initiative, but will be
+                                                          measured at the
+                                                          primary care practice
+                                                          level.
+
+
+
+
+                                                    22
+ Key Result 4: Successful establishment of school-based health centers (SBHCs)
+
+ Establishment of     The number of      Baseline to be   Target number of       This metric reflects access
+ school-based         schools engaged    set in Year 1    schools engaged by     expansion to primary care for
+ health centers       and newly                           Year 3                 children and adolescents in
+                      established                                                rural communities. By
+                      SBHCs                               Target number of       tracking school engagement
+                                                          new SBHCs              and SBHC establishment, NY
+                                                          established by Year    can gauge the initiative’s
+                                                          5                      effectiveness in reaching
+                                                                                 underserved populations,
+                                                                                 improving comprehensive
+                                                                                 physical exam rates, and
+                                                                                 facilitating early intervention
+                                                                                 through screenings and care
+                                                                                 coordination. These measures
+                                                                                 are indicators of building
+                                                                                 sustainable, primary care
+                                                                                 infrastructure and ensuring
+                                                                                 rural students receive the
+                                                                                 preventive and ongoing
+                                                                                 health services they need to
+                                                                                 thrive.
+
+Impacted Counties: This initiative will include all 47 rural counties, as listed on page 6.
+
+Estimated Required Funding: Of the hypothetical $200M annual award, this initiative will be
+
+approximately $71-80M/year. Please see Budget Narrative for more information.
+
+Initiative 2: Strengthening Rural Communities with Technology-Enhanced Primary Care
+
+Description: The Strengthening Rural Communities with Technology-Enhanced Primary Care
+
+(Strengthening Rural Communities) initiative is designed to leverage and expand historic
+
+investments in primary care in rural NY. The initiative aims to expand the number of Patient-
+
+Centered Medical Home (PCMH)-recognized providers, no matter where the provider is in the
+
+recognition process at baseline. The PCMH model is evidence-based and has shown particular
+
+value in rural health care settings. Rural primary care practices that adopted PCMH have achieved
+
+outcomes comparable to their urban counterparts, including reduced hospital/emergency
+
+department use and improved quality indicators. xxxv A standout example is the Adirondack
+
+Medical Home Demonstration in upstate NY (a largely rural region): after becoming a PCMH, it
+
+
+
+
+                                                    23
+produced lower total cost per patient (i.e., downward trend in per member per month spending)
+
+and raised patient satisfaction from 76% to 81% in two years. xxxvi It also boosted primary care
+
+capacity locally, attracting 16 new physicians and enabling hiring of care managers – a critical,
+
+positive impact given rural provider shortages. Patients feel they get better access to care at PCMH
+
+practices versus non-PCMH practices.
+
+Approximately one third of rural primary care practices in NY (617 of 2,295) are recognized as
+
+PCMHs. Despite this progress, there has been a decline in the overall number of rural and rural-
+
+serving primary care practices, including those with PCMH recognition. Rural community
+
+providers face mounting challenges as they manage increasingly large, clinically heterogeneous,
+
+and often socially isolated patient panels. This trend places additional strain on the health care
+
+infrastructure in rural areas and complicates efforts to deliver comprehensive, coordinated care.
+
+Innovative advancements in Artificial Intelligence (AI), telehealth, and supportive state-level
+
+policies that promote distance-based care are creating significant opportunities for rural primary
+
+care practices. These developments have the potential to transform the delivery of value-based
+
+care and alter the trajectory of rural health care in a positive direction.
+
+Given their constrained financial position, primary care practices often lack the capital to fully
+
+accommodate patients with accessibility challenges. With the support of the RHTP, the
+
+Strengthening Rural Communities initiative will also make targeted grants to primary care
+
+practices to assist with modest capital improvements and staff training on best care practices for
+
+patients with accessibility issues. These critical investments will help ensure all practices are
+
+Americans with Disabilities Act-compliant and decrease barriers to care. Accordingly, through the
+
+Strengthening Rural Communities initiative, the state proposes an ambitious, but practical
+
+approach to expand access and accessibility to high-quality sustainable rural primary care.
+
+
+
+
+                                                   24
+Cohort 1 will be dedicated to guiding non-PCMH primary care practices onto the pathway
+
+to PCMH recognition. Implementing PCMH in rural settings presents distinct challenges where
+
+smaller clinics often lack dedicated care coordination staff and robust health IT infrastructure,
+
+while geographic isolation further complicates the coordination that is central to the PCMH model.
+
+Overcoming these barriers requires specialized technical expertise and the involvement of a broad
+
+array of care providers and partners to establish effective, team-based care.
+
+PCMH recognition offers rural primary care practices a framework for delivering high quality care
+
+and securing reimbursement streams. The state will provide technical assistance, support
+
+technology adoption, and promote workforce development. NY will also develop collaboratives
+
+to facilitate and accelerate education among primary care practices about topics such as risk
+
+identification and stratification, community-based networking, and remediating care gaps.
+
+Cohort 2 will push the frontier of existing PCMH primary care practices. Existing PCMH
+
+practices have noted the high costs of operating in the current reimbursement environment, as well
+
+as insurmountable technical challenges and costs to integrate next-gen technologies such as AI and
+
+integrated electronic medical record systems. AI will enable chart note scanning to automate gap
+
+identification and documentation; chart preparation for every visit with a concise checklist; and
+
+submission of quality data. Technical consultants will be deployed to implement the technology
+
+and processes necessary to establish full functionality. In addition to receiving support from
+
+technical consultants, Cohort 2 PCMH practices will serve as champions, providing peer
+
+mentorship and practical guidance to help Cohort 1 practices successfully implement the
+
+technology-enabled PCMH model.
+
+
+
+
+                                                 25
+Accordingly, for Cohort 2 practices, key activities include:
+
+• Deploying vendor-neutral AI and technical assistance to train PCMH practices to automate
+
+ PCMH administration, communicate with patients between visits, and add 24x7 AI-supported
+
+ triage with nurse escalation and guideline-based decision support at the point of care.
+
+• Accelerating the adoption of virtual communications and telehealth, with a focus on ensuring
+
+ access to provider-to-provider and patient-to-provider maternal health, behavioral health, and
+
+ pediatric health care consults.
+
+• Supporting the development of cross-continuum care compacts and integrated care to enable co-
+
+ management among primary care practices, hospitals, specialists, and patients – a proven-
+
+ effective strategy for managing chronic metabolic conditions and behavioral health issues. xxxvii
+
+• Encouraging primary care practices to use community health workers and Social Care Networks,
+
+ as authorized and supported by the state’s 1115 waiver, so that patients’ social needs can be
+
+ addressed through lower cost, community-based resources. This approach will not only improve
+
+ patients’ linkages to care but will also alleviate primary care practices’ burden from doing so.
+
+• Advancing primary care practices’ uptake of encounter alert services provided by the SHIN-NY
+
+ and training primary care practices to use the system and the proposed Care Coordination
+
+ Management Hub that will be configured specifically for rural providers.
+
+Cohort 3 will help preserve and maintain PCMH recognition in rural primary care settings.
+
+Some rural primary care providers have lost their PCMH recognition due to a range of challenges,
+
+including workforce shortages, limited administrative capacity, insufficient data infrastructure,
+
+and the financial burden of maintaining compliance with evolving recognition standards. These
+
+barriers are often exacerbated by geographic isolation, lower patient volumes, and constrained
+
+
+
+
+                                                26
+operating budgets, making it difficult for rural practices to sustain the documentation, quality
+
+improvement activities, and care coordination required for continued PCMH recognition.
+
+To address these challenges and support sustainability, Cohort 3 Providers will receive targeted
+
+technical assistance tailored to the unique needs of each rural provider. This support may include
+
+subsidized access to health information technology systems, training on quality reporting and care
+
+coordination workflows, and peer learning collaboratives to share best practices. By investing in
+
+these supports, the state can help ensure that rural primary care practices not only regain but also
+
+maintain PCMH recognition, thereby strengthening the foundation for high-quality, patient-
+
+centered care in underserved communities.
+
+By leveraging technology and a unified understanding of a technology-enabled PCMH model,
+
+practices will be able to collaborate more effectively and foster a robust data-driven rural health
+
+system. This approach empowers providers to deliver timely, high-quality care in maternal health,
+
+behavioral health, and pediatrics. As primary care providers manage increasingly complex patient
+
+panels, advanced AI-driven case analysis will enhance population-level risk assessment and
+
+expedite referrals to specialists, ensuring that patients with the greatest clinical and social needs
+
+receive appropriate care before their conditions worsen, while simultaneously alleviating precious
+
+time at primary care practices.
+
+Main Strategic Goal: This initiative aligns with the Make Rural America Healthy Again
+
+strategic goal by expanding rural providers’ capacity to deliver evidence-based models of
+
+preventive and chronic care.
+
+Use of Funds: A, B, C, D, E, F, G, H, J, K
+
+Technical Score Factors: B.1, C.1, D.1, E.1, F.1, F.2, F.3
+
+
+
+
+                                                 27
+Key Stakeholders: PCMH Primary Care Practices, Non-PCMH Primary Care Practices, Quality
+
+Improvement Advisors, National Committee for Quality Assurance, Academies of Medicine
+
+(various), Medical Society of the State of NY, American College of Physicians, American
+
+Academy of Family Practitioners, Commercial Payer Liaisons, NY State DOH – including the
+
+State Office of Rural Health, Office of Mental Health, Office of Health Insurance Programs, Office
+
+of Addiction Services and Supports, and DOH Cyber Preparedness.
+
+Outcomes: The objective of the Strengthening Rural Communities initiative is to improve rural
+
+patient access to and utilization of high-quality primary care. Below please find the key results and
+
+measurable outcomes the state will use to monitor the success of this initiative.
+
+ Key Result 1: Increased access to the right care at the right time
+     Measure            Definition         Baseline                 Target                Relation to Initiative
+ Potentially        The rate of             20.90%        By Year 3, 25% gap          Please see description of
+ Preventable        emergency                             closure between the rural   PPV measure in Key Result
+ Emergency          department visits                     rate and the non-rural      #1 the Rural Community
+ Visits (PPV)       defined as PPV                        rate.                       Health Integration
+                    per 100 people.                                                   initiative.
+                    Denominator
+ *County-Level      population base                       By Year 5, 50% gap          Patient connection to a
+                    by county was                         closure between the rural   PCMH has been shown to
+                    identified through                    rate and the non-rural      avert unnecessary
+                    the use of                            rate.                       utilization of the ED.
+                    proprietary                           Please note: this measure
+                    Claritas files                        will also be used to
+                                                     monitor the effectiveness
+                                                     of the Rural Health
+                                                     Community Integration
+                                                     initiative. As such, the
+                                                     target for this measure is
+                                                     more ambitious.
+ Key Result 2: Increased number of PCMH-recognized primary care practices
+ PCMH               Primary care      1600 rural     By Year 3, onboarding at         Tracking the number of
+ Recognition        practices that    primary care   least 250 PCMH practices         primary care practices that
+ Gains              obtain PCMH       practices that                                  attain PCMH recognition or
+                    recognition for   do not have    By Year 5, onboarding at         recertify after previously
+                    the first time or PCMH           least 600 PCMH practices         losing recognition, directly
+                    obtain            recognition                                     supports the initiative by
+                    recognition after                                                 measuring progress in
+                    having lost it                                                    expanding access to high-
+                    prior to the RHTP                                                 quality, patient-centered
+                                                                                      care.
+
+
+
+
+                                                       28
+ Key Result 3: Improved chronic and preventative care
+ Colorectal        Percentage of     Baseline to be Target to be set by Year 2             PCMH recognition is
+ Screening         adults 45-75      set at the                                            linked to better chronic
+                   years of age who  primary care     Please note: this measure            condition management and
+                   had appropriate   practice level   will be used to monitor              preventive care. Screening
+                   screening for     by Year 2        the effectiveness of the             for colorectal cancer is
+                   colorectal cancer                  Rural Community Health               important as rural
+                                                      Integration initiative but           populations have higher
+                                                      will be measured at the              rates of colorectal cancer
+                                                      county level.                        and mortality. xxxviii
+ Diabetes          Percentage of       Baseline to be        Target(s) to be set by Year   PCMH recognition is
+ HbA1C Poor        patients 18-75      set at the            2                             linked with better chronic
+ Control (>9%)     years of age with   primary care                                        condition management and
+                   diabetes who had    practice level                                      preventive care.
+                   hemoglobin A1c      by Year 2
+                   > 9.0% during the
+                   measurement
+                   period. Lower
+                   rate is better.
+Impacted Counties: This initiative will include all 47 rural counties, as listed on page 6.
+
+Estimated Required Funding: Of the hypothetical $200M annual award, this initiative will be
+
+approximately $30-$40M/year. Please see Budget Narrative for more information.
+
+Initiative 3: Rural Roots: Building a Sustainable Rural Health care Workforce
+
+Description: Rural Roots is a comprehensive program designed to solve health care staffing
+
+shortages in rural NY communities. Rural Roots will implement connected strategies: growing
+
+local talent by introducing students in grades 6-12 to health care careers and expanding training
+
+opportunities at rural facilities, supporting workplace training programs and EMS education so
+
+that health care workers can build their skills and advance their careers without leaving their
+
+communities, and recruiting health professionals to rural areas through multi-year service
+
+commitments funded partly by the practices that benefit from these new providers. The program
+
+will build a data system that tracks health care workforce trends, needed specialties, and existing
+
+gaps in each rural county. Together, these strategies will amplify a positive cycle that addresses
+
+
+
+
+                                                        29
+both immediate staffing shortages and builds long-term workforce capacity, ensuring rural
+
+communities have ongoing access to quality health care that meets their specific needs.
+
+Surveying the Field: Workforce Planning
+
+Health care specialty needs differ widely among rural communities due to their distinct
+
+demographics, geography, and health issues. Effective solutions require ongoing data monitoring
+
+and adaptable strategies tailored to each community. Specialty gaps across rural communities most
+
+commonly occur in nursing, behavioral health, maternal care, oral health, and allied health
+
+professions. To guide the Rural Roots strategy with actionable data, the initiative will collect
+
+comprehensive rural health workforce data. This approach will ensure that Rural Roots expansion
+
+efforts are closely aligned with the realities of the unique priorities of each rural locality.
+
+Nurture Home Grown Talent and Attract Aspiring Health Care Professionals
+
+Rural Roots will address rural workforce shortages through a dual approach: nurturing local
+
+students from grades 6-12 with early career exposure and attracting trainees from across the state
+
+with enhanced rotations and training. Rural Roots will leverage the existing NYS Area Health
+
+Education Center’s infrastructure and partnerships to offer comprehensive exposure programs for
+
+local 6-12 students and expand rotation sites for college and graduate students at targeted rural
+
+hospitals, FQHCs, and rural community-based organizations.
+
+Rural Roots will emphasize specialty programming that meets rural communities’ unique
+
+workforce needs including but not limited to medical, nursing, behavioral health, maternal care,
+
+oral health, and allied health professions. For example, Rural Roots will introduce students in
+
+grades 6-12 to addiction medicine and behavioral health careers, while building their
+
+understanding of substance use disorders through age-appropriate education, career exploration,
+
+and meaningful interactions with health care professionals. To address the maternal care deserts
+
+
+
+
+                                                   30
+prevalent in rural counties, Rural Roots will offer advanced training in pregnancy support, lactation
+
+counseling, and simulation-based obstetrics training for EMTs, nursing and medical students.
+
+Rural Roots programming will include housing assistance and community integration support to
+
+enable students to live, train, and experience rural culture.
+
+Rooted in Community: Strengthening Local Workforce Development
+
+Rural Roots is designed to reduce barriers to workforce growth in smaller towns and communities
+
+by supporting employer-based training programs that enable health care workers to build careers
+
+in NY, while ensuring rural populations have access to essential care. Rural Roots will address
+
+workforce shortages by supporting health care facilities including hospitals, diagnostic and
+
+treatment centers, skilled nursing facilities, and health systems in the creation or expansion of their
+
+workforce development initiatives. Such initiatives will help meet specific rural county health care
+
+demands in licensed or certified health care disciplines, from short-term certificate programs to
+
+long-term degree programs, including but not limited to nursing, behavioral health, allied health
+
+professions, and dentistry.
+
+The Rural Roots initiative prioritizes building sustainable workforce pipelines by helping facilities
+
+establish self-reinforcing training ecosystems, creating a continuous cycle of development
+
+opportunities that facilities can maintain after initial grant funding concludes. Eligible funding will
+
+be based on the unique needs of participating facilities and may include, but not be limited to,
+
+tuition and related costs, license and certification fees, wage subsidies for workers engaging in
+
+professional development, equipment purchases that directly support expanded educational
+
+programming at rural facilities, and recruitment costs for both learners and educators. As the
+
+program demonstrates return on investment from such initiatives through reduced turnover and
+
+recruitment costs, facilities will be able to justify continued spending long after the grant ends.
+
+
+
+
+                                                  31
+Lifeline Learning: Regional Remote Learning Hubs for Emergency Medical Services
+
+Building on Rural Roots' comprehensive workforce development framework, NY will develop
+
+Regional Remote Learning Hubs to address the critical shortage of EMTs and paramedics in rural
+
+communities by connecting students to accredited training institutions via synchronous, real-time,
+
+two-way video learning technology. This will allow busy volunteer and professional EMTs and
+
+paramedics to stay in their local region while receiving appropriate training to care for their
+
+communities. Each Learning Hub will host NYS Certified Lab Instructors and Certified Instructor
+
+Coordinators to oversee practical skills training and ensure instructional standards. By embedding
+
+remote training sites in colleges, universities, and course sponsors, the initiative will create
+
+pathways for micro-credentialing and degree program alignment, supporting both immediate
+
+workforce needs and long-term career advancement. This approach directly complements Rural
+
+Roots' emphasis on employer-based training and community integration by reducing economic
+
+and travel barriers for aspiring EMS professionals, while strengthening partnerships between
+
+educational institutions and rural health care providers. The model will promote sustainability
+
+through integration with academic systems, existing EMS reimbursement mechanisms, and
+
+expanded instructor development pipelines—creating the same self-reinforcing training ecosystem
+
+that Rural Roots prioritizes across all health care disciplines.
+
+Rural Recruitment-to-Service Pipeline
+
+The Rural Recruitment-to-Service Pipeline is designed to strengthen the rural health care
+
+workforce by supporting medical, dental, and behavioral health students in underserved regions.
+
+Under this initiative, funding will be provided for up to two medical or dental students interested
+
+in rural primary care annually over four years in up to five regions statewide. Recipients will
+
+
+
+
+                                                  32
+commit to a five-year period of post-training service within the same region, directly addressing
+
+local workforce shortages and improving continuity of care.
+
+To address the full spectrum of rural health care needs, the program will be structured to support
+
+not only medical students pursuing primary care but also dental and behavioral health students,
+
+ensuring that rural communities benefit from a range of health care professionals. Primary care
+
+providers such as FQHCs and rural health systems will engage with medical and dental
+
+professional schools. Practices that benefit from these recruitment efforts will be required to
+
+contribute 5–10% of the student-now-practitioner’s revenue to a dedicated fund. This fund will be
+
+earmarked for supporting future trainees, creating a self-sustaining financial model that maintains
+
+ongoing recruitment and training efforts even after initial federal funding concludes.
+
+By requiring practices to invest in future workforce development, the pipeline will be able to foster
+
+long-term sustainability and continuous support for rural health professions. This strategy
+
+complements broader initiatives aimed at increasing retention, skill transfer, and workforce
+
+diversity in rural communities, ensuring that recruitment efforts translate into lasting
+
+improvements in access and quality of care.
+
+Main Strategic Goal: This initiative aligns with the Workforce Development strategic goal with
+
+a data-driven approach to identify and remediate specific health workforce gaps. Targeted
+
+partnership among health care providers and workforce education partners supports a durable and
+
+long-term strategy to recruit and retain specific health provider-types.
+
+Use of Funds: D, E, G, H, I, K
+
+Technical Score Factors: B.1, B.2, C.1, C.2, D.1, F.2.
+
+Key Stakeholders: Center for Health Workforce Studies at University at Albany, NY State DOH,
+
+– including the State Office of Rural Health, Office of Mental Health, Office of Health Insurance
+
+
+
+
+                                                 33
+Programs, Office of Addiction Services and Supports, and DOH Cyber Preparedness – the Area
+
+Health Education Centers System and programs, Boards of Cooperative Educational Services
+
+(BOCES), K-12 school districts and administrators, Career and Technical Education programs,
+
+medical schools, and health care providers and facilities – such as Article 28 hospitals, clinics,
+
+skilled nursing facilities, and Certified Community Behavioral Health Clinics, School-Based
+
+Mental Health Clinics, Emergency Medical Services providers, and Community Health Workers.
+
+Outcomes: The objective of the Rural Roots initiative is to create a self-sustaining cycle of
+
+workforce development that addresses both immediate staffing needs and long-term capacity
+
+building, ensuring NY's rural communities have continuous access to high-quality health care
+
+services tailored to their regional circumstances. A component of the initiative is the development
+
+of a comprehensive rural health workforce data system for the state to track the supply, capacity,
+
+and distribution of rural health care professionals across specialties, while identifying demand-
+
+side challenges in recruitment and retention. As noted earlier in this section, this data system will
+
+provide a clear snapshot of workforce conditions and evaluate the progress and outcomes funded
+
+by the RHTP to better understand what strategies are effective and what challenges remain to build
+
+a sustainable rural health care workforce. Below please find the key results and measurable
+
+outcomes the state will use to monitor the success of this initiative.
+
+ Key Result 1: Partnerships – Rural health care facilities and orgs. across target counties are actively
+ engaged as partners to identify their workforce challenges/successes
+                                                                                              Relation to
+          Measure                 Definition            Baseline            Target
+                                                                                               Initiative
+ Number of health care Count of the health care 0 – health care        Adding at least     Broad county-
+ facilities and           facilities and           facilities and      10 active partners level
+ organizations actively organizations actively     organizations       per year starting   representation
+                          serving as partners      actively serving in Year 2
+ serving as partners.                                                                      ensures
+                          through participation in as partners
+                          regularly scheduled                                              workforce
+                          meetings and data                                                strategies
+                          collection activities.
+
+
+
+
+                                                      34
+Number of rural          Count of the rural        0 – rural        Year 1: 10% of     address the
+counties represented     counties represented by   counties         target counties    unique
+by active partner        active partner            represented                         demographic
+                                                                   Year 3: 60% of
+participation.           participation.                                                profiles,
+                                                                   target counties
+                                                                                       geographic
+                                                                   Year 5: Maintain    characteristics,
+                                                                   or expand to 75% and specialty
+                                                                   of rural counties   needs across the
+                                                                                       state.
+                                                                                       Established
+                                                                                       network allows
+                                                                                       for self-
+                                                                                       sustaining,
+                                                                                       information
+                                                                                       sharing and
+                                                                                       collaboration.
+Key Result 2: Programs/Trainees – Activities will provide workforce training and development
+opportunities across rural counties.
+Number of program        Year-over-year             0 participants Each active         Directly
+participants.            percentage increase in                    program             measures the
+                         the cumulative # of                       demonstrates a      initiative's
+                         unique individuals who
+                                                                   minimum 15-         foundational
+                         have participated in the
+                         Rural Roots program                       20%  year-over-     goal of
+                         since program                             year increase in    establishing
+                         inception, including:                     enrollment          workforce
+                         • Long-term                                                   development
+                              participants (e.g.,                                      opportunities in
+                              medical students in                                      rural
+                              3-year rural
+                                                                                       communities.
+                              rotations, nursing
+                              students in 1-year
+                              preceptorships)
+                         • Short-term
+                              participants (e.g.
+                              students attending
+                              workshops and
+                              health care career
+                              events)
+
+Number of rural          Count of target rural       0 counties     Year 1: 10% of
+counties hosting a       counties that have at                      target counties
+Rural Roots key          least one health care
+initiative               facility, educational                      Year 3: 60% of
+                         institution, or                            target counties
+                         community
+                         organization actively                      Year 5: Maintain
+                         participating in any of                    or expand to 75%
+                         the Rural Roots                            of rural counties
+                         workforce development
+                         programs
+
+
+
+
+                                                     35
+Impacted Counties: This initiative will include all 47 rural counties, as listed on page 6.
+
+Estimated Required Funding: Of the hypothetical $200M award, this initiative will be
+
+approximately $13-14M per budget period. Please see Budget Narrative for more information.
+
+Initiative 4: Investments in Tech Innovation & Cybersecurity Enhancements for Rural NY
+
+Description: The Investments in Technology Innovation and Cybersecurity Enhancements for
+
+Rural NY initiative will employ a two-pronged approach to advance rural health care in NY by
+
+investing in both innovative technologies and robust cybersecurity measures. The first prong
+
+centers on deploying innovative digital health tools and platforms that streamline care delivery,
+
+enhance patient access, and support data-driven decision-making for providers. The second prong
+
+focuses on fortifying the cybersecurity posture of rural health care facilities through advanced
+
+endpoint protection, multi-factor authentication, and comprehensive staff training, ensuring patient
+
+data remains secure while aligning technology standards across regions.
+
+Investing in Innovation to Improve Rural Access to and Quality of Care
+
+Rural health care facilities that provide both acute and long-term care can greatly benefit from
+
+investments in technology and digital health tools. Equipping these facilities with modern digital
+
+tools will help providers deliver more efficient, reliable, and patient-centered care, even in
+
+geographically isolated communities. Upgrading technological infrastructure not only enhances
+
+care delivery and data management but also ensures rural health care systems are resilient against
+
+cyber threats, safeguarding sensitive patient information and maintaining public trust. This
+
+commitment to innovation empowers rural providers to meet evolving health care standards and
+
+better serve their communities, creating a more level health landscape across the state.
+
+
+
+
+                                                36
+Expanding Access to Telehealth and Telepsychiatry
+
+Expanding the use of telehealth and telepsychiatry offers significant benefits for rural communities
+
+in NY by breaking down barriers to care that often exist due to geographic isolation and limited
+
+specialist availability. Through virtual visits, residents can access timely medical and behavioral
+
+health services without the need to travel long distances, improving convenience and continuity of
+
+care. Rural providers can also collaborate more easily with specialists and mental health
+
+professionals, ensuring comprehensive support for patients while addressing critical gaps in local
+
+resources. Greater utilization of these technologies can lead to improved health outcomes, reduced
+
+health care costs, and a more level distribution of care across underserved regions. Health care
+
+facilities looking to expand their telehealth capabilities in rural areas are able to apply for funds to
+
+support infrastructure and software upgrades to strengthen their telehealth offerings. EMS
+
+providers and schools are also eligible for funding under this initiative to build out the
+
+infrastructure required to develop robust telehealth and telepsychiatry services.
+
+Specific funding will be made available to health care providers who partner with school districts
+
+to offer within-school telemedicine services, allowing students to have virtual urgent care visits
+
+with a medical provider from the school nurse's office. These partnerships will provide real-time
+
+medical evaluation and treatment for common ailments, such as colds, flu, minor infections, and
+
+minor injuries, allowing students to return to class more quickly. Parents can participate in virtual
+
+appointments, and services will be billed through the student's health insurance. There is currently
+
+one upstate medical center in NY that provides these services across seven rural school districts.
+
+Under this initiative, this technology will be expanded to additional school districts in rural areas.
+
+Additionally, EMS is eligible for funding to develop their infrastructure, protocols, and training to
+
+support treatment-in-place and transport-to-alternative-destination technology solutions. These
+
+
+
+
+                                                  37
+will enable more appropriate patient care, increase the financial sustainability of emergency
+
+services and decrease emergency room congestion.
+
+Deploying eConsult Hubs
+
+Implementation of an eConsult service, a virtual communication between a treating provider and
+
+a specialist who provides expert consultation, will enable a patient’s primary care provider to
+
+consult electronically with specialists, such as psychiatrists, ensuring that the patient’s needs are
+
+prioritized and addressed timely and by the right provider (specialist or primary care), thereby
+
+supporting patient care, safety, and outcomes. This solution may also include the exchange of
+
+images with tertiary providers, allowing for more informed care decisions. These benefits are
+
+especially important for providers in resource-challenged rural and underserved areas who struggle
+
+to access specialty care for their patients. eConsults save time and reduce unnecessary patient
+
+referrals, while simultaneously decreasing travel and costs for patients.
+
+An eConsult platform will be added to the existing SHIN-NY, the statewide health information
+
+exchange that is part of NY’s Medicaid Enterprise System and which has established connections
+
+between health care providers across the state. The infrastructure will be created to enable virtual
+
+consultation allowing clinicians to interact and inform care decisions in a timely and cost-effective
+
+manner, reducing travel and delays in care, and improving care outcomes. NY will also fund
+
+Learning and Diffusion Networks throughout the rural regions. Learning and Diffusion Networks
+
+will play a key role in recruiting rural providers and health systems that provide specialty expertise
+
+to participate in the platform solution.
+
+Also under this initiative, one or more of the SHIN-NY's Qualified Entities, the state’s regional
+
+health information exchanges, will provide technical expertise, assistance, and training to
+
+
+
+
+                                                 38
+providers using the platform with ongoing, hands-on implementation support customized to the
+
+specific needs of providers and patients in rural and underserved areas.
+
+Remote Monitoring Technology
+
+By integrating advanced, virtual monitoring to link rural providers with specialized clinical
+
+expertise and coordinated patient management, NY can supplement in-person provider monitoring
+
+to deliver timely interventions, reducing complications and unnecessary admissions and
+
+readmissions. This approach not only addresses immediate provider shortages but also strengthens
+
+the entire rural health care infrastructure, ensuring sustainable, high-quality care.
+
+The state has an existing model with a provider in upstate NY, which offers real-time patient
+
+monitoring to bridge gaps in access common in rural settings and the expertise needed to address
+
+those gaps. By integrating virtual intensive care, medical-surgical support, and tele-sitter
+
+monitoring, the provider has enhanced patient safety, demonstrated measurable and improved
+
+health outcomes, and addressed critical workforce shortages. Building on the success of this
+
+model, this initiative will fund the expansion of remote monitoring services into other rural areas
+
+of NY, allowing other health systems and providers to purchase the tools they need (hardware,
+
+software, digital integration) to implement remote monitoring technologies.
+
+Providing Access to Timely Health Information
+
+Encounter alert services notify providers in real time when their patients experience critical
+
+medical events, enabling exchange of necessary information and more coordinated care during and
+
+after the event. This proactive approach helps further reduce preventable readmissions and
+
+improves overall health outcomes for patients in rural communities.
+
+Under this initiative, the SHIN-NY will engage with practices and train providers to best utilize
+
+encounter alert data they currently receive to improve care coordination and transitions of care.
+
+
+
+
+                                                  39
+The initiative will also encourage nursing homes and sub-acute rehabilitation facilities to use
+
+encounter alerts, as this is where the largest gap in patient care coordination information currently
+
+exists. Under this initiative, NY will also expand the number and types of facilities connected to
+
+the information system, including nursing homes and sub-acute rehabilitation facilities where older
+
+patients are often lost to follow-up. Many of the remaining unaffiliated facilities have limited
+
+funding and are not part of a larger health system.
+
+The SHIN-NY has also deployed a successful population health tool in Western NY. This
+
+population health tool, HEALTHeOUTCOMES, aggregates community clinical data from the
+
+provider and claims data from regional health plans, offering comprehensive population health
+
+reporting. These tools help inform and improve practices’ care coordination, population health
+
+management, and quality improvement efforts. Under this initiative, HEALTHeOUTCOMES will
+
+be expanded to rural and underserved areas outside of Western NY. Broadening the usage of this
+
+tool will help more practitioners improve the quality of care for their patients and monitor their
+
+health more closely, particularly for chronic conditions such as diabetes, hypertension, and
+
+behavioral health diagnoses.
+
+Strengthening the Cybersecurity Posture of Rural Facilities
+
+Governor Hochul has made cybersecurity a priority through her "whole-of-state" strategy, which
+
+includes creating a unified approach to safeguarding critical infrastructure, deploying new
+
+protection tools, and implementing legislation for mandatory training and incident reporting. In
+
+October 2024, NY adopted a robust set of cybersecurity requirements for hospitals, xxxix focused
+
+on identifying and assessing internal and external cybersecurity risks to non-public information
+
+and developing defensive infrastructure and policies and procedures to protect hospital systems,
+
+detect cybersecurity events, to comply with the Health Insurance Portability and Accountability
+
+
+
+
+                                                 40
+Act (HIPAA) Security Rule, and meet Office of the National Coordinator for Health Information
+
+Technology (ONC) standards for interoperability. Many jurisdictions still rely on aging, on-
+
+premise systems that simply pass data along and are vulnerable to cyber disruption. Meeting these
+
+requirements and providers’ cybersecurity needs will require significant investment from hospitals
+
+and other rural facilities, such as FQHCs, nursing homes, and behavioral health providers, and
+
+EMS providers, already under financial pressures and having difficulty strengthening their
+
+cybersecurity posture.
+
+This initiative supports rural facilities by providing funding opportunities to address gaps unique
+
+to rural health care facilities, align with industry-standard best practices, and adhere to relevant
+
+health care sector regulations. This will aid facilitates in conducting risk assessments, creating
+
+written policies and procedures, detecting and responding to cybersecurity events, implementing
+
+security measures including encryption and fraud protection, and deploying monitoring and
+
+controls systems. Under this initiative, procurement of required technologies, systems
+
+configuration, staff training, and support in developing and/or implementing policies, procedures,
+
+and incident response plans will be considered.
+
+With implementation, rural providers will be supported to adopt regional approaches to
+
+cybersecurity, as they often face resource constraints that differ from those of urban facilities, such
+
+as limited budgets, staffing shortages, and fewer in-house experts. By collaborating across multiple
+
+facilities within a region, rural hospitals can pool resources, share expertise, and implement
+
+standardized technologies and protocols, which not only reduce individual facility costs but also
+
+strengthen collective defenses against cyber threats. This strategy enables rural providers to
+
+achieve a level of security and compliance that would be challenging to attain independently,
+
+aligning their capabilities more closely with those of larger urban institutions. Under this initiative,
+
+
+
+
+                                                  41
+rural facilities will have the opportunity to collaborate on response plans and processes,
+
+procurement, preparation and training, as well as oversight, monitoring, and reporting procedures,
+
+creating a sustainable, cost-effective approach to cybersecurity.
+
+Through this initiative the state will provide targeted assistance to rural facilities to perform
+
+cybersecurity risk assessments and procure cybersecurity solutions or services. With financial
+
+support, facilities will be able to identify solutions and services suited to their unique risk profiles,
+
+including encryption tools, identity and access management, vulnerability management, endpoint
+
+detection programs, real-time monitoring systems, and systems to support emergency
+
+preparedness. By facilitating the acquisition and deployment of these technologies, the initiative
+
+aims to bolster defenses against cybersecurity threats, prepare for emergencies, and ensure that
+
+rural health care facilities can meet industry standard cybersecurity requirements despite limited
+
+budgets and staffing challenges. Additionally, NY will support systems with a cloud-native, AI-
+
+enabled, modular platform that generates actionable intelligence for rural health care providers.
+
+Main Strategic Goal: This initiative aligns with the Tech Innovation strategic goal by
+
+accelerating the deployment of infrastructure and uptake of enabling technologies and raising the
+
+cybersecurity profile of rural providers to ensure data privacy and security.
+
+Use of Funds: C, D, F, J
+
+Technical Score Factors: B.1, C.1, C.2, F.1, F.2, F.3.
+
+Key Stakeholders: Hospitals, FQHCs, behavioral health facilities, nursing homes and other
+
+long-term care facilities, NY State DOH, – including the State Office of Rural Health, Office of
+
+Mental Health, Office of Health Insurance Programs, Office of Addiction Services and Supports,
+
+
+
+
+                                                   42
+and DOH Cyber Preparedness – SHIN-NY, rural providers including subacute care providers,
+
+and rural school districts.
+
+Outcomes
+ Key Result 1: Expanding access to care through telehealth
+      Measure                Definition         Baseline             Target              Relation to Initiative
+ Number of             Count of telehealth    Baseline will    By Year 5, 50%        By funding grants to
+ Telehealth Access     access points          be set in Year   increase access       hospitals and other health
+ Points by             created in schools,    1                points in schools,    care facilities to improve
+ community and         rural communities.                      and a 10%             their telehealth
+ school-based                                                  increase in other     infrastructure, NY will
+ centers                                                       settings.             improve access to care for
+                                                                                     rural residents.
+ Key Result 2: Improving patient outcomes through eConsult partnerships
+
+ Use of the secure     Count of providers     Baseline will    By Year 4, 3 rural    Many rural providers have
+ virtual eConsult      by region entering     be set in Year   regions of the        trouble accessing specialists
+ platform for          into partnerships      1                state covered by      and specialty care for their
+ provider/consultant   with specialists for                    partnerships          patients. Procuring an
+ partnerships          consults using the                                            eConsult platform and
+                       secure virtual                          By Year 5, 5 rural    providing technical
+                       eConsult platform                       regions of the        assistance to providers will
+                                                               state covered by      remove barriers to access
+                                                               partnerships          and simplify the process for
+                                                                                     providers.
+
+ Key Result 3: Increase in usable alerts in rural counties
+
+ Engagement with       Count of rural         Baseline will    By Year 4, 100%       Rural providers are often not
+ Encounter Alert       providers utilizing    be set in Year   SHIN-NY               connected to health
+ Services (by          encounter alert        1                participants in the   information exchange major
+ county)               services available                      identified rural      systems and do not have
+                       through the SHIN-                       counties will         built in alerting through their
+                       NY. This will be                        have access to        technology. This service will
+                       analyzed by county.                     supported alerts.     better alert and connect their
+                                                                                     providers to information on
+                                                                                     their patients occurring in
+                                                                                     other networks.
+
+ Key Result 4: Strengthening Cybersecurity of Rural Facilities – Ensure Data Privacy and System Security
+ to Maintain Operations and Continuity of Care Delivery to the Citizens of NY
+
+ Percentage of         Percentage of          Reporting        By Year 3, 100%       Cybersecurity compliance is
+ facilities meeting    facilities meeting     will be          of sole               a fundamental requirement
+ NY’s cybersecurity    cybersecurity goals    established in   community and         for any initiative involving
+ goals                 including: detecting   Year 1           critical access       technology, serving as a
+                       and responding to                       hospitals             baseline that must be met
+                       cybersecurity                           compliant             before further advancements
+                       events,                                                       can be considered. By
+                       implementing                                                  strengthening system
+                       security measures                       By Year 5, 50%        security and fostering trust in
+                       including encryption                    of non-hospital       technological systems, NY
+                       and fraud                                                     creates the foundation
+
+
+
+
+                                                      43
+                     protection, and                   facilities meeting   necessary to safely deploy
+                     deploying                         industry standard    additional technology-
+                     monitoring and                                         focused enhancements,
+                     controls systems.                                      especially in rural areas
+                                                                            where the impact on health
+                                                                            care delivery and patient
+                                                                            outcomes can be significant.
+                                                                            Without this commitment to
+                                                                            cybersecurity, other
+                                                                            innovations risk
+                                                                            undermining both
+                                                                            operational integrity and
+                                                                            public confidence.
+
+
+Impacted Counties: This initiative will include all 47 rural counties, as listed on page 6.
+
+Estimated Required Funding: Of the hypothetical $200M annual award, this initiative will be
+
+approximately $62-68M per budget period. Please see Budget Narrative for more information.
+
+
+
+
+                                                44
+IMPLEMENTATION PLAN AND TIMELINE
+Please see associated Gantt chart on page 2 in the OTHER SUPPORTING DOCUMENTATION
+              Rural Community Health                                                                                       Investments in Cybersecurity &
+                                               Strengthening Rural Health              Rural Roots: Workforce
+                      Integration                                                                                                     Technology
+           • Partnership Networks            • Program-Wide:                      • Develop partnerships and              • Telehealth Infrastructure:
+             • Finalize eligibility criteria   • Patient-Center Medical             collaboration with health care          Develop Request for Proposals
+             • Stakeholder engagement            Home (PCMH) technical              facilities, organizations, the Area     (RFP) for infrastructure grants
+             • Develop rolling application       advisor contracting                Health Education Center                 and establish internal oversight
+                process                        • Establish state Program            (AHEC) system, and rural                and administrative process.
+             • Select Round 1 awards             Management Office.                 schools, across rural counties        • eConsult Hubs: Technical and
+           • School-based health centers         Finalize sub-recipient           • Identify rural schools and              interoperability requirements’
+             (SBHC): Contract with vendor        eligibility criteria and the       clinical and/or non-clinical            gathering and identification of
+             to conduct schools’ readiness       practice selection process.        rotation sites for                      eligible specialists. Identify
+             assessment; recruit and           • Execute master agreement           partnership/expansion and               phased approach to develop or
+             coordinate hospitals, clinics       with Qualified Vendor for          establish agreements                    procure technology platform to
+             and FQHCs to act as operators       Artificial Intelligence (AI)     • Conduct baseline assessment of          be used for eConsult. Learning
+                                                 enablement services.               rural health care workforce             and Diffusion Networks to begin
+                                               • Americans with Disabilities      • Integrate data collection with          recruitment of providers to
+                                                 Act (ADA)-compliance               current system architecture,            partner in eConsult use.
+FY26                                             assessment, planning, and          establish data-sharing, and           • Remote Monitoring
+Stage 0                                          remediation project starts         develop standardized protocols          Technology: Develop
+Planning                                                                            and metrics
+                                               • Conduct comprehensive                                                      procurement to expand model
+                                                 survey of rural primary care     • Develop criteria and oversight        • Timely Health Information:
+                                                 practices across the 47            processes for student financial         Build alerts tailored to rural
+                                                 counties to confirm cohort         support and facility grants             communities with community
+                                                 sizing, assess tech readiness,   • Establish oversight processes,          centric design that will be useful
+                                                 ADA compliance, and                program infrastructure and              to rural providers. Begin
+                                                 specific needs.                    administrative systems for grant        connecting sub-acute
+                                                                                    administration and program
+                                               • Launch first wave of                                                       rehabilitation providers to the
+                                                                                    management                              SHIN-NY. The State
+                                                 applications for all three
+                                                                                  • Design student support and              Designated Entity will work
+                                                 cohorts.
+                                                                                    mentorship programs
+                                               • Onboarding the first wave of                                               with health information
+                                                                                  • Recruit first cohort of students        networks and payers to
+                                                 practices
+                                             • Cohort 2 begins AI                                                           determine population health data
+                                               enablement program.                                                          needs.
+                                               Activities focus on tech
+
+
+
+
+                                                                        45
+                                                      integration with EHR/HIE,                                               • Cybersecurity: Develop internal
+                                                      data pipeline activation, and                                             oversight and administrative
+                                                      foundational training for                                                 process and RFP for statewide
+                                                      practice staff.                                                           vendor.
+                                                    • Cohort 3 begins a tailored
+                                                      PCMH re-attestation program,
+                                                      focusing on addressing
+                                                      specific challenges that led to
+                                                      lost recognition.
+                 • Partnership Networks:            • Cohort 1: First wave of           • Identify recruitment and            • Telehealth Infrastructure:
+                     • Prepare to onboard             practices submits for and           retention challenges, refine data     Distribute first round of
+                        hospital/partners             achieves PCMH recognition;          collection processes, and             telehealth infrastructure funding.
+                     • Contracting w/awardees         immediately begin AI                evaluate and refine selection         Select first rural urgent care in
+                     • Select Round 2 awards          (Implementation) program.           criteria based on insights and        school hubs and approve
+                     • Collect Yr1 data             • Cohort 2: First wave of             learnings from Year 1.                workplan for delivering through
+                 SBHC: Vendor develops plan           practices completes their         • Implement data dashboard for          school districts.
+                 for cohort one - finalizing the #    implementation year and             participating organizations to      • eConsult Hubs: Development
+                 of schools, provide Technical        transitions to Year 2               track and report on program and       and testing of the eConsult
+                 Assistance (TA) to develop           (Optimization), focusing on         grantee key metrics, outcomes,        platform and development of a
+                 MOUs between schools and             advanced features, workflow         and progress                          provider directory
+                 medical operators, scope of start-   refinement, and driving           • Enroll the first cohort of          • Remote Monitoring
+FY27             up costs for schools to retro-fit    outcomes. The larger second         college/graduate students in          Technology: Select projects for
+Stage 1          medical offices, purchase            wave begins their Year 1 of AI      enhanced clinical rotations.          remote monitoring and set
+Initial Launch   equipment, and recruit               (Implementation.)                 • Establish agreements with             baseline for performance.
+                 clinicians, the costs will not be
+                                                    • Cohort 3: The first wave            rotation sites to provide diverse   • Timely Health Information:
+                 capital improvements but rather                                          training experiences.
+                 non-permanent costs like             achieves PCMH re-recognition                                              On-board ~75% of the rural
+                                                      and begins Year 1                 • Implement maternal care,              providers identified in the
+                 equipment purchase.
+                                                      (Implementation) of AI              behavioral health, and addiction      environmental scan for
+                                                      enablement. A second wave           medicine programs, utilizing          encounter alerting functions and
+                                                      begins the re-recognition           existing AHEC frameworks              use of population health data.
+                                                      process.                          • Launch a housing assistance           Determine specific population
+                                                    • ADA-compliance remediation          program and community                 health use targets for
+                                                      projects in process                 integration services to support       prioritization
+                                                                                          trainees.                           • Cybersecurity: Fund
+                                                                                        • Implement training, mentorship        cybersecurity risk assessments
+                                                                                          programs, peer learning
+
+
+
+
+                                                                              46
+                                                                                          networks, and learning               for each of the facilities in rural
+                                                                                          collaboratives                       areas.
+                                                                                        • Recruit second cohort of
+                                                                                          students
+                 • Partnership Networks:            • Cohort 1: First wave              • Develop predictive modeling for    • Telehealth Infrastructure:
+                    • Identify gaps/opportunities     transitions to Year 2               future workforce needs and           Distribute second round of
+                       for continued expansion        (Optimization) of AI. Most          begin tracking training program      infrastructure funding. Begin
+                    • Develop feedback loop to        Cohort 1 sites are now actively     return on investment metrics         performance measurement in
+                       identify successful models     in Year 1 of AI                   • Expand 6-12 programs to              first school hub and expand to
+                       to scale                       implementation.                     multiple rural counties              additional schools.
+                    • Select Round 3 awards         • Cohort 2: First wave of             leveraging the Area Health         • eConsult Hubs: On-boarding of
+                    • Collect Yr2 data                practices completes their           Education Center network             provider partners that have
+                 • SBHC: Phase 1 start-up costs       second seed year. Deliverables    • Establish intensive summer           agreements to work through the
+                   provided to schools in cohort      are finalized, and these            programs for high school             eConsult platform and develop
+                   1. Vendor recruits additional      practices are prepared to           students                             the requirements for monitoring
+FY28               schools and operators to           transition to the self-           • Expand clinical and non-clinical     the use of eConsult from all
+Stage 2            participate in cohort 2.           management model. Most              rotation capacity to additional      participating providers.
+Early Scale                                           Cohort 2 sites are in Year 2 of     sites                              • Remote Monitoring
+                                                      AI (Optimization).                • Expand cohort of                     Technology: Monitor
+                                                    • Cohort 3: First wave enters         college/graduate students in         performance of selected model
+                                                      Year 2 (Optimization) of AI,        enhanced rotations                   providers/initiatives and
+                                                      while the second wave             • Recruit third cohort of students     determine scalability.
+                                                      completes Year 1.                                                      • Timely Health Information:
+                                                    • ADA-compliance remediation                                               Alerts are scaled and rolled out
+                                                      projects in process, rolling                                             through provider outreach and
+                                                      completion.                                                              expansion efforts.
+                                                                                                                             • Cybersecurity: Fund projects
+                                                                                                                               identified in cybersecurity risk
+                                                                                                                               assessments.
+                 • Partnership Networks:            • Cohort 1: Final wave of           • Collect stakeholder feedback to    • Telehealth Infrastructure:
+                    • Select Round 4 awards           practices in Year 1 of AI           refine data priorities               Distribute third round of
+FY29                • Collect Yr 3 data               Implementation.                   • Integrate data from all Rural        infrastructure funding. Review
+Stage 3          • SBHC: Vendor supports            • Cohort 2: Majority of               Roots program components and         performance of school hub in
+Implementation
+                   cohort 1 with ongoing              practices fully deployed. Final     create public-facing data            first region and expand to
+Midpoint
+                   technical assistance for           wave completes Year 2 and           visualization tools                  additional regions.
+                   implementation and                 transitions from seed funding.
+
+
+
+
+                                                                               47
+                    sustainability (e.g., Medicaid     • Cohort 3: Majority of             • Expand maternal care desert         • eConsult Hubs: Continue to
+                    billing), cohort 2 start up          practices are in or have            interventions to additional rural     gather data from providers on
+                    projects begin, vendor recruits      completed AI Optimization           counties                              eConsult. On-board additional
+                    cohort 3                             phase.                            • Recruit fourth cohort of students     provider partners from regions
+                                                       • ADA-compliance remediation        • Evaluate practice satisfaction        across the state as they enter
+                                                         projects in process, rolling        and patient care outcomes             partner agreements
+                                                         completion                        • Grow sustainability fund through    • Remote Monitoring
+                                                                                             practice contributions and begin      Technology: If viable, select
+                                                                                             planning for program                  additional regions or areas for
+                                                                                             continuation beyond grant period      scaling.
+                                                                                                                                 • Timely Health Information:
+                                                                                                                                   Full deployment of alerts; begin
+                                                                                                                                   sustainability planning and
+                                                                                                                                   measuring impact for rural
+                                                                                                                                   providers. 100% of rural
+                                                                                                                                   providers are participating in
+                                                                                                                                   alerts and population health data
+                                                                                                                                 • Cybersecurity: Fund projects
+                                                                                                                                   identified in cybersecurity risk
+                                                                                                                                   assessments.
+                  • Partnership Networks:              • Program-Wide:                     • Complete programmatic               • Telehealth Infrastructure:
+                     • Select Final awards               • All onboarding is complete.       evaluation & document                 Distribute fourth round of
+                     • Collect Yr 4 data                   Programmatic activities           processes                             funding. Review performance of
+                  • SBHC: Vendor supports                  focus on supporting the final   • Complete final comprehensive          school hubs in current regions
+                    cohorts 1 and 2 with ongoing           waves of practices through      evaluation of all Rural Roots           and consider further expansion.
+                    technical assistance for               their second seed year.         initiatives                           • eConsult Hubs: Continue to
+                    implementation and                   • Prepare comprehensive           • Document best practices and           gather data from all providers in
+FY30                sustainability. Phase 3 start-up       analysis of multi-year          lessons learned                         eConsult activity and continue to
+Stage 4             projects begin                         outcomes in preparation for     • Create replication toolkit for        gather feedback on functionality
+Near Completion
+                                                           final reporting.                other states                            of the platform or additional
+                                                         • Final wave of practices         • Evaluate impact on rural              tools necessary.
+                                                           (primarily from Cohort 1)       health care access and quality in     • Remote Monitoring
+                                                           completes Year 2                participating regions                   Technology: If applicable, scale
+                                                           (Optimization) of their AI      • Assess program outcomes:              to additional regions.
+                                                           seed funding. State             recruitment, completion, and          • Timely Health Information:
+                                                           programmatic support            retention rates                         Continue supporting practices
+
+
+
+
+                                                                                 48
+                                                     concludes as they are           • Recruit final Cohort of students     and facilities in using encounter
+                                                     prepared for self-              • Develop 5-year outcomes report       and relevant alerts for care
+                                                     management.                       with recommendations                 coordination or patient outreach.
+                                                   • ADA-compliance                                                         Monitor alert usage.
+                                                     remediation projects in                                              • Cybersecurity: Fund projects
+                                                     process, rolling completion                                            identified in cybersecurity risk
+                                                                                                                            assessments.
+              Program-Wide:
+FY31
+Stage 5       • Submit final performance and outcome reports to CMS.
+Fully
+Implemented   • Integration of lessons learned and successful models into ongoing state policy.
+
+
+
+
+                                                                           49
+Governance and Project Management Structure
+The RHTP implementation will be led by the DOH’s Office of Health Care Delivery, Office of
+
+Primary Care and Health Systems Management, and Center for Health Care Policy and Resource
+
+Development. The Center for Health Care Policy and Resource Development includes the Charles
+
+D. Cook Office of Rural Health, the Office of Health care Workforce Innovation, and the Bureau
+
+of Policy and Standards Development. The Office of Health Insurance Program, NY’s Medicaid
+
+Agency, is also within the DOH, under the Commissioner of Heath. Please see the proposed
+
+organizational chart on page 3 of the “Other Supporting Documentation”. Abbreviated resumes for
+
+key personnel are included on page 4 of the “Other Supporting Documentation”.
+
+Karen Madden (0.30 FTE): Director, Center for Health Care Policy and Resource Development,
+
+will serve as Principal Investigator and contribute her time in-kind. Ms. Madden will serve as
+
+advisor and provide guidance and support on RHTP implementation. Ms. Madden will collaborate
+
+with leaders from appropriate offices and divisions in the DOH, other state agencies, and
+
+stakeholders.
+
+Douglas Fish, M.D. (0.05 FTE): Deputy Commissioner, Office of Health Care Delivery, and
+
+Medical Director, Office of Health Insurance Programs, will contribute his time, in-kind, on
+
+project oversight. Dr. Fish will serve as an advisor, providing program management guidance.
+
+Eugene Heslin, M.D. (0.05 FTE): First Deputy Commissioner and Chief Medical Officer for NY
+
+State DOH, will contribute his time, in-kind. Dr. Heslin will serve as an advisor to the
+
+Strengthening Rural Health initiative, in particular, among others.
+
+Mark Hennessey, (0.05 FTE): Deputy Director, Office of Primary Care and Health Systems
+
+Management, will contribute his time, in-kind, on project oversight. Mr. Hennessey will provide
+
+guidance and support on program management.
+
+
+
+
+                                                50
+Daniel Oliver, (0.05 FTE): Director, Office of Health Services Quality and Analytics, will
+
+contribute his time, in-kind, as an advisor to Ms. Madden for grant administration and budget.
+
+John Arcuri, (0.10 FTE): Director, Hospital Transformation and Planning, Office of Health Care
+
+Delivery, will contribute his time, in-kind. Mr. Arcuri will serve as an advisor on the Rural
+
+Community Health Integration initiative.
+
+Carrie Roseamelia, PhD, (0.10 FTE): Director, Office of Health care Workforce Innovation,
+
+Office of Health Care Delivery will contribute her time, in-kind. Dr. Roseamelia will serve as an
+
+advisor on the Rural Roots: Building a Sustainable Rural Health Care Workforce initiative.
+
+Thurain Nyunt, (0.10 FTE), Chief Information Security Officer, Office of Health Information
+
+Management, will contribute his time, in-kind. Mr. Nyunt will be an advisor on the Investments in
+
+Technology Innovation and Cybersecurity Enhancements Cybersecurity initiative.
+
+Project Director (1 FTE): The Program Director will report to Ms. Madden and will coordinate
+
+with executive and program staff to ensure that the planning, implementation, operations,
+
+management, and evaluation of grant-funded activities occur timely; oversee the management of
+
+funded programs and contracts/subawards; and ensure all grant administration activities occur
+
+within CMS timelines. This position is critical to the project management of this award. This
+
+position will be hired in Year 1.
+
+Project Coordinator (1 FTE): The Project Coordinator will assist the Project Director with project
+
+management, grant administration activities, and managing funded programs. This position will
+
+be hired in Year 1.
+
+A Management Consultant will be contracted to provide expert consulting services related to
+
+implementation and operations of grant programs. This contract will provide administrative
+
+support for the grant subawards in the Rural Community Health Integration, Strengthening Rural
+
+
+
+
+                                               51
+Communities, and Rural Roots initiatives. The Management Consultant will be procured in Year
+
+1, and be contracted to provide specific subject matter expertise for the following activities: Rural
+
+Community Health Integration Learning Collaborative(s), Rural Community Health Integration
+
+School-Based Health, Rural Roots Recruitment-to-Service Pipeline, Investments in Technology
+
+Innovation and Cybersecurity Enhancements Telehealth and Telepsychiatry, Investments in
+
+Technology Innovation and Cybersecurity Enhancements Cybersecurity, Investments in
+
+Technology Innovation and Cybersecurity Enhancements Remote Monitoring.
+
+An Evaluation Consultant will be contracted to assess the effectiveness of initiatives and activities.
+
+The Evaluation Consultant will design and implement an evaluation plan, collect and analyze
+
+qualitative and quantitative data, and provide recommendations for mid-course correction as
+
+needed. This contract will be procured by Year 2.
+
+The Principal Investigator and Project Director will coordinate with key staff in the DOH’s Offices
+
+of Health Insurance Programs, Primary Care and Health Systems Management, Public Health,
+
+Office of Health Services Quality and Analytics, and other appropriate state agencies and external
+
+stakeholders throughout the RHTP, to receive continued feedback on program implementation,
+
+review progress, and discuss potential programmatic changes as needed.
+
+Throughout the duration of the RHTP, coordination among state health agencies and external
+
+stakeholders will be maintained through a structured and collaborative approach. The DOH, which
+
+encompasses the Office of Rural Health and the Office of Health Insurance Programs, which
+
+administers the Medicaid program, will serve as the central coordinating body. As described
+
+further in section “Stakeholder Engagement Framework” on page 53, regularly scheduled program
+
+workgroup meetings will bring together representatives from within the DOH, and other state
+
+agency partners. These meetings will provide a platform for open communication and timely
+
+
+
+
+                                                 52
+information sharing on key programmatic elements, including tracking of milestones, and
+
+assessment of impact metrics.
+
+To ensure effective engagement with external stakeholders, the program will establish regular
+
+communication channels (described further on page 54). A clearly defined decision-making
+
+process will guide all activities, ensuring transparency and accountability as the program adapts to
+
+changes and addresses emerging needs. This coordinated structure will facilitate seamless
+
+collaboration among agencies and stakeholders, supporting the program’s goal of delivering
+
+meaningful improvements for rural New Yorkers.
+
+STAKEHOLDER ENGAGEMENT
+
+During the planning phase, NY consulted a wide array of external stakeholders including rural
+
+hospital Chief Executive Officers (CEOs) and hospital associations, primary care providers and
+
+representative professional societies, the community health center association and related
+
+organizations, and advocacy groups. NY is pleased to present 5 letters of support from various
+
+advocacy organizations and Legislative bodies (please see page 18 of the “Other Supporting
+
+Documentation”). Insights and feedback from these organizations helped shape program priorities
+
+and informed the design of the state’s key initiatives. To ensure ongoing engagement, NY will
+
+continue to involve these stakeholders through multiple formal mechanisms as described below.
+
+These structures will ensure that rural stakeholder voices guide decision-making, program
+
+adaptation, and continuous improvement throughout the life of the program.
+
+NY has placed significant emphasis on the active participation of both internal and external
+
+stakeholders throughout every phase of the RHTP. The development of the RHTP has been a
+
+collaborative effort involving multiple offices within the DOH, particularly the Office of Rural
+
+Health, the Office of Health Insurance Programs, and the Office of Health Services Quality and
+
+
+
+
+                                                53
+Analytics. Additional state agency partners include the Office of Mental Health, the Office of
+
+Addiction Services and Support, the Office for People with Developmental Disabilities, and the
+
+Office for the Aging.
+
+List of Stakeholders that NYS Consulted
+During the planning phase, NY engaged a broad spectrum of external stakeholders, including: rural
+
+hospital CEOs and hospital associations, primary care providers and their professional societies,
+
+community health center associations and related organizations, as well as advocacy groups. The
+
+feedback and insights gained from these organizations have been instrumental in shaping program
+
+priorities and informing NY’s key initiatives.
+
+Stakeholders engaged to-date include: 14 NYS Agencies, 15 health networks/systems, 10
+
+advocacy organizations, 10 health coalitions and committees, 9 rural hospitals, 8 other health-
+
+based organizations (such as EMS organizations, non-rural hospitals, and health plans), 8
+
+educational entities, 5 health care provider organizations, 5 technology-based organizations, NYS
+
+legislative bodies, and 75 other organizations (for a more detailed list of stakeholders, please see
+
+page 30 of the “Other Supporting Documentation”).
+
+Stakeholder Engagement Framework
+To maintain meaningful engagement, NY will continue to involve stakeholders through several
+
+formal mechanisms. These processes are designed to ensure that rural stakeholder perspectives
+
+inform decision-making, guide program adaptation, and support continuous improvement
+
+throughout the duration of the RHT Program. The state will establish a formal, comprehensive
+
+stakeholder engagement process to facilitate a continuous feedback loop for the RHTP initiatives.
+
+The framework will include:
+
+• RHTP Workgroups: The state will create targeted workgroups focused on each of its four
+
+ initiatives. Workgroups will involve subject matter experts from the DOH and other state partner
+
+
+
+
+                                                 54
+ agencies, stakeholder partners, and technical advisors meeting regularly to address specific
+
+ challenges and opportunities. The workgroups will also meet collectively to facilitate continued
+
+ collaboration and problem-solving across initiatives. Workgroups will review progress against
+
+ defined milestones, key performance indicators, and impact metrics, using data to guide
+
+ decisions and resource allocation. By focusing on these programmatic aspects, workgroups will
+
+ ensure that the program has a net positive impact on rural NY communities.
+
+• Rural Health Council Meetings: The NYS Rural Health Council supports rural health care
+
+ delivery and policy by working directly with the Commissioner, advising state leadership on
+
+ rural health care related issues. The Council will continue meeting four times a year, with
+
+ additional ad hoc meetings if needed, to support the state’s RHTP. Public comment will continue
+
+ to be held during these meetings to provide opportunities for the public to share experiences,
+
+ raise concerns, and propose solutions.
+
+• Integrating Patient, Provider, and Community Advocates’ Voices: Patient representatives,
+
+ rural providers, and community advocates will be invited to be active participants in the state’s
+
+ RHTP. The state will also work directly with existing patient and provider organizations (e.g.,
+
+ Community Health Care Association of New York State, Iroquois Healthcare Association,
+
+ Hospital Association of New York State, Greater New York Hospital Association, Medical
+
+ Society of the State of New York) to prioritize geographic, demographic, and professional
+
+ diversity to ensure they are representative of rural populations.
+
+• Feedback Mechanisms: In addition to public comment opportunities, NY will establish lines
+
+ of communication through online forums and a program-specific website and email inbox.
+
+• Transparent Decision-Making: Meeting agendas, minutes, and decisions will be accessible to
+
+ all stakeholders on DOH’s website, promoting transparency and accountability.
+
+
+
+
+                                                55
+Engagement and program evaluation will be ongoing through the entirety of NY’s RHTP.
+
+Stakeholder input will inform program adjustments, with feedback loops established to evaluate
+
+the effectiveness of engagement activities. These collective efforts will ensure that the voices of
+
+rural stakeholders are central to NY’s RHTP decision-making and ongoing evolution.
+
+METRICS AND EVALUATION PLAN
+
+Milestones and Targets
+
+The evaluation framework for the RHTP will be grounded in the specific Objectives and Key
+
+Results outlined for each core initiative, ensuring that assessment activities are closely aligned
+
+with the intended outcomes of the program. The identified measures contain a mix of participating
+
+provider-submitted data as well as state health data systems. By systematically measuring progress
+
+toward these targets, the evaluation will provide a cohesive and comprehensive picture of the
+
+program’s impact across all initiatives. This approach will facilitate ongoing performance
+
+monitoring and enable continuous improvement, while also supporting robust accountability and
+
+transparency throughout the funding period.
+
+NY is committed to conducting a robust program evaluation for the RHTP. To ensure the
+
+evaluation is comprehensive and unbiased, NY will partner with an external vendor to effectively
+
+assess the program’s progress and outcomes. NY will select an external evaluator and dedicate
+
+time and resources to refining a formal evaluation plan including the selection of additional overall
+
+program metrics. This plan will be designed to capture appropriate measures and milestones,
+
+aligning with both the program’s objectives and reporting requirements. By establishing a rigorous
+
+evaluation framework early on, NY aims to generate actionable insights and support continuous
+
+improvement throughout the program’s duration.
+
+
+
+
+                                                 56
+Additionally, NY confirms its willingness to cooperate fully with any CMS-led evaluation or
+
+external monitoring processes. This approach will ensure transparency, accountability, and the
+
+ability to compare outcomes across states, strengthening the overall impact of the RHTP.
+
+SUSTAINABILITY PLAN
+
+Ensuring the long-term sustainability of NY’s RHTP is a central priority that guides both its design
+
+and implementation. The program is committed to fostering lasting improvements in rural health
+
+systems by building initiatives and partnerships that will endure beyond the initial funding period.
+
+Through strategic investments in infrastructure, capacity building, and evidence-based models,
+
+NY aims to embed successful practices into its ongoing health policies and operations, thereby
+
+promoting continued progress and resilience in rural communities even after RHTP funding
+
+concludes. For each initiative, please find detailed sustainability considerations to ensure lasting
+
+impact of the RHTP.
+
+The Rural Health Community Integration initiative is designed to ensure that rural anchor
+
+institutions and their partners can sustain the progress achieved through the RHTP even after the
+
+grant funding period ends. To promote long-term viability, the initiative encourages financial
+
+sustainability by leveraging value-based payment models already embedded in the NY state
+
+Medicaid program. It also supports the strategic shift of services to community-based providers,
+
+enhancing local capacity, and reducing dependency on centralized systems.
+
+Applicants will be required to demonstrate a commitment to maintaining network operations and
+
+resource sharing beyond the funding window, reinforcing the initiative’s emphasis on enduring
+
+collaboration. Additionally, the initiative utilizes existing statutory authority and budget
+
+appropriations to preserve flexibility and minimize reliance on temporary subsidies, ensuring a
+
+more stable foundation for rural health systems.
+
+
+
+
+                                                57
+A key component of the initiative involves launching and scaling cost-effective care models. These
+
+models are not only tailored to meet the unique needs of rural communities, but are also designed
+
+to be replicable across other regions and adaptable to various payers, amplifying their impact and
+
+fostering broader health system transformation.
+
+The Strengthening Rural Communities initiative develops sustainability across three domains:
+
+patients, primary care practices, and the statewide system. Patient sustainability depends upon
+
+health maintenance, preventive care, and patient satisfaction. A prevention-based approach
+
+emphasizes proactive care such as screenings, chronic disease management, and health education
+
+such as nutrition, healthy eating habits, and the value of exercise while ensuring timely access to
+
+primary care to improve outcomes, reduce costs, and enhance patient satisfaction.
+
+Primary care practices’ sustainability centers on the efficiency and well-being of primary care
+
+providers. By redesigning workflows and optimizing practice operations, clinics can reduce
+
+administrative burdens, improve care coordination, and enhance provider satisfaction. This leads
+
+to less burnout, better retention, and reduced primary care practice attribution churn, ultimately
+
+strengthening the foundation of the health system. Financially, by facilitating primary care
+
+practices’ successful PCMH recognition, the Strengthening Rural Communities initiative will
+
+enable primary care practices to unlock enhanced, recurring per member, per month payments
+
+from Medicaid and commercial payers. In NY, Medicaid-recognized PCMH practices receive a
+
+base per member, per month payment, plus additional incentive enhancements—$4.00 for
+
+Medicaid Managed Care and Child Health Plus for members under 21, and $2.00 for adults, on
+
+top of the base rate. This means a PCMH-recognized practice can receive up to $10.00 per
+
+Medicaid member, per month for children and $8.00 per member, per month for adults, creating a
+
+predictable revenue stream that supports operational stability and long-term planning. Commercial
+
+
+
+
+                                                  58
+insurers also offer enhanced per member, per month payments, though typically at lower rates than
+
+Medicaid. These payments are tied to quality improvement, care coordination, and preventive
+
+services, incentivizing practices to maintain high standards and invest in practice transformation.
+
+At the system level, sustainability can be achieved through collaborative, value-based care models
+
+like Shared Savings Programs. When practices, payers, and communities use these models, they
+
+benefit from more efficient care delivery and shared financial rewards. These models foster
+
+alignment across stakeholders, ensuring the viability of the health care ecosystem.
+
+The Rural Roots initiative aims to create a lasting framework for rural health workforce
+
+development and service expansion through collaboration and partnerships, thereby strengthening
+
+health care access, quality, and outcomes in rural communities beyond the RHTP funding lifespan.
+
+The primary goal is to institutionalize successful RHTP-funded initiatives, with a particular
+
+emphasis on rural workforce recruitment pathways and the development of sustainable trainer
+
+networks. The Recruitment-to-Service Pipeline project that strengthens the rural health care
+
+workforce by supporting medical, dental, and behavioral health students will be sustained by
+
+requiring practices to contribute 5–10% of the former student—now physician’s—revenue over 5
+
+years of practice to a dedicated fund. This fund will be earmarked for supporting future trainees,
+
+creating a self-sustaining financial model that maintains ongoing recruitment and training efforts
+
+long after initial federal funding ends. By embedding these strategies into the fabric of NY’s health
+
+system, the state will foster continuous improvements in rural health services and outcomes.
+
+By prioritizing recruitment pathways and trainer networks as the cornerstone of our sustainability
+
+strategy, NY will ensure that rural workforce development and service delivery models not only
+
+persist but thrive well beyond the RHTP funding period. This integrated approach will embed
+
+
+
+
+                                                 59
+lasting change and resilience in rural health systems, guaranteeing that our investment yields
+
+ongoing benefits for rural communities.
+
+The Investments in Technology Innovation and Cybersecurity Enhancements for Rural NY
+
+initiative is a cornerstone for sustainability across all other initiatives. This short-term investment
+
+will be used to develop and maintain a cybersecurity infrastructure in rural communities, reducing
+
+the cost of future quality improvement, data security, and incident response costs. The training
+
+made available to facility staff will be a lasting investment in planful information security. The
+
+investments made in timely and interoperable health information exchange through the SHIN-NY
+
+can improve patient follow-ups and outcomes of care, reducing cost of care overall. Investments
+
+in eConsult hubs, school-based urgent care centers, and other telehealth infrastructure are intended
+
+to be short-term investments, in hopes of the services being sustainable through insurance billing
+
+once fully operational. For example, funding for EMS for treatment-in-place and transport-to-
+
+alternative-destination has been statutorily authorized by NY. Providing seed money for the
+
+technology and program development will help make these programs more sustainable by aiding
+
+in development of billing for those services. Funding will only be granted to recipients who can
+
+demonstrate their plan for sustainability. Additionally, remote monitoring technology is intended
+
+to reduce the cost of in-person care delivery in rural areas. These services aim to lower health care
+
+costs by providing early care and minimizing patient travel, which help prevent expensive
+
+emergency and inpatient admissions and reduce patients’ inconvenience and expense.
+
+
+
+
+                                                  60
+ENDNOTES
+i
+   Health Resources and Services Administration. (n.d.). Rural Health Areas Data Set. U.S. Department of Health and
+Human Services. Retrieved October 22, 2025, from https://www.hrsa.gov/sites/default/files/hrsa/rural-
+health/about/rural-health-areas-data-set.xlsx. Combined with U.S. Census Bureau. (2023). American Community
+Survey 2023 Population Data
+ii
+    NY State Department of Health. (2020). Table 2: Live births, deaths, and infant deaths by county, NY State - 2020.
+Retrieved October 22, 2025, from https://www.health.ny.gov/statistics/vital_statistics/2020/table02.htm. Combined
+with U.S. Census Bureau. (2023). American Community Survey 2023 Population Data by County. Retrieved
+October 22, 2025, from https://data.census.gov/table?q=ACS%202023%20population%20by%20county.
+iii
+    U.S. Census Bureau. (2023). American Community Survey 5-Year Estimates, Table S1901: Median Household
+Income. Retrieved October 22, 2025, from
+https://data.census.gov/table/ACSST5Y2023.S1901?q=ACS+2023+household+income+by+county
+iv
+    U.S. Bureau of Labor Statistics. (n.d.). Labor force data by county, not seasonally adjusted, latest 14 months.
+Retrieved October 22, 2025, from https://www.bls.gov/lau/tables.htm
+v
+    U.S. Census Bureau, U.S. Department of Commerce. (n.d.). Industry by Occupation for the Civilian Employed
+Population 16 Years and Over. American Community Survey, ACS 1-Year Estimates Subject Tables, Table S2405.
+Retrieved October 22, 2025, from https://data.census.gov/table/ACSST1Y2023.S2405?t=Industry.
+vi
+    U.S. Census Bureau, U.S. Department of Commerce. (n.d.). Educational Attainment. American Community
+Survey, ACS 5-Year Estimates Subject Tables, Table S1501. Retrieved October 22, 2025, from
+https://data.census.gov/table/ACSST5Y2023.S1501?g=050XX00US19007
+vii
+     U.S. Census Bureau, U.S. Department of Commerce. "Selected Characteristics of Health Insurance Coverage in
+the United States." American Community Survey, ACS 5-Year Estimates Subject Tables, Table S2701,
+https://data.census.gov/table/ACSST5Y2023.S2701?t=Health+Insurance&g=040XX00US36$0500000_050XX00U
+S19007. Accessed on 22 Oct 2025.
+viii
+     NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+Through the NY State Behavioral Risk Factor Surveillance System (BRFSS) 2022-2023, Unpublished
+Data. Behavioral Risk Factor Surveillance System (BRFSS)
+ix
+    NY State Department of Health. (2022). Hospital Emergency Department Discharges - SPARCS De-Identified
+Data. Statewide Planning and Research Cooperative System (SPARCS). https://health.data.ny.gov/Health/Hospital-
+Emergency-Department-Discharges-SPARCS-De/f8ue-xzy3
+x
+    NY State Quality Assurance Reporting Requirements (QARR) Chronic Disease Management (CDM) Reporting
+period 9/1/23-9/1/24. Retrieved October 22, 2025. https://omh.ny.gov/omhweb/tableau/needs-assessment.html
+xi
+    NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+through Plan reported HEDIS Results - 2022, Unpublished Data.
+xii
+     NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+through Plan reported HEDIS Results - 2022, Unpublished Data.
+xiii
+     NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+through Plan reported HEDIS Results - 2022, Unpublished Data.
+xiv
+     NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+through Plan reported HEDIS Results - 2022, Unpublished Data.
+xv
+     NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+Through the NY State Behavioral Risk Factor Surveillance System (BRFSS) 2022-2023, Unpublished
+Data. Behavioral Risk Factor Surveillance System (BRFSS)
+xvi
+      Where you live matters: Maternity care access in NY. March of Dimes. Retrieved October 29, 2025, from
+https://www.marchofdimes.org/peristats/reports/new-york/maternity-care-deserts
+xvii
+      NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+Through the NY State Behavioral Risk Factor Surveillance System (BRFSS) 2022-2023, Unpublished
+Data. Behavioral Risk Factor Surveillance System (BRFSS)
+xviii
+      NY State Department of Health (2025). Priority Health Indicators for Rural and Non-Rural Counties Measured
+Through the NY State Behavioral Risk Factor Surveillance System (BRFSS) 2022-2023, Unpublished
+Data. Behavioral Risk Factor Surveillance System (BRFSS)
+xix
+     The Doctor is … Out, Shortages of Health Professionals in Rural Areas. NY State Comptroller’s Office.
+https://www.osc.ny.gov/files/reports/pdf/rural-health-shortages.pdf
+
+
+
+
+                                                         61
+xx
+    The Doctor is … Out, Shortages of Health Professionals in Rural Areas. NY State Comptroller’s Office.
+https://www.osc.ny.gov/files/reports/pdf/rural-health-shortages.pdf
+xxi
+     The Doctor is … Out, Shortages of Health Professionals in Rural Areas. NY State Comptroller’s Office.
+https://www.osc.ny.gov/files/reports/pdf/rural-health-shortages.pdf
+xxii
+      Stroudwater Associates. (2025). HRSA Data Explorer and HCRIS data: Analysis for NYS DOH [Unpublished
+data]. Public view available at Rural Health Insights for Each State & Congressional District.
+xxiii
+      The Doctor is...Out: Shortages of Health Professionals in Rural Areas
+xxiv
+      NY State hospitals fiscal survey report. Healthcare Association of NY State, Inc. November 2024. Accessed
+October 23, 2025.
+xxv
+      Bai, G., Zare, H., & Eisenberg, M. D. (2020). Varying trends in the financial viability of US rural hospitals,
+2011–17. Health Affairs, 39(6), 942–948. https://doi.org/10.1377/hlthaff.2019.01582
+xxvi
+      Oyeka, O., Mueller, K., & MacKinney, A. C. (2022). Evolution of hospital designations and payment:
+Implications for rural hospitals. RUPRI Health Panel Report. Rural Policy Research Institute.
+https://rupri.org/publications/evolution-of-hospital-designations-and-payment-implications-for-rural-hospitals/
+xxvii
+       Mroz, T. M., Garberson, L. A., Andrilla, C. H. A., Skillman, S. M., Larson, E. H., & Patterson, D. G. (2021,
+March). Post-acute care trajectories for rural Medicare beneficiaries: Planned versus actual hospital discharges to
+skilled nursing facilities and home health agencies (Policy Brief). WWAMI Rural Health Research Center,
+University of Washington. https://depts.washington.edu/uwrhrc
+xxviii
+       Coombs, N.C., Campbell, D.G. & Caringi, J. A qualitative study of rural healthcare providers’ views of social,
+cultural, and programmatic barriers to healthcare access. BMC Health Serv Res 22, 438 (2022).
+https://doi.org/10.1186/s12913-022-07829-2
+xxix
+      Evans, D., Burchim, S., Maris, N., & Patterson, D. (2024). Primary care perspectives on access to specialty care
+in rural communities: A mixed-method study. Annals of Family Medicine, 22(Suppl 1), S45–S53.
+https://doi.org/10.1370/afm.3101
+xxx
+      Golembiewski, E. H., et al. (2022). Rural patient experiences of accessing care for chronic conditions: A
+systematic review and thematic synthesis of qualitative studies. Annals of Family Medicine, 20(4), 345–352.
+https://doi.org/10.1370/afm.2845
+xxxi
+      Anzalone, A.J., Geary, C.R., Dai, R. et al. Lower electronic health record adoption and interoperability in rural
+versus urban physician participants: a cross-sectional analysis from the CMS quality payment program. BMC Health
+Serv Res 25, 128 (2025). https://doi.org/10.1186/s12913-024-12168-5
+xxxii
+       Planey, A.M., Wong, S., Winata, F. et al. Rural Hospital Closures, Hospital Spatial Accessibility, and
+Preventive Care Receipt in the US South: A Cross-Sectional Ecological Study. J GEN INTERN MED (2025).
+https://doi.org/10.1007/s11606-025-09885-w
+xxxiii
+       Greenwood-Ericksen, M. B., & Kocher, K. (2019). Trends in emergency department use by rural and urban
+populations in the United States. JAMA Network Open, 2(4), e191919.
+https://doi.org/10.1001/jamanetworkopen.2019.1919.
+xxxiv
+       Cancer in Rural America | Rural Health | CDC
+xxxv Childs, Elisa et al. Patient-Centered Medical Homes: How the Federally Supported Model Minimizes
+
+Healthcare Access Disparities for Older Adults in Rural Areas. The Journal of Health Care Organization, Provision,
+and Financing Volume 62: 1–13, 2025
+xxxvi
+       The NY State Adirondack Medical Home Demonstration. Legislative Report. NY State Department of Health.
+June 2014.
+xxxvii
+        Buchanan G.J.R., Berge J.M., Piehler T.F. “Integrated behavioral health implementation and chronic disease
+management inequities: an exploratory study of statewide data.” BMC Primary Care. 25(302), 2024,
+https://bmcprimcare.biomedcentral.com/articles/10.1186/s12875-024-02483-5)
+xxxviii
+        Cancer in Rural America | Rural Health | CDC
+xxxix xxxix
+            Hospital Cybersecurity Requirements. NY Codes, Rules and Regulations, section 405.46.
+https://regs.health.ny.gov/content/section-40546-hospital-cybersecurity-requirements
+
+
+
+
+                                                          62
+

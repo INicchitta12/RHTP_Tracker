@@ -1,0 +1,3082 @@
+                                                         Table of Contents
+
+Project Narrative.......................................................................................................................2
+
+      Rural health needs and target population.........................................................................3
+
+      Idaho Rural Health Transformation Plan.........................................................................9
+
+      Proposed initiatives and use of funds ..............................................................................14
+
+       1. Improving rural access to care through technology .....................................................15
+
+       2. Ensuring accessible quality care through innovative models .......................................20
+
+       3. Sustaining rural workforce with training, recruitment, and retention .........................25
+
+       4. Implement population specific, evidence-based projects to Make America Healthy
+
+       Again ................................................................................................................................29
+
+       5. Investing in rural health infrastructure and partnerships ............................................34
+
+      Implementation plan and timeline ..................................................................................38
+
+      Stakeholder engagement ..................................................................................................46
+
+      Metrics and evaluation plan ............................................................................................51
+
+      Sustainability plan ...........................................................................................................56
+
+Endnotes .................................................................................................................................. 61
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                                                                 1
+CMS-RHT-26-001
+                                        Project Narrative
+
+The Great State of Idaho is honored to submit this application for the Rural Health
+
+Transformation Program (RHTP) to strengthen and sustain healthcare across rural Idaho.
+
+Our rural communities are the backbone of our state and the nation. They feed America, fuel our
+
+economy, defend our nation, and keep alive the traditions and faith that make Idaho strong. Yet
+
+too many rural families face unacceptable barriers to timely, affordable, and high-quality care
+
+close to home. Idaho intends to change that—not by growing bureaucracy or creating permanent
+
+government programs, but by empowering rural hospitals, providers, clinics, community health
+
+centers, faith and family-centered solutions, and Idahoans themselves.
+
+Led by the Idaho Department of Health and Welfare (IDHW), Idaho seeks a minimum of $200
+
+million per year over five years to drive a bold plan rooted in the Make America Health Again
+
+(MAHA) emphasis on prevention, personal responsibility, local innovation and control, and
+
+community self-sufficiency. Idaho’s plan will empower Idahoans and communities to take charge
+
+of their health by transforming today’s fragmented healthcare infrastructure into a resilient,
+
+patient-centered system that delivers accessible, sustainable, and innovative care close to home.
+
+Through coordinated investments, strategic partnerships, and community-driven solutions, the
+
+State will innovate new learning opportunities at homegrown and regional education institutions;
+
+grow access to physicians, nurses and other healthcare providers and extenders; strengthen
+
+emergency and specialty services; modernize technology; support tele-pharmacy and telehealth;
+
+and keep care available in small towns and farming communities that define the Idaho identity.
+
+Idaho will treat this as the one-time federal investment it is. The Governor, through executive
+
+branch agencies, will ensure the initiatives remain aligned with the President’s vision under the
+
+One Big Beautiful Bill and MAHA, and the Legislature will ensure continuity of local control by
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        2
+CMS-RHT-26-001
+participating in appropriation of awarded federal funds, which will ensure priorities remain
+
+aligned with Idaho local needs. Each initiative will include clear performance metrics, cost-
+
+efficiency targets, continuous tracking of progress and return on investment via third-party
+
+evaluation, and planned funding wind-down to ensure that every dollar contributes to tangible,
+
+lasting success without reliance on perpetual federal or state funding.
+
+Idaho is committed to ensuring our rural families can access the care they need—locally,
+
+transparently, affordably, and without sacrificing freedom or growing government. By investing
+
+in prevention, workforce development and infrastructure, we will Make Rural America Healthy
+
+Again and ensure Idahoans remain healthy and independent in the communities they have called
+
+home for generations. Idaho’s rural families, farmers, veterans, and seniors deserve local,
+
+community-rooted care, not permanent government expansion. This plan modernizes rural care
+
+through free-market innovation, transparency, and personal responsibility, not new entitlement
+
+systems.
+
+Rural health needs and target population
+
+Rural demographics: Idaho is a large western state ranking 14th in geographic size but only
+
+38th in population among U.S. states, underscoring its unique rural character. In 2023, the U.S.
+
+Census Bureau estimated Idaho’s population at 1,893,296 across 83,568.6 total square miles (~23
+
+people per square land mile), much of which is vast, rugged, and difficult to access. This low
+
+population density makes Idaho one of the most rural states in the nation.1 Using the Federal
+
+Office of Rural Health Policy (FORHP) definition of rural, 655,070 individuals, or 36% of the
+
+state’s overall population, reside in rural census tracts. These rural areas comprise approximately
+
+96% of Idaho’s land area. Out of 44 counties, seven are considered urban (six are partial urban
+
+but include rural census tracts), 37 are classified as rural, and 16 as frontier (which are also
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       3
+CMS-RHT-26-001
+rural), meaning fewer than six people per square mile.6 In addition, ~6% of Idaho’s population
+
+lives in a frontier county.7
+
+According to the 2024 American Community Survey, 10.6% of Idahoans live below the poverty
+
+level.2 Poverty in nonmetropolitan Idaho counties (a rural area per FORHP) in 2023 was 12.2%.4
+
+Poverty and rural isolation contribute to limited access to healthcare services and worsen health
+
+outcomes.7 In 2023, 31% of Idaho households were considered Asset Limited, Income
+
+Constrained, Employed (ALICE) – meaning these families are earning above the Federal Poverty
+
+Level, but are not able to afford essential expenses.4 The 2023 unemployment rate in
+
+nonmetropolitan Idaho counties was 3.3%.3
+
+In Idaho, 8.8% of adults aged 25 and older have not completed high school, while 26.3% hold a
+
+high school diploma or equivalent but never pursued further education. An additional 23.3%
+
+have some college experience without earning a degree, and 9.9% have earned an associate’s
+
+degree. Roughly 21.8% hold a bachelor’s degree, and 11.6% possess graduate or professional
+
+degrees. About 33% of Idaho adults and 22.1% of adults aged 25 and older in rural areas have
+
+attained a bachelor’s degree or higher.7
+
+In 2023, Idaho ranked 13th among U.S. states in the percentage of uninsured, with 9.2% lacking
+
+health insurance coverage compared to the national average of 8.2%.8 The percentage of
+
+uninsured people ages 0-64 in nonmetropolitan Idaho counties was 12.4%.10 Nearly 30% of
+
+Idaho mothers lacked health coverage prior to pregnancy.12 These coverage gaps leave many
+
+rural residents without affordable healthcare options.
+
+Health outcomes: Like many rural states, Idaho experiences disproportionately high rates of
+
+preventable illness and premature death. Consistent with national trends, Idaho’s rural residents
+
+with chronic conditions have a higher mortality rate than those living in urban areas:
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        4
+CMS-RHT-26-001
+•   Heart Disease: In 2023, 3.3% of Idaho adults had been diagnosed with heart disease.
+
+•   Obesity: In 2023, 31.0% of Idaho adults had been diagnosed with obesity.
+
+•   Diabetes: In 2023, 9.8% of Idaho adults had been diagnosed with diabetes.
+
+•   Suicide: In 2023, Idaho’s suicide rate was 28.6 deaths per 100,000 people in rural counties
+
+    and 38.7 per 100,000 people in remote counties, compared with 21.0 per 100,000 people in
+
+    urban counties in the state. Overall, Idaho had the fourth highest suicide rate in the nation.6
+
+•   Injury: In 2021, Idaho recorded 16.5 deaths per 100,000 people from motor vehicle crashes
+
+    (higher than 14.2 nationally) and 16.8 deaths per 100,000 from falls (higher than 13.5
+
+    nationally).
+
+•   Maternal and child health: Using the latest available national maternal and infant health
+
+    data through the Health Resources and Services Administration, it is evident that while some
+
+    areas of the state have relatively strong rates of prenatal care in the first trimester, other
+
+    regions have room for improvement.11 Idaho’s geography can add challenges for pregnant
+
+    women: 22.5% of rural women live more than 30 minutes from a birthing hospital, and 2.6%
+
+    live more than 60 minutes away.9
+
+Healthcare access: A critical driver of Idaho’s health outcomes is its shortage of healthcare
+
+professionals. Idaho ranks 45th in primary care physician ratios.5 Health Professional Shortage
+
+Area (HPSA) designations further illustrate the problem:
+
+•   Primary Care: 98.2% of Idaho’s land area is designated as a Primary Care HPSA, impacting
+
+    57.8% of residents.
+
+•   Dental Care: 95.01% of the state’s land area is classified as a Dental HPSA, impacting
+
+    65.8% of residents.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          5
+CMS-RHT-26-001
+•   Mental Health: Alarmingly, 100% of Idaho’s land area and population fall within a Mental
+
+    Health HPSA, signifying a complete statewide shortage of mental health professionals.10
+
+Nursing shortages are similarly severe. Idaho has just 7.06 Registered Nurses (RNs) per 1,000
+
+residents, compared to 10.6 nationally. Rural areas are hardest hit, with RNs choosing to migrate
+
+from these communities to larger ones, this is especially the case with younger nurses.13
+
+Geographic isolation compounds workforce shortages. Public transportation is limited as rural
+
+population density is typically below the level needed to support fixed route bus service.14 Many
+
+rural residents must travel long distances across mountainous terrain to access healthcare. This
+
+burden often discourages patients from seeking timely treatment, particularly those with chronic
+
+conditions or co-occurring mental health needs. Local clinics frequently lack the resources,
+
+specialists, and equipment required to meet community needs, forcing patients to delay or forgo
+
+care altogether. Idaho’s rural healthcare network has 36 hospital facilities and 274 non-hospital
+
+facilities, including 26 Critical Access Hospitals (CAHs), one Rural Emergency Hospital (REH),
+
+and 57 Rural Health Clinics (RHCs). The state has 53 Federally Qualified Health Centers
+
+(FQHCs) and two short-term prospective payment system hospitals (See Density of Health Care
+
+Facilities in Idaho in ID RHTP Other Supporting Documentation).10
+
+Rural facility financial health: Rural healthcare facilities in Idaho face significant financial
+
+pressures affecting their ability to provide services. According to 2024 CAH Measurement and
+
+Performance Assessment System data from the Idaho Medicare Rural Hospital Flexibility
+
+Program, 15 Idaho CAHs maintain fewer than 100 days of cash on hand leaving them vulnerable
+
+to financial disruptions.
+
+A 2025 assessment conducted by The Chartis Group as a contract deliverable for IDHW found
+
+that 46% of Idaho CAHs operate in the red, with an additional 4% classified as vulnerable and
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        6
+CMS-RHT-26-001
+one hospital identified as extremely vulnerable to closure. The report that Idaho CAHs
+
+collectively scored at the 23rd percentile in cost management, highlights a need for improved
+
+efficiency. These findings underscore the fragile financial position of hospitals that serve as the
+
+first and often only point of access to care in rural communities. In 2025, one of Idaho’s CAHs
+
+converted to an REH to stay economically viable, decreasing rural access to inpatient care.
+
+RHCs, which are often located in smaller communities, also operate under considerable strain.
+
+Due to location, RHCs frequently serve low-volume patient populations, which limits their
+
+ability to spread fixed costs across patient encounters. Administrative burden, claim denials, and
+
+delays further reduce revenue predictability. Rising labor and supply costs add to these
+
+challenges, as RHCs must still cover staffing, facility maintenance, and regulatory compliance
+
+despite limited resources.
+
+Idaho FQHCs deliver essential services through 192 clinics in 67 communities, nearly half of
+
+these being in rural areas. High staffing costs, administrative overhead, and payer mix challenges
+
+further strain budgets. Uncompensated care and bad debt are additional stressors across all rural
+
+health facilities. For example, the Idaho Hospital Association reported the total amount of
+
+uncompensated care for Critical Access Hospitals in 2024 was $68.7 million (personal
+
+communication, October 21, 2025). Free medical clinics (FMCs) and emergency medical
+
+services (EMS) help fill critical gaps but operate with often unstable funding. Rural EMS
+
+agencies are especially fragile; in rural Idaho, 69% of EMS providers are volunteers. This
+
+dependence reduces long-term financial stability and underscores the difficulty of sustaining
+
+essential services in geographically remote areas.
+
+Overall, Idaho’s rural health facilities operate on narrow margins, with many at risk of service
+
+line closures or reductions that threaten financial viability and community trust.
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          7
+CMS-RHT-26-001
+CAH utilization and patient volumes (reporting period of 10/1/2023 – 9/30/2024)
+                                                                                              Total
+      Hospital Name                                      Total       Total        Total
+                                              Total                                           Emer-
+     (M.C. = Medical           Type                     Admis-        Dis-      Newborn
+                                              Beds                                            gency
+         Center)                                         sions      charges     Deliveries
+                                                                                              Visits
+ Bear Lake Memorial            CAH                 21        252         256            48      2365
+ Benewah Community             CAH                 19        123         113             0      3398
+ Bingham Memorial              CAH                 35       1312        1327             0     10087
+ Bonner General                CAH                 25        827         823             0     11489
+ Boundary Community            CAH                 20        242         249             0      3774
+ Caribou Medical Center        CAH                 23        217         218            24      2477
+ Cascade Medical Center        CAH                 10         17          17             0      1455
+ Clearwater Valley Health      CAH                 23        704         719            22      4019
+ Franklin County M.C.          CAH                 18        579         578            89      3728
+ Gritman Medical Center        CAH                 25        993         999           274     10889
+ Cassia Regional               CAH                 25       1838        1870           508     10800
+ Lost Rivers M.C.              CAH                 79         17          17             0      1551
+ Madison Memorial              Med/Surg            69       2468        2461          1159     10807
+ Minidoka Memorial             CAH                 25        263         261             0      6034
+ North Canyon M.C.             CAH                 18        292         299             1      5298
+ Oneida County                 CAH                 11        299         299             0       838
+ Power County District         CAH                 10         47          43             0      2140
+ Shoshone M.C.                 CAH                 25          0           0             0      5420
+ St. Luke's Elmore             CAH                 22        699         702           205     13015
+ St. Luke's Jerome             CAH                 17        356         351             0      6417
+ St. Luke's McCall             CAH                 15        622         620           133      6027
+ St. Luke's Wood River         CAH                 25        818         814           158      9104
+ St. Mary's Health             CAH                 25        393         403            49      8160
+ Steele Memorial M.C.          CAH                 18        415         418             5      3593
+ Syringa District              CAH                 16        290         290            38      3842
+ Teton Valley Health Care      CAH                 13        243         243             0      3565
+ Walter Knox Memorial          CAH                 16         91           0             0      4540
+ Weiser Valley District        CAH                 20        267         267            59      3376
+
+Target populations and geographic areas that will benefit from Idaho’s RHTP: For this
+
+application, Idaho has adopted the FORHP definition of rural. The target population includes
+
+655,070 residents residing in rural census tracts; all rural healthcare facilities, hospitals, and
+
+health centers; and the five federally recognized Native nations in Idaho (See Rural Health
+
+Transformation Program Grant Eligibility in ID RHTP Other Supporting Documentation). A
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                         8
+CMS-RHT-26-001
+specific focus will be on women who are pregnant or recently gave birth, children and people
+
+younger than 20 years, older adults, and people who have disabilities or medically complex
+
+health conditions.
+
+Idaho Rural Health Transformation Plan
+
+Vision: Catalyze rural health transformation through targeted, sustainable investments to build
+
+local capacity, promote self-reliance, and support the health and independence of Idahoans.
+
+Idaho seeks to empower individuals and their communities to take responsibility for their health,
+
+emphasizing prevention over dependence, and fostering innovation through locally driven
+
+solutions. Public input identified three clear priorities guiding this plan: workforce, access, and
+
+chronic disease prevention—supported by five coordinated initiatives that build long-term
+
+system capacity. Each initiative is designed to achieve measurable impact, ensure fiscal
+
+accountability, and create enduring value long after federal funding concludes.
+
+Goals and strategies for transforming rural health:
+
+•   Improving access: Enhance telehealth of all types, mobile and community-based services,
+
+    and MAHA interventions; strengthen workforce and infrastructure. Aligns with all RHTP
+
+    strategic goals and Idaho RHTP Initiatives.
+
+•   Improving outcomes: Deliver earlier, evidence-based care and targeted MAHA strategies
+
+    focused on maternal and behavioral health risk reduction, and better chronic disease control.
+
+    Aligns with RHTP strategic goal. “Make rural America healthy again,” and Idaho RHTP
+
+    Initiatives 1, 2, and 4.
+
+•   Technology innovation and use: Modernize systems through telehealth expansion,
+
+    interoperability, electronic health record (EHR) upgrades, cybersecurity, and artificial
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          9
+CMS-RHT-26-001
+    intelligence (AI); pairing technology with provider training. Aligns with RHTP strategic goal
+
+    “Tech innovation” and Idaho RHTP Initiatives 1, 2, and 5.
+
+•   Partnerships: Maintain strong collaboration through a Governor-appointed task force, the
+
+    Idaho Legislature, and regional partners, informed by extensive statewide engagement of
+
+    rural healthcare providers and individuals from rural communities. Idaho has offered to set-
+
+    aside three and a half percent of the total award to support use of funds for the five federally
+
+    recognized Native nations residing in Idaho. The three and a half percent is based on the
+
+    American Indian (AI) population in Idaho over the total Idaho rural population using the
+
+    most recent U.S. census data. Aligns with all RHTP strategic goals and all Idaho RHTP
+
+    Initiatives, especially RHTP Initiative 5.
+
+•   Workforce: Recruit, train, and retain rural healthcare workforce through incentives and
+
+    education partnerships. Create opportunities for allied healthcare professionals. Aligns with
+
+    RHTP strategic goals, “Innovative care” and “Workforce development” and Idaho RHTP
+
+    Initiatives 2, 3.
+
+•   Data-driven solutions: Use clear metrics, statewide data systems, rural health data
+
+    dashboards, third-party evaluation, and continuous monitoring to drive accountability and
+
+    improvement. Aligns with all RHTP strategic goals and Idaho RHTP Initiatives.
+
+•   Financial solvency strategies: Ensure sustainability of demonstrated successes by
+
+    prioritizing investments that transition to self-sustained or funded local ownership,
+
+    reimbursement, and/or operational efficiencies by Year 5. Aligns with all RHTP strategic
+
+    goals and Idaho RHTP Initiatives.
+
+•   Cause identification: Address root causes of rural healthcare facility strain—low volume,
+
+    workforce shortages, and reimbursement challenges—using modernized data, technology,
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      10
+CMS-RHT-26-001
+    workforce strategies, and innovative care models. Additionally, address causes of premature
+
+    mortality through evidence-based programs aimed at preventing disease and intervening to
+
+    improve health outcomes through healthy behaviors and access to appropriate care. Aligns
+
+    with RHTP strategic goals, “Tech innovation,” “Innovative care,” “Workforce development,”
+
+    “Sustainable access,” and Idaho RHTP Initiatives 1, 2, 3, and 5.
+
+Program key performance objectives: Idaho will track process, quality, and impact measures
+
+across all initiatives. Core targets include:
+
+•   Initiative 1: Increase telehealth and remote appointments by 50% by 2030, ensuring that
+
+    rural Idahoans can receive high-quality care without leaving their communities.
+
+•   Initiative 2: Reduce emergency department (ED) visits for ambulatory-care-sensitive
+
+    conditions by 20% from 30,779 per 100,000 ED visits in 2025 to less than 24,623 by 2030
+
+    demonstrating the value of early intervention and prevention.
+
+•   Initiative 3: Increase the ratio of physicians per 100,000 population from 193 in 2023 to at
+
+    least 195 by 2030, ensuring sustainable local capacity.
+
+•   Initiative 4: Ensure at least 50% of participants in new or enhanced chronic disease
+
+    prevention programs will meet clinical outcome goals by 2030.
+
+•   Initiative 5: Increase the Consumer Assessment of Healthcare Providers and Systems
+
+    (CAHPS) survey data point on “Getting needed care” from 83.3% to 90% by 2030, reflecting
+
+    responsive, reliable rural healthcare delivery.
+
+Additionally, Idaho will monitor two overarching measures that align with MAHA’s call for
+
+accountability, transparency, and continuous improvement:
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       11
+CMS-RHT-26-001
+•   The Get Healthy Idaho Index: A score representing conditions which support increased
+
+    health and wellness of a community.15 Overall score changes as well as advances in specific
+
+    domains will be tracked to capture improvement through 2030.
+
+•   Specialty-Care Access Index: Assess and report on expanded access to specialty and
+
+    preventative services in rural areas, documenting the return on this one-time federal
+
+    investment. and track improvement in access to specialty care. These performance objectives
+
+    and supplemental data efforts will ensure accountability, demonstrate impact, and drive
+
+    continuous improvement in the accessibility, quality, and sustainability of care.
+
+Legislative or regulatory action commitments and current state policies:
+
+State Policy: B.2. Health and Lifestyle
+
+•   Idaho will actively communicate and work to encourage all public schools across the state,
+
+    particularly in Idaho’s rural communities, to reinstitute the Presidential Fitness Test. The
+
+    Idaho Department of Education will develop materials to support and incentivize schools to
+
+    do so by the end of CY 2027.
+
+State Policy: B.3. SNAP Waivers
+
+•   Idaho was one of the first to ban candy and soda purchases with SNAP benefits.
+
+•   House Bill 109, passed in the 2025 Legislative Session, effective January 1, 2026.
+
+•   No future policy action is needed.
+
+State Policy: B.4. Nutrition Continuing Medical Education
+
+•   Idaho requires Continuing Medical Education (CME) hours but does not mandate specific
+
+    nutrition topics; physicians currently select their own CME subjects.
+
+•   Idaho will not be seeking legislative changes related to this state policy factor.
+
+State Policy: C.3. Certificate of Need
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       12
+CMS-RHT-26-001
+•   Idaho has no Certificate of Need requirements and received a zero score in the Cicero report.
+
+•   No future policy action is needed.
+
+State Policy: D.2. Licensure Compact
+
+•   Idaho participates in multiple interstate licensure compacts, including compacts for
+
+    physicians, nurses, EMS providers, and psychologists.
+
+•   Legislation is being drafted for a multi-state physician assistant compact to be considered for
+
+    the 2026 state legislative session.
+
+State Policy: D.3. Scope of Practice
+
+•   Idaho supports providers practicing at the top of their scope of practice; Idaho Code 56-2206
+
+    directs Medicaid to protect practice authority wherever allowed under state law.
+
+•   Current scope status:
+
+    o   Physician Assistants: advanced scope of practice
+
+    o   Nurse Practitioners: full scope of practice
+
+    o   Pharmacists: full scope of practice
+
+    o   Dental Hygienists: semi-restricted scope of practice
+
+    o   EMS Personnel: Idaho has expanded scope at all levels and allows these professionals to
+
+        work in nontraditional settings (e.g. Emergency Departments)
+
+•   Legislation is being drafted to further expand scope of practice for physician assistants and
+
+    dental hygienists to be considered for the 2026 state legislative session.
+
+State Policy: E.3. Short-Term, Limited Duration Insurance (STLDI)
+
+•   Idaho allows STLDI plans as defined under federal regulation (45 CFR 144) and does not
+
+    impose restrictions beyond federal guidance.
+
+•   This is addressed in administrative rule and Idaho Code 41-5214 and 41-5203(11).
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        13
+CMS-RHT-26-001
+•   No future policy action is needed.
+
+State Policy: F.1. Remote Care Services
+
+•   Idaho was an early adopter of telehealth and remote patient monitoring, supported through
+
+    the Idaho Virtual Care Access Act. Idaho Medicaid reimburses telehealth at parity with in-
+
+    person care and covers remote monitoring and video-based services.
+
+•   Idaho does not require in-state licensure for remote providers if they are licensed and in good
+
+    standing elsewhere and agree to comply with Idaho regulations—this applies to both medical
+
+    and behavioral health providers. Licensing and registration processes for interstate telehealth
+
+    are established under Idaho Code 54-5714.
+
+•   No future policy action needed.
+
+Other required information:
+
+For factor A.2.: The most current list of Certified Community Behavioral Health Clinics
+
+(CCBHCs) entities within Idaho as of September 1, 2025
+
+•   Idaho started an effort with five FQHCs to transition to CCBHCs in 2022. All five serve rural
+
+    communities or adjacent rural communities. Last year, Idaho paused this effort, including
+
+    certification, to evaluate sustainability and Medicaid funding.
+
+For factor A.7.: The number of hospitals that received a DSH payment as of State Plan
+
+Year 9/30/24
+
+•   For State Plan Year Ended 9/3/2024, a total of five hospitals received DSH payments.
+
+Proposed initiatives and use of funds
+
+All Idaho initiatives will be executed as new activities or be a new expansion of activities into
+
+rural communities serving a new population, not a duplication of existing programs.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        14
+CMS-RHT-26-001
+1. Improving rural access to care through technology
+
+Through investments in telehealth, interoperability, artificial intelligence, and cybersecurity,
+
+Idaho will strengthen the backbone of rural care--bridging distance, reducing duplication, and
+
+building durable infrastructure that allows communities to manage their own health more
+
+effectively in partnership with healthcare systems, treatment centers, and long-term care
+
+facilities. Proposed use of funds:
+
+•   Facility technology assessments and shared infrastructure to build sustainable, cost-
+
+    effective technology capacity across rural facilities. Fund RHCs, CAHs, FQHCs, and other
+
+    healthcare facilities to work with a consultant to complete technology assessments to
+
+    determine the appropriate technological infrastructure strategies and tools to implement that
+
+    will ultimately improve care delivery to rural citizens. Assessments inform other proposed
+
+    uses of funds related to purchases of technology, equipment, and minor building renovations.
+
+    Expected impact: Healthcare systems are equipped with the information they need to
+
+    successfully integrate various types and methods of technology into their system. Planned
+
+    activities:
+
+    o   Conduct assessments of rural healthcare facilities to identify technology gaps, needs, and
+
+        readiness.
+
+    o   Develop shared technology infrastructure (e.g., regional data centers, shared telehealth
+
+        hubs) to reduce duplication and costs.
+
+    o   Promote regional partnerships and cooperative agreements to share IT support,
+
+        cybersecurity resources, and analytics tools.
+
+•   Telehealth expansion to increase access to both primary and specialty care through
+
+    enhanced telehealth networks and infrastructure. Enhance access to care by funding
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       15
+CMS-RHT-26-001
+    telehealth equipment, software, and training for the delivery of primary care services,
+
+    specialty care, and behavioral health. Expected impact: Reduced transfers of care
+
+    (particularly to hospitals for preventable admissions), improved continuity of care, and
+
+    increased access to preventive and specialty services for rural residents. Planned activities:
+
+    o   Develop regional telehealth networks connecting rural CAHs, RHCs, FQHCs, and urban
+
+        referral centers for specialty services.
+
+    o   Equip rural healthcare facilities with telehealth equipment and software to enable real-
+
+        time specialty consultations, including purchase or upgrades of existing EHRs to improve
+
+        or add telehealth capacity, allowing patients to receive advanced care locally without
+
+        transfer.
+
+    o   Support telepharmacy models in additional communities, including remote dispensing by
+
+        pharmacy technicians.
+
+    o   Prioritize service lines that address rural health gaps, including women’s health and
+
+        prenatal services; behavioral health; dental; radiology and diagnostic imaging support;
+
+        dietetics and nutritional counseling; chronic disease management; gerontology; and
+
+        pharmacy and medication management.
+
+    o   Support training on telehealth, including appropriate billing procedures, for rural
+
+        clinicians and staff to integrate virtual visits into routine workflows and care plans.
+
+•   Digital health to empower Idahoans to actively prevent and manage chronic disease through
+
+    consumer-facing apps and online platforms ultimately increasing access and ability to track
+
+    health information such as vital signs and symptoms leveraging existing broadband and
+
+    satellite connectivity. Invest in AI tools, consumer-facing apps, and online platforms to
+
+    enhance healthcare delivery in rural communities. Provide training and technical assistance
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                         16
+CMS-RHT-26-001
+    to facilities and providers to utilize these digital health tools effectively and contain cost.
+
+    Implement AI tools to help hospitals and other health systems increase revenue by managing
+
+    front-end, mid-cycle, and back-end revenue cycle management. Expected impact: Improved
+
+    chronic disease self-management, higher patient engagement, reduced hospital readmissions,
+
+    and increased appropriate follow up care. Planned activities:
+
+    o   Procure mobile apps and online portals that integrate with EHR systems to support self-
+
+        monitoring, appointment scheduling, medication adherence, and coaching.
+
+    o   Create digital education campaigns tailored for rural populations most inclined to
+
+        leverage consumer facing applications, focusing on behavioral health and chronic disease
+
+        prevention and management.
+
+    o   Partner with community organizations and provider entities to promote adoption of
+
+        digital health tools among rural residents with limited digital literacy.
+
+•   Cybersecurity modernization and AI tools to protect Idaho’s healthcare infrastructure and
+
+    enhance data-driven decision-making. Invest in updated cybersecurity systems for rural
+
+    hospitals, clinics, and facilities to help protect confidential patient data, maintain care
+
+    delivery, and avoid unnecessary IT support costs. Expected impact: Strengthened
+
+    cybersecurity, reduced risk of data breaches, and improved analytical capacity for patient
+
+    care. Planned activities:
+
+    o   Modernize cybersecurity systems in rural healthcare facilities, ensuring compliance with
+
+        federal data protection standards (e.g., HIPAA, HITECH).
+
+    o   Deploy AI-driven monitoring tools to identify and mitigate cyber threats in real time.
+
+    o   Introduce AI-enabled clinical tools that assist with diagnostic support, patient risk
+
+        stratification, and predictive analytics for disease trend identification.
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          17
+CMS-RHT-26-001
+    o   Create training resources for IT and healthcare personnel on data privacy, cyber hygiene,
+
+        and secure telehealth practices.
+
+•   Emergency communication systems implementation and enrollment to ensure timely
+
+    care in rural emergencies and strengthen statewide communication capacity between Idaho’s
+
+    public health and healthcare systems. Expected Results: Emergency communication solutions
+
+    in place to notify healthcare providers of public health threats and updated 911 service
+
+    infrastructure to improve public emergency communications, especially in rural areas where
+
+    none exist today. Idaho understands that broadband infrastructure cannot be covered through
+
+    this grant. Planned activities:
+
+    o   Replace the antiquated Idaho Health Alert Network (HAN) for provider facing
+
+        communications with a modern system and enroll all rural health providers and
+
+        healthcare organizations. Rapid notification of healthcare providers and other partners of
+
+        emerging health threats is critical to create awareness of these issues, especially in rural
+
+        areas where providers are less likely to be part of large healthcare systems.
+
+    o   Upgrade emergency communication systems to Next Generation 911 standards, to
+
+        improve location accuracy, multimedia communication, and dispatch speed in rural areas.
+
+•   Health management and data analytics tools to enable data-driven approaches to improve
+
+    health outcomes. Expected impact: Measurable improvements in rural health outcomes and
+
+    targeted interventions. Planned activities:
+
+    o   Implement health management software at rural clinics, hospitals and other facilities to
+
+        support risk stratification, care coordination, and outcome tracking across rural
+
+        populations. This will be critical for rural provider success in any contracting with payers,
+
+        further promoting improved revenue generation, sustainability, and cost containment.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       18
+CMS-RHT-26-001
+    o   Use data analytics to identify high-need communities, track chronic disease trends, and
+
+        evaluate success of health interventions.
+
+    o   Leverage data to inform future policy and resourcing.
+
+•   EHR software and upgrades to ensure interoperability and efficiency across Idaho’s rural
+
+    healthcare facilities. Expected impact: Enhanced care coordination, reduced administrative
+
+    burden, and improved population health data accuracy. Planned activities:
+
+    o   Provide funding for EHR implementation or upgrades in rural healthcare facilities.
+
+    o   Provide funding to providers and EHR vendors to grow interoperability via the updated
+
+        CMS Interoperability Framework. Support system setup, technical assistance, and
+
+        workforce training to optimize EHR adoption and data quality.
+
+    o   As a condition of receiving funds tied to EHR software and updates, require healthcare
+
+        facilities to participate in a state facilitated work group to formally adopt and implement
+
+        the CMS Interoperability Framework.
+
+Main strategic goal: Tech innovation
+
+Uses of funds: A, C, F, G, H
+
+Technical score factors: B.1, C.1, F.1, F.2, F.3
+
+Key stakeholders: post-secondary programs and institutions, career technical and professional
+
+education programs, professional associations, rural healthcare providers such as RHCs, CAHs,
+
+pharmacies, EMS, FQHCs, the five federally recognized Native nations in Idaho, Idaho Office of
+
+Emergency Management, Bureau of EMS.
+
+Outcomes:
+
+•   Increase the number of facilities utilizing telehealth by 50% by December 2030.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      19
+CMS-RHT-26-001
+•   Increase the percentage of physicians located in each of Idaho’s rural counties that are
+
+    connected to the new Health Alert Network (HAN) to at least 80% by December 2030.
+
+•   Increase the number of facilities implementing new EHR software or updating existing EHR
+
+    software that is not yet HITECH certified to at least 10 facilities by December 2030.
+
+•   Increase the number of appointments completed using telehealth or remote delivery modality
+
+    by 50% by December 2030.
+
+Impacted counties: 16003, 16005, 16007, 16009, 16011, 16013, 16015, 16017, 16019, 16012,
+
+16023, 16025, 16027, 16029, 16031, 16033, 16035, 16037, 16039, 16041, 16043, 16045, 16047,
+
+16049, 16051, 16053, 16055, 16057, 16059, 16061, 16063, 16065, 16067, 16069, 16071, 16073,
+
+16075, 16077, 16079, 16081, 16083, 16085, 16087
+
+Estimated required funding: $209,000,000 for five years
+
+2. Ensuring accessible quality care through innovative models
+
+This initiative addresses challenges to timely, affordable and high-quality healthcare services in
+
+geographically isolated areas with workforce shortages and financial barriers through
+
+implementation of care models that extend the reach of healthcare beyond traditional facilities.
+
+By investing in access to innovative diagnostics, leveraging new technologies, expanding
+
+workforce by enhancing the role of health extenders (e.g., community health workers,
+
+community health EMS [CHEMS], pharmacy allied professionals, and other non-physician
+
+healthcare professionals), strengthening EMS systems, and supporting home-based and
+
+community-based care solutions, this initiative will ensure that rural Idahoans can receive care at
+
+and close to home. Proposed use of funds:
+
+•   Diagnostic and care access innovations to increase access to care through technology-
+
+    enabled points of service. Expected impact: Increased early detection of disease, improved
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       20
+CMS-RHT-26-001
+    medication adherence, and reduced travel barriers for rural residents preventing and
+
+    managing chronic conditions. Planned activities:
+
+    o   Deploy diagnostic kiosks, care stations, and telehealth pods in easy to access locations in
+
+        rural communities, such as libraries, schools, faith-based entities and houses of worship,
+
+        pharmacies, grocery stores, and other community centers, to provide accessible entry
+
+        points for preventive screenings, lab testing, and virtual consultations.
+
+    o   Install pharmacy kiosks and prescription lockers in accessible community spaces and
+
+        enhance mail-order pharmacy services to ensure reliable medication access.
+
+    o   Implement remote patient monitoring programs, to include purchase of necessary
+
+        devices, for individuals with chronic conditions and following hospital discharge,
+
+        allowing continuous observation of vital signs and other health measures, and early
+
+        intervention to prevent hospitalizations.
+
+    o   Integrate data from kiosks and remote patient monitoring systems with local clinics and
+
+        hospitals to support coordinated care and proactive patient engagement.
+
+•   Health extenders to strengthen access to timely healthcare in rural communities. Idaho also
+
+    anticipates aligning with priority efforts to implement Medicaid work requirements over the
+
+    next year. Through rural job creation such as extender positions, rural residents can be
+
+    employed full time in well-paying positions and transition off public benefits. Expected
+
+    impact: Reduced emergency department utilization, improved chronic disease prevention and
+
+    management, and strengthened local capacity for health promotion and prevention. Planned
+
+    activities: Recruit, train, and deploy health extenders to provide outreach, patient navigation,
+
+    and health education in underserved rural areas.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      21
+CMS-RHT-26-001
+    o   Create designated rural locations where health extenders’ in-person contact hours or
+
+        apprenticeships are offered.
+
+    o   Develop Community Health Emergency Medical Services (CHEMS) programs in rural
+
+        communities to enable trained EMS professionals to perform preventive visits, follow-up
+
+        checks, and wellness assessments in the home setting.
+
+    o   Develop cross-training and train-the-trainer programs to coordinate health extender
+
+        personnel and ensure long-term sustainability of workforce pathway of extenders and
+
+        continuing education.
+
+    o   Integrate health extenders into telehealth and follow up care processes for referral
+
+        tracking, data sharing, and outcome reporting.
+
+•   EMS expansion and workforce stabilization to support reliable, timely emergency medical
+
+    response across all Idaho counties. Expected impact: reduced emergency response times,
+
+    improved continuity of emergency care, and greater system reliability for rural residents.
+
+    Planned activities:
+
+    o Provide targeted funding and technical assistance to support EMS agencies to establish
+
+        CHEMS programs, prioritizing those with less than one paid full-time equivalent EMS
+
+        provider. EMS agencies selected will commit to establishing an ongoing CHEMS
+
+        position, creating a sustainability plan to continue the position through alternate funding
+
+        sources after year five, to ensure the staff give five years of service in the rural area, to
+
+        participating in needs assessment and evaluation to demonstrate gaps and cost-savings,
+
+        and to participate in a RHTP CHEMS workgroup with hospitals, non-Medicaid payers,
+
+        clinics, state agencies, and evaluators, to ensure sustainability after the grant period.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                            22
+CMS-RHT-26-001
+    o   Invest in the development of EMS recruitment, retention, and leadership programs with
+
+        curriculum that can be used ongoing to build sustainable staffing models.
+
+    o   Support EMS integration with healthcare partners, enabling shared response planning and
+
+        data, and care coordination with rural healthcare clinics and facilities.
+
+•   Understand opportunities to leverage health extenders and optimize service delivery to
+
+    align rural health extender programs, emergency medical, and healthcare services with local
+
+    needs and rural health trends. Expected impact: Optimized EMS coverage, health extender
+
+    capacity, reduced redundancy, and more efficient use of limited rural healthcare resources.
+
+    Planned activities:
+
+    o   Complete rural community needs assessment specifically examining the gaps in care that
+
+        can be filled by health extenders and opportunities for cost savings. During year five of
+
+        funding, complete evaluation of efforts completed to close identified gaps and determine
+
+        opportunities for further health extender program, optimize service delivery, and leverage
+
+        extenders to contain healthcare costs.
+
+    o   Develop technical assistance resources for rural provider entities, including EMS
+
+        agencies, specific to the assessment findings to improve patient care and utilize staff in
+
+        the most efficient way. Support these entities to use data-driven approaches to integrate
+
+        health extender models to right-size emergency response, preventive care, chronic disease
+
+        care, and follow-up on patients after hospital admission at home.
+
+    o Develop shared resource agreements between counties to pool personnel, training, and
+
+        equipment as needed following the assessment.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                         23
+CMS-RHT-26-001
+    o Increase the number of available allied and health extender certificate programs available
+
+       through high schools and community colleges in Idaho with focus on pharmacy, maternal
+
+       and child health, emergency services, and behavioral health.
+
+Main strategic goal: Innovative care
+
+Uses of funds: A, B, D, E, F, G, I, J, K
+
+Technical score factors: B.1, C.1, C.2, D.3, F.1
+
+Key stakeholders: EMS agencies, Idaho Bureau of EMS, rural providers including CAHs,
+
+RHCs, FQHCs, pharmacies, the five federally recognized Native nations in Idaho, Idaho
+
+Commission on Aging, post-secondary programs and institutions, career technical and
+
+professional education programs, community employers and programs (including faith-based
+
+entities and houses of worship).
+
+Outcomes:
+
+•   Increase the number of CHEMS positions supporting Idaho’s rural counties from 26 in
+
+    October 2025 to at least 62 by December 2030.
+
+•   Increase the percentage of Idaho’s rural counties that have at least one county-level full-time
+
+    equivalent paid EMS position from 28% in October 2025 to at least 97% by December 2030.
+
+•   Decrease the rate of emergency department visits for ambulatory care sensitive conditions
+
+    from 30,779.2/100,000 ED visits in 2025 to less than 24,623.3/100,000 by December 2030.
+
+•   Decrease the percentage of emergency responses to repeat users (those who received
+
+    emergency services [excluding CHEMS visits] more than once in a year) from 32% in 2013-
+
+    2016 to less than 10% by December 2030.
+
+Impacted counties: 16003, 16005, 16007, 16009, 16011, 16013, 16015, 16017, 16019, 16012,
+
+16023, 16025, 16027, 16029, 16031, 16033, 16035, 16037, 16039, 16041, 16043, 16045, 16047,
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     24
+CMS-RHT-26-001
+16049, 16051, 16053, 16055, 16057, 16059, 16061, 16063, 16065, 16067, 16069, 16071, 16073,
+
+16075, 16077, 16079, 16081, 16083, 16085, 16087
+
+Estimated required funding: $125,000,000 for five years
+
+3. Sustaining rural workforce with training, recruitment, and retention
+
+To transform rural health sustainably, this plan focuses on a comprehensive rural workforce
+
+strategy that leverages financial incentives, training pathways, infrastructure and community
+
+support to build and sustain a skilled rural health workforce addressing the need for high
+
+demand, specialty providers and allied healthcare providers in the far reaches of the state. This
+
+initiative prioritizes positions that must be physically present in rural counties to meet care
+
+needs. Participants will commit to a minimum of five years of service in rural communities,
+
+ensuring continuity of care and strengthening local health systems. Proposed use of funds:
+
+•   Ladder payments based on priority positions and rural presence to address challenges in
+
+    staffing by offering escalating incentives. A tiered system (ladder payments) based on
+
+    workforce priorities and geographic need will be implemented. Health professionals filling
+
+    essential roles in rural counties may receive incentives aligned with community need and
+
+    service during challenging shifts (e.g., weekends, nights). Expected impact: Health
+
+    professionals receiving incentives will commit to working in rural settings where recruitment
+
+    has historically been difficult, directly supporting Idaho’s most critical workforce gaps.
+
+    Those who receive incentive payments will commit to serving in a rural Idaho community for
+
+    no less than 5-years. Repayment will be required if the 5-year minimum obligation is not
+
+    fulfilled. Planned activities:
+
+    o   Recruitment incentives: Signing bonuses and relocation stipends will be made available
+
+        to attract new hires, particularly for hard-to-fill positions and shift gaps. Recruitment will
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        25
+CMS-RHT-26-001
+        actively focus on rural-based candidates and professionals with ties to Idaho communities
+
+        who are most likely to continue to live in the rural area beyond the 5-year
+
+        commitment. Other candidates who demonstrate a desire to serve a minimum 5-year
+
+        period will also be considered.
+
+    o   Retention bonuses: To foster long-term retention, health professionals meeting multi-
+
+        year service commitments in rural counties may receive retention bonuses at key
+
+        milestones (e.g., at two and four years). These bonuses reward loyalty and reduce
+
+        turnover, preserving institutional knowledge and patient trust.
+
+    o   Healthcare education scholarships: Students accepted into a healthcare education
+
+        program, with an emphasis on post-graduate programs, will be eligible to receive
+
+        scholarship funding. Requirements of the scholarship funding includes a minimum of 5-
+
+        years clinical service in a rural community and completion of their program in a
+
+        designated, appropriate, amount of time.
+
+•   Healthcare career exploration and advancement programs to attract Idahoans to pursue
+
+    healthcare careers by exposing them to opportunities within the healthcare field, to further
+
+    train those already in healthcare careers, including “learn in place” and “grow your own”
+
+    strategies available to those residing in rural communities. These programs will offer online
+
+    or in-person experiences or events in rural communities. Additionally, support development
+
+    of new healthcare education programs in areas of the state where these are not currently
+
+    established, and for needed specialties. Expected impact: More individuals who choose to
+
+    live and work in Idaho’s rural communities going into, or advancing in, healthcare careers.
+
+    Planned activities:
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       26
+CMS-RHT-26-001
+    o   In coordination with post-secondary programs and institutions, develop healthcare
+
+        profession training and education programs using a “learn in place” or “grow your own”
+
+        approach. These could also be made available within high schools to create a career
+
+        pathway for students.
+
+    o   Develop or enhance available training, education, and degree programs for healthcare
+
+        professions in coordination with educational institutions. This could include new
+
+        undergraduate medical education pathways explicitly serving rural populations, degree or
+
+        certificate programs, and space renovations to support learning and training.
+
+    o   Provide incentives for staffing or healthcare professionals serving as mentors and
+
+        instructors for new or enhanced healthcare profession programs with a minimum 5-year
+
+        obligation.
+
+•   Work-based learning: Support creation of new healthcare career apprenticeship and
+
+    preceptorship programs including providing supervision incentives. Expected impact:
+
+    Increase in available programs and the number of available preceptors, supervisors, and
+
+    mentors with a minimum 5-year obligation. Planned activities:
+
+    o   Develop partnerships with post-secondary programs and institutions and provider entities
+
+        to create new preceptorship programs with priority for nursing, dental, mental and
+
+        behavioral health, pharmacy, and allied health students in rural communities
+
+    o   Provide incentives to supervisors who mentor students in rural settings, strengthening
+
+        training capacity and encouraging trainees to remain locally.
+
+•   Graduate medical education programs with a priority on obstetrics and gynecology,
+
+    mental and behavioral health, and geriatrics. These specialties are in high need and will help
+
+    close provider specialty gaps in rural communities. These programs will emphasize placing
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     27
+CMS-RHT-26-001
+    clinicians on rotations in rural communities where there is a significant need for these
+
+    specialties. Planned activities:
+
+    o   Fellowships: Establish specialized fellowship opportunities in rural hospitals and clinics,
+
+        with an emphasis on behavioral health, obstetrics and gynecology, and geriatrics. Fellows
+
+        will gain immersive rural experience with structured mentorship and financial support.
+
+    o   Residency programs: Enhance existing rural residency programs and create new tracks
+
+        where needed, including but not limited to obstetrics and gynecology, behavioral health,
+
+        and geriatrics. Where appropriate, this may support GME programs with short-term
+
+        housing rental costs to support increased rotational opportunities and expose more
+
+        residents to practice in rural settings. Residency in rural areas increases the likelihood
+
+        clinicians will establish practices there after training. This could also be paired with
+
+        proposed ladder payments to recruit for longer-term provider employment.
+
+Main strategic goal: Workforce development
+
+Uses of funds: E, G, H
+
+Technical score factors: C.1, D.1
+
+Key stakeholders: Junior high and high schools, pathway programs, post-secondary programs
+
+and institutions, career technical and professional education programs, professional associations,
+
+the five federally recognized Native nations in Idaho, hospitals, other healthcare and non-
+
+healthcare facilities, community-based organizations.
+
+Outcomes:
+
+•   Increase the number of individuals completing a “learn in place” or “grow your own”
+
+    program to at least 200 by December 2030.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                         28
+CMS-RHT-26-001
+•   Increase the number of individuals completing a new fellowship program to at least 20 by
+
+    December 2030.
+
+•   Increase the number of individuals completing a new residency program to at least 10 by
+
+    December 2030.
+
+•   Increase the number of physicians per 100,000 individuals living in Idaho from 193 in 2023
+
+    to at least 195 by December 2030.
+
+Impacted counties: 16003, 16005, 16007, 16009, 16011, 16013, 16015, 16017, 16019, 16012,
+
+16023, 16025, 16027, 16029, 16031, 16033, 16035, 16037, 16039, 16041, 16043, 16045, 16047,
+
+16049, 16051, 16053, 16055, 16057, 16059, 16061, 16063, 16065, 16067, 16069, 16071, 16073,
+
+16075, 16077, 16079, 16081, 16083, 16085, 16087
+
+Estimated required funding: $172,500,000 for five years
+
+4. Implement population specific, evidence-based projects to Make America Healthy Again
+
+This initiative will advance Idaho’s rural health systems by implementing population-specific,
+
+evidence-based prevention and treatment programs that address chronic disease, behavioral
+
+health, and maternal and child health; and build local capacity for implementation and ongoing
+
+sustainability. To ensure long-term impact, all interventions will be based on proven models and
+
+supported by training, monitoring, and evaluation systems. Proposed use of funds:
+
+•   Chronic disease prevention and treatment to reduce incidence and improve management
+
+    of chronic diseases through proven prevention, screening, and education programs accessible
+
+    to rural populations. Plan to implement evidence-based programs that prevent, manage, and
+
+    reduce the burden of chronic disease across rural Idaho. Partner with rural entities beyond
+
+    traditional healthcare facilities such as faith-based organizations or local community
+
+    organizations, to support prevention activities. Expected outcomes: Increased local capacity
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      29
+CMS-RHT-26-001
+    for screening, early intervention, and patient self-management through community-based
+
+    delivery models and partnerships. Planned activities:
+
+    o   National Diabetes Prevention Program (DPP): Bring National DPP to additional
+
+        communities to provide proven interventions that prevent or delay type 2 diabetes and
+
+        reduce long-term healthcare costs.
+
+    o   Diabetes self-management education and support (DSMES): Implement DSMES
+
+        programs to help patients prevent complications and improve self-care and health.
+
+    o   Alzheimer’s and related dementias: Support development of dementia awareness
+
+        materials and screening capabilities within rural provider entities. Leverage technology to
+
+        support screening and improve early detection and proactive care planning for older
+
+        adults and families who reside in rural areas.
+
+    o   Cancer, heart disease, and other chronic disease prevention programs: Implement
+
+        scalable, technology-based programs to promote sustainable habits to prevent chronic
+
+        disease, which could include nutrition, activity, and other evidence-based programs.
+
+•   Behavioral health prevention and treatment to expand access to behavioral health services
+
+    through integration into primary care, school-based programs, and mobile or telehealth-
+
+    enabled crisis response. Funds will promote early intervention, coordinated treatment, and
+
+    resilience-building. Expected impact: Improved continuum of care addressing prevention,
+
+    crisis response, and treatment tailored to rural realities. Planned activities:
+
+    o   Pediatric psychiatry access line (PPAL): Support initial start-up costs to implement a
+
+        PPAL. Idaho lacks a centralized resource for pediatric providers to consult with child
+
+        psychiatrists on child behavioral health conditions. Given the state’s shortage of child
+
+        psychiatrists, pediatricians often are tasked with managing behavioral health conditions.
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       30
+CMS-RHT-26-001
+        A PPAL will bridge that gap, empowering primary care physicians to identify and
+
+        manage youth mental health conditions earlier and reduce unnecessary hospitalizations.
+
+    o   Mobile crisis response and MAT linkage: Enhance mobile crisis response teams
+
+        service to include post crisis linkage. This ensures individuals in crisis are connected to
+
+        ongoing care. Advance medication assisted treatment (MAT), developing options that
+
+        may include mobile medication services to reach underserved areas and reduce overdose.
+
+    o   Space for parent-selected behavioral health professionals to support access to services
+
+        through integration into school-based settings while mitigating disruption during the
+
+        academic day. Rural families often must travel for mental health treatment, resulting in
+
+        substantial disruption to a child’s school day or absence of care. By providing or creating
+
+        space at existing schools, parent-selected mental health professionals can come to the
+
+        student, improving early learning and access to parent-selected care while reducing crisis
+
+        episodes and class disruption. All activities will follow the Idaho Parental Rights Act,
+
+        Idaho Code 32-1010.
+
+    o   Behavioral health prevention and education programming: Partner with rural
+
+        healthcare facilities, community organizations, including faith-based entities and houses
+
+        of worship, to implement evidence-based mental health and substance use prevention and
+
+        education programming. Programming will focus on self-sustaining models and
+
+        integration within existing prevention and treatment services. Idaho’s high suicide and
+
+        substance use rates, which are particularly prevalent in rural counties, underscore the
+
+        need for stronger prevention efforts.
+
+•   Maternal and child health efforts to strengthen maternal and perinatal care through
+
+    implementation of evidence-based programs that improve maternal safety, enhance prenatal
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          31
+CMS-RHT-26-001
+   and postpartum services, and coordinate community-based supports for mothers and infants.
+
+   Many Idaho rural and frontier counties lack obstetric providers and birthing facilities. These
+
+   shortages contribute to delayed prenatal care and preventable complications. Expected
+
+   outcomes: Strengthen Idaho’s capacity to deliver timely, high-quality prenatal, delivery, and
+
+   postpartum care. Planned activities:
+
+   o   Complete statewide maternal and neonatal care assessment to collect data and
+
+       establish baseline understanding of the resources available across the state. Leverage
+
+       assessment to prioritize funding and supports to close gaps in care.
+
+   o   Maternal and child health programs to reduce differences in maternal outcomes in
+
+       rural areas. Address leading causes of maternal mortality and morbidity. Support rural
+
+       provider entity obstetric readiness for both birthing and non-birthing facilities and launch
+
+       quality improvement initiative with an Obstetric Emergency Readiness Resource Kit to
+
+       meet the CMS Obstetrical Services’ Conditions of Participation.
+
+   o   Idaho Perinatal Quality Collaborative (IPQC) initiatives to enhance IPQC
+
+       participation into rural hospitals and clinics. The IPQC plays a vital role in improving
+
+       outcomes for mothers and infants through data-driven quality improvement projects.
+
+       Smaller and rural hospitals often lack the capacity to participate fully in statewide
+
+       initiatives. Enhancing IPQC participation will ensure all rural hospitals benefit from
+
+       evidence-based best practices to reduce severe maternal morbidity, prevent preterm
+
+       births, and improve newborn outcomes. Program expansion will be limited to rural areas
+
+       with new hospitals, new activities, and new milestones.
+
+Main strategic goal: Make rural America healthy again
+
+Uses of funds: A, C, D, E, F, G, H, I, K
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      32
+CMS-RHT-26-001
+Technical score factors: B.1, B.2, B.4, C.1, D.3, E.2, F.1, F.3
+
+Key stakeholders: RHCs, CAHs, FQHCs, behavioral health clinics and providers, school
+
+systems, the five federally recognized Native nations in Idaho, primary care clinics, community-
+
+based organizations, including faith-based organizations and houses of worship.
+
+Outcomes:
+
+•   Increase the percentage of individuals newly enrolled in a new or enhanced evidence-based
+
+    chronic disease prevention or treatment program who reach program specific retention or
+
+    completion milestones to at least 50% by December 2030.
+
+•   Increase the percentage of individuals enrolled in a new or enhanced evidence-based chronic
+
+    disease prevention or treatment program who reach program specific clinical outcome
+
+    measures (e.g., weight or blood pressure reduction) to at least 50% by December 2030.
+
+•   Increase the number of rural hospitals completing one or more new perinatal collaborative
+
+    initiatives from zero to eight by December 2030.
+
+•   Decrease the number of deaths from suicide, drug overdose, and alcoholism by 25% from
+
+    1,216 in 2023 to 912 or fewer by December 2030.
+
+•   Decrease the number of monthly emergency department visits for suicidality, drug overdose,
+
+    and alcoholism from 625 in September 2025 to 400 by December 2030.
+
+Impacted counties: 16003, 16005, 16007, 16009, 16011, 16013, 16015, 16017, 16019, 16012,
+
+16023, 16025, 16027, 16029, 16031, 16033, 16035, 16037, 16039, 16041, 16043, 16045, 16047,
+
+16049, 16051, 16053, 16055, 16057, 16059, 16061, 16063, 16065, 16067, 16069, 16071, 16073,
+
+16075, 16077, 16079, 16081, 16083, 16085, 16087
+
+Estimated required funding: $75,000,000 for five years
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                    33
+CMS-RHT-26-001
+5. Investing in rural health infrastructure and partnerships
+
+This initiative aims to address sustainable access to rural healthcare through investments in rural
+
+health infrastructure and partnerships including Tribal rural health transformation support.
+
+Proposed use of funds:
+
+•   Healthcare facility renovations tied to other Idaho RHTP initiatives. Initiatives 1, 3, 4 and 5
+
+    could require facility and equipment upgrades to support innovative care delivery, such as
+
+    spaces and technology appropriate for telehealth services and evidence-based programs to
+
+    MAHA. Funds could be used to support healthcare facility renovations that will allow for
+
+    implementation of innovative care and accommodate specialized equipment. All funded
+
+    projects would require financial viability/instability assessment and needs modeling.
+
+    Expected impact: Modernization of healthcare facilities will allow for implementation of
+
+    innovative care initiatives. Planned activities:
+
+    o Once statewide assessment of technology gaps, needs, and readiness in rural healthcare
+
+       facilities is complete in Initiative 1, identify and support space upgrades that will
+
+       accommodate technology infrastructure.
+
+    o Support renovations of areas within existing healthcare facilities to accommodate training
+
+       and supervision of health extenders.
+
+    o Support renovations of areas within existing healthcare facilities to facilitate deployment
+
+       of evidence-based programs for chronic disease prevention and treatment, behavioral
+
+       health (including programs serving individuals with co-occurring intellectual and
+
+       developmental disabilities), dental services, and maternal and child health.
+
+•   Pharmacy solutions to enhance healthcare access in rural communities. Pharmacies play a
+
+    key role in enhancing healthcare access in rural communities, often with extended hours,
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     34
+CMS-RHT-26-001
+    where there may be no other healthcare providers. Clinical pharmacists can also play a
+
+    critical role within healthcare clinics, such as medication reconciliation, review for dosing
+
+    and safety, testing for common illnesses and conditions, prescribing for certain medications,
+
+    and provision of medication for opioid use disorders (all allowed per Idaho law). Pharmacists
+
+    can assist patients with obtaining medications for lower cost to the patient through
+
+    medication-assistance programs. Expected impact: Enhancing role of pharmacies and
+
+    pharmacists in rural areas will increase healthcare access in rural areas Planned activities:
+
+    o Upgrade pharmacy facilities to create space for the practice of clinical pharmacy services
+
+       within Idaho’s allowable scope of practice for pharmacists.
+
+    o Renovate areas within outpatient clinics to provide space for clinical pharmacists to
+
+       provide consultation--either in person or via remote services.
+
+    o Purchase pharmacy lockers in centralized community spaces from which patients can
+
+       obtain medication refills without needing to be seen by a pharmacist or pharmacy
+
+       technician or mail orders can be securely delivered.
+
+•   Clinical equipment purchases to help rural healthcare facilities offer more efficient,
+
+    modernized services and generate ongoing revenue. Examples of equipment purchases that
+
+    could be supported include remote monitoring equipment, pharmaceutical equipment for
+
+    compounding pharmaceuticals, automated medication dispensing systems, lab equipment,
+
+    cardiac catheterization lab equipment, dental chairs and dental equipment, imaging
+
+    equipment such as mammography units, DEXA scanners, MRIs, CT scanners, and other
+
+    imaging modalities. Expected impact: Decreased travel time for rural residents able to
+
+    receive higher level services closer to home. Revenue generation for rural provider entities.
+
+    Planned activities:
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        35
+CMS-RHT-26-001
+    o Establish a process for soliciting requests for clinic equipment purchases and prioritize
+
+       those that provide for modernized or enhanced services within rural areas. Leverage
+
+       healthcare assessments outlined in other initiatives to prioritize and target areas for clinic
+
+       equipment purchases.
+
+•   Vehicles for patient transport and rural mobile health units to bring services to rural
+
+    areas with limited healthcare access. Lack of transportation can be a major barrier to
+
+    healthcare access in rural areas. Enhance existing successful mobile unit models in Idaho,
+
+    using retrofitted vehicles to deliver full primary, preventive, and basic urgent care services to
+
+    rural communities, including point-of-care testing, and on-board EHR capabilities. Other
+
+    services, such as mammography, can be offered via mobile units. In addition, certain
+
+    services, such as obstetrics and certain specialty care (e.g., dialysis) require in-person service
+
+    delivery. Expected impact: Addressing transportation barriers in rural communities will
+
+    improve healthcare access. Planned activities:
+
+    o Support rural clinics, hospitals, or other facilities to purchase and retrofit vehicles to
+
+       enhance services to rural areas with limited healthcare access and for patient transport,
+
+       including ambulances for emergency transportation.
+
+    o Purchase mobile mammography units so mammograms can be offered in rural
+
+       communities where mammography is not available.
+
+    o Create partnerships with volunteer driver programs; shared emergency vehicle
+
+       partnerships within regions; and ride coordination for ongoing transportation availability.
+
+•   Bring all healthcare facilities into compliance with current federal, state, and local
+
+    safety code to ensure patients and providers are safe. Many Idaho rural provider entities,
+
+    such as critical access hospitals, were built decades ago and need physical structure upgrades
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        36
+CMS-RHT-26-001
+    to ensure patient and provider safety. Expected impact: Reduced risk of critical safety
+
+    incidents. Planned activities:
+
+    o Provide funds for Idaho rural healthcare facilities to support physical structure upgrades
+
+       to bring them into compliance with current local, state, and federal safety codes.
+
+•   Tribal rural health transformation support to strengthen partnership and improve health
+
+    outcomes for the five federally recognized Native nations residing in Idaho. A set-aside of
+
+    three and a half percent of the total award has been proposed to support tribal RHTP goals
+
+    and approved use of funds in alignment with the Idaho RHTP plan. Expected impact:
+
+    Support for targeted investments for tribal healthcare facilities and efforts to transform the
+
+    availability of services serving Native nations members residing in Idaho. Planned activities:
+
+    o IDHW will request the five federally recognized tribes in Idaho to submit a coordinated
+
+        proposal for use of the three and a half percent set-aside over the five-year period. The
+
+        proposal will be required to align with this submitted application and Idaho’s proposed
+
+        use of funds and will be due by February 28, 2026.
+
+Main strategic goal: Sustainable access
+
+Uses of funds: A, E, G, I, J, K
+
+Technical score factors: B.1., C.1, D.1., F.1 (if renovations tied to remote care services)
+
+Key stakeholders: Healthcare systems and clinics, RHCs, CAHs, FQHCs, the five federally
+
+recognized Native nations in Idaho, and pharmacies
+
+Outcomes:
+
+•   Each of the five federally recognized tribes in Idaho will implement an approved RHTP plan
+
+    that aligns with Idaho’s RHTP plan by December 2030.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                         37
+CMS-RHT-26-001
+•   Increase the number of preventive screenings (e.g. mammograms) completed through new
+
+    mobile service delivery units to 2,000 per year by December 2030.
+
+•   Increase the number of pharmacy sites using new pharmacy lockers/kiosks to one in each of
+
+    seven rural counties by December 2030.
+
+•   Increase the ‘Getting needed care’ composite score on the federally required Medicaid
+
+    Consumer Assessment of Healthcare Providers and Systems (CAHPS) Health Plan Survey
+
+    5.1H, Adult Version (Medicaid) from 83.3% in 2024 to at least 90% by December 2030.
+
+Impacted counties: 16003, 16005, 16007, 16009, 16011, 16013, 16015, 16017, 16019, 16012,
+
+16023, 16025, 16027, 16029, 16031, 16033, 16035, 16037, 16039, 16041, 16043, 16045, 16047,
+
+16049, 16051, 16053, 16055, 16057, 16059, 16061, 16063, 16065, 16067, 16069, 16071, 16073,
+
+16075, 16077, 16079, 16081, 16083, 16085, 16087
+
+Estimated required funding: $387,000,000 for five years
+
+Implementation plan and timeline
+
+Governance and project management structure: IDHW will serve as the lead state agency for
+
+the RHTP and will coordinate closely with Legislative leadership (including the Joint Finance
+
+and Appropriations Committee and germane committees for Health & Welfare), partner state
+
+agencies, private business, community organizations including faith-based organizations and
+
+houses of worship, Native nations, local stakeholders, and federal collaborators throughout the
+
+duration of the grant. Frequent communication, cross-agency alignment, and a clearly defined
+
+decision-making process will be essential to successful implementation, given the scope of
+
+changes that will occur in rural communities and across Idaho’s healthcare system. IDHW will
+
+coordinate with a Governor’s RHTP Task Force, which will serve as the primary advisory and
+
+stakeholder alignment body throughout the duration of the funding period. The task force will
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      38
+CMS-RHT-26-001
+meet quarterly throughout the grant period to review program milestones, provide feedback on
+
+key decisions, and help troubleshoot implementation challenges. Task force membership may
+
+include applicable state agencies, Legislative partners, Native nations, rural healthcare providers
+
+(rural healthcare facilities, EMS, behavioral health providers, etc.) and other key rural
+
+stakeholders.
+
+To ensure strong internal coordination among engaged state agencies and branches of state
+
+government, IDHW will establish a structured governance and transparent communication model
+
+that includes:
+
+•   Monthly interagency coordination meetings, within IDHW and applicable agency
+
+    divisions (e.g. Medicaid and Behavioral Health), and any supporting state agencies, boards,
+
+    and councils.
+
+•   Quarterly contractor coordination meetings, beginning in Q3 2026, once vendor partners
+
+    are procured.
+
+•   Quarterly legislative report updates, beginning in Q2 of 2026 (or earlier as directed) to be
+
+    provided to the Idaho Legislature on overall progress, key milestones, expenditures, and
+
+    compliance updates.
+
+•   Annual public reporting on impacts, outcomes, and rural access measures to be shared
+
+    on the IDHW website and discussed at semi-annual stakeholder briefings.
+
+•   Semi-annual public stakeholder briefings to share progress, gather input, and maintain
+
+    rural community trust and participation.
+
+•   A formal decision-making framework that defines roles, responsibilities, escalation
+
+    pathways, and approval authority for all major implementation decisions and issue
+
+    resolution.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     39
+CMS-RHT-26-001
+Progress will be tracked quarterly, with milestone-based deliverables and continuous stakeholder
+
+engagement to ensure transparency, accountability, and sustained system transformation. Final
+
+program evaluation and close-out reporting will be completed in 2031.
+
+IDHW will dedicate 15.0 full time employees to this program, the majority of which will be
+
+hired specifically for this project and on a temporary basis only through the funding period (See
+
+Office of Idaho Rural Health Transformation organizational chart in ID RHTP Other Supporting
+
+Documentation). Project management support and technical assistance vendors will be
+
+contracted in Q2-Q3 of 2026. IDHW will also seek contracted support for evaluation, data
+
+collection, outcome measurement, and financial reporting.
+
+When initiating agreements tied to RHTP funds, IDHW will follow all Idaho procurement and
+
+contracting laws and federal requirements outlined in the Notice of Funding Opportunity
+
+(NoFO). Awards and subawards will also require that contractors comply with Idaho laws
+
+aligned with the Administration, including No Public Funds for Abortion Act, Idaho Code title
+
+18, chapter 87; Idaho Code 67-7903 outlining lawful presence requirements; and anti-boycott or
+
+anti-ESG standards laws related to Israel, firearms, fossil fuel-based energy, timber, minerals,
+
+hydroelectric power, nuclear energy, and agriculture (Idaho Code 67-2346, 67-2347A); and
+
+others related to higher education (Idaho Code 67-5909D). Contractors must also verify they are
+
+not owned or operated by the government of China (Idaho Code 67-2359). Subaward
+
+solicitations will include program criteria as specifically called out in the NoFO and Idaho
+
+specific criteria in alignment with current Executive and Legislative branch actions and
+
+priorities. Criteria will include items such as full pricing transparency to patients, rural access
+
+guarantees, long-term fiscal discipline and sustainability beyond the 5-year funding period,
+
+ensuring funds do not duplicate or supplant existing programs or current funding streams, target
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          40
+CMS-RHT-26-001
+population alignment, feasibility within funding period, and direct impact on the health of
+
+Idahoans residing in rural communities. IDHW will partner with other state entities for subject
+
+matter expertise to support successful subaward solicitations such as the State Board of
+
+Education, Idaho Office of Information Technology Services, and the Idaho Workforce
+
+Development Council. All terms and conditions of the federal award will flow down to
+
+subawards, and contractors as specified in 2 CFR 200.101(b)(1).
+
+Initiative timelines
+
+Initiative 1: Improving rural access to care through technology
+   Stage                     Key Activities                        Milestones & Deliverables
+            • Execute contracts and formalize              Q1–Q2: Contracts executed; statewide
+              partnerships                                 assessments launched
+            • Conduct statewide technology readiness Q3: Facility technology assessments
+2026          and facility assessments                     completed; cybersecurity gap analysis
+Stage 0-1 • Begin development of shared                    initiated
+              infrastructure strategy and interoperability Q4: Shared infrastructure and
+              based on CMS Interoperability Framework interoperability roadmap and
+            • Initiate cybersecurity baseline assessments cybersecurity baseline finalized
+            • Launch telehealth infrastructure
+              enhancements (equipment, software)           Q1–Q2: Telehealth equipment installed
+            • Begin digital health and mobile app          in first rural sites; digital tools released
+              procurement                                  Q3: Cybersecurity upgrades
+2027
+            • Implement cybersecurity upgrades             implemented in pilot locations; first
+Stage 1
+            • Begin Idaho Health Alert Network (HAN) HAN modernization tasks completed
+              system modernization                         Q4: Initial provider and IT workforce
+            • Initiate training programs for providers     training completed
+              and IT staff
+            • Establish regional telehealth networks and
+                                                           Q2: Majority of rural sites live with
+              implement telepharmacy models
+                                                           telehealth/telepharmacy
+            • Begin health management software rollout
+2028                                                       Q3: Population health and AI tools
+Stage 2 • Deploy AI tools for revenue and care             deployed in pilot facilities
+              optimization                                 Q4: NG911 emergency communication
+            • Launch emergency communication system upgrades launched
+              upgrades (NG911)
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                          41
+CMS-RHT-26-001
+           • Evaluate early outcomes of telehealth and
+             digital health tools
+                                                         Q2: Midpoint evaluation report
+           • Enhance EHR upgrades and
+2029                                                     Q3: Multi-facility interoperability
+             interoperability efforts
+Stage 3                                                  Q4: Achieved regional analytics
+           • Scale health management data analytics dashboards deployed
+           • Continue cybersecurity monitoring and
+             training
+           • Continue implementation of all tech
+             solutions and data tools                    Q3: 90% of targeted rural facilities using
+2030       • Conduct usability assessments and adapt updated systems
+Stage 4      tools for local needs                       Q4: Maintenance and sustainability
+           • Develop sustainability and maintenance plans drafted
+             models for infrastructure
+           • Conduct final program evaluation and        Q2: Outcome data compiled and shared
+             reporting                                   with stakeholders
+2031       • Assess outcomes in care access, efficiency, Q3: Technology systems transitioned to
+Stage 5      cost, and quality                           long-term management
+           • Disseminate findings and ensure             Q4: Final evaluation and impact report
+             sustainable post-grant transitions          submitted
+
+Initiative 2: Ensuring accessible quality care through innovative models
+   Stage                     Key Activities                      Milestones & Deliverables
+            • Execute contracts and engage partners        Q1–Q2: Contracts and needs
+            • Begin community needs assessments            assessments initiated
+2026        • Plan deployment of diagnostic kiosks,        Q3: Site selection for kiosks/pharmacy
+Stage 0-1 telehealth pods, and pharmacy access points access points
+            • Development of curriculum for health         Q4: Community needs and healthcare
+              extender certification programs              assessment completed
+            • Begin installation of diagnostic and
+              telehealth infrastructure in community       Q1: EMS support grants disbursed to
+              locations                                    high-need counties
+2027        • EMS workgroup convened                       Q2: Diagnostic kiosks and telehealth
+Stage 1 • Remote patient monitoring and pharmacy pods live in pilot areas
+              access solutions initiated                   Q2-Q3: First cohort of health extenders
+            • Hiring and training initial cohort of health working in the field
+              extenders in rural communities
+                                                           Q2: Remote monitoring systems
+            • Enhance remote patient monitoring and        integrated with local clinics
+              pharmacy access solutions                    Q3: Pharmacy lockers and mail-order
+2028        • Continue health extender recruitment and services enhanced. EMS systems linked
+Stage 2       integration with healthcare partners         with local hospitals or data exchange
+            • Begin building shared infrastructure (e.g., platforms.
+              credentialing, prior authorization systems) Q4: Draft shared infrastructure models
+                                                           completed
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                    42
+CMS-RHT-26-001
+           • Continue training and deploying health
+                                                          Q2: Stakeholder feedback sessions held
+2029         extenders in rural areas
+                                                          Q4: Midpoint evaluation of
+Stage 3    • Continue evaluation of diagnostic and        community-based access models
+             community care models
+                                                          completed
+           • Enhance cross-training of health extenders
+                                                        Q2: Expanded health extender roles
+           • Support sustained integration of health
+2030                                                    and training completed
+             extenders and remote care systems
+Stage 4                                                 Q4: County-level shared resource
+           • Finalize EMS coverage maps and health      agreements finalized
+             extender optimization strategies
+           • Conduct final evaluation of initiative
+             outcomes
+           • Complete reporting on health access        Q4: Final reports submitted.
+2031
+             improvements, workforce impacts, and care Sustainability plans adopted for EMS,
+Stage 5
+             quality                                    health extender, and diagnostic models
+           • Transition successful models to long-term
+              funding and oversight structures
+
+Initiative 3: Sustaining rural workforce with training, recruitment, and retention
+   Stage                      Key Activities                     Milestones & Deliverables
+            • Finalize contracts and partnerships
+                                                          Q1: Contracts signed
+            • Develop program infrastructure,
+                                                          Q2: Program guidelines and payment
+              requirements, and outreach plans
+2026                                                      structure finalized
+            • Pilot healthcare   career exploration and
+Stage 0-1                                                 Q4: Initial pilot programs launched in
+              recruitment efforts                         selected rural communities
+            • Begin Graduate Medical Education (GME) Q4: Sites selected for GME expansion
+              planning and program development.
+            • Launch preceptorships and apprenticeships
+            • Enhance outreach and student engagement
+              efforts
+                                                          Q2: First cohort recruited and deployed
+            • Continued GME program development,
+                                                          Q3: Career exploration programs active
+2027          instructor hiring, etc.
+                                                          statewide. Preceptorships active in rural
+Stage 1 • Implement retention bonuses, recruitment
+                                                          sites. Fellowship and residency active
+              incentives, and scholarships
+            • Launch rural residency expansions and
+              nursing education cohorts
+            • Initiate “grow your own” programs
+            • Fellowship and residency programs launch
+                                                          Q1: First cohort in Year 1 of service
+               in rural settings
+                                                          Q2: GME programs begin training
+2028        • Enhanced mentorship, training, and career
+                                                          clinicians in rural areas
+Stage 2       pathway support
+                                                          Q4: Mentorship and supervisor
+            • Intensify recruitment incentives, retention incentives disbursed
+              bonuses, and scholarships
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                    43
+CMS-RHT-26-001
+           • Midpoint program evaluation
+           • Adjust program design as needed             Q2: Interim evaluation completed and
+           • Enhance partnerships and training pathways adjusted program guidelines issued
+2029
+           • Continue incentive distributions            Q3: Workforce pathway strengthened
+Stage 3
+           • Enhance training and career advancement Q4: 2-year retention bonuses disbursed
+           • Strengthen “grow your own” programs         to early cohort
+           • Evaluate recruitment and retention impacts
+           • Continue implementation and refinement Q2: Long-term sustainability strategy
+2030       • Plan for sustainability and post-grant      drafted
+Stage 4      transition                                  Q4: 4-year retention bonuses disbursed
+           • Ongoing incentive and training delivery     and annual reporting to stakeholders
+                                                         Q1: Final cohort recruited
+           • Final reporting and program closeout
+                                                         Q3: Results shared with state leaders
+2031       • Evaluate outcomes and impact
+                                                         and partners
+Stage 5    • Disseminate findings and support transition Q4: Final evaluation and impact report
+             to permanent programs                       completed
+
+Initiative 4: Implementing population specific, evidenced-based projects to MAHA
+   Stage                     Key Activities                      Milestones & Deliverables
+            • Contract award and kickoff
+            • Establish partnerships
+            • Finalize program protocols                   Q1: Contracts executed
+2026
+                                                           Q2: Initial programs launch
+Stage 0-1 • Develop data systems
+            • Launch initial programs (NDPP, Pediatric Q4: Training programs initiated
+              Psychiatry Access Line)
+            • Start training and certification programs
+            • Scale chronic disease and mental health
+2027                                                       Q2: Program enrollment increased
+              programs
+Stage 1                                                    Q4: First data reports
+            • Collect baseline data
+            • Conduct mid-project evaluation               Q2: Midpoint evaluation report
+2028        • Adjust program strategies                    Q3: Program modifications
+Stage 2 • Deepen community engagement                      implemented
+            • Enhance prevention programs                  Q4: Enhanced service coverage
+2029        • Develop sustainability plans                 Q2: Sustainability plan drafted
+Stage 3 • Enhance data-driven decision making              Q4: Improved health indicators
+            • Complete program delivery
+2030        • Conduct long-term outcome evaluation         Q2: Final evaluation completed
+Stage 4 • Prepare final reports                            Q4: Reports submitted
+            • Transition ownership to local/state entities
+                                                           Q2: Closeout documentation
+            • Complete administrative closeout
+2031                                                       Q3: Public briefing
+            • Public dissemination of outcomes
+Stage 5                                                    Q4: Knowledge dissemination
+            • Document lessons learned                     completed
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                  44
+CMS-RHT-26-001
+Initiative 5: Investing in rural health infrastructure and partnerships initiative
+   Stage                     Key Activities                        Milestones & Deliverables
+            • Execute contracts and engage healthcare
+              facility and partner stakeholders
+                                                            Q1: Contracts signed, and grant
+            • Begin facility and infrastructure needs
+                                                            governance structure established.
+              assessments
+                                                            Native nations proposals reviewed and
+            • Develop   application  and  prioritization
+2026                                                        accepted.
+              process for renovations, equipment, and
+Stage 0                                                     Q2: Facility needs assessment
+              vehicle requests                              framework finalized
+            • Work with five federally recognized Native Q3: Application process for
+              nations in Idaho to submit a coordinated      infrastructure upgrades launched
+              proposal for use of the three and a half
+              percent set-aside over the five-year period.
+            • Begin disbursing funds for renovations        Q1: First round of facility renovations
+                                                            Q1: Mobile health services launched in
+            • Launch pharmacy facility upgrades and
+                                                            underserved areas
+              clinical pharmacy integration projects
+                                                            Q2: Transport vehicles deployed
+            • Initiate purchase of clinical equipment and
+2027                                                        Q2: Pharmacy upgrade and locker
+              safety code compliance grants
+Stage 1                                                     installations started, and equipment
+            • Develop GME and health extender training purchase requests reviewed and
+              space renovation plans                        approved
+            • Deploy mobile health units and patient        Q4: Mini grants for safety code
+              transport vehicles                            compliance disbursed
+            • Implement and evaluate upgraded training Q3: Renovated telehealth/training areas
+2028          and telehealth spaces                         in use
+Stage 2 • Continue supporting pharmacy access and Q4: Pharmacy renovations and
+              chronic disease program space renovations medication access programs enhanced
+            • Monitor implementation progress and
+              gather facility-level impact data             Q2: Midpoint program review and
+2029        • Provide technical assistance for sustained progress report completed
+Stage 3       maintenance of infrastructure and             Q3: Technical assistance plans
+              equipment                                     delivered to grantees.
+            • Continue partnership development
+            • Optimize infrastructure and equipment
+                                                            Q1: Infrastructure and clinical asset
+              utilization across facilities
+                                                            utilization review completed
+2030        • Identify lessons learned and best practices
+                                                            Q3: Long-term maintenance and
+Stage 4 • Support long-term planning for
+                                                            sustainability models developed
+              sustainability and facility maintenance post- Q4: Final round of mini grants issued
+              grant
+                                                            Q1: Final impact and outcomes report
+            • Conduct final evaluation of infrastructure submitted
+2031          investments and partnerships                  Q2: Summary of service expansion and
+Stage 5 • Complete reporting on access, service             access improvements completed
+              expansion, and safety improvements            Q4: Recommendations shared with
+                                                            state policymakers and stakeholders
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     45
+CMS-RHT-26-001
+           • Disseminate outcomes and
+             recommendations for future rural health
+             infrastructure planning
+
+Stakeholder engagement
+
+Rural stakeholder input in planning Idaho’s RHTP: Under the leadership of the Governor’s
+
+Office, IDHW is committed to transforming rural healthcare through sustainable, collaborative,
+
+and data-driven partnerships. To inform Idaho’s RHTP plan, IDHW conducted a statewide
+
+public and stakeholder input survey from September 5–30, 2025, prior to CMS’s release of the
+
+NoFO. The survey gathered input on rural healthcare challenges, funding priorities across the
+
+nine NoFO areas, hospital financial risk, regional care gaps, and strategies for sustaining rural
+
+providers. Respondents also offered general feedback on how Idaho should prioritize RHTP
+
+investments. The survey was broadly distributed through IDHW’s internal and external partner
+
+networks, website, social media, and statewide media channels. IDHW received over 500
+
+responses and 200 proposed concepts. Respondents included healthcare associations, nonprofits,
+
+RHCs, CAHs, FQHCs, primary care and behavioral health providers, dental providers, rural
+
+hospitals, independent clinics, educational institutions, Native nations, local governments, and
+
+members of the public. All 44 Idaho counties were represented. IDHW also held two formal
+
+Tribal Consultations with tribal leaders and held several meetings with tribal health leaders.
+
+Consultation and meetings aimed to provide an opportunity for IDHW to share information on
+
+the RHTP grant and the use of funds with tribal leaders, share public survey results, gather input
+
+on tribal member healthcare concerns, challenges, and their specific needs to transform care for
+
+tribal members specific to each individual tribe. As noted in the above section, Idaho has
+
+proposed a three and a half percent set-aside to support targeted efforts supporting the federally
+
+recognized Native nations in Idaho.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        46
+CMS-RHT-26-001
+Survey findings informed the development of Idaho’s five RHTP initiatives, related activities,
+
+infrastructure needs, and partnerships. Prior to submission, IDHW shared these initiatives with
+
+legislative leadership to ensure alignment with state priorities. Governor Little reinforced this
+
+collaboration by issuing an Executive Order in October 2025 establishing an RHTP Task Force,
+
+including representatives from the Legislature, State Board of Education, Workforce
+
+Development Council, Military Division, Tribal governments, and IDHW, to review and refine
+
+proposed fund uses. The pre-submission Task Force met several times in late October 2025 to
+
+finalize recommendations.
+
+Idaho RHTP stakeholder engagement framework: Sustained stakeholder engagement is central
+
+to Idaho’s RHTP. Through both statewide and regional approaches, IDHW will ensure ongoing
+
+input from rural communities, fostering long-term collaboration and system sustainability.
+
+The Governor’s RHTP Task Force will guide Idaho’s five initiatives, strengthen regional
+
+partnerships, and maintain alignment with local needs. Task Force members will include
+
+legislators from rural districts, the Idaho Behavioral Health Council, Tribal representatives, and
+
+key IDHW staff (e.g., State Medicaid Director, Office of Rural Health, Tribal Liaison).
+
+Building on Idaho’s strong foundation of regional collaboration, RHTP will formalize three
+
+Regional Rural Health Transformation Networks (RHTNs) by leveraging existing structures:
+
+•   The Hospital Cooperative (THC): The mission of THC is to strengthen regional healthcare
+
+    by providing support and increasing value to members through shared resources, knowledge
+
+    and information. With guidance from an executive board of 17 hospital leaders, in southern
+
+    and eastern Idaho, the staff members of THC plan and organize programs and activities that
+
+    enable member hospitals to accomplish more together than would be possible alone and will
+
+    play a vital role in driving economies of scale and supporting financial sustainability.
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        47
+CMS-RHT-26-001
+•   Northwest Hospital Alliance (NHA): NHA is a collaborative network of CAHs, established
+
+    in 1991, including eight in northern Idaho such as Clearwater Valley Health, St. Mary's
+
+    Health, and Syringa Hospital and Clinics. NHA strengthens the capacity of Idaho's rural
+
+    hospitals to provide high-quality, cost-effective care to their communities. The Idaho RHTP
+
+    will collaborate with NHA-participating facilities to enhance quality improvement tools and
+
+    telehealth infrastructure.
+
+•   CAH integrated networks: Informal CAH networks across Idaho engage in peer learning,
+
+    shared staffing, and emergency preparedness.
+
+•   Idaho Healthcare Coalitions: These healthcare coalitions comprise representatives from
+
+    healthcare (e.g., hospitals, health systems, healthcare facilities), EMS, patient transport
+
+    services, and public health. Additional acute care members may include medical supply chain
+
+    organizations, pharmacies, blood banks, clinical labs, federal healthcare organizations,
+
+    outpatient care centers, and long-term care facilities.
+
+These regional and strategic partnerships have demonstrated success in fostering rural
+
+collaboration, operational efficiency, shared service delivery, and community preparedness.
+
+They represent both a county level and boots on the ground perspective on an ongoing basis. The
+
+newly formed RHTNs, will have quarterly meetings and will be formalized with community-
+
+based governance and accountability and promote regional strategic partnerships and
+
+collaboration opportunities to drive measurable improvements and sustainability within all five
+
+of Idaho’s RHTP initiatives. These regional and strategic partnerships will be central to Idaho’s
+
+RHTP strategy to optimize cost savings through joint purchasing, share clinical and operational
+
+best practices, coordinate regional workforce development, invest in IT infrastructure and data
+
+analytics, and align on quality metrics and shared outcomes.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      48
+CMS-RHT-26-001
+Key activities of Regional Rural Health Transformation Networks:
+
+•   Information sharing and data use agreements: Establish interoperability and population
+
+    health data sharing to enable coordinated, outcomes-focused care.
+
+•   Joint training and workforce support: Help facilitate and scale rural workforce
+
+    development strategies, including preceptorships, cross-training, and support for community
+
+    health workers and rural fellowship and residency programs.
+
+•   Group purchasing and financial optimization: Enhance cooperative purchasing power to
+
+    improve financial resilience of rural providers.
+
+•   Referral coordination: Implement closed-loop referral systems connecting primary,
+
+    specialty, behavioral health, and social services.
+
+•   Telehealth expansion: Broaden virtual care options for chronic care management,
+
+    behavioral health, and specialty services, especially in remote areas.
+
+•   Integrated care planning: Foster adoption of team-based care and flexible care models that
+
+    shift services to lower-cost, high-value settings.
+
+These coordinated efforts will promote best practices for sustainable access, innovative care
+
+delivery, and ensure rural providers are equipped to meet evolving community health needs.
+
+Governance structure and community reflection: The three regional RHTNs will report to the
+
+Governor’s RHTP Task Force, which will provide statewide oversight, fund allocation guidance,
+
+and ensure program accountability. This governance structure ensures decisions reflect the
+
+voices of rural communities and elevate both provider and patient perspectives in the
+
+transformation process. To maintain transparency, coordination, and accountability, Idaho will
+
+include the following with its formal stakeholder engagement process:
+
+•   Quarterly forums for ongoing public input and responsiveness.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     49
+CMS-RHT-26-001
+•   Specialized workgroups focused on technology, workforce, tribal collaboration, and
+
+    behavioral health.
+
+•   Regional patient advisory panels to guide community-centered care models.
+
+This engagement structure fosters co-ownership of the transformation process, helps align local
+
+innovations with state-level goals, and promotes community voice in all program phases.
+
+Leveraging IT and data infrastructure: A critical enabler of Idaho’s RHTP is the expansion and
+
+coordination of practical, scalable, and secure data-sharing infrastructure to support care
+
+coordination, chronic disease management, and population health improvement. Rather than
+
+building entirely new systems, Idaho will leverage the infrastructure, expertise, and collaborative
+
+frameworks already in place across hospital cooperatives, CAH networks, and regional partners.
+
+To ensure feasibility and local ownership, the responsibility for implementing and maintaining
+
+IT and data solutions will rest primarily with Idaho’s integrated networks—including the THC,
+
+CAH networks, and RHTNs. These networks are best positioned to tailor digital solutions to
+
+their regional workflows, provider capabilities, and patient needs.
+
+Ongoing coordination and collaboration: To appropriately support and coordinate statewide
+
+efforts as part of this funding opportunity, IDHW will create a time-limited, project-specific
+
+team to report through the agency Director’s Office. Individuals hired will be limited-service
+
+staff, brought on specifically for the five years. This team will oversee the entirety of the RHTP,
+
+associated agreements, contract oversight, reporting, communications, and coordinate with
+
+internal agency divisions and other state agency partners as needed. The agency is also proposing
+
+to hire limited-service staff positions for additional contract, procurement, and financial audit
+
+and reporting support.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        50
+CMS-RHT-26-001
+Idaho will build upon its existing strengths—hospital cooperatives, integrated CAH networks,
+
+academic partnerships, and grassroots engagement—to create a modern rural health system that
+
+is sustainable, community-driven, and outcome-oriented. By aligning statewide priorities with
+
+regional solutions, and by investing in infrastructure, technology, and workforce, Idaho will
+
+successfully lead rural health transformation and ensure that every Idahoan—no matter where
+
+they live—can access high-quality, affordable, and coordinated care (See Letters of Support in
+
+ID RHTP Other Supporting Documentation).
+
+Metrics and evaluation plan
+
+Idaho plans to evaluate the impact of selected initiatives through a combination of in-house
+
+evaluation and formal third-party evaluation implemented in cooperation with contracted
+
+evaluators. Idaho will also cooperate with any CMS-led evaluation or monitoring, providing
+
+requested data and findings in the formats and timelines agreed upon. The tables below outline
+
+the metrics planned to evaluate each initiative.
+
+Initiative 1: Improving rural access to care through technology
+1A: Telehealth capabilities
+Description        Number of facilities utilizing telehealth.
+Baseline           Unknown
+Target             Increase by 50% over baseline by December 2030
+Data Collection A telehealth utilization assessment will be designed and implemented at least
+                   bi-annually throughout the funding period. Anticipated scope of participation
+                   would include critical access hospitals, rural health clinics, federally qualified
+                   health centers and other healthcare providers in Idaho’s rural counties.
+Data Analysis      Run Chart Analysis
+Responsibility     Contractor
+1B: Health Alert Network (HAN) provider participation
+Description        Number of physicians connected to the new HAN located in each of Idaho’s
+                   rural counties divided by total number of physicians located in each of those
+                   rural counties.
+Baseline           0
+Target             Increase to 80% by December 2030
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                      51
+CMS-RHT-26-001
+Data Collection   IDHW will manage the Health Alert Network and keep a running contact list.
+                  Data will be pulled and analyzed quarterly. Data on total number of doctors
+                  will be obtained from the Idaho Board of Medicine.
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW program staff
+1C: Electronic Health Record (EHR) upgrades
+Description       Number of facilities implementing new EHR software, or updating existing
+                  EHR software that is not yet HITECH certified
+Baseline          0
+Target            Increase 10 facilities by December 2030
+Data Collection Funded partners will report quarterly using a standardized subgrant
+                  monitoring report template on progress and challenges with EHR upgrades.
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+1D: Use of telehealth or remote delivery modalities
+Description       Number of appointments completed using telehealth or remote delivery
+                  modality
+Baseline          Unknown
+Target            Increase by 50% over baseline by December 2030
+Data Collection A telehealth utilization assessment will be designed and implemented at least
+                  bi-annually throughout the funding period. Anticipated scope of participation
+                  would include critical access hospitals, rural health clinics, federally qualified
+                  health centers and other healthcare providers in Idaho’s rural counties.
+Data Analysis     Run Chart Analysis
+Responsibility    Contractor
+
+Initiative 2: Ensuring accessible, quality care through innovative models
+2A: Integration of Community Health Emergency Medical Services (CHEMS)
+Description        Number of CHEMS positions supporting Idaho’s rural counties
+Baseline           26 as of October 2025
+Target             Increase to at least 62 (assumes maintenance of existing capacity with added
+                   target of at least one additional CHEMS position supporting the 36 rural
+                   counties that do not currently have CHEMS implemented).
+Data Collection Funded partners will report quarterly on progress and challenges with
+                   establishment of new CHEMS positions by using a standardized subgrant
+                   monitoring report template.
+Data Analysis      Run Chart Analysis
+Responsibility     IDHW Program Staff
+2B: EMS personnel capacity
+Description        Percentage of Idaho’s rural counties with at least one county-level full-time
+                   equivalent paid EMS personnel
+Baseline           28% (13 of 43 rural counties and counties with rural census tracts)
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     52
+CMS-RHT-26-001
+Target            Increase to at least 97% (42 of 43 rural counties and counties with rural
+                  census tracts)
+Data Collection Funded partners will report quarterly on progress and challenges with
+                  establishment of new paid EMS positions and their locations by using a
+                  standardized subgrant monitoring report template.
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+2C: Potentially Preventable Emergency Department Visits
+Description       Rate of emergency department (ED) visits for ambulatory care sensitive
+                  conditions (nine types of conditions that should typically be addressed
+                  outside of an ED) out of total number of ED visits in Idaho’s rural counties
+Baseline          30,779.2 per 100,000 ED visits (median rate from past 24 months as of
+                  October 2025)
+Target            Decrease by 20% to less than 24,623.3 per 100,000 by December 2030
+Data Collection Data from CDC’s BioSense platform will be queried and analyzed monthly
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+2D: Repeat EMS emergency responses
+Description       Percentage of EMS emergency responses to repeat users (those who received
+                  emergency services [excluding CHEMS visits] more than once in a year)
+Baseline          32% (2013–2016 estimate)
+Target            Decrease to 10% or less per year by December 2030
+Data Collection Data from Idaho’s EMS service providers will be collated and analyzed at
+                  least biannually.
+Data Analysis     Run Chart Analysis
+Responsibility    Contractor
+
+Initiative 3: Sustaining rural workforce with training, recruitment, and retention
+3A: Completion of “learn in place” or “grow your own” programs
+Description         Number of individuals completing a “learn in place” or “grow your own”
+                    program
+Baseline            0
+Target              Increase to 200 by December 2030
+Data Collection Funded partners will report quarterly on progress and challenges helping
+                    individuals complete “learn in place” or “grow your own” programs by using
+                    a standardized subgrant monitoring report template.
+Data Analysis       Run Chart Analysis
+Responsibility      IDHW Program Staff
+3B: Completion of fellowship programs
+Description         Number of individuals completing a new fellowship program
+Baseline            0
+Target              Increase to 20 by December 2030
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                53
+CMS-RHT-26-001
+Data Collection   Funded partners will report quarterly on progress and challenges helping
+                  individuals complete new fellowship programs by using a standardized
+                  subgrant monitoring report template.
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+3C: Completion of residency programs
+Description       Number of individuals completing a new residency program
+Baseline          0
+Target            Increase to 10 by December 2030
+Data Collection Funded partners will report quarterly on progress and challenges helping
+                  individuals complete new residency programs by using a standardized
+                  subgrant monitoring report template.
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+3D: Ratio of physicians per 100,000 population
+Description       Number of physicians per 100,000 Idaho residents.
+Baseline          193 in 2023
+Target            Increase to at least 195 by December 2030
+Data Collection The U.S. Physician Workforce Data Dashboard hosted by the Association of
+                  American Medical Colleges (AAMC) publishes this statistic annually. Data
+                  can be stratified by specialty type
+Data Analysis     Run Chart Analysis
+Responsibility    IDHW Program Staff
+
+Initiative 4: Implementing population specific, evidence-based projects to Make America
+Healthy Again
+4A: Retention or completion of evidence-based prevention or treatment programs
+Description        Percentage of newly enrolled individuals in new or enhanced evidence-based
+                   prevention or treatment programs who reach program specific retention or
+                   completion milestone
+Baseline           0
+Target             Increase to at least 50% by December 2030
+Data Collection    Funded partners will report quarterly using a standardized subgrant
+                   monitoring report template on progress and challenges retaining individuals
+                   in identified programs
+Data Analysis      Run Chart Analysis
+Responsibility     IDHW Program Staff
+4B: Clinical Outcome Measure(s) for Chronic Disease Prevention Programs
+Description        Percentage of individuals enrolled in new or enhanced evidence-based
+                   prevention or treatment programs who reach program specific clinical
+                   outcome measure (e.g., A1c, weight reduction, hypertension control)
+Baseline           0
+Target             Increase to at least 50% by December 2030
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                54
+CMS-RHT-26-001
+Data Collection  Funded partners will report quarterly on progress and challenges reaching
+                 desired clinical outcomes for identified programs by using a standardized
+                 subgrant monitoring report template
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+4C: Implementation of Perinatal Collaborative Initiatives
+Description      Number of rural hospitals completing one or more new perinatal
+                 collaborative initiatives
+Baseline         0
+Target           Increase to eight hospitals by December 2030.
+Data Collection  Funded partners will report quarterly using a standardized subgrant
+                 monitoring report template on progress and challenges reaching desired
+                 clinical outcomes for identified programs
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+4D: Mental and Behavioral Health Initiatives Mortality Rate
+Description      Number of deaths from suicidality, drug overdose, and alcoholism
+Baseline         1,216 in 2023
+Target           Decrease by 25% to 912 or fewer by December 2030.
+Data Collection  Data from IDHW Vital Records will be queried and analyzed annually with
+                 variables looked at individually and in aggregate.
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+4E: Mental and Behavioral Health Initiatives Morbidity Rate
+Description      Number of ED visits from suicidality, drug overdose, and alcoholism
+Baseline          625 monthly visits (from September 2025)
+Target            Decrease to 400 or fewer by December 2030.
+Data Collection  Data from CDC’s BioSense platform will be queried and analyzed monthly
+                 (in aggregate and by each individual visit type)
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+
+Initiative 5: Investing in rural health infrastructure and partnerships
+5A: Partnership with Tribes in Idaho
+Description         Each of the five federally recognized tribes in Idaho will implement an
+                    approved RHTP plan that aligns with Idaho’s RHTP plan
+Baseline            0
+Target              Increase to five by December 2030
+Data Collection     Tribes will report quarterly on progress and challenges in implementing
+                    approved RHTP activities by using a standardized subgrant monitoring
+                    report template.
+Data Analysis       Trend Analysis and Qualitative Synthesis
+Responsibility      IDHW Program Staff
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                  55
+CMS-RHT-26-001
+5B: Mobile Service Delivery
+Description      Number of screenings completed through new mobile service units
+Baseline         0
+Target           Increase to 2,000 screenings per year by December 2030
+Data Collection  Funded partners will report quarterly on progress and challenges in
+                 operationalizing new mobile service units by using a standardized subgrant
+                 monitoring report template
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+5C: Pharmacy Lockers/Kiosks
+Description      Number of pharmacy sites using new pharmacy lockers/kiosks
+Baseline         0
+Target           Increase to one in each of seven rural counties by December 2030
+Data Collection  Funded partners will report quarterly on progress and challenges in
+                 operationalizing pharmacy lockers/kiosks by using a standardized subgrant
+                 monitoring report template
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+5D: Patient Experience
+Description      The annual Medicaid CAHPS Health Plan Survey 5.1H, Adult Version
+                 (Medicaid) includes a composite value for “Getting needed care” that
+                 combines responses from two questions regarding how easily respondents
+                 got various aspects of needed care
+Baseline         83.3% in 2024
+Target           90% by December 2030
+Data Collection  The Consumer Assessment of Healthcare Providers and Systems (CAHPS)
+                 survey is implemented annually and provides patient experience data for a
+                 representative sample of Idahoans in several categories. These data will be
+                 reviewed annually.
+Data Analysis    Run Chart Analysis
+Responsibility   IDHW Program Staff
+
+Sustainability plan
+
+Sustainability is at the heart of Idaho’s vision to Make Rural Idaho Health Again – a future where
+
+communities are empowered, resilient and equipped to maintain high-quality healthcare without
+
+long-term dependence on federal or state support. This plan was deliberately designed as a one-
+
+time investment that creates enduring capacity, not continuing obligation. Sustainability is
+
+defined not only by the continuation of services but by the creation of systems that are
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                   56
+CMS-RHT-26-001
+accountable, efficient, and locally-owned. Each RHTP initiative includes explicit deliverables
+
+tied to long-term viability, financial self-reliance, and measurable outcomes. Contracts and
+
+subgrants will include sustainability milestones, with required performance and fiscal reporting.
+
+Projects that fund personnel or operating costs will follow a graduated scale-down model,
+
+reducing dependency each year, so that by Year 5, local partners, health systems and community
+
+organizations are positioned to sustain operations independently through new reimbursement
+
+streams, local partnerships, and demonstrated efficiency gains.
+
+Key sustainability strategies include:
+
+•   Shared Infrastructure and Economies of Scale: Investments in telehealth, data
+
+    systems, and cybersecurity are structured to serve multiple facilities and communities,
+
+    minimizing overhead and maximizing long-term utility.
+
+•   Revenue and Reimbursement Transition: IDHW will work with Medicaid, private
+
+    insurers, and rural providers to establish sustainable payment mechanisms and improved
+
+    billing supports – ensuring continuity after federal funding concludes.
+
+•   Accountability and Transparency: Each funded entity will report quarterly on cost
+
+    savings, outcomes, and operational transitions using standardized run-chart analysis and
+
+    third-party validation, where appropriate, to ensure credible tracking of results.
+
+•   Local Ownership and Workforce Stability: Workforce programs and facility upgrades
+
+    are structured to create self-reinforcing local capacity – training, retraining, and
+
+    supporting providers who will remain part of rural Idaho’s long-term health ecosystem.
+
+•   Policy and Data Alignment: IDHW will coordinate annual legislative and
+
+    administrative reviews to align regulatory frameworks with sustainability goals,
+
+    ensuring state policy supports data- driven accountability and fiscal prudence.
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                     57
+CMS-RHT-26-001
+1. Improving rural access to care through technology
+
+•   Technology infrastructure, telehealth and digital health tools: Build shared technology
+
+    infrastructure and ongoing costs among rural provider entities to leverage economy of scale
+
+    and reduce duplication and costs. Rural provider entities offering a greater array of available
+
+    services via telehealth digital health tool utilization, will increase revenue generation through
+
+    already reimbursable services across payers. Evaluate additional opportunities for near-future
+
+    innovative, sustainable telehealth reimbursement models.
+
+•   Cybersecurity and AI tools: Use AI-driven monitoring to strengthen data security through
+
+    early threat detection and guide efficient spending. Require policy reviews to ensure
+
+    accountability for any cybersecurity or AI-generated actions. Support revenue generation via
+
+    AI tools to support future provider funded updates to cybersecurity platforms.
+
+•   Emergency communication systems: Fund one-time implementation of emergency
+
+    communication network, then maintain through existing local and state funding streams.
+
+•   Health management, data analytics tools, and electronic health record software and
+
+    upgrades: Identify opportunities for shared infrastructure costs among healthcare facilities
+
+    and improve interoperability between systems. Leverage data analytics tools to support
+
+    value-based contracts, risk stratification, and revenue maximization for rural provider entities
+
+    to support any ongoing costs and future updates.
+
+2. Ensuring accessible quality care through innovative models
+
+•   Community-based access models: Transition community-placed telehealth pods, diagnostic
+
+    kiosks, pharmacy kiosks and other health extenders to local ownership and maintenance by
+
+    Year 5 through reimbursement revenue and regional cost-sharing agreements. Complete
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                       58
+CMS-RHT-26-001
+    third-party evaluation to (including post-discharge and readmission data) to determine return
+
+    on investment and opportunities for further optimization.
+
+•   EMS integration and expansion; workforce stabilization; community needs assessment;
+
+    and service optimization: Sustain EMS stabilization and training programs through local
+
+    levy partnerships, hospital networks, and cross-training of existing staff to reduce duplication
+
+    and long-term costs. Opportunities to bill payers will be explored and leveraged as
+
+    appropriate.
+
+3. Sustaining rural workforce with training, recruitment, and retention
+
+•   Ladder payments for priority positions and rural presence: Provide time-limited support
+
+    tied to workforce placement in high-need areas with service requirements that exceed support
+
+    sunset. Sustain beyond grant period through new billing and revenue capacity.
+
+•   Healthcare career and work-based learning: Use funds for start-up development only;
+
+    transfer ongoing operation to local healthcare partners supported by foundations or
+
+    employers, and post-secondary education institutions utilizing program prioritization to limit
+
+    or eliminate need for ongoing state support.
+
+•   Graduate medical education programs: Build GME capacity that self-sustains through
+
+    resident billing and long-term provider retention.
+
+4. Implementing population specific, evidenced-based projects to MAHA
+
+•   Prevention and treatment programs: Launch chronic disease, behavioral health and
+
+    maternal-child health initiatives with initial start-up costs such as training curriculum and
+
+    train-the-trainer models; sustain through insurance reimbursement and integration into
+
+    provider operations.
+
+5. Investing in rural health infrastructure and partnerships initiative
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                        59
+CMS-RHT-26-001
+•   Facility and equipment upgrades: Fund one-time capital improvements – facility and
+
+    personnel space remodels, vehicles, mobile units, and pharmacy solutions – and
+
+    equipment purchases paired with local plans for upkeep and replacement.
+
+•   Regional partnerships: Strengthen networks such as the Northwest Hospital Alliance
+
+    and The Hospital Cooperative to share services and leverage economies of scale for
+
+    long-term sustainability.
+
+Partnership sustainability
+
+The RHTP, established though the One Big Beautiful Bill and HR1, has served as a
+
+significant catalyst in advancing collaboration among Idaho’s rural health partners and
+
+stakeholders. While strong partnerships previously existed, RHTP will further enhance
+
+coordination, alignment, and collective positive impact across the state. The development of
+
+RHTNs will further bridge and strengthen partnerships, fostering greater commitment and
+
+sustainability among rural communities. These strengthened connections, combined with the
+
+foundation established through the Governor’s RHTP Task Force, will ensure ongoing
+
+collaboration and long-term sustainability—ultimately improving access to and the delivery
+
+of quality healthcare for citizens throughout rural Idaho.
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                   60
+CMS-RHT-26-001
+Endnotes
+
+   1. U.S. Census Bureau, U.S. Department of Commerce. (n.d.). ACS Demographic and
+
+      Housing Estimates. American Community Survey, ACS 5-Year Estimates Data Profiles,
+
+      Table DP05. Retrieved September 23, 2025, from
+
+      https://data.census.gov/table/ACSDP5Y2023.DP05?q=Population+Total&g=040XX00U
+
+      S16&d=ACS+5-Year+Estimates+Data+Profiles&moe=false.
+
+   2. U.S. Census Bureau, U.S. Department of Commerce. (n.d.). Poverty Status in the Past 12
+
+      Months. American Community Survey, ACS 5-Year Estimates Subject Tables, Table
+
+      S1701. Retrieved September 23, 2025, from
+
+      https://data.census.gov/table/ACSST5Y2023.S1701?q=acs+poverty+esitmate&g=040XX
+
+      00US16&moe=false.
+
+   3. U.S. Census Bureau. (n.d.). Income in the Past 12 Months (in 2024 Inflation-Adjusted
+
+      Dollars). American Community Survey, ACS 1-Year Estimates Subject Tables, Table
+
+      S1901. Retrieved September 23, 2025, from
+
+      https://data.census.gov/table/ACSST1Y2024.S1901?q=acs+income&g=040XX00US16.
+
+   4. Idaho Department of Labor, Labor Market Information. (2025). Idaho's cost of living and
+
+      affordability impact on the labor force [PowerPoint slides/Presentation]. Idaho
+
+      Department of Labor. https://lmi.idaho.gov/wp-content/uploads/2025/09/Poverty-and-
+
+      Cost-of-Living-Webinar-PowerPoint.pdf
+
+   5. U.S. Department of Health and Human Services, Health Resources and Services
+
+      Administration, National Center for Health Workforce Analysis. (2024, November). State
+
+      of the Primary Care Workforce, 2024. https://bhw.hrsa.gov/sites/default/files/bureau-
+
+      health-workforce/state-of-the-primary-care-workforce-report-2024.pdf
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                  61
+CMS-RHT-26-001
+   6. Idaho Department of Health & Welfare, Division of Public Health. (n.d.). Get Healthy
+
+      Idaho – Statewide needs: Health assessment.
+
+      https://www.gethealthy.dhw.idaho.gov/health-assessment
+
+   7. Idaho Department of Labor. (2025, May). Profile of rural Idaho: Part 1. Idaho
+
+      Department of Labor. https://www.labor.idaho.gov/wp-content/uploads/2024/12/Rural-
+
+      profile_Part-1_May-2025.pdf
+
+   8. U.S. Census Bureau. (2025). Health Insurance Coverage by State: 2023 and 2024 (Report
+
+      No. ACSBR-024). https://www2.census.gov/library/publications/2025/demo/acsbr-
+
+      024.pdf
+
+   9. Kozhimannil, K. B., Interrante, J. D., & Thao, V. (2024). Obstetric Care Access
+
+      Continues to Decline at Rural and Urban Hospitals across U.S. States, 2010–2022.
+
+      Maternal and Child Health Journal, 28(8), 1709–1717. https://doi.org/10.1007/s10995-
+
+      024-037320
+
+   10. Rural Health Information Hub. (2024). Idaho. U.S. Department of Health and Human
+
+      Services, Health Resources & Services Administration.
+
+      https://www.ruralhealthinfo.org/states/idaho
+
+   11. Health Resources and Services Administration. (n.d.). Maternal and infant health
+
+      mapping tool. U.S. Department of Health and Human Services. Retrieved November 4,
+
+      2025, from https://data.hrsa.gov/topics/maternal-child-health/mchb-mapping
+
+   12. Idaho Department of Health and Welfare. (2024). State Action Plan - Women/Maternal
+
+      Health - Annual Report - Idaho [Data Report]. Maternal and Child Health Bureau.
+
+      Retrieved from https://mchb.tvisdata.hrsa.gov/Narratives/AnnualReport1/86470358-7f1c-
+
+      42dc-bff0-3ac8377c25a4
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program                 62
+CMS-RHT-26-001
+   13. Idaho Center for Nursing. (2024). 2024 report on current supply, education and
+
+      employment for the Idaho nursing workforce. Nursing
+
+      Network. https://s3.amazonaws.com/nursing-
+
+      network/production/attachments/272550/original/2024_Idaho_Nursing_Workforce_Repo
+
+      rt_Final.pdf?2024
+
+   14. Idaho Transportation Department. Idaho Public Transportation Plan. Appendix C
+
+      Demographic and Economic Analysis. Final April 2018. Retrieved 10/23/2025
+
+      https://apps.itd.idaho.gov/apps/pt/SWPTP/Appendix_C_Econ_Analysis.pdf
+
+   15. Idaho Department of Health and Welfare. (n.d.). Get Healthy Idaho
+
+      Index. https://www.gethealthy.dhw.idaho.gov/get-healthy-idaho-index
+
+
+
+
+Idaho Department of Health and Welfare – Rural Health Transformation Program            63
+CMS-RHT-26-001
+

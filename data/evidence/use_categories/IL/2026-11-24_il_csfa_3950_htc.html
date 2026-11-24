@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	CSFA | GATA | Illinois.gov
+</title><link href="Common.css" rel="stylesheet" />
+
+    <style>
+        .banner { background-color:#c8dcff; padding:5px; border-radius:4px; font-weight:bold; }
+
+
+        .tblList { border-collapse:collapse; width:100%; }
+        .tblList th { border-bottom:solid 1px #102952; padding:4px; padding-right:10px; background-color:#c8dcff; text-align:left; white-space:nowrap; width:1px; vertical-align:top; }
+        .tblList td { border-bottom:solid 1px #102952; padding:4px; }
+
+        .datahead { font-weight:bold; margin-top:15px; margin-bottom:5px; }
+        .data { margin-bottom:20px; border-bottom:solid 1px #c8dcff; padding-bottom:20px; }
+
+        .gms { display:inline-block; background-color:#a4ffd1; font-size:70%; border-radius:5px; padding:0px 3px 2px 2px; border:solid 1px green; }
+    </style>
+
+    <script>
+        window.onload = function () {
+            parent.postMessage(document.body.scrollHeight, "*");
+            if (self == top) { document.body.style.padding = "10px" }
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="./Program.aspx?csfa=3950" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="2153A54A" />
+    <div>
+
+
+        <div class="bc np">
+            <a href="Default.aspx">CSFA Home</a> /
+            <span id="spanFromProgramList">
+                <a href="AgencyList.aspx" id="lnk_AgencyList">Agency List</a> /
+                <a href="ProgramList.aspx?Agency=478" id="lnk_ProgramList">Program List</a> /
+            </span>
+
+            
+            Program
+
+        </div>
+
+
+        
+        
+        <div id="divFound">
+
+            <div style="padding:5px 0px 25px 5px;">
+                <div id="div_Program_Name" style="font-size:150%">Rural Health Transformation Program - Transforming Rural Healthcare Delivery, Healthcare Transformation Collaboratives</div>
+                <div id="div_Popular_Name">RHTP-HTC</div>
+                <div id="div_CSFA">CSFA Number: 478-00-3950</div>
+            </div>
+
+
+            <div class="banner">STATE AGENCY INFORMATION</div>
+
+            <div class="datahead">Agency Name</div>
+            <div id="div_Agency" class="data">Department Of Healthcare And Family Services (478)</div>
+
+            <div id="Agency_ID">
+                <div class="datahead">Agency Identification</div>
+                <div id="div_Agency_ID" class="data">IL Dept of Healthcare and Family Services</div>
+            </div>
+
+            <div class="datahead">Agency Contact</div>
+            <div id="div_Agency_Contact" class="data">Dani Mendez<div> (773)720-9469</div><div><a href='mailto:Dani.Mendez@Illinois.gov'>Dani.Mendez@Illinois.gov</a></div></div>
+
+
+            <div class="banner">PROGRAM INFORMATION</div>
+
+            <div id="view_Short_Desc">
+                <div class="datahead">Short Description</div>
+                <div id="div_Short_Desc" class="data">The Rural Health Transformation (RHT) Program was designed to empower states to strengthen rural communities by improving healthcare access, quality, and outcomes through transforming the healthcare delivery ecosystem. 
+
+Illinois’ Rural Health Transformation Program will support rural communities across the State of Illinois in improving healthcare access, quality, and outcomes by transforming healthcare delivery. This program will provide funding to existing Healthcare Transformation Collaboratives to scale models that have demonstrated initial success in improving access, quality, health outcomes and/or cost effectiveness, especially in counties in central, southern and eastern Illinois. 
+
+All RHT applicants must complete the Euna application. Once the completed application is received and approved, the Illinois Department of Healthcare and Family Services will collaborate with each subaward to complete the grant award process.
+
+Note: Stevens Amendment Acknowledgment
+
+This funding opportunity is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling $193,418,216.21 with 100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.</div>
+            </div>
+
+            <div id="view_Fed_Authorization">
+                <div class="datahead">Federal Authorization</div>
+                <div id="div_Fed_Authorization" class="data">Section 71401 of Public Law 119-21</div>
+            </div>
+
+            <div id="view_IL_Statute_Authorization">
+                <div class="datahead">Illinois Statue Authorization</div>
+                <div id="div_IL_Statute_Authorization" class="data">N/A</div>
+            </div>
+
+            <div id="view_IL_Rules_Authorization">
+                <div class="datahead">Illinois Administrative Rules Authorization</div>
+                <div id="div_IL_Rules_Authorization" class="data">N/A</div>
+            </div>
+
+            <div id="view_Objective">
+                <div class="datahead">Objective</div>
+                <div id="div_Objective" class="data">The Transforming Rural Healthcare Delivery initiative seeks to support innovative care models, strategic partnerships, and targeted investments to stabilize rural hospitals, close access gaps, and build a resilient and sustainable healthcare system for the future. Existing Healthcare Transformation Collaboratives (HTCs) serving rural areas will receive funding to continue and scale their services.</div>
+            </div>
+
+            <div id="view_Prime_Recipient">
+                <div class="datahead">Prime Recipient</div>
+                <div id="div_Prime_Recipient" class="data">Yes</div>
+            </div>
+
+            <div id="view_Program_Terms">
+                <div class="datahead">UGA Program Terms</div>
+                <div id="div_Program_Terms" class="data">As identified in the opportunity.</div>
+            </div>
+
+            <div id="view_Eligible_Applicants">
+                <div class="datahead">Eligible Applicants</div>
+                <div id="div_Eligible_Applicants" class="data">Other; </div>
+            </div>
+
+            <div id="view_Applicant_Eligibility">
+                <div class="datahead">Applicant Eligibility</div>
+                <div id="div_Applicant_Eligibility" class="data">Eligible HTCs include (must also be registered and in good standing with the State):
+
+-Carle Health/Vermilion County Community Health Collaborative
+-SIHF Healthcare/East St. Louis Health Transformation Partnership
+-Egyptian Health Department/Integrated Hub
+-OSF Healthcare/Medicaid Innovation Collaborative</div>
+            </div>
+
+            <div id="view_Beneficiary_Eligibility">
+                <div class="datahead">Beneficiary Eligibility</div>
+                <div id="div_Beneficiary_Eligibility" class="data">The beneficiaries of the Transforming Rural Healthcare Delivery initiative will be residents of rural communities where access to essential health services is limited by geographic isolation, workforce shortages and resource constraints.  This initiative will help to ensure all residents of the State of Illinois will have access to high-quality, sustainable care.</div>
+            </div>
+
+            <div id="view_Types_Assistance">
+                <div class="datahead">Types of Assistance</div>
+                <div id="div_Types_Assistance" class="data">Non-competitive</div>
+            </div>
+
+            <div id="view_Subject_Area">
+                <div class="datahead">Subject / Service Area</div>
+                <div id="div_Subject_Area" class="data">Healthcare</div>
+            </div>
+
+            <div id="view_Credentials_Documentation">
+                <div class="datahead">Credentials / Documentation</div>
+                <div id="div_Credentials_Documentation" class="data">Registration and pre-qualification through the Grant Accountability and Transparency Act (GATA) Grantee Portal is required, www.grants.illinois.gov/portal.</div>
+            </div>
+
+            <div id="view_Preapplication_Coordination">
+                <div class="datahead">Preapplication Coordination</div>
+                <div id="div_Preapplication_Coordination" class="data">Registration and pre-qualification through the Grant Accountability and Transparency Act (GATA) Grantee Portal, www.grants.illinois.gov/portal.</div>
+            </div>
+
+            <div id="view_Application_Procedures">
+                <div class="datahead">Application Procedures</div>
+                <div id="div_Application_Procedures" class="data">The potential applicants will be contacted directly by the Department and provided additional information regarding the application requirements and necessary documentation needed to submit a complete application packet. The applicants will be expected to demonstrate how it will spend the funds received and to submit proposals with compelling evidence of impact for direct awards as subrecipients of RHT funds.</div>
+            </div>
+
+            <div id="view_Criteria_Selecting_Proposals">
+                <div class="datahead">Criteria Selecting Proposals</div>
+                <div id="div_Criteria_Selecting_Proposals" class="data">The potential applicants will be contacted directly by the Department and provided additional information regarding the application requirements and necessary documentation needed to submit a complete application packet. The applicants will be expected to demonstrate how it will spend the funds received and to submit proposals with compelling evidence of impact for direct awards as subrecipients of RHT funds.</div>
+            </div>
+
+            <div id="view_Award_Procedures">
+                <div class="datahead">Award Procedures</div>
+                <div id="div_Award_Procedures" class="data">The Department will make direct contact with award recipients.  Based on the named grantees in the HFS federal award received, this will not be a competitive grant, and a merit-based review would not be necessary.</div>
+            </div>
+
+            <div id="view_Deadlines">
+                <div class="datahead">Deadlines</div>
+                <div id="div_Deadlines" class="data">As identified in the opportunity.</div>
+            </div>
+
+            <div id="view_Range_Times">
+                <div class="datahead">Range of Approval or Disapproval Time</div>
+                <div id="div_Range_Times" class="data">As identified in the opportunity.</div>
+            </div>
+
+            <div id="view_Appeals">
+                <div class="datahead">Appeals</div>
+                <div id="div_Appeals" class="data">Not applicable</div>
+            </div>
+
+            <div id="view_Renewals">
+                <div class="datahead">Renewals</div>
+                <div id="div_Renewals" class="data">Grant agreements are contingent upon satisfactory performance and subject to appropriations and receipt of federal funds.</div>
+            </div>
+
+            <div id="view_Formula_Matching">
+                <div class="datahead">Formula Matching Requirements</div>
+                <div id="div_Formula_Matching" class="data">None</div>
+            </div>
+
+            <div id="view_Uses_Restrictions">
+                <div class="datahead">Uses and Restrictions</div>
+                <div id="div_Uses_Restrictions" class="data">Awardees are to use funds for support staff, consulting contracts, and infrastructure payments to support the implementation of the Rural Health Transformation Program, Transforming Rural Healthcare Delivery Initiative related to Healthcare Transformation Collaboratives</div>
+            </div>
+
+            <div id="view_Reports">
+                <div class="datahead">Reports</div>
+                <div id="div_Reports" class="data">Awardees will be expected to submit - least quarterly, on a frequency and in a format to be determined by HFS - progress and financial reports to the Department of Healthcare and Family Services and assist with other HFS reporting needs as applicable. Reports will include but not be limited to:program reports, financial status reports, property inventory, closeout program report, and closeout financial status report.</div>
+            </div>
+
+            <div id="view_Audits">
+                <div class="datahead">Audits</div>
+                <div id="div_Audits" class="data">Awardees must comply with the audit requirements listed in 2 CFR 200 and Administrative Rule, 44 Illinois Administrative Code 7000.90.</div>
+            </div>
+
+            <div id="view_Records">
+                <div class="datahead">Records</div>
+                <div id="div_Records" class="data">Awardees must maintain for three (3) years from the date of submission of the final expenditure report, adequate books, all financial records and, supporting documents, statistical records, and all other records pertinent to this Award, adequate to comply with 2 CFR 200.334 and 44 Ill. Admin. Code 7000.430(a) and (b).</div>
+            </div>
+
+            <div id="view_Account_Identification">
+                <div class="datahead">Account Identification</div>
+                <div id="div_Account_Identification" class="data">0808-47865-4900-00-99</div>
+            </div>
+
+            <div id="view_Obligations">
+                <div class="datahead">Obligations</div>
+                <div id="div_Obligations" class="data">Subject to available funding, total RHT HTC specific funding is estimated at $8 million in the first federal Budget Period (January 2026 to October 2026). Subject to available funding, total RHT HTC specific funding is estimated at $4 million in the current fiscal year (SFY26).</div>
+            </div>
+
+            <div id="view_Financial_Assistance">
+                <div class="datahead">Range and Average of Financial Assistance</div>
+                <div id="div_Financial_Assistance" class="data">Subject to available funding, each awardee will be awarded an estimated $1 - 3 million for the first federal Budget Period. Budget Periods 2 to 5 will also be contingent on the availability of funds and will be determined at a later date.</div>
+            </div>
+
+            <div id="view_Program_Accomplishments">
+                <div class="datahead">Program Accomplishments</div>
+                <div id="div_Program_Accomplishments" class="data">As identified in the opportunity.</div>
+            </div>
+
+            <div id="view_Regulations_Guidelines_Literature">
+                <div class="datahead">Regulations, Guidelines, and Literature</div>
+                <div id="div_Regulations_Guidelines_Literature" class="data">2 CFR 200 and 2 CFR 300; https://www.cms.gov/priorities/rural-health-transformation-rht-program/overview</div>
+            </div>
+
+            <div id="view_Assistance_Location">
+                <div class="datahead">Regional or Local Assistance Location</div>
+                <div id="div_Assistance_Location" class="data">Statewide</div>
+            </div>
+
+            <div id="view_Headquarters_Office">
+                <div class="datahead">Headquarters Office</div>
+                <div id="div_Headquarters_Office" class="data">Illinois Dept of Healthcare and Family Services
+201 South Grand Ave E
+Division of Medical Program Services
+Springfield, IL 62763-1000</div>
+            </div>
+
+            <div id="view_Program_Website">
+                <div class="datahead">Program Website</div>
+                <div id="div_Program_Website" class="data">https://hfs.illinois.gov/info/fedresctr/ruralhealthtp.html</div>
+            </div>
+
+            <div id="view_Related_Programs">
+                <div class="datahead">Related Programs</div>
+                <div id="div_Related_Programs" class="data">N/A</div>
+            </div>
+
+            <div id="view_Example_Projects">
+                <div class="datahead">Example Projects</div>
+                <div id="div_Example_Projects" class="data">New programming</div>
+            </div>
+
+            <div id="view_Published_Date">
+                <div class="datahead">Published Date</div>
+                <div id="div_Published_Date" class="data"></div>
+            </div>
+
+
+            <!------------------------->
+            <!-- EXCEPTIONS 4/2/2026 -->
+            <!------------------------->
+            <div id="view_Exceptions">
+                <div class="datahead">GATA Exceptions</div>
+                <div id="div_Exceptions" class="data">Merit Based Review; Notice of Funding Opportunity; </div>
+            </div>
+
+
+
+
+            <!------------------------->
+            <!-- FUNDING INFORMATION -->
+            <!------------------------->
+
+            <div class="banner">FUNDING INFORMATION</div>
+
+            <div id="view_Funding_By_FY">
+                <div class="datahead">Funding By Fiscal Year</div>
+                <div id="div_Funding_By_FY" class="data">FY 2026 : $4,000,000<br />FY 2027 : $4,000,000<br /></div>
+            </div>
+
+            <div class="datahead">Federal Funding</div>
+            <div id="div_Federal_Funding" class="data"><a href='https://sam.gov/fal/efbda32ae4544c628f8efee6c6d777a0/view' target='_blank'>93.798 - Rural Health Transformation Program</a><br /></div>
+
+
+            <div class="datahead">Notice of Funding Opportunities</div>
+            <style>
+                #tbl_NOFOs { margin-top:15px; }
+                #tbl_NOFOs th { border:solid 1px #c8dcff; padding:3px 5px 3px 5px; }
+                #tbl_NOFOs td { border:solid 1px #c8dcff; padding:3px 5px 3px 5px; vertical-align:top; white-space:nowrap; }
+                #tbl_NOFOs td:nth-child(2) { white-space:normal; }
+            </style>
+            <div id="div_Funding_Opportunities" class="data">
+                <table id="tbl_NOFOs" style="margin-top:0;">
+	<tbody>
+		<tr>
+			<td style="border:0;padding:0;">None</td>
+		</tr>
+	</tbody>
+</table>
+            </div>
+
+
+
+            <!----------------------->
+            <!-- TOP ACTIVE AWARDS -->
+            <!----------------------->
+
+            <div id="div_Top_Awards" class="banner">ACTIVE AWARDS</div>
+
+            <style>
+                #tbl_Awards { margin-top:15px; }
+                #tbl_Awards th { border:solid 1px #c8dcff; padding:3px 5px 3px 5px; }
+                #tbl_Awards td { border:solid 1px #c8dcff; text-align:center; padding:3px 5px 3px 5px; vertical-align:top; }
+                #tbl_Awards td:nth-child(2) { white-space:normal; }
+            </style>
+            <div id="div_Awards" class="data">
+                <table id="tbl_Awards">
+	<thead>
+		<tr>
+			<th>Agency ID</th><th>Grantee Name</th><th>Comptroller Name</th><th>Start Date</th><th>End Date</th><th>Amount</th>
+		</tr>
+	</thead><tbody>
+		<tr>
+			<td style="text-align:left;">202600021B2</td><td style="text-align:left;">SIHF Healthcare</td><td style="text-align:left;">SOUTHERN IL HEALTHCARE FNDTN    </td><td>08/01/2026</td><td>06/30/2027</td><td>2,300,000</td>
+		</tr><tr>
+			<td style="text-align:left;">202600021B4</td><td style="text-align:left;">OSF Healthcare System</td><td style="text-align:left;">OSF HEALTHCARE SYSTEM           </td><td>08/01/2026</td><td>06/30/2027</td><td>2,300,000</td>
+		</tr><tr>
+			<td style="text-align:left;">202600021B1</td><td style="text-align:left;">Carle Foundation</td><td style="text-align:left;">CARLE FOUNDATION                </td><td>08/01/2026</td><td>06/30/2027</td><td>2,187,135</td>
+		</tr><tr>
+			<td style="text-align:left;">202600021B3</td><td style="text-align:left;">Egyptian Health Department</td><td style="text-align:left;">EGYPTIAN PUBLIC & MENTAL        </td><td>08/01/2026</td><td>06/30/2027</td><td>1,212,865</td>
+		</tr>
+	</tbody>
+</table>
+                
+            </div>
+
+
+        </div>
+
+    </div>
+    </form>
+</body>
+</html>

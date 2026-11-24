@@ -1,0 +1,3059 @@
+    Project Narrative File(s)
+
+
+
+
+                * Mandatory Project Narrative File Filename:       Project Narrative.pdf
+
+
+                 Add Mandatory Project Narrative File       Delete Mandatory Project Narrative File        View Mandatory Project Narrative File
+
+
+
+
+                To add more Project Narrative File attachments, please use the attachment buttons below.
+
+                 Add Optional Project Narrative File     Delete Optional Project Narrative File       View Optional Project Narrative File
+
+
+
+
+PREVIEW Date: Nov 05, 2025                                        Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Project Narrative
+
+          Introduction
+
+          South Carolina is driven by a commitment to advancing health in the State by addressing the
+
+          persistent disparities in access, outcomes, and resources that affect rural areas. The Rural Health
+
+          Transformation (RHT) program offers a once-in-a-generation opportunity to address the
+
+          systemic barriers that have long hindered access to quality care in the state’s rural communities.
+
+          With nearly one-third of South Carolinians residing in rural areas, the state recognizes that
+
+          improving rural health is not only a moral imperative but also a strategic investment in the state’s
+
+          future. South Carolina’s approach is intentionally aligned with the RHT program’s five strategic
+
+          goals: Make Rural America Healthy Again through improved chronic disease management
+
+          and health outcomes; ensure Sustainable Access by expanding care delivery points and digital
+
+          infrastructure; advance Workforce Development through recruitment, training, and retention
+
+          strategies; foster Innovative Care models that meet people where they are; and accelerate Tech
+
+          Innovation to modernize systems and empower communities. This proposal outlines a bold,
+
+          data-driven, and community-centered plan to transform rural healthcare delivery, one that builds
+
+          on existing successes, leverages cross-sector partnerships, and prioritizes sustainability to create
+
+          a resilient rural health ecosystem where every resident, regardless of geography, has the
+
+          opportunity to thrive.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                      Page 1 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Rural Health Needs and Target Population
+
+          Of South Carolina’s more than five million residents, approximately 1.75 million (32.6%)i live
+
+          in rural areas where access to quality health services is limited, resulting in significantly poorer
+
+          health outcomes compared to their non-rural counterparts. South Carolina aligns with the Health
+
+          Resources and Services Administration definition of rural for the purposes of the RHT Program.
+
+          Rural demographics: South Carolina’s rural demographics paint a complicated picture largely
+
+          due to a shift in industries over the last 50 years. Textile mills that once provided jobs are mostly
+
+          closed, agricultural practices have changed, and interstate highways, like I-95, impact the
+
+          economies of the towns they pass through or bypass.ii Additionally, rural towns face dwindling
+
+          economic prosperity as few economic contributions come from older adults living on a fixed
+
+          income and as young adults move to urban areas for jobs. Below is a snapshot of South
+
+          Carolina’s rural demographic data.
+
+              •   Population size:iii 1,750,000 (32.6%)
+
+              •   Median household income:iv $54,000 ($71,000 urban)
+
+              •   Poverty:v 19.8% (12.9% urban)
+
+              •   Unemployment:vi 3.8% (2.9% urban)
+
+              •   Educational attainment (college degree):vii 12.3% (20.6% urban)
+
+              •   Health insurance coverage (uninsured):viii 12.3% (10.9% urban)
+
+          Health outcomes: Rural South Carolinians also face a higher burden of disease and a higher
+
+          overall death rate than their non-rural counterparts. Our rural communities are at greater risk of
+
+          chronic conditions, including diabetes, heart disease, and stroke, and face worse maternal health
+
+          outcomes than non-rural communities.ix South Carolina’s rural health outcomes data include:
+
+
+
+
+          Project Narrative – South Carolina                                                       Page 2 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Diabetes: 13% (10% urban)x, 31.7 age-adjusted death rate per 100,000 (25.3 urban)xi
+
+              •   Heart disease:xii 216.5 age-adjusted death rate per 100,000 (175.9 urban)
+
+              •   Stroke:xiii 101 age-adjusted death rate per 100,000 (92 urban)
+
+              •   Maternal mortality:xiv 55.4 deaths per 100,000 live births (34.2 urban)
+
+
+          Healthcare access: Rural communities in South Carolina lack sufficient access to healthcare
+
+          services, largely due to a lack of facilities, facilities in need of infrastructure improvements, an
+
+          inability to recruit and retain providers, and the high cost of care for the uninsured.xv South
+
+          Carolina’s rural health access data includes:xvi
+
+
+              •   Availability of healthcare providers: 4.5 primary care physicians per 10,000 rural
+
+                  residents (6.8 urban)
+
+              •   Healthcare facility numbers and distribution:
+
+                     o Critical access hospitals: 3
+
+                     o Rural prospective payment system hospitals: 21
+
+                     o Rural health clinics: 104
+
+                     o Federally qualified health centers: 23 (main sites)
+
+                     o Rural emergency hospitals: 0
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                       Page 3 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Data from the South Carolina Office of Rural
+                                                                   Figure 1: Rural Areas with >30 min Drive to
+          Health reveals many rural residents in South                      a South Carolina Hospital
+
+          Carolina must travel more than 30 minutes to
+
+          reach the nearest hospital, a challenge most
+
+          pronounced in the lower Midlands and coastal
+
+          regions, as illustrated in Figure 1. These
+
+          extended travel times can have serious
+
+          consequences during medical emergencies,
+
+          particularly in cases of stroke, heart attack, or
+
+          high-risk childbirth, where every minute is
+
+          critical.
+
+
+          While public transportation exists to some extent in rural areas, it is not a reliable option, and
+
+          individuals with mobility limitations may struggle to access or use these services.
+
+          Rural facility financial health: Six hospitals have closed since 2012 (listed below). According
+
+          to the August 2025 brief from the Center for Healthcare Quality and Payment Reform, seven
+
+          additional hospitals are at risk of closure, with four at immediate risk. South Carolina rural
+
+          hospital closures have occurred mainly due to declining populations, a decline in inpatient
+
+          revenue, aging infrastructure, and difficulty recruiting physicians. Rural hospitals can only afford
+
+          a smaller number of services, which leads to out-migration of patients who seek care in urban
+
+          centers, which leads to further revenue erosion for rural providers. This limited-service array
+
+          further reinforces patient tendencies to bypass local, rural hospitals for the larger, brand-
+
+          recognized health systems in the state.xvii Current rural facility financial health data includes:
+
+
+
+
+          Project Narrative – South Carolina                                                       Page 4 of 59
+
+
+PREVIEW Date: Nov 05, 2025                             Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Number of rural hospital closures:xviii
+
+                     o Williamsburg Regional Hospital (Critical Access Hospital) (2023)
+
+                     o Lake City Community Hospital (2022)
+
+                     o Fairfield Memorial Hospital (Critical Access Hospital) (2018)
+
+                     o Southern Palmetto Hospital (2016)
+
+                     o Marlboro Park Memorial Hospital (2015)
+
+                     o Bamberg County Memorial Hospital (2012)
+
+              •   Rural Hospital Utilization data: Rural hospital utilization data metrics, such as average
+
+                  daily census, patient days, and discharges, paint a picture of the unsustainable situation
+
+                  rural hospitals face. Hospitals have an average daily census as low as 1.1, highlighting
+
+                  the tendency of rural individuals to bypass these facilities and the incongruity of service
+
+                  offerings with community need. See Appendix A.
+
+
+          Target populations and geographic areas: Improving access to quality healthcare services is a
+
+          priority for improving health outcomes in rural South Carolina. Understanding the demographic
+
+          factors that compound poor outcomes is equally important to ensure services are tailored to the
+
+          population’s needs. As such, South Carolina will inject needed resources into all rural
+
+          communities centering efforts around improving access, quality and outcomes for chronic
+
+          disease—especially diabetes, heart disease, and stroke—and maternal care.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                      Page 5 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          RHT Plan: Goals and Strategies
+
+             Vision: To transform rural healthcare in South Carolina so that all communities may thrive.
+
+            Goal: To increase healthcare access and quality for improved chronic disease management and
+
+                                health outcomes for rural communities in South Carolina.
+
+
+                                            Figure 2: Rural Individual Profile
+
+
+                     Ms. Florence Collette
+                Age: 83 | Residence: Rural Allendale County, South Carolina
+               Living Situation: Widowed, lives alone in a small single- story home on family land,
+               about 20 miles from the nearest hospital. Her daughter lives an hour away and visits
+               twice a month.
+               Primary Health Conditions: high blood pressure, diabetes, and osteoarthritis, vision issues due to
+               cataracts, poor balance
+               Presenting Challenges: limited access, technology gap, health literacy, social isolation, environmental
+               factors
+               Ms. Collette has been deeply impacted by the rural hospital closures in her area over the years, the lack
+               of home health and respite service availability in her area, underdeveloped transportation solutions,
+               provider shortages and economic constraints.
+
+
+
+
+          A fictional citizen, Ms. Collette, illustrated in Figure 2, represents the type of community
+
+          member who anchors South Carolina’s vision and strategic priorities for the funding available
+
+          through this cooperative agreement. While the previous section outlines the challenges faced by
+
+          South Carolinians, it’s equally important to recognize the significant strides the state has made
+
+          through various health improvement initiatives. Building on this progress, South Carolina is
+
+          committed to advancing rural health through long-term, transformative strategies.
+
+
+
+
+          Project Narrative – South Carolina                                                                    Page 6 of 59
+
+
+PREVIEW Date: Nov 05, 2025                                 Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          RHT Strategic Plan Elements
+          South Carolina will use RHT funding to inject needed resources into rural communities and will
+
+          support each of the RHT strategic objectives as follows:
+
+
+          Improving Access: South Carolina will enhance healthcare access by expanding the use of
+
+          innovative information technology (IT) to better connect patients with providers and by
+
+          increasing the number of service delivery access points that bring care directly into rural
+
+          communities. In addition, strategic investments in provider recruitment incentives, facility
+
+          renovations, and essential equipment upgrades will help boost both provider engagement and
+
+          patient satisfaction.
+
+
+          Improving Outcomes: South Carolina will strengthen chronic disease management and health
+
+          outcomes by enhancing both access to care and the quality of services delivered.
+
+
+          Technology Use: South Carolina will expand the use of telehealth, remote patient monitoring,
+
+          digital health tools, and comprehensive IT system enhancements to improve care delivery. RHT
+
+          program funds will offset the upfront investment costs, while ongoing maintenance expenses will
+
+          be sustainably managed through existing operational budgets.
+
+
+          Partnerships: South Carolina will strengthen existing partnerships and cultivate new
+
+          collaborations by engaging state agencies, health associations, community organizations, and
+
+          academic institutions. These partners maintain direct, hands-on relationships with hospitals,
+
+          clinics, and community-based programs across the state, making them essential allies in
+
+          advancing rural health transformation.
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 7 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Workforce: South Carolina will develop targeted incentive and training programs for healthcare
+
+          providers, nurses, community health workers (CHWs), and other frontline professionals to
+
+          enhance clinical competency, support workforce development, and strengthen recruitment and
+
+          retention efforts across rural communities.
+
+
+          Data-Driven Solutions: South Carolina will support the adoption of electronic health records,
+
+          enhance digital literacy among both providers and patients, and promote the use of data-driven
+
+          insights to inform and improve the quality of care.
+
+
+          Financial Solvency Strategies: South Carolina will promote the financial solvency of rural
+
+          providers by modifying service offerings, reducing bypass of rural facilities, and allowing for
+
+          diversification of revenue streams. The activities within the plan will assist rural hospitals and
+
+          other providers in identifying and providing appropriate care for their community.
+
+
+          Cause Identification: Rural hospitals operate on thin margins. This is exacerbated by the small
+
+          service array they can offer, and patients choosing to seek care at larger hospitals with brand
+
+          recognition. This cycle leads to a survival mentality, where hospitals are unable to invest in
+
+          comprehensive strategic planning. South Carolina will partner with community providers to
+
+          launch a masterclass, empowering high-performing hospitals to mentor and support under-
+
+          resourced rural hospitals in implementing effective strategies and achieving long-term
+
+          sustainability.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                      Page 8 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Program Key Performance Objectives
+          By the end of federal fiscal year (FY) 2030, South Carolina aims to achieve measurable progress
+
+          in transforming rural health through enhanced use of IT and digital platforms. Leveraging these
+
+          solutions will better connect providers and patients, expand access points for high-quality service
+
+          delivery, upgrade healthcare infrastructure, and strengthen provider competency and patient
+
+          satisfaction. The state will also drive innovation to reduce health disparities, particularly in
+
+          chronic disease management and health outcomes.
+
+          Key performance objectives include:
+
+              •   Improved chronic disease management and health outcomes
+
+                     o Advance performance in all prevention and treatment Healthcare Effectiveness
+
+                         Data and Information Set (HEDIS) metrics for South Carolinians residing in
+
+                         rural communities demonstrated through independent comparative analysis
+
+              •   Enhanced provider capacity to deliver high-quality care
+
+                     o Increase and expand efforts to recruit, train, and retain key healthcare
+
+                         professionals providing services in rural communities for a more robust and
+
+                         sustainable rural health workforce.
+
+                             ▪    Improve the ratio of physicians to residents in rural areas by 10%
+
+                             ▪   Establish a baseline and target for the number of new providers recruited
+
+                                 to deliver telehealth in rural areas through affiliation agreements
+
+              •   Elevated provider and patient experience
+
+                     o Advance performance in all Consumer Assessment of Healthcare Providers and
+
+                         Systems (CAHPS) survey response metrics for South Carolinians residing in rural
+
+                         communities demonstrated through independent comparative analysis
+
+
+          Project Narrative – South Carolina                                                       Page 9 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Increased innovation, digital literacy, and adoption of best practices in rural health
+
+                     o Establish a baseline for and increase the number of rural clinics implementing at
+
+                         least one new clinical best practice or care delivery model (e.g. chronic care
+
+                         management programs, remote monitoring, or team-based care)
+
+
+          Strategic Goals Alignment
+          Collectively, the strategies and objectives outlined above, and further detailed in the Initiatives
+
+          section, align with and advance the RHT program’s five strategic goals: Make Rural America
+
+          Healthy Again, Sustainable Access, Workforce Development, Innovative Care, and Tech
+
+          Innovation. Each initiative was intentionally selected to ensure strategic alignment and to drive
+
+          meaningful improvements in healthcare access, quality, and outcomes across rural communities.
+
+
+          SCDHHS’ Strategic Alignment with RHT Program Goals
+          The South Carolina Department of Health and Human Services (SCDHHS) is the single state
+
+          agency that administers the state’s Healthy Connections Medicaid program. Given this role and
+
+          reach, it is uniquely situated to lead the RHT program in South Carolina. Its strategic priorities
+
+          and community-focused initiatives closely align with the five core goals of the RHT program.
+
+          SCDHHS’ mission to be boldly innovative in improving the health and quality of life for South
+
+          Carolinians and its vision of turning thought into action through evidence-based decision-making
+
+          serve as a strong foundation for this leadership role.
+
+
+          The agency’s three overarching goals are providing a responsive member experience, purchasing
+
+          access to needed health services, and properly aligning resources to enable success. Notably, the
+
+          second goal—purchasing access to needed health services—directly supports all five RHT
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 10 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          strategic goals by emphasizing evidence-based decision-making, sustainability, workforce
+
+          development, and innovation to improve health outcomes across rural communities.
+
+
+          SCDHHS’ community-driven initiatives, focused on expanding access and enhancing quality, as
+
+          outlined in Table 1, and SCDHHS’ current rural health programs as outlined in Table 2 are
+
+          well-aligned with the five strategic goals of the RHT program. Building on their proven success,
+
+          SCDHHS will strategically scale these initiatives to broaden their impact across the state.
+
+
+                     Table 1: SCDHHS’ Quality Initiatives & RHT Program Strategic Goals
+           SCDHHS Quality Initiatives                            RHT Strategic Goals
+                            National data-driven maternal
+           Alliance for                                            • Make Rural America
+                            safety and quality improvement
+           Innovation on                                              Healthy Again
+                            initiative focused on improving
+           Maternal Health                                         • Innovative Care
+                            maternal outcomes.
+                            To improve health outcomes for
+                            mothers and babies in South
+                            Carolina, in collaboration with the
+                            South Carolina Hospital                • Make Rural America
+           Birth Outcomes   Association, Blue Cross Blue              Healthy Again
+           Initiative       Shield of South Carolina, the South    • Sustainable Access
+                            Carolina Department of Public          • Innovative Care
+                            Health, March of Dimes, the South
+                            Carolina Office of Rural Health
+                            and more than 100 stakeholders.
+                            In collaboration with the South
+           Quality through  Carolina Chapter of the American
+                                                                   • Make Rural America
+           Technology and   Academy of Pediatrics, this
+                                                                      Healthy Again
+           Innovation in    partnership is administered with the
+                                                                   •  Innovative Care
+           Pediatrics       goal of improving the quality of
+                            children’s healthcare.
+                            A collaboration between managed
+           Quality          care organizations (MCOs) and          • Make Rural America
+           Achievement      South Carolina hospitals that aims        Healthy Again
+           Program          to improve health outcomes for         • Sustainable Access
+                            Medicaid members.
+           Quality          SCDHHS mandates MCOs develop
+                                                                   • Make Rural America
+           Assessment and   and manage a performance
+                                                                      Healthy Again
+           Performance      improvement project to achieve
+                                                                   • Sustainable Access
+           Improvement      improvements in health outcomes
+           Program          and member satisfaction.               • Innovative Care
+
+
+          Project Narrative – South Carolina                                                   Page 11 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                                 Table 2: SCDHHS Managed Rural Programs
+           SCDHHS Current Rural Programs
+           Rural and           To improve access to necessary medical services across the state,
+           Medically           especially in rural and medically underserved areas and communities,
+           Underserved Grant SCDHHS created a $48.2 million grant opportunity to support the
+           Program             creation and/or renovation of rural healthcare facilities.
+                               This program, funded by SCDHHS and administered by the Medical
+                               University of South Carolina (MUSC) and the South Carolina Area
+                               Health Education Consortium, is designed to improve healthcare access
+           Rural Physician & in South Carolina’s rural and underserved communities. It provides
+           Dentist Program     financial incentives—such as grants and loan repayment assistance—to
+                               licensed primary care physicians, general surgeons, psychiatrists,
+                               physician assistants, advanced practice nurses, and dentists who
+                               commit to serving in these areas.
+                               This rural outreach program is aimed at improving healthcare access
+                               and quality in South Carolina’s rural and underserved communities.
+           University of South
+                               The program supports a range of initiatives including technical
+           Carolina (USC)
+                               assistance for rural health clinics, emergency medical services training,
+           School of Medicine
+                               recruitment of rural healthcare providers, and financial guidance for
+           Rural Outreach
+                               rural practices. It includes hands-on clinical and educational
+           Program
+                               experiences for medical students in rural settings, telehealth
+                               development, and training in medical technologies.
+                               This program focuses on expanding preventive and primary care
+           The Clemson         through fixed clinics, mobile health units, telehealth, and RPM. It also
+           Rural Health        supports nutrition-based interventions like produce prescription
+           Program             programs, innovations in chronic disease management, and the
+                               development of a decentralized clinical research network.
+                               This initiative provides administrative and medical services to help
+           Rural Health
+                               rural communities improve healthcare delivery. It focuses on building
+           Network
+                               evidence-based frameworks, offering technical assistance, engaging
+           Revitalization
+                               community organizations, supporting rural healthcare providers, and
+           Project
+                               enhancing infrastructure.
+                               This program funds a wide range of initiatives including rural clinical
+                               training, medical education scholarships, provider recruitment and
+           University          retention, preventive medicine residencies, pharmacy residencies, and
+           Specialty Clinics   maternal-child health services. It also supports data-driven research,
+                               community health partnerships, and innovative care delivery models
+                               such as remote patient monitoring and pediatric subspecialty outreach.
+                               This is a statewide initiative that expands training, coaching, and
+           South Carolina
+                               workforce development to strengthen school-based mental health
+           School Behavioral
+                               services, especially in rural districts, by equipping educators and
+           Health Academy
+                               mental health professionals with evidence-based practices and tools.
+           MUSC South          This program expands access to healthcare across the state, particularly
+           Carolina            in rural and underserved areas, by funding and supporting hospitals,
+           Telehealth          regional hubs, and partners to develop and operate a statewide
+           Network             telehealth infrastructure.
+
+
+          Project Narrative – South Carolina                                                Page 12 of 59
+
+
+PREVIEW Date: Nov 05, 2025                        Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Rural Facility and Population Score Factors
+
+          The scoring factors for sections A.1 through A.7 reinforce many of the previously identified
+
+          challenges, underscoring South Carolina’s commitment to expanding access to high-quality
+
+          healthcare services in order to improve chronic disease and health outcomes.
+
+
+          Absolute Size of Rural Population in South Carolina (A.1)
+
+          1.75 millionxix, out of 5,373,555, South Carolinians reside in rural areas. Urban areas in South
+
+          Carolina are concentrated around major cities, depicted in
+                                                                                Figure 3: Rural Population in
+          light green in Figure 3, such as Columbia (the state capital),               South Carolina
+
+          Greenville and Spartanburg in the Northeast region, Rock
+
+          Hill and Fort Mill to the north, Sumter and Florence between
+
+          Columbia and the coast, and the coastal hubs of Myrtle
+
+          Beach and Charleston. Current trends indicate that young
+
+          adults are increasingly relocating from rural areas, depicted
+
+          in dark green in Figure 3, to these urban centers. This
+
+          migration pattern has left behind aging populations in rural communities, where chronic health
+
+          conditions are more prevalent and access to care is more limited.
+
+
+          Proportion of Rural Health Facilities in South Carolina (A.2)
+
+          While urban areas in South Carolina have a greater overall number of health facilities (134),
+
+          rural areas still maintain a significant share making up 44% (106) of total health facilities.xx
+
+          However, many rural facilities face persistent challenges, including difficulties in recruiting and
+
+          retaining physicians, as well as critical needs for IT upgrades and physical infrastructure
+
+          improvements to adequately serve their patient populations.
+
+
+          Project Narrative – South Carolina                                                     Page 13 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Uncompensated Care in South Carolina (A.3)
+
+          Uncompensated care in South Carolina exceeds the standard benchmark of 3–4%, primarily due
+
+          to patients’ inability to pay. As of 2020, total uncompensated care was $857 million with 5.4%
+
+          of hospital operating expenses as uncompensated.xxi These financial barriers are especially
+
+          pronounced in rural areas, where healthcare costs tend to be higher than in urban settings.
+
+
+          Percent of South Carolina in Rural Areas (A.4)
+
+          32.6% of South Carolinians reside in rural areas,xxii exceeding the national average of less than
+
+          20%.
+
+
+          Frontier Metrics in South Carolina (A.5)
+
+          While South Carolina has rural areas, it does not have frontier areas according to federal
+
+          definitions. The lowest-density counties (Allendale, McCormick, Jasper, and Williamsburg) have
+
+          approximately 19-43 people per square mile.
+                                                                               Figure 4: Landscape of
+          Total State Area in South Carolina (A.6)                                South Carolina
+
+          At 32,895 square miles, the vast majority of South
+
+          Carolina's geography is land, with water bodies
+
+          comprising only about 8% of the state's total area.xxiii The
+
+          state features a diverse landscape as shown in the
+
+          topographical map in Figure 4, from the rugged Blue
+
+          Ridge Mountains in the northwestern corner, to the rolling
+
+          hills of the Northeast, which gradually transition into the Atlantic Coastal Plain, characterized by
+
+          gentle slopes, sandy soils, swamps, and estuarine ecosystems.
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 14 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Hosptials Receiving Medicaid DSH Payments in South Carolina (A.7)
+
+          Out of 101 hospitals in South Carolina, 18 (about 18%) receive Medicaid Disproportionate Share
+
+          Hospital (DSH) payments to help offset the high levels of uncompensated.xxiv Most DSH
+
+          hospitals are safety-net or public hospitals serving high Medicaid/low-income populations,
+
+          including MUSC Medical Center, McLeod Health, and Prisma Health Hospitals among others.
+
+
+          Data-Driven Technical Score Factors
+
+          While technical score factors are weaved into initiatives and state policy actions in forthcoming
+
+          sections, data-driven factors for E.2 and F.2 are below. South Carolina remains committed to
+
+          supporting dual eligibles and high-quality data infrastructure:
+
+
+          Individuals Dually Eligible for Medicare and Medicaid (E.2)
+
+          According to the most recent Medicare Monthly Enrollment Data (June 2025) available on
+
+          data.cms.gov, South Carolina had a total of 184,475 dually eligible Medicare-Medicaid
+
+          beneficiaries in 2024. Of these, 152,924 were full dual eligibles, while 31,551 were partial duals.
+
+          Developing a targeted plan to transition this population into Medicaid Managed Care is included
+
+          as an initiative activity.
+
+
+          Data Infrastructure (F.2)
+
+          As of June 30, 2025, SCDHHS is one of 43 state Medicaid agencies that have met the targets
+
+          for Critical Priority, High Priority, and Expenditures in the T-MSIS Outcome-Based
+
+          Assessments.
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 15 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          State Policy Actions
+
+          Current State
+          South Carolina has demonstrated a longstanding commitment to ensuring sustainable access to
+
+          high-quality healthcare for all residents, regardless of geographic location. State leadership has
+
+          taken this responsibility seriously, convening ad hoc committees on rural health, engaging key
+
+          stakeholders, gathering public input, and translating insights into meaningful legislative action
+
+          and executive directives.
+
+
+          SNAP Waiver (B.3)
+
+          Recognizing the critical link between nutrition and chronic disease, state leaders have also taken
+
+          bold steps to address the role of diet in long-term health outcomes, particularly in rural
+
+          communities. Executive Order 2025-30 directed the South Carolina Department of Social
+
+          Services (SCDSS) to apply for a Supplemental Nutrition Assistance Program (SNAP) waiver
+
+          aimed at restricting the purchase of unhealthy foods. This initiative has received broad legislative
+
+          support, as reflected in Senate Bill 589 and House Bill 4061. On September 23, 2025, South
+
+          Carolina formally submitted the SNAP waiver request to limit the use of benefits on non-
+
+          nutritious food items.
+
+
+          Certificate of Need (CON) (C.3)
+
+          In 2023, the South Carolina legislature passed Act 20 which marked a significant milestone,
+
+          initiating the repeal of CON requirements for healthcare facilities, with full implementation set
+
+          for 2027. Based upon this repeal, Cicero ranks South Carolina 22nd least restrictive, at 35 points.
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 16 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Licensure Compacts (D.2) and Scope of Practice (D.3)
+
+          To expand access to care, South Carolina has enacted several measures aimed at strengthening
+
+          the healthcare workforce. The state participates in the Nurse Licensure Compact, the Emergency
+
+          Medical Services Compact, and the Psychology Interjurisdictional Compact, facilitating cross-
+
+          state practice. Additionally, the scope of practice for dental hygienists has been expanded to
+
+          include the administration of local anesthesia, application of sealants, and direct access to
+
+          prophylaxis services.
+
+
+          Short-Term Limited-Duration Insurance (STLDI) (E.3)
+
+          Short-Term Limited-Duration Insurance policies sold in South Carolina are subject to the
+
+          requirements and restrictions in SC Bulletin 2018-08 (Appendix B). The 2018 Bulletin does not
+
+          restrict STLDI plans beyond the latest federal guidance. SC Bulletin 2018-08 allows for longer
+
+          initial issuance periods and longer total duration periods than the 2024 federal guidance. The
+
+          maximum allowable initial term in SC is 11 months, and the total duration is limited to 33
+
+          months, whereas the federal definition of STLDI limits the length of the initial contract term to
+
+          no more than 3 months and the maximum coverage period to no more than 4 months.
+
+
+          Remote Care Services (F.1)
+
+          SCDHHS also supports Medicaid reimbursement for remote care services, including live video,
+
+          store-and-forward (with communication technology-based service (CTBS) restrictions), and
+
+          remote patient monitoring. The state has established telehealth licensing and registration
+
+          processes, along with exceptions to in-state licensure requirements to further enable access to
+
+          virtual care.
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 17 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          State Policy Action Commitments
+          South Carolina remains steadfast in its commitment to ensuring sustainable access and
+
+          opportunity for all communities across the state. In a unified effort, legislative leaders and the
+
+          Governor have advanced policy actions aimed at improving health outcomes, particularly in rural
+
+          areas, but with benefits that extend statewide.
+
+
+          Proposed Initiatives and Use of Funds
+
+          South Carolina is proposing five transformative quality initiatives under the RHT program that
+
+          are designed to directly and meaningfully impact rural residents and communities across the
+
+          state. These initiatives—Connections to Care, Leveling Up, Wellness Within Reach, Shoring Up
+
+          to Sustainability, and the Tech Catalyst Fund—are strategically aligned with the RHT program’s
+
+          five strategic goals: make rural America healthy again, sustainable access, workforce
+
+          development, innovative care, and tech innovation. Each initiative reflects a commitment to
+
+          evidence-based, outcomes-driven interventions that improve healthcare access, quality, and
+
+          outcomes through system transformation.
+
+
+          Together, these initiatives represent a comprehensive and integrated approach to rural health
+
+          transformation, addressing nine of the statutorily approved uses of funds, including prevention
+
+          and chronic disease management, workforce recruitment and retention, and consumer-facing
+
+          technology solutions. South Carolina’s plan emphasizes innovation, strategic partnerships,
+
+          infrastructure development, and workforce investment to ensure every initiative factor is
+
+          addressed. Through this approach, the state seeks to build a resilient, sustainable rural healthcare
+
+          ecosystem that delivers measurable improvements in health outcomes and long-term value for its
+
+          rural populations. Ms. Collette, introduced in Figure 2, is not one individual, but a composite
+
+
+          Project Narrative – South Carolina                                                     Page 18 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          profile illustrating the real challenges impacting rural South Carolinians. South Carolina’s
+
+          application will explain how this funding can be used, through these initiatives and the projects
+
+          that comprise them, to make real improvements for individuals like Ms. Collette.
+
+
+                        Connections to Care – Expanding digital infrastructure by implementing
+                        electronic health records, remote patient monitoring, telehealth services and a
+                        statewide resource database platform to improve care coordination and access.
+
+
+
+          Description: Ensuring that rural residents have access to care and that rural providers are
+
+          equipped with modern technology is essential to building and sustaining a healthier South
+
+          Carolina. While telehealth continues to gain traction as a tool to expand access, rural hospitals
+
+          often lag behind their urban counterparts in adopting these solutions. Additionally, many rural
+
+          areas face challenges with implementing electronic health record (EHR) systems, contributing to
+
+          disparities in care coordination and operational efficiency. These technologies can help rural
+
+          providers reduce the per unit cost of delivering care, thereby making them more sustainable in
+
+          the long term. This modernization also includes patient-facing technology upgrades, such as
+
+          remote patient monitoring, telehealth, and assistive technology tools. For Ms. Collette, having
+
+          blood pressure monitoring tools at home that her doctor can monitor remotely means avoiding
+
+          costly and time-consuming hospital stays when she falls after her blood pressure drops too low.
+
+          To close these gaps and promote quality healthcare access across both rural and urban
+
+          communities, South Carolina will invest in telehealth, digital tools, and statewide IT
+
+          modernization through the following activities:
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 19 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Provider Technology Systems: Implementing and enhancing technology systems in
+
+                  rural facilities will improve care coordination, reduce administrative burden, and support
+
+                  data-driven decision-making. Replacing outdated EHR systems and upgrading current
+
+                  systems across rural provider networks will allow for increased communication and
+
+                  expediency. This can include purchasing modular components, such as AI-Enabled tools
+
+                  that increase integration and automation and upgrading or purchasing systems enhancing
+
+                  cybersecurity capabilities. RHT funds will cover one-time costs for EHR adoption,
+
+                  updates and additions across rural practices, hospitals, and state agencies, including
+
+                  behavioral health providers and nontraditional centers of care.
+
+                  Examples of funding include:
+
+                     ➢ Assisting health care entities in transitions from a paper-based system to a fully
+
+                         electronic medical record system with integrated modules, to improve
+
+                         interoperability, reduce duplication, and support value-based care, as well as to
+
+                         improve care coordination and streamline admissions
+
+                     ➢ Implementing a patient-facing digital intake platform in rural clinics to
+
+                         streamline documentation and identify drivers of health outcomes at the point of
+
+                         care
+
+              •   Remote Patient Monitoring (RPM) and Assistive Technology: RPM and assistive
+
+                  technology tools enable healthcare providers to track patients’ health in real time,
+
+                  enhancing chronic disease management, improving post-discharge care, and supporting
+
+                  greater independence for individuals with developmental disabilities. RHT funds will
+
+                  support the purchase of devices and technology for use in rural communities. These
+
+                  investments also include the necessary infrastructure to ensure providers can receive and
+
+
+          Project Narrative – South Carolina                                                    Page 20 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  act on this data, including the establishment of monitoring stations or centralized hubs, as
+
+                  well as training and technical assistance.
+
+                  Examples of funding include:
+
+                     ➢ Purchasing standards-based (to promote interoperability) RPM equipment for
+
+                         diabetes, hypertension, COPD, and heart disease patients, and the monitoring
+
+                         infrastructure for providers, with staff support for monitoring and
+
+                         troubleshooting
+
+              •   Telehealth Expansion in Rural Hospitals and Schools: Telehealth increases access to
+
+                  primary, specialty, and behavioral health services while reducing transportation barriers.
+
+                  RHT funds will support equipment purchases, IT upgrades, and training for providers and
+
+                  school staff to expand telehealth capacity in rural areas.
+
+                  Examples of funding include:
+
+                     ➢ Partnering with rural school districts to implement and expand telehealth
+
+                         services, through infrastructure, training, and technical assistance
+
+                     ➢ Ensuring accessibility of telehealth platforms for individuals with intellectual and
+
+                         developmental disabilities
+
+                     ➢ Purchasing tele-ICU equipment for rural hospitals to connect with a larger
+
+                         ‘command center’ for expert treatment and care management
+
+              •   Statewide Resource Database: While urban areas often have consolidated information
+
+                  about healthcare access points and community-based support, rural areas lack integrated
+
+                  resource information, preventing citizens from availing themselves of the services
+
+                  available to them. A resource database will connect rural individuals to essential services
+
+                  like food, housing, and transportation, in addition to information about healthcare. This
+
+
+          Project Narrative – South Carolina                                                    Page 21 of 59
+
+
+PREVIEW Date: Nov 05, 2025                            Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  platform will improve care coordination and generate data to guide future investments.
+
+                  RHT funds will support statewide development and implementation.
+
+                  Examples of funding include:
+
+                     ➢ A statewide virtual engagement platform that connects rural individuals with
+
+                         available resources in their area
+
+              •   Digital Literacy: Individuals in rural areas are often less confident in and less likely to
+
+                  engage in digital health technologies. RHT funds will support training and technical
+
+                  assistance for both patients and providers to build confidence in using digital health tools,
+
+                  and to sustainably integrate them into clinical practice and care delivery workflows,
+
+                  therefore improving engagement and outcomes in rural communities.
+
+                  Examples of funding include:
+
+                     ➢ Train and deploy rural health care workers as digital health navigators to help
+
+                         patients access and use telehealth services confidently
+
+
+          Main strategic goal: Innovative Care, Tech Innovation, Sustainable Access
+
+
+          Use of funds: A, C, D, F, G, H, J, K
+
+
+          Technical score factors: B.1, C.1, F.1, F.2, F.3
+
+
+          Key stakeholders: Rural health clinics, public schools located in rural counties, community-
+
+          based organizations with an emphasis on those serving rural populations, rural community
+
+          members
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 22 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Outcomes:
+
+              •   Establish a baseline for measurement of the number of rural healthcare providers using
+
+                  certified EHR technology that supports interoperability and increase usage over the
+
+                  course of the cooperative funding agreement
+
+              •   Establish a baseline for telehealth service offerings, and increase the proportion of
+
+                  healthcare facilities offering telehealth services (e.g., video visits, remote consults) by
+
+                  15%
+
+              •   Increase the number of patients enrolled in RPM programs or utilizing assistive
+
+                  technology
+
+              •   Establish and operationalize a statewide resource database, increasing the number of
+
+                  closed-loop referrals to state and community-based organizations by at least 50%
+
+
+          Impacted Counties: All counties
+
+
+          Estimated Required Funding: $300 million
+
+
+          Sustainability: RHT program funding will be used to cover one-time investments in IT
+
+          infrastructure, such as equipment installation, system enhancements, user training and technical
+
+          assistance, that are often financially out of reach for hospitals, clinics, and community-based
+
+          organizations.
+
+
+          By addressing these upfront barriers, South Carolina is enabling providers to implement long-
+
+          lasting and sustainable improvements in patient care and care coordination. Once installed, these
+
+          systems require minimal ongoing maintenance, which can be absorbed into existing operational
+
+          budgets and workflows. This approach ensures that:
+
+
+
+
+          Project Narrative – South Carolina                                                      Page 23 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Initial investments lead to durable infrastructure improvements;
+
+              •   Ongoing costs remain manageable, supporting long-term use without additional grant
+
+                  funding;
+
+              •   Providers are equipped with the tools and training needed to sustain improvements
+
+                  independently; and
+
+              •   Health IT upgrades are integrated into routine operations, reducing reliance on external
+
+                  support.
+
+
+          By focusing on scalable, standards-based, cost-effective solutions, this strategy
+
+          promotes sustained impact beyond the life of the grant.
+
+
+                      Leveling Up – Scaling successful pilot programs statewide, focusing on chronic
+                      disease management, pediatric care quality, and workforce development.
+
+
+          Description: South Carolina has long invested in piloting and implementing innovative
+
+          strategies to improve health outcomes and expand access to care. Providers, advocates, and
+
+          community leaders have historically focused on targeted efforts that have often centered on
+
+          chronic disease management, quality improvement, and expansion of access for underserved
+
+          populations. While these initiatives have yielded measurable success, limited resources have
+
+          prevented many from being scaled statewide. As a result, rural communities are often the last to
+
+          benefit from promising models. Table 1 and Table 2 highlight some of these initiatives that could
+
+          be expanded using RHT funding to reach and impact rural communities. These projects may
+
+          need to be adjusted for success given the specific needs of rural communities. Small, rural
+
+          hospitals may not be able to sustain a residency program alone, but individuals like Ms. Collette
+
+
+
+
+          Project Narrative – South Carolina                                                  Page 24 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          would benefit from a partnership that establishes an external clinical rotation that brings talented
+
+          residents to her local hospital.
+
+
+          This initiative leverages this once-in-a-generation funding opportunity to ensure the success of
+
+          these innovative strategies reach the state’s rural communities as well. South Carolina will focus
+
+          on scaling proven, high-impact projects, ensuring that successful approaches reach residents
+
+          statewide. Initial activities may include:
+
+
+              •   Enhancing Graduate Medical Education (GME) Programs: Provide one-time funding
+
+                  to modernize and expand existing GME programs through infrastructure upgrades that
+
+                  enhance teaching capabilities and support rural training experiences. Investments may
+
+                  include hospital-based improvements and innovative solutions, such as housing for
+
+                  medical residents completing rural out-rotations, ensuring future providers are well-
+
+                  prepared to serve in underserved communities. Participation in these programs will
+
+                  require a five-year commitment to serve rural communities.
+
+                  Examples of funding include:
+
+                      ➢ Providing funding to enhance the equipment used for rural GME programs, such
+
+                          as robotic surgery, to augment and diversify the knowledge base of rural
+
+                          physicians
+
+                      ➢ Incorporating a rural education component into existing programs through
+
+                          partnerships with rural hospitals, including nutrition education due to the
+
+                          prevalence of diet-related diseases in rural areas
+
+
+              •   Scaling Proven Pilots: Taking successful local or regional programs, such as care
+
+                  coordination models or school mental health programs, and expanding them statewide.
+
+
+          Project Narrative – South Carolina                                                     Page 25 of 59
+
+
+PREVIEW Date: Nov 05, 2025                             Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  Examples of funding include:
+
+                     ➢ Mental Wellness Through Schools Expansion: Scaling the successful school-
+
+                         based behavioral health model to additional school districts that serve the rural
+
+                         population, ensuring early identification of students’ mental health needs and
+
+                         timely connection to appropriate supports.
+
+                             o Support school districts that serve the rural population in adopting the
+
+                                 model by highlighting its impact on student well-being, academic
+
+                                 performance, and long-term outcomes.
+
+
+                     ➢ Pediatric Quality Program Expansion: Extending the successful Quality through
+
+                         Technology and Innovation Program (QTIP) to additional rural providers,
+
+                         ensuring that children in underserved communities receive high-quality pediatric
+
+                         care.
+
+
+                             o Incentivize additional rural practices that serve the pediatric population
+
+                                 to participate in QTIP program which has demonstrated proven successes
+
+                                 in increases pediatric quality of care
+
+                             o Create a QTIP model for other provider groups, such as pediatric dentists
+
+
+              •   Needs Assessments: Conducting comprehensive assessments to identify gaps in access,
+
+                  infrastructure, and services, ensuring future investments are data-driven and sustainable.
+
+                  Examples of funding include:
+
+                     ➢ Conducting a rural needs assessment for each of the initiatives proposed in the
+
+                         application to strategically fund future grant cycles
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 26 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                     ➢ Contracting with an entity with knowledge of the population dually eligible for
+
+                         Medicare and Medicaid to provide a plan for transitioning this population into
+
+                         Medicaid Managed Care
+
+
+              •   Chronic Disease Program Expansion: Building on existing chronic care initiatives that
+
+                  have demonstrated improved outcomes in sickle-cell, diabetes, hypertension, and other
+
+                  high-burden conditions.
+
+
+                  Examples of funding include:
+
+                     ➢ Expanding upon existing innovative sickle cell treatment centers, establish a
+
+                         statewide access strategy with regional pain centers, gene therapy and transplant
+
+                         coordination, and tele specialty care, plus training for primary care and
+
+                         screening
+
+
+          Main Strategic Goal: Make Rural America Healthy Again, Workforce Development
+
+
+          Use of Funds: A, D, E, G, H, K
+
+
+          Technical Score Factors: B.1, B.2, C.1, D.1, E.1, E.2
+
+
+          Key Stakeholders: Rural hospitals, clinics, State agencies, community-based programs, schools,
+
+          associations, rural community members
+
+
+          Outcomes:
+
+              •   Complete a comprehensive community health needs assessment, inclusive of data
+
+                  collection, stakeholder engagement, and publication of a final report
+
+              •   Increase the number of providers participating in pediatric care quality programs by 15%
+
+
+
+
+          Project Narrative – South Carolina                                                  Page 27 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Increase the number of locations where a patient can receive treatment as part of a
+
+                  coordinated chronic care system
+
+              •   Increase the number of GME programs including a rural education component
+
+
+          Impacted Counties: All counties
+
+
+          Estimated Required Funding: $175 million
+
+
+          Sustainability: RHT funding will be used to cover one-time implementation costs for targeted,
+
+          high-impact interventions. These upfront investments address a common barrier to scaling, the
+
+          lack of capital, which inhibits them from having the capability to successfully achieve the
+
+          expected project or program outcomes.
+
+
+          By using funds to launch or expand interventions that are designed to be embedded into existing
+
+          operations and community infrastructure, South Carolina is ensuring that these efforts can
+
+          be sustained over time without ongoing external support. Once established, these programs are
+
+          expected to operate within existing budgets, staffing models, and workflows, making them
+
+          both scalable and durable.
+
+
+          This approach ensures that RHT investments lead to lasting improvements in care delivery,
+
+          access, and health outcomes across the state.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                  Page 28 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                      Wellness Within Reach – Deploying mobile health units, crisis response teams,
+                       and pop-up clinics to bring care directly to underserved populations.
+
+
+          Description: Rural South Carolina communities face persistent health inequities driven by social
+
+          and economic barriers such as limited transportation, food insecurity, housing instability, and
+
+          low health literacy. These challenges contribute to poorer outcomes, higher costs, and
+
+          preventable hospitalizations. It is paramount to the health of the state that rural South Carolinians
+
+          can receive high-quality care close to home. The modalities of care may be nontraditional, such
+
+          as seasonal clinics or mobile units, but the importance of mechanisms that allow individuals to
+
+          see a health care provider face-to-face cannot be understated.
+
+
+          While technology expands access, the state recognizes the need to bring care directly to
+
+          communities. Although Ms. Collette’s chronic conditions may be well-managed through
+
+          telehealth and RPM, she feels a lump in her breast and knows her daughter is unable to
+
+          coordinate a time to take her to an appointment. The mobile mammography unit scheduled to be
+
+          in town next week makes it possible for her to get screened in her own community. This
+
+          initiative will strengthen rural health systems by expanding community-based access points and
+
+          addressing transportation and location-based barriers through the following activities:
+
+
+              •   Mobile Crisis Response: Mobile teams provide on-site behavioral and mental health
+
+                  support, reducing hospitalizations and improving outcomes for individuals in crisis. RHT
+
+                  funds will expand these services in rural counties through new unit acquisition.
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 29 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  Examples of funding include:
+
+                     ➢ Funding additional behavioral health mobile crisis vehicles operated by SC
+
+                         Office of Mental Health to lower the mobile crisis response times in rural areas of
+
+                         the state
+
+              •   Expand Community Care Sites: To extend the reach of South Carolina’s healthcare
+
+                  system, RHT funds will support the development of new care delivery sites, including
+
+                  permanent clinics, seasonal pop-ups, mobile vans, and intermittent service locations.
+
+                  These flexible, community-embedded access points will offer primary and preventive
+
+                  care in underserved areas. Funding will support equipment purchases, renovation of
+
+                  underutilized spaces, and infrastructure enhancements to ensure high-quality care is
+
+                  available where it’s needed most.
+
+                  Examples of funding include:
+
+                     ➢ Providing equipment and supplies for seasonal pop-up clinics in rural areas
+
+                     ➢ Purchasing additional mobile health units that provide specialized care, such as
+
+                         mobile CT units, to rural areas
+
+              •   Emergency Medical Services: A community paramedicine program can deploy
+
+                  specially trained paramedics to provide preventive care, chronic disease monitoring, and
+
+                  post-discharge follow-up in rural areas. This model reduces unnecessary emergency
+
+                  department visits and hospital re-admissions while bringing care directly to patients’
+
+                  homes or local community hubs.
+
+                  Examples of funding include:
+
+                     ➢ Funding equipment, training and technology upgrades for existing EMS units to
+
+                         provide care in the community
+
+
+          Project Narrative – South Carolina                                                    Page 30 of 59
+
+
+PREVIEW Date: Nov 05, 2025                            Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                      ➢ Engage external technical assistance to complete a feasibility study on
+
+                         sustainable payment models for community paramedicine
+
+              •   Community-Based Health Kiosks: Health kiosks provide 24/7 access to screenings,
+
+                  prescription dispensing, and test kits, especially for individuals not regularly engaged
+
+                  with the healthcare system. RHT funds will support kiosk installation at key community
+
+                  locations.
+
+                  Examples of funding include:
+
+                      ➢ Fund the equipment and supplies costs to establish a 24-hour pharmacy kiosk that
+
+                         distributes necessary medications in rural healthcare locations
+
+
+          Main Strategic Goal: Make Rural American Healthy Again, Innovative Care
+
+
+          Use of Funds: A, G, H, J
+
+
+          Technical Score Factor: B.1, B.2, C.2
+
+
+          Key Stakeholders: Hospitals, rural health clinics, federally qualified health centers, primary
+
+          care clinics, pharmacies, emergency medical services, community-based organizations, rural
+
+          residents
+
+
+          Outcomes:
+
+              •   Increase number of healthcare access points
+
+              •   Expand mobile health unit coverage in rural counties
+
+              •   Increase the number of mobile crisis response teams
+
+                      o Establish a baseline for mobile unit crisis response time and reduce the average
+
+                         response time
+
+
+
+          Project Narrative – South Carolina                                                    Page 31 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Complete a feasibility study on sustainable payment models for community paramedicine
+
+
+          Impacted Counties: All counties
+
+
+          Estimated Required Funding: $250 million
+
+
+          Sustainability: RHT program funding will be used to cover one-time capital investments, such
+
+          as the purchase or replacement of mobile units, vehicles, and essential equipment, as well
+
+          as initial training and implementation support. These upfront costs are often a major barrier for
+
+          hospitals, clinics, and community-based organizations, particularly in rural areas where capital is
+
+          limited.
+
+
+          By using RHT funds to remove these financial barriers, South Carolina is enabling providers to:
+
+              •   Expand or sustain services that align with their existing operational budgets and staffing
+
+                  models;
+
+              •   Integrate new tools and workflows into day-to-day operations, ensuring long-term use
+
+                  without ongoing grant support;
+
+              •   Build internal capacity through training and technical assistance, reducing reliance on
+
+                  external vendors or consultants; and
+
+              •   Maximize return on investment by targeting interventions that are cost-effective, scalable,
+
+                  and aligned with community needs.
+
+          This approach ensures that once the initial investment is made, the services and infrastructure
+
+          can be maintained and scaled using existing resources. It also supports organizational resilience,
+
+          allowing providers to adapt and grow without needing continuous external funding.
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 32 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          By focusing on durable infrastructure, workforce readiness, and operational integration, this
+
+          sustainability strategy positions South Carolina to achieve lasting impact well beyond the life of
+
+          the RHT program.
+
+
+                       Shoring Up to Sustainability – Strengthening rural healthcare systems through
+                       targeted investments in workforce recruitment and retention, facility upgrades, and
+                       provider training.
+
+
+
+          Description: South Carolina’s rural health system is at a critical juncture. Persistent provider
+
+          shortages, aging infrastructure, and limited financial resources have left many rural hospitals and
+
+          clinics struggling to meet the needs of their communities. In recent years, several facilities have
+
+          closed, and many others operate on razor-thin margins, unable to invest in the upgrades or
+
+          workforce needed to sustain long-term operations. These challenges are compounded by a
+
+          disproportionate distribution of healthcare professionals, particularly in primary care, OB/GYN,
+
+          and behavioral health, and a growing demand for services in underserved areas.
+
+
+          To reverse these trends and build a more resilient rural health system, South Carolina will
+
+          make targeted, strategic investments in workforce development, training, and infrastructure. This
+
+          initiative aims to stabilize and strengthen rural healthcare delivery, ensuring that communities
+
+          across the state have access to high-quality, sustainable care for generations to come. For Ms.
+
+          Collette, this means when she goes to her local, rural hospital, the facilities have had minor
+
+          renovations to keep her safe, and there are sufficient staff to provide her with the necessary care.
+
+          This effort will address provider shortages, improve chronic disease management and health
+
+          outcomes, and create lasting access to care through the following activities:
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 33 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Healthcare Workforce Grants: Rural facilities face persistent challenges in recruiting
+
+                  and retaining providers. RHT funds will support a grant program offering incentives such
+
+                  as signing bonuses for rural practitioners building on the successes of the South Carolina
+
+                  Area Health Education Consortium (AHEC) model.
+
+                  Examples of funding include:
+
+                     ➢ Expand programs that have increased rural practitioners with additional funding
+
+                     ➢ Fund rural health care organizations to provide one-time signing bonuses to
+
+                         recruit quality providers with a five-year commitment
+
+              •   Facility Enhancements: Many rural hospitals and clinics require basic infrastructure
+
+                  upgrades, such as HVAC, electrical systems, and equipment replacements to maintain
+
+                  safe, high-quality care. RHT funds will support minor alterations and renovations that
+
+                  enhance the functionality of the facility, improving service delivery and patient
+
+                  experience.
+
+                  Examples of funding include:
+
+                     ➢ Facilities with low inpatient utilization deciding to convert to Rural Emergency
+
+                         Hospitals to become financially stable may utilize funding to repurpose existing
+
+                         inpatient rooms to expand emergency, observation, or similar services
+
+              •   Masterclass Training Series: South Carolina leveraged state funding to prevent rural
+
+                  hospital closures by incentivizing the inclusion of these hospitals into existing systems. In
+
+                  many instances, these systems were able to come in and impart business practices that
+
+                  maximized the financial sustainability of these smaller hospitals. South Carolina learned
+
+                  through this initiative that often, small, rural hospitals and other providers lack the
+
+                  business development, billing, and finance expertise to adapt to changing times and
+
+
+          Project Narrative – South Carolina                                                      Page 34 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  consumer needs. RHT program funds will be used to develop strategic partnerships and
+
+                  collaboratives for providers, leveraging the expertise of successful practitioners, familiar
+
+                  with South Carolina’s rural healthcare landscape, to expand and create institutional
+
+                  knowledge for rural providers.
+
+                  Examples of funding include:
+
+                     ➢ Create a partnership between a large hospital system and a nearby independent,
+
+                         rural hospital for assistance in developing a strategic plan
+
+                     ➢ Where innovative models are being expanded to rural communities, such as
+
+                         partnerships between rural family medicine physicians and OB/GYNs to create a
+
+                         prenatal care network, form a provider collaborative to assist new entities with
+
+                         planning and implementation
+
+              •   Upskilling Workforce: Rural counties across South Carolina continue to face severe
+
+                  shortages in primary care, OB/GYN, and mental health services, compounded by high
+
+                  levels of clinician burnout. Expanding the skill sets of existing healthcare professionals
+
+                  offers a practical solution to strengthen care coordination, health education, and access to
+
+                  social services, with a 5-year service commitment. RHT funds will be used to support
+
+                  targeted training programs that enhance workforce capacity and drive improved health
+
+                  outcomes in underserved communities, including innovative solutions to combat clinician
+
+                  burnout to retain practitioners.
+
+                  Examples of funding include:
+
+                     ➢ Provide funding for Community Health Worker training programs that focus on
+
+                         training current healthcare professionals such as pharmacy technicians
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 35 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                     ➢ Expand programs supporting training for non-clinical hospital staff in good
+
+                         standing to gain certifications such as Certified Medical Assistant
+
+              •   Building Tomorrow’s Workforce: The workforce that supports healthcare quality and
+
+                  access is not limited to doctors and nurses. Skilled professionals are needed with varying
+
+                  educational backgrounds to ensure sufficient staffing and access to care in rural
+
+                  communities. RHT funds will support building programs that create a pipeline for
+
+                  individuals to enter the diverse career fields that support the healthcare system, through
+
+                  partnerships with high schools, technical colleges, and universities.
+
+                  Examples of funding include:
+
+                     ➢ Fund technology and infrastructure for rural high schools to expand life sciences
+
+                         programming to advance interest in and knowledge of health career pathways
+
+
+          Main Strategic Goal: Workforce Development, Make Rural America Healthy Again,
+
+          Innovative Care
+
+
+          Use of Funds: A, D, E, G, H, I, J, K
+
+
+          Technical Score Factors: B.1, C.2, D.2
+
+
+          Key Stakeholders: Hospitals, rural health clinics, FQHCs, universities, technical colleges, high-
+
+          schools, associations, licensing boards, rural residents
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 36 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Outcomes:
+
+              •   Implement or enhance workforce incentive programs
+
+              •   Establish a baseline and annual metrics for improving clinician retention rates in rural
+
+                  areas
+
+              •   Through community partners, develop and launch masterclass sessions
+
+              •   Develop and deploy new or updated training programs for rural healthcare providers
+
+          Impacted Counties: All counties
+
+
+          Estimated Required Funding: $150 million
+
+
+          Sustainability: RHT program funding will support one-time investments in provider
+
+          recruitment, retention, training, and critical facility upgrades, including equipment and
+
+          infrastructure improvements. These upfront costs are often a major barrier for healthcare
+
+          facilities, which may lack the capital or capacity to expand services on their own.
+
+
+          By covering these initial expenses, South Carolina is removing financial and operational barriers,
+
+          enabling healthcare facilities to sustain and scale services that align with their existing budgets,
+
+          staffing models, and workflows. The improved operational efficiency of automation and
+
+          centralization will lead to lower time and labor costs, reducing per unit costs of care. This
+
+          increased efficiency and efficacy will also enhance patient trust, reducing bypass of rural
+
+          hospitals. Preventing this revenue bleed will allow these providers to reinvest in themselves, to
+
+          fund the service lines their communities need that also create financial sustainability. This
+
+          approach ensures that once established, services can be maintained without ongoing grant
+
+          support, promoting long-term viability and impact across rural communities.
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 37 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                        Tech Catalyst Fund – Supporting rural health technology startups and
+                        community-based innovations to drive long-term health and economic
+                        improvements.
+
+
+          Description: The Tech Catalyst Fund is a strategic, $25 million initiative designed to accelerate
+
+          innovation by supporting rural health tech startups and community-driven solutions that improve
+
+          chronic disease management and health outcomes across South Carolina. This initiative will
+
+          focus on promoting consumer-facing, technology-driven solutions, for which traditional
+
+          government funding sources and private commercial incentives have proven inadequate or
+
+          insufficient to drive development and innovation. By investing in local entrepreneurs and
+
+          scalable technologies, this initiative will spark a cycle of health improvement, workforce
+
+          development, and economic growth across rural South Carolina.
+
+
+          To ensure the Tech Catalyst Fund is implemented with maximum efficiency and impact, South
+
+          Carolina will partner with the South Carolina Research Authority (SCRA). SCRA is a state-
+
+          chartered entity that has a 40-year track record of building South Carolina's technology and
+
+          innovation ecosystem. Chartered in 1983 by the South Carolina legislature, SCRA generated a
+
+          $1.33 billion economic impact in 2024, supporting 6,620 jobs and helping startup companies
+
+          attract $2.92 billion in follow-on funding. This partnership is a force multiplier. SCRA provides
+
+          the infrastructure, additional non-dilutive seed funding, and business guidance to accelerate
+
+          health-focused innovation, ensuring that the $25 million Tech Catalyst Fund is channeled
+
+          through a high-impact, established pipeline. To ensure full compliance with the RHT Program
+
+          and federal grant regulations, the $25 million TCF funding will be used exclusively for allowable
+
+          costs, which include non-dilutive grants, technical assistance, and program administration.
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 38 of 59
+
+
+PREVIEW Date: Nov 05, 2025                         Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          The initiative will focus on three core goals:
+
+
+              •   Fuel Health Tech Startups: SCRA will utilize its proven due diligence process to
+
+                  identify and scale high-potential ventures, offering non-dilutive grants (funded by RHT).
+
+              •   Strengthen Community Solutions: Support local innovators integrating technology with
+
+                  cultural, social, and economic assets unique to rural settings.
+
+              •   Catalyze Rural Economic Development: By leveraging SCRA's diligence process, the
+
+                  Tech Catalyst Fund is projected to attract significant follow-on funding, creating high-
+
+                  wage jobs with salaries 71% above the state average, and establishing SC as a premier
+
+                  health tech hub.
+
+
+          Main Strategic Goal: Tech Innovation
+
+
+          Use of Funds: A, C, F
+
+
+          Technical Score Factors: F.3
+
+
+          Key Stakeholders: Health systems, patients and consumers, academic institutions, private
+
+          investors and venture capital firms, tech industry, state government entities
+
+
+          Outcomes:
+
+              •   Increase the number of rural health tech start-ups receiving funding in South Carolina
+
+              •   Increase high-wage jobs created by funded companies
+
+              •   Improve clinical health indicators (e.g., A1C levels for diabetes, blood pressure control)
+
+                  for patients utilizing funded innovations
+
+              •   Increase the number of rural patients utilizing telehealth or remote monitoring services
+
+                  provided by funded companies
+
+
+          Project Narrative – South Carolina                                                    Page 39 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Impacted Counties: All counties
+
+
+          Estimated Required Funding: $25 million
+
+
+          Sustainability: This initiative will drive sustainable impact at the intersection of health,
+
+          technology, and rural development. By investing in innovation, South Carolina is not only
+
+          addressing immediate health challenges but also laying the groundwork for long-term
+
+          resilience through:
+
+              •   Workforce and skills development that equips communities with the tools to adapt and
+
+                  thrive in a digital health economy;
+
+              •   Entrepreneurial pipelines that foster local talent and create new business opportunities
+
+                  rooted in community needs; and
+
+              •   Reinvestment strategies that keep economic gains local, fueling continued growth and
+
+                  innovation.
+
+          As rural communities build digital capacity, they will improve health outcomes, diversify local
+
+          economies, reduce outmigration, and strengthen community identity and pride of place. This
+
+          approach ensures that innovation is not a one-time intervention, but a self-sustaining engine for
+
+          health and economic vitality.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 40 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Implementation Plan and Timeline
+
+          To operationalize the initiatives outlined in this plan, the state will launch four targeted grant
+
+          programs—Connections to Care, Leveling Up, Wellness Within Reach, and Shoring Up to
+
+          Sustainability—across five annual grant cycles spanning FFY2026 to FFY2030. These programs
+
+          will enable the state to contract with healthcare facilities, community-based organizations,
+
+          academic institutions, and other eligible entities to implement projects aligned with the goals of
+
+          each initiative. As illustrated in Figure 5, SCDHHS envisions the fourteen milestones for each of
+
+          the five grant cycles.
+
+                               Figure 5: Proposed SCDHHS-Issued Grant Cycle Stages
+
+
+                                                            Stage 0
+                                CMS                              Eligible parties                     SCDHHS issues
+              Develop                                                                   SCDHHS
+                             approval of     Issue NOFO        prepare and submit                      contracts with
+              NOFO                                                                    review cycle
+                               NOFO                               applications                        awarded entities
+
+
+
+
+                                                          Stages 1-3
+            Establish technical assistance and     Ongoing             SCDHHS collects
+                                                                                                Awarded entities submit
+            contract monitoring cadence with       contract            established success
+                                                                                                 contractual reporting
+                     awarded entities             monitoring                 metrics
+
+
+
+
+                                                            Stage 4
+            SCDHHS RHT team compile and review reporting to
+                                                                              Ongoing programmatic refinement
+                   ensure programmatic alignment
+
+
+
+
+                                                            Stage 5
+             SCDHHS evaluates each grant program using data          Evaluation results shared with CMS and stakeholder
+                           from stages 1-4                                                 partners
+
+
+
+          Project Narrative – South Carolina                                                              Page 41 of 59
+
+
+PREVIEW Date: Nov 05, 2025                                Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Building on the success of previous efforts, such as the issuance of more than $305 million in
+
+          state-funded grants since 2023, SCDHHS will utilize its established grant infrastructure to
+
+          administer these programs. Each grant opportunity will clearly outline initiative-specific goals,
+
+          expected outcomes, and allowable uses of funds.
+
+
+          At a minimum, applicants will be required to submit for each initiative:
+
+            •   A detailed scope of work and timeline;           •   Data to justify the proposed need;
+
+            •   A monitoring and evaluation plan with            •   A comprehensive budget; and
+
+                key performance indicators;                      •   A sustainability plan.
+
+          All applications will be reviewed using standardized evaluation criteria established by SCDHHS
+
+          and in alignment with RHT goals and guidelines. Awardees will be required to engage in regular
+
+          technical assistance and monitoring activities to ensure compliance with all federal funding
+
+          requirements. Additional deliverables may be requested to support transparency and outcome
+
+          tracking.
+
+
+          In parallel, the Tech Catalyst Fund will follow a similar funding structure, with the added
+
+          support of a tech incubator and a cross-sector advisory board, which will guide the selection and
+
+          funding of innovative, technology-driven solutions through a competitive seed funding process.
+
+
+          Table 3 describes South Carolina’s proposed recurring annual activities. Table 4 provides a
+
+          timeline for activities that South Carolina expects to be nonrecurring. This design seeks to ensure
+
+          timely and strategic use of RHT funds in full compliance with CMS’ spending timeline and
+
+          requirements. Recognizing the complexity of multi-year, multi-initiative activities, SCDHHS
+
+          anticipates fluctuations and alterations to these timelines. SCDHHS will seek technical assistance
+
+          from CMS to ensure strategic alignment in the implementation plan and timeline.
+
+
+          Project Narrative – South Carolina                                                   Page 42 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          SCDHHS anticipates subsequent years of this cooperative agreement will be structured similarly
+
+          to the implementation plan for year one, while allowing flexibility for tracking the advancement
+
+          of each initiative. The proposed implementation plan and timeline for FY 2026 are included in
+
+          Table 3 below.
+
+
+               Table 3: SCDHHS Proposed Implementation Plan and Timeline: Annual Activities
+
+              Stage           Initiative    Annual Activity      Year 1      Year 1      Stage Detail
+                                                                 Anticipated Anticipated
+                                                                 Initiation  Completion
+
+             Stage 0         Connections   Stage 0 activities    2026-01-01    2026-06-29    Grant Cycle
+                               to Care     outlined in Figure
+                                           5
+
+             Stage 0          Wellness     Stage 0 activities    2026-01-01    2026-06-29    Grant Cycle
+                              Within       outlined in Figure
+                               Reach       5
+
+             Stage 0         Leveling Up   Stage 0 activities    2026-01-01    2026-06-29    Grant Cycle
+                                           outlined in Figure
+                                           5
+
+             Stage 0      Shoring Up Stage 0 activities          2026-01-01    2026-06-29    Grant Cycle
+                               to       outlined in Figure
+                         Sustainability 5
+
+            Stage 1-3          Tech        Develop seed          2026-03-31    2026-07-01    Programmatic
+                              Catalyst     funding
+                               Fund        opportunity in
+                                           alignment with the
+                                           Notice of Award
+                                           (NoA) and with
+                                           CMS approval
+            Stage 1-3          Tech        Announce the seed     2026-03-31    2026-07-01    Programmatic
+                              Catalyst     funding
+                               Fund        opportunity
+
+            Stage 1-3          Tech        Distribute seed       2026-03-31    2026-07-01    Programmatic
+                              Catalyst     funding to selected
+                               Fund        recipients
+
+
+          Project Narrative – South Carolina                                                   Page 43 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+            Stage 1-3          Tech        Initiate Quarterly     2026-03-31   2026-07-01    Programmatic
+                              Catalyst     Advisory Board
+                               Fund        Meetings
+
+            Stage 1-3        Connections   Stage 1-3 activities   2026-07-01   2026-12-31    Grant Cycle
+                               to Care     outlined in Figure
+                                           5
+
+            Stage 1-3        Leveling Up   Stage 1-3 activities   2026-07-01   2026-12-31    Grant Cycle
+                                           outlined in Figure
+                                           5
+
+            Stage 1-3         Wellness     Stage 1-3 activities   2026-07-01   2026-12-31    Grant Cycle
+                              Within       outlined in Figure
+                               Reach       5
+
+            Stage 1-3     Shoring Up Stage 1-3 activities         2026-07-01   2026-12-31    Grant Cycle
+                               to       outlined in Figure
+                         Sustainability 5
+
+             Stage 4         Connections   Stage 4 activities     2026-10-01   2026-12-31    Grant Cycle
+                               to Care     outlined in Figure
+                                           5
+
+             Stage 4          Wellness     Stage 4 activities     2026-10-01   2026-12-31    Grant Cycle
+                              Within       outlined in Figure
+                               Reach       5
+
+             Stage 4         Leveling Up   Stage 4 activities     2026-10-01   2026-12-31    Grant Cycle
+                                           outlined in Figure
+                                           5
+
+             Stage 4      Shoring Up Stage 4 activities           2026-10-01   2026-12-31    Grant Cycle
+                               to       outlined in Figure
+                         Sustainability 5
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 44 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              Table 4: SCDHHS Proposed Implementation Plan and Timeline: One-time Activities
+
+              Stage           Initiative   Activity               Anticipated Anticipated Stage Detail
+                                                                  Initiation  Completion
+
+
+             Stage 0             All       Establish All          2026-01-01    2026-12-31    Programmatic
+                                           Baseline Data for
+                                           Outcome
+                                           Measurement and
+                                           Benchmarking
+             Stage 0         Leveling Up   Assess rural           2026-01-01    2026-03-31    Programmatic
+                                           landscape to
+                                           identify practices
+                                           interested in
+                                           joining the
+                                           pediatric quality
+                                           program
+             Stage 0         Leveling Up   Develop                2026-01-01    2026-03-31    Programmatic
+                                           requirements for a
+                                           third-party vendor
+                                           to support the
+                                           transition of the
+                                           dual population
+                                           into integrated
+                                           managed care
+                                           plans
+            Stage 1-3        Leveling Up   Award contracts to     2026-01-01    2026-03-31    Programmatic
+                                           rural practices that
+                                           meet pediatric
+                                           quality program
+                                           requirements
+            Stage 1-3        Leveling Up   Issue contract with    2026-01-01    2026-03-31    Programmatic
+                                           third-party vendor
+                                           for the
+                                           development of
+                                           targeted transition
+                                           plan for the dual
+                                           population
+            Stage 1-3        Leveling Up   Third-party begins     2026-01-01    2026-07-01    Programmatic
+                                           alignment of
+                                           internal systems
+                                           and policies to
+                                           support dual
+                                           transition
+
+
+
+          Project Narrative – South Carolina                                                    Page 45 of 59
+
+
+PREVIEW Date: Nov 05, 2025                            Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+             Stage 0          Wellness     SCDHHS engages 2026-01-01          2026-12-31    Programmatic
+                              Within       third party vendor
+                               Reach       to develop scope of
+                                           work for
+                                           community
+                                           paramedicine
+                                           feasibility study
+             Stage 0           Tech        Develop project     2026-01-01     2026-03-31    Programmatic
+                              Catalyst     charter, goals, and
+                               Fund        selection criteria
+                                           for Advisory Board
+            Stage 1-3          Tech        Select Advisory     2026-01-01     2026-03-31    Programmatic
+                              Catalyst     Board participants
+                               Fund
+
+             Stage 0             All       Hire SCRHT           2026-01-01    2026-03-31    Programmatic
+                                           Program Staff
+
+
+             Stage 0         Leveling Up   Engage third party   2026-01-01    2026-12-31    Programmatic
+                                           vendor to design
+                                           and conduct rural
+                                           needs assessment
+            Stage 1-3        Leveling Up   Monitor rural        2026-07-01    2026-12-31    Programmatic
+                                           practices in the
+                                           pediatric quality
+                                           program through
+                                           data reports and
+                                           technical
+                                           assistance
+             Stage 4         Leveling Up   Third-party vendor   2026-07-01    2026-12-31    Programmatic
+                                           assists in phased
+                                           transition of the
+                                           dual population
+                                           into integrated
+                                           managed care
+                                           plans and monitors
+                                           outcomes
+
+
+
+
+                              REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                  Page 46 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Project Management Structure
+
+          To ensure the successful implementation and long-term sustainability of South Carolina’s RHT
+
+          program, SCDHHS will establish a dedicated, multidisciplinary team by Cycle 1, FY2026. This
+
+          office will be fully staffed with eight full-time employees (FTEs), each with clearly defined roles
+
+          and responsibilities aligned to the program’s five core initiatives.
+
+
+          Staffing Plan
+          RHT Program Director (1 FTE)
+
+
+          This role will provide executive leadership and strategic oversight for the RHT program, serving
+
+          as the primary liaison to CMS and other federal partners. The project director will ensure
+
+          alignment with state health priorities and oversee cross-initiative coordination.
+
+
+          RHT Program Data Analyst (1 FTE)
+
+
+          This role will be responsible for data integration, performance measurement, and outcome
+
+          tracking across all initiatives. The data analyst will support data-driven decision-making and
+
+          ensure timely submission of required data to CMS.
+
+
+          RHT Program Fiscal Analyst (1 FTE)
+
+
+          This role will manage all financial aspects of the grant, including budget tracking, expenditure
+
+          monitoring, and fiscal reporting. The grant fiscal analyst will ensure compliance with federal
+
+          grant management standards and supports audit readiness.
+
+
+
+
+          Project Narrative – South Carolina                                                   Page 47 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          RHT Program Coordinators (4 FTEs)
+
+
+          This role will be assigned across the five RHT initiatives. These coordinators will manage day-
+
+          to-day operations, vendor relationships, and implementation timelines. They will also facilitate
+
+          stakeholder engagement and ensure initiative-specific deliverables and outcomes are met.
+
+
+          RHT Program Contracts Monitor (1 FTE)
+
+          This role will oversee grant application processes, vendor performance, and contract compliance.
+
+          The contracts monitor will ensure that all third-party engagements meet state and federal
+
+          requirements and are aligned with program goals.
+
+
+          Governance and Strategic Support
+          External Compliance and Reporting Partner
+
+
+          By Cycle 1, FY2026, SCDHHS will engage a qualified external firm with expertise in federal
+
+          grant compliance, performance monitoring, and reporting. This partner will support the team in
+
+          meeting CMS reporting requirements, conducting internal audits, and ensuring adherence to all
+
+          programmatic and fiscal obligations.
+
+
+          Stakeholder Engagement Plan
+
+          South Carolina will build on a strong foundation of stakeholder engagement infrastructure to
+
+          involve rural stakeholders in carrying out these initiatives. South Carolina has a highly rural
+
+          population with distinct health needs requiring continuous engagement between stakeholders
+
+          who play a role in ensuring care provision for our communities. As noted earlier in the
+
+          application, SCDHHS is engaged in a multitude of statewide collaboratives. SCDHHS maintains
+
+          an open-door policy for providers, with many entities holding recurring, quarterly check-ins, to
+
+
+          Project Narrative – South Carolina                                                    Page 48 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          ensure the state is aware of any issues and abreast of new innovations and ideas. Legislative and
+
+          gubernatorial officials regularly meet with providers, associations, community-based
+
+          organizations, advocates, and individuals, in addition to regular meetings with cabinet agencies.
+
+          This approach, whereby state and SCDHHS leadership maintain continuous contact and open
+
+          lines of communication, prevents siloing between policymakers in the more urban areas and rural
+
+          patients, providers, and communities.
+
+
+          The South Carolina Rural Health Transformation Plan is driven by the significant work the state
+
+          of South Carolina has engaged in for decades dedicated to rural health. The wants and needs of
+
+          rural South Carolinians have always been central to the mission of improving rural health in the
+
+          state. Beyond the aforementioned rural health efforts anchored at SCDHHS, a few of the
+
+          statewide actions which have put the needs of rural communities at the forefront include:
+
+                     •   Certificate of Need (CON) Rural Healthcare Study Committee: Following the
+
+                         repeal of Certificate of Need laws, the Legislature launched a statewide listening
+
+                         tour in rural areas to understand the impact on healthcare access.
+
+                     •   The South Carolina Rural Health Action Plan: Led by the SC Office of Rural
+
+                         Health, this cross-sector initiative developed targeted recommendations to address
+
+                         the root causes of poor rural health.
+
+                     •   South Carolina Public Health Delivery and Organization Study: A comprehensive
+
+                         review of state-led healthcare delivery identified opportunities to improve
+
+                         outcomes, with a focus on high-need rural populations.
+
+                     •   South Carolina Rural Hospital Transformation Fund: A $40 million investment to
+
+                         support partnerships between large health systems and struggling rural hospitals
+
+                         to prevent closures.
+
+
+          Project Narrative – South Carolina                                                  Page 49 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                     •   Telehealth Innovation: The SC Telehealth Alliance and MUSC Center for
+
+                         Telehealth expanded access to care through telemedicine in rural and underserved
+
+                         areas.
+
+                     •   South Carolina Broadband Office: Established to coordinate broadband
+
+                         expansion, especially in isolated rural communities, to support healthcare access
+
+                         and connectivity.
+
+                     •   South Carolina Area Health Education Consortium Rural Provider Incentive
+
+                         Grant Program: A grant initiative to attract and retain healthcare providers in rural
+
+                         and underserved areas, with measurable success.
+
+
+          RHT Application Stakeholder Engagement
+          When the Working Families Tax Cut Act was signed into law, SCDHHS was able to
+
+          immediately utilize the relationships, collaboration and existing stakeholder meetings to garner
+
+          initial reactions and stakeholder feedback regarding this cooperative funding opportunity. These
+
+          organizations provide valuable insight into the experiences of patients and providers alike and
+
+          help to shape the state’s vision.
+
+
+          South Carolina also began engaging in direct, targeted meetings beginning July 4, 2025, to gain
+
+          greater insight and direct feedback needed to develop its approach to the RHT. This included
+
+          meeting with the leadership of all the State’s independent rural hospitals; visiting several rural
+
+          hospitals (both independent and part of larger systems) to gain a firsthand understanding of day-
+
+          to-day operations and challenges; group and individual meetings with stakeholders on the
+
+          development of this project; and additional visits to other providers in rural areas to see where
+
+          innovative solutions are being piloted. Meetings included the named partners identified in the
+
+
+
+          Project Narrative – South Carolina                                                     Page 50 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Governor’s endorsement letter, as well as other provider associations, nonprofits, and tribal
+
+          representatives.
+
+
+          As part of South Carolina’s RHT application development, SCDHHS hosted a statewide
+
+          stakeholder engagement webinar on Sept. 24, 2025, to introduce the program’s vision and
+
+          highlight the transformative potential of this federal funding opportunity. Ahead of the session,
+
+          SCDHHS launched a stakeholder input form, inviting participants to submit ideas and priorities
+
+          for how the state could best utilize RHT resources.
+
+
+          The response was overwhelming with more than 350 proposals submitted. Nearly 94% of the
+
+          feedback aligned directly with what would become the program’s five core
+
+          initiatives: Connections to Care, Leveling Up, Wellness Within Reach, Shoring Up to
+
+          Sustainability, and the Tech Catalyst Fund. The remaining suggestions largely involved costs
+
+          deemed unallowable under CMS guidelines.
+
+
+          This engagement process was instrumental in shaping a community-informed, needs-driven
+
+          application that reflects the voices of providers, patients, and partners across South Carolina’s
+
+          rural landscape.
+
+
+          Moving Forward
+          SCDHHS will leverage established formal stakeholder engagement infrastructure to provide
+
+          regular updates and gather meaningful feedback on the RHT program. By utilizing existing
+
+          advisory bodies, SCDHHS will ensure that diverse perspectives, from providers to patients, are
+
+          integrated into program planning, implementation, and evaluation. This approach stimulates
+
+          meaningful, targeted conversations while also promoting efficiency. These key engagement
+
+          touchpoints include:
+
+          Project Narrative – South Carolina                                                    Page 51 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Medicaid Advisory Council: This council is composed of healthcare providers,
+
+                  community-based organizations, and representatives from key state agencies, including
+
+                  the South Carolina Department of Public Health, SCDHHS, the South Carolina Office of
+
+                  Rural Health, and leadership from the Catawba Tribe. It will serve as a vital forum for
+
+                  monitoring the progress of the RHT program, identifying operational challenges, and
+
+                  aligning policy and implementation efforts. Through this collaborative structure, council
+
+                  members will contribute valuable insights that support cross-sector coordination and
+
+                  ensure that rural health transformation efforts are both inclusive and effective.
+
+              •   Beneficiary Advisory Council: Made up of Medicaid members and their caregivers,
+
+                  many of whom reside in rural communities, this council ensures that the voices of those
+
+                  most directly impacted by the RHT program are heard. Their lived experiences will
+
+                  inform program design, service delivery, and equity-focused improvements.
+
+              •   Master Plan Advisory Committee: This cross-sector committee includes leaders from
+
+                  commercial health plans, healthcare systems, universities, and executive state leadership.
+
+                  It will play a key role in evaluating the broader economic and systemic impacts of RHT
+
+                  investments, particularly in rural areas, and advising on long-term sustainability
+
+                  strategies.
+
+              •   Provider Collaboratives: SCDHHS actively engages with provider collaboratives such
+
+                  as the Birth Outcomes Initiative (BOI) and the Quality Through Innovation in Pediatrics
+
+                  (QTIP). These collaboratives bring together hospitals, providers, payers, and community
+
+                  organizations to drive quality improvement and innovation in care delivery. For example,
+
+                  BOI, South Carolina’s perinatal quality collaborative, includes more than 100
+
+                  stakeholders working to improve maternal and infant health outcomes. Similarly, QTIP
+
+
+          Project Narrative – South Carolina                                                     Page 52 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+                  supports pediatric primary care practices in implementing evidence-based strategies to
+
+                  enhance care quality and outcomes. These collaboratives serve as critical platforms for
+
+                  aligning RHT goals with ongoing quality improvement efforts, fostering innovation, and
+
+                  ensuring provider voices are central to transformation efforts.
+
+
+          In addition to leveraging existing advisory bodies, SCDHHS will implement structured, cycle-
+
+          based feedback loops for each initiative to ensure continuous stakeholder input throughout the
+
+          life of the RHT program. At the conclusion of each grant cycle, program staff will collect,
+
+          analyze, and incorporate feedback from stakeholders to inform adaptive planning and responsive
+
+          implementation.
+
+
+          To promote transparency and accountability, key performance indicators, milestones, and
+
+          progress updates will be shared publicly through reports and stakeholder briefings. This
+
+          approach not only fosters trust but also empowers stakeholders to remain actively engaged in
+
+          shaping the program’s direction in alignment with the strategic priorities outlined in this
+
+          narrative.
+
+
+          Ultimately, stakeholder engagement is not a one-time activity but a foundational pillar of South
+
+          Carolina’s RHT strategy. By embedding inclusive, ongoing, and transparent engagement
+
+          practices into every phase of the program, SCDHHS will ensure that the voices of rural
+
+          communities, providers, and partners are central to the success and sustainability of rural health
+
+          transformation across the state.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                    Page 53 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Metrics and Evaluation Plan
+
+          In addition to the following overall programmatic goals, South Carolina has contemplated
+
+          initiative specific metrics and evaluation plans.
+
+              •   Improved chronic disease management and health outcomes
+
+                     o Advance performance in all prevention and treatment Healthcare Effectiveness
+
+                         Data and Information Set (HEDIS) metrics for South Carolinians residing in
+
+                         rural communities demonstrated through independent comparative analysis
+
+              •   Enhanced provider capacity to deliver high-quality care
+
+                     o Increase and expand efforts to recruit, train, and retain key healthcare
+
+                         professionals providing services in rural communities for a more robust and
+
+                         sustainable rural health workforce.
+
+                             ▪    Improve the ratio of physicians to residents in rural areas by 10%
+
+                             ▪   Establish a baseline and target for the number of new providers recruited
+
+                                 to deliver telehealth in rural areas through affiliation agreements
+
+              •   Elevated provider and patient experience
+
+                     o Advance performance in all Consumer Assessment of Healthcare Providers and
+
+                         Systems (CAHPS) survey response metrics for South Carolinians residing in rural
+
+                         communities demonstrated through independent comparative analysis
+
+              •   Increased innovation, digital literacy, and adoption of best practices in rural health
+
+                     o Establish a baseline for and increase the number of rural clinics implementing at
+
+                         least one new clinical best practice or care delivery model (e.g. chronic care
+
+                         management programs, remote monitoring, or team-based care)
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 54 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          To evaluate success, South Carolina will strive for the following outcomes per initiative:
+
+
+          Connections to Care: Together these outcomes focus on the provider and patient experience
+
+          that will be improved by IT enhancements. An improved provider and patient experience should
+
+          also lead to improved management of chronic disease and health outcomes.
+
+              •   Establish a baseline for measurement of the number of rural healthcare providers using
+
+                  certified EHR technology that supports interoperability and increase usage over the
+
+                  course of the cooperative funding agreement
+
+              •   Establish a baseline for telehealth service offerings, and increase the proportion of
+
+                  healthcare facilities offering telehealth services (e.g., video visits, remote consults) by
+
+                  15%
+
+              •   Increase the number of patients enrolled in RPM programs or utilizing assistive
+
+                  technology
+
+              •   Establish and operationalize a statewide resource database, increasing the number of
+
+                  closed-loop referrals to state and community-based organizations by at least 50%
+
+
+          Leveling Up: Together these outcomes focus on scaling what works so all South Carolinians
+
+          may benefit.
+
+              •   Complete a comprehensive community health needs assessment, inclusive of data
+
+                  collection, stakeholder engagement, and publication of a final report
+
+              •   Increase the number of providers participating in pediatric care quality programs by 15%
+
+              •   Increase the number of locations where a patient can receive treatment as part of a
+
+                  coordinated chronic care system
+
+              •   Increase the number of GME programs including a rural education component
+
+
+
+          Project Narrative – South Carolina                                                      Page 55 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Wellness Within Reach: Together these outcomes focus on increasing access points to improve
+
+          health indicators and overall patient wellness.
+
+              •   Increase number of healthcare access points
+
+              •   Expand mobile health unit coverage in rural counties
+
+              •   Increase the number of mobile crisis response teams
+
+                     o Establish a baseline for mobile unit crisis response time and reduce the average
+
+                          response time
+
+              •   Complete a feasibility study on sustainable payment models for community paramedicine
+
+
+          Shoring Up to Sustainability: Together these outcomes focus on providers’ ability to care for
+
+          their patients in a facility that is equipped to provide the services needed by rural communities.
+
+              •   Implement or enhance workforce incentive programs
+
+              •   Establish a baseline and annual metrics for improving clinician retention rates in rural
+
+                  areas
+
+              •   Through community partners, develop and launch masterclass sessions
+
+              •   Develop and deploy new or updated training programs for rural healthcare providers
+
+
+          Tech Catalyst Fund: Together these outcomes focus on investing in South Carolina’s health
+
+          tech start-up field. This will bolster innovation in support of improved patient outcomes, with the
+
+          potential to bolster economic prosperity for the state.
+
+              •   Increase the number of rural health tech start-ups receiving funding in South Carolina
+
+              •   Increase high-wage jobs created by funded companies
+
+              •   Improve clinical health indicators (e.g., A1C levels for diabetes, blood pressure control)
+
+                  for patients utilizing funded innovations
+
+
+          Project Narrative – South Carolina                                                    Page 56 of 59
+
+
+PREVIEW Date: Nov 05, 2025                          Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+              •   Increase the number of rural patients utilizing telehealth or remote monitoring services
+
+                  provided by funded companies
+
+
+          To effectively monitor outcomes, the state will require all grantees to develop detailed
+
+          monitoring plans that include key performance indicators, measurable targets, and
+
+          implementation timelines tailored to the specific needs of their communities or counties. These
+
+          plans will serve as the foundation for progress reporting, ensuring that grantees are accountable
+
+          while also allowing for local flexibility in setting realistic and meaningful goals.
+
+
+          In addition to grantee-reported data, SCDHHS will leverage existing state and federal data
+
+          systems to track clinical health indicators and other relevant metrics. This dual approach will
+
+          enhance data accuracy and reduce reporting burden.
+
+
+          To support comprehensive evaluation and continuous improvement, SCDHHS will also engage
+
+          an independent consulting firm to conduct a formal evaluation of the RHT program. This
+
+          evaluation will assess both process and outcome measures, providing actionable insights to
+
+          inform future policy and programmatic decisions.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 57 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Sustainability Plan
+
+          South Carolina is embedding sustainability into the foundation of its healthcare transformation
+
+          efforts. By leveraging one-time funding for high-impact, upfront investments, the state is
+
+          proactively eliminating the structural and financial barriers that often hinder hospitals, clinics,
+
+          and community-based organizations from modernizing and expanding their services.
+
+
+          Recognizing that transformative change requires significant resources, South Carolina will
+
+          utilize funding for resources like advanced mobile health units, health IT infrastructure, and
+
+          workforce incentives to bring care directly to underserved and rural populations.
+
+
+          These strategic investments are designed not only to improve access and quality of care in the
+
+          short term but also to build long-term capacity within the healthcare system. By focusing on
+
+          scalable, sustainable improvements, South Carolina is positioning its healthcare infrastructure to
+
+          better prevent and manage chronic diseases, enhance maternal health outcomes, and support
+
+          thriving, resilient communities.
+
+
+          This forward-thinking approach ensures that the benefits of RHT investments will extend well
+
+          into the future, creating a more sustainable, accessible, and high-performing healthcare system
+
+          for all South Carolinians.
+
+
+
+
+                             REMAINDER OF PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+          Project Narrative – South Carolina                                                      Page 58 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Conclusion
+
+          South Carolina’s RHT plan is designed to deliver measurable, lasting improvements in the health
+
+          and well-being of rural residents. Through strategic investments in infrastructure, workforce,
+
+          technology, and community-based care, the state will address the root causes of health disparities
+
+          and strengthen the systems that serve its most vulnerable populations.
+
+          The outcomes South Carolina seeks are ambitious yet achievable:
+
+              •   Improved chronic disease management and health outcomes
+
+              •   Enhanced provider capacity to deliver high-quality care
+
+              •   Elevated provider and patient experience
+
+              •   Increased innovation, digital literacy, and adoption of best practices in rural health
+
+          These outcomes will be tracked through rigorous evaluation, stakeholder engagement, and data
+
+          monitoring to ensure accountability and continuous improvement. With this initiative, South
+
+          Carolina is not only investing in healthcare, but also in the future of its rural communities.
+
+
+
+
+          Project Narrative – South Carolina                                                     Page 59 of 59
+
+
+PREVIEW Date: Nov 05, 2025                           Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+          Endnotes
+          i
+            HRSA RUCA ZIP-level aggregation; Census 2023
+          ii
+              South Carolina’s Rural Health Action Plan. RHAPFINALwebquality_11.9.17.pdf
+          iii
+              HRSA RUCA ZIP-level aggregation; Census 2023
+          iv
+              U.S. Census Small Area and Poverty Estimates 2023
+          v
+              U.S. Census Small Area and Poverty Estimates 2023
+          vi
+              USDA Economic Research Services 2023
+          vii
+               U.S. Census ACS 5-year estimates 2023
+          viii
+               U.S. Census Small Area Health Insurance Estimates 2023
+          ix
+              South Carolina State Health Assessment Companion Report 2023. 2023 SC SHA Companion Report, Final
+          Electronic Version.pdf
+          x
+              CDC 2024
+          xi
+              NIH 2023
+          xii
+               NIH 2023
+          xiii
+               CDC 2023
+          xiv
+               SC Maternal Morbidity and Mortality Review Committee 2021
+          xv
+               South Carolina State Health Assessment Companion Report 2023. 2023 SC SHA Companion Report, Final
+          Electronic Version.pdf
+          xvi
+               South Carolina Office of Rural Health
+          xvii
+               South Carolina’s Rural Health Action Plan. RHAPFINALwebquality_11.9.17.pdf
+          xviii
+                UNC Sheps Center
+          xix
+               HRSA RUCA ZIP-level aggregation + Census 2023 population
+          xx
+               CMS POS, Flex Monitoring CAH list, CMS RHC enrollments, HRSA Data Explorer (FQHC sites), and HRSA
+          FORHP rural definition
+          xxi
+              CMS HCRIS Public Use Files (PUF), KFF State Health Facts – Uncompensated Care Costs, and Census Bureau
+          population estimate
+          xxii
+                HRSA RUCA ZIP-level aggregation + Census 2023 population
+          xxiii
+                US Census
+          xxiv
+                CMS Medicaid DSH Allotment Files & Payment Data, KFF State Profiles / Medicaid Facts, and State Medicaid
+          Agency Reports
+
+
+
+
+          Project Narrative – South Carolina                                                                  Endnotes
+
+
+PREVIEW Date: Nov 05, 2025                               Workspace ID: WS01591867 Funding Opportunity Number: CMS-RHT-26-001
+

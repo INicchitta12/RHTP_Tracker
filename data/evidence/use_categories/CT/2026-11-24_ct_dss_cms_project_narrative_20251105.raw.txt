@@ -1,0 +1,4143 @@
+1
+
+Table of Contents
+Acronym Glossary ___________________________________________________________ 3
+Project Narrative ____________________________________________________________ 4
+I.
+
+Rural Health Needs and Target Population_______________________________________ 5
+
+II.
+
+Rural Health Transformation Plan: Goals and Strategies __________________________ 22
+
+III.
+
+Proposed Initiatives and Use of Funds __________________________________________ 29
+
+IV.
+
+Implementation Plan and Timeline ____________________________________________ 43
+
+V.
+
+Stakeholder Engagement _____________________________________________________ 46
+
+VI.
+
+Metrics and Evaluation Plan __________________________________________________ 48
+
+VII. Sustainability Plan __________________________________________________________ 58
+
+2
+
+Acronym Glossary
+Acronym
+ADS
+AHEAD
+AHEC
+APCD
+APM
+ASD
+CBO
+CCBHC
+CHWC
+CMS
+CNA
+CON
+CR-PACP
+DEEP
+DMHAS
+DPH
+DSH
+DSS
+ED
+EHR
+EMS
+FFY
+FQHC
+HIE
+HPSA
+HRSA
+ICM
+IMLC
+MIH
+MSA
+NOFO
+OEC
+OHS
+OPM
+PACE
+PCMH
+PCMH+
+PMPM
+PSA
+RHT
+RPM
+SFY
+SNF
+TCM
+UCHC
+VBP
+
+Definition
+Department of Aging and Disability Services
+Achieving Health Efficiency through Accountable Design
+Area Health Education Center
+All-Payer Claims Database
+Alternative Payment Model
+Autism Spectrum Disorder
+Community-Based Organization
+Certified Community Behavioral Health Clinic
+Community Health and Wellness Center
+Centers for Medicare & Medicaid Services
+Certified Nurse Aide
+Certificate of Need
+Connecticut Rural Predictive Analytics and Care-Coordination Platform
+Department of Energy and Environmental Protection
+Department of Mental Health and Addiction Services
+Department of Public Health
+Disproportionate Share Hospital
+Department of Social Services
+Emergency Department
+Electronic Health Record
+Emergency Medical Services
+Federal Fiscal Year (October - September)
+Federally Qualified Health Center
+Health Information Exchange
+Health Professional Shortage Area
+Health Resources and Services Administration
+Intensive Care Management
+Interstate Medical Licensure Compact
+Mobile Integrated Health
+Metropolitan Statistical Areas
+Notice of Funding Opportunity
+Office of Early Childhood
+Office of Health Strategy
+Office of Policy and Management
+Program of All-Inclusive Care for the Elderly
+Person-Centered Medical Home
+Person-Centered Medical Home Plus
+Per Member Per Month
+Primary Service Area
+Rural Health Transformation
+Remote Patient Monitoring
+State Fiscal Year (July - June)
+Skilled Nursing Facility
+Targeted Case Management
+University of Connecticut Health Center
+Value-Based Payment
+Table 1 – Acronym Glossary
+
+3
+
+Project Narrative
+Connecticut’s rural communities encompass some of the state’s most charming and
+bucolic settings. They reflect an enduring character of civic integrity, disciplined governance,
+care for one’s neighbor, and grit in the face of long-standing challenges brought on by
+deindustrialization and population decline. However, these challenges continue to confront
+residents of those communities today, as they do for similar regions across the nation. An
+integrated, technology-driven, accountable healthcare delivery network is a fundamental
+component of a thriving life. Far too often, our rural residents encounter an ecosystem where
+information is not shared effectively and efficiently. As a result, residents experience barriers in
+accessing services, lack access to innovative technology that can connect them to providers, and
+face unacceptable health outcomes.
+Connecticut relishes this opportunity to transform rural healthcare and assure a healthier
+future for our residents. The Rural Health Transformation (RHT) Program will allow the state to
+enhance health outcomes by investing in access to primary care and refocusing on the
+fundamental sources of good health, such as exercise, recreation, and nutritious food, to avoid
+unnecessary care. By 2031, rural Connecticut residents will enjoy benefits from accessible,
+integrated care delivered by providers who are rewarded for their performance rather than for
+service volume. By investing in telehealth and AI-powered virtual monitoring tools, rural
+patients can more easily overcome barriers created by limited transportation infrastructure and
+significant travel distances to providers. Through the RHT Program, Connecticut will be able to
+address chronic workforce gaps affecting care availability in rural areas, promote innovative care
+delivery models that respond to the needs of patients, and support sustainable improvements in
+critical healthcare facility access points beyond the RHT grant period. This opportunity’s
+
+4
+
+strategic goals provide a clear roadmap for investment that will improve not only healthcare but
+also enrich life for the individuals and families who are the backbone of our rural communities.
+As the “Land of Steady Habits,” Connecticut has historically fostered strength and
+progress, yet those same traits, if unexamined, risk leaving residents in our rural communities
+behind. Rural hospitals continue to operate under financial strain: according to Medicare cost
+reports filed by the state’s hospitals, uncompensated care costs totaled more than $271 million in
+2024. 1 The state’s aging population, transportation barriers, and limited behavioral health
+capacity compound the crisis. 2 In a small state where 9% of residents live in rural areas 3 and are
+represented in seven of the state’s nine planning regions, 4 adverse impacts can reverberate
+statewide. Without targeted investment, rural health systems will continue to erode, threatening
+not only access to services for residents in rural areas but also the economic and social stability
+of rural communities. The RHT Plan is a critical mechanism for Connecticut to bridge historical
+divides, build data-driven resilience, and deliver on its commitment to high-quality care and
+innovation to rural communities. Such improvements will further extend and adapt health
+advancements, ones that have primarily occurred in urban and suburban communities, to rural
+communities in ways that reflect and respond to local needs.
+I.
+
+Rural Health Needs and Target Population
+Connecticut (total area: 5,543 square miles) 5 has a substantial rural presence across its
+
+geography: (1) Population: The rural population is 323,304, representing 9.0% of the state's total
+population of 3.6 million,3 5.8% of the state lives outside Census-designated Metropolitan
+Statistical Areas 6 (MSAs), and an additional 3.2% reside in rural census tracts within MSAs;6 (2)
+Governance and Regions: Connecticut operates without county governance, using nine
+geographic planning regions as statistical equivalents. 7 For the purpose of this application, the
+
+5
+
+state has adopted the rural definition determined by the Health Resources and Services
+Administration (HRSA) under the Federal Office of Rural Health Policy (FORHP) in
+September 2025. Two of these planning regions, Northeastern Connecticut and Northwest Hills,
+are entirely designated as rural by the FORHP. 8 Rural residents are distributed across seven of
+the nine planning regions and constitute the populations primarily targeted by Connecticut’s
+proposed RHT Program initiatives, in addition to the two federally-recognized tribes in the state:
+the Mohegan Tribe and the Mashantucket Pequot Tribal Nation.4
+Rural Health Facility Count
+Rural Facility Type
+Critical Access Hospitals (CAH)
+Sole Community Hospitals (SCH)
+Medicare Dependent Hospitals (MDH)
+Low Volume Hospitals (LVH)
+Rural Emergency Hospitals (REH)
+
+Number of Facility Types
+Located in Rural Connecticut
+0
+1
+1
+3
+0
+5
+0
+17
+4
+2
+1
+24
+
+Total Number of Facilities
+Rural Health Clinics (RHC)
+Federally Qualified Health Centers (FQHC) and Section 330 Grantees
+Community Mental Health Centers (CMHC)
+Opioid Treatment Facilities
+Certified Community Behavioral Health Clinics (CCBHC)
+Total Number of Facilities
+Table 2 - Rural Health Facility Count 9 10 11 12 13
+
+These statistics quantify the low number of healthcare facilities in rural areas and capture
+the complexities of the challenges rural residents encounter in accessing healthcare. Lack of
+access to transportation, whether public or private, is one of the most significant barriers to
+obtaining essential healthcare in rural areas. Travel for rural residents from the state’s outlying
+areas via public transit relies on limited local access routes, making it difficult to reach a medical
+appointment on time. Constrained public transportation in rural Connecticut significantly
+impedes rural residents' ability to get needed healthcare and other health-promoting services.
+A significant challenge to healthcare provision for rural residents is the current strain the
+healthcare system is under due to financial instability. In federal fiscal year (FFY) 2024,
+6
+
+according to Medicare Cost Reports filed by hospitals in the state, the total cost of
+uncompensated care in Connecticut was $271,470,982, representing 1.5% of hospitals’ operating
+costs.1 Further, 8 of 39 hospitals in Connecticut, or 20.5%, receive Medicaid Disproportionate
+Share Hospital (DSH) payments. 14 This level of financial challenge can affect healthcare
+providers’ ability to expand services, particularly in rural areas with low population density.
+These challenges also create pressure on rising healthcare insurance premiums in the commercial
+market for businesses and families, with annual rate increases of 11%. 15
+Household income has a significant impact on rural residents’ health, as the cost of
+traveling long distances for healthcare and the cost of services and insurance can lead people to
+avoid treatment. 16 Low-income significantly affects health outcomes in Connecticut's rural
+communities, driving greater need and higher costs. Across all rural tracts, 26% of households
+earn under $50,000 and 44% of rural employees earn less than $75,000 per year. The most
+common employment sectors for rural Connecticut residents are Health Care and Social
+Assistance (16%), Retail Trade (10%), Accommodation and Food Services (9%), and
+Manufacturing (9%). 17 Given the high cost of living in Connecticut, lower income levels
+worsens the strain experienced by many rural households, as these incomes fall far short of the
+$116,208 Household Survival Budget for a family of four, as reported by the United Way's 2025
+ALICE study. 18 Residents of the rural Northeastern planning region have the lowest attainment
+of college-level degrees in the state, with only 21% earning a bachelor’s degree or higher. By
+comparison, in the more urban Western Connecticut planning region, 50% of residents attained a
+degree at or above that level. 19
+Of Connecticut’s rural population, 4% do not have any health coverage, 20 contributing to
+the 10.2% of adults statewide reporting medical debt.20 Higher costs are also a function of
+
+7
+
+treating complex chronic conditions rather than root causes of health and prevention. This grant
+provides an opportunity to address root causes and fill gaps in prevention and wellness that avoid
+expensive hospitalization and downstream health consequences. By establishing mobile clinics
+to provide primary and dental care to rural residents with significant access barriers, as well as
+AI-powered care management and predictive analytics platforms, Connecticut can promote
+greater population wellness while decreasing reliance on less efficient forms of care. Connecticut
+also supports reducing government subsidies to unhealthy food and sugary drinks and will
+submit state legislation for a SNAP waiver intended to direct recipients toward consuming more
+healthy, wholesome food, and providing investments to expand access to healthy produce
+through the establishment of accessible, innovative farms in rural areas.
+Further, a recent Consumer Affairs report ranked Connecticut as the fifth most
+unaffordable state for healthcare costs, based on factors including average annual health
+insurance premiums and deductibles, percent of residents forgoing care due to cost, and percent
+of children whose families struggle with paying medical bills. 21 The report also ranked
+Connecticut second in overall costs for single insurance coverage and fourth in annual insurance
+premiums for single coverage.21 Despite these high and increasing health insurance costs, rural
+providers often lack market leverage to negotiate for more resources in rural communities. The
+RHT grant is a significant opportunity for the state to help rural providers transition and prepare
+for innovative performance-based payments models, such as global budgets, that provide
+predictability and can help improve quality, long-term sustainability and cost-effective care.
+Health Outcomes and Chronic Disease Prevalence
+Rural Connecticut residents bear an increased and often compounded burden of certain
+chronic and infectious conditions, frequently due to limited access to preventive and specialized
+
+8
+
+care. 22 Below are chronic conditions with an outsized impact in Connecticut’s rural
+communities.
+Chronic
+Illness
+Cancer
+Cardiovascular
+Heart Disease
+
+Asthma
+Multiple
+Chronic
+Conditions
+Behavioral
+Health
+
+Chronic
+Kidney
+Disease
+(CKD)
+Diabetes
+Other
+Challenges
+Maternity Care
+Access
+
+Early
+Childhood
+Risk
+Disengaged
+Youth Risk
+Aging
+Population and
+Complex
+Chronic Care
+Demand
+Frail Elderly
+(Falls)
+
+Status of Chronic Illness in Connecticut Rural Areas
+Mortality rates for cancer are statistically higher in rural regions of Connecticut, reinforcing the
+need for enhanced rural screening and early detection access. In 2019, the cancer death rate in
+rural areas was 15% higher (164.1 per 100,000) than in urban areas (142.8 per 100,000). 23
+Mortality from heart disease is higher across all rural regions of the state when compared to the
+statewide average, reflecting broader national trends where heart disease death rates are greater
+in rural areas. In 2019, certain less-dense counties in Connecticut, such as New London,
+Tolland, and Windham, had heart disease death rates categorized as stable and above the U.S.
+rate. 24
+While asthma is a significant issue in Connecticut's largest cities, its prevalence among schoolaged children is also significant in many rural towns, particularly in eastern Connecticut. 25
+Multiple Chronic Conditions (MCCs) are highly prevalent, affecting 52% of Medicare
+beneficiaries aged 65–74 in Connecticut. 26 The state ranks among the oldest in the U.S., driving
+increased demand for home and community-based chronic care services in isolated rural areas.
+Rural areas face significant challenges, including a high prevalence of binge drinking and
+tobacco use across all counties, compared to national rates. Furthermore, the eastern region of
+the state, including a significant portion of the state’s rural areas, reports a high volume of cases
+of people receiving mental health and/or substance use treatment, often necessitating longdistance travel for specialty care.
+CKD prevalence is directly associated with aging populations, hypertension, and diabetes. As
+10.8% of Connecticut adults, 312,000 adults, have been diagnosed with diabetes 27 (a leading
+cause of kidney failure) and given the higher overall chronic disease burden in rural
+Connecticut, the incidence and progression of CKD are critical concerns that require improved
+rural screening and management.
+Approximately 10.8% of adults in Connecticut have been diagnosed with diabetes.27
+Nationally, the prevalence of diabetes is consistently reported to be 9% to 17% higher in rural
+areas than in urban areas, suggesting that rural Connecticut residents face an elevated risk. 28
+Status of Challenges Related to Rural Health
+Access to consistent, high-quality prenatal and perinatal care is critically low in rural
+Connecticut due to a severe shortage of specialty providers. Compounded by previous rural
+hospital closures and other rural hospitals that have proposed or completed closure of labor and
+delivery units, expectant mothers are often forced to undertake extended travel, leading to
+inconsistent care compliance and elevated risks for adverse maternal and infant outcomes.
+Children residing in lower-income rural areas face an elevated risk profile concerning critical
+developmental and health indicators. 29 This includes a higher likelihood of elevated blood-lead
+levels, alongside significant challenges related to physical inactivity and the prevalence of
+being overweight/obese. 30
+Youth disconnection is a critical, yet overlooked, non-clinical factor related to health in rural
+Connecticut. Isolation resulting from this disconnection directly predicts adverse health
+outcomes—such as substance use, homelessness, and justice system involvement—which
+ultimately lead to increased reliance on costly, reactive emergency care.
+The 2025 Connecticut Healthy Aging Data Report revealed that older adults in Connecticut face
+elevated rates of chronic conditions compared to other New England states, including hip
+fracture, Alzheimer’s disease, and congestive heart failure. 31
+Unintentional falls are the leading cause of death among Connecticut residents aged 75 and
+older. 32 In 2022 alone, Connecticut hospitals billed $4.6 billion for fall-related care. This risk is
+
+9
+
+disproportionately rural: six towns with a significant rural component were among the top ten
+statewide for fatal falls between 2019 and 2023. 33
+Table 3 - Chronic Conditions
+
+Primary Care Availability
+In Connecticut between 2015 and 2024, rural adults aged 65 and older faced significant
+access gaps, and 16% delayed medical care, 8% skipped care entirely, and 6% lacked a
+designated primary care provider.22 These gaps worsen chronic conditions and lead to treatment
+interruptions. The RHT Plan will focus on leveraging initiatives such as the Program of AllInclusive Care for the Elderly (PACE) and mobile integrated health initiatives in rural areas to
+improve the management of chronic conditions, helping to ensure that older adults remain
+independent to the greatest extent possible and reducing the need for institutional care.
+In addition, through the RHT Program, Connecticut will pursue investments in child and
+maternal health, including expansions in universal home visits to support new families, as well as
+additional school-based health services to reduce out-of-district placements and keep children
+close to families and local support systems. Further, the state will invest in a more robust high
+school workforce pipeline to springboard rural youth into healthcare careers in their own
+communities, providing economic opportunities for students in a high-demand field and
+expanding health access to rural residents over the long term.
+Connecticut faces significant documented gaps in access to essential healthcare services,
+particularly in its rural regions, which contribute to elevated healthcare costs and poor outcomes.
+Access to primary care, behavioral health, and specialized hospital services (e.g., labor and
+delivery, and inpatient psychiatric care) are highly variable across the state. Connecticut rural
+residents face demonstrable access challenges including (1) emergency service lag, including
+extended drive times for critical, time-sensitive medical events, which are at least 1.5 times
+longer, on average, than non-rural residents, and (2) low utilization of electronic data
+10
+
+documentation. The Office of Health Strategy (OHS) formally recognizes these challenges
+through publications such as the Statewide Health Care Facilities and Services Plan and its
+annual inventory, which guide state policy and regulatory efforts. Notably, rural areas face
+severe shortages in primary care workforce when compared to more urban regions:
+County (Area Type) 34
+Fairfield (SW Metro)
+Litchfield (NW Rural)
+Windham (NE Rural)
+
+Primary Care Physicians per
+Contrast34
+100,000 Residents34
+97
+Highest Ratio
+56
+Relatively Low
+45
+Lowest Ratio (Less than half of Fairfield)
+Table 4 - Primary Care Workforce Shortage
+
+Connecticut faces a critical primary care shortage, with 22.6% of the state’s physicians, nurse
+practitioners, and physician assistants practicing in primary care, compared to 27.2% nationally
+and higher rates in nearby states such as Massachusetts (24.6%) and Rhode Island (>30%). 35
+In response to these workforce challenges, Connecticut enacted numerous policies in
+recent years that aim to promote telehealth availability and access. From 2020 to 2022, the state
+established multiple provisions in state law to promote the delivery of telehealth services and
+insurance coverage of such services to ensure that care remained accessible to residents. In 2024,
+Connecticut made many of these provisions permanent, including: (1) allowing authorized
+telehealth providers to use audio-only telephone to provide services; (2) allowing authorized
+providers to provide telehealth services from any location to patients in any location, subject to
+applicable state and federal requirements; and (3) prohibiting health carriers from reducing the
+reimbursement they pay to telehealth providers for covered services appropriately provided
+through telehealth instead of in person. 36,37 With Connecticut joining neighboring states to enact
+interstate healthcare licensure compacts, the state will have a stronger foundation with which to
+further enhance telehealth capacity, expand remote patient monitoring across state lines, and add
+workforce capacity for our rural border communities.
+
+11
+
+Limited access drives costly, preventable utilization: the Commonwealth Fund’s 2025
+Scorecard ranks Connecticut 48th nationally 38 for avoidable hospital use and costs, an eightplace drop38 since 2023. In 2023, 27% of emergency department (ED) visits were deemed
+avoidable, and in 2021, 19% of ED users were frequent visitors (four or more visits), with
+another 32% visiting two or three times.39 These patterns highlight the urgent need for upstream
+investment—particularly in community-based crisis stabilization for adults. 39 RHT grant funding
+will be used to initiate up to four 23-hour crisis stabilization centers integrated with the state’s
+rural hospital system to divert unnecessary behavioral health visits away from EDs, enabling
+specialists to focus on patients with the most complex care needs. This mission will be furthered
+by providing more stabilization and home-based treatment to those with less acute mental health
+needs in community settings closer to people's homes.
+Extensive research confirms that limited access to healthcare and care discontinuity lead
+to substantial financial challenges for healthcare systems. Patients who delay or forgo essential
+medical services due to financial constraints, transportation issues, or provider shortages tend to
+incur higher overall healthcare costs. This is particularly evident among rural patients with
+chronic conditions such as heart failure, where delayed or missed care correlates with increased
+annual healthcare expenditures compared to those who receive continuous care.48
+Other Rural Healthcare Access Factors: Behavioral Health
+Lack of access to behavioral health services in Connecticut threatens the stability of the
+mental health safety net and contributes to ED overcrowding. Despite Connecticut ranking third
+among the six New England states 40 in the total number of behavioral health providers per
+capita, there remains a critical shortage of highly trained specialists capable of managing
+complex cases. The state ranks fourth in per capita numbers of psychologists and licensed
+
+12
+
+clinical social workers, 41 highlighting a fundamental gap in specialized expertise needed for
+comprehensive behavioral healthcare in rural Connecticut. This workforce deficit is particularly
+challenging in rural communities. For example, of the 1,178 licensed psychiatrists in
+Connecticut, only six practices are in the rural Northeastern Connecticut planning region, and
+only thirteen are in the rural Northwest Hills planning region. 42 Market dynamics, including
+insurers' reliance on narrow networks and low reimbursement rates for behavioral health
+services, further restrict access, especially in low-density rural areas.
+The consequences of these access gaps are evident in the strain on ED services. The lack
+of outpatient behavioral health options has led to EDs operating at or beyond capacity, with wait
+times for behavioral healthcare exceeding national averages. 43 These issues require targeted
+strategies to improve workforce distribution, increase specialist availability, and expand
+outpatient services to ensure access across Connecticut. This crisis reached a critical threshold,
+specifically impacting children and youth, which prompted the state to establish four Urgent
+Crisis Centers in 2023 to divert ED visits.43 Unfortunately, there remains insufficient state-level
+diversion capacity focused on adults, particularly in rural areas, leaving a substantial unmet need
+for crisis-level behavioral healthcare for this population.
+Gaps in outpatient mental health infrastructure are documented across rural regions of
+Connecticut. For example, according to the most recent data analyzed by OHS, Northeast
+Connecticut planning region has the lowest percentage of mental health outpatient clinics per
+100,000 residents. 44 Windham Hospital, a key acute care facility in the region, provides no
+inpatient mental healthcare 45 and Day Kimball Hospital, the region’s only other acute care
+facility, provides a small 15-bed inpatient psychiatric unit and outpatient care, but offers no
+treatment for substance use disorders. 46 Furthermore, sections of the state, including the rural
+
+13
+
+Northwestern Hills planning region, suffer from a complete lack of non-hospital residential
+mental health treatment beds. 47 This scarcity highlights a significant gap in community-based
+mental health support, which is essential for early intervention and ongoing care. 48
+Rural Facility Financial Health and Health Barriers
+a. Rural Hospital Sustainability
+Rural hospitals in Connecticut face growing financial strain, driven by low patient
+volumes, a disproportionately high public payer mix, outdated infrastructure, and limited
+resources to adapt to healthcare advancements. Although many of these facilities serve as the
+only source of emergency and acute care in their communities, these challenges increasingly
+threaten their long-term viability. With this grant, there is a new opportunity for health facilities
+to shift their business models toward prevention, screening, and root causes of health to promote
+wellness and align payments with performance outcomes, reducing unnecessary treatments.
+Rural hospitals, which have high public payer percentages, often face significant
+financial challenges. In total, Connecticut rural hospitals discharged 13,555 patients in state
+fiscal year (SFY) 2024, representing 3.7% of the 367,142 total hospital discharges recorded
+statewide. 49 On average, public payers made up 10 percentage points more of Connecticut’s rural
+hospitals’ net revenues than the statewide average, as shown in the table below.
+Combined Medicaid +
+Medicare Revenue
+Charlotte-Hungerford
+21.8%
+47.2%
+68.9%
+Day Kimball
+19.5%
+40.8%
+60.3%
+Sharon
+9.4%
+54.1%
+63.6%
+Windham
+17.0%
+40.5%
+57.5%
+Statewide Total
+17.0%
+35.6%
+52.6%
+Table 5 - SFY 24 Payer Mix (As a Percentage of Net Revenue) by Rural Connecticut Hospital 50
+Hospital
+
+% Medicaid Revenue
+
+% Medicare Revenue
+
+The nationwide total operating margin for hospitals in SFY 2023 was 2.6%, 51 while
+Connecticut hospitals posted an average margin of -0.5%. 52 By contrast, rural hospitals in
+
+14
+
+Connecticut experienced an average operating margin of -14.6%.52 See the table below for a
+breakdown of statewide economic outcomes and payer mixes reported during SFY 2023.
+Medicaid
+Medicare PaymentPayment-to-Cost
+to-Cost Ratio
+Ratio
+Charlotte-Hungerford
+-5.52%
+(4,471,900)
+1.02
+0.86
+Day Kimball
+-2.31%
+($16,041,149)
+0.91
+0.76
+Sharon*
+-48.48%
+($24,084,000)
+0.85
+0.63
+Windham
+-2.14%
+($525,738)
+0.72
+0.86
+Statewide Total
+-0.45%
+$282,351,565
+0.87
+0.73
+* Sharon Hospital’s occupancy rate has been about 40% in the last three years; its patient mix is 60% Medicare
+and Medicaid, and its operating expenses are nearly 1.5 times its patient revenue.
+Table 6 - SFY 2023 Financial Outcomes by Rural Connecticut Hospital 53
+Hospital
+
+Operating
+Margin
+
+Income/(Loss)
+from Operations
+
+Rural hospitals, operating with lower patient volumes and limited market power, face
+reduced negotiating leverage with commercial insurers, particularly independent hospitals
+lacking the support of larger systems. Consequently, these facilities often receive lower
+reimbursement rates, constraining their ability to sustain or expand services. Reflecting this
+strain, rural and rural-serving hospitals are disproportionately represented in terms of population
+impact in Connecticut’s Certificate of Need (CON) requests for service line closures, further
+exacerbating access issues. Between 2018 and October 2025, all requests involving rural or
+rural-serving hospitals were approved except the proposed closure of Sharon Hospital’s labor
+and delivery unit. Accompanying the funding initiatives proposed for Connecticut’s RHT
+Program, the state is committed to simplifying and refreshing the purpose of our CON laws to
+promote market competition and remove barriers to entry.
+b. Rural Federally Qualified Health Centers
+In rural Connecticut, FQHCs are integral, often serving as the primary, or only, source of
+comprehensive healthcare in their communities. These centers, including sites operated by
+Generations Family Health Center, Inc. in Northeastern Connecticut and Community Health and
+Wellness Center (CHWC) in the Northwest Hills region, fill essential gaps in access to
+15
+
+healthcare for residents who might otherwise need to travel long distances for preventive and
+primary care services. Additionally, FQHCs operate school-based health centers throughout
+Connecticut’s rural communities. Collectively, FQHCs play a central role in maintaining a
+healthcare presence in Connecticut’s most underserved rural communities, particularly as
+insufficient public transportation access makes it difficult for patients to travel the distances
+required to reach providers elsewhere. Notably, DSS recently approved a change in scope for an
+FQHC in Torrington to open a clinic location in rural Canaan, Connecticut. This location is
+anticipated to serve approximately 15,000 residents located in Canaan, as well as seven
+surrounding towns located in the Northwest Hills planning region. In 2024, CHWC locations
+served 6,700 patients in the Northwest Hills, an increase of 14% since 2023, across 34,000 total
+visits. 4,000 (67%) of patients served had household incomes at or below 100% of the federal
+poverty level, and Medicaid covered 3,000 patients.56
+However, FQHCs in Connecticut face many of the same staffing and reimbursement
+challenges as hospitals and other facilities. In February 2025, CHWC stopped dental services at
+both its Torrington and Winsted locations due to an inability to compete with increasing market
+wages, workforce shortages, and increasing prices for costly dental procedures. By ceasing
+dental services, only 10 dental practices remain in the area, only two of which accept Medicaid
+patients, leaving approximately 1,400 CHWC patients without access to dental care.
+Additionally, because public transportation is limited in rural Litchfield County, the closest
+dental care for Medicaid members is the University of Connecticut Health Center (UCHC),
+located up to 40 minutes away for those with access to a personal vehicle. 54
+
+16
+
+c. Workforce Shortage
+Connecticut faces a persistent shortage of healthcare workers, most notably in primary
+care and behavioral health. Limited access to providers, particularly in rural areas, has created
+significant geographic disparities in care. These shortages are projected to worsen as the
+workforce ages and recruitment barriers continue, with rural regions most affected due to smaller
+populations, limited resources, and geographic isolation. Two federally designated geographic
+Primary Care Health Professional Shortage Areas (HPSAs) cover the state’s rural Northwest
+Hills and Northeastern regions, where 20 facilities operate, including the two rural FQHCs
+referenced above. 55 Connecticut also has 20 low-income population groups designated as
+primary care HPSAs and, as of September 2025, the state is designated as a Mental Health
+HPSA. Thirty-three mental health facilities operate within these areas, impacting eleven lowincome populations, including four in partially rural settings. 56
+An aging workforce continues to strain capacity. As of 2020, 36% of Connecticut
+physicians were aged 60 or older, a 25% increase since 2012. 57 Shortages are particularly acute
+in pulmonology, psychiatry, family medicine, and infectious diseases, with projections showing
+that only 44% of family medicine needs will be met by 2030. 58 Demand for healthcare
+professionals will continue to outpace supply through the end of the current decade.57 Part of the
+state’s vision is to ameliorate these shortages by focusing on root cause factors—nutritious food
+and eating, exercise, prevention, and early screenings—to free up time and resources that
+consume clinicians’ time downstream.
+The National Rural Health Association cites economic and lifestyle factors, including
+lower salaries, relocation costs, housing limitations, and spousal employment barriers as key
+contributors to rural workforce shortages. 59 Although Connecticut has advanced solutions
+
+17
+
+through participation in federal programs and adoption of multiple interstate licensure compacts,
+workforce barriers remain significant in rural regions.
+d. Healthcare Coordination
+In recent years, Connecticut has made significant progress and is invested in improving
+care coordination for patients, including the following under the state Medicaid program: PersonCentered Medical Home (PCMH) program, Person-Centered Medical Home Plus (PCMH+)
+program, Intensive Care Management (ICM), and Targeted Case Management (TCM) programs.
+In addition, the state will further promote improved care coordination through the upcoming
+implementation of the Achieving Healthcare Efficiency through Accountable Design (AHEAD)
+Model. In 2021, OHS also operationalized Connie, the state’s Health Information Exchange
+(HIE), which is responsible for connecting healthcare providers to enable the sharing of clinical
+information electronically, assisting in care coordination among providers, reducing preventable
+costs, supporting public health reporting, research, and population analytics, promoting standards
+and interoperability, and granting patients access to their medical information.
+The shortage of primary care providers in Connecticut’s rural towns, along with longer
+travel times and limited public transportation, creates significant barriers to care. National-level
+studies have shown that low-income rural adults, in particular, often lack reliable access to a
+regular primary care doctor and are more likely to
+skip necessary care, 60 putting these residents at
+greater risk of avoidable ED use. 61 Compared
+with non-rural Connecticut residents, rural
+patients face disproportionately long travel times
+to critical care facilities, including trauma centers,
+18
+
+Median Drive Time (minutes)
+Facility Type
+Rural
+Trauma Centers
+32
+Stroke Centers
+26
+Maternity Wards
+24
+Acute Care Hospitals
+20
+FQHCs (and Look-alike Sites)
+14
+Substance Use Centers
+14
+Nursing Facilities
+10
+Pharmacies
+9
+Table 7 - Median Drive Time by Facility Type 62
+
+stroke centers, labor and delivery units, and acute care hospitals. See the table below for a
+breakdown of travel times (in minutes) by facility type for rural Connecticut residents. 62
+For rural Connecticut patients managing chronic conditions, traveling to and between
+multiple outpatient healthcare facilities can be especially difficult to coordinate. As a result, rural
+adults commonly experience interruptions in treatment, poorer health outcomes, and higher
+overall healthcare costs due to an inability to reliably access care. 63 For example, a 2022 analysis
+of rural health conditions in Connecticut found that residents of predominantly lower-income
+rural areas were more likely to delay or forgo necessary medical care compared to residents of
+non-rural areas. The report’s findings showed that 28.5% of Connecticut’s rural residents
+reportedly delayed needed care in the past year compared to 26.6% of non-rural residents.63
+Residents of lower-income rural areas faced even more significant barriers to medical care, with
+29.6% reporting having delayed care in the past year and 12.1% reported skipping needed care. 64
+Similarly, access to behavioral health services in Connecticut reflects a growing
+imbalance between demand and supply, particularly in rural regions. Litchfield and Windham
+counties, two of Connecticut’s most rural and geographically dispersed regions, have among the
+lowest Medicaid behavioral health provider densities in Connecticut. 65 Rural communities are
+more likely than urban ones to lack behavioral health specialists, leaving primary care clinicians
+as the de facto providers of mental health and substance use care for many residents. Within
+Connecticut’s Medicaid population, the rates of any mental health or substance use disorder are
+15% and 14% higher, respectively, among those living in rural versus urban or suburban areas.65
+These facts exacerbate geographic, financial, and coordination barriers, resulting in many
+residents going without timely care or turning to EDs in crisis. Northeast and northwest
+Connecticut lacks crisis stabilization options outside of hospital EDs, forcing individuals in
+
+19
+
+behavioral health crises to seek care in settings ill-suited for recovery or continuity. According
+to DPH data (2016–2020), roughly 10% of all ED visits statewide were primarily due to
+behavioral health or substance use issues. 66 Among adults, 34% presented with psychoactive
+substance use disorders and 50% with mood or anxiety disorders, with 82% discharged within 24
+hours, often without coordinated follow-up care or linkage to community-based supports. 67
+At the same time, the behavioral health workforce is under significant strain. A recent
+survey of nonprofit providers found that over 20% of positions were unfilled and that annual
+staff turnover reached 39%. 68 The combination of rising mental health needs, persistent
+workforce shortages, and inadequate rural infrastructure has deepened access challenges for
+residents, resulting in long wait times, limited-service availability, and heightened dependence
+on ED care. Collectively, these conditions underscore the urgent need for targeted strategies to
+expand rural behavioral health capacity and strengthen local care networks.
+e. Technology and System Needs
+As part of Connecticut’s Statewide Health Information Technology Plan, which spans
+calendar years 2022–2026, the state is pursuing various activities to: (1) improve the availability
+of data to support better care, coordinated services, and accurate measurement of healthcare
+costs; (2) advance the adoption and use of health IT and HIE services; and (3) bolster the
+readiness of individuals and organizations to use information technology to make better
+decisions when providing or receiving care. The state made considerable strides in these areas,
+including connecting more than five million distinct patients and more than 3,000 provider
+organization sites to Connecticut’s statewide HIE (Connie). Connie now processes about 1.7
+million clinical summary documents, and 14 million lab results monthly. 69 Because many
+residents in Connecticut’s rural areas lack reliable access to digital technologies, they face
+20
+
+significant barriers to telehealth and remote communications with their providers, many of whom
+are not in rural areas. These challenges are compounded when rural providers also lack adequate
+telemedicine systems or platforms, further limiting access to care. 70 Due to these combined
+challenges, rural patients often face reduced access to services, treatment delays, and ultimately
+poorer health outcomes compared to patients in communities with greater telemedicine access.70
+The 2025 Health IT Annual Report identified numerous persistent challenges and
+outlined key next steps needed to advance the full implementation of the Health IT Plan. While
+OHS continues to engage a broad range of stakeholders to support providers’ adoption of
+electronic health record (EHR) and HIE services, there remains a need for greater participation
+among behavioral health and other specialty providers across the state. 71 While all hospitals and
+clinical laboratories in Connecticut are required to maintain an EHR that is connected to
+Connie, 72 those in rural and other underserved areas have yet to comply with this mandate due to
+persistent technological and financial barriers.
+According to OHS data, roughly 20% of Connecticut providers use EHR systems that
+present major interoperability challenges. 73 When applied to the 1,315 healthcare organizations
+in Connecticut’s rural towns expected to connect with the statewide HIE, about 263 are likely to
+face similar barriers.73 Many operate multiple locations, which further increases integration
+costs. Among priority providers, 12 of 17 FQHCs and roughly 150 nursing homes have not yet
+begun transmitting data, primarily due to financial and technical obstacles. Improved data
+exchange across these organizations would strengthen care coordination and patient outcomes.
+Financial constraints extend beyond EHR system costs. Smaller rural providers also
+report limited staff capacity and added administrative expenses (e.g., obtaining legal counsel) as
+barriers to connectivity. Targeted technical assistance funds could help offset these costs,
+
+21
+
+ensuring that providers of all sizes can participate in the statewide HIE. Through RHT Program
+investments in Connie’s infrastructure and accessibility, Connecticut will improve provider
+access to interconnected systems that promote data sharing and avoid unnecessary or duplicative
+testing, which is costly and a personal strain for rural residents facing transportation barriers.
+Reliable broadband access is also critical to full participation. While the Governor’s 2023
+Broadband Action Plan has significantly expanded coverage, reducing the number of homes
+without high-speed internet from 17,970 in 2022 to 4,472 in 2024, 74 gaps still remain, especially
+in low-income and rural communities. Technical assistance funding can help bridge these
+infrastructure and capacity divides, supporting access to the statewide HIE and advancing rural
+health transformation. 75 This is an essential building block to an accountable healthcare system
+that is rewarded on performance and outcomes rather than volume.
+II. Rural Health Transformation Plan: Goals and Strategies
+Connecticut’s RHT Plan aims to strengthen the delivery of healthcare in rural
+communities by implementing sustainable models that improve access and quality. The state’s
+31 proposed projects collectively seek to expand the rural healthcare workforce, including
+provider availability and capacity, as well as modernize facilities’ technological and physical
+infrastructure, align services with the needs of rural residents, expand the capabilities of and
+participation in the state’s HIE, and promote virtual healthcare utilization among rural patients
+and providers. Through coordination among state agencies, hospitals, and community partners,
+Connecticut will invest approximately $938.4 million to build a more resilient system that
+emphasizes prevention, supports providers, and ensures high-quality care close to home.
+The scale of Connecticut’s RHT Plan reflects both the urgency and opportunity within
+the state’s rural health system and builds upon existing Connecticut health infrastructure and
+
+22
+
+partnerships to incorporate and deliver evidence-based interventions across four critical
+initiatives: (1) population health outcomes, (2) workforce, (3) data and technology, and (4) care
+transformation and stability. These initiatives collectively establish the foundation for
+implementing statewide strategies, each as a distinct pathway for achieving the RHT Plan goals.
+Connecticut will advance Population Health Outcomes through a $132.4 million
+investment focused on expanding access to preventive and primary care and addressing the
+social, behavioral, and non-clinical factors that influence health. Efforts to improve access and
+outcomes will enhance community-based care, expand coordination across rural service areas,
+and reduce barriers created by distance and provider shortages. By emphasizing prevention and
+early intervention, the state will improve chronic disease management, reduce avoidable
+hospitalizations, and strengthen the long-term health of rural residents.
+The Workforce initiative, supported by a $58.1 million investment, focuses on building a
+stable, well-trained rural healthcare workforce through coordinated education, licensure, and
+retention strategies. Connecticut will strengthen partnerships among academic institutions,
+healthcare providers, and professional organizations to address shortages in critical areas and
+improve workforce distribution across HPSAs. This investment will create sustainable career
+pathways and modernize workforce infrastructure to support rural recruitment and retention.
+With $74.3 million dedicated to Data and Technology, Connecticut will enhance
+technology use and expand data-driven solutions that enable providers to deliver better, more
+coordinated care. This investment will expand interoperability, telehealth capacity, and real-time
+data exchange across the continuum of care. Additionally, by investing in novel AI-powered
+technologies, including consumer-focused care management tools, enhanced care coordination
+and remote patient monitoring platforms, and an advanced population-level predictive modeling
+
+23
+
+mechanism to identify gaps in care, the state seeks to strengthen clinical decision-making,
+improve communication between providers, and promote access to remote monitoring
+technologies for rural residents.
+Strong partnerships are essential to the RHT Plan’s success. The state will fortify
+collaboration among hospitals, tribal organizations, FQHCs, emergency medical services (EMS)
+agencies, local and regional government agencies, and community-based organizations to
+promote shared accountability, financial stability, and coordinated service delivery. Specifically,
+as described in Section III below, the state’s RHT Program includes a project to facilitate
+regional collaboratives to promote increased cooperation among a variety of healthcare,
+municipal and regional government, social service, and other stakeholders in each of the state’s
+two largest rural areas. As funding becomes available for projects, entities, or vendors,
+Connecticut will ensure all procurements comply with 2 CFR 200.317–327 and state laws,
+maintaining transparent, competitive, and audit-ready processes that uphold fiscal integrity and
+maximize community benefit.
+An investment of $673.6 million in Care Transformation and Stability will promote longterm sustainability for rural providers through innovative financial solvency strategies.
+Connecticut will expand opportunities to participate in value-based and alternative payment
+models, such as AHEAD, that reward quality, efficiency, and outcomes, ensuring predictable
+reimbursement and alignment across payers. Enhancing providers’ ability to adopt performancebased compensation models will shift incentives toward improved individual health outcomes as
+opposed to high service volumes alone.
+The state developed its curated list of 31 projects following a thorough cause
+identification process, through which various rural stakeholders were engaged and invited to
+
+24
+
+identify the barriers they see to accessing high quality healthcare in their communities, as well as
+opportunities for addressing those challenges. During this process and as described in Section I
+above, the state recognized that among the unique pressures faced by rural providers—including
+the state’s one currently remaining standalone rural hospital—are consistently low patient
+volumes, a disproportionately high public payer mix, limited ability to attract and retain a strong
+workforce, limited transportation options, and long travel distances. The RHT Plan addresses
+these factors by supporting facility modernization and right-sizing (including evaluating potential
+adjustments in service lines and other business changes), optimizing service capacity, and
+strengthening the financial resilience of rural healthcare systems.
+The table below summarizes the key risks driving rural healthcare instability that were
+identified and the strategies Connecticut will employ to address them through the RHT Plan.
+Root Cause
+
+Description
+
+Limited access to
+preventive and
+behavioral health
+services
+Workforce shortages
+and uneven provider
+distribution
+
+Distance, transportation
+barriers, and lack of integrated
+behavioral health restrict early
+intervention.
+Persistent vacancies and limited
+training opportunities hinder
+access to care in rural areas.
+
+Regulatory barriers to
+workforce mobility
+and innovation
+Fragmented health
+data and limited
+interoperability
+Low patient volume
+and payer mix
+imbalance
+Operational
+inefficiencies and
+outdated facility
+infrastructure
+
+Mitigation Strategy
+
+Strengthen community-based
+service delivery and enhance
+behavioral health and primary care
+coordination.
+Align education, recruitment, and
+licensure programs with HPSA
+needs to build a long-term
+workforce pipeline.
+Inconsistent licensure and
+Advance state legislative reforms
+restrictive regulatory
+that promote interstate practice,
+frameworks limit system
+streamline licensure, and support
+responsiveness.
+innovative care models.
+Rural providers lack access to
+Extend HIE participation to rural
+shared data, leading to
+providers, modernize health IT,
+inefficiencies and gaps in
+and support telehealth adoption
+coordination.
+statewide.
+Rural hospitals experience
+Expand participation in valuelimited patient flow and high
+based payment models and support
+reliance on public payers,
+facility optimization to ensure
+reducing financial flexibility.
+sustainability.
+Aging rural facilities and
+Support facility right-sizing,
+inefficient systems hinder
+shared service models, and
+modernization and care
+infrastructure modernization to
+delivery.
+improve sustainability.
+Table 8 - Cause Identification
+
+25
+
+Aligned
+Initiative
+Population
+Health
+Outcomes
+Workforce
+
+Workforce
+
+Data and
+Technology
+Care
+Transformation
+and Stability
+Care
+Transformation
+and Stability
+
+Connecticut will also pursue strategic legislative and regulatory actions to advance and
+sustain rural health transformation. These efforts include extending and enhancing participation
+in interstate licensure compacts, modernizing workforce regulations, reforming CON processes,
+and improving population health through increased access to nutritious foods and preventive
+care. Each policy change supports the Centers for Medicare & Medicaid Services’ (CMS) vision
+for a flexible, responsive, and sustainable rural healthcare system that meets community needs
+over the long term. The table below summarizes Connecticut’s status related to each of the
+Policy Actions (by technical score factor) identified in the Notice of Funding Opportunity
+(NOFO) and highlights targeted legislative and regulatory actions that the state will advance in
+the Spring 2026 legislative session where applicable.
+Connecticut Legislative and Policy Actions Technical
+(Spring 2026 Legislative Session)
+Score
+B. 2. Health and Lifestyle Prevention
+Connecticut will pursue the implementation of
+TBD*
+the Presidential Fitness Test based on
+Executive Order 14327
+B. 3. SNAP waivers
+Connecticut will pursue this policy action.
+0
+B. 4. Nutrition Continuing Medical Education
+Connecticut will pursue this policy action.
+25
+C. 3. Certificate of Need (CON)
+Connecticut will propose substantial reforms
+25
+of CON requirements.
+Note: Connecticut will propose substantial reform by the dates listed in the NOFO for B. 2., B. 3., B. 4., and C. 3.
+Table 9 - Policy Actions
+Policy and Legislation
+
+Policy and Legislation
+D. 2.
+Licensure
+compacts
+
+D. 3. Scope
+of practice
+
+Status
+
+Interstate Licensure Compacts
+Interstate Medical Licensure Compact Member state issuing non-SPL licenses 76
+(IMLC) (Physician Score)
+Nurse Licensure Compact (NLC)
+NLC state 77
+EMS Compact
+Not a Member State 78
+Psychology Interjurisdictional
+PSYPACT Participating State 79
+Compact (PSYPACT) (Psychology
+Score)
+Physician Assistants (PA) Compact
+Legislation enacted to become a PA
+(Physician Assistant Score)
+Compact member – State is a Compact
+member 80
+Healthcare Role
+Physician Assistants (PA Score)
+Moderate Scope of Practice 81
+Nurse Practitioners (NP Score)
+Full Scope of Practice 82
+Pharmacists (Pharmacist Score)
+Restricted Authority 83
+Dental Hygienists (Dental Hygienists
+Semi-Restricted Scope of Practice (5
+Score)
+tasks) 84
+
+26
+
+Technical
+Score
+50
+100
+0
+100
+100
+
+50
+100
+0
+50
+
+Policy and Legislation
+
+Technical
+Score
+0
+
+Status
+
+E. 3. Short-term, limited-duration insurance (STLDI)
+
+Connecticut will not be pursuing this
+policy action.
+F. 1. Remote care services
+Connecticut will pursue expanding
+TBD*
+remote care services.
+F. 1. Remote
+Remote Care Services 85
+care services
+Medicaid payment for at least one
+Live Video: Yes
+100
+form of live video
+Medicaid payment for Store and
+Store-and-Forward: Yes (e-consult codes)
+100
+Forward
+Medicaid payment for Remote Patient Remote Patient monitoring: No
+0
+Monitoring (RPM)
+In-State licensing requirement
+Yes
+100
+exception
+Telehealth License/Registration
+Yes
+100
+Process (including special licenses)
+Note: Technical score factors that include both Policy Action and Initiative-Based Factors are flagged as “TBD*"
+Table 10 - Legislative Status
+
+The following program key performance objectives demonstrate Connecticut’s
+commitment to measurable progress under each initiative by the end of FFY 2031:
+RHT Goal
+Make Rural
+America
+Healthy
+Again
+
+Workforce
+Development
+
+Tech
+Innovation
+
+Connecticut
+Initiative
+Population
+Health
+Outcomes
+
+Workforce
+
+Data and
+Technology
+
+Key Objective
+• Expand rural residents’ access
+to preventive, maternal, and
+community-based care.
+• Increase integration of
+behavioral health into rural and
+school-based settings.
+• Reduce avoidable ED
+utilization.
+• Increase rural healthcare
+workforce by expanding
+training and medical
+professional access.
+• Improve recruitment and
+retention in rural areas through
+targeted incentives.
+• Increase access to skilled
+providers through expedited
+licensing in rural areas.
+• Increase care coordination,
+information sharing, and rural
+provider participation in
+statewide data systems.
+• Increase use of telehealth and
+remote monitoring.
+• Increase the capacity to evaluate
+population health outcomes
+across rural regions.
+
+27
+
+Baseline
+Data
+Will be
+set in
+Year 1
+
+Will be
+set in
+Year 1
+
+Target (FFY 2031)
+• By 2031, there will be an
+increase in rural resident
+access of 5%
+• 10% increase in behavioral
+health services, including
+referrals by 2031
+• 5% year-over-year
+reduction by 2031
+• 10% by 2031
+
+• 5% by 2031
+• 5% year-over-year by 2031
+Will be
+set in
+Year 1
+
+• 35% increase in HIE
+connected entities by 2031
+• 30% increase in utilization
+by 2031
+• 35% utilization by 2031
+
+RHT Goal
+Sustainable
+Access &
+Innovative
+Care
+
+Connecticut
+Initiative
+Care
+Transformation
+and Stability
+
+Key Objective
+
+Baseline
+Data
+Will be
+set in
+Year 1
+
+Target (FFY 2031)
+
+• Increase financial and
+• 3 healthcare facilities will
+operational sustainability of
+achieve financial stability
+rural healthcare facilities
+and data system efficiency
+through data system efficiencies
+by 2031
+and Alternative Payment Model
+(APM) care adoption.
+• Increase the implementation of
+• Implement one new APM
+APM models, right-sizing
+model, and one investment
+strategies, and infrastructure
+strategy by 2031
+investments.
+• Increase care coordination and
+• Year-over-year increase of
+efficiency across the rural
+10% in care coordination
+healthcare system through
+network participation by
+integrated networks and shared
+2031
+resources.
+Note: This table summarizes the project-specific metrics detailed in Section VI. Metrics and Evaluation Plan,
+which includes a comprehensive set of performance measures and outcomes that exceed NOFO-mandated
+quantities.
+Table 11 - Legislative Status
+
+For initiatives where baseline data are not initially available, participants will be required
+to submit standardized data by the end of Year 1, which will establish baseline measurements
+and inform assessment of progress toward milestones in subsequent years. By aligning strategies
+across Population Health Outcomes, Workforce, Data and Technology, and Care
+Transformation and Stability initiatives, Connecticut’s RHT Plan delivers a coordinated,
+measurable, and sustainable approach to rural health transformation. The Plan will help to ensure
+that every resident in rural Connecticut has access to high-quality, person-centered care
+supported by a strong workforce, modern data systems, and financially stable providers.
+Other Required Information – Factor A. 2: As of September 1, 2025, using the current
+HRSA definition of rurality, Connecticut has no state-certified or Demonstration CCBHC
+entities within the state, but has twelve active Substance Abuse and Mental Health Services
+Administration CCBHC sites, one of which meets HRSA’s definition of rurality. Factor A. 7:
+Of the 39 Connecticut hospitals recognized in the October 30, 2024 CMS Hospital Provider Cost
+Report, 8, or 20.5%, receive Medicaid DSH payments.14
+28
+
+III. Proposed Initiatives and Use of Funds
+Initiative #1: Population Health Outcomes
+Description: The state will promote positive health outcomes for rural residents through the
+following activities: (1) facilitate access to prevention, primary care, dental, and behavioral
+health for residents of rural and partially rural Connecticut, with an emphasis on general
+wellness, healthy aging, and reliable mental health support; (2) build simple entry points to care
+in community settings by strengthening the capacity of primary care clinics, community health
+centers, rural health clinics, behavioral health providers and telebehavioral services, EMS and
+community teams, as well as schools, senior centers, parks, and other local organizations; (3)
+support mobile health delivery—operationalizing new primary care and dental vans will provide
+access to these services to residents of rural and Tribal communities, ensuring that care reaches
+people where they live and work; (4) establish a local facilitator or hub to convene partners and
+implement strategies that promote access to school-based mental health resources and referral,
+improve access to services for individuals with Autism Spectrum Disorder (ASD), expand
+preventive services for older adults, promote active living through community assets, and
+strengthen behavioral health support; and (5) improve access to mental health supports and ED
+diversion for adults; and (6) extend the Family Bridge nurse home visiting program for newborns
+and postpartum women to advance maternal and family health in the Northeastern and
+Northwestern planning regions.
+Key stakeholders are identified in the Initiative #1: Population Health Outcomes Project
+Details table below. Agencies primarily responsible for implementing components of this
+initiative include the Department of Public Health (DPH), the Department of Aging and
+Disability Services (ADS), the Department of Energy and Environmental Protection (DEEP), the
+
+29
+
+Department of Mental Health and Addition Services (DMHAS), the Department of Social
+Services (DSS), and the Office of Early Childhood (OEC). Funds will support:
+•
+
+Community delivery of healthy aging and falls prevention activities for older adults in
+senior and community sites, including evidence-based exercise classes, basic risk
+screening, home and environmental safety supports, transportation assistance, and
+promotion of active living using local park and trail assets.
+
+•
+
+Behavioral health integration in primary care and community settings, including: rapid
+psychiatric consultation for adults adapted from ACCESS Mental Health; specialized
+ASD consultation for EDs, mobile crisis, and community providers; and enhanced, high
+acuity school-based mental health, mental health guidance and referral, collaborative care
+workflows, warm handoffs, and telebehavioral health capacity for rural residents.
+
+•
+
+Expansion of universal nurse home visiting in rural regions, including the Family Bridge
+model, with perinatal behavioral health screening, lactation and nutrition support, safe
+sleep education, linkage to social resources, and a plan to reach approximately 3,600
+births annually across the Northeastern and Northwestern Connecticut rural regions.
+
+•
+
+Team-based chronic condition support within primary care for hypertension, diabetes,
+and chronic kidney disease, including pharmacist and nurse collaboration, practical
+remote monitoring where appropriate, care planning and medication management,
+community health worker navigation, and closed-loop referrals for transportation,
+nutrition, and other routine supports.
+
+•
+
+Practical referral and data improvements that streamline navigation, confirm completion
+of services, and support basic population health tracking for access, control of chronic
+conditions, behavioral health follow-up, and preventive service use.
+
+30
+
+•
+
+Deployment of eight mobile health vans—anticipated to be four for primary care and four
+for dental care—to expand access to preventive, chronic, and oral health services in rural
+and underserved areas. At least one of each will serve federally recognized Tribal
+Nations. DPH will fund purchasing, outfitting, and launching of the program, with
+awardees coordinating routes and reporting on utilization and outcomes.
+
+The projects below put this approach into practice across rural and partially rural communities.
+Project
+Promoting
+Healthy Aging in
+Rural Connecticut
+Through
+Engaging
+Exercise
+Outdoor
+Recreation
+Program
+
+Use of
+Funds
+A
+
+A
+
+Project Details
+Description
+
+Key Stakeholders
+
+Bring an evidence-based, structured exercise
+program to senior centers in up to 30 municipalities
+in rural Connecticut.
+
+ADS, Area Agencies
+on Aging
+
+Increase rural residents’ access to and participation in
+free, self-directed, outdoor recreation activities that
+support physical exercise, behavioral health, and
+chronic disease prevention through minor alterations
+of an existing, 50-mile, multi-model state park trail
+traversing the state’s rural northeastern region and
+local partnerships in nine rural towns that increase
+public points of access and promote trail use.
+ACCESS Mental Health Connecticut offers real-time
+psychiatric consultation to medical providers when
+patients present with mental health and substance use
+concerns. This initiative expands on the ACCESS
+Mental Health model (which is available for youth
+and prenatal care) and coordinates behavioral health
+support across Connecticut to adult populations. This
+will equip primary care providers in rural areas with
+accessible and timely behavioral health expert
+support.
+Provide specialized ASD services with the target
+being EDs, mobile crisis, and community mental
+health providers.
+
+DEEP
+
+Expand ACCESS
+Mental Health
+Model to Adults
+
+H, I, K
+
+ACCESS Mental
+Health ASD
+Service Access
+
+H, I, K
+
+ACCESS Mental
+Health Enhanced
+School-Based
+Mental Healthcare
+
+H, I, K
+
+Enhance school-based care, including high-acuity
+care, by providing clinical guidance/support and
+resource referrals for cases beyond in-school
+capabilities.
+
+Universal Nurse
+Home Visiting
+Expansion
+
+A, G, K
+
+Expand Family Bridge universal nurse home visiting
+services into the two largest HRSA-designated
+regions of the state —Northeastern and
+
+31
+
+DMHAS, DSS,
+FQHCs, Primary care
+practices, CCBHCs,
+Mobile Crisis Teams,
+EDs, Tribal partners,
+Rural health
+providers
+
+DSS, DCF, EDs,
+Mobile Crisis Teams,
+Rural health
+providers
+DSS, DCF, DMHAS,
+State Department of
+Education (SDE),
+School system
+partners, Clinical
+partners
+OEC, DPH, Local
+health and early
+childhood providers,
+
+Project
+
+Mobile Clinic
+Pilot
+
+Use of
+Funds
+
+Project Details
+Description
+
+Key Stakeholders
+
+Northwestern, Connecticut—serving an estimated
+3,600 births annually in these regions.
+
+A, G, I, K
+
+Support four health vans for primary care and four
+for dental care with at least one of each designated to
+serve our two federally-recognized Tribal Nations.
+Main strategic goal: Make Rural America Healthy Again
+Technical score factors: B. 1., B. 2., C. 1., D. 3., F. 1.
+
+hospitals, FQHCs,
+Tribal partners
+DPH, FQHCs, Tribal
+partners
+
+Table 12 - Initiative #1: Population Health Outcomes Project Details
+Outcomes (non-exhaustive)
+Increase the
+Programs
+Reduce ED and
+Reduce ED
+number of rural
+consistently
+mobile crisis
+utilization related
+primary care
+achieve full
+utilization among
+to chronic disease
+providers
+enrollment and
+individuals with
+participating in
+retention
+ASD
+ACCESS Mental
+Health models
+Note: This table summarizes the initiative-specific metrics detailed in Section VI. Metrics and Evaluation Plan,
+which includes a comprehensive set of performance metrics, including baseline data and target plans, which
+exceed NOFO-mandated quantities.
+Table 13 - Outcomes
+Increase the
+number of rural
+families utilizing
+coordinated
+maternal health
+services
+
+Impacted counties: Litchfield, Windham, New London, New Haven, Tolland, Middlesex,
+Hartford, Fairfield. Impacted planning regions: Northwest Hills, Northeastern Connecticut,
+Capitol Region, Connecticut Metro, Lower Connecticut River Valley, Naugatuck Valley, South
+Central Regional, Southeastern Connecticut, Western Connecticut.
+Estimated required funding for Initiative #1 Population Health Outcomes: $132,445,000
+Initiative #2: Workforce
+Description: Connecticut’s RHT Workforce Initiative strengthens and sustains the people who
+form the foundation of rural healthcare. Workforce shortages across the state’s hospitals,
+community health centers, behavioral health agencies, and long-term care providers continue to
+limit access and increase strain on already stretched systems. This initiative addresses those
+challenges by expanding education and training opportunities, aligning licensure and
+certification standards, and improving recruitment and retention across all levels of care. The
+32
+
+goal is to build a coordinated, durable system that connects education, employment, and
+advancement so that every community has consistent access to high-quality care.
+Through collaborations with DPH, higher education institutions, workforce boards,
+professional associations, and healthcare providers, this initiative builds an integrated network
+that supports workforce readiness at every level. Training programs will become more
+accessible, certifications will transfer easily between care settings, and opportunities for
+advancement will be clear and attainable. By expanding clinical placements, modernizing
+training curricula, and removing barriers to employment in rural areas, Connecticut will develop
+a stronger healthcare workforce, improving access to services for rural residents.
+To achieve these goals, Connecticut will invest in coordinated strategies that strengthen
+training pipelines, remove practice barriers to education, and enhance career development
+opportunities across rural and partially rural regions. Funds will support:
+•
+
+Increasing the number of physician residency programs in rural primary care and
+behavioral health shortage areas and supporting program design, resident recruitment,
+and alignment with national accreditation and match processes to strengthen the rural
+workforce.
+
+•
+
+Providing partial salary support for facilities in rural and underserved areas to hire nonlicensed professionals at competitive wages, helping build staffing capacity and attract
+workers to high-need communities.
+
+•
+
+Implementing the Strengthening Talent Infrastructure for Training, Care, and Health
+(STITCH) 4 CT initiative, a five-year Connecticut Area Health Education Center
+(AHEC)-led program to develop a workforce pipeline that supports recruitment,
+retention, and advancement from high school to licensed practice.
+
+33
+
+•
+
+Expanding Certified Nurse Aide (CNA) training so that certification applies across all
+healthcare settings, not only nursing homes, ensuring consistent, high-quality preparation
+for professionals who deliver direct care. Practicum opportunities will include hospitals,
+clinics, and home health agencies located in rural areas, providing broader experience and
+more employment options statewide.
+
+•
+
+Establishing a centralized Certified Medication Administration training program within
+Connecticut’s community college system to standardize education and increase access
+across care settings, allowing CNAs to practice to the full extent of their training and
+experience across a larger array of healthcare settings. This model consolidates multiple
+agency-based programs into one streamlined, consistent approach. Graduates will enter
+the workforce fully trained to their scope and prepared for certification recognized across
+healthcare environments, including home health, hospice, and rural facilities.
+
+•
+
+Supporting DPH’s implementation of various interstate licensure compacts, including the
+Interstate Medical Licensure Compact (IMLC), which expedites licensure across state
+lines and expands access to qualified clinicians in rural communities. Funds will support
+additional staff to provide outreach to increase rural participation and to review
+background checks, verify credentials, and issue qualification letters, ensuring timely
+processing and compliance with compact requirements.
+
+•
+
+Providing technical assistance and training in areas such as care coordination, billing, and
+supervision to promote sustainability and support retention in rural facilities.
+
+•
+
+Offering financial incentives to help offset barriers to practicing in rural areas, such as
+childcare and housing, allowing providers to remain in and serve rural communities.
+
+•
+
+Partnering with healthcare facilities, academic institutions, and professional associations
+34
+
+to expand clinical training sites, rural mentorship programs, preceptorships, and
+continuing education opportunities in rural regions.
+The projects below put this approach into practice across rural and partially rural communities.
+Project
+Formalize CNA
+Training
+Formalize
+Medication
+Administration
+Training
+Interstate
+Licensure
+Compact Support
+
+Use of Funds
+E, G, K
+
+Rural Provider
+Incentives
+
+E
+
+Rural Residency
+Development
+Grant
+
+E
+
+Salary
+Supplements for
+Non-Licensed
+Healthcare
+Workers
+Area Health
+Education Center
+(AHEC)
+Expansion
+
+E
+
+E, G, K
+
+E, G, K
+
+E
+
+Project Details
+Description
+Formalize the CNA training to make it
+applicable to all healthcare settings.
+Centralize medication administration training
+at the state's community colleges.
+Support the process of fully implementing
+various interstate licensure compacts to
+expedite licensure across state lines and
+increase participation in rural areas.
+Incentives are distributed annually and may be
+used flexibly to help providers remain in rural
+practice.
+Add physician residency programs in primary
+care and/or behavioral health, strengthening
+the rural workforce through program design,
+resident recruitment, and alignment with
+national accreditation and the match program.
+Provide partial salary incentive support for
+facilities in rural and underserved areas to hire
+non-licensed professionals above market rate,
+helping strengthen staffing and attract workers
+to high-need communities.
+Build a quality-driven rural health workforce
+pipeline, addressing staffing retention,
+financial sustainability, and access barriers
+through coordinated programs from high
+school to licensed practice.
+
+Key Stakeholders
+DPH, Education partners,
+Employer partners
+DPH, Education partners,
+Employer partners
+DPH, Medical Society,
+Licensing boards, Rural
+hospitals, FQHCs
+DPH, Rural hospitals,
+Health centers
+UCHC, DPH, ACGME,
+NRMP, Rural hospitals,
+Health centers, Education
+partners
+DPH, Hospitals, FQHCs,
+Health providers,
+Education partners,
+AHEC, UCHC, Education
+partners, FQHCs, Rural
+hospitals, Health centers
+
+Main strategic goal: Workforce
+Technical Score factors: C.1., D.1., D.2., D.3., F.1.
+
+Table 14 - Initiative #2: Workforce Project Details
+Outcomes (non-exhaustive)
+Rural providers
+Healthcare providers
+Rural non-licensed providers
+experience faster
+experience a 5% increase
+demonstrate higher retention
+credentialing and
+in interstate licensure
+rates
+onboarding
+compact enrollment yearover-year
+Increase the hiring of Certified Nurse Aides in
+Maximize 5-year retention rate among primary care and
+non–nursing home settings
+behavioral health providers who received RHT-funded
+recruitment and retention incentives in rural HPSAs.
+Note: This table summarizes the initiative-specific metrics detailed in Section VI. Metrics and Evaluation Plan,
+which includes a comprehensive set of performance metrics, including baseline data and target plans, which
+exceed NOFO-mandated quantities.
+Table 15 - Outcomes
+Increase the number of
+full-time equivalent
+healthcare providers
+
+35
+
+Impacted counties: Litchfield, Windham, New London, New Haven, Tolland, Middlesex,
+Hartford, Fairfield. Impacted planning regions: Northwest Hills, Northeastern Connecticut,
+Capitol Region, Connecticut Metro, Lower Connecticut River Valley, Naugatuck Valley, South
+Central Regional, Southeastern Connecticut, Western Connecticut.
+Estimated required funding for Initiative #2 Workforce: $58,150,000
+Initiative #3: Data and Technology
+Description: Connecticut’s Rural Health Transformation Data and Technology Initiative seeks
+to strengthen the digital foundation of care delivery across rural and partially rural communities.
+Rural providers often face barriers that limit access to timely, coordinated, and efficient care,
+including limited interoperability, inconsistent data systems, and insufficient capacity to use realtime information to guide decision-making. This initiative addresses those challenges by
+expanding statewide HIE participation, building shared technology infrastructure, and supporting
+innovative data tools that connect providers, improve care coordination, and ensure access to
+modern health systems for rural residents. Through collaboration with OHS, DPH, DSS, and
+Connecticut’s statewide HIE, Connie, the initiative creates a fully integrated data ecosystem that
+enables providers to share information, track outcomes, and respond quickly to patient needs.
+Hospitals, FQHCs, long-term care providers, behavioral health providers, and EMS will be better
+connected through shared tools for population health management, event notification, and
+predictive analytics. These systems will improve care coordination, reduce unnecessary ED use,
+and support proactive outreach and chronic disease management in rural settings.
+By advancing digital infrastructure and data-sharing capabilities, Connecticut will ensure
+that rural residents receive coordinated, data-driven care, while supporting local providers to
+remain independent and financially sustainable. Funds will support:
+
+36
+
+•
+
+Expanding consumer-facing digital tools that help residents manage their health, access
+information, and securely connect with local care teams through easy-to-use technology.
+
+•
+
+Developing integrated care networks that link rural hospitals, community health centers,
+long-term care providers, EMS agencies, and community-based organizations through
+shared staffing, telehealth connectivity, and coordinated referral systems.
+
+•
+
+Expanding participation in Connecticut’s HIE (Connie) by subsidizing onboarding costs
+and providing technical assistance for FQHCs, behavioral health providers, rural nursing
+homes, and EMS agencies to improve care transitions and follow-up.
+
+•
+
+Establishing a predictive analytics and care coordination platform that uses existing data
+assets, such as Connie and the state’s all-payer claims database, to identify high-risk
+patients, flag preventable hospitalizations, and support community-based interventions.
+
+•
+
+Building shared IT infrastructure and telehealth capacity for rural hospitals and providers
+to ensure full interoperability, secure data exchange, and remote access to care.
+
+•
+
+Implementing a statewide bed capacity tracking system to provide real-time visibility into
+hospital capacity, improve transfers, and reduce overcrowding.
+
+•
+
+Supporting the adoption of AI-enabled remote patient monitoring, virtual care platforms,
+and connected devices to strengthen chronic disease management, behavioral health
+engagement, and maternal care access in rural and tribal communities.
+
+•
+
+Expanding consumer-facing digital tools that help residents manage their health,
+understand treatment options, and securely connect with local care teams through patientfriendly technology. The projects below put this approach into practice across rural and
+partially rural communities.
+
+37
+
+Project
+Bridging the
+Digital Divide
+
+Use of Funds
+A, C, D
+
+Integrated Care
+Network
+
+D, F, G, I, J,
+K
+
+HIE Expansion
+for Rural
+Providers,
+EMS, and
+Nursing Homes
+
+D, F, G, H, K
+
+Connecticut
+Rural Predictive
+Analytics and
+Care –
+Coordination
+Platform (CRPACP)
+Rural Health
+Transformation
+through Shared
+Infrastructure
+and Telehealth
+Innovation
+Connecticut
+Healthcare Bed
+Capacity
+Tracking
+System
+
+A, D, E, F, G,
+H, I, K
+
+Consumer AIPowered Care
+Management
+Tools
+
+C, D, F
+
+A, D, E, F, G,
+H, I, J, K
+
+F, G, H, K
+
+Project Details
+Description
+Expand digital access and literacy for older adults and
+individuals with disabilities in rural Connecticut by
+providing technology, training, and support to
+strengthen social connection, telehealth access, and
+participation in virtual programs through coordinated
+community partnerships and local digital inclusion
+efforts.
+Unite rural hospitals, FQHCs, long-term care
+providers, EMS agencies, and community
+organizations through shared staffing, telehealth
+integration, population health analytics, and
+coordinated referral pathways, creating a unified
+system of care that strengthens prevention, chronic
+disease management, and access to essential services
+for residents in underserved areas.
+Expand participation in Connecticut’s HIE, Connie, by
+supporting rural and community providers with
+onboarding and technical assistance, implementing
+real-time event notifications to improve care
+coordination, integrating EMS data to strengthen
+response and follow-up, and introducing a consent
+management system that gives residents meaningful
+control over their health information.
+Leverage existing data systems to identify patients and
+communities at high risk for emergency visits and
+avoidable hospitalizations, providing actionable
+insights, coordinated care tools, and a clinician-led
+governance model to guide ethical use, improve
+prevention and chronic care, and strengthen outcomes
+in rural communities.
+Expand telehealth services and building shared IT
+infrastructure that enables rural providers to deliver
+connected, high-quality care, reduce preventable
+hospital use, and strengthen the long-term
+sustainability of rural health systems.
+Create a statewide, real-time platform for monitoring
+hospital capacity through shared data, improving
+coordination among hospitals, reducing overcrowding
+and transfer delays, and ensuring patients receive the
+right level of care faster while promoting access,
+efficiency, and sustainability across all Connecticut
+hospitals.
+Modernize rural healthcare through AI-enabled remote
+monitoring and virtual care, help providers manage
+patients in home and community settings, reduce
+avoidable hospitalizations, and improve outcomes
+while addressing workforce shortages and ensuring
+accessibility, safety and sustainability. The program
+supports the adoption of advanced remote monitoring
+technologies supported by provider training, patient
+engagement, and input from a statewide patient and
+family advisory board.
+
+38
+
+Key Stakeholders
+ADS, UCHC,
+Senior centers,
+Education partners,
+Tribal partners
+
+DSS, Rural
+hospitals, FQHCs,
+Health providers,
+EMS, Community
+organizations,
+Tribal partners
+OHS, DPH,
+FQHCs, Health
+clinics, Rural
+hospitals, Skilled
+nursing facilities
+(SNFs), EMS,
+Tribal partners
+OHS, Rural
+hospitals, FQHCs,
+Health providers,
+Health clinics,
+SNFs, Tribal
+partners
+OHS, Rural
+hospitals, FQHCs,
+Health providers,
+Health clinics,
+SNFs, Tribal
+partners
+OHS, Rural
+hospitals, FQHCs,
+EMS, Health
+providers, Health
+clinics, SNFs,
+Tribal partners
+OHS, DSS, Rural
+hospitals, FQHCs,
+EMS, Health
+providers, Health
+clinics, SNFs,
+Tribal partners
+
+Project Details
+Project
+Use of Funds
+Description
+Main strategic goal: Tech Innovation
+Technical score factors: B.1., C.1., C.2., D.1., D.3., E.2., F.1., F.2., F.3.
+Table 16 - Initiative #3: Data and Technology Project Details
+
+Key Stakeholders
+
+Outcomes (non-exhaustive):
+Rural
+Increase
+Establish
+Rural
+Establish a
+hospitals,
+utilization of
+integrated
+providers
+statewide
+clinics, and
+specialty edata and
+expand
+automated
+community
+Consults and reporting
+remote care
+bed capacity
+partners
+RPM services frameworks
+and remote
+tracking
+adopt a
+monitoring
+system
+shared
+interventions
+predictiveanalytics
+platform
+Note: This table summarizes the initiative-specific metrics detailed in Section VI. Metrics and Evaluation Plan,
+which includes a comprehensive set of performance metrics, including baseline data and target plans, which
+exceed NOFO-mandated quantities.
+Table 17 - Outcomes
+Increased
+participation
+by rural
+providers,
+EMS
+agencies, and
+SNFs in the
+state HIE
+
+Improved
+consumer
+access to
+telehealthenabling
+technology
+
+Impacted counties: Litchfield, Windham, New London, New Haven, Tolland, Middlesex,
+Hartford, Fairfield. Impacted planning regions: Northwest Hills, Northeastern Connecticut,
+Capitol Region, Connecticut Metro, Lower Connecticut River Valley, Naugatuck Valley, South
+Central Regional, Southeastern Connecticut, Western Connecticut.
+Estimated required funding for Initiative #3 Data and Technology: $74,250,000
+Initiative #4: Care Transformation and Stability
+Description: Connecticut’s Care Transformation and Stability initiative strengthens the
+foundation of rural healthcare by supporting infrastructure and right-sizing support, improving
+care coordination, as well as supporting value-based models and sustainable financing strategies
+that enable providers to deliver consistent, high-quality care in their communities. Rural regions
+continue to face persistent challenges such as workforce shortages, limited behavioral health
+access, and narrow operating margins. This initiative supports integrated systems of care that
+expand access to community-based services, reduce reliance on hospital-based interventions, and
+improve financial resilience for local providers. The initiative also supports the development of
+39
+
+23-hour adult crisis stabilization units that provide short-term, non-hospital crisis care in safe,
+home-like environments. These units serve as essential diversion sites from EDs, offering
+immediate stabilization, observation, and follow-up care for individuals experiencing behavioral
+health crises. By expanding these services to rural areas, Connecticut will reduce unnecessary
+hospitalizations, improve outcomes, and close longstanding service gaps.
+In addition to behavioral health services, this initiative invests in the long-term stability
+of rural hospitals, community health centers, and behavioral health providers. Through
+collaboration with DSS, DMHAS, and OHS, the initiative will provide technical assistance,
+promote coordinated service delivery, and strengthen VBP participation. The goal is to build a
+sustainable healthcare system that supports providers and patients. Funds will support:
+•
+
+A state-coordinated infrastructure and right-sizing program to help providers transform
+rural facilities and services to better meet the needs of their communities and facilitate
+long term solvency.
+
+•
+
+Establishing 23-hour adult crisis stabilization units in rural areas to deliver immediate
+behavioral healthcare and reduce ED utilization.
+
+•
+
+Developing integrated behavioral and primary care models that strengthen coordination
+and access across rural and underserved regions.
+
+•
+
+Providing technical and financial assistance to rural hospitals and community-based
+providers preparing for value-based care and population health models.
+
+•
+
+Supporting embedded care coordination in primary care practices serving rural Medicaid
+members.
+
+•
+
+Implementing a PACE initiative that serves dually eligible older adults in the rural
+Northwest Hills planning region.
+40
+
+•
+
+Advancing reimbursement models and incentive structures that reward improved
+outcomes and operational efficiency.
+
+•
+
+Facilitating regional collaboratives to promote shared learning, resource optimization,
+and sustainable financial performance across rural health networks.
+
+The projects below put this approach into practice across rural and partially rural communities.
+Project
+Adult 23-Hour
+Crisis
+Stabilization
+Units
+
+Use of
+Funds
+G, H, K
+
+Mobile
+Integrated
+Health Pilot
+
+A, G, I, K
+
+Connecticut
+Rural Hospital
+Transformation
+and Rural
+Health Facility
+Right-Sizing
+and
+Infrastructure
+Program
+
+D, G, I, J, K
+
+Project Details
+Description
+Expand existing crisis stabilization model to rural areas,
+offering short-term, home-like alternatives to EDs for
+individuals experiencing behavioral health crises. These
+centers provide 23-hour observation and stabilization
+services, reducing unnecessary hospital visits and
+supporting the state’s 988 Crisis Lifeline network
+expansion through faster, community-based intervention
+and care coordination.
+Pilot program to bring preventive, chronic, and postacute care directly into homes and communities through
+partnerships with EMS, hospitals, and local health and
+social service agencies. The program will focus on
+follow-up care, chronic disease management, behavioral
+health support, and coordination with community
+resources to reduce hospitalizations and improve
+wellness. This pilot will collect data on outcomes to
+support the design of future reimbursement models and
+potential expansions of Mobile Integrated Health (MIH)
+services.
+Help rural and rural-serving hospitals and other eligible
+provider facility types strengthen financial stability,
+right-size service array to match local need, improve
+operations, prepare for value-based care, and complete
+minor alterations and renovations projects. Through
+individualized technical assistance and peer learning,
+facilities will build the capacity to modernize systems,
+enhance care coordination, and sustain high-quality,
+community-based services. This is intended to support
+rural facilities’ financial sustainability, including rural
+hospitals; rural-serving chronic disease hospitals; and
+tribe-operated health centers, and their ability to
+continue providing needed care to their communities. It
+is anticipated that grants will be prioritized in the
+following order: (i) independent or university-affiliated
+hospitals located in rural areas, (ii) health systemaffiliated rural hospitals, (iii) rural-serving hospitals and
+rural-serving chronic disease hospitals, and (iv) all other
+eligible provider facility types, and will be awarded
+through a rigorous application process. The program
+may be scaled to include or exclude rural or rural-
+
+41
+
+Key Stakeholders
+DMHAS, EDs,
+Rural hospitals,
+Crisis units, EMS,
+Community-based
+organizations
+(CBOs), Tribal
+partners
+DPH, EMS,
+Hospitals, primary
+care, Health
+providers, CBOs,
+Tribal partners
+
+DSS, OHS, OPM,
+Rural hospitals,
+UCHC, Health
+providers, Health
+clinics, EMS, CBOs,
+Tribal partners
+
+Project
+
+Use of
+Funds
+
+Improving
+Primary,
+Maternal,
+Behavioral, and
+Dental Health
+through Direct
+Investment and
+Value-Based
+Payment
+(VBP)
+Program for
+All-Inclusive
+Care for the
+Elderly (PACE)
+
+A, B, D, G,
+I, K
+
+Regional
+Collaboratives
+
+K
+
+Community
+Health
+Navigator
+Program
+
+A, C, G, I
+
+High Acuity
+School-Based
+Behavioral
+Health
+Programming
+
+A, B, C, D,
+E, F, G, H,
+I, K
+
+A, G, H, I,
+J, K
+
+Project Details
+Description
+serving provider types to the extent necessary based on
+available funding. As part of this process, each facility
+must submit and implement a state-approved plan, to
+improve financial sustainability, quality of care, cost
+containment, appropriate access to services needed by
+their rural patient communities, and other criteria to be
+determined by the state as part of a formal application
+process.
+Support rural primary care providers in achieving
+NCQA PCMH certification, as well as assisting rural
+primary care, maternal, behavioral health, and dental
+health providers in improving care delivery, such as
+adopting EHRs and integrating emerging technologies
+(e.g., remote monitoring and virtual care), and
+completing Minor Alterations and Renovations projects.
+Continue development of payment models that sustain
+rural providers through value-based arrangements.
+Establish a hub to extend comprehensive, coordinated
+care to older adults dually eligible for Medicare and
+Medicaid in surrounding rural communities. The
+regional hub will integrate primary, behavioral, and
+long-term care, reduce avoidable hospitalizations,
+support aging in place, promote independence, and
+avoid/delay premature institutional nursing home care
+through a sustainable, community-based model that
+leverages the urban-rural connections between towns.
+Create regional coordination anchors to align RHT Plan
+initiatives, strengthen collaboration among agencies and
+local partners, and reduce duplication. These anchors
+will coordinate services, integrate efforts with existing
+infrastructure, and support sustainability through shared
+planning, community engagement, and pursuit of
+additional funding for sustainability.
+Pilot a regional community health navigator program to
+connect rural residents with essential health and
+preventive services and facilitate patients’ use of
+consumer-facing health technologies. Community health
+navigators will contribute to the success of the broader
+RHT Program and will build awareness of programs
+created, as well as promote rural residents’ participation
+in preventive health programs and services, including
+mental health and fitness projects.
+Develop a model to strengthen mental and behavioral
+health systems across identified rural school districts.
+The assessment of existing programs, staffing, and
+resources to identify gaps and guide the design of
+systems of integrated, evidence-based supports for
+students and staff. Through data-driven evaluation,
+training, partnerships, and improved referral systems,
+the model will build a coordinated framework and
+systems of support that promote student well-being and
+
+42
+
+Key Stakeholders
+
+DSS, Health
+providers, FQHCs,
+Rural hospitals,
+Health clinics,
+CBOs, Tribal
+partners
+
+DSS, OPM, PACE
+organizations,
+CBOs, Health
+providers, EMS,
+Rural hospitals,
+Tribal partners
+
+DSS, Local
+governments,
+FQHCs, Health
+providers, CBOs,
+Health clinics, Rural
+hospitals, Tribal
+partners
+DSS, ORH, Local
+governments,
+FQHCs, Health
+providers
+
+SDE, CCBHCs,
+FQHCs, Health
+providers, Health
+clinics, Crisis
+system
+
+Project
+
+Use of
+Funds
+
+Project Details
+Description
+
+Key Stakeholders
+
+academic success through a “push-in” approach for high
+acuity cases and promotion of telehealth.
+Main strategic goal: Sustainable Access, Innovative Care
+Technical score factors: B.1., C.1., D.1., D.2., D.3., E.1., E.2., F.1., F.2., F.3.
+Table 18 - Initiative #4: Care Transformation and Stability Project Details
+Outcomes (non-exhaustive)
+Expand access to and
+Demonstrate measurable
+Demonstrate a reduction
+network adequacy of
+improvement in care
+in avoidable ED visits and
+primary, maternal,
+coordination performance, hospital readmissions,
+behavioral, and dental
+including increased
+including for behavioral
+health services in rural
+participation in shared
+health
+areas
+care plans, timely followup after hospital
+discharge, and enhanced
+integration with
+behavioral health and
+community services
+Establish and pilot MIH
+Expand adoption of VBP
+Establish and operate 23programs
+arrangements
+hour crisis stabilization
+units in rural and
+underserved areas
+Note: This table summarizes the initiative-specific metrics detailed in Section VI. Metrics and Evaluation Plan,
+which includes a comprehensive set of performance metrics, including baseline data and target plans, which
+exceed NOFO-mandated quantities.
+Table 19 - Outcomes
+
+Complete right-sizing and
+transformation efforts for
+rural or rural-serving
+facilities, achieving
+measurable improvements
+in financial stability,
+service alignment, and
+care quality.
+
+Impacted counties: Litchfield, Windham, New London, New Haven, Tolland, Middlesex,
+Hartford, Fairfield. Impacted planning regions: Northwest Hills, Northeastern Connecticut,
+Capitol Region, Connecticut Metro, Lower Connecticut River Valley, Naugatuck Valley, South
+Central Regional, Southeastern Connecticut, Western Connecticut.
+Estimated required funding for Initiative #4 Care Transformation and Stability:
+$673,555,121
+IV. Implementation Plan and Timeline
+Connecticut has developed a focused and achievable plan to guide the RHT Program
+from FFY 2026 through FFY 2031. The Implementation Plan and Timeline organize work across
+four connected initiatives—Population Health Outcomes, Workforce, Data and Technology, and
+
+43
+
+Care Transformation and Stability—that will improve access, quality, and sustainability in rural
+and underserved communities.
+Each initiative follows the federally defined Stages 0–5 framework, progressing from
+planning through implementation and evaluation to full integration within existing state systems,
+with demonstrated goal attainment and measurable, reportable outcomes. This structured
+approach ensures that activities are built upon one another and that progress can be measured and
+reported consistently over the life of the cooperative agreement.
+Implementation Phases
+The table below represents the implementation plan and timeline, with various stages of
+implementation in compliance with the NOFO. Progress will be tracked through quarterly status
+reports, semi-annual fiscal reviews, and annual outcome evaluations.
+Phase
+
+Timeframe
+
+Stage 0
+
+FFY 2026 Q1–Q3
+
+Stage 1
+
+FFY 2026 Q4–FFY
+2027 Q3
+FFY 2027 Q4–FFY
+2028 Q4
+FFY 2029
+
+Stage 2
+Stage 3
+Stage 4
+Stage 5
+
+FFY 2030–FFY
+2031 Q2
+FFY 2031 Q3–Q4
+
+Stage 0
+
+FFY 2026 Q1–Q3
+
+Stage 1
+
+FFY 2026 Q4–FFY
+2027 Q3
+FFY 2027 Q3–FFY
+2028 Q4
+FFY 2029
+
+Stage 2
+Stage 3
+Stage 4
+Stage 5
+
+FFY 2030–FFY
+2031 Q2
+FFY 2031 Q3–Q4
+
+Milestone
+Key Activities
+Initiative 1: Population Health Outcomes
+Program Design
+Utilize framework for population health improvement; establish
+& Procurement
+goals, partners, and performance indicators.
+Initial
+Launch targeted initiatives addressing chronic disease, behavioral
+Implementation
+health, and maternal outcomes in rural areas.
+Expansion &
+Expand participation across additional providers and regions;
+Monitoring
+monitor key health outcome metrics.
+Evaluation &
+Assess program outcomes, population-level improvements, and
+Refinement
+cost savings; refine strategies as needed.
+Goal Completion Integrate successful models into state programs and value-based
+& Transition
+care frameworks; document lessons learned.
+Fully
+Achieve rural health improvement benchmarks and sustain longimplemented
+term outcomes.
+Initiative 2: Workforce
+Program Design
+Develop rural workforce strategy; establish eligibility criteria and
+& Procurement
+funding mechanisms.
+Initial
+Begin coordinated recruitment and training programs across
+Implementation
+multiple health disciplines.
+Expansion &
+Expand training programs and implement workforce retention
+Monitoring
+initiatives in rural and high-need areas.
+Evaluation &
+Review progress; adjust training capacity and incentives based on
+Refinement
+performance data.
+Goal Completion Incorporate successful workforce strategies into ongoing state
+& Transition
+operations and policy frameworks.
+Fully
+Workforce initiatives fully operational; sustained improvement in
+implemented
+recruitment, retention, and provider distribution.
+
+44
+
+Phase
+
+Timeframe
+
+Stage 0
+
+FFY 2026 Q1–Q3
+
+Stage 1
+
+FFY 2026 Q4–FFY
+2027 Q3
+FFY 2027 Q3–FFY
+2028 Q4
+FFY 2029
+
+Stage 2
+Stage 3
+Stage 4
+Stage 5
+
+FFY 2030–FFY
+2031 Q2
+FFY 2031 Q3–Q4
+
+Stage 0
+
+FFY 2026 Q1–Q3
+
+Stage 1
+
+FFY 2026 Q4–FFY
+2027 Q3
+FFY 2027 Q3–FFY
+2028 Q4
+FFY 2029
+
+Stage 2
+Stage 3
+Stage 4
+
+FFY 2030–FFY
+2031 Q2
+FFY 2031 Q3–Q4
+
+Stage 5
+
+Milestone
+Key Activities
+Initiative 3: Data and Technology
+Program Design
+Define strategy for data integration, telehealth, and digital access;
+& Procurement
+establish governance and funding guidelines.
+Initial
+Initiate technology grants supporting HIE participation, telehealth
+Implementation
+expansion, and data modernization.
+Expansion &
+Expand data sharing and interoperability across rural and
+Monitoring
+community health systems.
+Evaluation &
+Evaluate and refine strategy regarding data utilization,
+Refinement
+interoperability, and impact on care coordination and efficiency.
+Goal Completion Transition successful systems into state and Medicaid
+& Transition
+infrastructure; formalize sustainability plans.
+Fully
+Digital infrastructure fully integrated; sustained improvements in
+implemented
+data-driven decision-making.
+Initiative 4: Care Transformation and Stability
+Program Design
+Establish framework for rural hospital transformation and value& Procurement
+based payment integration.
+Initial
+Begin technical assistance and initial transformation projects to
+Implementation
+strengthen operational efficiency.
+Expansion &
+Extend participation in transformation and financial stability
+Monitoring
+initiatives; align with regional collaboratives.
+Evaluation &
+Assess financial performance, service delivery improvements,
+Refinement
+and sustainability indicators.
+Goal Completion Incorporate successful care transformation models into Medicaid
+& Transition
+and the overarching healthcare system.
+Fully
+Improved stability and strengthened hospitals and health systems;
+implemented
+care transformation models embedded.
+Table 20 - Implementation Plan and Timeline
+
+Legislative Policy and Regulatory Actions
+To support implementation, Connecticut will complete required policy and regulatory
+actions by December 31, 2027, with remaining technical updates finalized by December 31,
+2028, in accordance with federal guidance. Activities with pending state legislation include:
+Initiative
+Population Health
+Outcomes
+Workforce
+
+Data and
+Technology
+Care
+Transformation
+and Stability
+
+Legislation
+Submit a request for a SNAP waiver to promote the purchase of healthy food options (e.g.,
+prohibiting use of SNAP benefits for energy drinks and/or candy); and explore opportunities
+for including nutrition as a requirement for CME to emphasize chronic-disease prevention
+and food-security screening.
+Standardize CNA and medication-administration training across care settings; make
+permanent the Nurse Licensure Compact; and support full implementation of the Interstate
+Medical Licensure Compact to streamline physician licensing, including any conforming
+changes that will allow Connecticut to issue interstate licenses to Connecticut physicians.
+Expand the state HIE to include EMS, long-term care, and behavioral-health providers;
+modernize privacy and consent regulations to support interoperability; and establish a
+consistent consent-management framework.
+Align Medicaid’s value-based payment models with hospital transformation goals, update
+cost-reporting and licensure standards, and formalize sustainability metrics for rural
+facilities; enact legislation to reform CON to streamline market activities.
+Table 21 - Activities Pending Legislation
+
+45
+
+Program Governance, Management Structure, and Coordination
+Program management will be led by DSS, in collaboration with OHS, DPH, OPM, ORH,
+and other implementing agencies. These agencies will coordinate strategy, fiscal oversight, and
+evaluation through a joint implementation team. A Project Director and an Assistant Project
+Director within DSS will oversee the Division of Rural Health Transformation, responsible for
+day-to-day coordination and reporting. Two Lead Planning Analysts will coordinate activities for
+distinct geographic areas, supporting the Regional Collaboratives and on-the-ground
+coordination among RHT Program-funded organizations and activities. Two Grants and
+Contracts Specialists, a Staff Attorney, and five Accountants will monitor budgets and
+procurement, support performance measure tracking, and prepare reports. Also, especially for
+budget period 1 while state staff are being hired and trained and to a lesser extent in budget
+period 2, DSS will contract with an outside grants management vendor to provide overall support
+to DSS in managing the RHT Program. DSS will also contract with an outside evaluation entity
+for independent evaluation. DSS will directly coordinate with program leads from all
+implementing state agencies. In addition, a Rural Health Transformation Advisory Council
+composed of representatives from implementing agencies and relevant stakeholders will convene
+quarterly to review progress and resolve issues.
+V.
+
+Stakeholder Engagement
+
+Stakeholder Engagement Strategy
+Connecticut has prioritized inclusive and meaningful stakeholder engagement in the
+development of its RHT Program application. Our approach has been guided by the principle
+that rural health transformation must be community-informed and locally responsive.
+
+46
+
+Planning Phase Engagement of Rural Stakeholders
+DSS, in collaboration with OPM and ORH, led a coordinated stakeholder engagement
+process. This included: (1) an open written public comment opportunity from September 16 to
+October 9, widely distributed through multiple channels, garnering over 250 submissions; (2)
+three public listening sessions, two in-person in rural communities and one virtual, with a
+combined total attendance of over 80 attendees; (3) multiple key informant discussions,
+including with both federally-recognized tribes in the state; and (4) bipartisan briefings with
+legislative leaders and legislators, as well as legislative staff.
+The proposed initiatives were directly informed and revised after the individual meetings,
+briefings, and discussions with a wide range of rural and rural-serving stakeholders listed in the
+table below, including:
+Stakeholder Groups
+State Agencies
+
+Details
+DSS, Office of Rural Health, Office of Policy and Management, OHS, OEC,
+DMHAS, DCF, DEEP, ADS, DPH, SDE, Department of Agriculture,
+Department of Developmental Services, Department of Consumer Protection,
+Office of Workforce Strategy, and the State Chief Information Officer.
+State Legislators
+Bipartisan groups of legislators on key committees of cognizance and legislative
+leadership from both major political parties.
+Academic and Data Partners
+University of Connecticut Health Center, Quinnipiac University, University of
+Connecticut School of Pharmacy, University of Connecticut School of
+Medicine, Tobin Center for Economic Policy, Northeast Rural Health Research
+Center, and DataHaven.
+Local Public Health
+Connecticut Association of Directors of Health and local rural health districts.
+Social Services & Community- Northwest Hills Council of Governments, Rural-serving Community Action
+Based Organizations
+Agencies, and AHEC.
+Rural Serving Philanthropy
+Community Foundation of Eastern Connecticut, Foundation for Community
+Health, Northwest Connecticut Community Foundation.
+Healthcare Providers
+Rural and rural-serving hospitals and FQHCs.
+Professional Associations
+Connecticut Hospital Association, Community Health Center Association of
+Connecticut, Connecticut State Medical Society, Connecticut Association for
+Community Action, New England Rural Health Association.
+Advisory Bodies
+AHEAD Advisory Committee, Health Care Cabinet.
+Federally Recognized Tribal
+Mashantucket Pequot Tribal Nation, Mohegan Tribe.
+Communities
+Table 22 - Stakeholder Engagement
+
+47
+
+Consistent with the process for Connecticut's federal tribal consultation policy in the
+CMS-approved Medicaid State Plan, DSS reached out to tribal leadership and tribal points of
+contact at the two federally recognized tribes in Connecticut, specifically the Mashantucket
+Pequot Tribal Nation and the Mohegan Tribe. The state provided the tribes with a summary of
+the RHT Program approach, offered the tribes an opportunity to participate in the public
+engagement process, and consulted individually with each tribe. Following additional outreach,
+feedback was incorporated into the final implementation plan, and the tribes provided written
+materials directly supporting the state’s planning efforts.
+The overall outreach effort engaged a broad cross-section of stakeholders representing
+healthcare, social services, public health, community, and tribal organizations across rural
+Connecticut. These communications provided critical insight into the distinct healthcare
+challenges faced by the rural population and informed strategies to ensure that the proposed
+initiatives reflect the full range of rural priorities and promote sustainable partnerships.
+Ongoing Engagement and Governance
+In addition to the planned Rural Health Transformation Advisory Council referenced
+above, the state’s RHT Program will establish and fund two regional collaboratives—one serving
+the northwest and one serving the northeast—to support program implementation and respond to
+ongoing input. These collaboratives will be charged with local coordination of RHT-funded
+initiatives and will also serve as an ongoing avenue for stakeholder and resident feedback.
+VI. Metrics and Evaluation Plan
+The state’s RHT Plan defines a clear framework, spanning metrics, short-term outputs,
+and long-term outcomes by outlining specific data sources, collection methodologies, and
+analytical approaches to track progress against the strategic objectives outlined in the narrative,
+thereby facilitating continuous improvement and validating program effectiveness.
+48
+
+Description / Project
+Universal Nurse Home
+Visiting Expansion
+
+Milestone / Target:
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+Initiative 1: Population Health Outcomes
+Utilization of
+Track the number of
+Will be set in
+Monthly and Quarterly
+Coordinated
+rural families utilizing
+Year 1
+Program and Data
+Rural Birth
+coordinated maternal
+Reports; Program can
+Support
+health services,
+provide OEC with
+Services
+including Family
+Birthing Census Data
+Bridge.
+• Year 1: Conduct planning activities, including soliciting information from
+providers who want to participate whether private, rural provider, community
+action agency. Create an RFP, designed to serve 5 towns in rural areas. Hire statelevel program staff
+• Year 2: Pilot model in 2 DCF regions - 3 and 5
+• Year 3: Evaluate family satisfaction and service utilization patterns.
+• Year 4-5: Continue evaluating. Approved Sustainability Plan for participating
+entities. Implement insurance reimbursement mechanisms, as approved. Increase
+the utilization of coordinated rural birth support services (including Family Bridge
+service) for 1 entity per region across targeted rural regions (DCF regions 3 and 5)
+of Connecticut.
+Metric
+
+Outdoor Recreation
+Program
+
+Increase Trail
+Utilization in
+Towns
+Containing Air
+Line State Park
+Trail
+
+Milestone / Target:
+
+• Year 1: Assess trail surface conditions and access points, design projects, and
+procure contractors.
+• Year 2-5: Implement minor alterations on selected trail segments and projects to
+promote use at public points of access in at least nine towns.
+• Year 3-5: Data/metric monitoring and measuring outcomes of projects.
+
+Expand ACCESS Mental
+Health Model to Adults
+
+ACCESS
+Mental Health
+Expansion
+
+Track number of rural
+primary care providers
+enrolled and using
+ACCESS consultation;
+monitor referrals and
+treatment follow-up.
+
+Will be set in
+Year 1
+
+Participation
+Rate;
+Participant
+Satisfaction
+Scores
+(Pre/Post-Test)
+
+Track the number of
+participating sites and
+number of participants
+per site, per session.
+
+Will be set in
+Year 1
+
+Milestone / Target:
+
+Promoting Healthy Aging
+in Rural Connecticut
+Through Engaging
+Exercise
+
+Using trail traffic
+counters, measure trail
+usage statistics and
+compare with usage
+prior to initiative.
+
+Will be set in
+Year 1
+
+Trail usage counters;
+Trail users’ health data:
+Following local studies,
+track trail users reported
+health metrics related to
+trail usage and compare
+metrics to trail usage
+over time.
+
+CT ACCESS Mental
+Health Program
+Enrollment Records;
+Quarterly Consultation
+Utilization Logs;
+Primary Care Practice
+Demographic Data.
+Encounter Data
+Provider Enrollment.
+• Year 1: Develop expansion workplan and provider recruitment strategy and train
+providers and begin consultations.
+• Year 2: Expand statewide participation.
+• Year 3: Evaluate provider satisfaction and referral completion.
+• Year 4-5: Sustain ACCESS as a core service under rural primary care.
+
+49
+
+Program enrollment
+logs; participant
+assessments; DPH
+chronic disease
+surveillance; provider
+self-reports.
+
+Description / Project
+Milestone / Target:
+
+ACCESS Mental Health
+ASD Service Access
+
+Milestone / Target:
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+• Year 1: Select the program sites. Recruit volunteers or staff members to administer
+the program at the program sites. ADS will provide technical assistance. Two
+complete cycles of the program will be delivered in up 30 sites.
+• Year 2-5: Complete 3 cycles of program administration. Every cycle will be
+evaluated by site and facilitator with evaluation pre- and post-survey data metrics
+on health.
+Metric
+
+Enhanced
+Reduce ED and Mobile Will be set in
+CHIME hospital
+Behavioral
+Crisis Utilization
+Year 1
+discharge data; mobile
+Health Access Among Individuals
+crisis response logs;
+and Crisis
+with ASD.
+DDS/DMHAS service
+Stabilization
+data; Medicaid claims
+for Individuals
+(as available).
+with ASD
+• Year 1: Establish baseline utilization rates, including ED and mobile crisis
+utilization; develop integrated crisis response protocols.
+• Year 2: Launch community crisis diversion and behavioral support programs.
+• Year 3: Maintain program and conduct mid-point review of crisis diversion and
+behavioral support programs.
+• Year 4: Monitor ED and mobile crisis utilization and residential placements.
+• Year 5: Develop sustainability plan and final review of data
+
+ACCESS Mental Health
+Enhanced School-Based
+Mental Health Care
+
+School-Based
+Behavioral
+Health
+Expansion
+
+Milestone / Target:
+
+• Year 1-5: Implement and expand training. Ensure workforce alignment across
+regions. Achieve an increase of 40% in SBHC staff trained and increase
+consultations per staff role by 20%.
+
+Mobile Clinic Pilot
+
+Improved
+Reduce ED Utilization
+Will be set in
+Hospital discharge
+Chronic
+and Improve Chronic
+Year 1
+data; DPH Chronic
+Disease
+Disease Management
+Disease Registry;
+Management
+provider quality
+and Reduced
+reports.
+Avoidable
+Acute Care
+Use
+• Year 1: RFP and contracting – partner with FQHCs or hospitals to identify areas of
+need. A total of four medical and four dental vans will be made available, of which
+one of each type will be set aside for tribal applicants. By the end of Year 1, mobile
+clinics will be distributed to approved applicants.
+• Year 2-5: Fully outfit the clinic and start providing services.
+• Year 4-5: Grow the number of visits to the clinic by 5% year-over-year. Monitor
+locations the clinic is visiting – quarterly or annual reporting.
+Initiative 2: Workforce
+Provider
+Increase the number of Will be set in
+Rural Primary Care
+recruitment
+(FTE) primary care
+Year 1
+FTE Census Data;
+and scheduling providers per 10,000
+Patient Wait Time
+optimization
+rural residents by 10%.
+Surveys/
+Appointment
+Scheduling System
+Metrics.
+
+Milestone / Target:
+
+Rural Residency
+Development Grant
+
+Track number of SBHC Will be set in
+staff trained and
+Year 1
+number of consultations
+per staff role.
+
+50
+
+SBHC Logs; Staff
+Training Records;
+Workforce Data.
+
+Description / Project
+Milestone / Target:
+
+Healthcare Provider
+Licensure Compact
+Support
+Milestone / Target:
+
+Rural Provider Incentives
+(Awards)
+Salary Supplements for
+Unlicensed Healthcare
+Workers
+Milestone / Target:
+
+Formalize CNA Training
+Formalize Medication
+Administration Training
+
+Milestone / Target:
+
+Health Information
+Exchange (HIE)
+Expansion for Rural
+Providers, EMS, &
+nursing homes
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+• Year 1: RFP and contracting. $75k for start-up costs.
+• Year 2-3: Medical school develops the program. Get programs approved by
+ACGME to receive rest of the $25k.
+• Year 3: 100% of programs should be in the match.
+• Year 4-5: Sustainability plan and continued program administration via medical
+schools.
+Metric
+
+Implement
+expedited rural
+licensing
+process
+
+Number of applications Will be set in
+State Professional
+processed through fast- Year 1
+Licensing Board Data;
+track channel for all
+Quarterly Licensing
+compacts the state is
+Processing Time
+enrolled in.
+Reports.
+• Year 1: Hiring and staffing for three state positions.
+• Year 2-5: Process applications, recruit healthcare providers to join the compacts,
+and ensure healthcare facilities and provider locations are educated about the
+compacts. Identify additional potential compacts of interest for Connecticut to join
+to increase rural health access.
+Provider
+retention and
+incentive
+tracking
+framework
+
+Number of providers
+retained through
+incentive programs.
+
+Will be set in
+Year 1
+
+DPH Licensure Data;
+RHT Grantee
+Compliance Reports
+on Service Obligation
+Fulfillment.
+
+• Year 1: Develop provider retention tracking framework and implement one cohort
+of incentive-based contracts. Participating providers will be determined via an
+RFA.
+• Year 2: Conduct mid-term retention analysis.
+• Year 3: Adjust incentive strategy based on evaluation.
+• Year 4-5: Institutionalize retention framework within human resources processes.
+Annual
+training
+feedback and
+curriculum
+update process
+
+Hiring of CNAs in nonnursing home locations
+increases 5% year-overyear.
+
+Will be set in
+Year 1
+
+Annual Post-Training
+Surveys; Curriculum
+Development Logs;
+Internal Training Audit
+Reports.
+
+Number of individuals
+dually trained as a CNA
+and formalized
+medication
+administration increases
+5% year-over-year.
+• Year 1: Legislation to be passed in one of the two legislative sessions.
+• Year 2: Work with Community Colleges to update CNA curriculum and establish
+medication administration curriculum. Establish practicum sites.
+• Year 3-5: Evaluate performance in certifying CNA with medication
+administration, and certifications of CNAs in general.
+Initiative 3: Data and Technology
+HIE Expansion Track the number of
+Will be set in
+HIE Data Logs; EHR
+rural providers, EMS,
+Year 1
+Audit Reports; Data
+and SNFs connected;
+Quality Assurance
+assess data quality
+Metrics.
+scores for transmitted
+data.
+
+51
+
+Description / Project
+Milestone / Target:
+
+Bridging the Digital
+Divide
+
+Milestone / Target:
+
+Connecticut Rural
+Predictive Analytics and
+Care – Coordination
+Platform (CR-PACP)
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+• Year 1-3: Identify and outreach specific rural providers including behavioral
+health, primary care, and long-term care and recruit participants to onboard to the
+HIE. Have mechanism in place for providers to apply for funding. Develop a
+contracting process setting milestones for funding, with milestones set over a
+period of 18 to 24 months. Outreach, application, and contracting will occur
+cyclically.
+• Year 4-5: Sustain interoperability and evaluate utilization outcomes.
+Metric
+
+Track the
+Number of individuals
+Will be set in
+Utilize robust data
+number of
+served, number of
+Year 1
+collection created
+program sites,
+devices distributed, and
+during pilot program in
+participants,
+number of entities (e.g.,
+Jot Forms. Ongoing
+and program
+senior centers, senior
+data reporting will be
+cycles
+housing) receiving
+required from
+completed each technology support.
+contracted partner
+year, along
+agencies – both
+with measures
+numeric and anecdotal.
+of participant
+Data will be
+health
+aggregated and
+outcomes,
+reported annually.
+digital access,
+and
+engagement
+• Year 1: Amend contracts with two Assistive Technology (AT) Partner agencies,
+purchase Jot Forms licenses, post and hire PTE. Create outreach plan with two AT
+Partners Review and edit data collection and overall processes, as necessary, to
+streamline program and ensure best practices are used. Research and select virtual
+platform option for purchase.
+• Year 2: Activities are fully underway, with services being provided, data reported.
+Begin training of entities on virtual platform.
+• Year 3-4: Activities continue to be provided, making progress towards
+deliverables, data collected and reported. Annual reports will be created by ADS
+staff. Continue rollout of virtual platform, engaging individuals to participate
+through the entities.
+• Year 5: Activities will continue with a plan to wind down as we near the end of the
+grant. All data will be reported, all deliverables will be completed. Prepare entities
+for continuation of virtual platform within own budgets or wind down the platform
+use.
+Connecticut
+Rural
+Predictive
+Analytics and
+Care
+Coordination
+Platform
+
+Track the establishment
+and use of predictive
+analytics for care
+coordination and social
+referral tracking.
+
+52
+
+Will be set in
+Year 1
+
+Training Completion
+Records; System
+Login/Usage Logs;
+Monthly Provider
+Feedback Summaries;
+Technical Assistance
+Logs; HIE Data;
+Referral Logs;
+Predictive Model
+Reports.
+
+Description / Project
+Milestone / Target:
+
+Rural Health
+Transformation through
+Shared Infrastructure and
+Telehealth Innovation
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+• Year 1-2: Identify and develop team for platform development. Develop and issue
+RFP, if required, for AI model procurement.
+• Year 3-4: Develop and implement data integration and analytics of the AI model,
+beginning with rural health providers. Launch pilot programs for predictive models
+and care coordination.
+• Year 4-5: Evaluate model performance. Increase annual primary care visits by
+15%. Expand statewide integration with VBP and HIE systems.
+Metric
+
+Milestone / Target:
+
+Increase Telehealth
+Will be set in
+APCD Claims Data for
+Adoption: Increase the
+Year 1
+CPT codes related to emonthly utilization of
+Consults and RPM;
+specialty care eHIE clinical data for
+Consults and RPM
+encounters.
+services by 25% among
+rural providers care
+sites within two years
+of deploying new RHTfunded technology
+infrastructure.
+• Year 1-2: Develop a grant application for provider organizations to apply for funds
+to procure their own telehealth platforms as well as additional options such as
+training residents on telehealth and developing education material for providers and
+patients. Establish a baseline for provider utilization. Begin providing funding to
+provider organizations under contracts with measurable milestones.
+• Year 2-3: Continue Year 1 awareness campaign to rural providers and expand to
+full regional network. Outreach and education will continue cyclically to
+incorporate more providers on an ongoing basis. Conduct utilization and
+satisfaction reviews.
+• Year 4-5: Continue to conduct utilization and satisfaction reviews. Integrate
+telehealth workflows into ongoing service delivery models.
+
+AI-Powered Virtual Care
+and Remote Patient
+Transformation
+
+Reduction in
+avoidable ED
+Utilization
+
+Milestone / Target:
+
+Connecticut Healthcare
+Bed Capacity Tracking
+System
+Milestone / Target:
+
+Establish
+Shared IT
+Services Model
+and
+Implement
+Telehealth
+Program
+
+Reduction in avoidable
+ED utilization by 10%
+by Year 5.
+
+Will be set in
+Year 1
+
+Hospital discharge
+data; mobile crisis
+response logs; DDS/
+DMHAS service data;
+APCD claims data.
+• Year 1-2: Identify targeted rural health providers to deliver remote care or remote
+monitoring interventions such as hypertension monitoring at home. Develop RFP
+for providers to apply for funding to develop a remote care or monitoring program.
+• Year 2-3: Begin providing funding to providers who have successfully applied to
+the RFP with milestone payments to deliver payments. Begin collecting baseline
+data on remote interventions.
+• Year 3-4: Continue cyclically awarding RFP funds. Evaluate increase in services
+and outcomes Such as reduction in travel time to access providers.
+• Year 5: Reduction of avoidable ED visits.
+
+Average
+Reduce transfer wait
+Will be set in
+Hospital EHR data;
+Transfer Wait
+time by 15% and assess Year 1
+hospital performance
+Time
+boarding reduction.
+data.
+• Year 1: Develop criteria for automated bed capacity tracking system based on
+current manual system. Develop an RFP if required and locate an appropriate
+vendor.
+• Year 2-3: Begin system development activities.
+• Year 4-5: Evaluate outcome.
+
+53
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+Initiative 4: Care Transformation and Financial Stability
+Integrated Care Network Integration of
+Monitor service
+Will be set in
+DSS HUSKY Health
+VBP and
+capacity and care
+Year 1
+Quality Metrics
+Direct
+outcomes under rural
+(HEDIS/eCQM data)
+Investment
+VBP frameworks.
+tracked by zip code for
+Models
+rural populations.
+Milestone / Target:
+• Year 1-2: Assessment & Planning, Feasibility Assessment for a rural integrated
+care network.
+• Year 3: Select vendor to support integrated care network establishment.
+• Year 4: Start up and select integrated care network entity, provide technical
+support to selected integrated care network entity.
+• Year 5: Establish one integrated care network entity in a rural area.
+Description / Project
+
+Metric
+
+Connecticut Rural
+Hospital Transformation
+Program and Rural
+Health Facility RightSizing & Infrastructure
+Program
+Milestone / Target:
+
+Integration of
+VBP and
+Direct
+Investment
+Models
+
+Monitor service
+capacity and care
+outcomes under rural
+VBP frameworks.
+
+Will be set in
+Year 1
+
+DSS HUSKY Health
+Quality Metrics
+(HEDIS/eCQM data)
+tracked by zip code for
+rural populations.
+
+Right-sizing Component
+• Year 1: Rapid stand up and right-sizing support to priority hospitals.
+• Year 2: Select additional hospitals and facilities for right-sizing.
+• Year 3: Finalize the list of hospitals and other provider facilities receiving rightsizing and infrastructure support.
+• Year 4: Right-sizing support and monitoring continues for the selected hospitals.
+• Year 5: Follow up with sustainability plan created. Close out year for right-sizing.
+Transformation Component
+• Year 1: Select hospital transformation TA Vendor.
+• Year 2: Finalize hospital transformation participants, including first cohort for
+hospitals electing to participate in AHEAD to coincide with AHEAD launch.
+• Year 3: Develop hospital transformation plans coordinated with right-sizing plans.
+• Year 4: Transformation plans being finalized.
+• Year 5: Hospital Transformation plans executed according to sustainability plan,
+which is tied to a VBP/APM, including additional hospitals participating in
+AHEAD.
+
+Improving Primary,
+Maternal, Behavioral, and
+Dental Health through
+Direct Investment and
+VBP
+
+Improving
+Primary,
+Maternal,
+Behavioral,
+and Dental
+Health through
+Direct
+Investment and
+VBP
+
+Track improved access Will be set in
+and capacity in primary, Year 1
+maternal, behavioral,
+and dental services
+through targeted rural
+investments and VBP
+arrangements.
+
+54
+
+Benchmark Data; DSS
+VBP Participation
+Reports; Provider
+Contracts.
+
+Description / Project
+Milestone / Target:
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+Direct Investment Component
+• Year 1: Identify eligible practices and establish an application process for funds.
+• Year 2-3: Begin supporting rural practices.
+• Year 4: Evaluate network adequacy and access.
+• Year 5: Wind down direct investments, assess sustainability and additional needs.
+Metric
+
+VBP Component
+• Year 1-2: Select VBP design vendor.
+• Year 3: Design or update VBP models for primary care, maternal, behavioral and
+dental health.
+• Year 4: Finalization of at least one VBP model.
+• Year 5: At least one complete new VBP program implemented and two in
+progress.
+Care Coordination
+Support for Primary Care
+Practices
+
+Milestone / Target:
+
+Adult 23-Hour Crisis
+Stabilization Units
+
+Milestone / Target:
+
+Mobile Integrated Health
+
+Care
+Coordination
+Support for
+Primary Care
+Practices
+
+Establish rubric and
+Will be set in
+Shared Electronic
+performance tracking
+Year 1
+Referral System Logs;
+for primary care
+Case Management
+participation in
+Outcome Reports.
+coordinated care
+models; monitor
+progress from design
+through evaluation.
+• Years 1-2: Plan and launch per member per month (PMPM) payment and
+onboarding primary care practices.
+• Year 3: Monitor care coordination related quality measures (e.g., blood pressure
+control, diabetes control, asthma, behavioral health, and preventable utilization).
+• Year 4-5: Continue with PMPM payments and monitor quality measures.
+• Year 5: Integrate care coordination into VBP programs for sustainability (e.g.,
+Primary Care AHEAD).
+
+Adult 23-Hour
+Crisis
+Stabilization
+Units
+
+Track number of crisis
+stabilization units
+launched and
+operational outcomes,
+including ED diversion
+and linkage to ongoing
+behavioral healthcare.
+
+State Mental Health
+and SUD Service
+Utilization Data; Local
+Crisis Stabilization
+Unit Intake Logs;
+HIE/State ED
+Utilization Reports
+(specific to Behavioral
+Health/SUD),
+Encounter Data.
+• Year 1: Develop statewide workplan and select pilot sites and launch one or two
+crisis stabilization units.
+• Year 2: Expand to all rural service areas.
+• Year 3: Evaluate utilization and continuity of care outcomes.
+• Year 4-5: Sustain model through integrated funding and policy alignment.
+
+Mobile
+Integrated
+Health (MIH)
+Pilot
+
+Establish hospital-based Will be set in
+MIH teams in rural
+Year 1
+communities; track
+implementation
+milestones and staff
+capacity.
+
+55
+
+Will be set in
+Year 1
+
+EMS and Hospital
+Reports; MIH Pilot
+Evaluations; Patient
+Encounter Logs,
+Encounter Data.
+
+Description / Project
+Milestone / Target:
+
+Measure
+Baseline
+Data Sources
+Specifications
+(if applicable)
+• Year 1: Release RFP open to tribal nations, local municipal, or private EMS and
+hospitals to provide mobile integrated health. Contract with various entities that
+will administer program selected through the RFP process. Distribute initial round
+of funding to participating providers.
+• Year 2-5: Distribute subsequent rounds of funds to entities administering services.
+• Year 4-5: State Medicaid to work with providers to determine potential of
+sustainability.
+• Year 5: Evaluate impact on ED visits.
+Metric
+
+High Acuity SchoolBased Behavioral Health
+Programming
+
+Training,
+participation,
+assessments,
+evaluation
+
+Milestone / Target:
+
+•
+
+•
+
+•
+•
+
+Regional Collaboratives
+
+Milestone / Target:
+
+Develop baseline data
+using the identified
+assessments.
+Monitoring progress
+with established
+benchmarks and work
+plan for up to 41 rural
+districts.
+
+School Mental Health
+Quality Assessment,
+Student and staff wellbeing assessment, and
+the School Health
+Assessment and
+Performance
+Evaluation, pre/ posttraining assessments,
+and Center for
+Connecticut Education
+Research Collaboration
+for evaluation.
+Year 1: Strategic Planning and Initiation, which includes hiring two FTEs to
+coordinate a System of Care with rural community providers, focusing on funding
+and responsibilities. Also, there will be marketing and recruiting in rural school
+districts for funding allocation and establishment of baseline data for each district
+to identify strengths, areas for improvement, and develop action plans.
+Year 2: Implementation — The project will enhance Year 1 efforts by providing
+mental health services in schools through a "push-in" approach and offering
+telehealth options for remote students, focusing on support, prevention, promotion,
+early interventions, and crisis.
+Year 3: Continue to expand rural district services for broader access to vital
+resources.
+Year 4-5: Promote assessment findings, training, and evaluation reports to
+enhance community well-being, expand access to quality mental health services,
+and strengthen community partnerships.
+
+Care
+Coordination
+Support for
+Primary Care
+Practices
+
+Will be set in
+Year 1
+
+Track collaboration
+Will be set in
+Reports and data
+among rural hospitals,
+Year 1
+reporting from
+FQHCs, and primary
+partners.
+care practices
+implementing
+coordinated care
+models.
+• Year 1: Develop multi-partner coordination framework and select two anchor
+agencies that serve as collaborative.
+• Year 2: Forums for agency and program leads to collaborate on implementation –
+establish and have regular meeting cadence.
+• Year 3: Collaborative participation analyzed from meeting minutes.
+• Year 4-5: Sustain partnerships. Formalize Regional Service Coordination
+sustainability plan.
+Table 23 - Metrics
+
+56
+
+Connecticut has access to an array of data systems and infrastructure that enables the
+state to collect, analyze, report, and measure outcomes to evaluate the RHT Program throughout
+the grant period effectively. These databases include:
+Data
+
+Source
+OHS
+
+Hospital Inpatient Discharge Data
+Connecticut Healthcare Cost Growth
+Benchmark
+Initiative
+Licensed healthcare provider electronic
+medical (or health) Record (EHR/EHR);
+Admission/Discharge/Transfer; Continuity of
+Care Documents; Lab and Radiology Reports;
+and transcribed notes
+Connecticut Behavioral Risk Factor
+Surveillance System (BRFSS) and other public
+health surveillance and health data
+Medicaid program claims/Medicaid
+Management Information System
+State employee/retiree health plan
+
+OHS
+OHS
+
+APCD
+
+Connie (HIE),
+overseen by
+OHS
+DPH
+
+Outcomes Measures
+Statewide, provider, payer, and healthcare
+service category cost growth
+AHRQ Quality Indicators ED Utilization
+State the all-payer total cost of
+care growth target
+Electronic clinical quality measure (eCQM)
+
+Public health and health improvement
+
+DSS
+
+Medicaid utilization, population health status,
+budget savings measures, and quality reporting
+Office of State Utilization, health status, budget savings
+Comptroller
+measures, and quality reporting
+Table 24 - Data Sources for Outcome Measures Analyses
+
+Connecticut anticipates that the applicant agencies currently have access to data
+necessary for the evaluation and monitoring of the RHT Plan implementation. Access to nonpublic data not readily available will be facilitated with a memorandum of agreement and/or data
+use agreement among program partner agencies and participants.
+The state is creating a transparent, open, and fair evaluation plan that focuses on using data to
+drive decisions and support quicker course correction. Connecticut will engage a third-party
+evaluator as a review partner, applying the Post-Award Evaluation Framework. Quarterly
+performance reviews will assess provider recruitment, infrastructure investments, interoperability
+metrics, and population-health outcomes. These evaluations will inform the CMS progress
+reports and budget requests. For example, Connecticut will track trends that lead to successful
+outcomes by (1) assessing financial stability and healthcare spending change over the five years
+to determine the effectiveness of projects, and (2) identifying the highest-need demographics.
+57
+
+Connecticut will use health claims data to identify members with the highest risk of poor health
+outcomes. As required by the NOFO, Connecticut confirms that the state will cooperate with any
+CMS-led evaluation or monitoring.
+In summary, the Metrics and Evaluation Plan establishes a structured, data-driven
+methodology that is essential to the successful execution and validation of the Connecticut RHT
+Plan initiatives. The Connecticut RHT Plan includes metrics and outcome measures for each
+Connecticut initiative to provide a firm overview of evaluating the NOFO requirements. It will
+offer inclusive data to ensure programs and projects are successful. While the metrics do not
+include every project under consideration, the metrics exceed the required number required in the
+NOFO. By consistently tracking the defined metrics, and short-term and long-term outcomes, we
+will maintain full accountability to all stakeholders and ensure the efficient deployment of
+resources. This detailed framework provides the evidence needed not only to measure the
+initiative’s impact against its strategic goals accurately but also to facilitate adaptive
+management, enabling Connecticut to make timely adjustments and secure sustained
+effectiveness.
+VII. Sustainability Plan
+Connecticut’s RHT Plan converts a time-limited federal cooperative agreement into a
+framework for ongoing rural health improvement. Over the course of the grant period and
+beyond FFY 2031, the state will continue to evaluate projects and make changes as necessary to
+continue to improve outcomes. During that time, the state will examine whether better health
+outcomes have resulted in savings that could be reinvested in the pick-up of successful initiatives
+and explore opportunities to support successful programs (including, as applicable, in the state
+budget) through a combination of Medicaid, private insurance and grant funding or public-
+
+58
+
+private partnerships, and collaborative efforts to ensure long-term benefits for rural residents.
+Letters of support from key partners and stakeholders demonstrating alignment and commitment
+to Connecticut’s RHT Plan goals are included in the attachments.
+Many RHT Plan initiatives are designed to make strategic, one-time investments or to
+build lasting infrastructure systems to provide lasting impact without requiring ongoing public
+funding. These efforts will strengthen rural capacity, streamline healthcare delivery, and improve
+coordination across the rural health landscape. Other initiatives, like PACE, can be selfsustaining because of projected savings from serving older adults in cost-effective home care
+settings and from avoiding/delaying more costly institutional care. Similarly, expanded 23-hour
+stabilization centers for adult behavioral health needs will be monitored for potential offsetting
+savings in avoidable hospitalizations, which will help inform future decisions on the centers’
+incorporation into the overarching healthcare system.
+The state will assess the sustainability of the RHT Plan across the pillars of workforce
+expansion, infrastructure modernization, and seamless integration, in alignment with CMS and
+HRSA expectations. RHT initiatives that strengthen prevention, primary care, behavioral health,
+and maternal health access will be reviewed for potential continuation or integration into broader
+state strategies. Outcome reporting will provide transparency and guide improvement in cost
+savings, care access, chronic disease outcomes, and maternal health. Metrics will be closely
+monitored to capture lessons learned and guide future planning.
+Initiative 1:
+Population
+Health
+Outcomes
+
+Initiative Specific Sustainability
+The Population Health Outcomes initiative in Connecticut’s RHT Plan focuses on preventive
+care, wellness, and chronic disease management, and will be monitored through outcome
+reporting. Efforts included in this plan, such as the ACCESS Mental Health model projects, will
+explore opportunities for alignment with existing payor and provider frameworks to maintain
+service continuity where feasible and justifiable with evidence of positive outcomes. The
+Family Bridge expansion and Mobile Clinic pilot will build local and regional capacity,
+enabling participating partners to sustain or adapt services independently using available
+diversified funding sources and established community networks. Collected data on outcomes,
+cost-effectiveness, and health impact will be used to inform future policy decisions. If
+
+59
+
+Initiative 2:
+Workforce
+
+Initiative 3:
+Data and
+Technology
+
+Initiative 4:
+Care
+Transformation
+and Stability
+
+Initiative Specific Sustainability
+successful, these models may be considered for continued state support, while others may wind
+down with sustainable community and system-level improvements in place.
+To ensure sustainability, projects that comprise the Workforce initiative are designed to
+strengthen long-term training infrastructure, career pathways, interstate licensure, and retention
+capacity within rural communities. Training formalization projects will embed standardized
+CNA and medication administration curricula within existing education systems, ensuring longterm availability. Other projects constitute one-time infrastructure investments to expand
+projects that have demonstrated success in other areas of the state to rural regions, such as the
+AHEC workforce education programs, and will wind down but continue to yield sustained
+benefits beyond the RHT Program. Programs demonstrating measurable success and workforce
+impact may be considered for future state support, while others will conclude with sustainable
+institutional models and strengthened local capacity in place.
+The Data and Technology initiative will focus on building durable infrastructure, data-sharing
+frameworks, and digital literacy that will continue to benefit rural communities beyond the
+project period. Projects such as the Integrated Care Network, HIE (Connie) expansion, rural
+health predictive modeling capabilities will align with Connecticut’s existing data infrastructure
+and telehealth systems to promote interoperability and institutional ownership. Bed capacity
+tracking and consumer-facing care management tools will be implemented with scalability and
+adaptability in mind, enabling continued use by hospitals, health centers, and rural communities
+after grant completion. In particular, investments are envisioned to be maintained through fees
+on participating providers, ensuring that data and technology programs are self-sustaining in
+the long term. If proven effective, projects that are not one-time infrastructure investments may
+be considered for incorporation into Connecticut’s broader health technology strategies, while
+others will wind down having strengthened local capacity, coordination, and technology
+utilization in rural health systems.
+Connecticut’s Care Transformation and Stability projects will focus on building resilient care
+delivery infrastructure, strengthening local and regional capacity, and supporting transitions to
+alternative payment and coordination models. Investments in crisis stabilization units, MIH,
+and high-acuity school-based behavioral health services are designed to integrate with existing
+provider networks and payor systems to ensure ongoing service delivery beyond the RHT
+Program. Facility right-sizing, infrastructure modernization, and PACE program development
+will create durable physical and operational foundations that allow providers to adapt
+efficiently to community needs. Projects that are proven effective throughout the RHT
+demonstration period may be considered for adoption within broader state reform strategies and
+help to inform future policy, while others will conclude with measurable improvements in
+system coordination, capacity, and community stability.
+Table 25 - Initiative Sustainability
+
+60
+
+1
+
+Centers for Medicare & Medicaid Services, Hospital Provider Cost Report (Oct. 30, 2024),
+https://data.cms.gov/provider-compliance/cost-report/hospital-provider-cost-report.
+2
+DataHaven, 2024 DataHaven Community Wellbeing Survey
+(DCWS_Connecticut_2024_EventVersion.xlsx) (2024),
+https://www.ctdatahaven.org/reports/datahaven-community-wellbeing-survey.
+3
+U.S. Census Bureau, CONNECTICUT: 2020 Census,
+https://www.census.gov/library/stories/state-by-state/connecticut.html.
+4
+Health Resources and Services Administration, What Is Rural? https://www.hrsa.gov/ruralhealth/about-us/what-is-rural.
+5
+U.S. Census Bureau, Master Address File/Topologically Integrated Geographic Encoding and
+Referencing (MAF/TIGER®) Database, State Area Measurements, Connecticut (Jan. 1, 2010),
+https://www.census.gov/geographies/reference-files/2010/geo/state-area.html.
+6
+U.S. Census Bureau, County-level Urban and Rural Information for the 2020 Census (updated
+Sept. 2023), available at https://www.census.gov/programs-surveys/geography/guidance/geoareas/urban-rural.html.
+7
+Connecticut Office of Rural Health, Rural Definitions Map (CT) (pdf), available at
+https://www.ruralhealthct.org/assets/SORH-Rural-Definitions-Map.pdf.
+8
+Connecticut Office of Rural Health, CT Rural Towns (Feb. 2025) (PDF), available at
+https://www.ruralhealthct.org/towns.htm.
+9
+Centers for Medicare & Medicaid Services, Hospital Provider Cost Report (Oct. 30, 2024),
+https://data.cms.gov/provider-compliance/cost-report/hospital-provider-cost-report.
+10
+U.S. Department of Health and Human Services, Health Resources and Services
+Administration, Centers for Medicare & Medicaid Services Health Center Facilities Report,
+https://data.hrsa.gov/data/reports/cms-facilities.
+11
+National Council for Mental Wellbeing, CCBHC Locator,
+https://www.thenationalcouncil.org/program/ccbhc-success-center/ccbhc-locator.
+12
+Substance Abuse and Mental Health Services Administration, FindTreatment.gov,
+https://findtreatment.gov.
+13
+Centers for Medicare & Medicaid Services, Provider of Services File – Hospital and
+Non-Hospital Facilities (Q2 2025), data.cms.gov (Aug. 11, 2025),
+https://catalog.data.gov/dataset/provider-of-services-file-hospital-non-hospital-facilities-f216f.
+14
+Connecticut Department of Social Services, Medicaid Hospital Reimbursement: DSH Audit
+and SPA, CT GOV (Oct. 30, 2025), https://portal.ct.gov/dss/health-and-home‐care/medicaidhospital-reimbursement/medicaid-hospital-reimbursement/dsh-audits-andspas?language=en_US.
+15
+Connecticut Insurance Department, Department Rejects and Modifies Every Health Insurance
+Rate Increase Request for 2026 (Sept. 10, 2025), https://portal.ct.gov/cid/press-releases/2025press-releases/2025-09-10.
+16
+DataHaven and Connecticut Office of Rural Health, Rural Health in Connecticut
+(Oct. 10, 2022) (PDF), available at
+https://www.ruralhealthct.org/images/Rural_Health_in_Connecticut%20FINAL.pdf.
+
+61
+
+17
+
+Connecticut Department of Labor, Office of Research, Occupational Employment and Wage
+Statistics (1st Quarter 2023): NAICS Industry (2024), available at
+https://www1.ctdol.state.ct.us/lmi/wages/naics2023.asp
+18
+United For ALICE, The State of ALICE in Connecticut: 2025 Update on Financial Hardship
+(2025), available at https://www.unitedforalice.org/introducing-ALICE/Connecticut.
+19
+Office of Health Strategy, Statewide Health Care Facilities and Services Plan Addendum
+(expected 2025), at Figure 16 (“Percentage of Adults by Educational Attainment in Connecticut,
+Other States, Connecticut Planning Regions, and Connecticut Demographic Groups”).
+20
+Rakshit Shameek, Matthew Rae, Gary Claxton, Krutika Amin and Cynthia Cox, The Burden of
+Medical Debt in the United States (Feb. 12, 2024), KFF and Peterson Center on Healthcare
+(Health System Tracker), https://www.healthsystemtracker.org/brief/the-burden-of-medical-debtin-the-united-states/.
+21
+Most (and Least) Expensive States for Health Care, Consumer Affairs (Jan. 9, 2025),
+https://www.consumeraffairs.com/insurance/most-and-least-expensive-states-for-healthcare.html.
+22
+Connecticut Office of Rural Health, Rural Health in Connecticut 15 (2022),
+https://www.ruralhealthct.org/report.
+23
+Connecticut Office of Rural Health, Rural Health in Connecticut 12 (2022),
+https://www.ruralhealthct.org/report.
+24
+Merianne Rose Spencer and Arialdi M. Minino, Trends in Death Rates in Urban and Rural
+Areas: United States, 1999–2019, NCHS Data Brief No. 417, at 3 (National Center for Health
+Stat., Sept. 2021), https://www.cdc.gov/nchs/data/databriefs/db417.pdf.
+25
+Connecticut Office of Rural Health, An Assessment of Connecticut Rural Health: Overview,
+Obstacles and Opportunities 3 (2015),
+https://www.ruralhealthct.org/assets/CT_Office_of_Rural_Health_RuralAssessment_2015.pdf.
+26
+America’s Health Rankings, Multiple Chronic Conditions (Adults), America’s Health
+Rankings (2023 data),
+https://www.americashealthrankings.org/explore/measures/mult_chronic_conditions_sr_b.
+27
+American Diabetes Association, Connecticut Diabetes Factsheet (Mar. 2024),
+https://diabetes.org/sites/default/files/2024-03/adv_2024_state_fact_connecticut.pdf.
+28
+U.S. Centers for Disease Control and Prevention, Diabetes Self-Management: Rural Policy
+Brief (Jan. 2024), https://www.cdc.gov/rural-health/php/policy-briefs/diabetes-policy-brief.html.
+29
+E. Crouch et al., Rural–Urban Differences in Overweight and Obesity Among U.S. Children
+and Adolescents, 20 Prev. Chronic Dis. 23_0136 (2023),
+https://www.cdc.gov/pcd/issues/2023/23_0136.htm.
+30
+A.T. Marshall et al., Association of Lead-Exposure Risk and Family Income with Child Blood
+Lead Levels, 10 BMC Public Health 1174 (2020), https://doi.org/10.1186/s12889-020-09120-x.
+31
+Dugan E, Lee CM, Jansen T, Su YJ, Silverstein NM and Song Q, Highlights from the 2025
+Connecticut Healthy Aging Data Report 8 (Gerontology Inst., Univ. of Mass. Boston and
+Point32Health Foundation 2025), https://healthyagingdatareports.org/wpcontent/uploads/2025/04/CT_Healthy_Aging_Highlights_2025.pdf.
+
+62
+
+32
+
+Connecticut General Assembly, Insurance Fund Working Group, Final Report (Jan. 2025),
+https://www.cga.ct.gov/ins/related/Insurance%20Fund%20Working%20Group%20Final%20Rep
+ort/Insurance%20Fund%20Working%20Group%20Final%20Report.pdf.
+33
+2024 Falls Free CT, Coalition Presentation on Falls Data (Dec. 10, 2024), on file with the
+Falls Free CT Coalition, https://portal.ct.gov/-/media/aginganddisability/agingservices/fallsprevention/2024-12-10_falls-free-ct-meeting_agenda-andpresentation.pdf?rev=2677b4ebd6384936bf071e0d8dc58fbd.
+34
+DataHaven and Connecticut Office of Rural Health, Rural Health in Connecticut 15, 21
+(2022), https://www.ruralhealthct.org/images/Rural_Health_in_Connecticut%20FINAL.pdf.
+35
+Office of Health Strategy, Healthcare Benchmark Initiative Primary Care Spending Target
+Report for PY2023, 11–14 (Mar. 31, 2025), https://portal.ct.gov/ohs//media/ohs/cost-growth-benchmark/benchmark-reports-py2023/ohs-hcbi-primary-care-spendingtarget-report-py2023.pdf.
+36
+Dube, N. (2024, July 31). Recent Changes to Connecticut’s Telehealth Law (Report No. 2024R-0122). Office of Legislative Research, Connecticut General Assembly.
+https://cga.ct.gov/2024/rpt/pdf/2024-R-0122.pdf,
+37
+Connecticut General Assembly. (2024). Public Act No. 24-110: An Act Concerning Telehealth
+Services (Substitute House Bill No. 5198). https://www.cga.ct.gov/2024/ACT/PA/PDF/2024PA00110-R00HB-05198-PA.PDF.
+38
+The Commonwealth Fund, 2025 Scorecard on State Health System
+Performance: How the U.S. Compares State by State appendix B, at 3 (June 18, 2025),
+https://www.commonwealthfund.org/sites/default/files/2025-05/AUTHOR_REVIEW_1_Radley
+_2025_State_Scorecard__APPENDICES_2025-05-29.pdf.
+39
+David C. Radley et al., 2025 Scorecard on State Health System Performance: Fragile
+Progress, Continuing Disparities (Commonwealth Fund, June 18, 2025),
+https://www.commonwealthfund.org/publications/scorecard/2025/jun/2025-scorecard-statehealth-system-performance.
+40
+Office of Health Strategy, Behavioral Health Workforce Environmental Scan (Sept. 30, 2024),
+at vi, https://portal.ct.gov/-/media/ohs/reports/ct-ohs-behavioral-health-workforceenvironmental-scan.pdf.
+41
+Office of Health Strategy, Behavioral Health Workforce Environmental Scan 11 (Sept. 30,
+2024), https://portal.ct.gov/ohs//media/ohs/reports/ct-ohs-behavioral-health-workforce-environmental-scan.pdf.
+42
+Office of Health Strategy, Behavioral Health Workforce Environmental Scan 42 (Sept. 30,
+2024), https://portal.ct.gov/ohs//media/ohs/reports/ct-ohs-behavioral-health-workforce-environmental-scan.pdf.
+43
+Department of Children and Families, Urgent Crisis Centers for Children (2023), available at
+https://portal.ct.gov/dcf/behavioral-health-partnership/home/urgent-crisis-centers-for-children.
+44
+Office of Health Strategy, Statewide Health Care Facility and Services Plan (rev. March 15,
+2025), Table 6.5 “Mental Health Outpatient Clinics, by Region,” Hartford, CT: State of
+Connecticut 155, (July 2, 2025), retrieved from https://portal.ct.gov/ohs/-/media/ohs/hsp/ohsstatewide-health-care-facility-and-services-plan--march-15-2025-rev-07022025.pdf.
+
+63
+
+45
+
+Office of Health Strategy, Statewide Health Care Facility and Services Plan (rev. March 15,
+2025), Table 6.1 “Behavioral Health: Statewide Bed Inventory,” Hartford, CT: State of
+Connecticut 150, (July 2, 2025), retrieved from https://portal.ct.gov/ohs/-/media/ohs/hsp/ohsstatewide-health-care-facility-and-services-plan--march-15-2025-rev-07022025.pdf.
+46
+Office of Health Strategy, Statewide Health Care Facility and Services Plan (rev. March 15,
+2025), Table 6.6 “Behavioral Health: Substance Use Disorder Outpatient Clinics,” Hartford, CT:
+State of Connecticut 156, (July 2, 2025), retrieved from https://portal.ct.gov/ohs//media/ohs/hsp/ohs-statewide-health-care-facility-and-services-plan--march-15-2025-rev07022025.pdf.
+47
+Office of Health Strategy, Statewide Health Care Facility and Services Plan (rev. March 15,
+2025), Table 6.3 “Behavioral Health: Inpatient Psychiatric Beds by Region,” Hartford, CT: State
+of Connecticut 152, (July 2, 2025), retrieved from https://portal.ct.gov/ohs/-/media/ohs/hsp/ohsstatewide-health-care-facility-and-services-plan--march-15-2025-rev-07022025.pdf.
+48
+Alexander Thomas et al., Forgone Medical Care Associated With Increased Health Care
+Costs Among the U.S. Heart Failure Population, 9 JACC: Heart Failure 710 (2021),
+https://doi.org/10.1016/j.jchf.2021.05.010.
+49
+Office of Health Strategy, Internal Data on Rural Hospital Discharges, SFY 2024 (showing
+13,555 rural hospital discharges, 3.7% of 367,142 total discharges) (on file with Connecticut
+Office of Health Strategy).
+50
+Office of Health Strategy, Annual Report on the Financial Status of Connecticut’s Short-Term
+Acute Care Hospitals, Fiscal Year 2024 (expected 2026).
+51
+Connecticut Hospital Association,
+New Report Outlines Continued Financial Challenges for Connecticut Hospitals and Health Syste
+ms (Dec. 18, 2024), https://cthosp.org/press-releases/new-report-outlines-continued-financialchallenges-for-connecticut-hospitals-and-health-systems/.
+52
+Connecticut Hospital Association,
+Report: Medicare, Medicaid Underpayment Burdening CT Hospitals (Dec. 2024),
+https://cthosp.org/daily-news-clip/report-medicare-medicaid-underpayment-burdening-cthospitals/.
+53
+Office of Health Strategy, Annual Report on the Financial Status of Connecticut’s Short-Term
+Acute Care Hospitals, FY 2023 (Jan. 2025), https://portal.ct.gov/-/media/ohs/reports/ohs-annualreport-on-the-financial-status-of-connecticuts-hospitals-fy2023.pdf.
+54
+U.S. Department of Health and Human Services, Health Resources and Services
+Administration. (April 3, 2024). Community Health and Wellness Center: Change in Scope
+(CIS00152648). HRSA.gov.
+55
+Office of Health Strategy, Statewide Health Care Facilities and Services Plan: June 2024 184
+(Connecticut, June 2024), https://portal.ct.gov/-/media/ohs/hsp/ohs-statewide-health-carefacilities-and-services-plan-2024.pdf.
+56
+Office of Health Strategy, Statewide Health Care Facilities and Services Plan: June 2024 185
+(Connecticut, June 2024), https://portal.ct.gov/-/media/ohs/hsp/ohs-statewide-health-carefacilities-and-services-plan-2024.pdf.
+
+64
+
+57
+
+Office of Health Strategy, Statewide Health Care Facilities and Services Plan: June 2024 57
+(Connecticut, June 2024), https://portal.ct.gov/-/media/ohs/hsp/ohs-statewide-health-carefacilities-and-services-plan-2024.pdf.
+58
+Office of Health Strategy, Statewide Health Care Facilities and Services Plan: June 2024 150
+(Connecticut, June 2024), https://portal.ct.gov/-/media/ohs/hsp/ohs-statewide-health-carefacilities-and-services-plan-2024.pdf.
+59
+National Rural Health Association, Rural Workforce Recruitment and Retention Factors
+(March 2025), https://www.ruralhealth.us/nationalruralhealth/media/documents/advocacy/nrhapolicy-brief-workforce-retention-factors-final-3-7-25.pdf.
+60
+Munira Z. Gunja, Rural Americans Struggle with Medical Bills and Health Care Affordability,
+To the Point (blog), The Commonwealth Fund (July 24, 2023),
+https://www.commonwealthfund.org/blog/2023/rural-americans-struggle-medical-bills-andhealth-care-affordability.
+61
+Isabelle Dufour et al., Factors Associated with Frequent Use of Emergency-Department
+Services in a Geriatric Population: A Systematic Review, 19 BMC Geriatrics 185 (2019).
+62
+Kelly Davila and Camille Seaberry, Rural Health in Connecticut: A Comprehensive Review of
+Social Determinants, Community Resources, Health Outcomes, and Well-being (June 2022),
+DataHaven,
+https://www.ctdatahaven.org/sites/ctdatahaven/files/Rural_Health_in_Connecticut.pdf.
+63
+Rural Health Information Hub, Transportation to Support Rural Healthcare,
+https://www.ruralhealthinfo.org/topics/transportation.
+64
+Kelly Davila and Camille Seaberry, Rural Health in Connecticut: A Comprehensive Review of
+Social Determinants, Community Resources, Health Outcomes, and Well-being (DataHaven and
+Connecticut Office of Rural Health June 2022),
+https://www.ctdatahaven.org/sites/ctdatahaven/files/Rural_Health_in_Connecticut.pdf.
+65
+Department of Social Services, Budget Justification and Narrative Attachment: Certified
+Community Behavioral Health Clinics 9 (Sept. 27, 2024),
+https://www.cga.ct.gov/ph/bhpoc/op/related/20240101_2024/20240927/CCBHCNarrative.pdf.
+66
+Connecticut Department of Mental Health and Addiction Services, Hospital Discharge Data
+for Individuals 18 Years and Older with a Mental Health Diagnosis 2016-2020, Connecticut
+(Connecticut ChimeData, 2016-2020), retrieved November 19, 2021.
+67
+Connecticut Department of Mental Health and Addiction Services, Hospital Discharge Data
+for Individuals 18 Years and Older with a Mental Health Diagnosis 2016-2020, Connecticut
+(Connecticut ChimeData, 2016-2020), retrieved November 19, 2021.
+68
+The Alliance and Fio Partners, 2022 State of the Connecticut Nonprofit Sector 28 (Jan. 2022),
+https://fiopartners.com/images/uploads/CT-SOS-2022Report.pdf.
+69
+Office of Health Strategy, Health Information Technology Annual Report 2025 10 (Mar. 28,
+2025), https://portal.ct.gov/ohs/-/media/ohs/health-it-advisory-council/publications/ohs-healthinformation-technology-annual-report-2025.pdf.
+70
+Butzner M and Cuffee Y, Telehealth Interventions and Outcomes Across Rural Communities
+in the United States: Narrative Review, 23 J. Med. Internet Res. e29575 (2021),
+https://www.jmir.org/2021/8/e29575.
+
+65
+
+71
+
+Office of Health Strategy, Health Information Technology Annual Report 2025 19 (Mar. 28,
+2025), https://portal.ct.gov/ohs/-/media/ohs/health-it-advisory-council/publications/ohs-healthinformation-technology-annual-report-2025.pdf.
+72
+Connecticut General Assembly, Public Act No. 24-29: An act concerning the health and safety
+of Connecticut residents (Substitute Senate Bill No. 1), (May 21, 2024), available at
+https://www.cga.ct.gov/2024/ACT/PA/PDF/2024PA-00019-R00SB-00001-PA.PDF.
+73
+Office of Health Strategy, Internal Connie Data Query (on file with author).
+74
+Connecticut Governor Ned Lamont, Connecticut’s 2024 Broadband Report Highlights Major
+Advancements in Digital Connectivity and Equity, (Dec. 18, 2024), https://portal.ct.gov//media/deep/energy/broadband/biannual-broadbandreport/deep_2024-broadband-report_low-resolution-final-pdf.
+75
+Department of Energy and Environmental. Protection, Connecticut Broadband Report 2024 21
+(Dec. 18, 2024), https://portal.ct.gov/ohs/-/media/ohs/health-it-advisorycouncil/publications/ohs-health-information-technology-annual-report-2025.pdf.
+76
+Interstate Medical Licensure Commission, Participating States, IMLCC (2025),
+https://imlcc.com/participating-states/.
+77
+Nurse Licensure Compact, Participating States Map, NURSECOMPACT (2025),
+https://www.nursecompact.com/index.page#map.
+78
+Interstate Commission for EMS Personnel Practice, Home, EMS Compact (2025),
+https://www.emscompact.gov/.
+79
+Psychology Interjurisdictional Compact, PSYPACT Map, PSYPACT (2025),
+https://psypact.gov/page/psypactmap.
+80
+Physician Assistants Licensure Compact, Home, PA Compact (2025),
+https://www.pacompact.org/#compact.
+81
+American Academy of Physician Assistants, PA State Practice Environment,
+https://www.aapa.org/advocacy-central/state-advocacy/state-maps/pa-state-practiceenvironment.
+82
+American Association of Nurse Practitioners, State Practice Environment,
+https://www.aanp.org/advocacy/state/state-practice-environment.
+83
+2025 Policy Strategies for Full Practice Authority, CICERO INST. (Aug. 20, 2025),
+https://ciceroinstitute.org/research/2025-policy-strategies-for-full-practice-authority/.
+84
+Variation in Dental Hygiene Scope of Practice by State, ORAL HEALTH WORKFORCE
+RESEARCH CTR. (Nov. 2024), https://oralhealthworkforce.org/infographics/variation-indental-hygiene-scope-of-practice-by-state/.
+85
+Connecticut State Telehealth Laws — Miscellaneous Professional Requirements, Center for
+Connected Health Policy, Connecticut (Sept. 2, 2025),
+https://www.cchpca.org/connecticut/?category=professional-requirements&topic=miscellaneousprofessional-requirements.
+
+66
+
+

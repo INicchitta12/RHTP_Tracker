@@ -1,0 +1,498 @@
+﻿
+State of Idaho Rural Health Transformation Program
+Idaho Department of Health and Welfare
+
+SOLICITATION FOR SUBAWARD APPLICATIONS
+Idaho Cognitive Care Pathway Network
+Federal Agency
+Centers for Medicare & Medicaid Services
+Federal Award No.
+RHTCMS332084
+ALN No.
+93.798
+Solicitation No.
+RHTPCOG1
+Issue Date
+08/11/2026
+Application Deadline
+09/08/2026
+Estimated Award Range
+$500,000 – $2,000,000
+Anticipated Project Period
+09/30/2026 – 09/30/2027
+Point of Contact
+IdahoRHTP@dhw.idaho.gov 
+
+This document was supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial assistance award totaling $185,974,367.81 with 100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+Section 1: Program Description & Purpose
+As Idaho’s population ages, Alzheimer’s disease and other dementias (ADOD) increasingly affect individuals, families, healthcare systems, and communities.  Early identification of cognitive concerns can improve care planning, prolong patient independence, reduce avoidable healthcare utilization, and connect individuals and family caregivers to available resources sooner. To connect rural communities, services can be provided face-to-face or through telehealth services. 
+Many rural healthcare providers serve as the primary point of contact for older adults experiencing cognitive changes but may face barriers including workforce shortages, limited specialty access, competing clinical demands across the healthcare system, and inconsistent processes for cognitive assessment and follow-up. 
+Establishing structured cognitive detection and care coordination pathways within rural healthcare settings can help providers identify concerns earlier, standardize referral processes, improve care planning, and strengthen connections between healthcare systems, family caregivers, and community-based supports.
+The Department seeks up to two (2) subgrantees to create and implement the Idaho Cognitive Care Pathway Network by increasing the adoption of evidence-based cognitive detection and care coordination models that: 
+strengthen coordination among healthcare providers, family caregivers, and community-based organizations; 
+equip rural healthcare providers to identify cognitive impairment and facilitate appropriate follow-up; and 
+improve access to services that promote health, independence, and quality of life for Idahoans. 
+Applicants must be capable of administering and coordinating a statewide or multi-regional network of subgrantees and ensure a broad geographic reach. Applicants should demonstrate their ability to facilitate local implementation through partnerships, subawards, technical assistance, training, coordination, and oversight activities. 
+The Idaho Cognitive Care Pathway Network must collaborate with Idaho's existing ADOD service network, including the Alzheimer’s Disease and Related Dementias Program (ADRD) and Alliance, Family Caregiver Navigator Program, and Idaho Community Care Program, to ensure individuals living with Alzheimer’s disease and other dementias and their family caregivers receive coordinated access to education, support services, care planning assistance, and community-based resources.
+1.1 Background 
+The Department will serve as the lead agency for administering the Rural Health Transformation Program (RHT) Grant funding award for the state of Idaho (ID). As such, the Department is committed to removing barriers to treatment, improving health outcomes, and promoting patient-centered care. The RHTP website address is:  https://healthandwelfare.idaho.gov/providers/rural-health-transformation-program-grant/about-rural-health-transformation-program-grant  
+As the grant recipient, the Department manages the entire grant award and is responsible for distributing funding to other ID state agencies, contractors, and Subgrantees in alignment with the projects awarded by Centers for Medicare & Medicaid Services (CMS). This distribution will be carried out in accordance with both state and federal regulation, specifically procurement rules, to facilitate the execution of RHTP work. The state’s RHTP is a critical mechanism to advance a sustainable, data-driven model of care that enhances access, quality, and outcomes.      
+Idaho’s Rural Health Transformation Plan (RHTP) (Attachment A, ID RHTP Project Narrative) is a multi-year strategic plan including five (5) major initiatives designed to strengthen rural health systems, increase access to care, enhance quality outcomes, expand workforce capacity, and promote financial sustainability. These initiatives address CMS’ strategic goals for this grant to transform healthcare for residents in the state’s rural areas. 
+The five initiatives are:  
+Initiative 1.  Improving rural access to care through technology  
+Facility technology assessments and shared infrastructure  
+Telehealth expansion  
+Digital health  
+Cybersecurity modernization and artificial intelligence (AI) tools  
+Emergency communication systems implementation and enrollment  
+Health management and data analytics tools  
+EHR software and upgrades  
+Initiative 2.  Ensuring accessible, quality care through innovative models  
+Diagnostic and care access innovations  
+Health extenders  
+Emergency medical service (EMS) expansion and workforce stabilization  
+Understand opportunities to leverage health extenders and optimize service delivery   
+Initiative 3.  Sustaining rural workforce with training, recruitment, and retention.  
+Ladder payments based on priority positions and rural presence  
+Healthcare career exploration and advancement programs  
+Work-based learning  
+Graduate medical education (GME) programs  
+Initiative 4.  Implementing population specific, evidence-based projects to Make America Healthy Again  
+Chronic disease prevention and treatment  
+Behavioral health prevention and treatment  
+Maternal and child health efforts    
+Initiative 5.  Investing in rural health infrastructure and partnerships  
+Healthcare facility renovations  
+Pharmacy solutions  
+Clinical equipment purchases  
+Vehicles for patient transport and rural mobile health units  
+Healthcare facility federal, state, and local safety code compliance 
+Tribal rural health transformation support  
+
+The state’s RHTP leverages partnerships with state and local agencies, tribal partners, healthcare providers, and community organizations to ensure locally responsive solutions. 
+
+This plan will work to modernize electronic and logistical infrastructure, strengthen community-to-clinician connections, and further integrate healthcare and community-based services across settings and types of care.
+
+1.2 Project Coordination
+To ensure alignment across the Idaho Rural Health Transformation initiatives and to prevent duplication or overlap, the selected applicant must, as applicable to the scope of work, coordinate with Department staff, other Rural Health Transformation-funded entities, and key stakeholders in conducting assessments, data collection, evaluation, reporting, and development of deliverables.
+1.3 Program Goals & Objectives
+The overarching goal of this federal award is to improve access to timely, coordinated, person-centered cognitive health services for Idahoans living in rural and underserved communities by strengthening early detection, referral, care coordination, and caregiver engagement across healthcare and community systems.
+This solicitation aligns with Idaho's Rural Health Transformation initiative #4 (Implementing population specific, evidence-based projects to Make America Healthy Again) which focuses on strengthening rural healthcare delivery, care coordination, and access to services for aging populations and individuals experiencing cognitive impairment. Informed by data collected through the ADRD Program and guided by the 2023–2028 ADRD Statewide Strategic Plan, the following goals have been identified.
+Goal 1: Increase Early Identification of Cognitive Concerns
+Implement standardized cognitive detection processes in participating healthcare settings to improve identification of individuals who may benefit from further evaluation, care planning, or support services.
+Goal 2: Strengthen Rural Provider Capacity
+Train healthcare providers to integrate cognitive assessment and follow-up activities into routine clinical workflows and improving confidence in responding to cognitive concerns.
+Goal 3: Improve Care Coordination and Referral Pathways
+Establish or enhance referral and care coordination pathways connecting healthcare providers, specialists, community-based organizations, and dementia-related support services.
+Goal 4: Engage Family Caregivers and Care Partners
+Incorporate family caregivers and care partners into care planning and referral processes and facilitate connections to family caregiver  resources when appropriate.
+Goal 5: Expand Access Through Flexible Service Delivery
+Increase access to cognitive detection and care coordination services through in-person, telehealth, or hybrid approaches, particularly in rural and underserved communities.
+Goal 6: Generate Actionable Data and Continuous Improvement
+Track program activities, referrals, care coordination services, and available outcome measures to inform program improvement and statewide planning.
+RHT Initiative Alignment
+This solicitation advances the following Rural Health Transformation priorities:
+Strengthening rural healthcare delivery systems.
+Improving care coordination across providers and community services.
+Expanding access to services for aging populations.
+Developing, enhancing, and sustaining earlier intervention and management of chronic and cognitive health conditions.
+Reducing barriers to care in rural and underserved communities.
+1.4 Scope of Work
+Required Activities:
+Complete the Non-Duplication Assessment (Appendix H) and submit it with the application to ensure proposed activities do not duplicate existing programs, services, or projects.
+Develop and implement an evidence-informed, Idaho-specific clinical follow-up pathway for individuals in rural Idaho with suspected cognitive impairment by building upon existing Idaho initiatives, available state data, lessons learned, reviewing existing national evidence-based protocols, engaging Idaho healthcare stakeholders, adapting best practices in Idaho’s healthcare delivery system, and piloting one or two selected pathways to assess feasibility, effectiveness, and scalability. 
+Develop and administer a subgrant program that implements standardized, evidence-informed Alzheimer's disease and other dementias (ADOD) detection and follow-up protocols within participating healthcare and community-based settings serving rural Idahoans.
+Provide technical assistance, training, and implementation guidance to subgrantees to strengthen incorporation of cognitive assessment activities into routine clinical and community-based workflows when appropriate, while promoting consistency with existing Department initiatives, resources, and statewide practices.
+Provide technical assistance for subgrantees establishing procedures for identifying individuals in rural Idaho who may benefit from additional cognitive evaluation, care planning, or support services.
+Develop, enhance, and sustain referral and care coordination pathways that connect healthcare providers, specialists, community-based organizations, and ADOD-related services across participating service areas.
+Coordinate with the Department, the ADRD Alliance, the legislatively established ADRD Workgroup, and other statewide and regional partners to strengthen referral networks, incorporate existing statewide knowledge and recommendations, and promote consistent implementation across participating subgrantee sites.
+Collaborate with the Department to incorporate existing statewide cognitive health initiatives, implementation experience, available data, and lessons learned into project planning, development, and implementation activities.
+Ensure subgrantees provide care coordination activities for individuals in rural Idaho identified through ADOD detection and screening efforts.
+Establish processes to refer eligible individuals and family caregivers in rural Idaho to local Area Agencies on Aging, the Idaho Community Care Program, and other appropriate programs for resource navigation, caregiver education, and support services.
+Collect, monitor, and report data from subgrantees related to ADOD detection activities, referrals, care coordination efforts, and program outcomes when available.
+Ensure subgrantees engage family caregivers and care partners in rural Idaho and facilitate referrals to the Idaho Community Care Program, Family Caregiver Navigator Program, and other relevant services when appropriate.
+Promote and facilitate connections between participating subgrantees, educational programs, evidence-based interventions, support groups, respite resources, and other health-related services available through community organizations and ADRD Alliance partners.
+Provide oversight, coordination, and implementation guidance to ensure care coordination activities are implemented consistently across participating subgrantee organizations and aligned with existing statewide initiatives and Department priorities.
+Submit required programmatic, financial, and performance reports to the Department.
+Maintain documentation of subgrant activities, services delivered, referrals issued, technical assistance provided, and program outcomes.
+Participate in Department-required evaluation, monitoring, quality improvement, and continuous learning activities, including facilitating participation by subgrantees as requested.
+The Subgrantee must meet at least quarterly with the Department’s Rural Health Transformation Program Data Analytics and Evaluation Contractor to complete the following tasks:  
+Develop theory of change diagram(s) (e.g., logic model, line-of-sight diagram, driver diagram, or similar visualization of assumptions connecting proposed work with intended outcomes and performance indicators) 
+Use data sharing mechanisms (to be developed by the Data Analytics and Evaluation contractor) to report on required key performance objectives (KPO) within timelines established by the Department.
+Develop and implement a process evaluation and quality improvement plan that identifies useful evaluation or process improvement measures in addition to required KPOs. 
+Review and provide input on draft evaluation findings, reports, and analyses as requested. 
+Measures to be defined in consultation with the Data Analytics and Evaluation contractor after award.
+1.5 Target Population & Service Area
+Eligible service areas are rural and frontier counties within the state of Idaho, as defined by state rural health criteria and federal rural-urban classification systems, including non-metropolitan counties and rural census tracts designated under USDA Rural-Urban Continuum Codes (RUCC) or the Federal Office of Rural Health Policy (FORHP) eligibility criteria. 
+See Appendices A and B for the RHTP eligibility map and a list of eligible and ineligible cities by county.
+The ultimate beneficiaries of this solicitation include adults living within communities meeting the above definition who may be experiencing cognitive decline, Alzheimer’s disease or other dementias, or other cognitive concerns, including:
+Individuals who are at increased risk for cognitive impairment due to age, chronic disease, disability, or other health-related factors.
+Family caregivers, care partners, and people involved in the care of individuals experiencing cognitive decline.
+Healthcare providers and care teams serving adults in rural communities who require enhanced systems and processes for ADOD-related detection, referral, and care coordination.
+Services developed and funded through this solicitation must benefit rural and frontier communities across Idaho where access to cognitive health services, specialty care, and care coordination resources may be limited.
+Applicants must propose a strategy that ensures broad geographic reach and equitable access across rural Idaho. Proposed approaches may include:
+Administration of subawards to healthcare providers, community-based organizations, nonprofits, public health districts, or other eligible entities. 
+Regional or multi-county implementation networks. 
+Statewide coordination models that strengthen local service delivery and referral pathways. 
+Partnerships that strengthen access to cognitive detection, care coordination, caregiver support, and related services. 
+Applicants should clearly describe how their proposed structure will facilitate implementation across rural and frontier Idaho and improve access to services for Idahoans living with cognitive concerns and their family caregivers.
+Priority Populations:
+Consistent with the goals of the Rural Health Transformation initiative, priority populations include:
+Older adults residing in rural and frontier communities. 
+Individuals experiencing cognitive impairment, dementia, or suspected cognitive decline who face barriers to timely identification, evaluation, or support. 
+Individuals with limited access to specialty healthcare services due to geographic distance, transportation challenges, workforce shortages, or other barriers to care. 
+Family caregivers and care partners who need information, education, resources, or assistance navigating healthcare and community services. 
+Rural healthcare providers and healthcare organizations seeking to strengthen their ability to identify cognitive concerns, coordinate care, and connect individuals and families to available services. 
+Applicants are encouraged to demonstrate how proposed activities will improve access to cognitive health services, strengthen early identification and care coordination, and improve outcomes for Idahoans living in rural and frontier communities.
+Section 2: Eligibility Requirements
+2.1 Eligible Applicant Types
+Eligible entities include: 
+•Idaho local public health districts
+•Nonprofit organizations with 501(c)(3) status
+State/local government agencies 
+Healthcare providers that serve rural Idahoans
+Federally Qualified Health Centers (FQHCs) and FQHC Look-Alikes
+•Institutions of higher education located in Idaho
+•Hospitals and health systems located in Idaho 
+Area Agencies on Aging and organizations designated to provide aging and caregiver services
+Organizations with demonstrated experience administering statewide or multi-regional health, aging, caregiver, dementia, chronic disease, or care coordination programs
+Organizations with demonstrated experience managing competitive subaward, grants, or pass-through funding programs
+Tribal organizations and tribal health programs serving Idaho communities
+Multi-organization partnerships with an identified lead applicant that meets all eligibility requirements
+2.2 Minimum Qualifications
+All applicants must meet the following minimum qualifications at the time of application:
+Applicants must demonstrate experience managing multi-site programs, statewide or regional initiatives, or subaward programs involving multiple partner organizations.
+Active registration in the System for Award Management (SAM.gov) with a current, valid Unique Entity Identifier (UEI)
+No active exclusions in SAM.gov or on the HHS Office of Inspector General Exclusion List
+Demonstrated experience (minimum 2 years) managing federal or state-funded health programs
+Financial management systems capable of separately tracking and reporting federal expenditures per §200.302
+If the applicant expended $1,000,000 or more in federal awards in their most recent fiscal year, a completed Single Audit per §200.501 with no unresolved material findings
+Current organizational insurance coverage including general liability and professional liability
+Because the successful applicant(s)will administer subgrants and serve as pass-through entities, applicants must also demonstrate:
+Written policies and procedures governing subaward administration
+Internal control systems that comply with 2 CFR 200.303
+Experience conducting pre-award risk assessments
+Experience monitoring subrecipients through desk reviews, site visits, report reviews, and corrective action processes
+Capacity to review and approve reimbursement requests and support documentation
+Experience issuing management decisions and corrective action plans when compliance concerns are identified
+Systems for collecting, validating, and aggregating performance data from multiple implementation partners
+Experience managing statewide or multi-site initiatives involving multiple stakeholders.
+2.3 Exclusions
+The following entities are not eligible to apply for funding under this subgrant solicitation:
+Organizations that are debarred, suspended, or otherwise excluded from participation in federal programs, as verified through SAM.gov
+Applicants that do not maintain an active registration in SAM.gov
+Applicants with unresolved audit findings, including outstanding single audit findings or material weaknesses that have not been adequately addressed to the satisfaction of the awarding agency
+Applicants that do not have the financial management systems and internal controls necessary to manage federal funds in accordance with applicable requirements
+Individuals applying in a personal capacity
+
+The awarding agency reserves the right to verify eligibility and disqualify applicants that do not meet federal and state compliance requirements.
+2.4 Cost Sharing / Match Requirements
+No cost share or match is required for this subaward. Department
+However, applicants who can demonstrate leveraged resources (e.g., in-kind staff time, donated facilities, complementary funding streams) are encouraged to describe these in the Sustainability section of their Project Narrative, as they strengthen the overall application.
+Section 3: Award Information
+3.1 Funding Details
+Total Available Funding
+$2,000,000.00
+Anticipated No. of Awards
+1-2
+Award Range (per subaward)
+$500,000-$2,000,000.00
+Subaward Type
+Reimbursement
+Period of Performance
+09/30/2026-09/30/2031
+Continuation Funding
+No
+
+3.2 Indirect Cost Rate
+As required by the Centers for Medicare & Medicaid Services under Rural Health Transformation, administrative costs, including indirect costs, are limited to 10 percent of the total approved subaward budget. Indirect costs must be calculated on the Modified Total Direct Cost (MTDC) base as defined in 2 CFR 200.1. 
+Together, indirect costs and direct administrative costs may not exceed 10 percent of the total approved budget. This federally required limitation applies to all subawards. Costs exceeding this threshold are not allowable and will not be reimbursed.
+Section 4: Application Instructions
+4.1 Required Application Components
+Applicants must submit all of the following components as a single, consolidated application package:
+#
+Component
+Format
+Page Limit
+Required?
+1
+Cover Page / Application Face Sheet
+Template provided (Appendix C)
+1 
+Yes
+2
+Project Narrative
+Template provided (Appendix D)
+15 
+Yes
+3
+Work Plan with Milestones & Timeline
+Template provided (Appendix E)
+N/A
+Yes
+4
+Budget & Budget Justification 
+Template provided (Excel File)
+No limit
+Yes
+5
+Organizational Capacity Statement
+PDF
+3 
+Yes
+6
+Key Personnel Resumes/CVs
+PDF, 2 pages each
+2 per individual
+Yes
+7
+Letters of Support / MOUs
+PDF
+No limit
+If applicable
+8
+Proof of SAM.gov Registration 
+Screenshot or PDF 
+No limit
+Yes
+9
+Current Indirect Cost Rate Agreement
+PDF
+No limit
+If applicable
+10
+Most Recent Single Audit Report (if >$1 million)
+PDF or link
+No limit
+If applicable
+11
+Pre-Award Financial Questionnaire
+Template provided (Appendix F)
+No limit
+Yes
+12
+Signed Certifications & Assurances 
+Template provided (Appendix G)
+No limit
+Yes
+13
+Assurance of Non-Duplication
+Template provided (Appendix H)
+No limit
+Yes
+
+4.2 Project Narrative Guidance
+The Project Narrative is the primary basis for evaluating the applicant’s approach. Address each area below in the order listed. Reviewers will evaluate narrative quality, specificity, and alignment with program goals. Vague or generic responses will score poorly.
+
+Statement of Need 
+Describe the need for improved cognitive detection, referral, and care coordination across the geographic area proposed for implementation, using local, regional, and state data as appropriate. Identify populations most affected by Alzheimer's disease and other dementias, barriers to timely identification and assistance, and gaps in existing service systems. Explain how the proposed network, partnership structure, and subgrant approach will address unmet needs and expand access to cognitive detection, referral, care coordination, and caregiver support services. Cite all data sources.
+Goals, Objectives & Measurable Outcomes 
+State your proposed goals and SMART objectives (Specific, Measurable, Achievable, Relevant, and Time-bound). For each objective, identify a baseline value, target value, and data source that will be used to measure progress. Objectives should clearly align with one or more program goals, including improving early identification of cognitive concerns, strengthening provider capacity, improving care coordination, or increasing family caregiver engagement. Applicants should include both implementation-level measures (e.g., number of participating organizations, subgrants awarded, referral networks established) and population-level measures when appropriate.
+Approach & Methods 
+Describe your implementation approach in detail. Explain how the proposed model will expand statewide, regional, or multi-county implementation through subawards, partnerships, technical assistance, training, coordination, or direct service delivery as appropriate. Describe how participating organizations will implement cognitive detection protocols, referral pathways, care coordination activities, caregiver engagement strategies, and telehealth approaches when applicable. Explain how program quality, consistency, accountability, and fidelity will be maintained across participating organizations and service locations.
+Target Population & Community Engagement 
+Describe the populations and geographic areas that will ultimately benefit from the proposed project. Include demographics, service areas, and populations experiencing barriers to ADOD-related services. Describe how local communities, healthcare providers, family caregivers, and other stakeholders will be engaged in project planning, implementation, and evaluation. Applicants proposing a subgrant model should describe how community needs and local priorities will inform subaward decisions and implementation activities.
+Partnerships & Collaboration 
+Identify key partner organizations and describe each partner's role, contribution, and level of involvement in the project. Applicants should describe how partnerships will contribute to administration of the project, implementation through participating organizations, referral pathways, care coordination, caregiver engagement, and long-term sustainability. If proposing a subgrant model, describe the process for selecting, providing technical assistance, monitoring, and coordinating participating organizations. Letters of support or memorandum of understanding may be included as attachments.
+Evaluation Plan 
+Describe your plan to evaluate both implementation and outcomes. Identify process measures, outcome measures, data collection methods, reporting frequency, and responsible staff. Explain how evaluation findings will be used for continuous quality improvement and describe your capacity to collect, and report required performance data to the Department. Applicants should describe how data will be collected, aggregated, monitored, and reported across participating organizations.
+Sustainability 
+If proposing a subgrant model, applicants should describe how partnerships, referral networks, and participating organizations will be sustained beyond the project period. Identify potential future funding sources, organizational commitments, reimbursement opportunities, and strategies for maintaining referral networks, workforce capacity, and care coordination activities beyond the grant period.
+4.3 Budget & Budget Justification Guidance
+Submit a detailed line-item budget using the provided Excel template (Excel File) for each year of the period of performance, plus a cumulative total. Accompany the budget with a narrative justification that explains and substantiates every line item. All proposed costs must be allowable, allocable, reasonable, and necessary per 2 CFR 200 Subpart E (§§200.400–200.476).
+Required budget categories:
+Personnel: List each position by title, annual salary, % FTE charged, and fringe benefit rate. Justify each position’s necessity to the project.
+Fringe Benefits: Provide the fringe rate and its components (FICA, retirement, health insurance, etc.). If rates differ by employee class, break them out separately and display in a table.
+Travel: Itemize trips by purpose, destination, number of travelers, and estimated costs (airfare, mileage at the federal rate, lodging, per diem). 
+Equipment: Items with a per-unit cost of $2,000 or more and a useful life exceeding one year. Prior approval from the Department is required for all equipment purchases.
+Supplies: Items under $2,000 per unit. Group by category (office supplies, program materials, technology) and justify quantities.
+Contractual: Describe each proposed contract or subaward, including the scope, estimated cost, and procurement method. Note: subrecipients may not subaward to other entities without prior written approval from the Department.
+Other Direct Costs: Includes educational materials, continuing education fees, webinar and virtual learning platform expenses, communications, software licenses, curriculum development, meeting expenses, technical assistance activities, participant investment costs, and other allowable costs necessary to implement the project. Participant incentives, if proposed, must be reasonable, justified, and approved by the Department.
+Administrative Costs: No more than 10% administrative costs.
+Payment and Reimbursement
+Subawards will be issued on a reimbursement basis.  Lead Entities will be responsible for:
+Reviewing and approving reimbursement requests submitted by local implementation partners
+Maintaining all supporting documentation
+Ensuring all expenditures comply with applicable federal and state requirements
+Submitting reimbursement requests and required supporting documentation to the Department
+Payments are contingent upon satisfactory performance, timely reporting, and compliance with all award requirements.
+
+4.4 Submission Instructions
+Submission Method
+Email
+Submit To
+IdahoRHTP@dhw.idaho.gov
+Deadline
+09/08/2026
+Late Policy
+Late applications will not be reviewed.
+Questions Deadline
+08/19/2026- all questions must be submitted by this date
+Q&A Publication
+Responses posted to URL by 08/31/2026
+
+
+Section 5: Application Review & Evaluation Criteria
+5.1 Evaluation Criteria & Scoring
+Applications will be independently scored by a panel of no fewer than three qualified reviewers using the following criteria. Reviewers will assign points based on the quality, specificity, and feasibility of the application’s response to each criterion. 
+Criterion
+Max Points
+Key Considerations
+Statement of Need & Alignment
+10
+Data-driven, aligned to NOFO
+Goals, Objectives & Work Plan
+15
+SMART, feasible, measurable
+Approach & Innovation
+18
+
+
+Evidence-based, caregiver engagement, rural applicability
+
+Organizational Capacity
+10
+Track record, infrastructure, staffing
+Key Personnel Qualifications
+10
+Expertise, time commitment
+Budget Reasonableness & Justification
+10
+Allowable, allocable, reasonable
+Evaluation & Data Collection Plan
+12
+Methods, tools, reporting capability
+Sustainability & Partnerships
+15
+Continuation plan, partnerships, referral networks, and engagement of family caregivers and community-based supports.
+TOTAL
+[100]
+
+
+Higher scores will be awarded to applicants that demonstrate meaningful engagement of family caregivers and care partners as part of cognitive detection, care planning, referral pathways, and coordination of services.
+5.2 Review Process
+The review process consists of three stages:
+Stage 1 – Administrative Screening: Department staff will screen applications for completeness and eligibility. Incomplete applications or those from ineligible organizations will not advance to technical review. Applicants will be notified of disqualification within 5 business days.
+Stage 2 – Technical Review: A review panel of at least three individuals with expertise in cognitive health, dementia care, healthcare delivery, care coordination, public health program management, and federal grants compliance. Reviewers will participate in a consensus scoring session to discuss and finalize scores. Panel members will sign conflict of interest disclosures.
+Stage 3 – Final Selection: The department will make final funding decisions based on panel scores, geographic coverage across the state, population reach, and programmatic priorities. The Department reserves the right to fund applications out of rank order to ensure equitable geographic distribution.
+The Department may request clarification, additional information, or interviews from applicants as part of the review process. Funding recommendations will be developed based on final evaluation scores, risk assessment results, available funding, and the Department’s goal of establishing an effective statewide Idaho Cognitive Care Pathway Network. The Department anticipates funding one (1) to two (2) Lead Entities capable of administering and overseeing a statewide network of local implementation partners.
+Final funding decisions will consider:
+Application scores
+Funding availability
+Geographic coverage
+Organizational capacity
+Program priorities
+Ability to achieve statewide population-level outcomes
+5.3 Pre-Award Risk Assessment
+All recommended applicants will undergo a pre-award risk assessment before the subaward is executed. The risk assessment will evaluate:
+Prior experience managing federal awards of similar size and complexity
+Results of the most recent Single Audit (if applicable), including the type of opinion, material weaknesses, significant deficiencies, and findings specific to federal programs
+Financial stability indicators, including current ratio, unrestricted net assets, and recent year-over-year revenue trends
+Adequacy of the organization’s financial management system, including ability to track costs by funding source per §200.302
+Written policies for procurement (§§200.318–327), travel, property management, and time-and-effort reporting
+History of performance on prior Department subawards or other state/federal awards
+New organizations or those with identified risk factors will be designated as “high risk” and subject to enhanced monitoring conditions per §200.208
+
+Applicants who do not pass the pre-award risk assessment may have their award rescinded or may receive the award with special conditions (e.g., more frequent reporting, limited advance payments, required technical assistance).
+Section 6: Subaward Terms & Conditions
+6.1 Federal Flow-Down Requirements
+Subgrantees will be subject to all applicable federal requirements that flow down from the prime award, including but not limited to:
+2 CFR Part 200 – Uniform Administrative Requirements, Cost Principles, and Audit Requirements
+45 CFR Part 75 (HHS-specific implementation, if applicable)
+Federal award terms and conditions as specified in the Notice of Award
+CMS/CDC/HRSA program-specific requirements from the Notice of Funding Opportunity (NOFO)
+Single Audit requirements per §200.501 (for entities expending $1,000,000+ in federal awards)
+
+6.2 Reporting Requirements
+Subgrantees will be required to submit the following reports:
+
+Report
+Frequency
+Due Date
+Submit To
+Operating and Personnel Detail Reports Submitted with Invoice
+Monthly
+15th of the following month
+[Contact]
+Financial Status Report (FSR)
+Quarterly
+30 days after quarter end
+[Contact]
+Program Progress Report
+Quarterly
+30 days after quarter end
+[Contact]
+Performance Measures / Data
+Quarterly
+30 days after quarter end
+[Contact]
+Annual Inventory Report (if applicable) (§200.312)
+Annually
+[Date]
+[Contact]
+Final Report (Financial + Programmatic)
+End of Period of Performance (POP)
+90 days after POP
+[Contact]
+
+Failure to submit reports by the due date may result in withholding of reimbursement payments until reports are received and approved.
+6.3 Monitoring & Oversight
+The Department will monitor Subgrantee activities to ensure compliance with the subaward terms and applicable federal requirements. Monitoring activities may include:
+Desk reviews of financial and programmatic reports
+On-site or virtual monitoring visits (at least annually for high-risk Subgrantees)
+Review of single audit reports per §200.332(d)
+Technical assistance and capacity-building activities
+Review of Subgrantee procurement documentation for compliance with §§200.318–200.327
+6.4 Remedies for Noncompliance
+If a Subgrantee fails to comply with the terms of the subaward or applicable federal requirements, the pass-through entity may take one or more of the following actions per §200.339:
+Temporarily withhold payments pending corrective action
+Disallow all or part of the cost of the noncompliant activity
+Wholly or partly suspend or terminate the subaward
+Initiate suspension or debarment proceedings per 2 CFR Part 180
+Withhold further awards or impose additional conditions
+
+
+6.5 Record Retention
+Subgrantees must retain all financial records, supporting documents, statistical records, and all other records pertinent to the subaward for a period of three (3) years from the date of submission of the final expenditure report, or as otherwise required by §200.334. If any litigation, claim, or audit is started before the expiration of the retention period, records must be retained until all issues are resolved.
+6.6 Procurement Standards
+Subgrantees must follow the procurement standards in §§200.318–200.327, including conducting all procurement transactions in a manner providing full and open competition. Subgrantees must maintain written conflict of interest policies and document the procurement process including cost/price analysis.
+Section 7: Key Dates & Timeline
+Milestone
+Date
+Solicitation Released
+8/11/2026
+Pre-Application Webinar / Informational Session
+08/26/2026; Details will be posted on Funding Opportunities website 
+Deadline for Questions
+08/19/2026
+Q&A Responses Published
+08/31/2026
+Application Deadline
+09/08/2026
+Review Period
+09/10/2026-09/17/2026
+Award Notifications
+09/28/2026
+Anticipated Subaward Start Date
+10/19/2026
+
+Section 8: Post Award Anticipated Timeline
+Following award execution, Lead Entities will be expected to complete the following activities and deliverables in phases.
+Phase 1: Startup and Network Development (Months 1–3)
+Phase 2: Partner Selection and Pathway Implementation Planning (Months 3–6)
+Phase 3: Cognitive Care Pathway Implementation (Months 6–24)
+Phase 4: Sustainability and Project Closeout (Final 6 Months of Performance Period)
+Ongoing Requirements Throughout the Project Period
+Lead Entities shall maintain ongoing compliance with all reporting, monitoring, and performance requirements throughout the project period, including:
+Monthly reimbursement requests
+Quarterly financial reports
+Quarterly programmatic reports
+Quarterly performance measure reporting
+Monitoring of implementation partners and subgrantees
+Participation in Department-led meetings and evaluation activities
+Continuous quality improvement activities
+Maintenance of statewide referral and care coordination network documentation
+Ongoing technical assistance to participating organizations
+The Department reserves the right to modify timelines, reporting schedules, or milestone expectations as necessary to ensure successful implementation of the Idaho Cognitive Care Pathway Network.
+
+

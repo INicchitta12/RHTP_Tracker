@@ -1,0 +1,3174 @@
+                                                                              Revised – 4.10.2026
+
+Project Narrative
+
+The Alabama Rural Health Transformation Program (ARHTP) is a catalyst to ignite
+
+transformational change to Alabama’s healthcare delivery system. Specifically, ARHTP targets
+
+improvements to healthcare access, healthcare quality, and health outcomes for the over 1.6 million
+
+Alabama citizens who live in one of the state’s 58 rural counties. i The funding and investments
+
+promised by Congress and the Trump Administration are significant and needed, but even more
+
+importantly, ARHTP represents a comprehensive strategy of state policy reforms, innovative
+
+startup healthcare initiatives, expansions of proven methods, and a general retooling of healthcare
+
+services delivery in Alabama.
+
+With guiding principles of transformation, sustainability, and accountability, ARHTP will improve
+
+health outcomes in Alabama and achieve key focuses of the Rural Health Transformation Program
+
+(RHTP): promoting innovation, fostering strategic partnerships, enhancing infrastructure
+
+development, and bolstering workforce investment. The initiatives within ARHTP will also
+
+accomplish each of the RHTP’s strategic goals to make rural America healthy again, develop more
+
+sustainable access to care, achieve meaningful workforce development, spark innovative care, and
+
+deploy needed tech innovation.
+
+Each year, rural Alabama’s deteriorating healthcare system contributes to worsening health and
+
+economic stability. Rural healthcare facilities are closing and losing important specialty services
+
+due to declining populations, diminishing health literacy and nutrition awareness, increasing costs,
+
+and the inability to recruit and retain qualified physicians and other healthcare professionals.
+
+Alabama’s private insurance reimbursement rates are among the lowest in the nation; many
+
+Alabamians are uninsured or underinsured; and access barriers, including residential proximity to
+
+
+
+                                                 1
+                                                                              Revised – 4.10.2026
+
+healthcare facilities and emergency transportation shortages, all compound the unsustainable
+
+financial condition of rural Alabama healthcare facilities.
+
+Health metrics in Alabama trail national benchmarks: chronic diseases, including diabetes,
+
+hypertension, and heart disease, and cancer prevail at higher rates than in most states; infant and
+
+maternal mortality are higher than national averages; and behavioral health crises, including
+
+substance use disorders, intensify amid provider shortages. Without transformative change, these
+
+and other health indicators will continue to decline.
+
+Despite the current trajectory of Alabama’s rural healthcare ecosystem, higher quality care and
+
+improved health outcomes are within reach for Alabama’s 1.6 million rural citizens. ii The ARHTP
+
+will stabilize essential services, strengthen provider networks, expand healthcare access through
+
+innovative telehealth/teleconsulting and reimagined workforce pipelines that bring services and
+
+training directly to rural communities, and redesign rural health delivery systems around modern
+
+community needs. It will target key populations, including rural low-income families, elderly
+
+citizens, pregnant women and their children, chronic disease patients, deserving veterans, and
+
+individuals in medically underserved areas. Coupled with targeted investments and intentional
+
+policy reforms, Alabama—and specifically, rural Alabama—will achieve a sustainable system of
+
+healthcare delivery and a healthier population.
+
+Famed American author and poet Maya Angelou stated, “If you don't know where you've come
+
+from, you don't know where you're going.” This introduction and the following data help describe
+
+the current status of rural healthcare in Alabama. The ARHTP tells the success story of where it is
+
+going.
+
+
+
+
+                                                  2
+                                                                                   Revised – 4.10.2026
+
+
+Table I – Acronyms and Shorthand
+Acronym/Shorthand     Definition
+AANP                  American Association of Nurse Practitioners
+ACHN                  Alabama Coordinated Health Network
+ADECA                 Alabama Department of Economic and Community Affairs
+ADPH                  Alabama Department of Public Health
+ALOHR                 Alabama One Health Record ®: Alabama’s health information exchange system
+ARHTP                 Alabama Rural Health Transformation Program
+ASHS                  Alabama School of Healthcare Sciences
+BME                   Alabama Board of Medical Examiners
+BREMSS                Birmingham Regional Emergency Medical Services System
+CAH                   Critical Access Hospital
+CCBHC                 Certified Community Behavioral Health Clinic
+CHPL                  Certified Health Information Technology (IT) Product List
+CLIA                  Clinical Laboratory Improvement Amendments
+CME                   Continuing Medical Education
+CMHC                  Community Mental Health Center
+CMS                   Centers for Medicare & Medicaid Services
+COACHES               Community Healthcare Education Simulation (at Children’s Hospital of Alabama)
+CT                    Computed Tomography
+DHR                   Alabama Department of Human Resources
+DSH                   Disproportionate Share Hospital (in context: Medicaid DSH payments)
+D-SNP                 Dual Eligible Special Needs Plan
+ED                    Emergency Department
+EMR/EHR               Electronic Medical Record/Electronic Health Record
+EMS                   Emergency Medical Services
+EMT                   Emergency Medical Technician
+FIPS                  Federal Information Processing Standards code
+FM-OB                 Family Medicine-Obstetrics
+FQHC                  Federally Qualified Health Center
+GME                   Graduate Medical Education
+HIE                   Health Information Exchange
+HPSA                  Health Professional Shortage Area
+HRSA                  Health Resources and Services Administration
+IHS                   Indian Health Service
+IMLC                  Interstate Medical Licensure Compact
+L&D                   Labor and Delivery
+LPN                   Licensed Practical Nurse
+LEA                   Local Education Agency
+Med/Surg              Medical-Surgical Nursing
+NLC                   Nurse Licensure Compact
+
+
+                                                    3
+                                                                                       Revised – 4.10.2026
+
+
+ NOFO                  Notice of Funding Opportunity (in reference to RHTP)
+ OB-GYN                Obstetrician-Gynecologist
+ OMB                   Office of Management and Budget
+ PA                    Physician Assistant
+ PACE                  Program of All-Inclusive Care for the Elderly
+ PSYPACT               Psychology Interjurisdictional Compact
+ REH                   Rural Emergency Hospital
+ RFP                   Request for Proposal
+ RN                    Registered Nurse
+ RPM                   Remote Patient Monitoring
+ SNAP                  Supplemental Nutrition Assistance Program
+ SPL                   State of Principal License (for IMLC)
+ STEMI                 ST-Elevation Myocardial Infarction
+ STLDI                 Short-Term, Limited-Duration Insurance
+ T-MSIS                Transformed Medicaid Statistical Information System
+ TMaH                  Transforming Maternal Health grant
+ UAB                   University of Alabama at Birmingham
+ USA Health            University of South Alabama Health
+ USDA                  United States Department of Agriculture
+ OBA                   Outcome-Based Assessment
+ FIR Division          Federal Initiatives and Recreation Division (of ADECA)
+ IME                   Indirect Medical Education (IME adjustments referenced for sustainability)
+
+
+
+
+   I. Rural Health Needs and Target Population
+
+Approximately 32 percent of Alabama's population, over 1.6 million citizens, live in rural counties.
+
+These communities experience persistent disparities in income, health outcomes, and healthcare
+
+access compared with their urban counterparts. iii Rural residents have higher rates of chronic
+
+diseases, higher uninsured/underinsured rates, and lower healthcare accessibility, especially for
+
+maternity, emergency, and specialty care services.
+
+
+
+
+                                                    4
+                                                                                   Revised – 4.10.2026
+
+Criteria for Identifying Rural Areas
+
+Alabama Medicaid and the Alabama Department of Public Health (ADPH), in October 2025
+
+calculated Alabama’s rural population and rural counties using census tracts defined as rural by
+
+the Health Resources and Services Administration (HRSA) Federal Office of Rural Health Policy.
+
+HRSA classifies 58 of 67 counties as rural, fully or partially, representing approximately 1.6
+
+million citizens. iv Per the requirements of the Notice of Funding Opportunity (NOFO), this
+
+application identifies rural areas according to the HRSA definition. The data included in this
+
+application was developed by various sources, including ADPH, each which may have relied on
+
+different definitions of rural at different points in time. v As a result, not all statistics are based on
+
+the 58 counties and 1.6 million residents identified above.
+
+Data Overview
+
+Rural demographics:
+
+
+        •   Rural Counties: 58 of 67 counties in 2025 were considered rural or partially rural. vi
+
+
+        •   Population: 1,613,122 people or 32 percent of Alabamians live in rural areas. vii
+
+
+        •   Population density: Approximately 99.2 people per square mile statewide, with
+
+            significantly lower density in rural tracts. viii
+
+
+        •   Income: Per-capita income in Alabama in 2023 was $54,112; third lowest in the United
+
+            States. Alabama is a poor state relative to others, and rural areas in Alabama are poorer
+
+            than urban areas. Per-capita income in 2023 was $45,725 in rural Alabama and $56,594
+
+            in urban Alabama. ix
+
+
+
+
+                                                     5
+                                                                                Revised – 4.10.2026
+
+
+      •   Poverty rate: The percentage of people living in poverty in Alabama in 2023 was 15.6
+
+          percent, eighth highest among the United States. The U.S. rate was 12.5 percent. Within
+
+          Alabama, 19.1 percent of people lived in poverty in rural Alabama compared to 14.8
+
+          percent in urban Alabama. x
+
+
+      •   Education: The percentage of Alabamians with a bachelor’s degree or higher in 2019-
+
+          2023 was 28.9 percent, eighth lowest among the United States. Within Alabama, the
+
+          percentage of people with a bachelor’s degree or higher in 2019-2023 was 16.9 percent
+
+          in rural Alabama and 30.9 percent in urban Alabama. xi
+
+
+      •   Unemployment: The unemployment rate in 2023 was 2.8 percent in rural Alabama and
+
+          2.4 percent in urban Alabama. xii Notably, Alabama’s Labor Force Participation rate
+
+          during the same period was 55.0 percent in rural Alabama and 60.4 percent in urban
+
+          Alabama. xiii
+
+Health outcomes:
+
+
+      •   Infant mortality: The rate for the entire state in 2023 was 7.64 deaths per 1,000 live
+
+          births, third highest for the United States. The national rate: 5.61 deaths per 1,000 live
+
+          births xiv and 10.4 percent of all live births are diagnosed as having a low birth weight.xv
+
+
+      •   Life expectancy: The life expectancy at birth for the entire state in 2021 was 72.0 years,
+
+          third lowest among the United States. The national life expectancy during the same
+
+          year was 76.4 years. ADPH reported state and county life expectancies for 2023 and
+
+          reported a state life expectancy of 75.0 years, perhaps reflecting recovery from the
+
+          pandemic. Some urban and rural counties exceeded the state life expectancy, but six
+
+          rural counties had life expectancies less than 70.0 years. xvi
+
+                                                 6
+                                                                                 Revised – 4.10.2026
+
+
+      •   Chronic conditions: In Alabama in 2023, 14.6 percent of adults had three or more
+
+          chronic conditions, ranking 46th among the states. The national value was 10.7
+
+          percent. xvii Other statistics for chronic conditions include:
+
+              o Cancer: In 2023,155.6 Alabamians died of cancer per 100,000 people, the tenth
+
+                  highest rate in the United States. xviii
+
+              o Diabetes: 13.9 percent of adults have a diabetes diagnosis; the mortality rate is
+
+                  30.4 in rural areas, which is nearly 50 percent higher than in urban areas. xix
+
+              o Heart disease: In 2023, 227.3 Alabamians died of heart disease per 100,000
+
+                  people, the third highest rate for the United States. The median was 160.8. xx
+
+              o High blood pressure: In 2023, 13.5 Alabamians died of high blood pressure per
+
+                  100,000 people, the seventh highest rate for the United States. The median was
+
+                  9.2. xxi
+
+              o Obesity: 39.2 percent of adults are obese, which is the fifth highest rate
+
+                  nationwide, with rural prevalence above state averages. xxii
+
+Healthcare access:
+
+
+      •   Rural hospitals: There are 52 hospitals in 41 of Alabama’s rural counties. xxiii
+
+
+      •   L&D units: Twelve of Alabama’s rural counties have L&D units. xxiv
+
+
+      •   Maternal distance to care: The percentage of women in Alabama living more than 30
+
+          minutes from a birthing hospital, according to a 2022 report, was 89.9 percent in rural
+
+          areas and 26 percent in urban areas. xxv
+
+
+
+                                                   7
+                                                                      Revised – 4.10.2026
+
+
+•   Emergency medical response: The statewide average response time by emergency
+
+    medical services from call to arrival to the scene in 2024 was less than seven minutes:
+
+    five minutes or less in urban counties and 11 to 15 minutes in rural counties, and in
+
+    some rural counties 30 minutes. xxvi
+
+
+•   Workforce shortage - Primary-care providers: There were 241.0 primary-care
+
+    providers in Alabama per 100,000 people in 2024, ranking 45th among the states. The
+
+    national value was 283.4 primary-care providers per 100,000 people. xxvii
+
+
+•   Workforce shortage - Mental health providers: Alabama had 152.2 mental health
+
+    providers per 100,000 people in 2024, ranking last among the states. The national value
+
+    was 344.9 providers per 100,000 people. xxviii
+
+
+•   Workforce shortage - Dentists: There were 3.2 dentists per 10,000 residents in rural
+
+    areas and 5.5 dentists per 10,000 residents in urban areas of Alabama in 2024.
+
+    Compared to other states, Alabama in 2024 had 43.3 dental-care providers, including
+
+    dentists and advanced practice dental therapists, per 100,000 residents, ranking 49th.
+
+    The U.S. value was 65.8 dental-care providers per 100,000 residents. xxix
+
+
+•   Hospital beds: Rural hospitals in 2024 had 21.4 general hospital beds per 10,000
+
+    residents compared to 34.6 beds per 10,000 residents in urban counties. xxx
+
+
+•   Cost barriers: 13.5 percent of residents avoided healthcare due to cost, compared to
+
+    the national average of 10.6 percent. The rural uninsured rate is approximately 16.4
+
+    percent, versus 14.1 percent in urban areas. xxxi
+
+
+
+
+                                           8
+                                                                                 Revised – 4.10.2026
+
+
+       •   Preventable Hospitalization: Alabama reports a preventable hospitalization rate of
+
+           3,387 per 100,000 Medicare beneficiaries age 18 or older, compared to the national
+
+           average of 2,665, ranking 49th in the country. xxxii
+
+
+       •   Transportation: Limited public transportation options exacerbate access barriers.
+
+Rural facility financial health:
+
+
+       •   Rural hospitals at risk of closure: As of August 2025, 60 percent of Alabama’s rural
+
+           hospitals were at risk of closing, the seventh highest percentage among the 50 states,
+
+           48 percent were at “immediate risk” (second highest), and in 2024, 65 percent had a
+
+           negative margin (loss) on patient services. (sixth highest). xxxiii
+
+
+       •   Rural hospital closures: Rural hospitals closed in Butler County in 2019, Pickens
+
+           County in 2020, Clarke County in 2024, and Lawrence County this year. The Lawrence
+
+           County facility became an outpatient center. No urban hospitals have closed since 2019,
+
+           but Jackson Hospital in Montgomery declared Chapter 11 bankruptcy earlier this
+
+           year. xxxiv
+
+
+       •   Rural hospital L&D unit closures: Three hospitals in rural southwest Alabama have
+
+           closed their L&D units in 2023 or 2024, in Monroe County (2023), Marengo County
+
+           (2024) and Clarke County (2024). Many L&D units lose money. Closing them is a way
+
+           to cut costs. xxxv
+
+
+       •   Rural hospital conversions to emergency hospitals: Rural hospitals in Bullock,
+
+           Chambers, and Wilcox counties have become Rural Emergency Hospitals (REHs),
+
+           shuttering in- patient beds to focus on outpatient services, keeping emergency
+
+
+
+                                                   9
+                                                                                            Revised – 4.10.2026
+
+            departments open, and getting monthly checks from the federal government in
+
+            return. xxxvi
+
+Target Populations and Geographic Areas
+
+Alabama's participation in the RHTP will target and prioritize all hospitals and persons in the state's
+
+58 rural and partially rural counties where health disparities, provider shortages, and economic
+
+hardship are most severe.
+
+Table II - Rural Facility and Population Score Factors
+Scoring      Scoring Factor Description Alabama Demographic
+Factor
+A.1          Absolute size of          rural                               1,613,122
+             population in a state
+A.2          Proportion of Rural Health 51% (acute care hospitals: general acute, CAH, REH); 42% (including
+             Facilities in the State      specialty hospitals); 60% (incl. FQHC, Rural Health Clinics); 58%
+                                                                 (incl. CMHC, CCBHC)
+A.3          Uncompensated care in a state                     $799M FY2020, $779M FY2021
+
+A.4          % of State population located                                    32%
+             in rural areas
+A.5          Metrics that define a State as     109,492 population in Frontier level 2, 2.30% population level
+             being frontier                                              percentage
+A.6          Area of a State in total square                                 52,419
+             miles
+A.7          % of hospitals in a State that    99% of general acute care, Critical Access hospitals and children's
+             receive   Medicaid       DSH             hospitals are eligible for Medicaid DSH (84 of 85)
+             payments
+
+
+
+
+      II. Rural Health Transformation Plan: Goals and Strategies
+
+Vision, goals, and strategies of ARHTP: To deliver high quality healthcare services while adhering
+
+to the key principles of transformation, sustainability, and accountability. Transformation will be
+
+achieved through targeted investments, introduction of new technologies and methods, and state
+
+policy changes. Sustainability will be maintained by deploying efficient, effective, and broad
+
+reaching initiatives. Accountability will be ensured by establishing evaluation performance
+
+                                                        10
+                                                                                         Revised – 4.10.2026
+
+measures and outcome metrics. The end result will be a sustainable and accountable transformation
+
+of Alabama’s healthcare delivery system that will make rural America healthy again, ensure
+
+sustainable access, develop a qualified workforce, promote innovative care, and foster tech
+
+innovation. Table III and the following Cause Identification section address the RHTP required
+
+elements.
+
+Table III – Goals and Strategies
+Element             Initiatives                                            Strategic Goal Alignment
+Improving Access     •   Establish a statewide telehealth network and       Make Rural America Healthy
+                         remote monitoring capacity linking rural providers Again:
+                         to specialty hubs; maintain emergency access and Preventive, prenatal, behavioral, and
+                         expand maternal health services through digital chronic disease services closer to
+                         regionalization and telerobotic ultrasound.        patients.
+                     •   Develop regional specialty networks for oncology
+                         screening and follow-up via mobile and regional Sustainable Access: Coordinated
+                         services.                                          regional networks and EMS reforms
+                     •   Expand behavioral health access by converting      stabilize local access points.
+                         CMHCs to CCBHCs and integrating behavioral
+                         and physical health in networked rural clinics.    Innovative Care: Flexible telehealth,
+                     •   Implement Emergency Medical Services (EMS) EMS tele-consults, and mobile
+                         diversion/routing and Treat-in-Place tele-consults models.
+                         to optimize urgent and low-acuity access close to
+                         home.                                              Tech Innovation: Remote
+                                                                            monitoring, digital obstetric tools,
+                                                                            telehealth endpoints.
+Improving            •   Deploy evidence-based, outcomes-driven             Make Rural America Healthy
+Outcomes                 interventions for chronic disease management via Again: Measurable disease
+                         remote monitoring and care coordination enabled prevention.
+                         by regional IT hubs.
+                     •   Reduce maternal morbidity and mortality through Innovative Care: Coordinated,
+                         digital obstetric regionalization and timely       outcomes-based models and flexible
+                         specialty consults.                                care arrangements.
+                     •   Increase cancer screening rates through mobile
+                         screening, regional referral pathways, and         Tech Innovation: Use of data
+                         outreach.                                          dashboards to guide quality
+                     •   Increase chronic disease prevention.               improvement.
+                     •   Improve behavioral health outcomes by adopting
+                         the CCBHC model and embedding integrated care
+                         in rural practices.
+
+
+
+
+                                                      11
+                                                                                         Revised – 4.10.2026
+
+Technology Use     •   Stand up regional collaborative IT and              Tech Innovation: Scaled telehealth,
+                       cybersecurity hubs to support Electronic Health secure data sharing, and emerging
+                       Record (EHR) integration, interoperability,         technology adoption.
+                       compliance, and shared security operations.
+                   •   Provide for the interconnectivity of these hubs to Sustainable Access: Shared services
+                       allow for the secure free-flowing exchange of       lower unit costs and improve
+                       health information.                                 resilience and creates sustainable
+                   •   Within the regional collaborative IT space, utilize infrastructure.
+                       data and technology to provide healthcare to rural
+                       patients within their home district.                Innovative Care: Technology-
+                   •   Deploy telehealth endpoints, integrate rural        enabled team-based and remote care
+                       providers, and launch mobile units for digital care models providing real-time access to
+                       delivery.                                           healthcare data.
+                   •   Implement evaluation of suitability and
+                       sustainability for emerging technologies and plan
+                       for long-term shared-service funding models.
+Partnerships       •   Create and strengthen local and regional networks Sustainable Access: Economies of
+                       among rural hospitals, clinics, FQHCs, EMS,         scale and shared operations.
+                       behavioral health providers, and academic
+                       partners for information sharing, joint training,   Innovative Care: Network-based
+                       group purchasing, and coordinated service lines. coordination and care integration.
+                   •   Govern networks to reflect community
+                       representation and needs, leveraging regional       Tech Innovation: Shared data and
+                       hubs.                                               cybersecurity infrastructure.
+Workforce          •   Build rural training pipelines, expand Graduate     Workforce Development:
+                       Medical Education (GME) opportunities, and          Recruitment, retention, and top-of-
+                       grow EMS, nursing, certified nurse midwifery,       license practice.
+                       and physician capacity; extend specialty reach via
+                       telehealth support.                                 Make Rural America Healthy
+                   •   Expand specialty-based simulation training          Again: Increased access to primary,
+                       statewide to accelerate competency and retention. prenatal, and behavioral care.
+                   •   Sustain pipelines through partnerships with the
+                       Alabama School of Healthcare Sciences and           Innovative Care: Team-based
+                       community colleges.                                 practice supported by telehealth and
+                                                                           simulation.
+Data-Driven        •   Harness data and technology to furnish high-        Make Rural America Healthy
+Solutions              quality health care services as close to a rural    Again: Increased access to care
+                       patient’s home as possible.                         closer to home
+Financial Solvency •   Use connected EHRs and data dashboards to track Sustainable Access: Financial
+Strategies             quality, utilization, and outcomes; drive           resilience and right-sized care models.
+                       continuous improvement and reduce avoidable
+                       transfers.                                          Innovative Care: Value-aligned
+                   •   Implement payment and delivery reforms that         payment and lower-cost settings.
+                       support regionalization, telehealth billing, treat-
+                       in-place reimbursement, and shared-service cost Tech Innovation: Data to manage
+                       recovery, transitioning to self-funded models by quality and costs across networks.
+                       FY2030.
+                   •   Service offerings via mobile and network models;
+                       diversify revenue streams through group
+                       purchasing and shared cybersecurity services.
+
+
+
+
+                                                     12
+                                                                                 Revised – 4.10.2026
+
+Cause Identification
+
+Four of Alabama’s rural hospitals have closed since 2019, three have closed their L&D units since
+
+late 2023, and three have reduced in-patient services to become REHs in the last few years, as
+
+noted in the rural facility financial health section.
+
+More than half of Alabama's rural hospitals are operating at a loss, with many reporting negative
+
+margins due to low patient volumes, high fixed costs, and the growing burden of uncompensated
+
+care. Low insurance reimbursements and a large percentage of uninsured people in Alabama are
+
+some of the reasons cited by the Alabama Hospital Association. xxxvii
+
+In August 2025, the Center for Healthcare Quality & Payment Reform (CHQPR) reported that 60
+
+percent of Alabama’s rural hospitals were at risk of closing, the seventh highest percentage among
+
+the 50 states. According to CHQPR, 48 percent of Alabama’s rural hospitals were at “immediate
+
+risk” (second highest percentage in the U.S.), and that in 2024, 65 percent had a negative margin
+
+(loss) on patient services.
+
+Each year, Alabama hospitals provide more than $650 million in uncompensated care. xxxviii In
+
+2023, 10.2 percent of people under age 65 in Alabama had no health insurance coverage, higher
+
+than 9.5 percent for the entire country. xxxix Further, Alabama ranks among the bottom 10 states for
+
+commercial insurance reimbursement for in-patient hospital care, further eroding financial
+
+stability. xl These pressures are magnified by the state’s high poverty rate. xli Alabama also has high
+
+rates of chronic diseases such as diabetes and cancer, which often lead to hospitalizations. Further,
+
+many patients, especially in rural counties, have Medicaid, which tends to pay less than
+
+commercial insurance. xlii In 2024, over 1 million Alabamians were eligible for Medicaid. xliii
+
+
+
+
+                                                   13
+                                                                              Revised – 4.10.2026
+
+The consequences of this decline reach far beyond hospital walls. When rural hospitals close or
+
+scale back services, residents lose access to emergency care, obstetrics, and other critical health
+
+services, leading to worse health outcomes and higher mortality rates. The closures also devastate
+
+local economies, as hospitals are often the largest employers and economic anchors in their
+
+communities. Alabama's rural healthcare safety net is, therefore, in jeopardy—not only threatening
+
+public health but also undermining rural economic vitality.
+
+Program Key Performance Objectives and Sustainability
+
+By FY2030, Alabama will achieve measurable outcomes and performance to improve healthcare
+
+delivery and will transition from ARHTP-supported implementation to self-sustainability.
+
+Sustainability will be achieved in several ways. Some initiatives simply require startup funding
+
+and will be sustainable after implementation. Others will be sustained through targeted state policy
+
+changes that enhance financial viability. Still other ARHTP initiatives offer a new, innovative
+
+method to deliver care that may require some level of public or private funding beyond the life of
+
+the program. In these instances, the initiatives will be designed to incentivize adoption of new
+
+approaches and enable more efficient practices that offer higher quality healthcare services to a
+
+broader population—it is truly an effort to drive transformation that would not be initiated
+
+otherwise.
+
+Strategic Goals Alignment
+
+See Table III – Goals and Strategies (pages 11-12).
+
+
+
+
+                                                14
+                                                                                           Revised – 4.10.2026
+
+Legislative or Regulatory Action
+
+Table IV – Technical Scoring Factors
+Scoring    Scoring Factor Description
+Factor
+B.2        Presidential Fitness Test      Alabama law requires all schools to carry out a system of physical
+                                          education that conforms to the program or course outlined by the
+                                          Alabama Department of Education. Ala. Code § 16-40-1.
+                                          Additionally, Ala. Admin. Code r. 290-3-1-.02(8)(c)1.(ii), at minimum,
+                                          requires all schools that allow substitution of physical education for
+                                          physical activity-based subjects, such as athletics, to administer the
+                                          Alabama Physical Fitness Assessment to all students in grades 2-12. The
+                                          governor’s office has begun discussions with the Alabama
+                                          Superintendent of Education to include the Presidential Fitness Test as
+                                          part of the physical education course for Alabama students once full
+                                          guidance is available.
+B.3        SNAP Waivers                 HB 31 was introduced for the 2026 legislative session and would require
+                                        Alabama to request a waiver from the USDA Food and Nutrition Service
+                                        to authorize the Alabama Department of Human Resources (DHR) to
+                                        exclude soda, energy drinks, candy, and prepared desserts from the
+                                        definition of eligible foods for the SNAP program.
+B.4        Nutrition Continuing Medical Currently, the State does not require a nutrition component to existing
+           Education                    Continuing Medical Education (CME) Requirements. However, the
+                                        governor’s office has begun discussions with the Alabama Board of
+                                        Medical Examiners (BME) to consider including a nutrition component
+                                        to CME requirements for physicians moving forward.
+C.3        Certificate of Need            Currently, according to the Cicero Institute report “Policymaking
+                                          Playbook for Certificate of Need Repeal: Ranking”, Alabama holds a
+                                          score of 80 using the metrics applied in the report.
+D.2        Licensure Compacts             Currently, Alabama is a member state for the Interstate Medical
+                                          Licensure Compact (IMLC) and serves as a State of principal license
+                                          (SPL). Alabama is a participant in the Nurse Licensure Compact (NLC)
+                                          and is considered a NLC state. Alabama is a participant in the EMS
+                                          Compact. Alabama is a member state in the Psychology
+                                          Interjurisdictional Compact (PSYPACT). Currently, Alabama is not a
+                                          member of the Physician Assistants (PA) compact.
+D.3        Scope of Practice              Currently, according to the PA State Practice Environment published by
+                                          the American Academy of Physician Associates (AAPA) and the
+                                          American Association of Nurse Practitioners (AANP) State Practice
+                                          Environment, Alabama is listed as “Reduced”. According to the Cicero
+                                          Institute, Alabama is reporting as having “Barriers to Innovation in Place:
+                                          0-3 points” for overall full practice authority, “Laws are Innovation
+                                          Ready: Full authority” for pharmacists full practice authority for drug
+                                          administration, “Improvements Needed: CLIA-Waived Authority” for
+                                          pharmacist full practice authority for laboratory testing, and “Barriers to
+                                          Innovation in Place: Restricted Authority” for pharmacist full practice
+                                          authority for independent prescribing. According to the Oral Health
+                                          Workforce Research Center, Alabama Dental Hygienists are shown to
+                                          have a “restricted” scope of practice.
+E.1        Medicaid provider      payment Alabama currently has value-based provider payment incentives for the
+           incentives                     Alabama Coordinated Health Network (ACHN) program.
+
+
+                                                       15
+                                                                                      Revised – 4.10.2026
+
+E.2     Individuals dually eligible for There are currently 11 Dual Eligible Special Needs Plans (D-SNP) in
+        Medicare and Medicaid           Alabama; currently 106,000 recipients on average are enrolled in a
+                                        Medicare Advantage Plan as dual-eligibles. Currently, Alabama does
+                                        have one Program of All-Inclusive Care for the Elderly (PACE) in the
+                                        Mobile/Baldwin County area with 200 participants.
+E.3     Short-term,    limited-duration STLDI plans are not currently restricted in Alabama beyond any federal
+        insurance                       guidance issued on August 7, 2025.
+F.1     Remote care services           Alabama Medicaid currently covers remote patient monitoring (RPM)
+                                       services through the Alabama Department of Public Health and the
+                                       University of Alabama-Birmingham.
+F.2     Data infrastructure            Alabama consistently meets the Transformed Medicaid Statistical
+                                       Information System (T-MSIS) targets for all three categories of
+                                       Outcome-Based Assessments (OBA) and Data Quality Issues and has
+                                       remained in the “blue” status on the national map. Medicaid does not
+                                       anticipate any challenges in maintaining this performance moving
+                                       forward, placing an emphasis on promptly reviewing and researching
+                                       new items as they arise. In support of this effort, monthly meetings are
+                                       held within the Agency to review issues, exchange updates and track
+                                       progress. In addition, Alabama actively participates in the Mathematica-
+                                       hosted monthly meetings to discuss T-MSIS topics, receive updates on
+                                       Data Quality Issues and collaborate on potential solutions.
+
+
+      1. Commitment and Scope: The State will pursue legislative and/or regulatory actions to
+
+         support telehealth parity and cross-facility credentialing; EMS Treat-in-Place
+
+         reimbursement; CCBHC certification and funding alignment; data sharing and
+
+         participation requirements for regional hubs; and healthcare services payment updates
+
+         to sustain rural facility solvency and network models, consistent with RHTP technical
+
+         factors. Other states policies that align with the RHTP or otherwise advance health
+
+         outcomes and healthcare service viability will likely be developed.
+
+      2. ARHTP Advisory Group via Executive Order: By executive order, the Governor will
+
+         establish an advisory group of key legislators and stakeholders to develop and advance
+
+         legislation, regulation, and other state policy changes aligned with ARHTP strategies
+
+         and timelines.
+
+             a. Charge: Recommend sustainable statutory and regulatory reforms for telehealth
+
+                 reimbursement, licensure and credentialing portability, EMS treat-in-place
+
+                                                   16
+                                                                               Revised – 4.10.2026
+
+                   payment, CCBHC expansion, data exchange participation and cybersecurity
+
+                   standards, workforce development initiatives, healthcare payment policies that
+
+                   stabilize rural providers and promote regionalization. and other policies as
+
+                   identified. The group will align policies with outcomes, access, quality, and cost
+
+                   goals for rural communities.
+
+               b. Timeline: The executive order will be issued by the Governor by early 2026.
+
+Milestones will ensure ARHTP policy fulfillments by December 31, 2027, to retain technical score
+
+credit; and by December 31, 2028, for factors B.2 and B.4.
+
+The state policy changes to be achieved by executive, legislative, or regulatory action will increase
+
+health literacy and promote healthy lifestyles, improve access to healthcare services, foster
+
+adoption of needed technology innovations, promote data-sharing and credentialing policies to
+
+enable timely specialty input and coordinated care, develop a robust health professional workforce,
+
+and achieve fiscally sound payment and shared-service models to lower the cost of healthcare
+
+delivery.
+
+   III. Proposed Initiatives and Use of Funds
+
+Summary
+
+
+       •    The Collaborative Electronic Health Record (EHR), IT, and Cybersecurity
+
+            Initiative will help modernize healthcare IT infrastructure by establishing regional
+
+            "hubs" for IT and cybersecurity support and will assist with electronic health record
+
+            (EHR) integration for rural hospitals and clinics. This regionalized model will reduce
+
+            costs, improve interoperability, and enhance system reliability statewide while
+
+            allowing independent providers to maintain their independence.
+
+                                                  17
+                                                                         Revised – 4.10.2026
+
+
+•   The Rural Health Initiative will expand access to specialty and emergent care through
+
+    a network of telehealth hubs linking EMS, first responders, hospitals, and other
+
+    healthcare facilities to regional referral centers. It aims to bring advanced services such
+
+    as tele-stroke, tele-behavioral health, and remote patient monitoring directly into rural
+
+    communities, improving health outcomes and reducing unnecessary transfers.
+
+
+•   The Maternal and Fetal Health Initiative uses digital tools to connect rural facilities
+
+    with maternal-fetal medicine specialists, provides access to telerobotic ultrasound,
+
+    addresses shortages of obstetric services, and reduces high-risk maternal and infant
+
+    morbidity in underserved communities. The initiative will also include expansion of an
+
+    existing pilot program to provide emergency L&D carts to rural hospitals, thereby
+
+    offering lifesaving care and stabilization for mothers and newborns until they can be
+
+    relocated to an appropriate hospital setting. xliv
+
+
+•   To ensure long-term viability for rural providers, the Rural Workforce Initiative
+
+    invests in coordinated training and recruitment pipelines for all healthcare
+
+    professionals, including but not limited to, physicians, nurses, EMS professionals,
+
+    certified nurse midwives, dentists, dental hygienists, and dental assistants, and
+
+    leverages remote learning and clinical partnerships to grow the local healthcare
+
+    workforce. It further provides incentives for providers to practice in rural areas and
+
+    expands Graduate Medical Education programs.
+
+
+•   Complementary initiatives, including the Cancer Digital Regionalization Initiative,
+
+    the Simulation Training Initiative, the Statewide EMS Trauma and Stroke
+
+    Initiative, and the EMS Treat-In-Place Initiative will advance preventative care,
+
+
+
+                                           18
+                                                                                Revised – 4.10.2026
+
+              strengthen provider readiness and interconnectivity, and enhance emergency response
+
+              capacity. The Mental Health Initiative, Community Medicine Initiative, and Rural
+
+              Health Practice Initiative will expand behavioral health access, preventative wellness
+
+              care, integrated primary care delivery, and dental care through both mobile-units and
+
+              community-based clinics.
+
+Together, these initiatives will create a sustainable, transformative, data-driven, regionally-
+
+coordinated healthcare system by offering rural providers needed assets and tools to improve the
+
+quality of care they deliver in a sustainable, public-facing way. The reimagined system will
+
+improve rural access to care, enhance clinical capacity, and ensure that Alabama's rural residents
+
+receive the highest-quality healthcare possible as close to home as possible.
+
+In implementing ARHTP initiatives and activities, ADECA will conduct duplication assessments
+
+in compliance with its duplication policy (attached to the Duplication Assessment) to ensure that
+
+RHTP funds are not used to duplicate state, local, or federally funded programs and activities.
+
+Initiatives
+
+        1. Collaborative EHR, IT, and Cybersecurity Initiative
+
+Description: The Collaborative EHR, IT, and Cybersecurity Initiative will assist rural
+
+healthcare facilities in working with regional referral centers to upgrade, support, and expand IT
+
+infrastructure and cybersecurity operations, integrate EHR systems, connect to HIE, improve and
+
+increase collaboration and communication between regional partners, and create cost savings
+
+through the creation of a “shared services” model with regionalized services, including
+
+cybersecurity monitoring and response.
+
+
+
+
+                                                  19
+                                                                                 Revised – 4.10.2026
+
+With very thin, and sometimes negative, operating margins, many rural providers do not have
+
+funds necessary to update critical operations infrastructure, including IT systems. Older systems
+
+are more costly to operate and maintain due to staffing requirements, cybersecurity inadequacies,
+
+and lack of interoperability. A lack of uniﬁed or integrated EHR systems can reduce the quality of
+
+patient care, prevent necessary information exchange, and potentially increase the risk of hospital
+
+readmissions as providers do not have access to patient medical history and other patient health
+
+information at the time of treatment.
+
+This initiative will allow regional hospitals and rural healthcare facilities to contract with regional
+
+referral centers as “hubs,” which serve as IT and cybersecurity resource centers. These hubs will
+
+establish IT provider-based centers to provide services, including cybersecurity upgrades,
+
+monitoring, and response; infrastructure and regulatory compliance assessments; incident response
+
+and recovery support; reduction in overall hospital expenditures through shared services and group
+
+purchasing; ensure foundational IT operations are in place to support clinical care and regulatory
+
+compliance; and provide technical support and guidance in replacing outdated and insecure
+
+equipment used in direct patient care. The hubs will also provide guidance and technical support
+
+in the adoption and/or upgrading of EHR platforms to a uniﬁed regional provider. Interoperability
+
+between EHR systems that serve multiple regions can be expeditiously, efficiently and
+
+economically achieved by connecting them to the Alabama One Health Record (ALOHR) Health
+
+Information Exchange (HIE), operated by the Alabama Medicaid Agency. To enhance
+
+sustainability, priority consideration will be given to ALOHR proposals and preferred vendors on
+
+the Certified Health Information Technology (IT) Product List (CHPL).
+
+
+
+
+                                                  20
+                                                                                       Revised – 4.10.2026
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to include
+
+increased adoption of shared services by more rural healthcare facilities and further modernize
+
+outdated healthcare technologies.
+
+Proposed uses of funds:
+
+
+        •   Establishment of regional IT provider-based hubs to assist/advise rural providers in
+
+            upgrading IT and cybersecurity platforms; provide monitoring and response to
+
+            incidents; provide infrastructure and regulatory compliance; assessments; provide
+
+            incident response and recovery support; provide infrastructure and advise on EHR
+
+            upgrades/conversions.
+
+
+        •   Procurement and deployment of updated IT and cybersecurity platforms.
+
+
+        •   Procurement and deployment of new/upgraded/updated EHR platforms.
+
+Table V-A1. Collaborative EHR, IT, and Cybersecurity Initiative Summary
+Category                      Information
+Main strategic goals          Sustainable access; Tech innovation
+Uses of funds                 D, F, K
+Technical score factors       C.1, F.2, F.3
+Impacted counties             005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                              041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                              093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131
+Estimated required funding    $125M for 5 years; $31.6M for year 1
+Key stakeholders                • Hospitals                             • Federally Qualified Health
+                                • Critical Access Hospitals                  Centers
+                                • Rural Emergency Hospitals             •    Certified Community Behavioral
+                                • IHS/Tribal Facilities                      Health Clinics
+                                • Rural Health Clinics                  •    Community Mental Health
+                                                                             Centers
+
+
+Table V-A2. Collaborative EHR, IT, and Cybersecurity Initiative Outcomes and Metrics
+   Outcome (Program Metrics)                                                Impact Level
+1 Number of regional hubs established and serving as IT provider-based hubs Total statewide
+   to local providers
+2 Number of rural providers connected to regional hubs via IT and security Number per county Total statewide
+   operations
+
+
+
+                                                      21
+                                                                                        Revised – 4.10.2026
+
+3 Number of rural providers connected to regional hubs via EHR               Number per county Total statewide
+
+4 Number of EHR upgraded to connect with ALOHR HIE                           Number per county Total statewide
+
+  Outcome (Technology Use Metrics)                                           Impact Level
+5 Cost savings                                                               By provider Total statewide
+
+6 Interoperability of rural providers and health care networks over the ALOHR By healthcare network Total
+  HIE                                                                         Statewide
+7 Upgraded systems uptime percentage                                          By provider
+8 Number of cybersecurity alerts triaged/worked by IT-provider based hubs     Total statewide
+
+
+        2. Rural Health Initiative
+
+Description:
+
+The primary purpose of the Rural Health Initiative is to efficiently provide the most appropriate
+
+level of care to patients in rural areas as close to home as possible. This will be accomplished
+
+through adoption of telehealth/tele-consult services and minor infrastructure upgrades to provide
+
+technology-based access to mental health, chronic disease management, and primary care services
+
+to address health disparities across rural Alabama. Using Auburn University’s Rural Health
+
+Initiative as a model, Alabama has already demonstrated the State’s ability to implement this type
+
+of initiative to bring a successful—and sustainable—healthcare services to rural Alabama citizens.
+
+This initiative is designed to deploy telehealth/tele-consult services to EMS, FQHCs, Rural Health
+
+Clinics, rural hospitals, critical access hospitals, REHs, regional referral centers, and other
+
+healthcare facilities. Access to these services will increase the availability of services provided and
+
+allow patients to receive appropriate care closer to home. It will reduce EMS transport and wait
+
+times, lessen patient waiting times, and improve healthcare facility patient volumes. Resources
+
+offered through this initiative will deploy proven telehealth programs to rural areas across the state,
+
+speed adoption of new telehealth service lines, and foster technological methods of chronic disease
+
+
+
+                                                      22
+                                                                              Revised – 4.10.2026
+
+prevention and management. Access to care will also be improved for maternal and fetal health,
+
+cardiac care, mental health and substance use disorder treatment, and other conditions.
+
+The initiative will also integrate inpatient virtual care capabilities, including tele-stroke, tele-
+
+behavioral health, tele-ICU, and virtual nursing; ambulatory access via virtual visits and e-consult
+
+services; remote patient monitoring for chronic care management; and specialized programs,
+
+including dialysis services and infectious disease stewardship. Equipment upgrades and minor
+
+building renovations or alterations will be allowed to prepare providers to offer services
+
+contemplated by this initiative and to ensure long-term costs are commensurate with patient
+
+volume. Additionally, this initiative will support the creation or expansion of non-emergency
+
+transport services from homes or from nursing homes.
+
+The final component of this initiative will support a pilot program to create a Rural Health
+
+Network, preferably an academic medical center-supported partnership with rural healthcare
+
+facilities to create a shared-services model. The shared-services model should consolidate billing,
+
+linen, shredding, medical waste, laboratory, management, and other services to create operational
+
+efficiency and cost savings for smaller rural healthcare facilities. This integrated rural health
+
+network will allow participants to coordinate resources, achieve economies of scale, improve
+
+financial viability, and enhance sustainability through reduced overhead costs and improved
+
+operational efficiencies. A goal of the program is to create a shared governance strategy that
+
+benefits all network members, allows all participants to have a voice in decision-making, and
+
+ensure smaller rural providers benefit from the cooperation and coordination offered by the larger
+
+providers in the network.
+
+
+
+
+                                                23
+                                                                               Revised – 4.10.2026
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to more
+
+extensively support the establishment of regional hubs, help modernize more rural healthcare
+
+facilities, and duplicate the Rural Health Network pilot program if demand exists.
+
+Proposed uses of funds:
+
+
+           •   Creation of regional hubs to serve as primary support centers to local rural providers
+
+               by providing telehealth and tele-consult services for specialties not currently
+
+               offered at rural locations.
+
+
+           •   Funding healthcare facilities to integrate with a regional hub to receive and offer
+
+
+           •   telehealth/tele-consult services to patients.
+
+
+           •   Funding for local hospitals to serve as secondary support center for primary care
+
+               services to local clinics if required and for local clinics to integrate with local
+
+               hospitals to receive the services.
+
+
+           •   Funding equipment upgrades and minor building renovations or alterations to
+
+               prepare rural healthcare facilities to provide the care contemplated by this section
+
+               and ensure that long term costs are commensurate with patient volume.
+
+
+           •   Creation or expansion of non-emergency transportation systems/entities.
+
+
+           •   Creation of “Rural Health Network” pilot program utilizing a shared services model
+
+               for services, including combined billing, linen, shredding, medical waste,
+
+               laboratory, management etc. Priority consideration will be given to applicants
+
+               partnering with an academic medical center that also seeks to be approved for
+
+
+
+
+                                                    24
+                                                                                        Revised – 4.10.2026
+
+                 funding to upgrade IT, EHR, and Cybersecurity abilities through the appropriate
+
+                 initiative.
+
+Table VI-B1. Rural Health Initiative Summary
+Category                        Information
+Main strategic goals            Make rural America healthy again; Workforce development; Sustainable access;
+                                Innovative care; Tech innovation
+Uses of funds                   A, C, D, E, F, G, H, I, K (non-exhaustive)
+Technical score factors         B.1, C.1, D.1, F.1, F.2, F.3 (non-exhaustive)
+Impacted counties               005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                                041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                                093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131 (non-exhaustive)
+Estimated required funding      $275M for 5 years; $60.9M for year 1
+Key stakeholders                  • Hospitals                              • Federally Qualified Health
+                                  • Critical Access Hospitals                  Centers
+                                  • Rural Emergency Hospitals              • Certified Community Behavioral
+                                  • IHS/Tribal Facilities                      Health Clinics
+                                  • Rural Health Clinics                   •   Community Mental Health
+                                                                               Centers
+
+
+Table VI-B2. Rural Telehealth Initiative Outcomes and Metrics
+   Outcome (Program Metrics)                                                 Impact Level
+1 Number of regional hubs created                                            Total statewide
+2 Number of endpoints deployed                                               Number per county Total statewide
+
+3 Number of telehealth consultations provided                                Number per county Total statewide
+
+4 Number of transfers avoided                                                Number per county Total statewide
+
+7 Number of non-emergency transportation services created or expanded        Total statewide
+8 Number of rural providers joining Rural Health Network pilot               Total statewide
+9 Number of shared services created in Rural Health Network                  Total statewide
+
+
+        3. Maternal and Fetal Health Initiative – Obstetric Digital Regionalization Initiative
+
+Description: The Maternal and Fetal Health Initiative – Obstetric Digital Regionalization
+
+Initiative addresses the maternal and fetal health crisis impacting rural Alabama due to the closure
+
+of multiple L & D units at rural facilities. Many rural facilities have closed their L&D units due to
+
+the overhead costs of maintaining 24/7 coverage with low patient volumes. Further, the loss of
+
+rural L&D services has led to a decrease in the provision of primary maternal and fetal health care
+
+
+
+                                                      25
+                                                                                Revised – 4.10.2026
+
+in rural counties as OB-GYNs seek to practice in locations closer to hospitals with active, fully
+
+staffed L&D units.
+
+While maternal and fetal health services limitations impact prenatal and postnatal care for all
+
+women, the impact is most acute for women with "high-risk" pregnancies. This initiative addresses
+
+the lack of access to care by connecting smaller rural providers and healthcare facilities without
+
+immediate access to high-quality maternal and fetal health services to regional care hubs that can
+
+provide those services via digital maternity care platforms and by using telerobotic ultrasound
+
+devices to ensure that patients receive appropriate care close to home.
+
+Another component of this initiative is expansion of a current pilot project to provide emergency
+
+L&D carts to healthcare facilities that do not have L&D units. Emergency L&D carts provide
+
+lifesaving care and stabilization for mothers and newborn babies until they reach an appropriate
+
+hospital setting. This is a low-cost approach to provide lifesaving services and improve mortality
+
+rates.
+
+This initiative also allows for regional care hubs to connect with a central coordinating provider
+
+and access specialty services not offered at the regional hub level. A central provider can then offer
+
+services to regional care hubs and to smaller healthcare facilities collaborating with the regional
+
+hubs.
+
+Equipment upgrades and minor building renovations or alterations would also be allowed under
+
+this initiative. This will ensure healthcare facilities have the infrastructure and equipment
+
+necessary to provide appropriate services.
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to ensure
+
+more rural healthcare facilities are equipped to offer tele-maternal healthcare services.
+
+
+                                                 26
+                                                                                      Revised – 4.10.2026
+
+Proposed uses of funds:
+
+
+        •   Establish regional referral hubs focused on maternal and fetal health.
+
+
+        •   Provide funding for healthcare facilities, including but not limited to, rural hospitals,
+
+            critical access hospitals, REHs, rural health clinics, FQHCs, to connect with regional
+
+            referral hubs.
+
+
+        •   Acquire and install telerobotic ultrasound devices at regional hubs and, through the
+
+            regional hubs, to smaller rural hubs throughout the state to allow for optimization of
+
+            maternal and fetal health services delivery.
+
+
+        •   Deploy emergency L&D carts to rural healthcare facilities without L&D units.
+
+Table VII-C1. Maternal and Fetal Health Initiative Summary
+Category                      Information
+Main strategic goals          Make rural America healthy again; Sustainable access; Innovative care; tech
+                              innovation
+Uses of funds                 A, C, D, F, G, I, K (non-exhaustive)
+Technical score factors       B.1, B.2, C.1, F.1, F.2, F.3 (non-exhaustive)
+Impacted counties             005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                              041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                              093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131 (non-exhaustive)
+Estimated required funding    $24M for 5 years; $7.1M for year 1
+Key stakeholders                • Hospitals                               • Federally Qualified Health
+                                • Critical Access Hospitals                  Centers
+                                • Rural Emergency Hospitals               • Non-profit healthcare
+                                • IHS/Tribal Facilities                      organizations
+                                • Rural Health Clinics
+
+
+Table VII-C2. Maternal and Fetal Health Initiative Outcomes and Metrics
+   Outcome (Program Metrics)                                             Impact Level
+1 Number of regional hubs created                                        Total statewide
+2 Number of local providers connected with regional providers to receive Number per county Total statewide
+   services
+3 Number of telehealth consultations provided                            Number per county Total statewide
+4 Number of transfers avoided                                            Number per county Total statewide
+5 Number of telerobotic ultrasound procedures performed                  Number per county Total statewide
+6 Number of emergency labor and delivery deployed and used               Number per county Total statewide
+
+
+
+
+                                                     27
+                                                                                 Revised – 4.10.2026
+
+
+       4. Rural Workforce Initiative
+
+Description: The purpose of the Rural Workforce Initiative is to increase the number and quality
+
+of healthcare providers in rural Alabama, including physicians in needed specialties, nurses (both
+
+LPN and RN), EMS professionals (both EMTs and paramedics), certified nurse midwives, dental
+
+hygienists, and technical staff. The state’s top 25 occupations in highest demand include RNs and
+
+LPNs, medical and health services managers, and Nurse Practitioners. xlvxlv As of May 2025, 61 of
+
+Alabama’s 67 counties are fully designated as primary care professional shortage areas, with all
+
+but one being mental health professional shortage areas. Moreover, all of these areas are partial or
+
+full medically underserved areas. xlvi Maternity care target areas are also in 61 counties. These are
+
+high-need, primary care Health Professional Shortage Areas (HPSAs) that meet specific criteria
+
+based on the ratio of women to maternity care providers, low-income women, distance/travel time
+
+to care, fertility rates, social vulnerability, and maternal health indicators (pre-pregnancy diabetes,
+
+hypertension, obesity, and early access to prenatal care). Health professional shortages have a
+
+detrimental impact on the provision of care in rural areas and can contribute to a reduction in
+
+healthy lifestyles among residents.
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to help
+
+establish or expand additional GME programs in rural areas and to incentivize more healthcare
+
+professionals to train and work in rural Alabama.
+
+Proposed uses of funds:
+
+
+       •   Provide funding to the Alabama School of Healthcare Sciences (ASHS) for curriculum
+
+           development and training equipment procurement. Established in 2025 and accepting
+
+           students in 2026, the ASHS is free, state- supported residential specialty high school in
+
+
+                                                  28
+                                                                         Revised – 4.10.2026
+
+    rural Demopolis, Alabama, which will offer a first-of-its-kind, hands-on curriculum
+
+    designed to inspire and educate young Alabamians for in-demand, high-impact roles in
+
+    healthcare with a focus on critical needs in rural areas.
+
+
+•   Provide funding to develop and implement remote training opportunities for emergency
+
+    medical technicians (EMTs) and paramedics. Online and virtual technologies will be
+
+    prioritized to reach rural students (“Bring the class to the student”).
+
+
+•   Develop a centrally-managed healthcare workforce pipeline partnership program
+
+    between K-12 education, community colleges, institutions of higher education, the
+
+    Alabama Department of Workforce, and rurally-located healthcare providers to develop
+
+    and expand accelerated healthcare professional training programs designed to shorten
+
+    completion times and integrate in-facility experience toward credentialing
+
+    requirements. In-facility training includes on-site virtual learning, potentially using
+
+    staff as trainers, and on-the-job credentialling.
+
+
+•   Establish new or expand existing Graduate Medical Education (GME) programs in
+
+    rural areas.
+
+
+•   Provide funding to create new or expand existing training programs for Certified Nurse
+
+    Midwives.
+
+
+•   Provide funding to create new or expand existing training programs for licensed
+
+    practical nurses (LPNs) and registered nurses (RNs) in rural areas.
+
+
+•   Provide incentives for healthcare practitioners, dentists, and dental hygienists to
+
+    relocate to rural areas.
+
+
+
+                                          29
+                                                                                       Revised – 4.10.2026
+
+
+        •   Provide free or reduced-cost education and training for people who commit to five
+
+            years of practice in rural Alabama.
+
+Table VIII-E1. Rural Workforce Initiative Summary
+Category                      Information
+Main strategic goals          Make rural America healthy again; Workforce development
+Uses of funds                 A, D, E, G, K
+Technical score factors       B.1, B.2, C.1, C.2, F.1
+Impacted counties             005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                              041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                              093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131
+Estimated required funding    $309.75M for 5 years; $60.9M for year 1
+Key stakeholders                • Hospitals                             • Federally Qualified Health Centers
+                                • Critical Access Hospitals             • Non-profit healthcare
+                                • Rural Emergency Hospitals                  organizations
+                                • IHS/Tribal Facilities                 • Community partners
+                                • Rural Health Clinics
+                                • Skilled Nursing Facilities
+
+
+Table VIII-E2. Rural Workforce Initiative Outcomes and Metrics
+   Outcome (Program Metrics)                                                 Impact Level
+1 Number of new students accepted to rural remote training programs          Number per county Total statewide
+2 Number of programs established at existing rural providers to offer remote Total statewide
+   training for EMS
+3 Number of programs established at existing rural providers to offer remote Total statewide
+   training for LPN/RN
+4 Number of programs established to provide specialized GME in rural areas Total statewide
+5 Number of GME program graduates practicing in rural counties post- Number per county Total statewide
+   education
+6 Number of students entering certified nurse midwife training programs Total statewide
+   created or expanded through this initiative
+
+
+        5. Cancer Digital Regionalization Initiative - Prevention, Screening and Treatment
+
+Description: One cause of rural health disparities is inadequate access to preventative care,
+
+detection, and treatment for cancer. In 2023, ADPH established OPERATION WIPE OUT xlvii as
+
+an evidence-based plan to eliminate cervical cancer. Alabama continues to be the ﬁrst and only
+
+state in the U.S. with such a plan in place. The Cancer Digital Regionalization Initiative will
+
+replicate the successful model established by OPERATION WIPE OUT to target other cancers for
+
+prevention and early detection through cross-sector partnerships and improved access to screening
+
+
+                                                     30
+                                                                                       Revised – 4.10.2026
+
+services in rural areas. Once replicated, three core principles will be critical: 1) the initiative is not
+
+led by one centralized organization; 2) it is based on strategic partnerships, with each partner plays
+
+important roles; and 3) local partners take the lead in their own communities. Moreover, this model
+
+serves as an innovative approach to screening that offers greater efficiencies, more effectiveness,
+
+and broader reach than traditional brick-and-mortar clinics.
+
+Proposed uses of funds:
+
+
+        •   Expand capabilities of a proven, effective cancer detection system.
+
+
+        •   Establish regional referral hubs to provide cancer detection services to local rural
+
+            healthcare facilities and help facilitate connection with these hubs.
+
+
+        •   Provide funding for mobile screening units to be offered in conjunction and
+
+            consultation with local providers to allow for screening to be offered locally without
+
+            accidental duplication of services with established local primary care physicians,
+
+            clinics, and hospitals that already have established screening protocols and services.
+
+
+        •   Use community partnerships to establish community activation teams to provide social
+
+            mobilization and education.
+
+Table IX-D1. Cancer Prevention, Screening, and Treatment Initiative Summary
+Category                      Information
+Main strategic goals          Make rural America healthy again
+Uses of funds                 A, D, G, I, K (non-exhaustive)
+Technical score factors       B.1, B.2, C.1, F.1 (non-exhaustive)
+Impacted counties             005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                              041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                              093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131 (non-exhaustive)
+Estimated required funding    $25M for 5 years; $8.1M for year 1
+Key stakeholders                • Hospitals                             • Federally Qualified Health
+                                • Critical Access Hospitals                  Centers
+                                • Rural Emergency Hospitals             • Non-profit healthcare
+                                • IHS/Tribal Facilities                      organizations
+                                • Rural Health Clinics                  • Community partners
+
+
+                                                      31
+                                                                                    Revised – 4.10.2026
+
+
+
+Table IX-D2. Cancer Prevention, Screening, and Treatment Initiative Outcomes and Metrics
+   Outcome (Program Metrics)                                             Impact Level
+1 Number of regional hubs created                                        Total statewide
+2 Number of local providers connected with regional providers to receive Number per county Total statewide
+   services
+3 Number of mobile screening opportunities offered                       Number per county Total statewide
+4 Number of patients screened using mobile services                      Number per county Total statewide
+
+
+        6. Simulation Training Initiative
+
+Description: The Simulation Training Initiative will improve the quality of care in rural
+
+healthcare facilities by providing training in speciﬁc services that are needed but not typically
+
+offered.
+
+This initiative will allow rural healthcare providers to enhance their workforce and improve their
+
+level of patient care through broader access to training. It will reduce patient travel and wait times,
+
+increase providers’ patient volumes and revenues, reduce overcrowding at tertiary care providers,
+
+and ensure patients receive the appropriate level of care at a location as close to home as possible.
+
+For example, the Children's Hospital of Alabama (Children's) currently offers COACHES
+
+(Children's of Alabama Community Healthcare Education Simulation), a healthcare education
+
+simulation program administered by a multidisciplinary team of pediatric critical care trained
+
+physicians and nurses that conduct simulation training interventions in rural and community
+
+hospitals with a goal of improving pediatric patient outcomes. Another effective simulation
+
+training program is offered by Faulkner University. With proper training, local providers are better
+
+equipped to keep patients within their community, when appropriate. This reduces healthcare
+
+system expenditures and patient transportation needs, while increasing local provider volumes and
+
+reimbursements and decreasing overcrowding and wait times at larger referral centers.
+
+
+
+                                                      32
+                                                                                           Revised – 4.10.2026
+
+A goal of this initiative is to increase the amount of simulation training offered each year and to
+
+create and implement additional programs in other specialties. Priority consideration will be given
+
+to applicants that already operate in the state and can prove the effectiveness of their training.
+
+Proposed uses of funds:
+
+
+        •    Expand or replicate simulation-based training programs to increase the amount of
+
+             simulation training offered each year.
+
+
+        •    Create new or expand other existing simulation-based training programs.
+
+Table X-F1. Simulation Training Initiative Summary
+Category                       Information
+Main strategic goals           Make rural America healthy again; Sustainable access; Workforce development
+Uses of funds                  A, B, D, E, G, J, K (non-exhaustive)
+Technical score factors        B.1, C.1, C.2, D.1 (non-exhaustive)
+Impacted counties              005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                               041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                               093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131 (non-exhaustive)
+Estimated required funding     $15.5M for 5 years; $1M for year 1
+Key stakeholders                 • Hospitals                             • Federally Qualified Health
+                                 • Critical Access Hospitals                  Centers
+                                 • Rural Emergency Hospitals             • IHS/Tribal Facilities
+                                 • Rural Health Clinics                  • Non-profit healthcare
+                                                                              organizations
+
+
+Table X-F2. Simulation Training Initiative Outcomes and Metrics
+   Outcome                                                                        Impact Level
+1 Number of simulation programs established or expanded to deliver specialty- Total statewide
+   specific training
+2 Number of simulation training sessions conducted                                Number per county Total statewide
+3 Number of patient transfers to regional referral centers from specialties with Number per county Total statewide
+   established simulation training
+4 Number of patients treated locally by providers in specialties with established Number per county Total statewide
+   simulation training
+
+
+        7. Statewide EMS Trauma and Stroke Initiative
+
+Description: The Alabama Trauma Communications Center directs ambulances statewide that
+
+carry trauma and stroke patients to the most appropriate available hospital emergency departments
+
+
+                                                        33
+                                                                                     Revised – 4.10.2026
+
+for treating the conditions. The Center is an operational arm of the Birmingham Regional EMS
+
+System (BREMSS), one of six regional EMS agencies in Alabama, and the only EMS agency with
+
+a statewide reach. The Center operates in Birmingham but directs ambulances statewide to roughly
+
+100 urban and rural hospitals across Alabama and in four neighboring states. The Center is
+
+developing plans to expand its statewide hospital-referral system to also include routing patients
+
+experiencing a ST-elevation myocardial infarction (STEMI) heart attack.
+
+Under the Statewide EMS Trauma and Stroke Initiative, stateside hospital-referral services
+
+could be expanded to include additional patient conditions for which ambulances could be routed
+
+to the most appropriate available hospital, potentially to include psychiatric distress, L&D,
+
+respiratory distress, and many other conditions. The Trauma Communications Center is partially
+
+funded by the Alabama Education Trust Fund through the ADPH, and additional funding through
+
+this initiative would allow for a lifesaving expansion of its efforts.
+
+Proposed use of funds:
+
+
+        •   Expand EMS diversion system availability statewide to all EMS and hospitals. Priority
+
+            consideration will be given to applicants that already operate systems servicing
+
+            multiple EMS partners and hospitals throughout the state, instead of merely at a
+
+            regional level.
+
+Table XI-G1. Statewide EMS Trauma and Stroke Initiative Summary
+Category                     Information
+Main strategic goals         Make rural America healthy again; Sustainable access; Innovative care; Tech
+                             innovation
+Uses of funds                F, G, H, I, K (non-exhaustive)
+Technical score factors      B.1, B.2, C.1, C.2, F.1, F.2 (non-exhaustive)
+Impacted counties            001, 003, 005, 007, 009, 011, 013, 015, 017, 019, 021, 023, 025, 027, 029, 031,
+                             033, 035, 037, 039, 041, 043, 045, 047, 049, 051, 053, 055, 057, 059, 061, 063,
+                             065, 067, 069, 071, 073, 075, 077, 079, 081, 083, 085, 087, 089, 091, 093, 095,
+                             097, 099, 101, 103, 105, 107, 109, 111, 113, 115, 117, 119, 121, 123, 125, 127,
+                             129, 131, 133
+
+
+                                                    34
+                                                                                        Revised – 4.10.2026
+
+Estimated required funding       $20M for 5 years; $4M for year 1
+Key stakeholders                  • EMS                                  •   Federally Qualified Health Centers
+                                  • Rural hospitals                      •   Rural Health Clinics
+                                  • Critical Access Hospitals            •   Community Partners
+                                  • Rural emergency hospitals            •   Regional referral centers
+
+
+Table XI-G2. Statewide EMS Trauma and Stroke Initiative Outcomes and Metrics
+   Outcome                                                                    Impact Level
+1 Number of hospitals participating in diversion systems                      Number per county Total statewide
+2 Number of EMS/ambulance services participating in diversion systems         Number per county Total statewide
+3 Number of new service lines included in diversion systems                   Total statewide
+4 Number of calls appropriately diverted to suitable locations through use of Number per county Total statewide
+   diversion systems
+
+
+        8. EMS Treat-in-place Initiative
+
+Description: Many EMS units are often unavailable to take local calls because they are
+
+transporting low-acuity patients that do not require full emergency department (ED) level of care
+
+or inpatient admission. These situations reduce overall ambulance availability for true emergencies
+
+in local communities and are exacerbated in rural communities with lower overall ambulance
+
+availability. Unnecessary transport also increases the amount of time EMS is required to wait at
+
+EDs before discharging patients to hospitals, increasing the total EMS turnaround time and
+
+reducing coverage for other patients. Implementing an EMS Treat-in-place Initiative model
+
+would allow EMS providers to treat patients on-site and be reimbursed for their services, saving
+
+transportation costs, reducing ED overcrowding, and decreasing the resource burden on hospitals.
+
+It also creates a needed revenue source for EMS providers and keeps ambulances in the
+
+community, thereby reducing response times and improving overall care for residents, especially
+
+in rural areas.
+
+Proposed uses of funds:
+
+
+        •   Establish a pilot program to institute "treat-in-place" for EMS providers.
+
+
+                                                      35
+                                                                                      Revised – 4.10.2026
+
+
+        •   Fund protocol development, telehealth consulting equipment, software, cellular
+
+            connectivity, training, and other implementation needs as identified.
+
+Table XII-H1. EMS Treat-In-Place Initiative Summary
+Category                      Information
+Main strategic goals          Make rural America healthy again; Sustainable access; Innovative care; Tech
+                              innovation
+Uses of funds                 A, D, E, F, G, I, K (non-exhaustive)
+Technical score factors       B.1, B.2, C.1, C.2, D.3, F.1, F.2 (non-exhaustive)
+Impacted counties             001, 003, 005, 007, 009, 011, 013, 015, 017, 019, 021, 023, 025, 027, 029, 031,
+                              033, 035, 037, 039, 041, 043, 045, 047, 049, 051, 053, 055, 057, 059, 061, 063,
+                              065, 067, 069, 071, 073, 075, 077, 079, 081, 083, 085, 087, 089, 091, 093, 095,
+                              097, 099, 101, 103, 105, 107, 109, 111, 113, 115, 117, 119, 121, 123, 125, 127,
+                              129, 131, 133
+Estimated required funding    $25M for 5 years; $5M for year 1
+Key stakeholders                • EMS                                    • Critical Access Hospitals
+                                • Rural hospitals                        • Rural emergency hospitals
+
+
+Table XII-H2. EMS Treat-In-Place Initiative Outcomes and Metrics
+   Outcome                                                                 Impact Level
+1 Number of patients treated in place through the treat-in-place program   Number per county Total statewide
+2 Number of emergency transports avoided due to treat-in-place           Number per county Total statewide
+3 Number of telehealth consultations conducted as part of treat-in-place Number per county Total statewide
+  encounters
+4 Number of EMS providers offering treat-in-place services               Total statewide
+
+
+        9. Mental Health Initiative
+
+Description: Mental healthcare awareness and access to appropriate mental health services is
+
+inadequate, especially in rural areas of Alabama, which can exacerbate economic, educational, and
+
+other health outcomes. The Mental Health Initiative aims to expand two distinct phases of mental
+
+health access in rural Alabama.
+
+        1. A school-based tele-mental health model will increase awareness to educators,
+
+            students, and their families while providing the broadest level of access to appropriate
+
+            services. School-based tele-mental health will help address Alabama’s urgent youth
+
+            mental health needs, as 1 in 6 Alabama youth experience a mental health disorder and
+
+
+
+                                                       36
+                                                                       Revised – 4.10.2026
+
+   62 percent of Alabama teenagers with depression are not receiving treatment. xlviii While
+
+   initial contract costs can be a perceived barrier to entry for some K-12 schools,
+
+   initiating contractual services with a tele-mental health provider can establish an
+
+   effective and sustainable model of student- and family-centered care that is primarily
+
+   paid for through service reimbursements. Part of this initiative will allow K-12 schools
+
+   to initiate a sustainable tele-mental health program. Priority consideration will be given
+
+   to providers that 1) have a track record of statewide implementation in rural
+
+   communities; 2) provide evidence of support from Alabama LEAs to participate in the
+
+   pilot; 3) maximize third party billing with private insurance and Medicaid; and 4) have
+
+   a track record of providing telehealth services to students, families, and school staff.
+
+2. CCBHCs are designed to ensure access to coordinated comprehensive behavioral
+
+   health care, xlix and are required to serve anyone who requests care for mental health or
+
+   substance use disorder, regardless of ability to pay. CCBHCs are required to provide
+
+   Crisis Services, Outpatient Mental Health and Substance Use Disorder treatment,
+
+   Person and Family Centered Treatment Planning, Community- Based Mental Health
+
+   Care for Veterans, Peer Family Support and Counselor Services, Targeted Care
+
+   Management, Outpatient Primary Care Screening and Monitoring, Psychiatric
+
+   Rehabilitation Services and Screening, Diagnosis, and Risk Assessment for patients.
+
+   While several CMHCs in Alabama have already begun the process of converting to
+
+   CCBHCs, many other CMHCs do not have the ﬁnancial capability to convert to this
+
+   model. Part of this initiative will allow the remaining CMHCs the opportunity to apply
+
+   for funding to convert to a CCBHC.
+
+
+
+
+                                         37
+                                                                                        Revised – 4.10.2026
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to expand
+
+adoption of school-based tele-mental health services and support additional CCBHC conversions.
+
+Proposed use of funds:
+
+
+            •   Support planning, development, and implementation of school-based tele-mental
+
+                health programs in rural areas.
+
+
+            •   Support planning, development, and implementation for CMHCs to convert to
+
+                CCBHCs.
+
+Table XIII-I1. Mental Health Initiative Summary
+Category                        Information
+Main strategic goals            Make rural America healthy again; Sustainable access, Innovative care; tech
+                                innovation
+Uses of funds                   A, B, C, D, F, G, H, I, K
+Technical score factors         B.1, B.2, C.1, C.2, D.1, E.1, F.1, F.2, F.3
+Impacted counties               003, 015, 039, 043, 047, 055, 069, 073, 077, 081, 089, 091, 095, 097, 099, 101,
+                                103, 109, 117, 121, 125, 127 (Headquarters Locations)
+                                001, 003, 005, 007, 009, 011, 013, 015, 017, 019, 021, 023, 025, 027, 029, 031,
+                                033, 035, 037, 039, 041, 043, 045, 047, 049, 051, 053, 055, 057, 059, 061, 063,
+                                065, 067, 069, 071, 073, 075, 077, 079, 081, 083, 085, 087, 089, 091, 093, 095,
+                                097, 099, 101, 103, 105, 107, 109, 111, 113, 115, 117, 119, 121, 123, 125, 127,
+                                129, 131, 133 (Services provided)
+Estimated required funding      $45.75M for 5 years; $7.5M for year 1
+Key stakeholders                  • CMHCs                                   • Community partners
+                                  • CCBHCs                                  • FQHCs
+                                  • Telehealth providers                    • IHS/Tribal Facilities
+                                  • Mental health providers                 • Non-profit health care
+                                  • Hospitals                                  organizations
+                                  • Critical access hospitals               • Community partners
+                                  • K-12 education community                • Alabama State Department of
+                                  • Alabama State Department of                Mental Health
+                                      Education                             • Students and families
+
+
+Table XIII-I2. Mental Health Initiative Outcomes and Metrics
+   Outcome                                                                    Impact Level
+1 Number of CMHCs converted to CCBHC status                                   Total statewide
+2 Number of patients receiving primary care screening and monitoring from Number per county Total statewide
+   CMHCs converted to CCBHCs
+3 Number of patients receiving mental health services with the CCBHC as the Number per county Total statewide
+   primary provider
+4 Number of patients receiving substance use disorder treatment services with Number per county Total statewide
+   the CCBHC as the primary provider
+
+                                                      38
+                                                                                           Revised – 4.10.2026
+
+5 Number of clinics established in schools                                      Number per county Total statewide
+
+
+        10. Community Medicine Initiative
+
+Description: The Community Medicine Initiative serves Alabama rural communities by
+
+providing preventative health screenings, navigates connections to appropriate healthcare,
+
+addresses food access issues and healthy food choices, promotes healthy lifestyle choices,
+
+encourages physical ﬁtness, and broadly disseminates educational materials and teachings to
+
+educate Alabamians on how to participate in improving their own health. This initiative allows
+
+funding for the expansion of any existing services and programs and for creation of new services
+
+and programs. This initiative will expand access to health and nutrition services; create new mobile
+
+service delivery models that can operate across multiple regions; reduce health disparities in rural
+
+and underserved communities; improve early detection, chronic disease management, and
+
+nutrition-related outcomes; and strengthen the State’s long-term public health infrastructure.
+
+Proposed uses of funds: 1
+
+
+             •   Procurement of equipment to allow for mobile wellness screening to support both
+
+                 existing and new community medicine programs. Equipment could include:
+
+                      •   Mobile Wellness Screening Equipment: clinical & diagnostic, portable
+
+                          vital signs monitors (BP, pulse ox, temperature), mobile EKG machines,
+
+                          point-of-care testing devices (A1c, lipid panels, glucose monitors, INR),
+
+                          rapid testing kits (covid-19, flu, strep—if applicable), hemoglobin
+
+                          analyzers, portable audiometers and vision screening equipment,
+
+
+
+1
+  Proposed use of funds under this initiative will not include capital expenditures such as renovations to existing
+facilities. Alabama may fund procurement of equipment not listed in this section as deemed necessary to implement
+the program.
+
+                                                        39
+                                                                                          Revised – 4.10.2026
+
+                          height/weight/BMI measurement stations, spirometers (for lung function
+
+                          screening), portable ultrasound units, portable fetal dopplers (if maternal
+
+                          screenings are included), patient workflow & examination, folding exam
+
+                          tables, portable privacy screens, mobile handwashing stations, medical-
+
+                          grade coolers/refrigeration units (for vaccines, if applicable), sharps
+
+                          containers & biohazard disposal equipment, basic first-aid and wound-care
+
+                          kits.
+
+                      •   Mobile Clinic/Vehicle Infrastructure: mobile clinic vans or medical
+
+                          trailers (fully or partially outfitted), power sources: portable generators,
+
+                          solar panels, battery power stations, HVAC units for temperature control in
+
+                          mobile units, Wi-Fi hotspots or satellite internet for rural connectivity,
+
+                          laptop computers, tablets, and durable portable printers, telehealth-capable
+
+                          equipment (cameras, microphones, telemedicine carts), storage cabinets,
+
+                          drawers, and secure medication/equipment lockers, ADA-compliant ramps
+
+                          or lifts.
+
+
+        •    Procurement of equipment to allow for the provision of mobile grocery units, food
+
+             pantries, and food banks. Under the Community Medicine Initiative, Alabama will use
+
+             RHTP funds to procure equipment that will be used to set up mobile grocery units, food
+
+             pantries, and food banks. However, RHTP funds will not be used to stock these mobile
+
+             grocery units, food pantries, and food banks with food. 2 Equipment could include:
+
+
+
+
+2
+ Alabama does not intend to use RHTP funds to pay for food as a part of its Community Medicine Initiative, or any
+other initiative. Alabama acknowledges and understands that meals are generally an unallowable cost under the RHTP,
+except in certain circumstances.
+
+                                                        40
+                                                                                      Revised – 4.10.2026
+
+                    •    Vehicles & Structural: Refrigerated trucks or vans, box trucks customized
+
+                         as mobile grocery units, towable trailers for food distribution, portable
+
+                         canopy tents for outdoor distribution sites, pallet jacks and hand trucks.
+
+                    •    Cold & Dry Storage: commercial refrigerators and freezers (including
+
+                         battery or generator-powered units), insulated cold-chain transport
+
+                         containers, shelving, racks, and bins for dry goods storage, storage totes,
+
+                         crates, and food-safe containers.
+
+                    •    Distribution & Operations: check-out or point-of-sale systems (for
+
+                         SNAP/EBT if appropriate), scales (for bulk foods), shopping baskets/carts,
+
+                         signage, portable tables, and distribution carts, cleaning and sanitization
+
+                         equipment.
+
+
+        •   Provide new or expand existing locations for provision of mobile screening and mobile
+
+            grocery services.
+
+
+        •   Priority consideration will be given to applicants already offering these services as a
+
+            combined program, offering both mobile wellness screenings and mobile grocery or
+
+            food bank services while educating patients on healthy living initiatives.
+
+Table XIV-J1. Community Medicine Initiative Summary
+Category                    Information
+Main strategic goals        Make rural America healthy again; Innovative care
+Uses of funds               A, G, I, K (non-exhaustive), D, E, G, K (non-exhaustive)
+Technical score factors     B.1, B.2, C.1, F.1 (non-exhaustive)
+Impacted counties           005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                            041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                            093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131
+Estimated required funding  $5M for 3 years; $7.3M for year 1
+Key stakeholders              • Community leaders                     • Critical Access Hospitals
+                              • Local healthcare providers            • Rural emergency hospitals
+                              • Hospitals                             • Primary care physicians
+
+
+
+                                                     41
+                                                                                Revised – 4.10.2026
+
+Table XIV-J2. Community Medicine Initiative Outcomes and Metrics
+    Outcome (Program Metrics)                                         Impact Level
+1 Number of mobile wellness units procured                            Total statewide
+2 Number of mobile grocery/market units procured                      Total statewide
+3 Number of wellness screenings provided through mobile events        Number per county Total statewide
+4 Number of mobile grocery visits provided through mobile events      Number per county Total statewide
+
+
+       10. Rural Health Practice Initiative
+
+Description: The Rural Health Practice Initiative serves Alabama's rural communities by
+
+establishing or expanding networked rural health clinics in rural, underserved areas throughout
+
+Alabama. These clinics promote the creation of comprehensive, patient-centered hubs with the
+
+ability to combine physical and behavioral health services by emphasizing preventative care and
+
+chronic disease management. This initiative enables clinics to offer telehealth services, remote
+
+patient monitoring and virtual consultation to allow rural patients to be connected to specialists,
+
+and can also serve as "support" centers for other rural health clinics. Additionally, this initiative
+
+will offer local healthcare facilities opportunities to partner with K-12 institutions to establish
+
+dental and health clinics and provide primary care services to students, parents, teachers, staff and
+
+their families. This initiative will provide funding for equipment upgrades and minor building
+
+renovations or alterations to prepare providers to provide the care contemplated by this initiative
+
+and ensures that long-term costs are commensurate with patient volume.
+
+Proposed uses of funds:
+
+
+       •   Establish or upgrade existing clinics to offer networked services in rural areas.
+
+
+       •   Expand workforce recruitment, training and pipeline initiatives to expand clinical
+
+           capacity.
+
+
+
+
+                                                 42
+                                                                                        Revised – 4.10.2026
+
+
+        •   Develop and implement a shared services model with other clinics to reduce
+
+            administrative complexity and overhead, reduce unnecessary cost and improve
+
+            efficiency.
+
+
+        •   Promote community engagement efforts and collaboration with other rural clinics.
+
+
+        •   Acquire equipment for telehealth and remote patient monitoring services.
+
+
+        •   Establish dental and healthcare clinics in rural educational facilities to serve students,
+
+            teachers, staff and families.
+
+Should Alabama be awarded additional RHTP funding, this initiative could be scaled up to support
+
+the establishment of additional school-based rural healthcare clinics if demand exists.
+
+Table XV-K1. Rural Health Practice Initiative Summary
+Category                      Information
+Main strategic goals          Make rural America healthy again; Sustainable access; Workforce development;
+                              Innovative care
+Uses of funds                 A, C, D, E, F, G, H, I, K (non-exhaustive)
+Technical score factors       B.1, B.2, C.1, D.1, F.1 (non-exhaustive)
+Impacted counties             005, 007, 009, 011, 013, 017, 019, 021, 023, 025, 027, 029, 031, 035, 037, 039,
+                              041, 043, 045, 047, 049, 053, 057, 059, 063, 065, 067, 071, 075, 085, 087, 091,
+                              093, 095, 099, 105, 107, 109, 111, 119, 121, 123, 127, 129, 131
+Estimated required funding    $30M for 5 years
+Key stakeholders               • Community leaders                       • Primary care physicians
+                               • Local healthcare providers              • Rural Health Clinics
+                               • Hospitals                               • Federally Qualified
+                               • Critical Access Hospitals                      Health Centers
+                               • Rural emergency hospitals               • Local educational facilities
+
+
+Table XV-K2. Rural Health Practice Initiative Outcomes and Metrics
+   Outcome                                                                    Impact Level
+1 Number of clinics established or upgraded                                   Total statewide
+2 Number of patients served through established or upgraded clinics           Number per county
+                                                                              Total statewide
+3 Number of medical trainees placed in established or upgraded clinics        Total statewide
+4 Number of telehealth consultations conducted through networked rural health Number per county Total statewide
+  clinics
+
+
+    IV. Implementation Plan and Timeline
+
+
+                                                      43
+                                                                              Revised – 4.10.2026
+
+ADECA will serve as the lead agency for the program. ADECA’s Director, Kenneth Boswell, will
+
+act as the Authorized Organizational Representative (AOR), with authority to execute award
+
+documents and official submissions to CMS. The ARHTP will be housed in ADECA’s Federal
+
+Initiatives and Recreation (FIR) Division, and the FIR Division Chief will serve as the Project
+
+Director. The Division Chief will be supported by a team made up of planning and economic
+
+development specialists, and an administrative assistant (see Budget Narrative for a detailed
+
+breakdown). Additionally, ADECA will hire a consultant to support its administration of ARHTP.
+
+This structure will centralize accountability in ADECA (with the Director serving as AOR), ensure
+
+strong program leadership by the Project Director, and establish clear lines of supervision,
+
+reporting, legal compliance, and subrecipient monitoring to meet CMS requirements.
+
+It is expected that the Alabama Legislature will be required to pass enabling legislation to provide
+
+ADECA with the necessary authority and budgetary guidance to administer ARHTP. The
+
+Governor’s office, in conjunction with ADECA and other entities that worked to develop ARHTP,
+
+will present to the legislature a package of bills expected to assist with the process in developing
+
+and implementing the plan. The Alabama legislative session is scheduled to begin on January 13,
+
+2026, with a scheduled end date of April 27, 2026. ADECA, in conjunction with the Governor’s
+
+office, the Alabama Department of Finance, the Alabama Medicaid Agency, and other parties that
+
+worked to develop this plan will then utilize the enabling legislation to draft any necessary
+
+administrative rules to provide ADECA with all necessary authority and guidance to effectively
+
+administer the plan.
+
+The ARHTP was designed as a set of initiatives to solicit innovative solutions to the current
+
+problems facing rural Alabama and, as such, does not specifically select awardees as a part of the
+
+plan. It has been designed to allow for various entities who seek to solve these problems, within
+
+                                                44
+                                                                               Revised – 4.10.2026
+
+the parameters established by the plan, to “apply” for funding under the program. By creating the
+
+plan this way, Alabama has the ability to vet multiple different proposals for each initiative to
+
+guarantee that the money is being spent appropriately, is awarded to the most appropriate
+
+applicant(s), will be utilized according to the guidance developed by ADECA that is reflective of
+
+the goals of this plan, and that awardees will follow all rules regarding compliance and data
+
+submission required by both CMS and the state.
+
+As ARHTP does not specifically select awardees, it is understood that there must be a method
+
+created and enforced to select recipients according to each initiative. Alabama will develop a
+
+Request for Proposal (RFP) process for each initiative defined in the plan. The RFP process will
+
+comply with all federal and state laws and rules related to procurement. Each RFP will require
+
+applicants to, among other things, certify that they will comply with all state and federal
+
+procurement laws, certify that they will comply with all rules and regulations established as a part
+
+of the initiatives and ARHTP, provide concrete evidence that they are an “appropriate applicant”
+
+by demonstrating the ability to provide unique and innovative solutions to the current rural health
+
+crisis in Alabama based on the parameters established in the plan, and provide a detailed
+
+description of what measures will be taken during the development and implementation of their
+
+proposal as to how they will work to make their “solution” sustainable beyond the 5-year funding
+
+cycle established by this plan. Furthermore, applicants will be required to certify that they will be
+
+able to meet certain milestones and timelines on a schedule suggested by ADECA, a copy of which
+
+can be found below for each of the proposed initiatives, and will be required to certify that they
+
+will supply any information required by ADECA to allow for accurate administration of the
+
+initiatives and to determine if initiative success metrics are being met.
+
+
+
+
+                                                 45
+                                                                                    Revised – 4.10.2026
+
+It is anticipated that ADECA, in conjunction with the Governor’s office, the Alabama Department
+
+of Finance, and other interested parties, will work to establish the RFP processes required by these
+
+various initiatives and begin the formal RFP processes during Q3 and Q4, FY2026, with the
+
+anticipation that “approved” applicants will begin seeing funding FY2026 distributed during Q4
+
+FY2026 and Q1 FY2027. Additionally, the state may partner with academic institutions to evaluate
+
+and measure the impact of the initiatives.
+
+Table XVI-1. Collaborative EHR, IT, and Cybersecurity Initiative Timeline and Milestones
+                                                FY26        FY27        FY28        FY29        FY30
+                                             Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop implementation plan
+Stage 1
+Procure infrastructure & service contracts
+Stage 2
+Launch IT-provider based hubs
+Begin pilot EHR integration
+Stage 3
+Expand services to partners
+Expand contracts to partners
+Deploy hardware upgrades
+Stage 4
+Maintain processes & services
+Stage 5
+Transition to sustainable operations
+Evaluate impact and outcomes
+
+
+
+
+Table XVI-2. Rural Health Initiative Timeline and Milestones
+                                                FY26        FY27        FY28        FY29        FY30
+                                             Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop telehealth hub framework
+Stage 1
+Complete privacy & security reviews
+
+
+                                                        46
+                                                                                     Revised – 4.10.2026
+
+Procure infrastructure
+Stage 2
+Launch initial tele-stroke, tele-trauma &
+tele-ICU services
+Pilot tele-behavioral health, eConsult, &
+RPM programs
+Stage 3
+Expand telehealth coverage & add new
+clinical pilots (tele-ID, dialysis)
+Extend RPM for maternal & diabetes care
+Stage 4
+Scale specialty telehealth services
+Optimize performance systems
+Stage 5
+Publish Dashboards
+Finalize sustainability plan
+
+
+Table XVI-3. Maternal and Fetal Health Initiative Timeline and Milestones
+                                                 FY26        FY27        FY28        FY29        FY30
+                                              Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop high-risk maternity care regional
+hub framework
+Stage 1
+Establish clinical partnership agreements
+Implement unified HIE system for
+bidirectional data sharing
+Deploy data management system for
+coordination & quality measurement
+Stage 2
+Image transfer and real-time outcome
+reporting across all facilities
+Train staff on new protocols
+Deploy telerobotic ultrasound devices
+Use device system to optimize telehealth
+consultations
+Stage 3
+Expand network to include smaller,
+lower-risk hospitals
+Extend specialized consultation and data-
+sharing capabilities
+Develop digital      platforms   reaching
+patients in rural areas
+Stage 4
+Identify additional centers as smaller hubs
+and deploy devices
+Deploy digital maternity care platform
+
+
+                                                         47
+                                                                                   Revised – 4.10.2026
+
+Deploy remaining telerobotic ultrasound
+devices
+Stage 5
+Evaluate impact and outcomes
+
+
+Table XVI-4. Cancer Prevention, Screening, and Treatment Initiative Timeline and Milestones
+                                               FY26        FY27        FY28        FY29        FY30
+                                            Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop hub implementation plan
+Stage 1
+Acquire mobile care units
+Stage 2
+Implement service coordination with local
+providers
+Stage 3
+Expand provider network & service
+delivery
+Stage 4
+Finalize coordination & optimize care
+delivery systems
+Stage 5
+Publish public dashboard
+Finalize full implementation
+Finalize sustainability of system
+Evaluate impact and outcomes
+
+
+TableXVI-5. Rural Workforce Initiative Timeline and Milestones
+                                               FY26        FY27        FY28        FY29        FY30
+                                            Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop workforce programs
+Stage 1
+Launch workforce programs
+Stage 2
+Fully implement & expand programs
+Stage 3
+Optimize program operations
+Stage 4
+Finalize program operations
+Stage 5
+Evaluate impact and outcomes
+
+
+
+                                                       48
+                                                                                      Revised – 4.10.2026
+
+Table XVI-6. Simulation Training Initiative Timeline and Milestones
+                                                  FY26        FY27        FY28        FY29        FY30
+                                               Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Plan expansion of COACHES
+Develop new training programs
+Stage 1
+Launch COACHES expansion
+Launch new training programs
+Stage 2
+Implementation of COACHES and new
+training program delivery
+Stage 3
+Optimize all training programs
+Stage 4
+Finalize all training program operations
+Stage 5
+Evaluate impact and outcomes
+
+
+Table XVI-7. Statewide EMS Trauma and Stroke Initiative Timeline and Milestones
+                                                  FY26        FY27        FY28        FY29        FY30
+                                               Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Plan     and develop         system
+creation/ expansion
+Stage 1
+Launch full expansion of 1st service line to
+all hospitals
+Launch full expansion of all service lines
+all hospitals
+Stage 2
+Implementation of 1st service line
+Implementation of all service lines
+Stage 3
+Optimization of 1st service line
+Optimization of all service lines
+Stage 4
+Finalize 1st service line to all hospitals
+Finalize expansion of all service lines to
+all hospitals
+Stage 5
+Evaluate impact and outcomes
+
+
+
+
+                                                          49
+                                                                                     Revised – 4.10.2026
+
+Table XVI-8. EMS Treat-In-Place Initiative Timeline and Milestones
+                                                 FY26        FY27        FY28        FY29        FY30
+                                              Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Establish baseline levels of 911 call
+volumes, transport rates, etc.
+Develop clinical protocols
+Stage 1
+Procure materials/equipment
+Establish and staff telemedicine hub
+Integrate software interfaces
+Stage 2
+EMS training
+Implement software and equipment
+Implement treat-in-place protocols
+Stage 3
+Optimize treat-in-place protocols
+Stage 4
+Finalize treat-in-place program
+Stage 5
+Evaluate impact and outcomes
+
+
+Table XVI-9. Mental Health Initiative Timeline and Milestones
+                                                 FY26        FY27        FY28        FY29        FY30
+                                              Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Develop CMHC conversion to CCBHC
+plan, procure first set of tablets, create
+first school-based clinics
+Stage 1
+Launch first conversion efforts, distribute
+fist set of tablets
+Stage 2
+Implement conversion efforts of all
+CMHCs to CCBHCs, procure additional
+tablets, create additional school clinics
+Stage 3
+Continue and optimize conversion efforts,
+procure third set of tablets, create
+additional school clinics
+Stage 4
+Finalize conversion efforts, procure
+fourth set of tablets, create additional
+school clinics
+Stage 5
+
+
+                                                         50
+                                                                                   Revised – 4.10.2026
+
+Evaluate impact and outcomes, procure
+last set of tablets, create final school
+clinics
+
+
+Table XVI-10. Community Medicine Initiative Timeline and Milestones
+                                               FY26        FY27        FY28        FY29        FY30
+                                            Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Plan and develop program activities
+Stage 1
+Procure mobile wellness units
+Procure mobile market units
+Stage 2
+Provide wellness services
+Provide market/grocery services
+Provide health education
+Stage 3
+Optimize and continue provision of
+services
+Stage 4
+Finalize services/visits processes
+Stage 5
+Evaluate impact and outcomes
+
+
+Table XVI-11. Rural Health Practice Initiative Timeline and Milestones
+                                               FY26        FY27        FY28        FY29        FY30
+                                            Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4 Q1 Q2 Q3 Q4
+Stage 0
+Begin clinic refurbishment planning
+Stage 1
+Begin purchase of equipment
+Begin recruitment of medical personnel
+and staff
+Stage 2
+Begin actual refurbishment            and
+equipment installation
+Onboard new medical personnel
+Recruit expanded patient population
+Stage 3
+Continue refurbishment and equipment
+installation
+Continue to offer services to the
+community
+Stage 4
+
+
+                                                       51
+                                                                                           Revised – 4.10.2026
+
+Finalize refurbishment and equipment
+installation
+Finalize service offerings to community
+Complete integration of all medical
+personnel
+Stage 5
+Evaluate impact and outcomes
+
+
+    V. Stakeholder Engagement
+
+Governor Kay Ivey's office invited more than 40 stakeholders 3, including hospital and health care
+
+executives, health officers, Indian tribe officials, and advocates for children, seniors, and people
+
+with disabilities to provide their comments and input on Alabama's rural health needs for the
+
+purpose of drafting the ARHTP plan. Their comments were shared with the Governor's core team
+
+for consideration and inclusion in the ARHTP plan.
+
+Table XVII - Solicited Stakeholders
+Health care executives     Hospital systems with at least one rural hospital: Community Health Systems, DCH
+from                       Health System in Tuscaloosa, East Alabama Health in Opelika, Huntsville Hospital
+                           Health System, and the UAB (University of Alabama at Birmingham) Health System
+                           Rural hospitals: Bibb Medical Center in Centreville and J. Paul Jones Rural Emergency
+                           Hospital in Camden
+                           Children's of Alabama, which sees children all across Alabama, Southeast Health in
+                           Dothan, which runs rural clinics, University of South Alabama (USA) Health, Cahaba
+                           Medical Care, an FQHC and residency program
+Providers                  A trauma surgeon and professor at UAB's medical school, a pediatrician (owner of Fort
+                           Payne Pediatrics), a physician in Dadeville
+Advocacy group leaders American Association of Retired Persons (AARP) Alabama, Alabama Arise, The
+(patient and consumer)     Alabama Disabilities Advocacy Program, VOICES for Alabama's Children
+Tribal Organizations       Alabama Indian Affairs Commission, Poarch Band of Creek Indians
+State Agencies             Alabama Medicaid Agency, Alabama Department of Mental Health, Alabama
+                           Department of Public Health, Alabama Department of Senior Services, State Office of
+                           Primary Care and Rural Health, Alabama Board of Nursing
+Organizations and          Ambulance services, hospitals, nursing homes, pharmacists, FQHCs, pediatricians,
+associations representing physicians, and rural health providers, including dentists.
+Health education leaders Alabama Community College System, Alabama School of Healthcare Sciences,
+                           Alabama State Department of Education, Alabama Statewide Area Health Education
+                           Centers, Auburn University Rural Health Institute, College of Health Sciences at
+                           Faulkner University, UAB Montgomery Psychiatric Residency, UAB School of
+                           Public Health
+Local health departments Franklin Primary FQHC, Jefferson County Department of Health
+and organizations
+
+
+3
+ In addition to these stakeholders, the Governor’s office and members of the core team received a significant
+amount unsolicited comments from other stakeholders and interested parties.
+
+                                                         52
+                                                                                    Revised – 4.10.2026
+
+Insurers                  Blue Cross and Blue Shield of Alabama
+Other stakeholders        The Governor also heard from many others, including: the Alzheimer's Association
+                          Alabama Chapter, dental providers, community leaders
+
+
+In addition to seeking input from stakeholders, Governor Kay Ivey appointed a working group to
+
+advise and provide ongoing input to the state team tasked with drafting the ARHTP plan and
+
+application. The workgroup met regularly since its creation on September 17, 2025, until ARHTP
+
+submission to CMS. Governor Ivey has not set a sunset date for the workgroup.
+
+The members of the working group include:
+
+Table XVIII - Working Group
+Name                                         Title, Association
+Joseph Marchant                              CEO, Bibb Medical Center
+Lother (Jim) Peace                           President & CEO, Russell Medical Center
+Charles (Max) Rogers, IV                     Obstetrics, North Baldwin Infirmary
+Susan Alverson                               Director of Regulatory Affairs, Alabama Board of Pharmacy
+Scott Harris                                 State Health Officer
+Greg Nichols                                 Administrator, EAMC-Lanier Rural Emergency Hospital
+John Waits                                   CEO, Cahaba Medical Care
+Jeff Samz                                    CEO, Huntsville Hospital Health System
+Dawn Bulgarella                              CEO, UAB Health System
+Natalie Fox                                  Interim CEO, USA Health
+Tuerk Schlesinger                            CEO, AltaPointe Health
+Teresa Grimes                                CEO, Washington County Hospital & Nursing Home
+Peggy Benson                                 Executive Officer, Alabama Board of Nursing Representative
+Clarence Ball                                President and CEO, Ball Healthcare
+Senate President Pro Tem Garlan Gudger       Alabama State Senate
+State Senator Greg Albritton                 Alabama State Senate
+State Senator Bobby Singleton                Alabama State Senate
+House Speaker Nathaniel Ledbetter            Alabama House of Representatives
+State Representative Rex Reynolds            Alabama House of Representatives
+State Representative Anthony Daniels         Alabama House of Representatives
+
+
+ADECA will administer ARHTP. The core team that developed the plan, including Governor's
+
+office staff, ADECA, the Alabama Department of Finance, the Alabama Medicaid Agency, and the
+
+Alabama State Health Planning and Development Agency, will continue to engage key
+
+stakeholders through implementation. Governor Ivey has also pledged to create, by executive
+
+order, an advisory group, which, among other duties, will be the state's formal mechanism for
+
+
+                                                   53
+                                                                                              Revised – 4.10.2026
+
+continued stakeholder engagement as ARHTP is implemented. It will also advise ADECA and the
+
+Governor on how the plan is serving rural communities and help develop and implement state
+
+policy changes. The group will also assist the core team with coordinating deployment of funds,
+
+tracking milestones, and assessing impact metrics with relevant stakeholders.
+
+    VI. Metrics and Evaluation Plan
+
+Table XIX-1. Collaborative EHR, IT, and Cybersecurity Initiative Metric Tracking and Evaluation
+Metric                                          Impact          Baseline   Target/Timeline      Data Source/Timing
+1. Number of regional hubs established and State                0          5 by Year 5          Quarterly reporting
+serving as IT provider-based hubs to local                                                      from subawardees
+providers
+2. Number of rural providers connected to State                 0          50 by Year 5          Quarterly reporting
+regional hubs via IT & security operations County                                                from subawardees
+3. Number of rural providers connected to State                 0          50 by Year 5          Quarterly reporting
+regional hubs via HER                      County                                                from subawardees
+4. Number of EHR upgraded to connect with Provider              0          40-60 by year 5       Quarterly reporting
+ALOHR HIE                                                                                        from subawardees
+5. Cost savings                            State                0          Year 5 target to be Quarterly reporting
+                                           Provider                        determined      from from subawardees
+                                                                           Year 1 data to
+                                                                           determine a baseline.
+
+6. Interoperability of rural providers and health Provider 0               99% by year 5        Quarterly reporting
+care networks over the ALOHR HIE                                                                from subawardees
+7 Upgraded systems uptime percentage              Provider 0               99% by year 5        Quarterly reporting
+                                                                                                from subawardees
+8. Number of cybersecurity alerts triaged/worked State          0          750 by year 5        Quarterly reporting
+by IT-provided based hubs                                                                       from subawardees
+
+
+Table XIX-2. Health Initiative Metric Tracking and Evaluation
+Metric                                          Impact          Baseline   Target/Timeline      Data Source/Timing
+1. Number of regional hubs created              State           0          5 by Year 5          Quarterly reporting
+                                                                                                from subawardees
+2. Number of endpoints deployed                   State         0          100 by Year 5        Quarterly reporting
+                                                  County                                        from subawardees
+3. Number of telehealth consultations provided State            0          10,000 by Year 5     Quarterly reporting
+                                                  County                                        from subawardees
+4. Number of transfers avoided                    State         0          15% reduction by     Quarterly reporting
+                                                  County                   Year 5               from subawardees
+5. Number of non-emergency transportation State                 0          5 by Year 5          Quarterly reporting
+services created or expanded                                                                    from subawardees
+6. Number of rural providers joining Rural Health State         0          7 by Year 5          Quarterly reporting
+Network pilot                                                                                   from subawardees
+7. Number of shared services created in Rural State             0          5 by Year 5          Quarterly reporting
+Health Network                                                                                  from subawardees
+
+
+                                                           54
+                                                                                             Revised – 4.10.2026
+
+
+
+Table XIX-3. Maternal and Fetal Health Initiative Metric Tracking and Evaluation
+Metric                                         Impact          Baseline   Target/Timeline       Data Source/Timing
+1. Number of regional hubs created             State           0          5 by Year 5           Quarterly reporting
+                                                                                                from subawardees
+2. Number of local providers connected with State              0          30% increase by       Quarterly reporting
+regional providers to receive services         County                     Year 5                from subawardees
+3. Number of telehealth consultations provided State           0          1,000 by Year 5       Quarterly reporting
+                                               County                                           from subawardees
+4. Number of transfers avoided                 State           0          15% reduction by      Quarterly reporting
+                                               County                     Year 5                from subawardees
+5. Number of telerobotic ultrasound procedures State           0          100/unit/year by Year Quarterly reporting
+performed                                      County                     5                     from subawardees
+6. Number of L&D carts acquired                State           0          20 by Year 5          Quarterly reporting
+                                               County                                           from subawardees
+
+
+Table XIX-4. Cancer Prevention, Screening and Treatment Initiative Metric Tracking and Evaluation
+Metric                                         Impact          Baseline   Target/Timeline      Data Source/Timing
+1. Number of regional hubs created             State           0          5 by Year 5          Quarterly reporting
+                                                                                               from subawardees
+2. Number of local providers connected with State              0          10/hub by Year 5     Quarterly reporting
+regional providers to receive services      County                                             from subawardees
+3. Number of mobile screening opportunities State              0          10,000 by Year 5     Quarterly reporting
+offered                                     County                                             from subawardees
+4. Number of patients screened using mobile State              0          10,000 by Year 5     Quarterly reporting
+services                                    County                                             from subawardees
+
+
+Table XIX-5. Rural Workforce Initiative Metric Tracking and Evaluation
+Metric                                           Impact        Baseline   Target/Timeline      Data Source/Timing
+1. Number of new students accepted to rural State              0          1,000 by Year 5      Quarterly reporting
+remote training programs                         County                                        from subawardees
+2. Number of programs established at existing State            0          2 by Year 5          Quarterly reporting
+rural providers to offer remote training for EMS                                               from subawardees
+3. Number of programs established at existing State            0          5 by Year 5          Quarterly reporting
+rural providers to offer remote training for                                                   from subawardees
+LPN/RN
+4. Number of programs established to provide State             0          2 by Year 5           Quarterly reporting
+specialized GME in rural areas                                                                  from subawardees
+5. Number of GME-program graduates practicing State            0          Year 5 target to be Quarterly reporting
+in rural counties post-education                 County                   determined      from from subawardees
+                                                                          Year 1 data to
+                                                                          determine a baseline.
+6. Number of students entering certified nurse State           0          100 by Year 5         Quarterly reporting
+midwife training programs created or expanded County                                            from subawardees
+through this initiative
+
+
+Table XIX-6. Simulation Training Initiative Metric Tracking and Evaluation
+Metric                                          Impact         Baseline   Target/Timeline      Data Source/Timing
+1. Number of simulation programs established or State          0          3 by Year 5          Quarterly reporting
+expanded to deliver specialty-specific training                                                from subawardees
+
+
+                                                          55
+                                                                                                 Revised – 4.10.2026
+
+2. Number of simulation training sessions State                   0          50/Year by Year 5     Quarterly reporting
+conducted                                           County                                         from subawardees
+3. Number of patient transfers to regional referral State         0          Year 5 target to be Quarterly reporting
+centers from specialties with established County                             determined      from from subawardees
+simulation training                                                          Year 1 data to
+                                                                             determine a baseline.
+4. Number of patients treated locally by providers State          0          Year 5 target to be Quarterly reporting
+in specialties with established simulation training County                   determined      from from subawardees
+                                                                             Year 1 data to
+                                                                             determine a baseline.
+
+
+Table XIX-7. Statewide EMS Trauma and Stroke Initiative Metric Tracking and Evaluation
+Metric                                             Impact Baseline Target/Timeline       Data Source/Timing
+1. Number of hospitals participating in diversion State   0        100 by Year 5         Quarterly reporting
+systems for additional proposed services (Critical County                                from subawardees
+Care, CT, L&D, Med/Surg, and Psych)
+2. Number of EMS/ambulance services State                 0        Year 5 target to be Quarterly reporting
+participating in diversion systems                 County          determined      from from subawardees
+                                                                   Year 1 data to
+                                                                   determine a baseline.
+3. Number of additional services included in State        0        4 by Year 5           Quarterly reporting
+diversion systems                                                                        from subawardees
+4. Number of calls appropriately diverted to State        0        15% increase by Year Quarterly reporting
+suitable locations through use of diversion County                 5                     from subawardees
+systems
+
+
+Table XIX-8. EMS Treat-In-Place Initiative Metric Tracking and Evaluation
+Metric                                             Impact         Baseline   Target/Timeline      Data Source/Timing
+1. Number of patients treated in place through the State          0          1,500 by Year 5      Quarterly reporting
+treat-in-place program                             County                                         from subawardees
+2. Number of emergency transports avoided due State               0          500 by Year 5        Quarterly reporting
+to treat-in-place                                  County                                         from subawardees
+3. Number of telehealth consultations conducted State             0          1,000 by Year 5      Quarterly reporting
+as part of treat-in-place                          County                                         from subawardees
+4. Number of EMS providers offering treat-in- State               0          10 by Year 5         Quarterly reporting
+place services                                                                                    from subawardees
+
+
+
+
+Table XIX-9. Mental Health Initiative Metric Tracking and Evaluation
+Metric                                          Impact            Baseline   Target/Timeline      Data Source/Timing
+1. Number of CMHCs converted to CCBHC State                       0          16                   Quarterly   reporting
+status                                                                                            from subawardees
+2. Number of patients receiving primary care State                0          30% increase by Year Quarterly   reporting
+screening and monitoring from CMHCs County                                   5                    from subawardees
+converted to CCBHCs
+3. Number of patients receiving mental health State               0          30% increase by Year Quarterly   reporting
+services with the CCBHC as the primary provider County                       5                    from subawardees
+4. Number of patients receiving substance use State               0          30% increase byYear Quarterly    reporting
+disorder treatment services with the CCBHC as County                         5                    from subawardees
+the primary provider
+
+
+                                                             56
+                                                                                            Revised – 4.10.2026
+
+Table XIX-10. Community Medicine Initiative Metric Tracking and Evaluation
+Metric                                         Impact          Baseline   Target/Timeline      Data Source/Timing
+1. Number of mobile wellness units procured    State           0          1 by Year 3          Quarterly reporting
+                                                                                               from subawardees
+2. Number of mobile grocery/market units State                 0          2 by Year 3          Quarterly reporting
+procured                                                                                       from subawardees
+3. Number of wellness visits provided through State            0          30% increase by Year Quarterly reporting
+mobile events                                 County                      3                    from subawardees
+4. Number of mobile grocery visits provided State              0          30% increase by Year Quarterly reporting
+through mobile events                         County                      3                    from subawardees
+
+
+Table XIX-11. Rural Health Practice Initiative Metric Tracking and Evaluation
+Metric                                         Impact          Baseline   Target/Timeline      Data Source/Timing
+1. Number of clinics established or upgraded   State           0          25 by Year 5         Quarterly reporting
+                                                                                               from subawardees
+2. Number of patients served through established State         0          30% increase by Year Quarterly reporting
+or upgraded clinics                              County                   5                    from subawardees
+3. Number of medical trainees placed in State                  0          Year 5 target to be Quarterly reporting
+established or upgraded clinics                                           determined      from from subawardees
+                                                                          Year 1 data to
+                                                                          determine a baseline
+4. Number of telehealth consultations conducted State          0          10,000 by Year 5     Quarterly reporting
+through networked clinics                       County                                         from subawardees
+
+
+Alabama will fully cooperate with all CMS-led evaluations and monitoring activities to support
+
+assessment of the implementation, outcomes, and impact of all initiatives proposed in this
+
+application. Additionally, the state will partner with academic institutions to evaluate and measure
+
+the impact of the initiatives.
+
+    VII.         Sustainability Plan
+
+By FY2030, ARHTP will establish durable shared-service and group purchasing models to sustain
+
+IT and telehealth operations without ongoing federal funding. Participating facilities will leverage
+
+established reimbursement mechanisms (e.g., telehealth billing, group purchasing agreements, and
+
+shared cybersecurity services) to maintain operations. Workforce initiatives will continue through
+
+institutional partnerships with the ASHS and community colleges. All program components are
+
+designed to transition from grant-supported implementation to self-funded maintenance through
+
+efficiency gains and collaborative governance structures.
+                                                          57
+                                                                               Revised – 4.10.2026
+
+To ensure long-term financial and operational stability for IT, cybersecurity, telehealth and
+
+operations (e.g. the Collaborative EHR, IT and Cybersecurity and Rural Health Initiatives),
+
+regional hubs will operate under a shared-service model that pools resources to improve efficiency
+
+and reduce costs. In parallel, these regional partners will develop group purchasing mechanisms
+
+to strengthen financial sustainability and maintain cost-effective access to technology and services.
+
+Participating facilities will partner through cooperative purchasing agreements to secure reduced
+
+per-unit costs for technology, equipment, and infrastructure.
+
+Sustainability for initiatives relying on telehealth and remote care will be achieved through
+
+established reimbursement mechanisms across multiple payers. Rural Health, Maternal and Fetal
+
+Health, Rural Health Practice, and EMS Treat-in-Place Initiatives will sustain operations by billing
+
+for virtual visits, electronic consultations, remote patient monitoring (RPM), and tele-behavioral
+
+health services, once implemented. Within the Maternal and Fetal Health Initiative, telerobotic
+
+ultrasound services and digital prenatal monitoring will continue through diagnostic imaging and
+
+evaluation codes already reimbursed by Alabama Medicaid and other payers.
+
+Establishing CCHBCs will promote long-term sustainability of behavioral health integration
+
+activities using accurate and timely billing though the prospective payment system.
+
+Workforce development efforts will remain sustainable through a combination of institutional
+
+support, philanthropic investment, and ongoing commitments from payers. Medical student
+
+pathways, health profession programs, and continuing education partnerships will be maintained
+
+through similar mechanisms, supplemented by potential state tuition offsets and other long-term
+
+funding sources. New residency programs will be supported long-term through Medicare GME
+
+cap increases and Indirect Medical Education adjustments. ASHS, community colleges, and
+
+academic medical institutions will remain core partners in maintaining these rural training
+
+                                                 58
+                                                                                                Revised – 4.10.2026
+
+pipelines, ensuring a continuous supply of qualified healthcare professionals dedicated to rural
+
+practice.
+
+Through these mechanisms, ARHTP will ensure the long-term viability and sustainability of
+
+quality rural healthcare access, technology infrastructure, and workforce systems.
+
+
+
+
+i
+  Calculated using Health Resources and Services Administration (HRSA) data and 2020 Census data.
+ii
+    Alabama Medicaid, using census tracts defined as rural by the Health Resources and Services Administration
+(HRSA) Federal Office of Rural Health Policy.
+iii
+    Ibid.
+iv
+    Ibid.
+v
+   Alabama Medicaid used census tracts defined as rural by the Health Resources and Services Administration (HRSA)
+Federal Office of Rural Health Policy in determining Alabama’s rural population and 58 fully or partly rural counties.
+The Data Overview also used information from the Alabama Department of Public Health (ADPH) and several other
+sources, as noted in the Data Overview.
+vi
+    Alabama Medicaid, using census tracts defined as rural by the HRSA Federal Office of Rural Health Policy.
+vii
+     Ibid. The percentage of rural Alabamians was derived from the rural population divided by the U.S. Census Bureau’s
+2020 population for Alabama.
+viii
+      2020 Census.
+ix
+     “Per Capita Personal Income by State, Annual” for 2023 posted by the Federal Reserve Bank of St. Louis.
+https://fred.stlouisfed.org/release/tables?rid=110&eid=257197&od=2023-01-01#; “State Fact Sheets – State Data, for
+Alabama”, updated March 11, 2025, by the Economic Research Service of the U.S. Department of Agriculture. Please
+note that in determining rural and urban areas of Alabama, the Economic Research Service counted counties that are
+part of a metropolitan statistical area as urban and counties that are not as rural. The Service said metropolitan
+statistical areas are county-based regions defined by the Office of Management and Budget (OMB), based on the
+OMB Bulletin No. 23-01. https://data.ers.usda.gov/reports.aspx?ID=4035&StateFIPS=01&StateName=Alabama
+Note that the USDA report put the state per-capita income at $54,209.
+x
+    State and U.S. rates: “Poverty in States and Metropolitan Areas: 2023, American Community Survey Briefs, U.S.
+Census Bureau, published in September 2024. shttps://www2.census.gov/library/publications/2024/demo/acsbr-
+022.pdf?stream=top The rural/urban comparison within Alabama came from “State Fact Sheets – State Data, for
+Alabama” Ibid. Note that this USDA report put the state poverty rate at 15.7 percent.
+xi
+    The state comparison was based on the table “Educational Attainment, Annual: Bachelor’s Degree or Higher by
+State” for 2023 (estimates were for five-year periods), posted by the Federal Reserve Bank of St. Louis.
+https://fred.stlouisfed.org/release/tables?rid=330&eid=391444&od=2023-01-01#
+The rural/urban comparison within Alabama came from “State Fact Sheets - State Data, for Alabama”. Ibid. Note that
+this USDA put the state percentage at 27.8 percent.
+xii
+     Ibid.
+xiii
+      Source: U.S. Census Bureau, 2019-2023 5-Year American Community Survey
+xiv
+      “Infant Mortality in the United States, 2023: Data from the Period Linked Birth/Infant Death File”, published June
+12, 2025, in the National Vital Statistics Reports by a part of the Centers for Disease Control and Prevention (CDC).
+https://stacks.cdc.gov/view/cdc/174592. The comparison of urban and rural rates came in a statement in October by
+State Health Officer Scott Harris to David White, Governor Ivey’s senior policy advisor.
+xv
+     https://assets.americashealthrankings.org/app/uploads/allstatesummaries-ahr24.pdf
+xvi
+      “U.S. State Life Tables, 2021, published Aug. 21, 2024, in the National Vital Statistics Reports by part of the CDC.
+https://www.cdc.gov/nchs/data/nvsr/nvsr73/nvsr73-07.pdf The 2023 life expectancies for Alabama and each county
+were published in “Alabama County Health Profiles 2023” by ADPH.
+https://www.alabamapublichealth.gov/healthstats/assets/chp2023.pdf A review of the report found the six lowest life
+
+
+                                                           59
+                                                                                             Revised – 4.10.2026
+
+
+
+expectancies for counties.
+xvii
+         America’s Health Rankings 2024 annual report, published by UnitedHealth Foundation.
+https://www.americashealthrankings.org/learn/reports/2024-annual-report The information for 2023 was based on the
+Centers for Disease Control’s Behavioral Risk Factor Surveillance System. Chronic conditions included arthritis,
+asthma, chronic kidney disease, chronic obstructive pulmonary disease, cardiovascular disease, cancer, depression, or
+diabetes.
+xviii
+       “Cancer Statistics: Mortality – All Cancer Sites Combined, U.S. Cancer Statistics Working Group, CDC and
+National Cancer Institute. Mortality rates are adjusted.
+ https://gis.cdc.gov/Cancer/USCS/#/explore/mortality?cancer=1&datatype=2&dataset=standard&indicator=value&
+area=1&timeperiod=26&sexes=1&races=1&ages=23&tab=1&view=table&xaxis=sexes&shownational=1
+xix
+     www.alabamapublichealth.gov/healthranking/diabetes.html
+xx
+    “Heart disease mortality” in Stats of the States published Aug. 20, 2025, by the CDC’s National Center for Health
+Statistics. Mortality rates are age-adjusted to account for differences in age distribution and population size between
+states. https://www.cdc.gov/nchs/state-stats/deaths/heart-disease.html
+xxi
+     cdc.gov/nchs/state-stats/deaths/hypertension.html
+xxii
+      https://www.alabamapublichealth.gov/awa/trends.html
+xxiii
+      A review by the Alabama Hospital Association (AlaHA) shared with the Governor’s office in October 2025, based
+on AlaHA surveys of hospitals.
+xxiv
+      A review in October 2025 by Alabama Medicaid and shared with the Governor’s office.
+xxv
+      “At a Glance”, posted on the web page of the Office of Primary Care and Rural Health at ADPH. ADPH officials
+said the entry was based on a 2022 report by the March of Dimes and American Hospital Association.
+xxvi
+      Ibid.
+xxvii
+          America’s Health Rankings 2024 annual report, published by UnitedHealth Foundation.
+https://www.americashealthrankings.org/learn/reports/2024-annual-report The information was based on the Centers
+for Medicare and Medicaid Services (CMS) National Plan and Provider Enumeration System for September 2024.
+xxviii
+       Ibid.
+xxix
+       Ibid.; At A Glance | Alabama Department of Public Health (ADPH)
+xxx
+     At A Glance | Alabama Department of Public Health (ADPH)
+xxxi
+      Ibid.; https://www.americashealthrankings.org/explore/measures/costburden/AL
+xxxii
+       https://assets.americashealthrankings.org/app/uploads/allstatesummaries-ahr24.pdf
+xxxiii
+       “Rural Hospitals at Risk of Closing,’’ published in August 2025 by the Center for Healthcare Quality & Payment
+Reform. https://chqpr.org/downloads/Rural_Hospitals_at_Risk_of_Closing.pdf The report said there were 48 open
+rural inpatient hospitals. ADPH in its “At a Glance” put the number at 54.
+xxxiv
+       Clarke County: https://www.thethomasvilletimes.com/articles/thomasville-regional-medical-center-shuts-down-
+amid-financial-struggles/ Pickens County: https://yellowhammernews.com/alabama-hospital-to-close-17th-to-shut-
+down-in-10-years/ Butler County: https://www.wsfa.com/2019/02/11/alabama-lose-another-rural-hospital/ Lawrence
+County:
+https://www.lawrencemedicalcenter.com/news-a-events/news-archive/item/lawrence-medical-center-to-close-
+emergency-department-on-may-23
+Jackson Hospital: https://www.wvasfm.org/wvas-local/2025-02-05/jackson- hospital-files-bankruptcy
+xxxv
+       https://www.al.com/news/2024/07/babies-are-going-to-die-says-one-of-last-doctors-delivering-babies-in-rural-
+southwest-alabama.html Reporter Amy Yurkanin wrote that without Grove Hill Memorial Hospital’s labor and
+delivery unit in Clarke County, the closest hospital to Grove Hill with a labor and delivery unit was about 80 minutes
+away, in Brewton. She reported on July 12, 2024, that the Hospital in Marengo County planned to reopen its labor and
+delivery unit that fall. It has not.
+xxxvi
+      From ADPH’s facilities directory:
+https://dph1.adph.state.al.us/FacilitiesDirectoryReports/Reports/ReportDirectory-2025-11-02-1724239080620.pdf
+xxxvii
+        xxxvii “State of Rural Health in Alabama”, a slide deck produced in August 2025 by Manatt Phelps & Phillips
+and the Alabama Hospital Association. Shared by Association President Danne Howard.
+xxxviii
+         “Alabama Hospitals by the Numbers,” published Oct. 17, 2024, by the Alabama Hospital Association.
+https://www.alaha.org/app/uploads/2024/12/AL-Hospitals5-9By-the-Numbers-10-17-24-FINAL.pdf
+xxxix
+        “Health insurance coverage of population ages 0-64” for 2023, published by KFF, an independent source for
+health-policy research.
+https://www.kff.org/state-health-policy-data/state-indicator/health-insurance-coverage-population-
+064/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D
+                                                            60
+                                                                                             Revised – 4.10.2026
+
+
+xl
+    “Commercial reimbursement benchmarking 2025”, published July 24, 2025, by Milliman, a consultancy. Milliman
+reported what insurers paid for in-patient care as a percentage of Medicare fee-for-service payments.
+https://www.milliman.com/en/insight/commercial-reimbursement-benchmarking-medicare-ffs-rates-2025
+xli
+       “2023 Poverty Rate by State, Per the Latest Census Data”, published Nov. 9, 2023, by Forbes.
+https://www.forbes.com/sites/andrewdepietro/2023/11/09/2023-poverty-rate-by-state-per-the-latest-census-data/
+xlii
+      America’s Health Rankings 2024 annual report, op. cit.
+xliii
+      A comparison of Medicaid-eligible people in those counties and the state in January 2024 to populations in those
+counties and Alabama in July 2024. Medicaid eligibility came from the “Demographic Breakdown of Medicaid
+Eligibles” for      January 2024 posted by Alabama Medicaid.
+https://medicaid.alabama.gov/documents/2.0_Newsroom/2.6_Statistics/2.6_Eligibility_by_County_July_9-
+1624.pdf. County population totals and growth or gains in population came from “These were Alabama’s fastest
+growing counties in 2024”, published March 17, 2025, by al.com https://www.al.com/news/2025/03/these-were-
+alabamas- fastest-growing-counties-in-2024.html
+xliv
+      The Alabama Medicaid Agency is a recipient of the TMaH grant. Alabama will not allow duplication of the TMaH
+grant services.
+xlv
+       Alabama Department of Labor, Labor Market Information Division. Accessed October 22, 2025.
+https://www2.labor.alabama.gov/workforcedev/Default.aspx
+xlvi
+      HPSA Shortage Area Designations. ADPH. Accessed October 22, 2025:
+https://www.alabamapublichealth.gov/ruralhealth/hpsa.html
+xlvii
+       www.operatonwipeout.org
+xlviii
+       AlabamaStateFactSheet.pdf
+xlix
+      https://www.samhsa.gov/communities/certified-community-behavioral-health-clinics
+
+
+
+
+                                                         61
+

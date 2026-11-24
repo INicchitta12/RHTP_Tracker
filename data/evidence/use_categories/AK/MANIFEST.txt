@@ -1,0 +1,16 @@
+file: 2026-11-24_ak_rhtp_project_narrative.pdf
+source_url: https://health.alaska.gov/media/bxangqdz/alaska-rhtp-project-narrative-and-supporting-documents.pdf
+fetched_utc: 2026-11-24T14:37:16Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 994106
+sha256: 5cff7ebc5289205b09b416f4e8ca9bf658799e0376540ffa033e83e6c0d21b93
+
+file: 2026-11-24_ak_rhtp_potential_uses_of_funding.pdf
+source_url: https://health.alaska.gov/media/dzlpmrzp/rhtp-potential-uses-of-funding.pdf
+fetched_utc: 2026-11-24T14:37:16Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 207889
+sha256: 7cb23ac25cd22d7591fcfe96b8b0199eb43d81c727c2408004ea3ac800938757
+

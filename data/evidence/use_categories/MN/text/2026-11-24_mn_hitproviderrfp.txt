@@ -1,0 +1,589 @@
+                              State of Minnesota
+                      Minnesota Department of Health
+
+
+                                  REQUEST FOR PROPOSAL
+        Rural Health Transformation Program Technical Assistance for Health Care Providers
+                                on Health Information Technology
+                                    SWIFT Event 2000018300
+
+                                            Date Posted: April 29, 2026
+    •    Responses must be received not later than 4:30 pm, Central Time, May 22, 2026.
+    •    Late responses will not be considered
+    •    As of July 1, 2025, certain terms are unenforceable in state contracts. See Session Laws, 2025 Regular Session,
+         Chapter 39, Article 2, Sec. 45.
+
+
+                    Minnesota’s Commitment to Diversity and Inclusion
+   The State of Minnesota is committed to diversity and inclusion in its public procurement process. The goal is to
+   ensure that those providing goods and services to the State are representative of our Minnesota communities and
+   include businesses owned by minorities, women, veterans, and those with substantial physical disabilities.
+   Creating broader opportunities for historically under-represented groups provides for additional options and
+   greater competition in the marketplace, creates stronger relationships and engagement within our communities,
+   and fosters economic development and equality.
+
+   To further this commitment, the Department of Administration operates a program for Minnesota-based small
+   businesses owned by minorities, women, veterans, and those with substantial physical disabilities. For additional
+   information on this program, or to determine eligibility, please call 651.201.2402 or go to the Office of Equity in
+   Procurement home page, at https://mn.gov/admin/business/vendor-info/oep/.
+
+SPECIAL NOTICE: This is a request for proposal. It does not obligate the State of Minnesota to award a contract or
+complete the proposed program, and the State reserves the right to cancel this solicitation if it is considered in its best
+interest.
+
+This Request for Proposals is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S.
+Department of Health and Human Services (HHS) as part of a financial assistance award totaling $193,090,618.14 with
+100 percent funded by CMS/HHS. The contents are those of the author(s) and do not necessarily represent the official
+views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+
+Rev. 07.01.2025
+This Solicitation requires proposals to be submitted through the SWIFT Supplier Portal.
+Please note the security changes below that may impact responders from submitting a
+timely response.
+
+
+
+                        SWIFT SUPPLIER PORTAL SECURITY CHANGES
+
+There are new security measures that the Minnesota Management and Budget implemented
+on October 16, 2022. It is a new multi-factor authentication (MFA) to enhance the security of
+the State of Minnesota Supplier Portal. MFA is an authentication method that requires bidders
+and suppliers provide two verification factors to log into the SWIFT Supplier Portal. The goal of
+MFA is to create a layered defense that makes it more difficult for unauthorized system access
+to occur.
+
+For information about these changes, please refer to the SWIFT Supplier Portal Multi-Factor
+Authentication FAQ document.
+
+If you have not done so already, please make sure to log into the SWIFT Supplier Portal as
+soon as possible to get this authentication set up early so there are no issues when submitting
+a response to an RFP.
+
+You are strongly encouraged to set your MFA during business hours of 8:00 A.M. to 4:00 P.M.,
+Central Time, Monday through Friday. You may experience delay setting your MFA after
+hours.
+
+
+
+
+Rev. 07.01.2025                      Page 2 of 15
+                                                            TABLE OF CONTENTS
+Solicitation Content
+
+     SECTION 1 – INSTRUCTIONS TO RESPONDERS .......................................................................................................4
+     SECTION 2 – SUMMARY OF SCOPE ........................................................................................................................5
+     SECTION 3 – PROPOSAL INSTRUCTIONS AND ADDITIONAL INFORMATION .............................................................9
+     SECTION 4 – PROPOSAL CONTENT ......................................................................................................................10
+     SECTION 5 – EVALUATION PROCEDURE AND CRITERIA ........................................................................................12
+     SECTION 6 – UNENFORCEABLE TERMS AND SOLICITATION TERMS .......................................................................13
+
+
+Solicitation Attachments
+     •    Attachment A: Responder Declarations
+     •    Attachment B: Exceptions to State's Terms and Conditions
+     •    Attachment C: Cost Detail
+     •    Attachment D: Responder Form
+              o Workforce and Equal Pay Declaration Page
+
+
+
+Sample Contract
+     •    Exhibit A: Contract Terms
+     •    Exhibit B: Insurance Requirements
+     •    Exhibit C: Specifications, Duties, and Scope of Work
+     •    Exhibit D: Pricing
+
+
+
+
+Rev. 07.01.2025                                            Page 3 of 15
+                                  SECTION 1 – INSTRUCTIONS TO RESPONDERS
+
+  Steps for         Follow the steps below to complete your response to this Solicitation:
+  Completing Your
+                            Step 1: Read the solicitation documents and ask questions, if any
+  Response
+                            Step 2: Write your response
+                            Step 3: Submit your response
+
+  Incomplete        A response must be submitted along with any required additional documents. Incomplete
+  Submittals        responses that materially deviate from the required format and content may be rejected.
+
+                    STEP 1 – READ THE SOLICITATION DOCUMENT & ASK QUESTIONS, IF ANY
+
+  How to Ask        The contact person for questions is:
+  Questions
+                    Ann Linde
+                    Minnesota Department of Health
+                    rural.transformation.mdh@state.mn.us
+                    Questions should be emailed to the contact by 4:30 pm on May 7, 2026.
+                    Other personnel are not authorized to answer questions regarding this Solicitation.
+
+
+
+                                        STEP 2 – WRITE YOUR RESPONSE
+
+                    The Response Content section is in this link to Section 4. Prepare a written response and
+                    supply all requested content. Responses should address the requested information and
+                    documents detailed in Section 4. DO NOT INCLUDE Non-Public/Trade Secret data (as defined in
+                    this link to Minn. Stat. § 13.37).
+                    Review, sign, and include the Responder Declarations with your response.
+
+                                        STEP 3 –SUBMIT YOUR RESPONSE
+
+
+
+  Where to Send     All responses to this solicitation (termed an “Event” within SWIFT) must be submitted through
+  Your Response     SWIFT using the Supplier portal (https://mn.gov/supplier). Training and documentation on how
+                    to submit your response is available through the Supplier portal link above. Fax, e-mail, and
+                    printed responses will not be accepted or considered. All costs incurred in responding to this
+                    solicitation will be borne by the responder.
+                    Late responses will not be considered. Responses received after End Date above will not be
+                    considered, even if errors or delays were caused by issues outside of responders’ control. If
+                    you need assistance please contact the SWIFT Vendor Assistance Helpline at 651-201-8100,
+                    Option 1, and then Option 1.
+                    By submitting a response, your company is making a binding legal offer for the period of time
+                    set forth below in Section 6, Conditions of Offer.
+
+
+
+
+Rev. 07.01.2025                            Page 4 of 15
+                                          SECTION 2 – SUMMARY OF SCOPE
+
+     Procurement Overview and Goals.
+
+MDH is in the initial stages of implementing Minnesota’s Rural Health Transformation Program (RHTP).
+Minnesota’s RHTP initiatives include significant funding opportunities for rural health care providers
+to acquire a variety of health information technology (HIT) capabilities. These providers (also referred to as
+“subgrantees” and “potential subgrantees”) may include rural hospitals, rural clinics, Federally Qualified
+Health Centers, Certified Community Behavioral Health Centers/community mental health centers, rural Tribal
+nations, and other local rural organizations that participate in patient care and/or support patients’ health-
+related social needs.
+
+Potential subgrantees will have the opportunity to apply for RHTP funding and must use their awarded RHTP
+funds on Minnesota’s RHTP initiatives, which are described here at a summary level and here in greater
+detail (see pages 16-18, 27-28, 30-32, and 36-39 for descriptions of technology-related activities). The
+purpose of this contract is to provide a ready source of technical assistance (TA) to RHTP subgrantees and
+potential subgrantees who are seeking guidance and support related to RHTP-funded HIT tools and how
+implementation of these tools can help subgrantees achieve Minnesota’s five overarching RHTP goals (see
+page 7).
+
+Subgrantees and potential subgrantees may choose to leverage the services of an available TA provider rather
+than procure it on their own. Subgrantees may procure their own technical assistance and are not required to
+use this or other technical assistance.
+
+     Tasks and Deliverables.
+
+The selected responder(s) chosen through this process will contract with and work through MDH to
+provide any of the following types of support to RHTP subgrantees or potential subgrantees:
+
+1. Assist subgrantees and potential subgrantees by evaluating existing HIT systems, equipment, and related
+   support.
+
+     A. Work with subgrantees or potential subgrantees to understand the full capacity of their
+        existing HIT systems and equipment and how much of that capacity they have effectively
+        leveraged. Document any gaps in how current HIT systems and equipment are being used, and work
+        with the subgrantee or potential subgrantee to identify opportunities to close those
+        gaps. Identify factors that may impede fully leveraging their existing tools (e.g., staffing, organizational
+        processes, system compatibility), and work with the provider to develop potential solutions to those
+        challenges.
+
+     B. Evaluate the subgrantee’s or potential subgrantee’s existing HIT support contracts and provide advice
+        about whether their existing vendors can provide the support needed for additional HIT systems and
+        equipment or whether new support may be needed from other vendors.
+
+     C. Ensure that recommendations for RHTP-funded HIT align with state and federal policies and national
+        initiatives.
+
+Rev. 07.01.2025                              Page 5 of 15
+   2. Assist subgrantees and potential subgrantees in planning for and executing participation in RHTP-
+      funded opportunities and in demonstrating measurable progress toward RHTP goals and
+      sustained impact beyond the RHTP term.
+
+        A. Work with subgrantees and potential subgrantees to build awareness of how available and emerging
+           technology funded through RHTP can add new capacities and/or improve foundational IT systems
+           infrastructure for their organization. Assist subgrantees with exploring and understanding how RHTP-
+           funded HIT opportunities can improve patient care and operational processes, and help achieve RHTP
+           goals for financial stability, addressing population health, and developing readiness for value-based
+           care and alternative payment models.
+
+        B. Assist in identifying whether new tools would be useful and which are compatible with
+           the subgrantee’s or potential subgrantee’s existing electronic health record systems and other
+           components of their IT systems. Provide advice about whether and how reasonable and feasible it
+           would be to integrate new tools with the subgrantee’s or potential subgrantee’s existing systems.
+
+        C. Document key findings from these activities to support the subgrantee or potential subgrantee in
+           pursuing next steps, such as procuring new technology or IT support or incorporating a planned HIT
+           investment in their proposal to MDH for RHTP funding.
+
+        D. Assist in planning for realistic deployment and implementation timelines as well as for the subgrantee’s
+           or potential subgrantee will be able to demonstrate progress on use of HIT investments to
+           achieve RHTP goals and sustained impact after the RHTP ends.
+
+        E. Help support and leverage full implementation of the HIT tools to gain operational efficiencies,
+           improve patient care, improve capacity for participation in value-based care and alternative payment
+           models, and demonstrate progress toward RHTP goals.
+
+        F. Assist in other potential ways, as may be determined by the subgrantee or potential subgrantee, with
+           advance written approval by MDH, that the selected responder(s) may provide technical
+           assistance related to HIT systems and equipment and achievement of RHTP goals under this contract.
+
+3. Regularly engage with MDH about the services provided to subgrantees and potential subgrantees.
+      A. Participate in an introductory meeting with MDH staff and the subgrantee to discuss the goals and
+          scope of the technical assistance needed within the parameters of this solicitation.
+      B. Submit monthly narrative summary report to MDH describing the TA provided to subgrantees and
+          potential subgrantees by the 10th of each month following the month of service. This summary report
+          should include at least the following information:
+              1. Responder personnel involved in providing services and the number of hours they spent
+                 providing those services during the month;
+              2. A description of the TA services provided and the subgrantee to whom they were provided;
+              3. For each subgrantee with whom the TA provider is engaged, a description of the subgrantee’s
+                 progress related to planning for and/or implementing HIT; and
+              4. For each subgrantee with whom the TA provider is engaged, a description of the subgrantee’s
+                 challenges related to planning for and/or implementing HIT.
+
+   Rev. 07.01.2025                            Page 6 of 15
+          C. Be available as a resource to MDH grant managers working with subgrantees to respond to their
+             questions and concerns.
+
+     Subgrantees are ultimately responsible for conducting their procurement processes consistent with federal
+     and state law, decision-making on HIT tools, managing their HIT purchases and implementation and
+     demonstrating meaningful progress on RHTP goals, and will remain fully accountable for their use of RHTP
+     funds. The purpose of this contract is to provide support for subgrantees and potential subgrantees as they
+     undertake this work. MDH will regularly survey those subgrantees receiving HIT TA services so that
+     subgrantees can provide feedback about TA services in terms of what is working well and areas of needed
+     improvement.
+
+     Potential HIT hardware, software, equipment, applications and/or services are expected to relate to and/or
+     include the following:
+
+          •    Remote patient monitoring
+          •    Mobile care delivery
+          •    Telehealth in provider facilities as well as community-based locations
+          •    Population health data infrastructure & analytical tools
+          •    Care coordination software
+          •    Patient access to health records
+          •    Health information exchange and interoperability
+          •    Artificial Intelligence
+          •    Cybersecurity and risk management
+          •    Revenue Cycle Management and other operational efficiencies
+
+4.   Desired Vendor Qualifications
+
+          •    Extensive knowledge across a range of HIT hardware, software, applications, services and related
+               equipment.
+          •    Knowledge of rural hospitals and other health care provider organizations and their HIT needs.
+          •    Knowledge of rural health care environment and rural health IT markets, with MN-specific knowledge
+               preferred.
+          •    Expertise to ensure that recommendations for RHTP-funded HIT are in alignment with state and
+               federal policies and national initiatives.
+
+5. Other Important Background Information
+
+          •    Respondents to this RFP should be aware work to be performed will likely ebb and flow over the term
+               of the contract and there is no guarantee of a specific minimum amount of work under the contract.
+               Up to 125 subgrantees may choose to use RHTP funding for HIT purposes each year over the next five
+               years and they will have the option to seek TA support; they will not be required to do so. Time will be
+               of the essence in performing work under this contract and vendors must have capacity to carry out
+               their work consistent with MDH’s timing needs.
+
+
+
+     Rev. 07.01.2025                              Page 7 of 15
+     •    MDH welcomes responses from individual firms or involving multiple organizations, provided that one
+          respondent submits the response and other collaborative partners subcontract with the lead
+          organization.
+
+     •    MDH may contract with one or more firms as a result of this procurement.
+
+     •    Respondents must disclose any potential conflicts of interest related to any affiliations with specific HIT
+          vendors or services or submit a statement declaring no conflicts of interest are present as part of its
+          application. Affiliation with specific HIT vendors will be considered disqualifying for purposes of this
+          procurement. Affiliation with any specific eligible Minnesota RHTP awardees must be disclosed as part
+          of a responder’s proposal, including a proposed plan to mitigate any potential conflict of interest in
+          carrying out the work described in this RFP. MDH must have full confidence that subgrantees and
+          potential subgrantees will receive neutral advice from its contractor(s) based on their understanding of
+          the subgrantee’s or potential subgrantee’s’ needs and without any stake in the outcome of their
+          decisions.
+
+
+
+
+Rev. 07.01.2025                               Page 8 of 15
+                        SECTION 3 – PROPOSAL INSTRUCTIONS AND ADDITIONAL INFORMATION
+
+    Anticipated Contract Term.
+The term of this contract is anticipated to be from June 2026 through September 2027, with the option to extend up to
+an additional 3.5 years in increments determined by the State.
+
+     Question and Answer Instructions.
+
+All questions should be submitted no later than the date and time listed in Section 1, Instructions to Responders. The
+State is not obligated to answer questions submitted after the question due date and time.
+
+Only personnel listed above are authorized to discuss this solicitation with responders. Contact regarding this solicitation
+with any personnel not listed above could result in disqualification. This provision is not intended to prevent responders
+from seeking guidance from state procurement assistance programs regarding general procurement questions.
+
+If a Responder discovers any significant ambiguity, error, conflict, discrepancy, omission, or other deficiency in the
+solicitation, please immediately notify the contact person detailed above in writing of such error and request
+modification or clarification of the document.
+
+    Additional Tasks or Activities.
+Responders are encouraged to propose additional tasks, activities, or goods above and beyond the scope of what is
+requested in this solicitation if they will substantially improve the results of this procurement. Any costs associated with
+these additional tasks, activities, or goods should be clearly marked and separated from costs associated with the tasks,
+activities, or goods specifically requested under this solicitation. Because cost is a factor in the evaluation of responses
+to this solicitation, failure to separate costs for additional tasks, activities, or goods may result in those costs being
+included in a responder's cost proposal and result in a lower cost score for that proposal.
+
+
+
+
+Rev. 07.01.2025                                Page 9 of 15
+                                            SECTION 4 – PROPOSAL CONTENT
+
+Responses must be limited to a maximum of 30 pages. MDH will only read and evaluate the first 30 pages of a response.
+Please note the specific page number limit for item 2.2 described below, which is a component of the overall 30-page
+limit.
+
+Please submit the following information:
+
+1. Understanding of Scope. Responder should provide a statement of the objectives, goals, and tasks to demonstrate
+   the Responder's view and understanding of the nature of the contract, and what makes the Responder uniquely
+   suited for this work. This document should NOT list cost detail. If cost detail is included in this document, the State
+   may disqualify the proposal as non-responsive.
+
+2. Proposed Approach to Providing Technical Assistance. Responder should provide a detailed description of how they
+   would generally approach providing TA to RHTP subgrantees as well as an overview of how they would approach
+   each of the activities outlined on pages 5-7 of this solicitation.
+
+     Qualifications and Experience. Qualifications and Experience. Descriptions of Responder’s Qualifications and
+     Experience should include the following:
+
+     2.1 The responder’s experience providing HIT consultation services for rural health organizations (and/or for smaller
+     providers in underserved communities). Descriptions of experience should include the number of years of
+     experience for each proposed personnel and a summary of their background in working with rural healthcare
+     providers. Descriptions of experience should also include processes for assessing needs, identifying and comparing
+     potential HIT solutions, implementing solutions, onboarding staff to new workflows, and measuring success. Provide
+     examples as appropriate.
+
+     2.2 The types of HIT hardware, software, equipment, applications and services – related to Minnesota’s RHTP
+     program – with which the responder has experience and a description of the purposes for which the technologies
+     may be used. The purpose of this part of the vendor’s response is to demonstrate the depth and breadth of their
+     knowledge in this space. Note that it is not required for responders to have experience with all of the various types
+     of HIT listed on pages 7 & 8 of this solicitation in order to be eligible to bid on the project. This section of the
+     proposal must not exceed 10 pages. MDH will only review and evaluate the first 10 pages of a response in this
+     section.
+
+     2.3 An outline of background and experience with examples of similar work done by the Responder and a list of
+     personnel who will carry out the work, detailing their training, and work experience. Resumes or other information
+     about project personnel should not, if possible, contain personal telephone numbers, home addresses, or home
+     email addresses. If it is necessary to include personal contact information, please clearly indicate in the response
+     that personal contact information is being provided. Resumes do not count toward the page number limitation for
+     responses.
+
+     Cost Detail. Complete and submit Attachment C, “Cost Detail,” attached to this solicitation.
+
+
+
+
+Rev. 07.01.2025                                Page 10 of 15
+     Sample Transaction Documents. Prior to award, a potential successful Responder must submit samples of any
+     transaction documents proposed for use under the resulting contract. The State will review the transaction
+     documents to ensure they contain sufficient detail and to review additional terms and conditions contained therein,
+     if any. The State reserves the right to request additional detail in the transaction documents or to reject additional
+     terms and conditions within transaction documents. Once approved by the State, Contractor may not materially
+     change transaction documents unless a change has been approved in writing by the Commissioner of
+     Administration, as delegated to the Office of State Procurement. Any terms and conditions included in transaction
+     documents but not approved by the State are voidable by the State. Any terms and conditions that are in conflict
+     with Minnesota law or in conflict with the terms of the State Contract are void. Failure to void a non-approved term
+     or condition included in a transaction document does not waive the State’s right to void any non-approved term or
+     condition.
+
+Submit all requested documentation, including, but not limited to, the following documents:
+
+     1. Attachment A: Responder Declarations
+     2. Attachment B: Exceptions to State's Standard Terms and Conditions
+     3. Attachment C: Cost Proposal
+     4. Attachment D: Responder Forms
+        a. Workforce and Equal Pay Declaration Page
+        b. Equal Pay Certificate Form
+     5. A disclosure statement related to Conflicts of Interest. Please note that there is no template form for this
+        statement. Responders should refer to page 8 of this Request for Proposals for additional information.
+
+                   DO NOT INCLUDE Non-Public/Trade Secret data (as defined by Minn. Stat. § 13.37).
+
+
+
+
+Rev. 07.01.2025                                Page 11 of 15
+                                  SECTION 5 – EVALUATION PROCEDURE AND CRITERIA
+
+The State will conduct an evaluation of responses to this Solicitation. The evaluations will be conducted in three phases:
+
+          Phase 1 - Review responses for responsiveness and pass/fail requirements
+          Phase 2 - Evaluate responses
+          Phase 3 - Select finalist(s)
+
+     Phase 1 – Responsiveness and Pass/Fail Requirements
+The purpose of this phase is to determine if each response complies with mandatory requirements. The State will first
+review each proposal for responsiveness to determine if the Responder satisfies all mandatory requirements. The State
+will evaluate these requirements on a pass/fail basis.
+
+Mandatory Requirements. The following will be considered on a pass/fail basis:
+
+          •       Responses must be received by the due date and time specified in this RFP.
+
+          •       Responses must include a conflict-of-interest disclosure statement as described on page 8. Please note
+                  that submission of Attachment A does not meet this requirement.
+
+   Phase 2 - Evaluate Responses
+Only those responses found to have met Phase 1 criteria will be considered in Phase 2.
+
+The factors and weighting on which responses will be evaluated are:
+
+     1.   Understanding of Scope                                         100 points
+     2.   Proposed Approach to Providing Technical Assistance            250 points
+     3.   Qualifications and Experience                                  350 points
+     4.   Cost Detail                                                    300 points
+                                                                         1000 points
+
+   Phase 3 - Select Finalist(s)
+Only those responses that have been evaluated under Phase 2 shall be eligible for Phase 3.
+
+The State will make its selection based on best value, as determined by this evaluation process. The State reserves the
+right to pursue negotiations on any exception taken to the State’s standard terms and conditions. In the event that
+negotiated terms cannot be reached, the State reserves the right to terminate negotiations and begin negotiating with
+the next highest scoring responder or take other actions as the State deems appropriate. If the State anticipates multiple
+awards, the State reserves the right to negotiate with more than one Responder.
+
+It is anticipated that the evaluation and selection will be completed by June 15, 2026.
+
+
+
+
+Rev. 07.01.2025                                Page 12 of 15
+                            SECTION 6 – UNENFORCEABLE TERMS AND SOLICITATION TERMS
+
+                                                   Unenforceable Terms
+
+As of July 1, 2025, certain terms are unenforceable in state contracts. See Session Laws, 2025 Regular Session, Chapter
+39, Article 2, Section 45.
+
+Unenforceable terms
+(a) A contract entered into by the state shall not contain a term that:
+        (1) requires the state to defend, indemnify, or hold harmless another person or entity, unless specifically
+            authorized by statute;
+        (2) binds a party by terms and conditions that may be unilaterally changed by the other party;
+        (3) requires mandatory arbitration;
+        (4) attempts to extend arbitration obligations to disputes unrelated to the original contract;
+        (5) construes the contract in accordance with the laws of a state other than Minnesota;
+        (6) obligates state funds in subsequent fiscal years in the form of automatic renewal as defined in section
+            325G.56; or
+        (7) is inconsistent with chapter 13, the Minnesota Government Data Practices Act.
+(b) If a contract is entered into that contains a term prohibited in paragraph (a), that term shall be void and the contract
+    is enforceable as if it did not contain that term.
+
+                                                     Solicitation Terms
+
+    Competition in Responding
+The State desires open and fair competition. Questions from responders regarding any of the requirements of the
+Solicitation must be submitted in writing to the Solicitation Administrator listed in the Solicitation before the due date
+and time. If changes are made the State will issue an addendum.
+
+Any evidence of collusion among responders in any form designed to defeat competitive responses will be reported to
+the Minnesota Attorney General for investigation and appropriate action.
+
+    Addenda to the Solicitation
+Changes to the Solicitation will be made by addendum with notification and posted in the same manner as the original
+Solicitation. Any addenda issued will become part of the Solicitation.
+
+    Joint Ventures
+The State allows joint ventures among groups of responders when responding to the solicitation. However, one
+responder must submit a response on behalf of all the others in the group. The responder that submits the response will
+be considered legally responsible for the response (and the contract, if awarded).
+
+    Withdrawing Response
+A responder may withdraw its response prior to the due date and time of the Solicitation. For solicitations in the SWIFT
+Supplier Portal, a responder may withdraw its response from the SWIFT Supplier Portal. For solicitations done any other
+way, a responder may withdraw its response by notifying the Solicitation Administrator in writing of the desire to
+withdraw.
+
+After the due date and time of this Solicitation, a responder may withdraw a response only upon showing that an
+obvious error exists in the response. The showing and request for withdrawal must be made in writing to Solicitation
+Administrator within a reasonable time and prior to the State’s detrimental reliance on the response.
+
+
+
+Rev. 07.01.2025                                Page 13 of 15
+    Rights Reserved
+The State reserves the right to:
+
+     •     Reject any and all responses received;
+     •     Waive or modify any informalities, irregularities, or inconsistencies in the responses received;
+     •     Negotiate with the highest scoring Responder[s];
+     •     Terminate negotiations and select the next response providing the best value for the State;
+     •     Consider documented past performance resulting from a State contract may be considered in the evaluation
+           process;
+     •     Short list the highest scoring Responders;
+     •     Require Responders to conduct presentations, demonstrations, or submit samples;
+     •     Interview key personnel or references;
+     •     Request a best and final offer from one or more Responders;
+     •     The State reserves the right to request additional information ; and
+     •     The State reserves the right to use estimated usage or scenarios for the purpose of conducting pricing
+           evaluations. The State reserves the right to modify scenarios, and to request or add additional scenarios for the
+           evaluation.
+
+    Samples and Demonstrations
+Upon request, Responders are to provide samples to the State at no charge. Except for those destroyed or mutilated in
+testing, the State will return samples if requested and at the Responder’s expense. All costs to conduct and associated
+with a demonstration will be the sole responsibility of the Responder.
+
+     Responses are Nonpublic during Evaluation Process
+All materials submitted in response to this Solicitation will become property of the State. During the evaluation process,
+all information concerning the responses submitted will remain private or nonpublic and will not be disclosed to anyone
+whose official duties do not require such knowledge. Responses are private or nonpublic data until the completion of
+the evaluation process as defined by Minn. Stat. § 13.591. The completion of the evaluation process is defined as the
+State having completed negotiating a contract with the selected responder. The State will notify all responders in writing
+of the evaluation results.
+
+     Trade Secret Information
+
+     8.1     Responders must not submit as part of their response trade secret material, as defined by Minn. Stat. § 13.37.
+
+     8.2 In the event trade secret data are submitted, Responder must defend any action seeking release of data it
+     believes to be trade secret, and indemnify and hold harmless the State, its agents and employees, from any
+     judgments awarded against the State in favor of the party requesting the data, and any and all costs connected with
+     that defense.
+
+     8.3     The State does not consider cost or prices to be trade secret material, as defined by Minn. Stat. § 13.37.
+
+     8.4 A responder may present and discuss trade secret information during an interview or demonstration with the
+     State, if applicable.
+
+    Conditions of Offer
+Unless otherwise approved in writing by the State, Responder’s cost proposal and all terms offered in its response that
+pertain to the completion of professional and technical services and general services will remain firm for 180 days, until
+they are accepted or rejected by the State, or they are changed by further negotiations with the State prior to contract
+execution.
+
+Rev. 07.01.2025                                  Page 14 of 15
+     Award
+Any award that may result from this solicitation will be based upon the total accumulated points as established in the
+solicitation. The State reserves the right to award this solicitation to a single Responder, or to multiple Responders,
+whichever is in the best interest of the State, providing each Responder is in compliance with all terms and conditions of
+the solicitation. The State reserves the right to accept all or part of an offer, to reject all offers, to cancel the solicitation,
+or to re-issue the solicitation, whichever is in the best interest of the State.
+
+    Requirements Prior to Contract Execution
+Prior to contract execution, a responder receiving a contract award must comply with any submittal requests. A
+submittal request may include, but is not limited to, a Certificate of Insurance.
+
+
+
+
+Rev. 07.01.2025                                  Page 15 of 15
+

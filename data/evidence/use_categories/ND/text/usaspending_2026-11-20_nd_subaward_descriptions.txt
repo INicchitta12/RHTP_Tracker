@@ -1,0 +1,674 @@
+Verbatim subaward_description values for ND prime award(s) RHTCMS332043, extracted from Assistance_Subawards_2026-11-20_H16M38S32_1.csv inside data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (one record per block).
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-11115
+subaward_amount: 77485.13
+subaward_action_date: 2026-10-15
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10107
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-24
+subaward_description: 93.798
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10111
+subaward_amount: 74993.75
+subaward_action_date: 2026-05-20
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10112
+subaward_amount: 80002.17
+subaward_action_date: 2026-05-21
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21101
+subaward_amount: 1280795.00
+subaward_action_date: 2026-06-03
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10104
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10102
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-23
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10103
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-23
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10105
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10106
+subaward_amount: 64040.00
+subaward_action_date: 2026-04-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10108
+subaward_amount: 63999.00
+subaward_action_date: 2026-04-27
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10109
+subaward_amount: 64000.00
+subaward_action_date: 2026-04-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22001
+subaward_amount: 143322.30
+subaward_action_date: 2026-04-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22112
+subaward_amount: 250000.00
+subaward_action_date: 2026-07-06
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22109
+subaward_amount: 201548.45
+subaward_action_date: 2026-07-06
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22107
+subaward_amount: 270000.00
+subaward_action_date: 2026-07-06
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22106
+subaward_amount: 270000.00
+subaward_action_date: 2026-07-06
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22113
+subaward_amount: 252133.00
+subaward_action_date: 2026-07-15
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22110
+subaward_amount: 178548.45
+subaward_action_date: 2026-07-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22114
+subaward_amount: 304614.00
+subaward_action_date: 2026-07-22
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22108
+subaward_amount: 269900.00
+subaward_action_date: 2026-07-27
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22115
+subaward_amount: 274264.00
+subaward_action_date: 2026-07-27
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22118
+subaward_amount: 270000.00
+subaward_action_date: 2026-07-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22117
+subaward_amount: 234490.00
+subaward_action_date: 2026-07-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10116
+subaward_amount: 80000.00
+subaward_action_date: 2026-07-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12101
+subaward_amount: 27616.30
+subaward_action_date: 2026-08-12
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22120
+subaward_amount: 270750.00
+subaward_action_date: 2026-08-10
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22125
+subaward_amount: 287570.00
+subaward_action_date: 2026-08-31
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12108
+subaward_amount: 56150.50
+subaward_action_date: 2026-08-31
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12104
+subaward_amount: 54605.00
+subaward_action_date: 2026-08-31
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12103
+subaward_amount: 29629.60
+subaward_action_date: 2026-08-31
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22122
+subaward_amount: 135918.00
+subaward_action_date: 2026-09-04
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-33601
+subaward_amount: 306890.10
+subaward_action_date: 2026-09-16
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22123
+subaward_amount: 213011.68
+subaward_action_date: 2026-08-05
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12100
+subaward_amount: 17380.00
+subaward_action_date: 2026-08-13
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12102
+subaward_amount: 69952.01
+subaward_action_date: 2026-08-13
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12107
+subaward_amount: 69797.00
+subaward_action_date: 2026-08-13
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12106
+subaward_amount: 46626.54
+subaward_action_date: 2026-08-13
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12105
+subaward_amount: 53075.13
+subaward_action_date: 2026-08-12
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-33301
+subaward_amount: 750000.00
+subaward_action_date: 2026-08-12
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22126
+subaward_amount: 102044.00
+subaward_action_date: 2026-08-12
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22121
+subaward_amount: 270000.00
+subaward_action_date: 2026-08-10
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22119
+subaward_amount: 270000.00
+subaward_action_date: 2026-08-04
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22116
+subaward_amount: 282545.91
+subaward_action_date: 2026-08-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31126
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21309
+subaward_amount: 121455.92
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31133
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21310
+subaward_amount: 104211.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12116
+subaward_amount: 27500.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12120
+subaward_amount: 27357.00
+subaward_action_date: 2026-09-16
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-11102
+subaward_amount: 504503.00
+subaward_action_date: 2026-05-18
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12110
+subaward_amount: 135941.07
+subaward_action_date: 2026-09-14
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21301
+subaward_amount: 199990.00
+subaward_action_date: 2026-09-20
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12114
+subaward_amount: 29272.00
+subaward_action_date: 2026-09-14
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12121
+subaward_amount: 27074.85
+subaward_action_date: 2026-09-16
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12115
+subaward_amount: 29286.29
+subaward_action_date: 2026-09-14
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31116
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31111
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-28
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31128
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31114
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31104
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31119
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31103
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31110
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31117
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12111
+subaward_amount: 465494.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21307
+subaward_amount: 69697.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-11102
+subaward_amount: 23299.10
+subaward_action_date: 2026-09-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12109
+subaward_amount: 50530.72
+subaward_action_date: 2026-09-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22127
+subaward_amount: 267546.00
+subaward_action_date: 2026-09-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21305
+subaward_amount: 148345.80
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-11109
+subaward_amount: 28608.66
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31105
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31108
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31122
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31106
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31121
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-11103
+subaward_amount: 200970.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31125
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31129
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21302
+subaward_amount: 40994.10
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-33302
+subaward_amount: 1279101.50
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31132
+subaward_amount: 40000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31130
+subaward_amount: 82000.00
+subaward_action_date: 2026-09-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12118
+subaward_amount: 30425.32
+subaward_action_date: 2026-09-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12112
+subaward_amount: 29980.66
+subaward_action_date: 2026-09-11
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-12119
+subaward_amount: 29700.00
+subaward_action_date: 2026-09-14
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10117
+subaward_amount: 70854.28
+subaward_action_date: 2026-06-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10114
+subaward_amount: 51078.84
+subaward_action_date: 2026-06-15
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10118
+subaward_amount: 80000.00
+subaward_action_date: 2026-06-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10115
+subaward_amount: 80000.00
+subaward_action_date: 2026-06-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22101
+subaward_amount: 264600.00
+subaward_action_date: 2026-06-22
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10122
+subaward_amount: 77792.13
+subaward_action_date: 2026-06-22
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10120
+subaward_amount: 79608.06
+subaward_action_date: 2026-06-17
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22102
+subaward_amount: 273150.00
+subaward_action_date: 2026-06-22
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22103
+subaward_amount: 62831.00
+subaward_action_date: 2026-06-24
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10113
+subaward_amount: 71107.00
+subaward_action_date: 2026-06-23
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10121
+subaward_amount: 77474.32
+subaward_action_date: 2026-06-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-10119
+subaward_amount: 76855.00
+subaward_action_date: 2026-06-25
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21102
+subaward_amount: 604136.00
+subaward_action_date: 2026-06-26
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22104
+subaward_amount: 270000.00
+subaward_action_date: 2026-06-26
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22105
+subaward_amount: 276343.64
+subaward_action_date: 2026-06-29
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-21500
+subaward_amount: 124986.00
+subaward_action_date: 2026-10-30
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31118
+subaward_amount: 40000.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-13108
+subaward_amount: 160000.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-13107
+subaward_amount: 156520.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22132
+subaward_amount: 260523.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-22130
+subaward_amount: 101593.12
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-13100
+subaward_amount: 60614.96
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31115
+subaward_amount: 82000.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-31124
+subaward_amount: 40000.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+
+prime_award_fain: RHTCMS332043
+subaward_number: 210-13102
+subaward_amount: 256219.00
+subaward_action_date: 2026-10-07
+subaward_description: 93.798 RURAL HEALTH TRANSFORMATION PROGRAM
+

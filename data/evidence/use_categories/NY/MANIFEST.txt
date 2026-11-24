@@ -1,0 +1,8 @@
+file: 2026-11-24_ny_rhtp_project_narrative.pdf
+source_url: https://healthweb-back.health.ny.gov/facilities/transforming_rural_healthcare/docs/project_narrative.pdf
+fetched_utc: 2026-11-24T14:46:28Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 351241
+sha256: b3a4c83495df2606e702e99782ca63c05bc1a7d60ae187d866d3d7944657fd87
+

@@ -1,0 +1,11 @@
+file: 2026-11-24_de_rhtp_project_narrative_20260116.pdf
+source_url: https://dhss.delaware.gov/wp-content/uploads/sites/12/2026/06/RHTP_Project_Narrative_1.16.2026.pdf
+fetched_utc: 2026-11-24T14:43:40Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 777945
+sha256: ced8e0a40420e30dab7212d0cecb8208f8680aa841bcd6a77a83d2d22473b12b
+
+file: text/fsrs_DE_subaward_descriptions_2026-11-20.txt
+source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive); written 2026-11-24
+

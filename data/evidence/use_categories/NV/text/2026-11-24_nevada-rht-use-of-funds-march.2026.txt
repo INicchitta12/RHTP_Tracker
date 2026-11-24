@@ -1,0 +1,103 @@
+Use of Funds Guidance
+March 2026
+
+
+          OVERVIEW
+          Nevada’s Rural Health Transformation (RHT) Program is designed to truly transform healthcare in rural
+          Nevada by supporting innovative projects that improve access, quality, and sustainability. This document
+          outlines the allowable uses of RHT dollars so potential subrecipients and vendors/contractors may
+          understand clearly how funds can be applied to advance rural health transformation efforts. This
+          document should serve as a guide to help applicants align proposed activities with program goals and
+          ensure compliance with state and federal requirements.
+
+          The terms and conditions of federal awards will flow down to subawards, subrecipients, and contract
+          vendors per relevant cost limitations, and all contracts will be consistent with the requirements specified
+          by the Centers for Medicare and Medicaid Services (CMS) and the state’s approved RHT application.
+
+
+          RURAL HEALTH TRANSFORMATION GRANT LIMITATIONS
+          The RHT funds have specific limitations outside of normal federal guidance under 2 Code of
+          Federal Regulations (CFR) Part 200, outlined below. The following are unallowable costs under
+          the RHT Program:
+                •    New construction is unallowable. Supplanting funding for in-process or planned construction
+                     projects or directing funding towards new construction builds is unallowable. Renovations or
+                     alterations may be allowed if they are clearly linked to program goals and receive CMS approval.
+                     Renovation or alterations funding cannot exceed 20% of the total funding CMS awards States in
+                     each budget period.
+                •    To replace payment for clinical services that could be reimbursed by insurance. We will not accept
+                     payments to clinical services if they duplicate billable services and/or attempt to change payment
+                     amounts of existing fee schedules. If you plan to fund direct health care services, you must justify
+                     why they are not already reimbursable, how the payment will fill a gap in care coverage (such as
+                     uncompensated care or services not covered by insurance), and/or how they transform the
+                     current care delivery model. Funding for allowable provider payments cannot exceed 15% of the
+                     total funding CMS awards States in a given budget period.
+                •    Funding cannot be used for initiatives that fund certain cosmetic and experimental procedures
+                     that fall within the definition of a specified sex-trait modification procedure at 45 CFR 156.400
+                     because that is beyond the scope of this program.
+                •    No more than 5% of total funding CMS awards to a State in a given budget period can support
+                     funding the replacement of an EMR system if a previous HITECH certified EMR system is already
+                     in place as of September 1, 2025.
+                •    Funding towards technology initiatives are limited to $20M of total funding awarded to a State in
+                     a given budget period.
+                •    Funds may not be used for clinician salaries. Funds also may not be used for clinician salaries or
+                     wage supports for facilities that subject clinicians to non-compete contractual limitations.
+                •    Indirect and administrative funds are limited to 10% for all sub-recipients.
+
+
+This publication is supported by the Centers for Medicare and Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a
+financial assistance award totaling $179,931,608.42 with 100% funded by CMS/HHS. Pending approval of revised budget. The contents are those of the authors and
+do not necessarily represent the official view of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+FEDERAL FUNDING POLICIES AND LIMITATIONS
+
+Changes in U.S. Department of Health & Human Services (HHS) Regulations - Awards will
+be subject to any applicable provisions of 2 CFR Part 200 and 2 CFR Part 300. As of October 1, 2025, HHS
+will adopt 2 CFR Part 200, with some modifications included in 2 CFR Part 300. These regulations can be
+found at 89 FR 80055 and replace those in 45 CFR Part 75.
+
+The following costs are also unallowable under the RHT Program:
+     •    Pre-award costs.
+     •    Meeting match requirements for any other federal funds or local entities.
+     •    Services, equipment, or supports that are the legal responsibility of another party under federal,
+          State, or tribal law, such as vocational rehabilitation or education services.
+     •    Services, equipment, or supports that are the legal responsibility of another party under any civil
+          rights law, such as modifying a workplace or providing accommodations that are obligations
+          under law.
+     •    Goods or services not allocable to the project.
+     •    Supplanting existing State, local, tribal, or private funding of infrastructure or services, such as
+          staff salaries.
+     •    Construction or building expansion, purchasing or significant retrofitting of buildings, cosmetic
+          upgrades, or any other cost that materially increases the value of the capital or useful life as a
+          direct cost.
+     •    The cost of independent research and development, including their proportionate share of
+          indirect costs. See 2 CFR 300.477.
+     •    Funds related to any activity designed to influence the enactment of legislation, appropriations,
+          regulation, administrative action, or executive order.
+     •    Purchase of covered telecommunications and video surveillance equipment (See 2 CFR 200.216)
+          as well as financial assistance to households for installation and monthly broadband internet
+          costs.
+     •    Meals, unless in limited circumstances such as: Subjects and patients under study.
+              o Where specifically approved as part of the project or program activity, such as in
+                   programs providing children’s services.
+              o As part of a per diem or subsistence allowance provided in conjunction with allowable
+                   travel.
+     •    Activities prohibited under 2 CFR 200.450 and the HHS Grants Policy Statement, including but
+          not limited to: Paying the salary or expenses of any grant recipient, or agent acting for such
+          recipient, related to any activity designed to influence the enactment of legislation,
+          appropriations, regulation, administrative action, or executive order proposed or pending
+          before the Congress or any State government, State legislature, or local legislature or legislative
+          body.
+     •    Lobbying, but awardees can lobby at their own expense if they can segregate federal funds from
+          other financial resources used for lobbying.
+     •    For guidance on some types of costs that are restricted or not allowed, see 2 CFR Part 200
+          Subpart E - General Provisions for Selected Items of Cost.
+
+
+For more information
+Email the team: RHTP@nvha.nv.gov
+CMS Rural Health Transformation website: CMS RHT site
+
+This publication is supported by the Centers for Medicare and Medicaid Services (CMS) of the U.S. Department of Health and Human Services
+(HHS) as part of a financial assistance award totaling $179,931,608.42 with 100% funded by CMS/HHS. Pending approval of revised budget. The
+contents are those of the authors and do not necessarily represent the official view of, nor an endorsement, by CMS/HHS, or the U.S.
+Government.
+

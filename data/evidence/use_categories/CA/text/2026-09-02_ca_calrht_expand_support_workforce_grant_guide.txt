@@ -1,0 +1,600 @@
+        California Rural Healthcare
+         Transformation (CalRHT)
+Initiative 1: Transformative Care Model
+ Expand and Support Rural Workforce
+                  Capacity
+                                            Grant Guide
+                                 For Budget Period 1 – 2026
+
+                                          Revised 20260702
+                                            Draft Version 1.0
+
+
+
+      2020 WEST EL CAMINO AVENUE, SUITE 1222 • SACRAMENTO, CA 95833
+
+
+“A healthier California where all receive equitable, affordable, and quality health care.”
+
+If your program requires approval to contract from a coordinating authority, please inform the authority of
+the terms and conditions contained in the sample subaward agreement. Applicants must agree to the
+terms and conditions before receiving funds. The Department of Health Care Access and Information will
+not make changes to the terms and conditions specified in the Subaward Agreement.
+The CalRHT program is supported by the Centers for Medicare & Medicaid Services (CMS) of the U.S.
+Department of Health and Human Services (HHS) as part of a financial award totaling $233,639,308.47
+with 100 percent funded by CMS/HHS. The contents are those of CalRHT and do not necessarily
+represent the official views of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27            Page 1 of 15
+Table of Contents
+FAMILY MEDICINE OBSTETRICS (FM-OB) FELLOWSHIP SUBAWARD PROGRAM UNDER
+EXPAND AND SUPPORT RURAL WORKFORCE CAPACITY .................................................. 3
+  Background and Mission ............................................................................................. 3
+  Description of Program Services ................................................................................. 3
+  Available Funding ........................................................................................................ 4
+  Eligibility ....................................................................................................................... 4
+  Allowable Use of Funds & Budget Restrictions ............................................................ 6
+  Application Process Resources ................................................................................... 8
+  Key Dates .................................................................................................................... 9
+  Application Instructions ................................................................................................ 9
+  Organizational Award Process .................................................................................. 12
+  Post-Award and Payment Provisions......................................................................... 13
+  Additional Terms and Conditions ............................................................................... 14
+  HCAI Department Contact ......................................................................................... 14
+  Attachment A: Organizational FM-OB Evaluation Guidelines .................................... 15
+
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27                                    Page 2 of 15
+Family Medicine Obstetrics (FM-OB) Fellowship
+Subaward Program under Expand and Support Rural
+Workforce Capacity
+Background and Mission
+The Department of Health Care Access and Information (HCAI) through the California
+Rural Health Transformation Program (CalRHT) is developing the Family Medicine
+Obstetrics (FM-OB) Fellowship Subaward Program as a proposed funding opportunity
+under the Transformative Care Model (TCM) initiative’s Expand and Support Rural
+Workforce Capacity. This Grant Guide is intended to explain, in applicant-facing terms,
+the purpose of the proposed opportunity, the anticipated application requirements, the
+award structure under consideration, and the key conditions that applicants should be
+prepared to meet.
+The FM-OB Fellowship Subaward Program expands access to high-quality maternity
+and perinatal care in California's rural communities by increasing the number of family
+physicians with advanced obstetrics training. Through support for family medicine
+obstetrics fellowship programs and regional collaborative care models, the program
+builds sustainable obstetric workforce capacity where rural patients receive care,
+preparing physicians to practice in underserved communities and improving maternal
+and infant health outcomes.
+
+
+Description of Program Services
+The FM-OB Fellowship Subaward Program is structured as an organizational subaward
+program administered through a competitive request for application (RFA) process.
+Organizations apply through the FM-OB Fellowship Subaward Program Application.
+HCAI enters into agreements directly with awarded organizations, which are then
+responsible for implementing the approved proposal, maintaining separate cost
+accounting, and reporting on milestones and outcomes.
+Subrecipients will develop new or expand existing FM-OB fellowship capacity. Awards
+may be used to support:
+  •   Planning activities for organizations developing a new fellowship, including
+      feasibility assessments, curriculum design, partnership development, and clinical-
+      site development.
+  •   Implementation and expansion activities, including new rural-focused fellowship
+      positions, new rural rotation sites, and faculty and preceptor capacity.
+  •   Regional shared services, supervision pools, and coordination infrastructure that
+      support fellowship sites within a regional care collaborative.
+This program funds the programmatic and infrastructure costs of expanding FM-OB
+fellowship capacity. It does not provide individual financial support to fellows. Each
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 3 of 15
+funded activity should support the expansion or enhancement of rural-focused FM-OB
+fellowship capacity. Applicants should describe how proposed activities contribute to
+rural workforce development and demonstrate that CalRHT funds will supplement,
+rather than replace, existing funding sources.
+As fellows complete their training, the fellowship programs will encourage their
+placement in rural collaboratives with a focus on maternity care and the CalRHT primary
+and maternity care regional collaboratives. Fellows who choose CalRHT participating
+sites will be further eligible for Workforce Development Recruitment and Retention
+Program assistance.
+
+
+Available Funding
+Budget Period 1 Funding
+In CalRHT Budget Period 1 (BP1), $6,500,000 is available to expand and support rural
+workforce capacity through the FM-OB Fellowship Subaward Program for programmatic
+and infrastructure costs to expand fellowship capacity.
+Consistent with the CMS-approved Budget Narrative, BP1 awards are expected to
+range from $150,000 to $500,000 per fellowship program per year. Planning context
+developed during program design indicates that a fully loaded FM-OB fellowship
+position runs roughly $200,000 to $250,000 per year, of which CalRHT funds cover only
+the programmatic and infrastructure share. These estimates are provided for planning
+purposes only and do not represent funding commitments. Final funding available for
+release, final award size, final number of awards, and final disbursement structure
+remain subject to HCAI discretion.
+
+
+Future Funding Consideration
+BP1 funding is intended to support the planning, establishment, implementation, or
+expansion of rural-focused FM-OB fellowship capacity. Organizations that successfully
+achieve approved BP1 milestones, including the enrollment of one or more fellows and
+implementation of the proposed fellowship activities, may be eligible to apply for future
+CalRHT funding opportunities in subsequent budget periods. Eligibility for future funding
+is contingent upon the availability of funds, satisfactory performance, compliance with
+reporting requirements, and any additional program requirements established by HCAI.
+Receipt of a BP1 award does not guarantee future funding.
+
+
+Eligibility
+Eligible Organizational Settings
+A parent organization may apply as a single organizational applicant on behalf of
+multiple sites or may instead choose to have each site submit its own independent
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 4 of 15
+application. To be eligible, an applicant must be an aspiring or existing graduate
+medical education (GME) sponsoring institution and one of the following:
+      •    Hospital, including Critical Access Hospital (CAH)
+      •    Federally Qualified Health Center (FQHC) or FQHC Look-Alike
+      •    Tribal Clinic or Native American Health Center
+      •    Certified Rural Health Clinics
+      •    Other Comprehensive Community Health Clinic
+      •    Regional Collaborative or Consortium
+      •    Health Care District
+      •    Academic Medical Center or University
+Other sites may be approved by HCAI on a case-by-case basis. If the parent
+organization is not rurally located, a rural partnership is required so that fellows can train
+in rural environments. Participating sites are expected to:
+      •    Connect to a rural, frontier and remote area (FAR), or shortage-designated
+           communities, which may include Health Professional Shortage Area (HPSA), and
+      •    Demonstrate the preceptor, supervision, and clinical volume to support the
+           proposed expansion.
+Applicants must provide the National Provider Identifier (NPI) for the primary fellowship
+training site and any currently participating clinical training sites, if applicable.
+For applicants that do not operate a site with an individual or facility-level NPI, including
+certain academic institutions, universities, graduate medical education sponsoring
+organizations, or regional consortia, the Employer Identification Number (EIN) is
+required at application. In such cases, identification of participating clinical training site
+NPIs may be provided at application or as a required post-award milestone prior to
+fellowship implementation.
+For proposed new fellowship programs, NPIs for affiliated training sites may be
+identified as sites are finalized and documented through partnership agreements,
+memoranda of understanding (MOUs), or other HCAI-approved documentation.
+
+
+Eligible Funding Categories for Organizational Applicants
+As an organizational applicant, you may apply for funding for one or more of the
+following categories:
+  •       Planning subawards for organizations developing a new fellowship,
+  •       Implementation and expansion subawards for organizations ready to launch or
+          expand rural-focused fellowship capacity,
+  •       Regional shared services and supervision pools across rural training sites,
+
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 5 of 15
+  •   Curriculum and training infrastructure, including simulation and telementoring such
+      as Project Extension for Community Healthcare Outcomes (Project ECHO)
+      models, and/or
+  •   Slot creation and program operations, including micro-grants to rural clinics,
+      hospitals, and FQHCs to create new fellowship slots, program coordinator time,
+      and accreditation costs.
+
+
+Regional Care Collaborative Participation
+Participation in a regional care collaborative or other formal rural partnership structure is
+encouraged but is not required for eligibility. Applicants that demonstrate meaningful
+collaboration with regional partners, rural training sites, or maternity care networks may
+receive additional consideration during application review. HCAI recognizes that the
+availability and structure of regional collaboratives may evolve over time and does not
+require affiliation with a specific network as a condition of funding.
+
+
+Rural Training Exposure and Workforce Development
+The FM-OB Fellowship Program is designed to expand rural maternity care capacity
+through fellowship training experiences that include participation in rural clinical settings.
+Fellowship programs are expected to incorporate meaningful rural training experiences,
+which may include rural practice sites, rural rotations, or other structured rural learning
+opportunities.
+Because comprehensive obstetric training may require clinical experiences available
+only in higher-volume settings, fellowship programs may include both rural and urban
+training components. The program does not require fellows to originate from rural
+communities or to commit to practicing in a rural community following completion of
+training. Instead, the program seeks to increase rural workforce capacity through direct
+support to rural training sites, meaningful rural clinical exposure, and alignment with
+other CalRHT workforce initiatives that encourage long-term rural practice.
+
+
+Allowable Use of Funds & Budget Restrictions
+Allowable Uses of Funds
+CalRHT funds under this program may be used for the programmatic and infrastructure
+costs of expanding rural FM-OB fellowship capacity. Allowable uses of funds include,
+but are not limited to the following categories:
+   • Faculty effort and preceptor support. Salary, benefits, and protected time for the
+     faculty and preceptors who carry the expansion. This covers program director and
+     associate program director effort tied to the new rural focus or new fellowship slot,
+     supervising attending time that is not separately reimbursed as clinical care,
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 6 of 15
+      preceptor effort at rural rotation sites, faculty development that builds and sustains
+      rural obstetric teaching capacity, and faculty recruitment to fill roles required by the
+      expansion. CMS guidance identifies preceptors and faculty as workforce
+      infrastructure, not as individuals to whom the five-year rural service commitment
+      attaches.
+   • Administrative and program operations. Program coordinator and administrator
+     salary, accreditation and recognition fees, malpractice coverage at the institutional
+     level, electronic medical record and information technology integration for trainees,
+     and the share of graduate medical education (GME) or departmental
+     administrative overhead (≤10%) reasonably allocable to the funded expansion.
+   • Teaching, curriculum, and didactic infrastructure. Curriculum development for
+     rural-focused obstetric training, simulation equipment and training materials,
+     didactic delivery, teaching technology, partnerships with universities and academic
+     partners for didactic content, and educational delivery models that expand access
+     to specialty expertise in rural communities. Allowable activities include
+     telementoring platforms such as Project Extension for Community Healthcare
+     Outcomes (Project ECHO), Train-the-Trainer programs, the Perinatal Psychiatry
+     Access Program (PPAP), the California Child and Adolescent Mental Health
+     Access Portal (Cal-MAP), and other evidence-based educational and consultation
+     models that strengthen maternal, behavioral health, and interdisciplinary care
+     capacity. Activities that support participation in rural maternal health collaboratives,
+     regional care collaboratives, and other maternity-focused workforce development
+     initiatives are also allowable when directly related to the objectives of the FM-OB
+     Fellowship Program.
+   • Regional shared services. Shared regional staffing pools, coordinated scheduling
+     across rural training sites, regional supervision and preceptor capacity, faculty and
+     program travel between affiliated fellowship sites, and the coordination
+     infrastructure that supports multiple fellowship sites within a TCM regional care
+     collaborative.
+
+
+Budget Category Limitations
+CalRHT funds do not support fellow salary, stipend, housing, relocation, tuition, or other
+individual benefits, as described below. CalRHT funds may not supplant existing faculty,
+administrative, or program funding. Where a faculty or administrative role already exists
+and is already funded, CalRHT may support only the incremental effort tied to the
+expansion, not the existing baseline.
+Unallowable Use of Funds. CalRHT funds under this program may not be used for:
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 7 of 15
+  • Individual provider support. Fellow salary, stipend, housing or living assistance,
+    relocation costs, travel allowances, tuition, loan repayment, sign-on or retention
+    bonuses and childcare vouchers or subsidies. These are individual benefits that
+    would trigger the 5-year rural service commitment and are outside the design of this
+    program.
+  • Supplanting. Replacing State, local, tribal, or private funds already budgeted for an
+    existing fellowship position or activity. CalRHT funds may support only genuine
+    expansion that current funding cannot cover.
+  • Provider payments and duplicate payments. Payments for billable clinical
+    services, payments that duplicate services reimbursable by insurance, or payments
+    that change existing fee schedules.
+  • New construction and major capital. New construction, building expansion,
+    significant retrofitting, cosmetic upgrades, or costs that materially increase the value
+    or useful life of a capital asset. Minor renovations or alterations may be allowable
+    only if clearly linked to program goals, approved by CMS in advance, and within the
+    CMS limit that renovation and alteration costs do not exceed 20% of total funding
+    awarded in a budget period.
+  • Pre-award costs, lobbying, and other prohibited costs. Costs incurred before
+    the subaward start date, lobbying activities, and other costs prohibited under 2 CFR
+    Part 200 and the U.S. Department of Health and Human Services (HHS) Grants
+    Policy Statement.
+  • Duplication across CalRHT initiatives. Any cost already funded under any other
+    CalRHT-funded activity, contract, or subaward.
+
+
+Application Process Resources
+It is critical that all organizations review the full application package before applying.
+The final applicant package will include the following resources:
+    1. Expand and Support Rural Workforce Capacity Request for Application
+       (RFA). This document sets forth the controlling solicitation terms, including dates,
+       submission requirements, and evaluation procedures. This also includes the
+       fillable application portal.
+    2. Budget workbook template. This template document provides structured
+       instructions for budget development and submission, and it is a required
+       attachment for applicants.
+    3. Glossary and addenda issued by HCAI, if / when applicable.
+HCAI is committed to supporting applicants throughout the application process and
+encourages interested organizations to reach out with any questions. Questions
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 8 of 15
+regarding the application or submission process may be directed to
+info@calruralhealth.org.
+
+
+Key Dates
+The final published Expand and Support Rural Workforce application portal will specify
+the official application cycle dates which are subject to change. Estimated dates are as
+follows:
+
+    Milestone                                           Timeline
+
+    RFA release target                                  July 15, 2026
+
+    Application close                                   August 14, 2026
+
+    CMS review of selected applicants                   August / September 2026
+
+    Award notifications issued                          August / September 2026
+
+    Grant agreements executed                           September / October 2026
+
+
+
+Application Instructions
+•     Read this Grant Guide and the provided application materials before starting the
+      application.
+•     Confirm organizational fit based on the final eligibility criteria.
+•     Identify a primary point of contact and an authorized representative before beginning
+      the application.
+•     Prepare materials needed for each application component before the application
+      close date.
+
+
+A submitted application must contain all required information and conform to required
+formatting. The core sections of the application are as follows:
+
+
+ Section               Details
+
+                       This section consists of organizational identifiers and contact
+ Applicant             information for the applicant organization. This would reflect the
+ Profile               legal entity that will execute the grant agreement.
+                       Fields in this section include:
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 9 of 15
+                       Entity legal name, primary point of contact, authorized
+                       representative, additional contact (optional), legal business address,
+                       System for Award Management (SAM) status, Unique Entity
+                       Identifier (UEI), Taxpayer Identification Number (TIN) / Employer
+                       Identification Number (EIN), National Provider Identifier (NPI –
+                       optional), Tribal Entity
+
+                       This section provides information about the proposed request for
+                       funds, including the specifics about the Family Medicine Obstetrics
+                       Fellowship Subaward Program you wish to establish or expand.
+ Proposal
+ Overview              Fields in this section include:
+                       Executive summary, proportion of fellowship training occurring at
+                       rural or rural-serving sites, curriculum and training site capacity,
+                       requested funding amount, completed budget workbook
+
+                       This section provides information about proposed or existing
+                       partnerships that will support the applicant organization in fulfilling
+                       the proposed fellowship program. It includes information regarding
+ Partnership           partner organizations and partnership documentation.
+ Participants
+                       Fields in this section include:
+                       Partnership descriptions, partner organization information,
+                       description of partner funding, and partnership documentation
+
+                       This section is intended to assess whether the applicant
+                       organization has the experience, systems, governance structure,
+                       workforce capacity, and operational readiness necessary to:
+                           • Implement the proposed program
+ Operations                • Manage grant funding and reporting requirements
+ Capability                • Coordinate across participating partners
+                       Fields in this section include:
+                       Partnership management capabilities; operations and grant
+                       management capabilities; IT, data, & telehealth infrastructure;
+                       staffing & workforce readiness; and execution capabilities
+
+ Implementation This section provides information on a high-level implementation
+                timeline, organized by quarter, that identifies the project’s major
+                phases, milestones, anticipated deliverables, and the participating
+                entity or organization responsible for each deliverable or milestone.
+                Fields in this section include:
+                Federal fiscal year quarter; individual in charge of deliverables
+                and/or milestones; and proposed deliverables and/or milestones
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 10 of 15
+ Additional            Applicants must submit the most recent IRS Form 990 available for
+ Documents             the applicant organization, if applicable. This information may be
+                       used to support organizational review, financial assessment, and
+                       grant administration activities.
+                       Fields in this section include:
+                       Form 990 (optional) or alternative documentation
+
+ Attestations          This section requires an authorized signature for final submission
+                       certification. The authorized representative identified in the
+                       application must be authorized to act on behalf of the applicant
+                       organization and to make all representations, certifications, and
+                       attestations in this application.
+                       Fields in this section include:
+                       Disclosure of investigations or enforcement actions, non-duplicative
+                       funding attestation, acknowledgement of allowable-use restrictions,
+                       documentation attestation, and certification of accuracy and
+                       completeness
+
+
+    •   Applicants are responsible for providing all necessary application information and
+        ensuring that the application submitted is complete and accurate.
+    •   Application development costs in anticipation of award shall not be charged to
+        the State of California.
+    •   Pre-award costs cannot be applied to the grant, thus are not reimbursable, as
+        they occur outside of the window of award.
+    •   HCAI will not consider late or incomplete applications except to the extent
+        expressly stated in the final published application materials.
+
+Budget Workbook
+Each organizational applicant must submit a high-level budget at application aligned to
+the requested funding categories. After tentative award notification, organizations
+selected for award will submit a detailed budget with annual allocations by site and by
+funding category. Applicants should list and prioritize needs in rank order, including
+costs exceeding the funding cap, so HCAI can assess and allocate based on
+demonstrated need:
+    •   Budget broken out by recipient organization, when multiple sites are identified.
+    •   Program costs allowance: up to 10% of total award, taken from the total award,
+        documented against actual staff time on FM-OB coordination.
+    •   Non-supplantation budget narrative confirming no overlap with other HCAI,
+        federal, state, local, private, or employer reimbursement sources.
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 11 of 15
+    •   Identification of any individual direct salary at or above the current Executive
+        Level II salary cap of $228,000, effective January 1, 2026, with confirmation that
+        any salary amount exceeding this cap will be paid from non-HHS funds.
+
+Budget must not exceed documented eligible expenses. Other federal funding must be
+subtracted, if applicable. HCAI will not release the first payment until the detailed budget
+is approved.
+
+Workplan Elements
+A workplan is required as part of the application package. Organizational applicant
+workplans must align with the CalRHT goals and objectives. Each organizational
+applicant must submit a workplan including the following elements:
+    •   Faculty development and assignment to support fellow supervision and
+        instruction (as applicable)
+    •   Administrative and programmatic activities to support expanded/enhanced
+        program capacity
+    •   Plans for fellow recruitment and identification
+    •   Curriculum/didactic development activities (as applicable)
+    •   Use of regional staffing to support the FM-OB program (as applicable)
+    •   Any use of telementoring programs to support program capacity (as applicable)
+    •   Reporting plan aligned to annual Financial Reports, annual Activity Reports,
+        streamlined quarterly financial and performance reports, and streamlined monthly
+        subrecipient activity and financial reporting.
+    •   Align workplan milestones and activity dates to the CalRHT BP1 federal
+        obligation date of October 30th, 2026, and the final HCAI payment of no later than
+        September 30th, 2027.
+
+
+Organizational Award Process
+Review, Evaluation and Scoring
+HCAI will make final selections using the criteria in Attachment A: Organizational FM-
+OB Evaluation Guidelines. HCAI intends to support geographic distribution and may
+give preference to applicants serving rural counties and to regions not addressed by
+other scored applications. During review, HCAI staff verify the presence or absence of
+required information and score applications using the criteria in Attachment A.
+
+
+Budget Revision
+After full review, HCAI intends to issue tentative organizational awards. Organizations
+selected for tentative awards will be required to submit a revised budget that aligns with
+the award amount offered by HCAI. HCAI may adjust requested amounts based on
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 12 of 15
+total available funding, geographic and facility type distribution priorities, workforce
+need, and application score relative to the eligible applicant pool.
+Once the detailed budget is approved and the grant agreement is issued, the
+subrecipient has seven business days to electronically sign and accept or decline the
+agreement. Agreements not signed within this period may be considered declined.
+
+
+Post-Award and Payment Provisions
+Subaward Period and Reporting Requirements
+Subaward agreements must be fully executed no later than October 30, 2026. All
+subaward agreements will expire on or before September 30, 2027, which is the end of
+the federal period of performance. No payments will be issued after September 30,
+2027.
+Subrecipients are required to submit financial and programmatic reports, along with
+supporting documentation, through HCAI's web-based Funding Portal according to the
+reporting schedule established in the final subaward agreement. HCAI or its designee
+will review submitted reports for completeness, quality, and accuracy before authorizing
+payment.
+To support HCAI's reporting requirements to CMS, subrecipients will provide information
+necessary for HCAI to complete required annual financial and activity reports, as well as
+streamlined quarterly financial and performance reporting. Quarterly reporting will
+include, at a minimum, information on fund obligations and expenditures, fellowship
+subaward status, and other performance measures identified in the subaward
+agreement.
+
+
+Fellowship Program Reporting
+In addition to standard program and financial reporting, fellowship programs will be
+required to report the following:
+    1) Annual fellow case logs for each fellow, by training site.
+    2) Clinical training time completed at each participating site for each fellow.
+    3) Initial post-fellowship practice location for each fellow who completes the
+       program.
+    4) The total number of fellows who successfully complete the fellowship program.
+
+
+Payment Provisions
+The final subaward agreement will define the payment method and required
+deliverables. Milestone-based payments could include but are not limited to start-up
+milestones, output-based milestones, outcomes-based milestones, or administrative /
+reporting milestones.
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 13 of 15
+Additional Terms and Conditions
+1. By submitting an application, the applicant acknowledges that any award will be
+   subject to the final terms and conditions of the program.
+2. HCAI may consider the submission of an application to imply acceptance of the final
+   published terms and conditions. All applicants must agree to the final terms and
+   conditions before receiving funds.
+3. If the applicant requires internal approval to contract, the applicant must inform the
+   approving authority of the terms and conditions contained in the final award
+   agreement package.
+4. Applicants must comply with civil rights, nondiscrimination, accessibility, records
+   retention, audit readiness, required disclosures, privacy and security, and any
+   applicable federal or state publicity requirements.
+5. All reports and supporting documentation become State property and are subject to
+   the California Public Records Act. In addition, CMS retains a royalty-free,
+   nonexclusive, irrevocable license to reproduce, publish, and use all works developed
+   under the Federal Award for federal purposes (2 CFR 200.315(b); Exhibit A, A.12).
+6. All reports, supporting documentation, and data collected during the funding period
+   which are embodied in those reports, shall become the property of the State and
+   subject to the California Public Records Act (Gov. Code §§ 7920.000 et seq.)
+
+
+HCAI Department Contact
+For questions related to the FM-OB Fellowship Subaward application, please email
+HCAI staff at info@calruralhealth.org.
+Thank you!
+We thank you for your interest in the CalRHT FM-OB Fellowship Subaward Program.
+
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 14 of 15
+Attachment A: Organizational FM-OB Evaluation Guidelines
+ Category                        Guideline
+
+                                 Quality and feasibility of the proposed plan to establish a
+ Fellowship
+                                 new FM-OB fellowship program or expand an existing
+ Development or
+                                 fellowship program. Consideration may include program
+ Expansion Plan
+                                 design, fellowship positions, and sustainability.
+
+                                 Demonstrated availability of participating training sites,
+ Training Site Capacity          clinical volume, faculty, preceptors, supervision capacity,
+ and Partnerships                and partnership agreements necessary to support
+                                 fellowship activities.
+
+                                 Availability of procedural and surgical obstetrical training
+                                 opportunities. Incorporation of evidence-based educational
+                                 models, maternal behavioral health integration, telehealth,
+ Maternal Health and
+                                 telementoring, Project ECHO, Train-the-Trainer (TnT)
+ Integrated Care
+                                 programs, Perinatal Psychiatry Access Program (PPAP),
+ Curriculum
+                                 California Child and Adolescent Mental Health Access
+                                 Portal (Cal-MAP), or other innovative approaches that
+                                 strengthen rural maternal health capacity.
+                                 Experience and previous partnerships, operations and
+                                 management capabilities, IT, data, and telehealth
+ Operational Capability          infrastructure, staffing and workforce readiness, and
+                                 governance and organizational stability.
+                                 Reasonableness of the proposed budget, alignment of
+ Budget and                      requested costs with allowable activities, organizational
+ Organizational                  readiness, and ability to meet reporting and performance
+ Readiness                       requirements.
+                                 Project timeline, major milestones, which organization owns
+ Implementation                  deliverables / milestones, and how soon a project can be
+                                 implemented.
+
+
+
+
+CalRHT Expand and Support Rural Workforce Capacity RFA | Federal Fiscal Year 2026-27   Page 15 of 15
+

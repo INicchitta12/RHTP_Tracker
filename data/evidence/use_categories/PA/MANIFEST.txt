@@ -1,0 +1,16 @@
+file: 2026-11-24_pa_rhtp_year1_overview_slides_2026-03-30.pdf
+source_url: https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/rural-health/2026-03-31-webinar/2026-03-30-rhtp-year-1-overview-slides.pdf
+fetched_utc: 2026-11-24T14:46:12Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 1195671
+sha256: dacd07613112d516ba4c8b8f8fdc4a336c379bbe9bed15e8bce4e1d26130215c
+
+file: 2026-11-24_pa_rhtp_project_narrative_2026-02.pdf
+source_url: https://www.pa.gov/content/dam/copapwp-pagov/en/dhs/documents/rural-health/2026-02-06-pennsylvania-rural-health-transformation-plan-february-2026.pdf
+fetched_utc: 2026-11-24T14:46:47Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 2679740
+sha256: 421f1cc381803af2698a75875138c106863e83461b95a68f2e34e7ae96f42955
+

@@ -1,0 +1,80 @@
+Nevada Rural Health Innovation and Technology
+March 2026
+
+
+
+OVERVIEW
+The Nevada Rural Health Transformation (RHT) Program, as outlined in the state’s application, implements four new
+initiatives aimed at improving rural health outcomes and access to care. The RHT program is a five-year cooperative
+agreement between the Nevada Health Authority (NVHA) and the Centers for Medicare and Medicaid Services (CMS).
+
+RURAL HEALTH INNOVATION & TECHNOLOGY (RHIT)
+
+$26.9 million will be available in Budget Period 1 (BP1) to fund innovation and technology solutions that
+help fill gaps in health care services in rural Nevada. RHIT is a targeted investment in expanding rural participation in CMS
+Aligned Networks and will prioritize proposals that fully address this initiative and participation in the CMS Health
+Technology Ecosystem.
+
+Distribution of Funds: The Nevada Health Authority in coordination with the Nevada State Purchasing Division will create a
+request for proposal (RFP) slated for release in May 2026. Vendors responding under this proposal must be registered
+vendors with the State of Nevada. NVHA encourages interested entities to begin the registration process now at NV Vendor
+services. Future RFPs will be revised annually to reflect best practices and will be issued upon CMS’ continued approval of
+Nevada’s RHT Funds. Funds awarded under these contracts in BP1 must be obligated by October 30, 2026, and liquidated
+(i.e., fully spent) by September 30, 2027.
+
+Example Goals & Activities:
+Not an inclusive list.
+
+ Category                        Example Projects                                                             Primary Benefits
+
+ Health Information                    •    Electronic Health Records (EHR) modernization                          •     Increased service availability
+ Technology                            •    Remote patient monitoring tools                                        •     Reduced travel burden for
+ modernization                         •    Operational software infrastructure upgrades                                 rural patients
+                                            that enable participation in data exchange and                         •     More comprehensive local
+                                            interoperability                                                             care through data exchange
+                                       •    Cybersecurity software and technology
+                                       •    Telehealth infrastructure
+ Consumer Facing                       •    Digital health products for preventing and                             •     Better access to care
+ Tools                                      managing prevalent chronic diseases                                    •     Improved chronic disease
+                                       •    Tools to enhance diagnostics and linking to                                  management
+                                            patients’ clinical care teams                                          •     Increase in diagnostic capacity
+                                       •    AI tools to create administrative efficiencies.
+ Digital Health                        •    Digital care navigation tools                                          •     Lowering costs
+ Innovation*                           •    Infrastructure such as symptom checking and                            •     Mitigating provider shortages
+                                            triage
+
+This publication is supported by the Centers for Medicare and Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a
+financial assistance award totaling $179,931,608.42 with 100% funded by CMS/HHS. Pending approval of revised budget. The contents are those of the authors and
+do not necessarily represent the official view of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+ Category                         Example Projects                                                              Primary Benefits
+
+                                       •     Care guidance and scheduling assistance                                  •    Supports outreach and
+                                                                                                                           preventive care
+                                  *Broadband infrastructure is an unallowable cost under RHT
+ Analytics Tools                       •     Real-time population health analytics                                    •    Higher diagnostic capacity
+                                       •     Digital support for value-based payment                                  •    Improved quality of care
+                                             models
+                                       •     Standardization of clinical data exchange
+                                             Pharmacy automation systems
+
+
+
+Funding limitations:
+There is a 10% cap on all RHT funding that may be used for administrative costs, including both indirect and direct costs.
+Broadband infrastructure is an unallowable cost under the RHT Program.
+
+FOR MORE INFORMATION
+Email the team: RHTP@nvha.nv.gov
+Check out the Rural Health Transformation Program
+CMS RHTP FAQs: Rural Health Transformation FAQ
+Nevada Business License information: https://www.nvsilverflume.gov
+State of Nevada Vendor Registration: NV Vendor services
+Sign up for the NVHA ListServ for important announcements
+
+
+
+
+This publication is supported by the Centers for Medicare and Medicaid Services (CMS) of the U.S. Department of Health and Human Services (HHS) as part of a financial
+assistance award totaling $179,931,608.42 with 100% funded by CMS/HHS. Pending approval of revised budget. The contents are those of the authors and do not
+necessarily represent the official view of, nor an endorsement, by CMS/HHS, or the U.S. Government.
+

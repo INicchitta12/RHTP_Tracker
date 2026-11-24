@@ -54,7 +54,10 @@
 # Usage:
 #   Rscript R/08_year1_summary.R --build    # data/reference/year1_summary_<date>.csv AND
 #                                           # output/year1_summary_<date>.xlsx (Overview,
-#                                           # Detail, Definitions, Notes and caveats, Sources)
+#                                           # Detail, Vendor spending, By use category,
+#                                           # Definitions, Notes and caveats, Sources) AND
+#                                           # data/reference/year1_use_categories_<date>.csv
+#                                           # (session 123; needs R/11 --apply first)
 #   Rscript R/08_year1_summary.R --report
 
 suppressPackageStartupMessages({

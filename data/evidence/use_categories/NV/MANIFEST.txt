@@ -1,0 +1,48 @@
+file: 2026-11-24_nevada-rht-use-of-funds-march.2026.pdf
+source_url: https://www.nvha.nv.gov/siteassets/content/community/rhtp/nevada-rht-use-of-funds-march.2026.pdf
+fetched_utc: 2026-11-24T14:39:47Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 218532
+sha256: 57d69e121735b06e0f85eee2fc497c76c049deb32a31868f642f5f1750b36f9a
+
+file: 2026-11-24_nevada-rht-flex-fund-initiatives-march-2026.pdf
+source_url: https://www.nvha.nv.gov/siteassets/content/community/rhtp/nevada-rht-flex-fund-initiatives-march-2026.pdf
+fetched_utc: 2026-11-24T14:39:48Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 244538
+sha256: 68521b7c330d9d05c3540abf7d85e1431de7393bcc32a8adeb9a9a09de296851
+
+file: 2026-11-24_nevada-rht-rhit-march.2026f.pdf
+source_url: https://www.nvha.nv.gov/siteassets/content/community/rhtp/nevada-rht-rhit-march.2026f.pdf
+fetched_utc: 2026-11-24T14:39:48Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 213396
+sha256: 36058292a9474f9a7427da746fe12e0065c3615ce86b672d9a7c22e24b737280
+
+file: 2026-11-24_nevada-rht-rhoap-initiative-march.2026f.pdf
+source_url: https://www.nvha.nv.gov/siteassets/content/community/rhtp/nevada-rht-rhoap-initiative-march.2026f.pdf
+fetched_utc: 2026-11-24T14:39:49Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 208300
+sha256: 5be39aba748511a5f1bb46cb78b13ed25760e4d424cca91139c61d4ef9b37b78
+
+file: 2026-11-24_nevada-rht-wrrap-march.2026f.pdf
+source_url: https://www.nvha.nv.gov/siteassets/content/community/rhtp/nevada-rht-wrrap-march.2026f.pdf
+fetched_utc: 2026-11-24T14:39:49Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 243401
+sha256: 032f98585645956d338cddbc1cd0652ae790efeea498c69044ecdea8236bbcc1
+
+file: 2026-11-24_nv_rhtp_application_project_narrative.pdf
+source_url: https://nvha.nv.gov/uploadedFiles/nvhanvgov/content/Community/Project%20Narrative.pdf
+fetched_utc: 2026-11-24T14:40:04Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 811008
+sha256: ca42b3cabf9b94dee5acac90d205a6f8625f1332afa5793e1a2fbc672fd05e40
+

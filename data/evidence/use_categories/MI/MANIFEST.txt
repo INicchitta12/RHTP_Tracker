@@ -1,0 +1,24 @@
+file: 2026-11-24_mi_rht_project_narrative.pdf
+source_url: https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Assistance-Programs/Medicaid/RHT-Project-Narrative-Final_Cover.pdf?rev=02c6b767fc5143afb66715d6ca0be314&hash=B2FD48114FAAE9E294244C7258421315
+fetched_utc: 2026-11-24T14:37:49Z
+http_status: 200
+user_agent: Mozilla/5.0
+bytes: 23677435
+sha256: 54e1ba32817acb247e2cc6b33425c63cddc653a921c3c72a45c866352565e68c
+
+file: 2026-11-24_mi_rhtp_annual_report_year_1.pdf
+source_url: https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Assistance-Programs/Medicaid/Rural-Health-Transformation-Program/RHTP_Annual_Report_Year_1.pdf?rev=8c372f4455bf4220a754f1fac88fb9a3&hash=20FEB634882CA39D802796BE792C9634
+fetched_utc: 2026-11-24T14:37:52Z
+http_status: 200
+user_agent: Mozilla/5.0
+bytes: 4098791
+sha256: e4445975751b627498359fcdee044dda052ade53d10c018b6f5bb719f8eb3904
+
+file: 2026-11-24_mi_rhtp_initiatives.html
+source_url: https://www.michigan.gov/mdhhs/assistance-programs/medicaid/rural-health-transformation-program/rhtp-initiatives
+fetched_utc: 2026-11-24T14:37:52Z
+http_status: 200
+user_agent: Mozilla/5.0
+bytes: 1034752
+sha256: f435c2e61017990d4c0a3be3c68d90560318196476f982115009b9b8358f59e2
+

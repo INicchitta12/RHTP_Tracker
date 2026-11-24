@@ -1,0 +1,40 @@
+file: 2026-11-24_sc_rhtp_project_narrative.pdf
+source_url: https://www.scdhhs.gov/sites/dhhs/files/Project%20Narrative.pdf
+fetched_utc: 2026-11-24T14:42:32Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 643596
+sha256: c91987371b1e7c55a7bf6e6b6a9baedad850697e82bfc567041a7f71c10292b2
+
+file: 2026-11-24_sc_rfa_connections_to_care_scdhhs-26-001.pdf
+source_url: https://www.scdhhs.gov/sites/dhhs/files/(2026-04-02)%20Connections%20to%20Care%20SCDHHS-26-001.pdf
+fetched_utc: 2026-11-24T14:42:42Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 375290
+sha256: 5486cffd043532d56946301539bef8ac1a53c42929cf8b86510bbdc1b6307e6f
+
+file: 2026-11-24_sc_rfa_leveling_up_scdhhs-26-002.pdf
+source_url: https://www.scdhhs.gov/sites/dhhs/files/(2026-04-02)%20Leveling%20Up%20SCDHHS-26-002.pdf
+fetched_utc: 2026-11-24T14:42:43Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 361288
+sha256: 474cf02dcdbdf68c98b03d485f33488727fd8e465671231911a1a514aaadad77
+
+file: 2026-11-24_sc_rfa_wellness_within_reach_scdhhs-26-003.pdf
+source_url: https://www.scdhhs.gov/sites/dhhs/files/(2026-04-02)%20Wellness%20Within%20Reach%20SCDHHS-26-003.pdf
+fetched_utc: 2026-11-24T14:42:43Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 366588
+sha256: 6094bb79ccb71a45bf412d1df732bcbd8ee3c10a5af26718ad2d8cb3073be0cf
+
+file: 2026-11-24_sc_rfa_shoring_up_scdhhs-26-004.pdf
+source_url: https://www.scdhhs.gov/sites/dhhs/files/(2026-04-02)%20Shoring%20Up%20to%20Sustainability%20SCDHHS-26-004.pdf
+fetched_utc: 2026-11-24T14:42:44Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 375117
+sha256: 67060522b3c24a2ff7ce85ffecd6b7446e75d710c8cfdccb2d36d444f2e82c9f
+

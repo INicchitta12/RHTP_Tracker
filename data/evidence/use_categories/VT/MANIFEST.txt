@@ -1,0 +1,16 @@
+file: 2026-11-24_vt_rhtp_application_activity_details_3-10-2026.pdf
+source_url: https://legislature.vermont.gov/Documents/2026/Workgroups/House%20Appropriations/Other%20Topics/Health%20Care/Rural%20Health%20Transformation%20Program/W~Jill%20Mazza%20Olson~RHTP%20Program%20Application%20Activity%20Details~3-10-2026.pdf
+fetched_utc: 2026-11-24T14:37:38Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 363594
+sha256: e719ab34f7ee4ea2a3af1fd749b2038d5c7656a670b79770c4a1604d4c6c6115
+
+file: 2026-11-24_vt_rht_application_project_narrative_06-29-26.pdf
+source_url: https://healthcarereform.vermont.gov/sites/hcr/files/documents/Vermont%20RHT%20Program%20Application%20Project%20Narrative%2006-29-26.pdf
+fetched_utc: 2026-11-24T14:37:57Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 825165
+sha256: 7e18559d4a7b9fe3058a863233017b30a4262b6bd98ec9bdff3a0ca9ac474258
+

@@ -1,0 +1,12 @@
+file: 2026-11-24_ct_dss_cms_project_narrative_20251105.pdf
+source_url: https://portal.ct.gov/dss/-/media/departments-and-agencies/dss/health-and-home-care/rural-health-transformation-program/cms_project_narrative_20251105.pdf
+fetched_utc: 2026-11-24T14:37:17Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 878598
+sha256: d7beffe08955d733a686e71bc33fae2ab54b365f76bf48e8da05bff16cb8bbad
+note: .txt = pdftotext -layout; .raw.txt = pdftotext (reading order)
+
+file: text/fsrs_CT_subaward_descriptions_2026-11-20.txt
+source: extract of data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip (committed archive); written 2026-11-24
+

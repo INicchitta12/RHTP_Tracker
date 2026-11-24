@@ -1,0 +1,3246 @@
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+
+Section 1: Rural Health Needs and Target Population
+
+Illinois is the sixth most populous state in the nation and home to 12.7 million residents in 2024.1
+
+Outside of the Chicago metro area, Illinois is largely rural. As further detailed below, individuals
+
+living in rural parts of the state tend to have worse health
+
+outcomes and face structural barriers in access to critical
+
+healthcare services. The intent of Illinois’ Rural Health
+
+Transformation (RHT) project is to direct resources to reshape
+
+the way healthcare is delivered across rural Illinois. The RHT
+
+project is focused on interventions targeting individuals who
+
+reside in census tracts spanning over two-thirds of the counties
+
+in the state (85 of 102 counties) that are classified as rural as
+
+defined by the Health Resources and Services Administration
+
+(HRSA) using the following criteria: 1) Non-metropolitan counties, 2) Outlying metropolitan
+
+counties with no population from an urban area of 50,000 or more people, 3) Census tracts with
+
+Rural-Urban Commuting Area (RUCA) codes 4-10 in metropolitan counties, 4) Census tracts of
+
+at least 400 square miles in areas with population density of 35 or fewer people per square mile
+
+with RUCA codes 2-3 in metropolitan counties, 5) Census tracts with Research Report Series
+
+(RRS) 5 and RUCA codes 2-3 that are at least 20 square miles in area in metropolitan counties.
+
+Non-metro areas of the state are home to approximately 1.6 million rural residents,2 and these
+
+rural areas are located mostly in the southern and western parts of the state.3
+
+Rural Demographics
+
+In 2023, Illinois’ median household income was approximately $81,000 with a poverty rate of
+
+11.7%.4 For rural areas, the median household income was $63,0005 with 13.9% of rural
+
+                                                                                                   1
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+residents living in poverty.6 Healthcare and social assistance, transportation and warehousing,
+
+and manufacturing and agriculture are among the top employment sectors in rural Illinois,
+
+however, 2020 data shows that employment has declined across all of these sectors in recent
+
+years .7 Unemployment rates were slightly higher in rural areas (4.7%) compared to metro areas
+
+(4.4%) of the state.8 Educational attainment in rural areas shows that a majority of residents have
+
+a high school education (35.6%) or some college experience (22.7%), with 9.4% having less than
+
+a high school education, 11.6% with an associate degree, and 20.7% holding a bachelor’s or
+
+graduate degrees.9 Across the state, approximately 6.95% of the population is uninsured while
+
+16.7% are covered by Medicaid, 12.7% by Medicare, 1% by military or Department of Veteran
+
+Affairs (VA), 10.2% marketplace (non-group), and 52.6% by employers.10 In counties classified
+
+as fully rural by the Federal Office of Rural Health Policy (FORHP), the uninsured rate is 5.45%
+
+and Medicaid enrollment is 19.1%.
+
+Health Outcomes
+
+According to America’s Health Rankings, health outcomes are worse among the rural population
+
+in Illinois. Approximately 42.9% adults are obese (35% in metro areas), 38% have been
+
+diagnosed with hypertension (32.8% in metro areas), 14.3% have been diagnosed with diabetes
+
+(11.9% in metro areas), and 19.3% of adults smoke cigarettes (9.6% in metro areas) with an
+
+additional 10.3% using e-cigarettes (5.6% in metro areas).11 Rural residents are less physically
+
+active as well: 27% of adults report no physical activity other than their job compared to 20.5%
+
+in metro areas.12 In addition, cancer screening and early detection may lag in rural areas,
+
+contributing to worse cancer outcomes.13 Lastly, many of the highest rates of overdose deaths
+
+and opioid prescriptions are in Illinois’ most rural counties in southern and western Illinois.14
+
+
+
+
+                                                                                                    2
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+In 2022, Illinois had 128,493 live births.15 Forty percent of births were financed by Medicaid and
+
+42% of Medicaid births are in rural areas.16 Birth outcomes, such as infant mortality rates,
+
+maternal mortality rates, and maternal morbidity are generally higher in rural areas. In 2021, the
+
+state infant mortality rate was 5.6 per 1,000 live births. The infant mortality rate among rural
+
+counties was even higher (6.4 per 1,000 live births).17 Between January 2018 and December of
+
+2023, there were 28 obstetric hospital closures, 7 of which were in rural counties, resulting in a
+
+24% decrease in birthing hospitals in Illinois.18
+
+Healthcare Access
+
+Illinois has a network of Critical Access Hospitals, Rural Emergency Hospitals, Rural Health
+
+Clinics (RHCs), Federally Qualified Health Centers (FQHCs), and Short-Term Hospitals to serve
+
+its rural population.19 Small and rural hospitals account for 22% of the state’s total outpatient
+
+visits and 9.8% of inpatient days. They treat a larger portion of older patients (45.3%) compared
+
+to other hospitals (37.3%) and thus are more dependent on Medicare as Illinois’ aging population
+
+continues to grow.20 Unfortunately, rural Americans often live twice as far from the nearest
+
+hospital compared to those in urban and suburban areas.21 Access to care in rural Illinois is
+
+increasingly fragile as hospitals consolidate or downsize service lines, increasing travel distances
+
+to comprehensive care.
+
+With greater distances to travel, transportation is key to healthcare access in rural communities.
+
+Rural transportation in Illinois can be challenging, as public transit options are limited and much
+
+less robust relative to metro areas. Transportation services in these regions often operate on a
+
+demand-response (call-ahead) basis due to low population density, though some areas are trying
+
+more frequent options.22
+
+
+
+
+                                                                                                     3
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Although the state’s healthcare network appears robust on a map, numerous rural counties
+
+continue to be designated as Healthcare Professional Shortage Areas (HPSAs). For primary care
+
+and behavioral healthcare practitioners, most rural counties face critical shortages.23 The Illinois
+
+State Medical Society (ISMS) predicts that Illinois will face a shortage of 6,200 physicians by
+
+2030.24 This shortage will not just be in rural counties but also impact urban communities in the
+
+state. Healthcare facilities in Illinois are mapped in “Other Supporting Documents.”
+
+Rural Facility Financial Health
+
+Rural hospitals and clinics are essential for sparsely populated areas in Illinois, but they see
+
+fewer patients and face unique challenges compared to the state’s urban regions. These facilities
+
+operate with tighter budgets and fluctuating demand, making their role both significant and
+
+vulnerable. In response to looming federal cuts to Medicaid, Illinois policy makers estimate that
+
+over 270,000 residents could lose coverage, and rural Medicare/Medicaid funding reductions
+
+may total $6.36 billion – heightening the existential threat to already fragile rural providers.25
+
+Illinois was ranked in the top 25 of states with the most rural hospital closures in the past 19
+
+years, with 4 rural hospitals having closed since 2005.26,27 The University of North Carolina
+
+Sheps Center for Health Services Research identified 9 Illinois hospitals, predominantly located
+
+in rural communities, that are at risk of closure due to being in the top 10% Medicaid payer mix
+
+of rural hospitals across the country and/or having experienced 3 consecutive years of negative
+
+total margin.28 Per the 2022 Medicare Hospital Cost Reports, rural Illinois hospitals have fewer
+
+financial reserves compared to non-rural hospitals. In aggregate, rural hospitals held 210 days
+
+cash on hand while non-rural hospitals held 485 days of cash on hand.29
+
+
+
+
+                                                                                                       4
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Target Populations
+
+Grounded in these needs, the RHT program will direct funding to entities that serve rural census
+
+tracts across Illinois – rather than relying solely on county designations – to ensure no rural
+
+community, including those embedded within metro counties, is overlooked. Within this
+
+framework, particular attention will be paid to sub-populations such as individuals living with
+
+chronic disease and those with mental health conditions. This targeted approach aligns resources
+
+with demonstrated need and positions partners closest to rural residents to deliver impact. The
+
+sections that follow detail how Illinois will translate this focus into specific initiatives, funding
+
+mechanisms, implementation plans, and performance measures to expand access, improve
+
+outcomes, and build a sustainable rural care system.
+
+
+Section 2: Rural Health Transformation Program
+
+2.1 Goals and Strategies
+
+The Illinois Department of Healthcare Services (HFS), in strategic partnership with its sister
+
+agencies and interested parties, is committed to advancing the health of rural Illinois. HFS strives
+
+to “help Illinoisans access high quality healthcare and fulfill child support obligations to advance
+
+their physical, mental, and financial well-being.”30 Using the Centers for Medicare and
+
+Medicaid’s (CMS) five strategic goals from the Rural Health Transformation (RHT) Program
+
+Notice of Funding Opportunity (NOFO), HFS has developed a clear plan for the future of rural
+
+healthcare in Illinois. This vision is built on the foundation of three key categories of initiatives
+
+which will incentivize the creation of hospital and provider partnerships, increase the use of
+
+technology and mobile health services, and expand the healthcare workforce within the state:
+
+
+
+
+                                                                                                        5
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Initiatives                             Strategic Goals      Key Activities of the Initiatives
+ Transforming Rural                      Innovative care      Catalyzing value-based care models, regional health care
+ Healthcare Delivery                                          partnerships in the hospital and primary care practice
+   Hospital Transformation               Make rural           spaces, practice transformation, and population health
+   Community Care Infrastructure         America healthy      improvement through the development of:
+   Hospital Disease Prevention           again                • Hospital transformation grants (planning grants in
+                                                                   year 1, project funding in years 2-5)
+                                         Sustainable          • Primary care and behavioral health integrated, team-
+                                         access                    based care
+                                                              • Value-based payment initiatives (beginning in year
+                                                                   2)
+                                                              • Chronic disease prevention programming
+ Overcoming Geographic Barriers to       Sustainable          Creating opportunities for individuals in rural settings to
+ Care                                    access               receive appropriate access to services while remaining in
+  EMS and Mobile Healthcare                                   their communities across all budget years:
+  Technological Innovation for           Tech innovation      • Infrastructure investment in EMS, mobile health
+    Virtual Care                                                   clinics, and mobile crisis units
+                                                              • Investment in telehealth and technological
+                                                                   innovation
+ Building a Resilient Rural              Workforce            Foundational investment to fill urgent gaps in the rural
+ Workforce                               development          healthcare workforce through all budget years:
+  Healthcare Workforce Expansion                              • Scholarship and university program expansion
+  Training Healthcare Support                                 • Regional training and certification programs
+    Workers                                                   • Expansion of community college programs
+  Rural Health Education Pipeline                             • Expansion of high-school community outreach
+                                                                   programs
+
+
+
+Each of HFS’ initiatives has been informed by significant engagement with Illinois’ provider
+
+community, state government partners, community advocates, and other stakeholders. The
+
+Department prioritized consensus and collaboration, and received strong support and suggestions
+
+focused on three main goals: (1) incentivizing sustainable provider networks in rural areas by
+
+encouraging hospital-provider partnerships to ensure ongoing care and movement towards value-
+
+based payment (VBP) models that give residents access to comprehensive treatment; (2)
+
+breaking down barriers by bringing healthcare directly to the individual in rural communities
+
+through transportation, mobile services, and technology like telemonitoring; and finally (3)
+
+strengthening the local workforce by expanding clinical and non-clinical training opportunities
+
+for rural health professionals.
+
+
+
+
+                                                                                                                   6
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Each initiative will be implemented over the course of this grant award, aiming to increase
+
+community care capacity through workforce investments, expansion of mobile and technology-
+
+enabled services, and the development of new health care networks and partnerships intended to
+
+support the long-term sustainability of the health care infrastructure in rural Illinois. For
+
+example, HFS recently submitted for CMS approval a State Plan Amendment (SPA) to expand
+
+treat-no-transport services, allowing Medicaid payment for eligible medical care provided by
+
+emergency medical service (EMS) providers even if the patient is not transported. HFS is also
+
+evaluating state policies to support sustainable funding beyond the grant period, such as
+
+Medicaid reimbursement for services delivered via technology-enabled delivery systems and
+
+future VBP options as the grant initiatives develop. This will support the long-term sustainability
+
+of these efforts through commercial, Medicare, and Medicaid reimbursement when possible.
+
+HFS’ chosen initiatives are interlinked with each other in a manner that builds the healthcare
+
+workforce, healthcare capacity, expands the reach of existing providers, and aligns with all of the
+
+strategic goals of the RHT program, as follows:
+
+Improving Access & Technology Use: The proposed initiatives improve rural healthcare access
+
+by increasing service capacity at hospitals, community mental health centers (CMHCs), and
+
+FQHCs, funding the expansion of technology-enabled services like specialist e-consultations and
+
+telehealth visit modalities, expanding mobile care availability, and investing in workforce
+
+initiatives that grow availability of healthcare in rural Illinois. The Illinois Critical Access
+
+Hospital Network (ICAHN) will provide centralized planning and deployment of virtual
+
+technologies to hospitals’ systems and provider collaboratives across rural Illinois. ICAHN will
+
+also support providers in expanding the use of consumer tools, such as mobile health apps,
+
+prenatal tracking, and teletherapy access, while also deploying AI and automation for eligibility
+
+
+                                                                                                    7
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+verification, scheduling, and clinical documentation to free up staff time for more direct care
+
+service provision.
+
+Improving Outcomes: The state intends to use a portion of the grant funds to direct hospitals to
+
+leverage findings and perspectives gathered in their most recent community-health needs
+
+assessments to identify public health priorities within their communities and deploy evidence-
+
+based interventions to prevent and manage disease. Hospitals will be encouraged to think beyond
+
+the walls of their facilities and use these funds to bring wellness and prevention to community
+
+spaces, like schools, places of worship, grocery stores, gyms, and community centers to improve
+
+the health and overall wellbeing of the communities they serve. HFS’ approach to measuring the
+
+impact across RHT initiatives is detailed further in Section 6: Metrics and Evaluation Plan.
+
+Partnerships: Illinois initiated Health Transformation Collaboratives (HTCs) in FY2021 to fund
+
+hospital and provider partnerships to expand service offerings and care collaboration to
+
+implement integrated, person-centered, community-focused care throughout the state.31 The
+
+mission of HTCs is to reorient Illinois’ healthcare delivery system around people and
+
+communities. This includes investing in projects, large and small, that improve outcomes,
+
+decrease disparities, and are sustainable over time. HTCs focus on community needs for all
+
+levels of healthcare with an emphasis on improving health and wellness for individuals and
+
+communities.
+
+HFS will fund both the expansion of successful examples of these initiatives and new initiatives
+
+that build on these same principles. A significant portion of Illinois’ RHT funding will be used to
+
+seed partnerships across rural Illinois, between rural hospitals and community practitioners to
+
+expand care offerings and transform service lines and care delivery, as well as invest additional
+
+funds in scaling successful HTC programs in rural areas of the state. While hospitals will serve
+
+                                                                                                    8
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+as the backbone of these efforts, collaboration with other providers in their communities will be
+
+essential.
+
+Workforce: In partnership with Illinois’ state university system, the Illinois Community College
+
+Board (ICCB), and ICAHN, the state will expand scholarships, fellowships, and other training
+
+initiatives for clinical professionals, as well as training and certification programs for healthcare
+
+support staff. Funding will be dedicated to broadening access to training, certification, and
+
+apprenticeship opportunities in rural communities, thereby reducing barriers to participation for
+
+residents of these areas. Funding will also support the expansion of existing scholarship
+
+programs to include new slots for rural students and introduce scholarships for clinical and non-
+
+clinical fields, such as doulas, lactation consultants, and Community Health Workers (CHWs).
+
+Together, these initiatives will increase the availability of a variety of health professionals in
+
+rural Illinois.
+
+Data-Driven Solutions: In partnership with ICAHN, Illinois will conduct healthcare provider
+
+specific assessments of technology infrastructure and interoperability capacity, provide
+
+Technical Assistance (TA), and coordinate vendor selection to assist providers with selecting
+
+customized technology solutions to meet their unique needs while simultaneously building the
+
+infrastructure necessary for statewide coordination and interoperability. Ultimately, this will
+
+enable providers to expand service offerings to include telehealth visits with specialists in areas
+
+of the state where those services may not otherwise be available, and to expand the use of e-
+
+consultations between primary practices and specialists to allow patients to receive appropriate,
+
+necessary care within their communities.
+
+Financial Solvency Strategies: Illinois’ RHT initiatives are designed to provide the up-front
+
+investments in partnerships, technology, and infrastructure needed to fund the care interventions
+
+
+                                                                                                        9
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+that are covered, or will be covered with updates to policy, under the Medicaid program. For
+
+example, in the “Transforming Rural Healthcare Delivery” initiatives, investments will be made
+
+in transformational partnerships between hospitals and community providers to right-size
+
+facilities, reduce reliance on inpatient models of care, reduce rural facility bypass by improving
+
+the quality of local healthcare options, and provide new revenue opportunities through new
+
+service offerings that were not available previously. These adaptations in healthcare provisions,
+
+coupled with a close examination by the state of reimbursement policies, will help move these
+
+hospitals to higher quality, higher efficiency, and lower cost models of care.
+
+Similarly, the “Overcoming Geographic Barriers to Care” initiatives provide support for the
+
+infrastructure, capital investments, equipment, and expanded rural workforce to improve the
+
+mobile care capabilities of EMS providers. At the same time, state Medicaid policy is moving
+
+toward implementing a treat-and-no-transport payment structure in Medicaid to ensure that EMS
+
+providers can receive reimbursement for the new capabilities this funding will provide.
+
+Cause Identification: Illinois hospitals, particularly standalone rural hospitals, have experienced
+
+significant financial distress over several decades as they struggle to maintain service lines and
+
+avoid closure. Factors that specifically impact rural standalone hospitals include exponential cost
+
+growth, low or inconsistent patient volumes, inadequate reimbursements, shifting patient care
+
+patterns, and lack of economies of scale. With recent advances in medicine and technology, more
+
+conditions, including serious chronic conditions, can be treated in an outpatient setting. Yet
+
+many rural hospitals maintain large, inpatient facilities that are rarely fully occupied. Patients
+
+will too often bypass independent rural hospitals that cannot offer the latest medical
+
+advancements, leaving them further struggling with patient volume. These hospitals are
+
+operating on thin margins with Medicare and Medicaid making up the vast majority of their
+
+
+                                                                                                     10
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+claims. National reporting from 202332 indicates that Medicare covered a larger share of hospital
+
+discharges in rural areas (53%) compared to private insurance (19%) illustrating a skewed payor
+
+mix, which negatively impacts rural hospital financial solvency and supports the Illinois Health
+
+and Hospital Association reporting of 29.4% of small and rural hospitals operating on negative
+
+or thin margins. Further, when examining the most recent CMS hospital reporting data, hospitals
+
+with the highest percentage of uncompensated care were located in downstate counties:
+
+Montgomery (7.74%), Wayne (9.5%), Fayette (9.88%), Clay (10.57%), and Williamson
+
+(11.97%).33
+
+Illinois’ RHT program addresses the challenges faced by these struggling, independent hospitals
+
+by supporting their strategic transition away from inpatient to enhanced outpatient care, adoption
+
+of telemedicine to expand access to specialty care, and partnerships that allow small hospitals to
+
+create economies of scale by leveraging advanced patient care tools and back office support
+
+technology. In addition, this model drives small hospitals to experiment with new VBP models
+
+that can become sustainable when the proper infrastructure is in place. These investments are all
+
+included in the “Transforming Rural Healthcare Delivery” category of Illinois’ RHT program.
+
+Program Key Performance Objectives: In alignment with the types of outcomes outlined in the
+
+NOFO, HFS has designed key performance objectives to cover the following categories: access
+
+to care, patient health outcomes, total cost of care, rural facility financial stability, access to
+
+emergency services, provider to patient coverage ratios, and patient access to health data. For
+
+example, Illinois’ RHT program includes a metric for frequency of breast cancer screenings to
+
+measure access to preventive care. A metric measuring the annual cost of care per member is
+
+also included related to gauge cost-effectiveness. Each of the metrics outlined in Section 6:
+
+
+
+
+                                                                                                      11
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Metrics and Evaluation, directly tie to HFS’ overall program goals to CMS’ vision for the RHT
+
+Program.
+
+Strategic Goals Alignment: The proposed initiatives touch all five of the strategic goals
+
+identified in the NOFO. Initiatives in category #1, Transforming Rural Healthcare Delivery,
+
+aligns with the strategic goals of Innovative Care, Make Rural America Healthy Again, and
+
+Sustainable Access. HFS is confident that the formation of provider partnerships for hospitals
+
+and integrated care models for primary care and behavioral health practices built upon the state’s
+
+successful HTC models will enable providers to provide significantly improved care
+
+coordination and chronic disease management to improve health outcomes. The partnerships will
+
+facilitate the sharing of resources and data systems to provide better care coordination for
+
+patients and the implementation of sustainable alternative payment models. Initiatives in
+
+category #1 will also address the Make Rural America Healthy Again strategic goal by funding
+
+chronic disease management, nutrition education programming, and other rural health initiatives
+
+provided at rural hospitals through partnerships between the Illinois Department of Public Health
+
+(IDPH), local health departments, primary care providers, and local community hospitals
+
+including Critical Access and Rural Hospitals.
+
+Initiatives in category #2, Overcoming Geographic Barriers to Care, will address the Sustainable
+
+Access and Tech Innovation strategic goals through investments in mobile health services,
+
+expansion of EMS capabilities, and state investments in telehealth, interoperability, Electronic
+
+Health Record (EHR) modernization, and other technological innovations to expand healthcare
+
+service offerings, especially access to specialist services where they currently are not readily
+
+available, in rural areas of the state.
+
+
+
+
+                                                                                                   12
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Finally, initiatives in category #3, Building a Resilient Rural Workforce, will address the
+
+Workforce Development strategic goal through the expansion of existing state scholarship
+
+programs for students in healthcare workforce programs covering both clinical and non-clinical
+
+specialty areas, by increasing the availability of training and apprenticeship programs, and
+
+growing the reach of local outreach activities that target individuals interested in pursuing
+
+certification and training in high-need health care workforce positions in rural areas of the state.
+
+Legislative or Regulatory Action: Illinois submitted a SPA on September 30, 2025 to request
+
+CMS approval to provide Medicaid reimbursement for EMS “treat-no-transport” services, also
+
+known as “treatment in place,” which allows EMS providers to treat a patient on site if they do
+
+not need to transport that individual to a hospital or other health care facility. HFS is pursuing
+
+this policy because providers are currently performing this service without reimbursement, and
+
+because it is critical to begin to pay for this and other similar activities in the Medicaid program
+
+as Illinois transitions to new care models that rely on far reaching interventions. HFS is also
+
+reviewing state policy options for implementing VBP in the Medicaid program and will aim to
+
+align the state’s RHT efforts with other payment reform initiatives (e.g., Illinois’ Transforming
+
+Maternal Health (TMaH) model) as appropriate, to ensure alignment between the state’s RHT
+
+program broader HFS goals. Finalization of the policy approach to VBP will occur by the end of
+
+the 5-year grant period. Transition to VBP is necessary to continue the incentives initiated by
+
+these grant funds. These transformation models will change the way care is delivered and the
+
+way providers are organized in Illinois’ rural communities, in effect amending provider payment
+
+structures to reward value and collaboration in a meaningful way and ensure these models are
+
+sustainable. Illinois’s current policy by each state policy action identified in the NOFO are
+
+included in Table B below.
+
+
+                                                                                                     13
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Other Required Information:
+Table A: Rural Data Factors
+ Regional Facility and Population Factors                                 Illinois Data
+ A.1. Absolute size of rural population in a State                                                      1,915,300
+ A.2. Proportion of Rural Health Facilities in the State                              Critical Access Hospital: 55
+                                                                                     Sole Community Hospital: 8
+                                                                                 Medicare Dependent Hospitals: 6
+                                                                                       Low Volume Hospitals: 11
+                                                                                   Rural Emergency Hospitals: 0
+                                                                                        Other Rural Hospitals: 10
+                                                                                            Hospital facilities: 83
+                                                                                         Rural Health Clinic: 277
+                                                                                                      FQHC: 441
+                                                                              Community Mental Health Center: 1
+                                                                                     Opioid Treatment Facility: 3
+                                                                                                      CCBHC: 11
+                                                                          Other Rural Health Facility Types: 733
+ A.3. Uncompensated care in a State                                                                           4.5%
+ A.4. % of State population located in a rural area                                                         14.9%
+ A.5. Metrics that define a State as being frontier                                                           0.5%
+ A.6. Area of a State in total square miles                                                                 55,519
+ A.7. % of hospitals in a State that receive Medicaid DSH payments                                            9.9%
+
+
+
+Table B: State Policy Actions
+
+ Policy Factor                                    Illinois Policy
+ B2. Health and Lifestyle                         Illinois schools are required to administer a physical fitness
+                                                  assessment per state statute.34
+ B3. SNAP Waivers                                 Illinois does not have an approved Supplemental Nutrition
+                                                  Assistance Program (SNAP) waiver and does not anticipate
+                                                  submitting a request for a SNAP food waiver restriction.
+ B.4. Nutrition and Continuing Medical            Illinois does not have a current requirement to include nutrition
+ Education                                        in continuing medical education for physicians.
+ C.3. Certificate of Need (CON)                   The Cicero Report gives Illinois a total score of 65 indicating
+                                                  moderate Certificates of Need across facility categories.35 The
+                                                  legislation authorizing CON in Illinois sunsets in 2029.
+ D.2. Licensure Compacts                          Physician - IL is a member state of the Interstate Medical
+                                                  Licensure Compact (IMLCC).36
+                                                  Nursing – IL has legislation pending, HB 1706 (Morris), to join
+                                                  the Nurse Licensure Compact (NLC).37
+                                                  EMS – IL is not a member of the EMS Compact.38
+                                                  Psychology – IL is participating in the Psychology
+                                                  Interjurisdictional Compact (PSYPACT).39
+                                                  Physician Assistant (PA) – IL has legislation pending, SD 209
+                                                  (Rezin), to join the PA Compact.40
+ D.3. Scope of Practice                           PAs: IL PAs have an advanced scope of practice.41
+                                                  Nurse Practitioners (NPs) – IL NPs have a full scope of practice
+                                                  under Illinois state code 225 ILCS 65/65-43.42
+                                                  Pharmacists – IL Pharmacists have a formulary-based
+                                                  authority.43
+
+
+                                                                                                                      14
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+                                               Dental Hygienist – IL Dental hygienists have a semi-restricted
+                                               scope of practice.44
+ E.3. Short-term, limited duration insurance   Illinois state law currently prohibits STDLIs and is unlikely to
+ (STDLI)                                       amend this state policy.45
+ F.1. Remote Care Services                     Live video – Illinois currently provides and reimburses for live
+                                               video remote services.
+                                               Store & Forward – Illinois only allows for Communication
+                                               Technology Based Services.
+                                               Remote Patient Monitoring (RPM) – Illinois currently provides
+                                               and reimburses for RPM.
+                                               In-state licensure exemptions – Some in-state licensure
+                                               exemptions exist.
+                                               Telehealth License/Registration Process – No telehealth license
+                                               or registration process is currently in place. However, under the
+                                               existing regulatory framework in Illinois, out-of-state physicians
+                                               participating in the Interstate Medical Licensure Compact are
+                                               allowed to render care via telehealth.46 47
+
+Section 3: Proposed Initiatives and Use of Funds
+3.1 Transforming Rural Healthcare Delivery
+Initiative 3.1.A: Hospital Transformation
+
+Description: Problem statement: Rural hospitals across Illinois are facing unprecedented
+
+financial pressures, putting many at risk of closure. These closures threaten to deepen existing
+
+gaps in the continuum of care for rural communities, where access to essential health services is
+
+already limited by geographic isolation, workforce shortages, and resource constraints. As rural
+
+hospitals often serve as the backbone of local healthcare delivery, their instability jeopardizes not
+
+only emergency and inpatient care, but also the broader health and well-being of rural residents.
+
+As healthcare technology continues to evolve, the need to increase access to care via telehealth
+
+and other advanced technologies grows as well.
+
+Objective: Addressing these challenges requires bold, creative solutions that rebalance and
+
+transform the rural healthcare landscape—ensuring that all residents, regardless of location, have
+
+access to high-quality, sustainable care. This transformation will demand innovative care models,
+
+strategic partnerships, and targeted investments to stabilize rural hospitals, close access gaps, and
+
+build a resilient and sustainable healthcare system for the future. This initiative will build upon
+
+
+                                                                                                                15
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+progress and lessons learned from Illinois’ HTC initiative. The state has provided funding since
+
+2021 to regional partnerships between healthcare providers and community-based organizations
+
+to test innovative models of care delivery to bridge gaps in care and address root causes of
+
+disease. There are 4 HTCs that serve rural communities today. Existing HTCs have already
+
+begun demonstrating positive health and healthcare cost outcomes, including increases in adult
+
+annual preventive visits, increases in outpatient care, decreases in emergency department (ED)
+
+utilization, achieving blood pressure control, and positive birth outcomes.48
+
+Funding approach: The Hospital Transformation initiative is intended to catalyze the
+
+modernization of Illinois’ rural healthcare delivery system through three strategic investments:
+
+1. Transformation funding to hospitals to reshape healthcare delivery to better align with
+
+community needs and improve the long-term financial viability of rural hospitals. Funds may be
+
+used to support service line transformation and develop sustainable, high-quality care models
+
+through investment to:
+
+
+   •   Establish regional partnerships and governance structures.
+
+   •   Develop a transformation plan to identify delivery system gaps and unmet community
+
+       needs and outline strategies to transform service lines, deploy new models of care
+
+       delivery, and test sustainable VBP methodologies.
+
+   •   Hire clinical and non-clinical staff across hospitals and partnership entities to carry out the
+
+       strategies identified in the transformation plan.
+
+   •   Support capital expenditures for renovations to transition lines of service.
+
+The first year will award planning grants to hospitals to develop a regionally tailored and data-
+
+driven transformation plan, followed by selection of hospital partnerships in years 2-5 to carry
+
+out their transformation plans based on the merits and expected impacts of their proposals.
+
+                                                                                                    16
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Because these funds are expected to support the infrastructure needed to enable success under
+
+VBP models, in years 4 and 5, additional funds will be allocated to support participating
+
+hospitals’ transition to VBP models. While further development is needed, HFS expects this to
+
+take the shape of performance improvement payments or incentives to engage in downside risk
+
+contracting, not to exceed the 15% limit on provider payments.
+
+Regional partnerships must include representation from at least one local hospital, primary care
+
+provider, behavioral health provider, and local health department. Partnerships should also
+
+include provider organizations that can help address the most pressing specialty, behavioral
+
+health, pediatric, and maternal care gaps. Existing regional governance structures like Illinois
+
+Children’s Behavioral Health Transformation Initiative (CBHTI) Community Networks or the
+
+local Area Agencies on Aging will be encouraged to apply. Priority will be given to partnerships
+
+with distressed hospitals that show promising approaches to build a more sustainable operating
+
+model and partnerships in regions experiencing significant misalignment between community
+
+health needs and availability of care to address those needs.
+
+2. Expansion funding for successful transformation projects for existing rural HTCs to scale
+
+models that have demonstrated initial success in improving access, quality, health outcomes,
+
+and/or cost effectiveness – particularly in counties across central, southern, and eastern Illinois.
+
+Because the intent of the HTC initiative is closely aligned with the strategic goals of the RHT
+
+program, these existing partnerships are already making an impact on RHT goals and represent a
+
+logical vehicle to build upon. HFS expects these entities to submit proposals with compelling
+
+evidence of impact for direct awards as subrecipients of RHT funds. Expected projects include:
+
+
+
+
+                                                                                                   17
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+•   Carle Health: Expansion of a maternal and child Registered Nurse home visiting program,
+
+    investment in mobile market capacity, expanding the reach of a mobile health clinic, and
+
+    expanding behavioral health service capacity in Vermillion County.
+
+•   Egyptian Health Department and their participating hospitals: Scaling and expanding the
+
+    reach of the Integrated Hub (iHub) model of care coordination between physical and
+
+    behavioral healthcare providers, schools, community agencies, and families in rural southern
+
+    Illinois, including Saline, Gallatin, White, Hamilton, and Wayne counties.
+
+•   OSF Healthcare: Scaling and expanding the Medicaid Innovation Collaborative (MIC)
+
+    Perinatal program to reach 600 rural mothers annually across 16 communities. The initiative
+
+    includes trimester-specific education, remote patient monitoring (RPM), regular patient
+
+    check-ins, patient support, virtual visits, and post-partum visits.
+
+•   SIHF Healthcare (SIHF): Establishment of two InstaCare locations in Centralia and
+
+    Mascoutah County, a model of urgent care that can address acute needs and provide more
+
+    convenient access to primary care and specialty care through telehealth. Each site embeds
+
+    comprehensive substance use disorder (SUD) services and support in addressing root causes
+
+    of disease through CHWs and registered dieticians.
+
+3. Technical Assistance (TA) to facilitate the development of regionally tailored and data-driven
+
+transformation plans. TA will help transformation grantees to identify community needs, conduct
+
+any additional community and provider-capacity needs assessment, and provide hands-on
+
+practice facilitation to support the transition to new operating models. HFS will leverage its
+
+longstanding partnership with the University of Illinois’ Office of Medicaid Innovation (OMI) to
+
+retain local and national health system transformation experts and develop TA programming in
+
+support of this initiative. TA is expected to be supported over the 5-year program, first to support
+
+                                                                                                 18
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+hospitals in developing their transformation plans, second to support implementation and change
+
+management as hospitals execute their transformation plans, and third to support the design of
+
+VBP models and performance management structures to succeed under them.
+
+Main Strategic Goal: Innovative Care
+
+Use of Funds: A, B, D, G, H, I, J, K (non-exhaustive)
+
+Technical Score Factors: B1, B2, C1, E1, F2 (non-exhaustive)
+
+Key Stakeholders: Examples of key stakeholders may include the four rural HTCs, rural
+
+hospitals, primary care providers, behavioral health providers, local health departments,
+
+community organizations, rural health clinics, CBHTI, Local Area Agencies on Aging, and OMI.
+
+Outcomes: 9 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive Cases; Telehealth Utilization; Follow-Up After ED Visits for Mental Illness; Follow-
+
+Up After ED Visits for Substance Abuse; Rural Hospital Financial Stability: Cash on Hand;
+
+Participation in Value-Based Payment Models; Preventive Care and Screening: Screening for
+
+Depression and Follow-Up Plan; Member Level Total Cost of Care
+
+Impacted Counties: 85 counties based on the rural census tracts a defined by HRSA using the
+
+following criteria: 1) Non-metropolitan counties, 2) Outlying metropolitan counties with no
+
+population from an urban area of 50,000 or more people, 3) Census tracts with RUCA codes 4-
+
+10 in metropolitan counties, 4) Census tracts of at least 400 square miles in area with population
+
+density of 35 or fewer people per square mile with RUCA codes 2-3 in metropolitan counties, 5)
+
+Census tracts with RRS 5 and RUCA codes 2-3 that are at least 20 square miles in area in
+
+metropolitan counties. Initiative will be targeted at entities that serve populations within a rural
+
+census tract (hereafter referred to as counties identified in rural census tract criteria).
+
+Estimated Required Funding: $299,500,000
+
+
+                                                                                                   19
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Initiative 3.1.B: Community Care Infrastructure
+
+Description: Problem statement: Rural regions outside of northeast Illinois continue to face
+
+significant gaps and fragmentation in health care delivery, particularly in terms of access to
+
+primary care, with patients often experiencing limited access to essential preventive services and
+
+inconsistent coordination across providers and settings. These challenges are compounded by
+
+workforce shortages, geographic isolation, and resource constraints, resulting in disparities in
+
+health outcomes, barriers to achieving whole-person care, and avoidable utilization in high-cost
+
+settings. In particular, access to mental health and SUD services for adults and children are often
+
+limited and siloed.49 As the first point of contact for the patients they serve, primary care and
+
+outpatient behavioral health settings serve as the optimal foundation for building innovative and
+
+integrated models of health care in rural communities. The intent of this initiative is to strengthen
+
+primary care and behavioral health infrastructure and embed team-based, integrated models of
+
+care that can address primary care, behavioral health, and root causes of disease holistically. By
+
+investing in these models, rural health systems can reduce fragmentation, improve access, and
+
+deliver comprehensive, person-centered care that meets the unique needs of rural populations
+
+and shifts care to lower cost settings.
+
+Objective: This initiative will provide targeted funding to rural primary care and behavioral
+
+health providers to develop the infrastructure, staffing, and workflows necessary for
+
+implementing integrated models of care. Funds to provider entities may support:
+
+•   Standing up evidence-based, integrated models of care such as the Collaborative Care Model
+
+    (CoCM)50 .
+
+•   Implementing regionalized, enhanced care coordination and health system navigation
+
+    models.
+
+
+                                                                                                    20
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+•   Building clinical connections between rural primary care providers and specialists, such as
+
+    specialists at academic hospitals in the Chicagoland area, including those outside the
+
+    immediate region, through telehealth or mobile healthcare.
+
+•   Embedding primary care providers and services in outpatient behavioral health settings.
+
+•   Embedding new provider types, such as CHWs, peer support professionals, and doulas into
+
+    care teams.
+
+•   Enhancing health IT infrastructure to improve integration and coordination, population health
+
+    management, and/or AI-enabled clinical decision supports.
+
+In addition, the initiative will offer TA and establish learning collaboratives to provide hands-on
+
+care transformation support from local and national experts and establish quality management
+
+systems for tracking and reporting outcomes.
+
+Funding approach: Funds for this initiative will be provided to FQHCs, RHCs, CMHCs,
+
+Certified Community Behavioral Health Clinics (CCBHCs), Opioid Treatment Programs
+
+(OTPs), and other outpatient primary care, behavioral health, and SUD providers located in rural
+
+communities. The Illinois Primary Health Care Association (IPHCA) and the Community
+
+Behavioral Health Association (CBHA) will be awarded as subrecipients to develop mechanisms
+
+to efficiently distribute funds to primary care and behavioral health providers, respectively, and
+
+establish reporting and oversight processes. Centralized TA will be provided through OMI or
+
+other university partnerships.
+
+Main Strategic Goal: Innovative Care (non-exhaustive)
+
+Use of Funds: A, B, D, G, H, I (non-exhaustive)
+
+Technical Score Factors: B.1, C.1 (non-exhaustive)
+
+
+
+
+                                                                                                  21
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Key Stakeholders: Examples of key stakeholders may include OMI, universities, FQHCs,
+
+RHCs, CMHCs, CCBHCs, OTPs, and other outpatient primary care and behavioral health
+
+providers, non-traditional provider types, and provider associations.
+
+Outcomes: 8 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive Cases; Breast Cancer Screening; Colorectal Cancer Screening; Early Entry into
+
+Prenatal Care; Telehealth Utilization; Participation in Value-Based Care Models; Preventive
+
+Care and Screening: Screening for Depression and Follow-Up Plan
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $124,5000,000
+
+Initiative 3.1.C: Hospital Disease Prevention
+
+Description: Problem statement: The burden of chronic disease disproportionately affects rural
+
+Illinoisans, as the prevalence of these conditions and associated risk factors tend to be higher,
+
+while resources for prevention and treatment remain limited in rural communities.51 Rural
+
+hospitals often serve as hubs for community health and wellness, going beyond providing
+
+emergency and inpatient care to engage, educate, and promote public health. In recognition of
+
+this vital role, this initiative will provide funding to hospitals in rural Illinois to invest in
+
+strategies to prevent disease in the communities they serve.
+
+Objective: Under this initiative, RHT funds will be allocated to support rural hospitals in
+
+implementing disease prevention programming, in partnership with local public health
+
+departments, and other key public health partners. Because each community is unique, HFS will
+
+direct rural hospitals to define the highest population health priorities and leverage the expertise
+
+
+
+
+                                                                                                    22
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+and infrastructure available to deploy evidence-based programming that can achieve the biggest
+
+impact.
+
+Hospitals will be directed to leverage findings and perspectives gathered in their most recent
+
+community-health needs assessments to identify public health priorities within their communities
+
+and deploy evidence-based interventions to prevent and manage disease. Hospitals will be
+
+encouraged to think beyond the walls of their facilities and use these funds to bring wellness and
+
+prevention to community spaces, like schools, places of worship, grocery stores, gyms, and
+
+community centers. Programming may include:
+
+     •    Diabetes prevention programs
+
+     •    Mental health first aid
+
+     •    Nutrition and physical activity programs
+
+     •    Chronic disease self-management
+
+     •    Remote self-monitoring
+
+     •    Tobacco cessation
+
+Funding approach: HFS identified ICAHN as a subrecipient to administer funds to rural
+
+hospitals. Funds will be awarded to hospitals through a formula driven approach, based
+
+proportionally on the number of individuals residing in rural census tracts within a hospital’s
+
+service area. Hospitals may use funds for the development (including needs assessments),
+
+distribution, outreach, and dissemination of materials related to disease prevention programming.
+
+Funds may also be used to host informational sessions and classes for rural populations.
+
+Depending on the project, funds may be used for the purchase of items such as nutritional foods,
+
+exercise equipment, or technologies to assist in monitoring of chronic conditions.
+
+Main Strategic Goal: Make Rural America Healthy Again
+
+                                                                                                  23
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Use of Funds: A, B, C, H, I, K (non-exhaustive)
+
+Technical Score Factors: B1, B2, F3 (non-exhaustive)
+
+Key Stakeholders: Examples of key stakeholders may include IDPH, local health departments,
+
+ICAHN, hospitals, providers serving rural areas, and community organizations.
+
+Outcomes: 7 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive Cases; Breast Cancer Screening; Colorectal Cancer Screening; Early Entry into
+
+Prenatal Care; Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%); Controlling High
+
+Blood Pressure
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $80,000,000
+
+3.2 Overcoming Geographic Barriers to Care
+
+Initiative 3.2.A: EMS and Mobile Healthcare
+
+Description: Problem statement: Compounding the impact of healthcare shortages in many rural
+
+regions of the state, a major barrier to care is a lack of available transportation in rural areas of
+
+the state.52 Without dependable transit options, rural residents face delays or forego essential
+
+preventive, primary, and specialty care, exacerbating health inequities and increasing avoidable
+
+utilization of high-cost emergency services. Stakeholders identified lack of reliable, consistent
+
+transportation as one of the largest barriers to care in the rural regions of the state which affects
+
+individuals of all ages and care needs. Mobile service offerings present an opportunity to
+
+overcome geographic and transportation-related barriers to care.
+
+Objective: This initiative will provide funding for infrastructure and testing of promising mobile
+
+health care models. Eligible recipients of funds will include the county Resource Hospitals which
+
+                                                                                                        24
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+oversee EMS providers, local county health departments, primary care providers, outpatient
+
+behavioral health providers, and other providers of community paramedicine and mobile health
+
+programming. These entities will partner with rural health systems and community health
+
+providers to bring care to individuals in their homes and communities. The funds issued in this
+
+initiative will be used to support the purchase of vehicles, modification of existing vehicles,
+
+equipment, supplies, IT infrastructure, training, and staffing to support evidence-based models of
+
+mobile medicine, such as community paramedicine, emergency medical services, mobile health
+
+clinics, and behavioral health mobile crisis units. One example of such an approach that can be
+
+adapted to meet rural health needs is the Chicago EMS Mobile Integrated Healthcare –
+
+Community Paramedicine (MIH-CP) model, which provides healthcare outside the hospital
+
+setting using community paramedics for high-risk patient care management, chronic disease
+
+management, preventive care, post-discharge follow ups, and non-emergency medical
+
+transport.53
+
+This initiative has two overarching components:
+
+1. Funds to IDPH to support EMS Resource Hospitals to enhance rural EMS: To ensure that
+
+EMS providers are able to expand upon services they currently offer and move towards treat-in-
+
+place and other mobile integrated care models, Illinois must first build the critical infrastructure
+
+to support greater use of mobile health services. Resource Hospitals54 are well suited to identify
+
+infrastructure, equipment, supplies, and systems needs in their oversight role related to statewide
+
+EMS. Resource hospitals work closely with county EMS to also determine their training and
+
+staffing needs, which are also supported by the funding under this initiative. The funding
+
+provided to IDPH to distribute to Resource Hospitals may be used for:
+
+
+
+
+                                                                                                   25
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+•   EMS-related expenses in expanding care in rural communities and standing up innovative
+
+    models to treat people in place, such as community paramedicine or treat-and-refer models.
+
+•   Training, coordination, and staffing, such as supporting staff physician medical director roles
+
+    or using paramedics or emergency medical technicians (EMTs) to augment care models or
+
+    population health improvement activities.
+
+•   Capital infrastructure such as vehicles, equipment, supplies, and technology to modernize
+
+    rural pre-hospital EMS Programs.
+
+•   Support for local training, apprenticeship, and hiring of new EMTs and paramedics.
+
+Subrecipients of the funding are required to partner with local and regional acute care, primary
+
+care, and behavioral health providers.
+
+2. Funds for mobile healthcare innovation: Funds will be provided to primary care and
+
+community behavioral health providers to invest in mobile health infrastructure, staffing,
+
+technology, and data systems to deploy new and reinforce existing mobile health clinics and
+
+mobile crisis units. Funds may support purchase of vehicles, equipment, supplies, technology, or
+
+data systems and may fund direct service and indirect staff to support the planning and
+
+deployment of these models. A subset of these funds will be used to purchase tablets for mobile
+
+crisis teams to enable real-time connectivity with dispatching provider entities, treatment in place
+
+services, prevention and chronic disease management as well as a reduction in cost for cardiac,
+
+stroke, and trauma care and an improvement in outcomes. The long-term goal of this initiative is
+
+to build community infrastructure to provide mobile preventive care, behavioral health, home
+
+visits, and other mobile health services which would be eligible for commercial and non-
+
+commercial reimbursement through regular medical billing. Heritage Behavioral Health Center
+
+in Macon County, Illinois has used tablets to expand behavioral health care access and can be a
+
+                                                                                                   26
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+model for similar programs.55 As services become available and more providers are equipped to
+
+support a more robust mobile service offering, HFS is preparing to provide Medicaid
+
+reimbursement for the recently submitted SPA for EMS “treat-no-transport” services, also
+
+known as “treatment in place.”56 This enables EMS providers to provide necessary care on-site
+
+without requiring the patient be transported to a hospital or other health care facility.
+
+Funding approach: For component 1, IDPH will serve as a sub-recipient for this initiative and
+
+will administer funds to Resource Hospitals that serve rural communities using a formula driven
+
+approach, based proportionally on the number of individuals residing in rural census tracts within
+
+a Resource Hospital’s service area. For component 2, IPHCA and CBHA will be awarded as
+
+subrecipients to develop mechanisms to efficiently distribute funds to primary care and
+
+behavioral health providers to stand up or augment mobile health models that meet HFS criteria
+
+(to be established). These associations will also establish reporting and oversight processes.
+
+Main Strategic Goal: Sustainable Access
+
+Use of Funds: A, G, H, I, J (non-exhaustive)
+
+Technical Score Factors: B1, C.2, F.1 (non-exhaustive)
+
+Key Stakeholders: Examples of key stakeholders may include county emergency medical
+
+service corps, local county health care districts, local county ambulance districts, county health
+
+clinics, community primary care and behavioral health providers, IPHCA, and CBHA.
+
+Outcomes: 6 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive Cases; Low Acuity EMS calls that Don't Result in Transport to ED; Breast Cancer
+
+Screening; Colorectal Cancer Screening; Early Entry into Prenatal Care
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+
+                                                                                                 27
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Estimated Required Funding: $117,500,000
+
+Initiative 3.2.B: Technological Innovation for Virtual Care
+
+Description: Problem statement: The lack of sufficient access to physician specialist services,
+
+emergency medical clinicians, behavioral health services, and obstetric care in rural areas of the
+
+state creates significant gaps in care for rural populations. Many of these provider types are more
+
+widely available in other areas of the state – such as in Cook County, its collar counties, or other
+
+areas with a higher population density. Illinois is committed to connecting people to their
+
+healthcare providers with as few barriers as possible between the individual and their care
+
+provider.
+
+Objective: To ensure that individuals in rural areas have consistent access to specialty care in
+
+their communities, this investment in technology interventions aims to bring specialty care to
+
+those high-need rural populations through technology solutions, rather than transporting
+
+individuals out of their communities. This initiative will support technological innovation
+
+through the Illinois Connected Care Collaborative (IC3) initiative, led by ICAHN which uses
+
+technology and collaboration to advance access, quality, outcomes, and cost efficiency across all
+
+rural hospitals, rural health clinics, FQHCs, pharmacies, and clinicians serving rural Illinois. IC3
+
+will strengthen the entire rural care ecosystem, enabling healthcare providers to better connect
+
+with each other and their patients. ICAHN will serve as the Technology Navigator and
+
+Implementation Partner, coordinating statewide assessments, education, vendor selection, and
+
+technical support. In Year 1, ICAHN will lead a comprehensive rural digital readiness and needs
+
+assessment to determine each rural hospital’s current infrastructure, interoperability, and capacity
+
+to adopt new technologies. Based on those findings, hospitals will choose from a menu of pre-
+
+identified, vetted technology solutions—ranging from cybersecurity and broadband expansion to
+
+
+                                                                                                   28
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+EHR modernization and automation tools that support evidence-based clinical care—aligned to
+
+their specific needs and readiness level. ICAHN will administer funds to hospitals to cover the
+
+cost of technology build and maintenance through the life of the RHT program.
+
+This initiative also represents a true model of sustainability and transformation. By building
+
+digital readiness, interoperability, and data-sharing capacity, rural hospitals will be positioned to
+
+participate in population health initiatives and alternative payment models that reward quality
+
+and outcomes rather than volume. Historically, these models have been difficult for rural
+
+hospitals to access due to limited upfront funding and a lack of payer support for infrastructure
+
+and analytics. IC3 directly addresses this gap by creating the technological and organizational
+
+foundation needed for long-term success. With this investment, Illinois will not only expand
+
+access and efficiency in rural healthcare but also achieve the kind of systemic transformation that
+
+ensures sustained access to care and financial stability in communities that have too often been
+
+left behind.
+
+Funding approach: ICAHN will serve as a subrecipient for this initiative and distribute funds to
+
+hospitals that serve individuals residing in rural communities. Funds may support investments
+
+within the following technology priorities: Cybersecurity & Physical Security, Broadband
+
+Expansion, EHR Modernization, Automation & AI, Data Analytics & Predictive Modeling,
+
+Consumer Tools, Shared Infrastructure. In addition, ICAHN will provide training and TA to
+
+hospitals.
+
+Main Strategic Goal: Tech Innovation
+
+Use of Funds: A, C, D, F, G, I, and K (non-exhaustive)
+
+Technical Score Factors: B.1, F.1, F.3
+
+
+
+
+                                                                                                    29
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Key Stakeholders: Examples of key stakeholders may include rural health specialty providers,
+
+rural hospitals, rural health ED providers, primary care providers, and ICAHN.
+
+Outcomes: 6 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive cases; Telehealth Utilization; Follow-Up After ED Visits for Mental Illness; Follow-
+
+Up After ED Visits for Substance Abuse; Member Level Total Cost of Care.
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $135,000,000
+
+3.3 Building a Resilient Rural Workforce
+
+Initiative 3.3.A: Healthcare Workforce Expansion
+
+Description: Problem statement: Rural communities face significant difficulties in recruiting and
+
+retaining healthcare professionals, a challenge that is particularly severe when it comes to
+
+attracting providers for high-need specialties, such as behavioral health, obstetrics, and primary
+
+care. These gaps in the workforce result in limited access to essential services for rural
+
+populations, exacerbating health disparities and negatively impacting community well-being. To
+
+address these challenges and build sustainable capacity, targeted incentives, bonuses, and support
+
+mechanisms are needed to encourage professionals to serve in rural settings and remain there for
+
+extended periods.
+
+Objective: To strengthen healthcare delivery in rural communities, this initiative will focus on
+
+attracting and retaining health professionals. HFS will provide funds to state universities,
+
+community colleges, and hospitals to expand scholarship programs; bonuses to relocate and/or
+
+stay in rural communities; fellowships; apprenticeships; and other successful training programs.
+
+This initiative will begin with a centralized planning process with key stakeholders to identify
+
+                                                                                                   30
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+the highest priority professions to address the most urgent workforce gaps and rural population
+
+health disparities. This may include physicians, advanced practitioners, and allied professionals,
+
+and may reflect a focus on maternal health, behavioral health, primary care, paramedicine, or
+
+other specialties. This will lead to the identification of workforce programs offered through state
+
+universities, community colleges, or hospitals that are best suited to meet needs. This will allow
+
+Illinois to deploy dollars strategically, addressing the most pressing needs and customize
+
+programming to rural communities. Programs with demonstrated success, such as Southern
+
+Illinois University’s (SIU) Lincoln Scholars program, which places future physicians on care
+
+teams in rural clinical settings, will be prioritized. An example of a program in another state is
+
+the Tufts School of Medicine’s Maine Track Program, which offers a $25,000 annual scholarship
+
+to medical students with the aim of providing experience in rural medicine.57 This initiative is
+
+not a loan repayment program. However, it is designed to complement existing federal and state
+
+efforts—such as the National Health Service Corps State Loan Repayment Program (SLRP), the
+
+Underserved Health Care Workforce Provider Workforce Program (UHWP), and the
+
+Community Behavioral Health Loan Repayment Program. Additionally, it will focus exclusively
+
+on individual providers who commit to serving in rural communities for a minimum of 5 years.
+
+Funding Approach: This initiative will be designed as a strategic expansion of state university
+
+administered scholarship programs, residencies, or fellowships, like SIU’s Lincoln Scholars
+
+program. State universities are the optimal vehicle for this initiative, as they already implement
+
+programs to train and place students in clinical settings. Following the centralized planning
+
+process led by HFS, funds will be allocated through intergovernmental agreements (IGA) to state
+
+universities and the ICCB. Additionally, ICAHN will be awarded as a subrecipient to administer
+
+
+
+
+                                                                                                     31
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+funds to hospitals who have developed their own scholarship, apprenticeship, or training
+
+programs.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: E, G
+
+Technical Score Factors: D.1
+
+Key Stakeholders: Examples of key stakeholders may include ICCB, state universities, ICAHN,
+
+critical access hospitals and other rural healthcare providers, specialty providers, students,
+
+hospitals, and rural-based clinics.
+
+Outcomes: 6 Evaluation Measures: Follow-Up After ED Visits for Mental Illness; Follow-Up
+
+After ED Visits for Substance Abuse; Timely Follow-Up After Acute Exacerbations of Chronic
+
+Conditions; Rural Non-Traditional Health Professionals Receiving Training; Total Nursing
+
+Hours per Patient Day (Medical-Surgical)
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $151,000,000
+
+Initiative 3.3.B: Training Healthcare Support Workers
+
+Description: Problem statement: In addition to general healthcare workforce shortages, rural
+
+communities face significant gaps in non-traditional, non-physician healthcare workers that can
+
+augment healthcare delivery, enhance care coordination, and serve as extensions into the
+
+community. This limitation restricts healthcare providers’ ability to fully utilize their skills and
+
+expertise, preventing them from practicing at the top of their license and further constraining
+
+access. The shortage of these essential roles, such as CHWs, doulas, lactation consultants, and
+
+peer support professionals directly impacts the quality and accessibility of care available in rural
+
+
+                                                                                                       32
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+regions. Additionally, these positions frequently act as an essential gateway for individuals
+
+starting a career in healthcare and, more broadly, contribute to job growth within these
+
+communities.
+
+A primary driver of these workforce gaps is the lack of accessible training and certification
+
+programs within rural communities. Without local opportunities for education and professional
+
+development in non-traditional healthcare roles, individuals are less likely to pursue these career
+
+paths. Addressing this issue requires the establishment and expansion of training initiatives
+
+specifically designed to meet the needs of rural areas, ensuring that healthcare providers have the
+
+support necessary to deliver comprehensive care.
+
+Objective: This initiative will strengthen rural healthcare by expanding and establishing new
+
+training and certification programs tailored to local needs. The focus will be on developing a
+
+larger workforce for roles such as CHWs, doulas, lactation consultants, and peer support
+
+professionals and offering training opportunities that can keep rural learners in their
+
+communities. Collaboration is essential to this initiative; the effort will involve establishing and
+
+strengthening partnerships between educational institutions, local health systems, and
+
+community organizations. Together, these partners will develop training, certification, and
+
+apprenticeship programs specifically designed to address local workforce needs and fill critical
+
+gaps. Additionally, funding awards and other incentives will be offered to encourage individuals
+
+in rural areas to enroll in these programs and remain in the community, expanding access to
+
+essential healthcare roles.
+
+Funding approach: Funding will be allocated to the ICCB as a subrecipient to distribute funds to
+
+community colleges to expand or establish new training, certification, and apprenticeship
+
+programs for CHWs, doulas, lactation consultants, peer support professionals, EMTs, and other
+
+
+                                                                                                   33
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+appropriate professions that address workforce gaps and align with RHT strategic goals. Funds
+
+will also be administered through the University of Illinois Chicago (UIC) to administer to
+
+community-based training programs that meet certification requirements defined by IDPH.
+
+Academic and community-based training programs will be required to solidify partnerships with
+
+healthcare providers in the region they serve to facilitate job placement upon completion of
+
+training.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: E, G (non-exhaustive)
+
+Technical Score Factors: B.1, D.1 (non-exhaustive)
+
+Key Stakeholders: Examples of key stakeholders may include IDPH, ICCB, community
+
+colleges, rural educational institutions, health systems, community organizations, CHWs, doulas,
+
+lactation consultants, peer support professionals, and rural healthcare providers.
+
+Outcomes: 11 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary
+
+Care Sensitive Cases; Follow-Up After ED Visits for Mental Illness; Follow-Up After ED Visits
+
+for Substance Abuse; Timely Follow-Up After Acute Exacerbations of Chronic Conditions;
+
+Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%); Controlling High Blood Pressure;
+
+Preventive Care and Screening: Screening for Depression and Follow-Up Plan; Rural Non-
+
+Traditional Health Professionals Receiving Training; Total Nursing Hours per Patient Day
+
+(Medical-Surgical)
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $55,000,000
+
+
+
+
+                                                                                                34
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Initiative 3.3.C: Rural Health Education Pipeline
+
+Description: Problem statement: Rural communities are confronted with persistent difficulties in
+
+cultivating a robust healthcare workforce, oftentimes due to the absence of structured career
+
+pathways and limited opportunities for younger people to explore healthcare professions.
+
+Insufficient exposure to these careers can reduce overall community awareness and interest,
+
+impeding efforts to develop a sustainable pipeline of local healthcare professionals and
+
+threatening the long-term health and vitality of rural regions.
+
+Objective: The primary objective of this initiative is to expand career pathways and workforce
+
+development programs for rural high school students through the UIC Area Health Education
+
+Center (AHEC). The programs are designed to build awareness and stimulate interest in
+
+healthcare careers by providing hands-on experiences, such as job shadowing, mentorship and
+
+workshops. While UIC’s main campus is in Chicago, the AHEC program operates out of a
+
+satellite campus in Rockford – in Winnebago County in northern Illinois. The investment will
+
+advance UIC-AHEC’s initiatives through its regional centers, with a specific focus on supporting
+
+rural communities.58
+
+To ensure students gain real-world exposure and the program remains aligned with current
+
+workforce needs, AHEC will partner with rural hospitals and provider organizations. The
+
+initiative will showcase a diverse array of roles in healthcare, encompassing both clinical and
+
+non-clinical careers. Additionally, the program will be integrated with school initiatives to
+
+enhance accessibility and promote long-term sustainability.
+
+Funding approach: Funding will be directed to UIC AHEC to expand programming, leveraging
+
+the existing AHEC framework at the regional centers. The general phases of implementation
+
+would include:
+
+
+                                                                                                  35
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+•   Program expansion: Expand program design to include a rural-specific emphasis, formalize
+
+    new partnerships with local hospitals, provider organizations, and schools, and develop hand-
+
+    on activities such as job shadowing and mentorship.
+
+•   Outreach and infrastructure development: Enable student enrollment, integrate programs
+
+    with school initiatives, and promote awareness of both clinical and non-clinical healthcare
+
+    career options.
+
+•   Program rollout and monitoring: Deliver experiential learning opportunities and monitor
+
+    student participation to ensure the program aligns with local workforce needs and supports
+
+    long-term sustainability.
+
+Main Strategic Goal: Workforce Development
+
+Use of Funds: E, G (non-exhaustive)
+
+Technical Score Factors: B.1, D.1 (non-exhaustive)
+
+Key Stakeholders: Example of key stakeholders include UIC AHEC, university students, rural
+
+healthcare providers, community healthcare providers, local hospitals, and provider
+
+organizations.
+
+Outcomes: 5 Evaluation Measures: ED Visits for Behavioral Health; ED Visits for Primary Care
+
+Sensitive Cases; Rural Non-Traditional Health Professionals Receiving Training; Total Nursing
+
+Hours per Patient Day (Medical-Surgical)
+
+Impacted Counties: 85 counties identified in rural census tract criteria, as described under
+
+initiative 3.1.A
+
+Estimated Required Funding: $22,500,000
+
+
+
+
+                                                                                                  36
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Section 4: Implementation Plan and Timeline
+
+HFS recognizes implementing the RHT program requires a rigorous staffing and management
+
+plan. HFS plans to structure the staff team of 9 FTEs to include: a general RHT program director
+
+(1 FTE), one finance administrator (1 FTE), one project manager for each category of initiatives
+
+(3 FTE), one grant manager (1 FTE), one staff analyst (1 FTE), one data analyst (1 FTE), and
+
+one administrative assistant to support the program director, grant manager, and finance manager
+
+(1 FTE). Each of these staff members will have designated roles and responsibilities which will
+
+be outlined in the Illinois HFS RHT Charter.
+
+Along with managing the program, the staff outlined above will engage with interested parties as
+
+outlined in the stakeholder engagement plan (Section 5). HFS will also engage a vendor for TA
+
+and consulting services to augment the staffing plan and support implementation. The Program
+
+Director will report to the Deputy Director of Special Initiatives, an existing role within HFS,
+
+and provide regular updates and a direct line to the HFS Director and executive leadership team
+
+to ensure ongoing leadership buy-in and support. This reporting structure will also facilitate
+
+coordination with the Governor’s Office to enable cross-agency collaboration and alignment
+
+with broader administration policy efforts.
+
+As described in the Section 5 stakeholder engagement plan, HFS will engage with sister agencies
+
+and other interested parties to ensure the implementation plan is successful and targets are met.
+
+As the project evolves, HFS expects to adjust the implementation plan as described below.
+
+The implementation plan is designed similarly to the other sections where there are three main
+
+categories 1) Transforming Rural Healthcare Delivery, 2) Overcoming Geographic Barriers, 3)
+
+Building a Resilient Workforce, with key activities for the overall project outlined under “4.1
+
+Other Activities.”
+
+
+                                                                                                   37
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+4.1 Other Activities
+ Activity and Proposed Timing
+ HFS to create staffing plan and hire new RHT Project Team (Q1-2026 – Q3-2026)
+ Implement policy changes as indicated in Table B in Section 2 (Q1-2026 – Q4-2027)
+ Quarterly Funding Recipients Meetings (Q1-2026 through demonstration end)
+ RHT Advisory Workgroup (Q1-2026 through demonstration end)
+ Annual RHT Public Forum (Q4-2026 through demonstration end)
+ Medicaid Advisory Committee (MAC) (Q1-2026 through demonstration end)
+ Interagency Working Group (Q2-2026 through demonstration end)
+ Ad Hoc Meetings (as needed, through demonstration end)
+
+
+4.2 Implementation Plan for Transforming Rural Healthcare Delivery
+ Initiative        Milestone and Estimated Timeline
+ Hospital          1. Hospital Transformation:
+ Transformation    Stage 0: Develop planning grant NOFO (Q1 and Q2-2026)
+                   Stage 1: Issue planning grant NOFO to rural hospitals and award planning
+                   grants to rural hospitals (Q3-2026)
+                   Stage 2: Hospitals propose transformation projects based on performance
+                   metrics (Q2-2027)
+                   Stage 3: Award transformation projects to hospitals (Q3-2027)
+                   Stage 4: Finalize design of VBP models (Q3-2027); Distribute VBP funds
+                   based on performance (Q1-2028)
+                   Stage 5: Pursue managed care and regulatory paths to sustain VBP models
+                   (ongoing)
+                   2. HTC Expansion
+                   Stage 0: Release instructions for rural HTCs to propose new projects (Q1-
+                   2026)
+                   Stage 1: Award funds to 4 rural HTCs as subrecipients (Q1-2026)
+                   Stage 3: Finalize design of VBP models (Q3-2027)
+                   Stage 4: Distribute VBP funds based on evaluation of performance (Q1-
+                   2028)
+                   Stage 5: Pursue managed care and regulatory paths to sustain VBP models
+                   (ongoing)
+                   3. Technical Assistance
+                   Stage 0: Establish IGA with OMI for TA (Q1-2026)
+                   Stage 1: Provide TA to rural hospitals to complete a transformation plan
+                   (Q3-2026)
+                   Stage 2: Provide ongoing TA to rural hospitals to carry out the
+                   transformation plan (Q3-2026 and ongoing)
+                   Stage 3: Provide TA to support design of VBP (Q1-2027 – Q4-2027)
+                   Stage 4-5: Provide TA to support change management and performance
+                   improvement under VBP (Q1-2027 and ongoing)
+ Community Care 1. Team-based care
+ Infrastructure    Stage 0: Establish agreement with IPHCA and CBHA (Q2-2026)
+
+                                                                                          38
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Initiative              Milestone and Estimated Timeline
+                         Stage 1: Establish parameters for award to primary care and behavioral
+                         health providers to implement team-based care (Q3-2026)
+                         Stage 2: IPHCA and CBHA to release opportunities and select primary care
+                         and behavioral health providers to receive funds (Q3 and Q4-2026)
+                         Stage 3: Monitor performance through quarterly reports (Q1-2027 and
+                         ongoing)
+                         Stage 4: HFS to identify regulatory levers to reimburse successful models
+                         (Q1-2028)
+                         Stage 5: Transition successful programs to sustainable funding model
+                         (VBP) (Q1-Q3 2031)
+                         2. Technical Assistance
+                         Stage 0: Establish IGA with OMI for TA (Q1-2026)
+                         Stage 1: Provide TA to primary care and behavioral health providers to
+                         complete a transformation plan (Q3-2026)
+                         Stage 2: Provide ongoing TA to primary care and behavioral health
+                         providers to carry out the transformation plan (Q3-2026 and ongoing)
+                         Stage 3: Provide TA to support design of VBP (Q1-2027)
+                         Stage 4-5: Provide TA to support change management and performance
+                         improvement under VBP (Q1-2027 and ongoing)
+ Hospital Disease        Stage 0: Establish agreement with ICAHN (Q2-2026)
+ Prevention              Stage 1: Establish funding distribution formula for funding to rural hospitals
+                         (Q2-2026)
+                         Stage 2: Award hospitals funding based on formula-driven approach (Q3-
+                         2026)
+                         Stage 3-5: Monitor activities and performance through quarterly reports
+                         (ongoing)
+
+
+4.3 Implementation Plan for Overcoming Geographic Barriers to Care
+ Initiative        Activity and Estimated Timeline
+ EMS and Mobile 1. Funds to Resource Hospitals
+ Healthcare        Stage 0: Establish IGA with IDPH (Q1-2026)
+                   Stage 1: Establish funding distribution formula for funding to rural
+                   hospitals (Q2-2026)
+                   Stage 2: IDPH awards Resource Hospitals funding based on formula-
+                   driven approach (Q2-2026)
+                   Stage 3-4: Monitor activities and performance through quarterly reports
+                   (ongoing)
+                   Stage 5: HFS to identify financing or regulatory levers to support
+                   sustainable reimbursement for successful models (e.g., treat and no
+                   transport) (ongoing)
+                   2. Funds to build mobile health infrastructure
+                   Stage 0: Establish agreement with IPHCA and CBHA (Q2-2026)
+                   Stage 1: Establish parameters for award to primary care and behavioral
+                   health providers to implement mobile health infrastructure (Q3-2026)
+                                                                                                   39
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Initiative              Activity and Estimated Timeline
+                         Stage 2: IPHCA and CBHA select primary care and behavioral health
+                         providers to receive funds (Q3 and Q4-2026)
+                         Stage 3: Monitor performance through quarterly reports (Q1-2027 and
+                         ongoing)
+                         Stage 4: HFS to identify regulatory levers to reimburse successful models
+                         (Q1-2028)
+                         Stage 5: Transition to sustainable funding model for successful models
+                         (Q1-Q3 2031)
+ Technological           1. Vendor for Statewide Telehealth and e-consult platform
+ Innovation for          Stage 0: Establish agreement with ICAHN (Q2-2026)
+ Virtual Care            Stage 1: ICAHN conducts rural digital readiness and needs assessments
+                         among hospitals (Q2 and Q3-2026)
+                         Stage 2: Establish parameters for award to hospitals and other rural
+                         providers to implement technology priorities (Q4-2026)
+                         Stage 3: ICAHN awards funds to hospitals (Q4-2026)
+                         Stage 4: Technology solutions implemented and TA provided by ICAHN
+                         (Q1-2027)
+                         Stage 5: Ongoing monitoring and evaluation (ongoing)
+
+4.4 Implementation Plan for Building a Resilient Workforce
+ Initiative        Activity and Estimated Timeline
+ Healthcare        Stage 0: Carry out centralized planning process to define priority
+ Workforce         workforce needs (Q1 and Q2-2026)
+ Expansion         Stage 1: Select workforce programs to be funded through universities,
+                   colleges, hospitals (Q1 and Q2-2026)
+                   Stage 2: Formalize IGAs with state universities and ICCB; formalize
+                   agreement with ICAHN (Q2-2026)
+                   Stage 3: Award funds to selected programs (Q3-2026)
+                   Stage 4: Implement programs (Q4-2026)
+                   Stage 5: Monitor performance through quarterly reports (ongoing)
+ Training          Stage 0: Formalize IGA with ICCB (Q1-2026)
+ Healthcare        Stage 1: Planning process to identify specific programs to receive funding
+ Support Workers (Q2-2026)
+                   Stage 2: ICCB develop plans and programming (Q2-2026)
+                   Stage 3: ICCB award funds to selected programs (Q3-2026)
+                   Stage 4: Implement programs (Q4-2026)
+                   Stage 5: Monitor performance through quarterly reports (Ongoing)
+ Rural Health      Stage 0: Formalize IGA with UIC
+ Education         Stage 1: AHEC submits detailed program expansion plan for rural
+ Pipeline          communities (Q1-2026)
+                   Stage 2-4: UIC expands programming (Q2-2026 and ongoing)
+                   Stage 5: Ongoing monitoring and evaluation (ongoing)
+
+
+
+                                                                                                 40
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Section 5: Stakeholder Engagement
+
+HFS prioritizes stakeholder engagement in its RHT program. Stakeholders provide valuable local
+
+insight crucial to identifying barriers and solutions for improving health outcomes in rural
+
+Illinois. Their involvement shapes initiatives that are responsive, effective, and sustainable. This
+
+plan describes how HFS collaborates with stakeholders to promote transparency, inclusivity, and
+
+responsiveness throughout the RHT initiative.
+
+During the RHT application process, HFS consulted with six key stakeholder groups to identify
+
+challenges and shape proposed initiatives. Engagement spanned 9 state agencies, over 20
+
+provider associations, as well as discussions with rural hospitals, community health centers,
+
+CMHCs, universities and community colleges, legislators, and vendors. Some examples of
+
+stakeholders included, IDPH, four HTCs, IPHCA, FQHCs, CCBHCs, EMS, University of
+
+Chicago, Lurie Children’s Hospital, and CBHA. HFS held 38 individual discussions, a public
+
+listening session with nearly 300 attendees, received 120+ public comments, and had 46 follow-
+
+up conversations. HFS is committed to ongoing engagement with their tribal partners and will
+
+continue to include them as applicable. This comprehensive input informed the application, with
+
+several stakeholders providing letters of support included in the Other Supporting Materials
+
+section.
+
+Meaningful stakeholder engagement must continue well beyond the initial application process.
+
+Ongoing collaboration is essential for the successful implementation and sustained impact of the
+
+RHT initiative. To support continuous communication and transparency, HFS will create a
+
+dedicated email inbox overseen by designated RHT staff. This platform will function as an
+
+ongoing feedback mechanism, as well as a central means of communication for funding
+
+recipients and other interested parties.
+
+
+                                                                                                  41
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+HFS will also facilitate stakeholder engagement through several forums designed to ensure
+
+dialogue, collaboration, and accountability.
+
+•   Quarterly Funding Recipients Meetings: Meetings between HFS RHT staff and funding
+
+    recipients designed to review progress, share updates, address questions, offer technical
+
+    support, and discuss subsequent steps.
+
+•   RHT Advisory Workgroup: Collaboration workgroup with HFS RHT staff, key stakeholders,
+
+    and funding recipients to discuss general updates and next steps on each RHT initiative.
+
+•   Annual RHT Public Forum: Annual event hosted by HFS RHT staff to provide updates on
+
+    the key initiatives and outcomes. This forum will be open to the public and attended by
+
+    providers, patients, governing entities, local organizations, and other interested parties.
+
+•   Medicaid Advisory Committee (MAC): Standing quarterly meeting where HFS RHT staff
+
+    will provide ongoing updates.
+
+     o Subcommittee: A to-be-established MAC subcommittee to dive deeper into content and
+
+         provide additional support around RHT where needed.
+
+     o Beneficiary Advisory Council (BAC): In accordance with Section II.A. of the Access
+
+         Final Rule updates § 431.12, Illinois will establish a MAC subcommittee to include
+
+         Medicaid beneficiaries in rural communities, their families, and/or caregivers.
+
+•   Interagency Working Group: Bi-monthly meeting to bring sister agencies together to help
+
+    guide RHT program implementation and ensure RHT initiatives are aligned with other state
+
+    programs and policies.
+
+•   Ad Hoc Meetings: Interested parties may request meetings at any time during the program.
+
+    HFS RHT staff will assess the need and manage arrangements as needed.
+
+
+
+
+                                                                                                  42
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Regular communication with funding recipients will occur outside of formal meetings.
+
+Communication may include updates regarding fund distribution, milestone tracking, and
+
+performance metrics. As part of this process, funding recipients will be required to submit
+
+quarterly progress reports, which HFS will review and summarize. These summaries will be
+
+provided to the RHT Advisory Workgroup so that lessons learned and feedback can inform
+
+program implementation. HFS will also engage with the Governor’s Rural Health Affairs
+
+Council throughout the duration of the project to provide updates and ensure alignment across
+
+other rural health initiatives.
+
+
+This approach aims to support transparency, collaboration, and accountability among all parties
+
+involved. Stakeholder feedback will be incorporated into decision-making throughout the
+
+duration of the RHT program. By maintaining strong communication channels and engagement
+
+practices, HFS and its partners intend to support efforts to strengthen the healthcare system and
+
+outcomes for rural communities across Illinois.
+
+
+Section 6: Metrics and Evaluation Plan
+
+Table C: Evaluation Plan Measures
+                                                                  Initiative Number
+Measure Name
+                                                                  1.A 1.B 1.C 2.A 2.B 3.A 3.B 3.C
+1. Follow-Up After ED Visits for Mental Illness*                   X               X X X
+2. Follow-Up After ED Visits for Substance Abuse*                  X               X X X
+3. Preventive Care and Screening: Screening for Depression and
+                                                               X       X                      X
+    Follow-Up Plan*
+4. ED Visits for Behavioral Health                             X       X    X   X X           X X
+5. ED Visits for Primary Care Sensitive Cases                  X       X    X   X X           X X
+6. Breast Cancer Screening                                             X    X   X
+7. Colorectal Cancer Screening                                         X    X   X
+8. Early Entry into Prenatal Care                                      X    X   X
+9. Telehealth Utilization                                      X       X          X
+10. Rural Non-Traditional Health Professionals Receiving
+    Training                                                                            X X X
+
+                                                                                                  43
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+                                                                   Initiative Number
+Measure Name
+                                                                   1.A 1.B 1.C 2.A 2.B 3.A 3.B 3.C
+11. Rural Health Profession Students Receiving Training                                 X X X
+12. Total Nursing Hours per Patient Day (Medical-Surgical)                              X X X
+13. Timely Follow-Up After Acute Exacerbations of Chronic
+    Conditions                                                             X X
+14. Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)             X       X
+15. Controlling High Blood Pressure                                  X       X
+16. Participation in Value-Based Payment Models                  X X
+17. Member Level Total Cost of Care                              X       X
+18. Low Acuity EMS calls that Don't Result in Transport to ED          X
+19. Rural Hospital Financial Stability: Days Cash on Hand        X
+                                   Total measures per initiative 9 8 7 6 6 6 11 5
+*Early Indicator Measure
+
+Rationale for Measure Selection: HFS identified 19 measures to track program success in
+
+improving access to care, health outcomes, and cost of care for rural populations. To allow time
+
+for program award and implementation, three early indicator measures will have improvement
+
+targets beginning in 2027 and the remainder will have improvement targets beginning in 2028.
+
+The selected measures comprehensively support the RHT program’s five strategic goals by
+
+promoting preventive health, addressing root causes of disease and fostering sustainable access
+
+by strengthening rural providers’ efficiency and capacity to serve as reliable care access points.
+
+Workforce development is advanced through tracking the training of rural health profession
+
+students and non-traditional health professionals, as well as monitoring nursing hours per patient
+
+day and ensuring rural communities have skilled providers practicing at the top of their license.
+
+The commitment to innovative care and tech innovation is reflected in the support for integration
+
+of digital health tools and sustainable business models for rural healthcare providers. Together,
+
+this evaluation plan ensures that rural health transformation efforts are evidence-based, patient-
+
+centered, and positioned for lasting impact.
+
+
+
+
+                                                                                                    44
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Measure Overlap: Most measures were identified for evaluation across initiatives. This is
+
+because the outcomes selected are ambitious and specific to rural health in Illinois. HFS expects
+
+the identified initiatives to work together to advance the service capabilities of existing rural
+
+providers, expand access to virtual and mobile care, and build a sustainable workforce pipeline.
+
+For example, transforming rural healthcare delivery through regional collaboratives, expanding
+
+integration of behavioral health and primary care, and overcoming geographic barriers to care are
+
+all intended to reduce the need for behavioral health care in the ED.
+
+Baseline Data: Once participants are selected for RHT funded initiatives, HFS will further
+
+define the evaluation population and establish baselines for each measure using the data sources
+
+described in table D. Baseline statistics in table D use proxy data where available to provide
+
+context and justify the state’s target setting methodology.
+
+Table D: Evaluation Plan Measure Details
+     1. Follow-Up After ED Visits for Mental Illness (NCQA)
+ Measure Description   The percentage of ED visits for persons 6 years of age and older with
+                       a principal diagnosis of mental illness, or any diagnosis of intentional
+                       self-harm, and had a mental health follow-up service. Follow-up
+                       within 7 and 30 days.
+ Data Source           Payer data (State data for Medicaid and possibly other payers)
+ Data Timing           6+ month data lag
+ Evaluation Population Rural counties with active RHT initiatives
+ Baseline Statistic    In 2023, the Illinois Medicaid program ranked last among all state
+ (Proxy)               Medicaid programs for rates of follow-up after ED visits for Mental
+                       Illness for adults, with 7.9% of members receiving follow-up within
+                       7 days (national Median is 35.4%) and 13.8% receiving follow-up
+                       within 30 days (national median is 51.3%)59
+ 2027 Target           5% gap closure towards the 90th percentile in hospitals participating
+                       in selected health transformation collaboratives
+ 2028 – 2030 Targets   5%, 10%, and 15% gap closure towards the 90th percentile of rural
+                       counties with active RHT initiatives
+     2. Follow-Up After ED Visits for Substance Abuse (NCQA)
+ Measure Description   The percentage of ED visits among persons age 13 years and older
+                       with a principal diagnosis of SUD, or any diagnosis of drug
+                       overdose, for which there was follow-up. Follow-up within 7 and 30
+                       days.
+
+                                                                                                    45
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Data Source             Payer data (State data for Medicaid and possibly other payers)
+ Data Timing             6+ month data lag
+ Evaluation Population   Rural counties with active RHT initiatives
+ Baseline Statistic      While Illinois does not currently have a baseline for this measure,
+ (Proxy)                 given the state’s performance on a similar measure of Follow-Up
+                         After Hospitalization for Mental Illness we expect that there will be
+                         room to demonstrate improvement in this measure in rural regions
+ 2027 Early Indicator    5% gap closure towards the 90th percentile in hospitals participating
+ Target                  in selected health transformation collaboratives
+ 2028 – 2030 Targets     5%, 10%, and 15% gap closure towards the 90th percentile of rural
+                         counties with active RHT initiatives
+     3. Preventive Care and Screening: Screening for Depression and Follow-Up Plan
+        (NCQA)
+ Measure Description     Percentage of patients 12 years of age and older who were (1)
+                         screened for depression with a standardized tool and, if screening
+                         was positive, (2) had a follow-up plan documented
+ Data Source             Participating clinic EMR
+ Data timing             3 to 6 month data lag
+ Evaluation Population Participating providers
+ Baseline Statistic      HRSA UDS IL Clinics: 81.1%60
+ (Proxy)
+ 2027 Early Indicator    5% gap closure towards the 90th percentile in hospitals participating
+ Target                  in selected health transformation collaboratives
+ 2028 – 2030 Targets     5%, 10%, and 15% gap closure towards the 90th percentile of rural
+                         counties with active RHT initiatives
+     4. ED Visits for Behavioral Health
+ Measure Description     ED visits for "Behavioral Health" expressed as a crude rate per
+                         10,000 area population. "Behavioral Health" ED visits include mental
+                         health, alcohol and substance abuse-related visits.61
+ Data Source             DPH Hospital Discharge Data Set (State data)
+ Data Timing             Monthly collection; 6+ month data lag
+ Evaluation Population All rural counties in the state
+ Baseline Statistic      Statewide rate from 2020 – 2022 is 111 ED visits per year per 10,000
+ (Proxy)                 population. However, rates in some rural counties such as Vermillion
+                         County reach 194 ED visits per 10,000 population. In general, rates
+                         are highest in Western, Central, and Southern Illinois.62
+ 2028 – 2030 Targets     2.5%, 5%, and 7.5% reduction in ED Visits for BH
+                         By 2030, 20% gap closure towards the state average in ED Visits for
+                         BH in the 5 worst performing rural counties during the baseline year
+     5. ED Visits for Primary Care Sensitive Cases
+ Measure Description     ED visits for "All Primary Care Sensitive" cases expressed as a
+                         percentage of all ED visits. "All Primary Care Sensitive" ED cases
+                         include the categories of "Non-Emergent", "Emergent-Primary Care
+                         Treatable", and "Emergent Primary Care Avoidable". This screening
+
+
+                                                                                            46
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+                        measure highlights all ED visits that may have been prevented with
+                        effective access and utilization of primary care.63
+ Data Source            DPH Hospital Discharge Data Set (State data)
+ Data Timing            Monthly collection; 6+ month data lag
+ Evaluation Population All rural counties in the state
+ Baseline Statistic     Statewide rate from 2020 – 2022 averages 43.43% of ED visits being
+ (Proxy)                for primary care sensitive cases. However, rates in some rural
+                        counties such as Massac, Pope, and Hardin in Southeastern Illinois
+                        range from 49 - 52%. Rates are highest in Southwestern Illinois.
+ 2028 – 2030 Targets    1%, 2%, and 3% reduction in the percentage of ED visits for primary
+                        care sensitive cases.
+                        By 2030, 20% gap closure towards the state average in ED Visits for
+                        Primary Care Sensitive Cases in the 5 worst performing rural
+                        counties during the baseline year
+     6. Breast Cancer Screening (NCQA)
+ Measure Description    Percentage of women 50-74 years of age who had a mammogram to
+                        screen for breast cancer in the 27 months prior to the end of the
+                        Measurement Period
+ Data Source            Participating clinic EMR or Payer Data
+ Data Timing            ~3 to 6 month data lag
+ Evaluation Population Participating providers
+ Baseline Statistic     HRSA UDS: IL Statewide data: 52.3%, however rural clinics show
+ (Proxy)                variation in performance for example
+                            • Cass County: 50.7%
+                            • Rural Health Inc: 66.6%
+                            • Macoupin County Health Department: 38.8%64
+ 2028 – 2030 Targets    5%, 10%, and 15% gap closure towards the 90th percentile in
+                        participating primary care clinics and health centers
+     7. Colorectal Cancer Screening (NCQA)
+ Measure Description    Percentage of adults 45-75 years of age who had appropriate
+                        screening for colorectal cancer
+ Data Source            Participating clinic EMR or Payer Data
+ Data Timing            ~3 to 6 month data lag
+ Evaluation Population Participating providers
+ Baseline Statistic     Statewide: 55.4%
+ (Proxy)                Rural: 55.8% 65 66
+ 2028 – 2030 Targets    5%, 10%, and 15% gap closure towards the 90th percentile in
+                        participating primary care clinics and health centers
+     8. Early Entry into Prenatal Care (HRSA)
+ Measure Description    Live births where the mother entered prenatal care during the first
+                        trimester of pregnancy
+ Data Source            Payer data (State HFS data for Medicaid. Other payers may be
+                        possible)
+ Data Timing            6+ month data lag
+ Evaluation Population Rural counties with active RHT initiatives
+                                                                                          47
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Baseline Statistic      HRSA UDS Illinois: 77.58% in 202467
+ (Proxy)                 Illinois vital statistics data indicate prenatal care rates may be lowest
+                         in Southwestern Illinois with some rural counties like Alexander,
+                         Warren, and Douglas having rates well below the state average.68
+ 2028 – 2030 Targets     1%, 2%, and 3% improvement in births with first trimester prenatal
+                         care
+                         By 2030, 20% gap closure towards the state average in the 5 worst
+                         performing rural counties during the baseline year
+     9. Telehealth Utilization
+ Measure Description     People with one or more telehealth services during the measurement
+                         year. Two rates can be reported: 1) people with any telehealth
+                         encounter during the measurement period, and 2) the total number of
+                         telehealth encounters during the measurement period.
+ Data Source             Payer data (State HFS data for Medicaid. Other payers may be
+                         possible)
+ Data Timing             6+ month data lag
+ Evaluation Population All rural counties in the state
+ Baseline Statistic      Statewide, approximately 13% of Medicaid managed care members
+ (Proxy)                 had a telehealth encounter in SFY2024. Utilization was lower in
+                         some rural counties - Cass, Randolph, and Wabash with less than 7%.
+                         Statewide utilization rate was 564 telehealth encounters per 1,000
+                         members, however Cass, Fayette, and Wabash with utilization rates
+                         of 210 telehealth encounters.69
+ 2028 – 2030 Targets     2%, 4%, and 6% improvement in telehealth utilization
+                         By 2030, 20% gap closure towards the state average in the 5 worst
+                         performing rural counties during the baseline year
+     10. Rural Non-Traditional Health Professionals Receiving Training
+ Measure Description     Increase in the number of rural, health professions students receiving
+                         training annually in rural areas
+ Data Source             State Universities & ICCB
+ Data Timing             Quarterly Reporting
+ Evaluation Population All rural counties in the state
+ Baseline Statistic      To be developed during the first year of the initiative
+ 2028 – 2030 Targets     UIC AHEC will expand the number of regional sites (currently 9) to
+                         13 by adding 4 new ones
+                         All awardees will demonstrate year over year increases in enrollment
+     11. Rural Health Profession Students Receiving Training
+ Measure Description     Increase in the number of rural health profession students receiving
+                         training annually in rural areas
+ Data Source             State Universities & ICCB
+ Data Timing             Quarterly Reporting
+ Evaluation Population All rural counties in the state
+ Baseline Statistic      To be developed during the first year of the initiative
+
+
+
+                                                                                                48
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ 2028 – 2030 Targets     UIC AHEC will establish 1 Rural Health Profession Training Center
+                         for the state of Illinois
+                         All awardees will demonstrate year over year increases in enrollment
+     12. Total Nursing Hours per Patient Day (Medical-Surgical)
+ Measure Description     Total combined hours worked by registered nurses, licensed practical
+                         nurses, and nurse assistants in Medical/Surgical per patient day
+ Data Source             IDPH Nurse Staffing Data
+ Data Timing             Quarterly reporting with a limited data lag
+ Evaluation Population Hospitals in rural counties in the state
+ Baseline Statistic      Current data indicates significant variance in nurse staffing for rural
+ (Proxy)                 hospitals. In 2024, the ten smallest hospitals in Illinois reported a
+                         range of 0.4 to 34.4 total nursing hours per medical-surgical patient
+                         day, while the ten largest hospitals reported less variability ranging
+                         from 6.7 to 11.4 hours per medical-surgical patient day.70
+ 2028 – 2030 Targets     Reduce the number of rural hospitals with below state average
+                         nursing hours per day by 25% by 2030
+     13. Timely Follow-Up After Acute Exacerbations of Chronic Conditions
+ Measure Description     Rate of follow-up for patients with chronic conditions who have
+                         experienced an acute exacerbation: Hypertension, Asthma, Heart
+                         failure, Coronary Artery Disease, COPD, Diabetes (Based on
+                         measure in ACO REACH program)
+ Data Source             Payer data (State and possibly other payers)
+ Data Timing             6+ month data lag
+ Evaluation Population Rural counties with active RHT initiatives
+ Baseline Statistic      To be developed during the first year of the initiative
+ 2028 – 2030 Targets     2.5%, 5%, and 10% improvement in follow-up rates for counties with
+                         active RHT initiatives
+     14. Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)
+ Measure Description     Percentage of patients 18-75 years of age with diabetes who had a
+                         glycemic status assessment (hemoglobin A1c [HbA1c] or glucose
+                         management indicator [GMI]) > 9.0% during the measurement
+                         period
+ Data Source             Participating clinic EMR
+ Data Timing             ~3 to 6 month data lag
+ Evaluation Population Participating providers
+ Baseline Statistic      HRSA UDS IL: 29.80%71
+ (Proxy)
+ 2028 – 2030 Targets     5%, 10%, and 15% gap closure towards the 90th percentile in
+                         participating primary care clinics and health centers
+     15. Controlling High Blood Pressure
+ Measure Description     Percentage of patients 18-85 years of age who had a diagnosis of
+                         essential hypertension starting before and continuing into, or starting
+                         during the first six months of the measurement period, and whose
+                         most recent blood pressure was adequately controlled (<140/90
+                         mmHg) during the measurement period
+
+                                                                                              49
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Data Source              Participating clinic EMR
+ Data Timing              ~3 to 6 month data lag
+ Evaluation Population    Participating providers
+ Baseline Statistic       HRSA UDS IL: 66.6%72
+ (Proxy)                      • Macoupin County: 67.7%
+                              • Rural Health Inc: 88.7%
+                              • Cass County: 88.3%
+ 2028 – 2030 Targets      5%, 10%, and 15% gap closure towards the 90th percentile in
+                          participating primary care clinics and health centers
+     16. Participation in Value-Based Payment (VBP) Models
+ Measure Description      The total number of new VBP arrangements for hospitals, clinics,
+                          and providers in rural regions
+ Data Source              Medicaid VBP Report (State data)
+ Data Timing              Annual Reporting
+ Evaluation Population All rural providers in the state
+ Baseline Statistic       Few Medicaid managed care plans report a strategy to contract with
+ (Proxy)                  rural providers, and many reported challenges recruiting rural
+                          providers to participate in alternative payment models.
+ 2028 – 2030 Targets      25% increase in the number of rural healthcare provider entities
+                          participating in value-based care arrangements by 2030
+     17. Member Level Total Cost of Care
+ Measure Description      The total cost of care during a measurement year, calculated as
+                          spending per member month stratified by age and disability
+ Data Source              Payer data (HFS Medicaid data, other payers may be considered)
+ Data Timing              6+ Month Data Lag
+ Evaluation Population Rural counties with active RHT initiatives
+ Baseline Statistic       Literature supports that rural residents on average have higher total
+ (Proxy)                  cost of care as compared to non-rural residents.73 74 75 HFS will
+                          develop a baseline for member level annual total cost of care during
+                          the initial year of the HTC program and will use historic Medicaid
+                          data to inform the baseline calculation.
+ 2028 – 2030 Targets      5% reduction in total cost of care by 2030
+                          15% reduction in total cost of care disparities in the five worst
+                          performing rural counties with RHT initiatives
+     18. Low-Acuity EMS Calls that Don't Result in Transport to ED
+ Measure Description      The rate of low acuity EMS calls that don't result in transport to a
+                          hospital, out of all low acuity EMS calls
+ Data Source              EMS Prehospital Data Program (State data)
+ Data Timing              Monthly Data Collection
+ Evaluation Population Rural counties with active RHT initiatives
+ Baseline Statistic       To be established during the first program year
+ (Proxy)
+ 2028 – 2030 Targets      By 2030, 20% improvement in the rate of low acuity EMS calls that
+                          are treated on site and do not result in transport
+     19. Rural Hospital Financial Stability: Days Cash on Hand
+                                                                                                  50
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+ Measure Description   Days cash on hand is measured as (Cash on Hand and in Banks +
+                       Temporary Investments + Investments) / (Operating Expense -
+                       Depreciation Cost) / 365)
+ Data Source           Medicare Cost Reports (Provider reported)
+ Data Timing           150 days after the close of a fiscal year
+ Evaluation Population Participating hospitals
+ Baseline Statistic    Per 2022 Medicare Hospital Cost Reports, rural hospitals in Illinois
+ (Proxy)               have fewer financial reserves compared to non-rural hospitals. In
+                       aggregate, rural hospitals held 210 days cash on hand while non-rural
+                       hospitals held 485 days of cash on hand.76
+ 2028 – 2030 Targets   By 2030, increase rural hospital aggregate cash on hand by 20%.
+Strategy for Program Evaluation
+
+In addition to cooperation with CMS-led evaluation efforts, HFS intends to hire data analytics
+
+staff to manage program evaluation and to partner with IDPH and other state public health
+
+authorities to ensure that the awarded initiatives have a measurable and lasting impact on health
+
+in rural Illinois. Evaluation reporting requirements will be built into initiative grants and
+
+subrecipient awards. While HFS can commit to using Medicaid data for evaluation purposes, the
+
+state will also explore options to utilize Medicare FFS data and commercial data such as through
+
+the state’s employee and retiree plans as well as through commercial plans. While IDPH has
+
+access to hospital and ED discharge data, partnering directly with payers and academic
+
+institutions further entrenches the success of the RHT program within rural communities.
+
+
+Section 7: Sustainability Plan
+
+General approach
+
+Sustainability is at the heart of Illinois’ approach to rural healthcare transformation. Illinois is
+
+committed to ensuring that the most impactful initiatives – those that expand access, improve
+
+outcomes, and foster innovation – continue to thrive beyond the initial funding period. By
+
+prioritizing long-term planning and building strong partnerships, Illinois will secure ongoing
+
+support for programs that demonstrate measurable benefits for rural communities. HFS’ goal is
+
+                                                                                                       51
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+to create lasting change, so that the advances made today become the foundation for healthier,
+
+more resilient rural populations in the years to come.
+
+Approach to sustainability by initiative
+
+1.A Hospital Transformation: Sustainability planning will be built into program design at the
+
+outset. The purpose of this initiative is to right-size rural healthcare delivery by providing
+
+funding for the infrastructure and planning necessary to transform lines of service, fill gaps in the
+
+care continuum, and revamp business models to reduce reliance on volume-based revenue
+
+models. Currently, health systems are operating in an unsustainable manner, relying on high-cost
+
+models of care that generate revenue through volume, while recent innovations in healthcare
+
+enable people to be treated in lower cost settings. Illinois’ RHT investments are meant to
+
+catalyze and enable transformation of rural healthcare delivery, providing the necessary up-front
+
+investments while maintaining the solvency of safety net providers through the transition.
+
+Funding will support a thorough and data-driven planning process, to make sure transformation
+
+plans are grounded in community needs and sustainability from the beginning, so hospitals can
+
+strategically align their projects with a viable business model. Additionally, a transition to VBP
+
+is expected over the course of the program. Understanding that there will be significant changes
+
+to current hospital payment streams due to changes to federal law, it is imperative for
+
+participating hospitals to use this as an opportunity to plan their operations around business
+
+models that will be sustainable in the long term. HFS will remain committed to ensuring that
+
+payment structures are modified to reward the positive outcomes of a transformed rural
+
+healthcare delivery system, for example, by allowing hospitals to retain cost savings for
+
+demonstrating a shift in utilization from inpatient to outpatient care. TA will be provided to
+
+engage with participating hospitals to design payment models that can sustain care delivery and
+
+
+                                                                                                  52
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+demonstrate improvement in quality and cost outcomes. HFS will use its available managed care
+
+contracting and regulatory levers to support the transition to VBP for initiatives that have
+
+demonstrated success and readiness. HFS may also engage the Center for Medicare and
+
+Medicaid Innovation (CMMI) to explore opportunities for payer alignment in VBP efforts.
+
+1.B Community Care Infrastructure: Illinois is already undertaking efforts to support the
+
+sustainable financing of models planned under this initiative. HFS received approval for a SPA
+
+to cover CHW services in 2021,77 and in 202278 legislation was passed to mandate
+
+reimbursement for the CoCM, so vehicles for sustainable reimbursement for some components
+
+are already in place with implementation underway. Additionally, IPHCA has spearheaded an
+
+FQHC capitation model, and the state is implementing a CCBHC demonstration using a
+
+prospective payment system-1 methodology, so many rural providers are already gaining
+
+experience under innovative VBP models. As the RHT initiative is carried out, HFS will partner
+
+with stakeholders to apply lessons learned from these experiences and identify additional
+
+elements of these models that have proven positive impacts but are not reimbursable under
+
+current Medicaid rules. HFS will explore VBP opportunities where feasible and permitted,
+
+ensuring any next steps build on the program’s existing design. Complementary steps will
+
+include encouraging multi-payer participation, promoting alignment on common quality
+
+measures, and supporting learning collaboratives to help effective practices continue without
+
+reliance on short-term grants. Taken together, these strategies are intended to reduce dependence
+
+on time-limited funds and position community care models to adapt and persist beyond the grant
+
+period.
+
+1.C Hospital Disease Prevention: To lay the groundwork for long-term continuation, the state
+
+will implement strategies that align disease prevention activities with managed care mechanisms
+
+
+                                                                                                53
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+– such as leveraging managed care organization (MCO) Pay-for-Performance and Pay-for-
+
+Reporting metrics – and other policy tools where feasible and permitted. This could include
+
+encouraging plans to offer select programs as value-added services and consider in-lieu-of
+
+services as interventions that improve outcomes and reduce costs, while assessing opportunities
+
+for SPA or waiver authorities to strengthen coverage for high-impact prevention activities.
+
+Hospitals will be asked to dedicate community investment resources toward collaborative
+
+prevention efforts with local public health and community partners, helping sustain outreach,
+
+education, and remote monitoring capabilities beyond the initial grant period.
+
+Additional steps will include promoting alignment on quality measures and exploring multi-
+
+payer incentives tied to reductions in avoidable utilization, with any realized gains considered for
+
+reinvestment and local prevention programs. These approaches aim to reduce reliance on short-
+
+term funding and position successful prevention models to continue after the grant ends,
+
+consistent with the program’s emphasis on community-driven, evidence-based strategies.
+
+Ultimately, a major advantage of investing in preventive care lies in the substantial cost savings
+
+achieved by reducing the need for high-acuity, expensive healthcare services such as ED visits.
+
+These savings not only enhance efficiency but also play a critical role in ensuring the long-term
+
+sustainability of the rural health system as a whole.
+
+2.A EMS and Mobile Healthcare: To support long-term continuation beyond initial grant
+
+support, HFS will advance strategies that pair early investments in foundational infrastructure
+
+like vehicles, equipment, connectivity, and workforce with pathways for ongoing reimbursement
+
+of services delivered through mobile care and telehealth models. Today, EMS providers face
+
+challenges in receiving payment for encounters that do not result in hospitalizations, which
+
+creates funding challenges for providers and disincentivizes providers from treating in place
+
+
+                                                                                                  54
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+when appropriate. Where feasible and permitted, payers could recognize billable encounters such
+
+as virtual triage, community paramedicine visits, mobile primary and behavioral health services,
+
+and remote monitoring touchpoints, helping shift day-to-day operations from reliance on the
+
+grant to routine reimbursement streams.
+
+Complementary steps will include clarifying managed care contracting and billing guidance,
+
+encouraging alignment on codes and documentation, and developing practical resources for
+
+providers to operationalize mobile workflows. As programs demonstrate improved access and
+
+reductions in avoidable utilization, stakeholders could consider reinvesting a portion of realized
+
+savings to maintain essential components such as fleet, staffing, and technology infrastructure.
+
+2.B Technological Innovation for Virtual Care: To support long-term continuation, HFS will
+
+implement strategies that pair initial investments in telehealth and virtual care infrastructure with
+
+mechanisms for ongoing maintenance and operational funding. This could include encouraging
+
+managed care plans to recognize virtual care encounters within reimbursement structures and,
+
+where feasible, in alignment with sustainability approaches described under 1A and 1B,
+
+leveraging VBP arrangements so that any savings from improved access and reduced avoidable
+
+utilization can be reinvested into health IT maintenance costs.
+
+Additional considerations will include identifying state-level funding opportunities—such as
+
+technology grants or economic development programs—and promoting alignment on technical
+
+standards to reduce duplication and cost. Acknowledging that health IT maintenance requires
+
+predictable resources, these strategies aim to reduce reliance on short-term grants and position
+
+virtual care innovations for continued growth into the future.
+
+More broadly, telehealth offers significant cost savings by minimizing the need for expensive in-
+
+person visits, reducing patient travel expenses, and potentially lowering rates of ED utilization.79
+
+
+                                                                                                   55
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Beyond its ability to enhance access to care, these efficiencies contribute meaningfully to the
+
+long-term sustainability of rural healthcare systems.
+
+3.A Incentives for Clinicians and Non-Clinicians: At its core, this initiative is designed to create
+
+a lasting rural healthcare workforce by embedding long-term service commitments into training
+
+and placement programs. By leveraging state university-administered scholarships, residencies,
+
+and fellowships in partnership with local providers, the program aims to ensure that participants
+
+not only enter rural practice but remain there beyond their initial commitment period. As
+
+successive cohorts complete training and integrate into local communities, these efforts help
+
+stabilize provider capacity and strengthen the pipeline for high-need specialties, such as
+
+behavioral health, maternal health, and primary care. This approach builds sustainability into the
+
+workforce itself—each participant represents a durable investment in rural health access.
+
+Program-specific sustainability may include structuring incentives and bonuses to encourage
+
+retention, aligning placements with regional workforce priorities, and coordinating with existing
+
+federal and state programs to maximize impact without duplicating efforts. Universities and
+
+provider partners can support participants through mentorship and professional development,
+
+while outcome tracking on placement and retention informs future program design. HFS also
+
+aims to help hospitals and employers develop retention plans to maintain staff and meet
+
+workforce needs after the grant ends. Together, these strategies aim to reduce reliance on short-
+
+term funding by institutionalizing rural training pathways and fostering strong community ties
+
+that keep providers in place, ensuring continued access to essential services for rural populations.
+
+3.B Training and Recruitment Program for Non-Traditional Healthcare Workers: As with other
+
+workforce initiatives, this initiative builds sustainability into the workforce itself by developing
+
+local talent pipelines for nontraditional roles—such as CHWs, doulas, lactation consultants, and
+
+
+                                                                                                   56
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+peer support professionals—through training and certification programs that keep rural learners
+
+in their communities. By rooting education and hands-on experience in partnerships with
+
+community colleges, universities, local health systems, and community organizations, successive
+
+cohorts can strengthen care coordination and extend services beyond clinic walls. As participants
+
+complete training and enter practice locally, communities gain enduring capacity that supports
+
+comprehensive, team-based care and helps providers operate at the top of their license. These
+
+training programs serve as a valuable springboard for individuals newly entering the healthcare
+
+sector, providing them with opportunities to build foundational skills and advance in their
+
+careers. Program-specific sustainability will include embedding curricula within ongoing
+
+offerings administered by community colleges and state universities, aligning programs to
+
+recognized certification standards, and using structured placements with local providers to
+
+reinforce retention. Partners could maintain learning collaboratives, mentorship, and “train-the-
+
+trainer” supports to reduce ongoing delivery costs, while simple placement and retention tracking
+
+informs program refinement and regional targeting over time. Together, these steps are intended
+
+to lessen reliance on short-term funds by institutionalizing locally delivered training pathways
+
+and strengthening community ties that keep graduates in rural roles.
+
+3.C Rural Health Education Pipeline: Because the UIC AHEC program is an established
+
+framework, sustainability will focus on embedding rural-specific enhancements into its ongoing
+
+operations rather than creating new structures. This may include formalizing recurring
+
+agreements with rural school districts and provider organizations to ensure consistent student
+
+participation and experiential learning opportunities year after year. By integrating these
+
+activities into existing school curricula and leveraging UIC AHEC’s established infrastructure,
+
+the program can maintain continuity without requiring significant new administrative layers.
+
+
+                                                                                                   57
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+Partnerships can also identify practical contributions—such as preceptor time, space for
+
+workshops, and transportation support—that reduce delivery costs and make participation
+
+feasible for rural students.
+
+To further strengthen sustainability, the program may implement mentorship networks and
+
+alumni engagement strategies to keep students connected beyond initial exposure, creating a
+
+cycle of peer support and role modeling for future cohorts. Tracking participation and
+
+outcomes—such as progression into health-related education or employment—can inform
+
+refinements and help target resources where they have the greatest impact. Over time, these
+
+measures aim to institutionalize rural health career pathways within the existing UIC AHEC
+
+structure, ensuring that the pipeline remains active and aligned with workforce needs even after
+
+initial grant funding concludes.
+
+C. Commitment to use cross-agency policy levers to reduce barriers to sustainability:
+
+Illinois will incorporate lessons from the RHT program into standing policy instruments and
+
+operations by: (1) embedding rural transformation aims and proven activities into statewide
+
+planning (e.g., the State Health/Improvement planning cycle and Medicaid quality strategy); (2)
+
+aligning managed care contract requirements and VBP levers to recognize effective elements
+
+from each initiative that demonstrates promising impact; and (3) standardizing data sharing, core
+
+measures, and learning collaborative structures used during the program so they become part of
+
+routine accountability and TA. Where feasible and permitted, HFS will translate demonstration
+
+practices (e.g., care coordination models, virtual access workflows, CHW/peer supports, and
+
+regionally governed shared services) into explicit coverage, performance, and reporting
+
+expectations that can be referenced in MCO contracts, guidance, and program manuals, ensuring
+
+that effective approaches persist after time-limited awards conclude. This will require strong
+
+
+                                                                                                 58
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+partnership with MCOs throughout the five-year program.
+
+To move from grants to ongoing funding, Illinois will use program findings to inform updates to
+
+Medicaid purchasing and policy—such as clarifying when services are reimbursable under
+
+existing authorities, exploring value-based incentives that reward access and outcomes in rural
+
+settings and enable ongoing innovation/investment, and identifying where State Plan or waiver
+
+adjustments are appropriate to support high-impact elements (e.g., integrated teams,
+
+mobile/virtual care enablement, and workforce supports that demonstrably improve access).
+
+Concurrently, the state will assess any legacy financing approaches that are reduced or phased
+
+out under federal law and use RHT results to guide a responsible shift toward transparent,
+
+predictable mechanisms (e.g., prospective payments and quality-linked incentives in managed
+
+care), supplemented—where appropriate—by hospital/community co-investment for shared
+
+regional priorities. Together, these steps are intended to ensure that federal investment yields
+
+durable changes in how rural healthcare is delivered and paid for, reduces reliance on short-term
+
+funds, and embeds successful components of every initiative into the state’s ongoing policy and
+
+contracting environment.
+
+
+
+
+                                                                                                   59
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+
+
+
+1
+    https://www.census.gov/popclock/
+2
+    https://www.ruralhealthinfo.org/states/illinois
+3
+
+https://mchb.tvisdata.hrsa.gov/Admin/FileUpload/DownloadStateUploadedPdf?filetype=PrintVersion&state=IL&ye
+ar=2025
+4
+  https://datausa.io/profile/geo/illinois
+5
+  https://www.census.gov/programs-surveys/saipe.html
+6
+  https://www.ruralhealthinfo.org/charts/60
+7
+
+https://www.illinoisworknet.com/WIOA/Resources/Documents/2022%20Illinois%20Unified%20State%20Plan%20
+Mod%20Final%20DOL%20Approved.pdf
+8
+  https://www.ers.usda.gov/data-products/county-level-data-sets
+9
+  https://data.census.gov/table/ACSST5Y2023.S1501?hidePreview=true
+10
+   https://datausa.io/profile/geo/illinois?measureWorkforcePyramid=workforce
+11
+   https://www.americashealthrankings.org/explore/measures/Obesity/Obesity_metro/IL
+12
+   https://www.americashealthrankings.org/explore/measures/Sedentary/Sedentary_metro/IL
+13
+   https://dph.illinois.gov/topics-services/diseases-and-conditions/cancer/2022-2027-illinois-comprehensive-cancer-
+control-plan/rural-health.html
+14
+   https://www.siumed.edu/sites/default/files/u9451/rhs_stateofillinois_final.pdf
+15
+   https://dph.illinois.gov/data-statistics/vital-statistics/birth-statistics.html
+16
+   https://www.kff.org/medicaid/state-indicator/births-financed-by-
+medicaid/?currentTimeframe=0&sortModel=%7B%22colId%22:%22Location%22,%22sort%22:%22asc%22%7D
+17
+   https://dph.illinois.gov/content/dam/soi/en/web/idph/publications/idph/topics-and-services/life-stages-
+populations/maternal-child-family-health-services/maternal-health/perinatal-health/fetal-and-infant-mortality-report-
+2024.pdf
+18
+
+https://mchb.tvisdata.hrsa.gov/Admin/FileUpload/DownloadStateUploadedPdf?filetype=PrintVersion&state=IL&ye
+ar=2025
+19
+   https://www.ruralhealthinfo.org/states/illinois
+20
+   https://www.team-iha.org/getmedia/59d02994-964c-43fe-9ce1-1fadabb0fc3f/2022-small-rural-backgrounder.pdf
+21
+   https://www.aha.org/news/headline/2018-12-14-study-rural-residents-travel-about-twice-far-hospital-average
+22
+   https://idot.illinois.gov/content/dam/soi/en/web/idot/documents/transportation-system/reports/opp/transit/y-
+service_needs_and_gaps_report.pdf
+23
+   https://www.ruralhealthinfo.org/charts/5?state=IL
+24
+   https://www.isms.org/newsroom-categories/isms-news/aug-22-2025-state-of-illinois-healthcare-part-one-
+#:~:text=By%202030%2C%20Illinois%20is%20projected,the%20demand%20for%20healthcare%20services.
+25
+   https://dph.illinois.gov/resource-center/news/2025/august/release-20250822-1.html
+26
+   https://www.porh.psu.edu/20-states-with-the-most-rural-hospital-
+closures/#:~:text=In%202020%2C%20there%20were%2018%20rural%20hospital,and%20risks%20can%20be%20f
+ound%20in%20full.
+27
+   https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/
+28
+   https://www.markey.senate.gov/imo/media/doc/sheps_response.pdf
+29
+   https://data.cms.gov/provider-compliance/cost-report/hospital-provider-cost-report
+30
+   https://hfs.illinois.gov/
+31
+   Illinois Healthcare Transformation Collaboratives https://hfs.illinois.gov/healthcaretransformation.html
+32
+   Levinson, Zachary, et. al. “Hospital Margins Rebounded in 2023, But Rural Hospitals and Those With High
+Medicaid Shares Were Struggling More Than Others.” Kaiser Family Foundation. December 18, 2024.
+https://www.kff.org/health-costs/hospital-margins-rebounded-in-2023-but-rural-hospitals-and-those-with-high-
+medicaid-shares-were-struggling-more-than-others/ accessed October 31, 2025.
+33
+   Find Your Health Care Facility - Illinois Hospital Report Card
+
+
+
+                                                                                                                  60
+Illinois Department of Healthcare and Family Services (HFS)
+Rural Health Transformation (RHT) Application
+November 2025
+
+
+34
+   https://ilga.gov/Documents/legislation/ilcs/documents/010500050K27-6.5.htm.
+35
+   https://ciceroinstitute.org/wp-content/uploads/2024/12/50-State-CON-Rankings-Report-12-5-2024.pdf
+36
+   https://imlcc.com/
+37
+   https://www.nursecompact.com
+38
+   https://emscompact.gov
+39
+   https://psypact.gov/page/psypactmap
+40
+   https://www.pacompact.org/#compact
+41
+   https://www.aapa.org/advocacy-central/state-advocacy/state-maps/pa-state-practice-environment/
+42
+   https://www.ilga.gov/documents/legislation/ilcs/documents/022500650K65-43.htm
+43
+   https://ciceroinstitute.org/research/2025-policy-strategies-for-full-practice-authority/
+44
+   https://oralhealthworkforce.org/infographics/variation-in-dental-hygiene-scope-of-practice-by-state/
+45
+   https://www.ilga.gov/Legislation/publicacts/view/103-0649
+46
+   45 ILCS 180/5
+47
+   Illinois General Assembly - Public Act 100-0317
+48
+   MCO reported HTC program data
+49
+   https://www.ruralhealthinfo.org/topics/mental-health
+50
+   For more information on the Collaborative Care Model, visit:
+https://www.psychiatry.org/psychiatrists/practice/professional-interests/collaborative-care/learn
+51
+   https://www.americashealthrankings.org/explore/measures/Obesity/Obesity_metro/IL
+52
+   Illinois Department of Public Health. EMS System. https://dph.illinois.gov/topics-services/emergency-
+preparedness-response/ems/ems-system-listing.html, Accessed October 24, 2025
+53
+   https://chicagoems.org/mobile-integrated-healthcare-community-paramedic-mih-cp/
+54
+   Illinois Department of Public Health. EMS System. https://dph.illinois.gov/topics-services/emergency-
+preparedness-response/ems/ems-system-listing.html, Accessed October 24, 2025
+55
+   https://www.healthcareitnews.com/news/ipads-telehealth-can-help-reduce-depression-patients
+56
+   Treatment in Place. National Association of Emergency Medical Technicians.
+https://www.naemt.org/docs/default-source/advocacy-documents/2024-why-tip-10-18-24.pdf?sfvrsn=c4cff193_1
+57
+   https://medicine.tufts.edu/academics/medicine/maine-track-md; https://www.ruralhealthinfo.org/project-
+examples/885
+58
+   A map of UIC-AHEC’s regional centers can be found at: https://ilahec.uic.edu/regional-centers/
+59
+   https://www.medicaid.gov/state-overviews/scorecard/measure/Follow-Up-After-Emergency-Department-Visit-
+for-Mental-Illness-Age-18-and-Older
+60
+   Health Center Program Uniform Data System (UDS) Data Overview
+61
+   Illinois Public Health Community Map
+62
+   Illinois Public Health Community Map
+63
+   Illinois Public Health Community Map
+64
+   https://data.hrsa.gov/topics/healthcenters/uds/overview/state/il/
+65
+   Federal Office of Rural Health Policy (FORHP) Data Files | HRSA
+66
+   PLACES: Local Data for Better Health | PLACES | CDC
+67
+   Health Center Program Uniform Data System (UDS) Data Overview
+68
+   Illinois Public Health Community Map
+69
+   SFY 2024 Medicaid Claims data
+70
+   https://statics.teams.cdn.office.net/evergreen-assets/safelinks/2/atp-safelinks.html
+71
+   Health Center Program Uniform Data System (UDS) Data Overview
+72
+   Health Center Program Uniform Data System (UDS) Data Overview
+73
+   https://hpi.georgetown.edu/rural/
+74
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC10461303/
+75
+   https://www.kff.org/health-costs/10-things-to-know-about-rural-hospitals/
+76
+   Hospital Provider Cost Report Data | CMS Data
+77
+   https://dph.illinois.gov/topics-services/prevention-wellness/community-health-workers.html
+78
+   https://www.ilga.gov/documents/legislation/publicacts/101/PDF/101-0574.pdf
+79
+   https://ruraltelehealth.org/briefs/RTRC%20Brief_LSR3_Telehealth-Costs.pdf;
+https://www.ncqa.org/programs/data-and-information-technology/telehealth/taskforce-on-telehealth-
+policy/taskforce-on-telehealth-policy-findings-and-recommendations-telehealth-effect-on-total-cost-of-care/;
+https://schaeffer.usc.edu/research/targeting-affordability-in-healthcare-a-review-of-the-evidence/
+                                                                                                               61
+

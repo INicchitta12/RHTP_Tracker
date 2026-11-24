@@ -1,0 +1,8 @@
+file: 2026-11-24_or_rht_project_narrative_revised_2025-12-12.pdf
+source_url: https://www.oregon.gov/oha/HPA/HP/Documents/Oregon%20RHT%20Program%20Project%20Narrative_Revised%20Application%20Material_12.12.25.pdf
+fetched_utc: 2026-11-24T14:39:58Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 820758
+sha256: 018d22f94e285177178e60848cdf369dd5064bf1d3c03c8ca95e9f0e8912e2bb
+

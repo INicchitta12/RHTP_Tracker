@@ -1,0 +1,12 @@
+file: 2026-11-24_ar_revised_project_narrative.pdf
+source_url: https://arkansasrhtp.com/wp-content/uploads/2026/05/AR-Revised-Project-Narrative.pdf
+fetched_utc: 2026-11-24T14:39:05Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 13776336
+sha256: 9b53d3f6a5946f330d76a0ee708c2669e5a98313bc0b63873acb9f7ecfc8453a
+
+file: text/2026-11-24_ar_revised_project_narrative.pypdf.txt
+derived_from: 2026-11-24_ar_revised_project_narrative.pdf
+method: python pypdf PdfReader.extract_text(), pages joined by newline (pdftotext -layout letter-spaces this PDF's glyphs; pypdf splits some words, e.g. "Transfor mation", and quotes are copied as extracted)
+

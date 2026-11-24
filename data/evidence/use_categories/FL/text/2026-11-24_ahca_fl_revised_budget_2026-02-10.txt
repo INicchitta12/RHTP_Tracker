@@ -1,0 +1,1124 @@
+       BUDGET NARRATIVE: FLORIDA RURAL HEALTH TRANSFORMATION
+
+
+Introduction and Summary
+This Budget Narrative covers the five-year performance period, Federal FY 2026 – FY 2030 (the
+“project period”) and follows CMS’s Guidance for Preparing a Budget Request and Narrative.
+Throughout this document, we present a year-by-year breakdown for each cost category for the
+entire period of performance. In the remainder of this application, we label years as follows:
+Year 1 = FY26, Year 2 = FY27, Year 3 = FY28, Year 4 = FY29, and Year 5 = FY30.
+Per CMS instruction, the budget is developed at the hypothetical $200,000,000 per-year level
+(total $1,000,000,000 over five years); final awards may differ, and the Florida Agency for
+Health Care Administration (Agency) will rescale initiatives post-award without eliminating or
+adding initiatives outside the scope of this application. The budget has been updated to reflect
+the approved Year 1 allocation of $209,938,194.50.
+How to Read This Document:
+   •   Annual Breakdown: Each cost-category (A-J) provides the annual cost for all five years,
+       in compliance with CMS guidance.
+   •   Initiative ID: Each sub-section is explicitly titled with the Initiative number (e.g., “F.1.
+       Initiative 1: Rural and Satellite Clinics”) to link each cost directly to the programmatic
+       framework.
+   •   Agency vs. Contracted Costs: This narrative explicitly separates costs and funding
+       administered directly by the Lead Agency (the Agency Program Management Office or
+       “PMO”) from funding that will be contracted to implementation partners.
+           o   Agency Direct/Indirect Costs (Sections A, B, C, E, F.16 Admin-A, & J) are for
+               the state-level PMO responsible for administration, oversight, and governance.
+           o   Contracted Costs (Section F.1- F.15 & F.16 Admin-B) encompass all
+               programmatic implementation and administrative support, which will be
+               competitively procured and managed by the Agency PMO. This structure directly
+               addresses the requirement to explain how costs are separated and monitored.
+Initiative & ID Map: This budget narrative is aligned with the 15 initiatives as numbered and
+presented in the Project Narrative. These IDs are used for cross-referencing in all budget tables.
+   •   Initiative 1: Rural and Satellite Clinics
+   •   Initiative 2: Mobile Health
+   •   Initiative 3: Community Paramedicine
+   •   Initiative 4: Behavioral Health Telehealth & Telehub Psychiatry
+   •   Initiative 5: Tele-Specialties & Imaging
+   •   Initiative 6: Tele–Intensive Care Unit (eICU)
+   •   Initiative 7: Hub-and-Spoke Telestroke
+   •   Initiative 8: Workforce Development (CTIO)
+   •   Initiative 9: Health and Lifestyle
+   •   Initiative 10: Remote Patient Telemonitoring (RPTM)
+                                                                                                      1
+   •   Initiative 11: Value-Based Purchasing (VBP)
+   •   Initiative 12: Retail Clinic Services
+   •   Initiative 13: Florida HIE/ENS Onboarding
+   •   Initiative 14: Diagnostics Technology Support
+   •   Initiative 15: Integrated Medicare-Medicaid Plans Education and Outreach
+   •   Admin-A: State PMO Contract Allowance
+   •   Admin-B: Regional Collaboratives Administrative Allowance
+Award Process: To award funds to applicants, the Agency grouped Florida into four “Super
+Regions” designed to preserve existing partnerships that rural providers may have with urban
+centers. Florida’s RHT Program award will be allocated to these four regions based on the
+percentage of Florida’s rural population in each super region. Each RHT Program initiative will
+be allocated funding amounts within each super region proportional to the super region’s rural
+population. The Agency may reserve the option to issue statewide awards when such investments
+promote efficiency and shared benefit across all regions, when sufficient regional initiatives are
+not proposed to the Agency.
+To distribute RHT Program funds awarded to Florida, the Agency intends to issue a Request for
+Application (RFA) to notify potential applicants of the available funding. The RFA is a
+competitive process designed to ensure fair and open competition for public funds. To maximize
+the impact of RHT Program funds, the Agency will only accept applications from applicants that
+have formed regional collaboratives within each super region with a single, cohesive, proposal
+designed to meet the needs of the rural area for which the regional collaborative represents. Each
+regional collaborative will be comprised predominately of rural providers, with a single entity
+nominated to represent the consortium. Examples of eligible provider types include hospitals,
+FQHCs, RHC, practitioners, and pharmacies, among others. Each regional collaborative’s
+proposal must include, at a minimum, initiatives related to Prevention & Chronic Disease,
+Consumer Tech Solutions, and Workforce strategies. Due to the size of the four super regions,
+the Agency may issue awards to multiple applicants within a super region. For all contractors,
+solicitations will specify:
+   •   Scope of Work: Clear deliverables, performance metrics, and milestones tied directly to
+       the Project Narrative
+   •   Selection Criteria: Evaluation criteria will include but not be limited to: demonstrated
+       organizational and fiscal capacity to manage a large-scale federal program; experience
+       and existing partnerships with Florida’s rural providers, hospitals, and CBOs; a robust
+       plan for data collection and reporting; strategies for health equity; and cost-
+       reasonableness.
+   •   Accountability: Contracts will include requirements for standardized quarterly data
+       submission to the Agency’s Data Dashboard, performance-based payments, and
+       corrective action remedies.
+
+This methodology provides a clear rationale for funding allocations and ensures a competitive,
+transparent, and accountable selection process for all entities receiving funds. The following
+table presents potential numbers of awards, per super region, based on maximum and minimum
+award amounts. This is illustrative only and will change based on Florida’s total RHT Program
+award:
+
+                                                                                                2
+Potential Awards by Super Region
+
+                        Amount Per       Minimum Aw ard           No. Awards at    Maximum Award          No. Awards at
+ Super Region
+                         Region              Amount                Minimum            Amount               Maximum
+
+    NW FL               $43,864,531          $5,000,000                  8.4      50% of Region Amt            2
+
+       NE FL            $85,585,875          $10,000,000                 8.2      50% of Region Amt            2
+    SW FL               $50,182,257          $5,000,000                  9.6      50% of Region Amt            2
+
+       SE FL            $14,980,044          $2,000,000                  7.1      50% of Region Amt            2
+
+A. (Personnel) Salaries and Wages
+Personnel Total                 $6,340,000                                 Yearly Overview    Year 1         $1,268,000.5
+                                .50                                                                          0
+Grant                           $6,340,000                                                     Year 2        $1,268,000
+Recipient Share                   $0.50                                                        Year 3        $1,268,000
+                                                                                               Year4         $1,268,000
+                                                                                               Year 5        $1,268,000
+                                                 FTE                                          Amount
+       Position Title             Name               Time Mths Annual Salary                                  Initiative
+                                               Count                                         Requested
+Project Director            Antraneise Jackson   1   100% 12       $154,000                   $154,000        Admin-A
+Assistant Director                TBD            1   100% 12       $120,000                   $120,000        Admin-A
+Administrative                    TBD            1   100% 12      $55,000.50                 $55,000.50       Admin-A
+Professional
+Senior Project Manager            TBD              1       100%     12         $100,000      $100,000         Admin-A
+Project Administrator             TBD              1       100%     12          $65,000       $65,000         Admin-A
+Budget Analyst                    TBD              1       100%     12          $74,000       $74,000         Admin-A
+Regional Leads                    TBD              4       100%     12          $75,000      $300,000         Admin-A
+Contract/Procurement Lead         TBD              1       100%     12         $78,000        $78,000         Admin-A
+Data Scientist                    TBD              2       100%     12         $120,000      $240,000         Admin-A
+Grant Compliance                  TBD              1       100%     12         $78,000        $78,000         Admin-A
+Manager
+
+This category covers direct salary costs for the 14.0 FTE State Program Management Office
+(PMO) staff at the Lead Agency (Agency) who will be 100% dedicated to RHTP grant
+administration and oversight. All programmatic personnel are budgeted under Section F,
+administered by contractors.
+Costs are calculated based on established State of Florida pay grades, are below the federal
+Executive Level II salary cap, and are 100% allocable to this program’s administrative oversight.
+Justification:
+   •     Project Director: (Antraneise Jackson): Serves as the PI/PD, provides executive
+         leadership, chairs the Governance Committee, manages the Administrative/Evaluation
+         Contractor, and serves as the primary CMS liaison. This position directs the overall
+         operation of the project; responsible for overseeing the implementation of project
+         activities, coordination with rural counties, review and approval of materials, provisions
+         of in-service and training, conducting meetings; designs and directs the gathering,
+         tabulating and interpreting of required data; responsible for overall program evaluation
+                                                                                                   3
+    and for staff performance evaluation; and is the responsible authority for ensuring
+    necessary reports/documentation are submitted to CMS. This position relates to all
+    program objectives.
+•   Assistant Director: Supports the Project Director in strategic oversight and operational
+    management of the Rural Health Transformation Program. Assists in coordinating
+    program activities, stakeholder engagement, and cross-functional collaboration.
+    Provides leadership in implementing CMS-defined objectives, monitors progress
+    toward performance metrics and ensures alignment with program goals. Acts as a
+    secondary point of contact for internal and external stakeholders.
+•   Administrative Professional: The Administrative Professional will ensure smooth day-
+    to-day operations of the RHT Program by managing communications, scheduling,
+    documentation, and logistics. This position will serve as the central point of coordination
+    for internal teams and external stakeholders, including CMS, rural health providers, and
+    community organizations.
+•   Senior Project Manager: The Senior Project Manager in the Rural Health
+    Transformation (RHT) Program plays a central role in managing day-to-day operations,
+    ensuring timely execution of activities, and supporting strategic alignment across teams.
+    Project Coordinator also maintains detailed project timelines, task lists, and milestone
+    trackers in addition to coordinating cross-functional activities across clinical, data,
+    finance, and community teams.
+•   Project Administrator: This position supports day-to-day operations in a more general
+    role providing operational and administrative support for project tasks such as
+    documentation, processing, coordination, development of materials, monitor progress
+    toward CMS-defined performance metrics, etc.
+•   Budget Analyst: This position is responsible for financial planning, monitoring, and
+    reporting for the Rural Health Transformation Program. Ensures compliance with CMS
+    financial requirements, tracks expenditures, prepares budget forecasts, and provides
+    analysis to support decision-making. Works closely with leadership to maintain fiscal
+    accountability.
+•   Regional Leads: Serve as primary points of contact for designated regions (NE, NW,
+    SE, SW Florida). Facilitate collaboration among counties, coordinate regional activities,
+    and ensure alignment with program objectives. Engage local stakeholders to implement
+    strategies that improve rural health outcomes and report regional progress to program
+    leadership.
+•   Contract/Procurement Lead: Manages all procurement and contracting activities for
+    the program. Ensures compliance with state and federal regulations, oversees vendor
+    selection and contract execution, and monitors deliverables. Supports program leadership
+    in maintaining transparency and accountability in procurement processes.
+•   Data Scientists: The Data Scientists will lead the design and execution of analytical
+    frameworks that measure progress toward the RHT Program’s core objectives: improving
+    healthcare access, supporting rural health innovations, promoting preventive care, and
+    transforming infrastructure. These positions will serve as technical advisors to program
+    leadership and collaborate with clinical, operational, and policy teams. The role is
+                                                                                             4
+    essential to ensuring Florida’s compliance with CMS performance metrics and
+    maximizing the impact of federal investments in rural health.
+•   Grant Compliance Manager: This position ensures adherence to all grant requirements
+    and CMS guidelines. Monitors compliance across program activities, prepares required
+    reports, and provides guidance to staff on regulatory obligations. Works closely with
+    leadership to mitigate risks and maintain program integrity.
+
+
+
+
+                                                                                       5
+B. Fringe Benefits
+
+
+Benefits Total            $3,071,540                                            Yearly Overview Year 1   $614,308
+Grant                     $3,071,540                                                            Year 2   $614,308
+Recipient Share               $0                                                                Year 3   $614,308
+                                                                                                Year4    $614,308
+                                                                                                Year 5   $614,308
+
+                                                      Social    Health     Life
+     Position Title           Name          Retireme                              Disability FTE Cost Initiative
+                                                     Security Insurance Insurance
+                                               nt
+Program Director         Antraneise Jackson $21,606 $11,475    $24,186     $43       $60      1 $57,370 Admin-A
+Assistant Director             TBD           $16,836 $9,180    $24,186     $43       $48      1 $50,293 Admin- A
+Admin Professional            TBD         $7,717    $4,208    $24,186     $43      $22     1    $36,176 Admin- A
+Senior Project Manager        TBD         $14,030    $7,650   $24,186     $43      $40     1    $45,949 Admin-A
+Program Administrator         TBD          9,120     $4,973   $24,186     $43      $26     1    $38,348 Admin- A
+Budget Analyst                TBD         $10,943   $5,967    $24,186     $43      $31     1    $41,170 Admin-A
+Regional Leads                TBD         $42,090   $22,950   $96,744    $172     $120     4   $162,076 Admin-A
+Contract/Procurement          TBD         $10,943   $5,967    $24,186    $43       $31     1   $41,170 Admin-A
+Lead
+Data Scientists               TBD         $33,672   $18,360   $48,372    $86       $96     2   $100,586 Admin-A
+Grants Compliance             TBD         $10,943   $5,967    $24,186    $43       $31     1   $41,170 Admin-A
+Manager
+
+
+Justification: The Fringe Benefit Costs are the standard rates and payments applied to each full-
+time equivalent position within the State of Florida employment system. The retirement rate in
+the table is based on the employer contribution rate as published by the Florida Division of
+Retirement and is set at 14.03% of gross salary. The FICA rate is composed of the Social
+Security rate of 6.20% and the Medicare rate of 1.45% for a combined rate of 7.65%. Florida
+provides a state/employer share of the State Group Health Insurance premiums on behalf of
+employees with benefits each fiscal year. The state share of the health care premium is set
+annually in the General Appropriations Act and is currently $2015.48 per month per person. The
+state share of the premium is estimated at the same rate for all five years for this application.
+Life Insurance premiums are $3.58, and disability is provided at a rate of .04% of an FTE gross
+salary.
+
+
+
+
+                                                                                                           6
+C. Travel
+Travel Total            $52,444                         Yearly Overview                            Year 1    $10,489
+Grant                   $52,444                                                                    Year 2    $10,489
+Recipient Share              $0                                                                    Year 3    $10,489
+                                                                                                   Year 4    $10,489
+                                                                                                   Year 5    $10,489
+ Purpose of Travel   Location             Item                          Rate                        Cost     Initiative
+                      Various                         $27.32 × 2 staff × (2 trips × 3 days + 5
+    Site Visits                        Car Rental                                                   $574      Admin
+                     Rural Sites                       trips × 2 days + 5 trips × 1 day)
+                                                      $160 × 2 staff × (2 trips × 2 nights + 5
+                                        Lodging                                                    $2,880     Admin
+                                                      trips × 1 night + 5 trips × 0 nights)
+                                   Per Diem (includes Per diem: $80 non-lodging day, $36
+                                                                                                   $2,568     Admin
+                                         meals)       lodging day; per staff per trip.
+       Statewide
+                     4 Rotating                         $27.32 × 3 staff × 4 trips/year × 2-day
+   S takeholder                        Car Rental                                                   $219      Admin
+                     Locations                          duration
+    Meetings
+                                                        $160 × 3 staff × 4 trips/year × 1-night
+                                        Lodging                                                    $1,920     Admin
+                                                         stay
+                                   Per Diem (includes
+                                        meals)        Same formula as above                         $1,392    Admin
+
+
+  Contingency Site                                       $27.32 × 2 staff × 5 trips/year × 1-day
+                      Statewide
+                     Statewide         Car Rental
+                                       Car Rental                                                   $137
+                                                                                                    $137      Admin
+                                                                                                              Admin
+       Meetings                                          duration
+                                   Per Diem (includes
+                                                        Same formula as above                       $800      Admin
+                                        meals)
+Baltimore Summit     Annual          Car Rental        $80 x 4 staff (round trip)                  $160      Admin
+                                      Lodging         $150 x 4 staff (3 nights)                    $1,800    Admin
+                                      Airline        $482 x 4 staff (round trip)                   $1,928    Admin
+                                      Uber/Lyft/taxi $56.5 x 4 staff                               $226      Admin
+                                     Per Diem (with meals) Same formula as above                   $752      Admin
+
+Justification: This category funds all travel for the 4.0 FTE state-level PMO staff (Section A) to
+conduct mandatory grant oversight, contractor monitoring, and stakeholder engagement. Costs
+are calculated based on GSA rates for mileage, lodging, and per diem and are allocated as
+follows:
+   •     Site Visits & Contractor Monitoring: This is essential for the Agency’s oversight
+         responsibilities (2 CFR 200.332). It funds travel for the 4.0 FTEs to conduct at least
+         quarterly site visits to the four Regional Lead Contractors and periodic site visits to their
+         downstream implementation sites across 31 rural counties.
+   •     Stakeholder Meetings: Covers PMO travel to the statewide stakeholder meetings
+         (Quarterly in Y1, Bi-Annually in Y2-Y5).
+   •     Contingency Site Meetings: Allocates funds for required travel to CMS-mandated
+         meetings.
+   •     Mandatory CMS RHTP Summit: Covers travel for the staff to attend the
+         mandatory CMS Rural Health Transformation Summit in Baltimore on March 18,
+         2026.
+                                                                                                                      7
+D. Equipment
+Annual Equipment Budget: $0 (Years 1-5)
+Initiative: N/A
+Justification: Florida requests $0 under the SF-424A Equipment category for the Lead Agency.
+This is a deliberate structural choice to ensure clean federal reporting and compliance.
+
+
+
+
+                                                                                           8
+All programmatic equipment (defined as unit cost ≥$10,000 or entity’s capitalization threshold),
+such as telehealth carts, RPTM kits, and eICU hardware, will be provided via competitively
+procured contracts and reflected in Section F (Contractual Costs).
+
+E. Supplies
+                                                                                 Yearly Overview
+  Supplies Total                  $408,800                                   Year 1           $81,760
+  Grant                           $408,800                                   Year 2           $81,760
+  Recipient Share                 $0                                         Year 3           $81,760
+                                                                             Year 4           $81,760
+                                                                             Year 5           $81,760
+
+               Supplies                          Rate                   Total Annual Cost   Initiatives
+
+                Postage             12 months x $11.75/mo x 14 staff         $1,974          Admin-A
+        Printing & Reproduction     12 months x $10.08/mo x 14 staff         $1,694          Admin-A
+             Office Supplies        12 months x $32.08/mo x 14 staff         $5,390          Admin-A
+         Software and Training      12 months x $225.92/mo x 14 staff       $37,954          Admin-A
+         Computing Equipment        12 months x $206.83/mo x 14 staff       $34,748          Admin-A
+
+Justification: This category includes administrative supplies for the State PMO only.
+    •     State PMO Admin Supplies: Funds standard office consumables, software & training,
+          and computing equipment for State PMO staff only.
+    •     All programmatic supplies (e.g., RPTM consumables, clinical supplies, mobile unit fuel)
+          are budgeted within the contractor costs in Section F, as they are procured directly by the
+          implementation partners as part of their contractual scope of work.
+
+
+F. Contractual Costs by Initiative
+Total Annual Contractual Budget: $207,963,637 (Years 1-5)
+This category includes all programmatic and administrative support costs executed via contracts.
+This section’s total represents the total from the 15 Programmatic Initiatives (F.1- F.15) executed
+across the regional collaboratives, admin allowance awarded to contractors across the regional
+collaboratives (F.16 Admin-B), and contracts executed by the State PMO (F.16 Admin-A).
+The initiative tables in this section represent the full, all-inclusive annual cost of each initiative,
+including all contractor-procured personnel, travel, equipment, supplies, and other programmatic
+expenses. The cost in F.1 – F.15 for the initiatives, are reflective of research, stakeholder
+outreach, and responses to the Agency’s request for information. The Agency has allocated the
+costs across the following categories: Technology & Support, Supplies, and Personnel. The
+Agency will update the budget detail post award prior to incurring cost or drawing down funds.
+
+
+
+
+                                                                                                          9
+F.1. Initiative 1: Rural and Satellite Clinics
+            Annual Total:                $25,000,000           5Y Total:       $125,000,000
+                                                                  Grant:       $125,000,000
+                                                        Recipient Share:              $0.00
+
+              Category                   Annual Cost        Years               Total         Initiative
+
+       Technology & Equipment        $     17,500,000    FY26 - FY30       $    87,500,000    Initiative 1
+              Supplies               $      2,500,000    FY26 - FY30       $    12,500,000    Initiative 1
+             Personnel               $      5,000,000    FY26 - FY30       $    25,000,000    Initiative 1
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: This initiative provides start-up funding for established urban physician or dental
+practices to expand their services into rural areas by opening new or satellite offices. Funding
+also supports nurse practitioner and physician assistant–led clinics operating within scope and
+under appropriate supervision, enhancing access to care for rural residents. These clinics offer
+primary care, dental, chronic disease management, obstetric and gynecologic care, and mental
+health services, promoting preventive care and early intervention. Health Information Exchange
+HIE and Encounter Notification Service (ENS) integration will improve continuity of care,
+follow-up, and outcome tracking.
+Funding Support:
+   •   Start-up and expansion costs, including leasing, equipment, and initial supplies
+   •   Health Information Technology such as Electronic Health Record (EHR) connections,
+       tele-supervision tools, and cybersecurity upgrades to support care delivery
+   •   Workforce training, staff recruitment onboarding initial costs, and supervision costs
+       (time-limited)
+   •   Care coordination and navigation functions to connect patients with services, consistent
+       with the Notice of Funding Opportunity limits on provider payments
+
+F.2. Initiative 2: Mobile Health
+            Annual Total:                $20,000,000           5Y Total:       $100,000,000
+                                                                  Grant:       $100,000,000
+                                                        Recipient Share:              $0.00
+
+              Category                   Annual Cost        Years               Total         Initiative
+
+       Technology & Equipment        $     16,000,000    FY26 - FY30       $    80,000,000    Initiative 2
+              Supplies               $      1,000,000    FY26 - FY30       $     5,000,000    Initiative 2
+             Personnel               $      3,000,000    FY26 - FY30       $    15,000,000    Initiative 2
+
+
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Mobile Health initiative brings preventive, screening, rehabilitation, and
+prenatal services directly to rural communities on scheduled routes. Mobile units reduce missed
+care caused by transportation barriers and integrate with local hospitals, FQHCs, RHCs, County
+
+                                                                                                             10
+Health Departments, and community-based organizations to ensure continuity of care. Services
+include chronic disease screenings, prenatal visits, and patient education. Real-time data
+exchange through secure EHR connections ensures timely documentation and follow-up care.
+Funding Support:
+   •   Operational costs for leased mobile units, staff, and supplies used to deliver on-site
+       services; the grant will not pay for vehicle purchases or new construction
+   •   Health Information Technology tools including tele-supervision, mobile connectivity, and
+       secure electronic health record access for same-day documentation and data exchange
+   •   Workforce and training expenses for clinicians and community health workers supporting
+       mobile care and follow-up
+   •   Quality assurance, route scheduling, and communication tools such as patient reminders
+       and closed-loop referral systems
+
+F.3. Initiative 3: Community Paramedicine
+            Annual Total:                 $18,000,000           5Y Total:       $90,000,000
+                                                                   Grant:       $90,000,000
+                                                         Recipient Share:             $0.00
+
+              Category                    Annual Cost        Years              Total         Initiative
+
+       Technology & Equipment         $      8,100,000    FY26 - FY30       $   40,500,000    Initiative 3
+               Supplies               $      1,800,000    FY26 - FY30       $    9,000,000    Initiative 3
+              Personnel               $      8,100,000    FY26 - FY30       $   40,500,000    Initiative 3
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: This initiative deploys community paramedics and, where appropriate, other
+licensed practitioners to provide on-site support for minor illnesses within their scope of practice
+and deliver post-discharge care for high-risk patients to reduce preventable readmissions. When
+appropriate, telehealth services will be used to support patient care, and hospitals and EMS will
+collaborate through the Event Notification System to ensure timely follow-up and coordination
+with primary care teams. Activities include medication reconciliation, health education, and
+coordination with primary care providers and behavioral health specialists.
+Funding Support:
+   •   Operations for post-discharge and home-visit teams including training, equipment, safety
+       supplies, and program management
+   •   Health Information Technology connections between electronic Patient Care Records
+       (ePCR) and electronic health records, Event Notification Service alerts, and two-way
+       texting platforms
+   •   Remote Patient Telemonitoring kits and Artificial Intelligence–assisted decision support
+       for patient follow-up
+   •   Training and workforce development for paramedics, registered nurses, and community
+       health workers providing in-home stabilization and care coordination
+
+
+
+                                                                                                             11
+F.4. Initiative 4: Behavioral Health Telehealth & Telehub Psychiatry
+            Annual Total:                 $18,000,000           5Y Total:       $90,000,000
+                                                                   Grant:       $90,000,000
+                                                         Recipient Share:             $0.00
+
+              Category                    Annual Cost        Years              Total         Initiative
+
+       Technology & Equipment         $      9,900,000    FY26 - FY30       $   49,500,000    Initiative 4
+               Supplies               $      1,800,000    FY26 - FY30       $    9,000,000    Initiative 4
+              Personnel               $      6,300,000    FY26 - FY30       $   31,500,000    Initiative 4
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Behavioral Health Telehealth and Telehub Psychiatry initiative establishes
+regional centers that connect rural residents to same-day psychiatric consultations, therapy, and
+coordinated care. Through the Collaborative Care Model, psychiatrists and behavioral health
+specialists support local primary care providers with shared treatment plans and medication
+management. Activities include implementing telepsychiatry technology, workforce training on
+evidence-based protocols, and using standardized screening tools such as Patient Health
+Questionnaire-9 (PHQ-9), Generalized Anxiety Disorder-7 (GAD-7), and Edinburgh Postnatal
+Depression Scale (EPDS) to track outcomes and ensure timely, data-driven interventions.
+Funding Support:
+   •   Staffing and operations for Telehub care managers, referral coordinators, and consulting
+       psychiatrists who support primary care teams through shared care plans
+   •   Telepsychiatry technology, registry tools to track outcomes such as Patient Health
+       Questionnaire-9 (PHQ-9), Generalized Anxiety Disorder-7 (GAD-7), and Edinburgh
+       Postnatal Depression Scale (EPDS) scores, and secure EHR integration
+   •   Workforce training for clinicians and care managers on measurement-based care, privacy,
+       and telehealth protocols
+   •   Software licenses, equipment, and minor facility upgrades consistent with Notice of
+       Funding Opportunity (NOFO) capital-use restriction
+
+F.5. Initiative 5: Tele-Specialties & Imaging
+            Annual Total:                 $16,000,000           5Y Total:       $80,000,000
+                                                                   Grant:       $80,000,000
+                                                         Recipient Share:             $0.00
+
+              Category                    Annual Cost        Years              Total         Initiative
+
+       Technology & Equipment         $     12,000,000    FY26 - FY30       $   60,000,000    Initiative 5
+               Supplies               $        800,000    FY26 - FY30       $    4,000,000    Initiative 5
+              Personnel               $      3,200,000    FY26 - FY30       $   16,000,000    Initiative 5
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: This initiative enables rural hospitals and clinics to host virtual specialty clinics,
+allowing patients to consult with specialists like cardiologists, pulmonologists, endocrinologists,
+oncologists, and neurologists via telehealth. Local nurses support physical exams and transmit
+
+                                                                                                             12
+test results securely for prompt review. Cloud-based imaging systems and Picture Archiving and
+Communication System (PACS) integration facilitate rapid diagnostics and specialist feedback.
+The initiative aims to reduce unnecessary travel, accelerate diagnosis, and improve chronic
+disease outcomes in rural communities.
+Funding Support:
+   • Operational costs for virtual specialty clinic days and eConsult sessions at rural hospitals
+      or clinics, including nursing support and scheduling systems
+   • Cloud-based imaging systems and Picture Archiving and Communication System (PACS)
+      integration for secure data exchange
+   • Workforce training on tele-specialty workflows and diagnostic coordination
+   • Cybersecurity enhancements and Health Information Technology connections to support
+      data interoperability
+
+F.6. Initiative 6: Tele–Intensive Care Unit (eICU)
+            Annual Total:                 $14,000,000           5Y Total:       $70,000,000
+                                                                   Grant:       $70,000,000
+                                                         Recipient Share:             $0.00
+
+              Category                    Annual Cost        Years              Total         Initiative
+
+       Technology & Equipment         $     10,500,000    FY26 - FY30       $   52,500,000    Initiative 6
+               Supplies               $        700,000    FY26 - FY30       $    3,500,000    Initiative 6
+              Personnel               $      2,800,000    FY26 - FY30       $   14,000,000    Initiative 6
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Tele–Intensive Care Unit (eICU) initiative enables rural hospitals to connect
+with remote critical care physicians and nurses who provide 24/7 patient monitoring through
+secure video and data systems. This initiative enhances care for critically ill patients by allowing
+early intervention, reducing unnecessary transfers, and keeping families close to home. It
+supports virtual nursing, medication management, and patient-family communication.
+Additionally, it integrates with electronic health record (EHR) systems to ensure timely response
+and continuity of care.
+Funding Support:
+   • Tele-ICU and tele-hospitalist platforms, monitoring software, and secure communication
+      system
+   • Integration of alert and order-set tools into existing hospital electronic health records to
+      enhance clinical response and patient safety
+   • Workforce training for hospital staff on remote monitoring, escalation protocols, and
+      telehealth quality standards
+   • Minor equipment upgrades and facility modifications needed for telehealth operations,
+      within capital-use limits
+
+
+
+
+                                                                                                             13
+F.7. Initiative 7: Hub-and-Spoke Telestroke
+
+            Annual Total:                $10,000,000            5Y Total:       $50,000,000
+                                                                   Grant:       $50,000,000
+                                                         Recipient Share:             $0.00
+
+              Category                   Annual Cost         Years              Total         Initiative
+
+       Technology & Equipment        $      8,000,000     FY26 - FY30       $   40,000,000    Initiative 7
+              Supplies               $      1,000,000     FY26 - FY30       $    5,000,000    Initiative 7
+             Personnel               $      1,000,000     FY26 - FY30       $    5,000,000    Initiative 7
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Hub-and-Spoke Telestroke initiative connects rural emergency departments
+with stroke specialists via secure, real-time video for immediate assessment and treatment.
+Computed tomography (CT) scans are transmitted electronically to remote neurologists for rapid
+review and diagnosis. Standardized treatment protocols guide timely administration of clot-
+dissolving medication and decisions about transfer or observation. This initiative saves lives by
+ensuring rural hospitals can deliver evidence-based stroke care locally.
+Funding Support:
+   • Technology infrastructure for on-call tele-neurology consults, including video
+      connectivity, CT image transfer, and real-time communication
+   • Integration of electronic health record, Picture Archiving and Communication System,
+      and Electronic Notification Service systems to ensure rapid diagnosis, follow-up, and
+      data exchange
+   • Training and simulation exercises for hospital and emergency medical staff on stroke and
+      emergency pathways
+   • Quality monitoring tools for treatment times, transfers, and outcome tracking
+
+F.8. Initiative 8: Workforce Development (CTIO)
+            Annual Total:                $12,683,313            5Y Total:       $63,416,565
+                                                                   Grant:       $63,416,565
+                                                         Recipient Share:             $0.00
+
+              Category                   Annual Cost         Years              Total         Initiative
+
+       Technology & Equipment        $        634,166     FY26 - FY30       $    3,170,830    Initiative 8
+              Supplies               $        634,165     FY26 - FY30       $    3,170,825    Initiative 8
+             Personnel               $      11,414,982    FY26 - FY30       $   57,074,910    Initiative 8
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Clinical Training Investment Opportunity (CTIO) initiative strengthens
+Florida’s rural healthcare pipeline by supporting clinical training programs, supervised rotations,
+and practitioner recruitment and retention efforts. It funds housing assistance for trainees,
+professional development, and career pathways through local high schools and community
+
+
+                                                                                                             14
+colleges. Participants commit to a five-year service period in rural communities, ensuring long-
+term workforce stability and access to essential healthcare services.
+Funding Support:
+   • Clinical training sites, preceptorships, and supervised rotations for nursing, medical, and
+      behavioral health trainees in rural areas
+   • Recruitment and retention incentives that comply with the required five-year rural service
+      commitment
+   • Workforce housing supports and professional development for community health workers
+      and emergency medical staff
+   • Technology and tracking systems for workforce placement, retention, and evaluation
+   • Training/curriculum development costs
+
+F.9. Initiative 9: Health and Lifestyle
+            Annual Total:                 $10,130,531           5Y Total:       $50,652,655
+                                                                   Grant:       $50,652,655
+                                                         Recipient Share:             $0.00
+
+              Category                    Annual Cost        Years              Total         Initiative
+
+       Technology & Equipment         $      3,545,686    FY26 - FY30       $   17,728,430    Initiative 9
+               Supplies               $      2,532,633    FY26 - FY30       $   12,663,165    Initiative 9
+              Personnel               $      4,052,212    FY26 - FY30       $   20,261,060    Initiative 9
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Health and Lifestyle initiative addresses food insecurity and nutrition-related
+health disparities by integrating food screenings, brief nutrition counseling, and referrals to local
+food programs and pantries into clinical settings. It also supports physician and advanced
+practice provider education in nutrition counseling, works with school districts to promote
+physical activity through the Presidential Fitness Test, and supports nutrition classes in middle
+and high schools. Together, these strategies improve nutrition, encourage healthy behaviors, and
+reduce chronic disease in rural populations.
+Funding Support:
+   • Screening tools and referral systems embedded in clinics to identify food insecurity and
+      nutrition-related risks
+   • Closed-loop referral systems that track closure of social related health needs, like food
+      insecurity, including workflow integration with existing electronic health record systems
+   • Digital tracking tools for referrals to community food programs such as Fresh Access
+      Bucks, Feeding Florida, and Farm Share, and follow-up outcomes like blood pressure and
+      Hemoglobin A1c levels
+   • Training/curriculum development costs
+   • Equipment and supplies
+
+
+
+
+                                                                                                             15
+F.10. Initiative 10: Remote Patient Telemonitoring (RPTM)
+           Annual Total:                 $14,000,000           5Y Total:       $70,000,000
+                                                                  Grant:       $70,000,000
+                                                        Recipient Share:             $0.00
+
+              Category                   Annual Cost        Years              Total          Initiative
+
+      Technology & Equipment         $     11,900,000    FY26 - FY30       $   59,500,000    Initiative 10
+              Supplies               $        700,000    FY26 - FY30       $    3,500,000    Initiative 10
+             Personnel               $      1,400,000    FY26 - FY30       $    7,000,000    Initiative 10
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Remote Patient Telemonitoring initiative allows rural patients with chronic
+conditions such as hypertension, diabetes, heart failure, and chronic obstructive pulmonary
+disease (COPD) to use connected devices like blood pressure cuffs, glucose meters, and scales to
+transmit health data directly to care teams. An artificial intelligence–driven triage system
+identifies patients at risk and triggers timely nurse follow-ups, preventing emergency department
+visits and hospitalizations.
+Funding Support:
+   • Cellular-enabled monitoring kits (blood pressure cuffs, scales, glucometers, pulse
+      oximeters) and related data platforms
+   • Artificial Intelligence–driven triage tools and dashboards for continuous patient
+      monitoring and escalation
+   • Staffing and clinical oversight for remote monitoring, data interpretation, and patient
+      follow-up
+   • Cybersecurity and Health IT upgrades to support safe data transmission and storage
+
+F.11. Initiative 11: Value-Based Purchasing (VBP)
+            Annual Total:                $10,000,000           5Y Total:       $50,000,000
+                                                                  Grant:       $50,000,000
+                                                        Recipient Share:             $0.00
+
+              Category                   Annual Cost        Years              Total          Initiative
+
+      Technology & Equipment         $      4,000,000    FY26 - FY30       $   20,000,000    Initiative 11
+              Supplies               $      2,000,000    FY26 - FY30       $   10,000,000    Initiative 11
+             Personnel               $      4,000,000    FY26 - FY30       $   20,000,000    Initiative 11
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Value-Based Purchasing initiative transitions rural healthcare providers from
+a fee-for-service model to performance-based payment models that reward quality, outcomes,
+and efficiency. It begins with incentive payments for achieving quality benchmarks, progresses
+to shared savings arrangements, and eventually includes shared risk models. The initiative also
+supports rural practices in obtaining Patient-Centered Medical Home (PCMH) designation,
+improving care coordination and chronic disease management. This approach builds provider
+capacity to deliver high-value care and ensures financial sustainability for rural facilities.
+
+                                                                                                             16
+Funding Support:
+   • Training and coaching for rural providers to learn how value-based care works and how
+      to track performance measures
+   • Software, data tools, and technology to help clinics report results and compare progress
+   • Consultants or staff support to help design fair payment models and set achievable goals
+   • Shared technology systems that let clinics coordinate care, manage patient populations,
+      and exchange data securely
+   • Training for healthcare workers on care coordination, recordkeeping, and connecting
+      payments to improved patient outcomes
+
+F.12. Initiative 12: Retail Clinic Services
+            Annual Total:                $6,000,000            5Y Total:       $30,000,000
+                                                                  Grant:       $30,000,000
+                                                        Recipient Share:             $0.00
+
+              Category                   Annual Cost        Years              Total          Initiative
+
+       Technology & Equipment        $      4,500,000    FY26 - FY30       $   22,500,000    Initiative 12
+              Supplies               $        300,000    FY26 - FY30       $    1,500,000    Initiative 12
+             Personnel               $      1,200,000    FY26 - FY30       $    6,000,000    Initiative 12
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Retail Clinic Services initiative expands access to convenient healthcare by
+reimbursing rural pharmacies that provide non-emergency medical services within their scope of
+practice. Licensed providers offer acute and preventive care visits on-site, including diagnostic
+testing, and chronic disease monitoring. Diagnostic telehealth kiosks also connect patients with
+remote clinicians for same-day assessment and treatment. This initiative leverages existing
+pharmacy infrastructure to address care gaps and reduce unnecessary emergency department
+visits.
+Funding Support:
+   • Setup of private, protocol-based clinic areas within pharmacies for basic, non-emergency
+      health assessments
+   • Health IT connections between pharmacy systems and local EHRs to support referrals
+      and care continuity
+   • Workforce training for pharmacists and advanced practice providers on clinical
+      documentation and telehealth integration
+   • Cybersecurity and patient privacy safeguards consistent with the Notice of Funding
+      Opportunity standards
+
+
+
+
+                                                                                                             17
+F.13. Initiative 13: Florida HIE/ENS Onboarding
+            Annual Total:                $5,000,000            5Y Total:       $25,000,000
+                                                                  Grant:       $25,000,000
+                                                        Recipient Share:             $0.00
+
+              Category                   Annual Cost        Years              Total          Initiative
+
+       Technology & Equipment        $      4,750,000    FY26 - FY30       $   23,750,000    Initiative 13
+              Supplies               $        125,000    FY26 - FY30       $     625,000     Initiative 13
+             Personnel               $        125,000    FY26 - FY30       $     625,000     Initiative 13
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: This initiative funds onboarding for rural hospitals, clinics, and providers to the
+Florida Health Information Exchange (HIE) and Encounter Notification Service (ENS). By
+connecting providers to real-time admit, discharge, and transfer alerts, the program enhances care
+coordination, reduces readmissions, and promotes seamless transitions between care settings.
+Funding supports the modernization of health information platforms, including interface setup,
+data standardization, and staff training to ensure full participation and compliance with State
+interoperability standards.
+Funding Support:
+   • Provider onboarding to Florida’s Health Information Exchange and ENS network,
+      including setup fees and staff training
+   • Interface development to connect electronic health records using Health Level 7 (HL7)
+      and Fast Healthcare Interoperability Resources (FHIR) standards
+   • Workflow implementation for discharge alerts, care coordination, and follow-up tracking
+   • Cybersecurity, data integrity, and interoperability testing to ensure compliance with state
+      standards
+
+F.14. Initiative 14: Diagnostics Technology Support
+            Annual Total:                $9,130,531            5Y Total:       $45,652,655
+                                                                  Grant:       $45,652,655
+                                                        Recipient Share:             $0.00
+
+              Category                   Annual Cost        Years              Total          Initiative
+
+       Technology & Equipment        $      8,217,478    FY26 - FY30       $   41,087,390    Initiative 14
+              Supplies               $        456,527    FY26 - FY30       $    2,282,635    Initiative 14
+             Personnel               $        456,527    FY26 - FY30       $    2,282,635    Initiative 14
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Diagnostics Technology Support initiative equips rural hospitals, clinics, and
+laboratories with cloud-based Picture Archiving and Communication Systems (PACS) to enable
+rapid sharing and review of diagnostic images and laboratory results. The initiative enhances
+connectivity between rural and specialty facilities, improving turnaround times and diagnostic
+accuracy. It supports workforce training, cybersecurity, and EHR integration to ensure secure,
+efficient data exchange and faster clinical decision-making.
+
+                                                                                                             18
+Funding Support:
+   • Provider onboarding to Florida’s Health Information Exchange and ENS network,
+      including setup fees and staff training
+   • Interface development to connect electronic health records using Health Level 7 (HL7)
+      and Fast Healthcare Interoperability Resources (FHIR) standards
+   • Workflow implementation for discharge alerts, care coordination, and follow-up tracking
+   • Cybersecurity, data integrity, and interoperability testing to ensure compliance with state
+      standards
+
+F.15. Initiative 15: Integrated Medicare-Medicaid Plans Education and Outreach
+            Annual Total:                $1,000,000              5Y Total:         $5,000,000
+                                                                    Grant:         $5,000,000
+                                                          Recipient Share:              $0.00
+
+              Category                   Annual Cost          Years               Total            Initiative
+
+       Technology & Equipment        $         50,000       FY26 - FY30      $       250,000      Initiative 15
+              Supplies               $         50,000      FY26 - FY30       $       250,000      Initiative 15
+             Personnel               $        900,000      FY26 - FY30       $     4,500,000      Initiative 15
+
+Contractors: Contractors (TBD via competitive RFA).
+Justification: The Integrated Medicare-Medicaid Plans Education and Outreach initiative
+increases awareness and participation among Floridians eligible for both Medicare and Medicaid.
+It funds outreach, education, and stakeholder training to promote enrollment in integrated plan
+models that combine benefits and improve care coordination. Florida currently has 916,577 dual-
+eligible residents, including 424,049 full-dual eligibles who receive full benefits from both
+programs. Of all dual-eligible individuals, 70.7 % (648,224 people) are enrolled in an integrated
+Medicaid-Medicare plan, and 64.2 % (272,273 full-dual eligibles) are in an integrated plan.
+Florida’s RHTP will provide additional support to increase enrollment in integrated plans in rural
+areas, helping more beneficiaries join integrated plans that simplify access to care, reduce
+duplication, and improve outcomes for people with complex medical and social needs.
+Funding Support:
+   • Supports outreach, education, and stakeholder training to increase integrated plan
+      enrollment
+
+F.16. Initiative Admin-A: State PMO Contracts
+        Annual Total:           $13,350,931            5Y Total:             $66,754,655
+                                                          Grant:             $66,754,655
+                                                Recipient Share:                   $0.00
+
+          Category              Annual Cost             Years                Total             Initiative
+         Contractual            $13,350,931           FY26 - FY30            $66,754,655           Admin-A
+
+Contractors: Contractors (TBD via competitive RFA).
+
+
+                                                                                                                  19
+Justification: The State PMO contract funds will be used to support the administration of the
+RHTP. This amount is the remaining administrative allowance after accounting for the States
+Direct Cost in A, B, C, & E, combined with the 3% Admin allowance to the 15 initiatives. The
+state plans to procure a Grant Management System (GMS) with a portion of these funds. The
+remaining funds will be used as vendor support to administer the program.
+F.16. Initiative Admin-B: Administrative Costs by Super Region
+        Annual Total:            $5,668,331          5Y Total:      $28,341,655
+                                                       Grant:       $28,341,655
+                                              Recipient Share:            $0.00
+
+        Super Region             Amount Per       Years             Total          Initiative
+          NW FL                  $1,277,608     FY26 - FY30         $6,388,040          Admin-B
+           NE FL                 $2,492,792     FY26 - FY30        $12,463,960          Admin-B
+           SW FL                 $1,461,619     FY26 - FY30         $7,308,095          Admin-B
+           SE FL                  $436,312      FY26 - FY30         $2,181,560          Admin-B
+
+Contractor: Contractors (TBD via competitive RFA).
+Scope: Provide program administration support for each of the Super Regions.
+Method of Selection & Accountability: Admin-B amounts equal 3% of each Super Region’s
+Initiative total. Each applicant will receive 3% for administrative cost upon award.
+Justification: This contract is for administrative support and is counted toward the 10%
+administrative cap, per RHTP FAQ Q67.
+
+G. Construction
+Annual Construction Budget: $0 (Years 1-5)
+Initiative: N/A
+Justification: Not Applicable.
+
+
+H. Other
+Annual Other Budget: $0 (Years 1-5)
+Initiative: N/A
+Justification: No direct applicant costs are requested by the State Agency in this category. All
+programmatic costs that might typically fall under “Other” (e.g., software licenses, data
+subscriptions, provider stipends, communication expenses, participant incentives, training
+materials, subscription fees for data services like HIE/ENS, non-capitalized minor alterations)
+are essential components of the 15 initiatives. These costs are appropriately budgeted, procured,
+and managed by the contractors detailed in Section F and are justified within each initiative’s
+detailed budget breakdown.
+
+
+                                                                                                  20
+I. Total Direct Costs
+            Annual Total:              $209,436,264.5           5Y Total:    $1,047,181,320.5
+                                             0                               0
+                                                                   Grant:    $1,047,181,320.5
+                                                                             0
+                                                          Recipient Share:            $0.00
+              Category                  Annual Cost            Years            Total           Initiative
+         A. Personnel (State)          $1,268,000.50        FY26 - FY30          $6,340,000           Admin
+          B. Fringe (State)              $614,308           FY26 - FY30          $3,071,540           Admin
+           C. Travel (State)              $10,489           FY26 - FY30             $52,445           Admin
+         D. Equipment (State)               $0              FY26 - FY30                  $0
+          E. Supplies (State)             $81,760           FY26 - FY30            $408,800            Admin
+            F. Contractual             $207,461,707         FY26 - FY30      $1,037,308,535     1-15 & Admin
+           G. Construction                  $0              FY26 - FY30                  $0
+           H. Other (State)                 $0              FY26 - FY30                  $0
+
+Justification: This represents the sum of all direct costs across categories A through H for the
+entire project annually.
+J. Indirect Costs (State Agency Only)
+       Annual Total:         $501,930                                                   5Y Total:     $2,509,651
+                                                                                          Grant:      $2,509,651
+                                                                                 Recipient Share:          $0.00
+           Base                 Rate         Initiative        Annual Cost          Years             Total
+
+   (See Justification)      (Per NICRA)       Admin-A           $501,930          FY26 - FY30         $2,509,651
+
+
+Justification: This requested amount of $501,930 annually is based on the State of Florida
+Agency for Health Care Administration’s current, federally approved Negotiated Indirect Cost
+Rate Agreement (NICRA), a copy of which is attached. This amount is calculated by applying
+the approved rate to the appropriate Modified Total Direct Cost (MTDC) base, which consists of
+the Agency’s direct administrative costs (Sections A & B). Indirect costs for all contractors are
+included in their contract totals in Section F.
+
+
+Administrative Cost Cap Attestation: This amount is also precisely calculated to ensure total
+administrative costs do not exceed the 10% statutory cap.
+   •     Total Direct Administrative Costs:
+            o State PMO Direct (A+B+C+E): $1,974,557.50
+            o Admin Contractor (F.16 Admin-A+ F.16 Admin-B): $18,517,332
+            o Subtotal Direct Admin: $20,491,889
+   •     Total Administrative Costs:
+            o Direct Admin: $20,491,889.50
+            o State Indirect (J): $501,930
+            o Total Annual Admin: $20,993,819.50
+   •     Compliance: This total of $20,993,819.50 represents exactly 10.0% of the
+
+                                                                                                               21
+       $209,938,194.50 Year 1 budget and is in full compliance with the statutory cap.
+Total Year 1 Budget Request: $209,436,264.50 (Direct) + $501,930 (Indirect) =
+$209,938,194.50
+
+
+
+
+                                                                                         22
+                                                                                                                                                  OMB Approval No. 0348-0044
+                                                   BUDGET INFORMATION - Non-Construction Programs
+                                                                   SECTION A - BUDGET SUMMARY
+     Grant Program            Catalog of Federal
+                                                          Estimated Unobligated Funds                                       New or Revised Budget
+        Function             Domestic Assistance
+       or Activity                 Number                Federal                  Non-Federal              Federal              Non-Federal                  Total
+           (a)                       (b)                   (c)                        (d)                    (e)                    (f)                       (g)
+                                                   $                       $                        $                       $                      $
+1.Rural Health Transformation
+                         CMS-RHT-26-001
+                              Program                                                                     209,938,194.50                                   209,938,194.50
+
+2.                                                                                                                                                                      0.00
+
+3.                                                                                                                                                                      0.00
+
+4.                                                                                                                                                                      0.00
+                                                   $                       $                        $                       $                      $
+5.      Totals                                                      0.00                     0.00         209,938,194.50                   0.00            209,938,194.50
+                                                                SECTION B - BUDGET CATEGORIES
+                                                                                 GRANT PROGRAM, FUNCTION OR ACTIVITY                                          Total
+6. Object Class Categories
+                                                   (1)                     (2)                      (3)                                                        (5)
+                                                   $                       $                        $                       $                      $
+        a. Personnel                                       1,263,580.50                                                                                      1,263,580.50
+
+        b. Fringe Benefits                                  614,308.00                                                                                          614,308.00
+
+        c. Travel                                               14,909                                                                                                14,909
+
+        d. Equipment                                                0.00                                                                                                0.00
+
+        e. Supplies                                           81,760.00                                                                                          81,760.00
+
+        f. Contractual                                   207,461,707.00                                                                                    207,461,707.00
+
+        g. Construction                                             0.00                                                                                                0.00
+
+        h. Other                                                    0.00                                                                                                0.00
+
+        i. Total Direct Charges (sum of 6a-6h)           209,436,264.50                      0.00                    0.00                  0.00            209,436,264.50
+
+        j. Indirect Charges                                 501,930.00                                                                                          501,930.00
+                                                   $                       $                        $                       $                      $
+        k. TOTALS (sum of 6i and 6j)                     209,938,194.50                      0.00                    0.00                  0.00            209,938,194.50
+
+
+7. Program Income                                  $                       $                        $                       $                      $                    0.00
+                                                                   Authorized for Local Reproduction                                          Standard Form 424A (Rev. 7-97)
+Previous Edition Usable                                                                                                                       Prescribed by OMB Circular A-102
+                                                       SECTION C - NON-FEDERAL RESOURCES
+                      (a) Grant Program                             (b) Applicant     (c) State                          (d) Other Sources           (e) TOTALS
+
+
+8. Rural Health Transformation Program                               $   209,938,194.50 $                           $                            $   209,938,194.50
+
+9.                                                                                                                                                                  0.00
+
+10.                                                                                                                                                                 0.00
+
+11.                                                                                                                                                                 0.00
+
+12. TOTAL (sum of lines 8-11)                                        $   209,938,194.50 $                       0.00 $                    0.00   $   209,938,194.50
+
+                                                        SECTION D - FORECASTED CASH NEEDS
+                                              Total for 1st Year         1st Quarter              2nd Quarter               3rd Quarter               4th Quarter
+13. Federal
+                                          $                   0.00 $                       $                        $                            $
+
+14. Non-Federal                                               0.00
+
+15. TOTAL (sum of lines 13 and 14)        $                   0.00 $                   0.00 $                   0.00 $                    0.00   $                  0.00
+
+                         SECTION E - BUDGET ESTIMATES OF FEDERAL FUNDS NEEDED FOR BALANCE OF THE PROJECT
+                      (a) Grant Program                                                         FUTURE FUNDING PERIODS (Years)
+                                                                          (b) First               (c) Second       (d) Third                         (e) Fourth
+16.Rural Health Transformation Program                               $   209,938,194.50 $                           $                            $
+
+17.
+
+18.
+
+19.
+
+20. TOTAL (sum of lines 16-19)                                       $   209,938,194.50 $                       0.00 $                    0.00   $                  0.00
+
+                                                     SECTION F - OTHER BUDGET INFORMATION
+21. Direct Charges:                                                           22. Indirect Charges:
+
+23. Remarks:
+
+                                                             Authorized for Local Reproduction                                     Standard Form 424A (Rev. 7-97) Page 2
+                                                  INSTRUCTIONS FOR THE SF-424A
+Public reporting burden for this collection of information is estimated to average 180 minutes per response, including time for reviewing
+instructions, searching existing data sources, gathering and maintaining the data needed, and completing and reviewing the collection of
+information. Send comments regarding the burden estimate or any other aspect of this collection of information, including suggestions for
+reducing this burden, to the Office of Management and Budget, Paperwork Reduction Project (0348-0044), Washington, DC 20503.
+
+PLEASE DO NOT RETURN YOUR COMPLETED FORM TO THE OFFICE OF MANAGEMENT AND BUDGET.
+SEND IT TO THE ADDRESS PROVIDED BY THE SPONSORING AGENCY.
+General Instructions
+                                                                       For continuing grant program applications , submit these forms
+This form is designed so that application can be made for funds        before the end of each funding period as required by the grantor
+from one or more grant programs. In preparing the budget,              agency. Enter in Columns (c) and (d) the estimated amounts of
+adhere to any existing Federal grantor agency guidelines which         funds which will remain unobligated at the end of the grant
+prescribe how and whether budgeted amounts should be                   funding period only if the Federal grantor agency instructions
+separately shown for different functions or activities within the      provide for this. Otherwise, leave these columns blank. Enter in
+program. For some programs, grantor agencies may require               columns (e) and (f) the amounts of funds needed for the
+budgets to be separately shown by function or activity. For other      upcoming period. The amount(s) in Column (g) should be the
+programs, grantor agencies may require a breakdown by function         sum of amounts in Columns (e) and (f).
+or activity. Sections A, B, C, and D should include budget
+estimates for the whole project except when applying for               For supplemental grants and changes to existing grants, do not
+assistance which requires Federal authorization in annual or           use Columns (c) and (d). Enter in Column (e) the amount of the
+other funding period increments. In the latter case, Sections A, B,    increase or decrease of Federal funds and enter in Column (f) the
+C, and D should provide the budget for the first budget period         amount of the increase or decrease of non-Federal funds. In
+(usually a year) and Section E should present the need for             Column (g) enter the new total budgeted amount (Federal and
+Federal assistance in the subsequent budget periods. All               non-Federal) which includes the total previous authorized
+applications should contain a breakdown by the object class            budgeted amounts plus or minus, as appropriate, the amounts
+categories shown in Lines a-k of Section B.                            shown in Columns (e) and (f). The amount(s) in Column (g)
+                                                                       should not equal the sum of amounts in Columns (e) and (f).
+Section A. Budget Summary Lines 1-4 Columns (a) and (b)
+                                                                       Line 5 - Show the totals for all columns used.
+For applications pertaining to a single Federal grant program
+(Federal Domestic Assistance Catalog number) and not requiring         Section B Budget Categories
+a functional or activity breakdown, enter on Line 1 under Column
+(a) the Catalog program title and the Catalog number in Column         In the column headings (1) through (4), enter the titles of the
+(b).                                                                   same programs, functions, and activities shown on Lines 1-4,
+                                                                       Column (a), Section A. When additional sheets are prepared for
+For applications pertaining to a single program requiring budget       Section A, provide similar column headings on each sheet. For
+amounts by multiple functions or activities, enter the name of         each program, function or activity, fill in the total requirements for
+each activity or function on each line in Column (a), and enter the    funds (both Federal and non-Federal) by object class categories.
+Catalog number in Column (b). For applications pertaining to
+multiple programs where none of the programs require a                 Line 6a-i - Show the totals of Lines 6a to 6h in each column.
+breakdown by function or activity, enter the Catalog program title
+on each line in Column (a) and the respective Catalog number on        Line 6j - Show the amount of indirect cost.
+each line in Column (b).
+                                                                       Line 6k - Enter the total of amounts on Lines 6i and 6j. For all
+For applications pertaining to multiple programs where one or          applications for new grants and continuation grants the total
+more programs require a breakdown by function or activity,             amount in column (5), Line 6k, should be the same as the total
+prepare a separate sheet for each program requiring the                amount shown in Section A, Column (g), Line 5. For
+breakdown. Additional sheets should be used when one form              supplemental grants and changes to grants, the total amount of
+does not provide adequate space for all breakdown of data              the increase or decrease as shown in Columns (1)-(4), Line 6k
+required. However, when more than one sheet is used, the first         should be the same as the sum of the amounts in Section A,
+page should provide the summary totals by programs.                    Columns (e) and (f) on Line 5.
+
+Lines 1-4, Columns (c) through (g)                                     Line 7 - Enter the estimated amount of income, if any, expected
+                                                                       to be generated from this project. Do not add or subtract this
+For new applications , leave Column (c) and (d) blank. For each        amount from the total project amount, Show under the program
+line entry in Columns (a) and (b), enter in Columns (e), (f), and
+(g) the appropriate amounts of funds needed to support the
+project for the first funding period (usually a year).
+
+
+                                                                                                                     SF-424A (Rev. 7-97) Page 3
+                                           INSTRUCTIONS FOR THE SF-424A (continued)
+
+narrative statement the nature and source of income. The              Line 15 - Enter the totals of amounts on Lines 13 and 14.
+estimated amount of program income may be considered by the
+Federal grantor agency in determining the total amount of the         Section E. Budget Estimates of Federal Funds Needed for
+grant.                                                                Balance of the Project
+
+Section C. Non-Federal Resources                                      Lines 16-19 - Enter in Column (a) the same grant program titles
+                                                                      shown in Column (a), Section A. A breakdown by function or
+Lines 8-11 Enter amounts of non-Federal resources that will be        activity is not necessary. For new applications and continuation
+used on the grant. If in-kind contributions are included, provide a   grant applications, enter in the proper columns amounts of Federal
+brief explanation on a separate sheet.                                funds which will be needed to complete the program or project over
+                                                                      the succeeding funding periods (usually in years). This section
+                                                                      need not be completed for revisions (amendments, changes, or
+         Column (a) - Enter the program titles identical to           supplements) to funds for the current year of existing grants.
+         Column (a), Section A. A breakdown by function or
+         activity is not necessary.                                   If more than four lines are needed to list the program titles, submit
+                                                                      additional schedules as necessary.
+         Column (b) - Enter the contribution to be made by the
+         applicant.                                                   Line 20 - Enter the total for each of the Columns (b)-(e). When
+                                                                      additional schedules are prepared for this Section, annotate
+         Column (c) - Enter the amount of the State’s cash and        accordingly and show the overall totals on this line.
+         in-kind contribution if the applicant is not a State or
+         State agency. Applicants which are a State or State          Section F. Other Budget Information
+         agencies should leave this column blank.
+                                                                      Line 21 - Use this space to explain amounts for individual direct
+         Column (d) - Enter the amount of cash and in-kind
+                                                                      object class cost categories that may appear to be out of the
+         contributions to be made from all other sources.
+                                                                      ordinary or to explain the details as required by the Federal grantor
+                                                                      agency.
+         Column (e) - Enter totals of Columns (b), (c), and (d).
+                                                                      Line 22 - Enter the type of indirect rate (provisional, predetermined,
+                                                                      final or fixed) that will be in effect during the funding period, the
+Line 12 - Enter the total for each of Columns (b)-(e). The amount     estimated amount of the base to which the rate is applied, and the
+in Column (e) should be equal to the amount on Line 5, Column         total indirect expense.
+(f), Section A.
+                                                                      Line 23 - Provide any other explanations or comments deemed
+Section D. Forecasted Cash Needs                                      necessary.
+
+Line 13 - Enter the amount of cash needed by quarter from the
+grantor agency during the first year.
+
+Line 14 - Enter the amount of cash from all other sources needed
+by quarter during the first year.
+
+
+
+
+                                                                                                                   SF-424A (Rev. 7-97) Page 4
+

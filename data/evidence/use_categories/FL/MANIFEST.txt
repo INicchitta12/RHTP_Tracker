@@ -1,0 +1,48 @@
+file: 2026-11-24_fl_rhtp_year1_awardees.pdf
+source_url: https://flgov.com/eog/sites/default/files/shared/2026/08/RHTP%20-%20PDF.pdf
+fetched_utc: 2026-11-24T14:38:51Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 83226
+sha256: a1c09502898be9d24f03144d56e7058dd3f063387089ad32c1f36343b5639e6b
+
+file: 2026-11-24_ahca_rhtp_page.html
+source_url: https://ahca.myflorida.com/rural-health-transformation-program.html
+fetched_utc: 2026-11-24T14:39:28Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 5965095
+sha256: d2122514fd139f639c449ac64b817f6e1bb94f1d27bfd11c1914384cd6cee8ff
+
+file: 2026-11-24_ahca_fl_revised_budget_2026-02-10.pdf
+source_url: https://ahca.myflorida.com/file/rhtp/FL%20Revised%20Budget%202.10.26.pdf
+fetched_utc: 2026-11-24T14:39:29Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 502748
+sha256: b1b09c01c4d334b31ca57817dfa6aae234f241799546cb34d4ea1e44792107ce
+
+file: 2026-11-24_ahca_ta_grant_reqs_ppt.pdf
+source_url: https://ahca.myflorida.com/file/rhtp/TA_Grant_Reqs-ppt1.pdf
+fetched_utc: 2026-11-24T14:39:37Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 4401097
+sha256: 1968604a2a0b034b3ce248cf9c4a3e1db0f5445041530fc2efcb09f738a77777
+
+file: 2026-11-24_ahca_florida_annual_report_2026-08.xlsx
+source_url: https://ahca.myflorida.com/file/rhtp/08.26_Florida_Annual_Report.xlsx
+fetched_utc: 2026-11-24T14:39:42Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 829816
+sha256: 33118a27c4eda754b34cafe91ff4d3f54ad7240a703ba90e834ac71e89dbafb2
+
+file: 2026-11-24_ahca_rhtp_grant_submission_2025-11-03.pdf
+source_url: https://ahca.myflorida.com/content/download/27598/file/11032025_Grant%20Submission.pdf
+fetched_utc: 2026-11-24T14:40:15Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 38060364
+sha256: 6be7ee8331b4fd70b0b35347870c946450d25999f4012b273d7af75d037f295c
+

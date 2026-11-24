@@ -1,0 +1,8 @@
+file: 2026-11-24_ms_rhtp_project_narrative_2026-04-28.pdf
+source_url: https://mississippirhtp.com/wp-content/uploads/2026/04/Project-Narrative_GovOffice4_28_26.pdf
+fetched_utc: 2026-11-24T14:43:12Z
+http_status: 200
+user_agent: AHA-RHTP-Tracker/0.1 (+https://www.aha.org)
+bytes: 11437991
+sha256: 732d91618c3f9b953f35d7a5b0cc3f7d4da46612d71d8a300be3554f9913f28c
+

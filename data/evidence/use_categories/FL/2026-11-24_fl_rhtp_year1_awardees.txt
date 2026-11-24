@@ -1,0 +1,111 @@
+     Florida Rural Health Transformation Program | Year 1 Awardees
+#                            Organization                              Total Funding Amount
+                                     Northeast Region
+                               Preventive Care and Care at Home
+1                           CommunityHealth IT                           $18,512,061.76
+2              Complete Care Management Services ACO                     $3,870,214.90
+3                         Mayo Clinic Jacksonville                        $3,655,556.55
+4         Medlink Management Services (Lake Butler Hospital)             $5,670,158.72
+5                St. Vincent’s Medical Center (Riverside)                $4,393,360.65
+                                    Specialty and Acute Care
+6             North Florida Pediatrics Associates (Lake City)             $3,801,047.26
+                                        Value-Based Care
+ 7        Medlink Management Services (Lake Butler Hospital)              $1,319,326.20
+ 8                 North Florida Pediatrics Associates                    $2,198,877.00
+ 9                              Nuvita Health                              $439,775.40
+10           Trenton Medical Center (Palms Medical Group)                  $439,775.40
+                                   Rural and Satellite Clinics
+11                      Murthy Holdings (Well&You)                        $2,600,000.00
+12                     Nova Southeastern University                       $1,300,000.00
+13                     Tampa Family Health Centers                        $1,950,000.00
+                                       Health and Lifestyle
+14                   Volunteers of America of Florida                      $563,655.10
+                                        Southeast Region
+                               Preventive Care and Care at Home
+15                          CommunityHealth IT                            $3,604,189.55
+16                        Empowerq Health Care                            $3,204,031.91
+                                    Specialty and Acute Care
+17             Quintero & Kontopoulos (The Fetal Institute)                $761,281.50
+                                        Value-Based Care
+18                              Nuvita Health                              $769,736.00
+                                   Rural and Satellite Clinics
+19          Florida Association of Free and Charitable Clinics             $650,000.00
+                                    Workforce Development
+20          Florida International University Board of Trustees             $488,061.04
+21            Palm Beach County Medical Society Services                   $400,000.00
+                                       Health and Lifestyle
+22            Broward Community & Family Health Centers                    $344,785.63
+23                  Florida Community Health Centers                       $316,729.31
+24                    Florida International University                     $389,892.01
+25                       VIP Integrative Healthcare                        $731,997.60
+                                        Southwest Region
+                               Preventive Care and Care at Home
+26   North Brevard County Hospital District (Parrish Medical Center)     $4,416,943.86
+27                         CommunityHealth IT                            $13,352,055.07
+28                        Florida State University                        $3,309,726.42
+29             Complete Care Management Services ACO                      $3,375,136.55
+                                       Specialty and Acute Care
+30                           Florida State University                      $5,611,108.40
+31                Quintero & Kontopoulos (The Fetal Institute)              $798,453.37
+                                           Value-Based Care
+32                                 MCR Health                              $1,310,893.34
+33                                Nuvita Health                            $1,267,676.66
+                                      Rural and Satellite Clinics
+34                         Central Florida Health Care                      $650,000.00
+35             Florida Association of Free and Charitable Clinics           $650,000.00
+36                             Lee Health Systems                          $1,950,000.00
+37                        Tampa Family Health Centers                      $1,950,000.00
+                                       Workforce Development
+38      North Brevard County Hospital District (Parrish Medical Center)     $793,064.00
+39              Glades County Board of County Commissioners                 $316,680.15
+40           Florida State University Board of Trustees - Pathway 1         $669,413.42
+41                          University of South Florida                     $801,984.19
+42           Florida State University Board of Trustees - Pathway 2         $348,030.06
+43                         South Florida State College                      $341,310.18
+                                          Health and Lifestyle
+44                Family Health Centers of Southwest Florida                $250,318.26
+45             Florida Department of Health in Highlands County             $117,723.85
+46                           Florida State University                      $2,244,186.89
+                                           Northwest Region
+                                  Preventive Care and Care at Home
+47   Northwest Florida Healthcare (Northwest Florida Community Hospital)   $4,081,324.85
+48                           Florida State University                      $5,792,430.44
+49                            CommunityHealth IT                           $8,190,488.08
+50    Escambia Community Clinics (Community Health Northwest Florida)      $5,100,801.82
+51               Florida Agricultural and Mechanical University            $4,994,446.08
+52                Complete Care Management Services ACO                    $3,357,443.37
+53                  Madison County Hospital Health System                  $4,413,823.45
+                                       Specialty and Acute Care
+54                          Calhoun-Liberty Hospital                       $11,244,802.13
+55    Escambia Community Clinics (Community Health Northwest Florida)      $3,715,019.44
+56                                 North Walton Doctors                              $4,130,671.13
+57                     Quintero & Kontopoulos (The Fetal Institute)                   $717,272.12
+58                             North Florida Medical Centers                         $1,575,926.42
+                                               Value-Based Care
+59                             North Florida Medical Centers                         $901,575.90
+60        Escambia Community Clinics (Community Health Northwest Florida)            $676,181.92
+61                            North Walton Doctors Hospital                          $450,787.95
+62         Holmes County Hospital Corporation (Doctors Memorial Hospital)            $225,393.97
+                                            Rural and Satellite Clinics
+63                          North Florida Pediatrics Associates                       $650,000.00
+64        Escambia Community Clinics (Community Health Northwest Florida)            $3,900,000.00
+65         Holmes County Hospital Corporation (Doctors Memorial Hospital)            $1,950,000.00
+67                         Calhoun Liberty Hospital Association                       $650,000.00
+68                    Florida Agricultural and Mechanical University                 $1,300,000.00
+69   Florida Sickle Incorporated (The Foundation for Sickle Cell Disease Research)   $1,300,000.00
+70                            Bond Community Health Center                            $650,000.00
+71                            North Florida Rural Health Corp                         $650,000.00
+72                               New Horizon Primary Care                             $650,000.00
+                                            Workforce Development
+73             Florida Agricultural and Mechanical University - Pathway 1            $1,428,837.12
+74        Escambia Community Clinics (Community Health Northwest Florida)             $712,111.00
+75                              Chipola College - Pathway 1                           $304,084.00
+76             Florida Agricultural and Mechanical University - Pathway 2            $1,428,452.93
+77                              Chipola College - Pathway 2                           $575,478.00
+78        Escambia Community Clinics (Community Health Northwest Florida)             $716,509.30
+                                              Health and Lifestyle
+79                                Florida State University                           $1,217,044.11
+80                    Florida Agricultural and Mechanical University                 $1,102,876.11
+81                         Titus Sports Academy (CHAMPIONS)                          $1,217,044.14
+82        Escambia Community Clinics (Community Health Northwest Florida)            $1,331,212.17
+
