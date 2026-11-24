@@ -1,0 +1,218 @@
+check_id,state,file,row_no,awardee_locator_only,amount,activity_fields
+IC36,RI,data/reference/ri_year1_awardees.csv,60,RDW Group,8721.6,"award_pool: Initiative 8: Building Capacity for Block Island Health and Human Services | Fostering Collaboration
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-008-38-85 (p. 85): ""$8,721.60 for RDW Group for communications strategies supporting collaboration and stakeholder engagement across the program under Initiative 8.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC13,WI,data/reference/wi_year1_awardees.csv,5,Department of Workforce Development,15888343.35,"award_pool: Implementation partners (Budget Year 1)
+source_document_title: DHS Rural Health Transformation Program: Implementation (Implementation partners (Budget Year 1))
+note: Implementation partners (Budget Year 1), DHS (Last revised November 18, 2026, read 2026-11-19). As printed: 'Department of Workforce Development | $15,888,343.35'. An implementation partner's first-tier Budget Year 1 award; any sub-round it runs is second tier and named nowhere here. DHS: 'all dollar amounts are the obligated awards and are subject to Centers for Medicare & Medicaid Services (CMS) review.' An INTENT, not an executed award (owner ruling, session 121; Missouri's contingent-roster coding).
+state_source_url: https://www.dhs.wisconsin.gov/rhtp/implementation.htm
+source_archive_path: data/evidence/WI/2026-11-19_dhs_rhtp_implementation.html"
+IC06,CT,data/reference/ct_year1_awardees.csv,3,Hartford HealthCare -- Windham Hospital (Willimantic) and Charlotte Hungerford Hospital (Torrington),12650000,"award_pool: Rural Hospital Right-Sizing and Infrastructure
+source_document_title: Governor Lamont Announces Connecticut's Rural Health Transformation Program Invests $50 Million in Rural Hospital Right-Sizing and Infrastructure
+note: Executed grant agreement with DSS, announced 2026-09-16 by Governor Lamont: rural hospital right-sizing and infrastructure, Year 1.
+state_source_url: https://portal.ct.gov/governor/news/press-releases/2026/09-2026/governor-lamont-announces-rural-health-transformation-program-invests-50-million
+source_archive_path: data/evidence/recheck/2026-09-23/CT/ct_governor_rhtp_50m_release.html"
+IC26,TN,data/reference/tn_fsrs_awardees.csv,50,"MOVES AND GROOVES, INC.",200000.00,"fsrs_description: CREATING HEALTHIER RURAL COMMUNITIES THROUGH THE END ZONE FOR CHRONIC DISEASE PREVENTION
+award_pool: FSRS RHTCMS332057
+source_document_title: TENNESSEE DEPARTMENT OF HEALTH, FFATA first-tier subaward report (SAM.gov/FSRS) under RHTCMS332057, as republished by USAspending (ALN 93.798), subaward report 835B5974-B04F-4EB5-A543-2440557CC36D
+note: FFATA first-tier subaward filed by TENNESSEE DEPARTMENT OF HEALTH under RHTCMS332057 (subaward 341752, action date 2026-10-01). Recipient in no award file of this state (session 116c, case c). Description as filed: 'CREATING HEALTHIER RURAL COMMUNITIES THROUGH THE END ZONE FOR CHRONIC DISEASE PREVENTION'.
+state_source_url: https://www.usaspending.gov/award/ASST_NON_RHTCMS332057_075/
+source_archive_path: data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip"
+IC34,RI,data/reference/ri_year1_awardees.csv,84,Rhode Island Health Center Association,56080.21,"award_pool: Initiative 10: Rural Workforce Program | Innovative Care
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-010-51-118 (p. 86): ""$56,080.21 for RIHCA to support workforce development, including through innovative strategies.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC04,WV,data/reference/wv_fsrs_awardees.csv,1,"WAR MEMORIAL HOSPITAL, INC.",698592.00,"fsrs_description: SUPPORT TO RURAL HEALTH TRANSFORMATION BY DEPLOYING MOBILE MEDICAL UNITS THAT COMBINE IN-PERSON CARE AND VIRTUAL TELEHEALTH TO EXPAND HEALTHCARE ACCESS IN ISOLATED COMMUNITIES THROUGH THE CONNECTED CARE GRID INITIATIVE.
+award_pool: FSRS RHTCMS332054
+source_document_title: WEST VIRGINIA STATE HEALTH DEPARTMENT, FFATA first-tier subaward report (SAM.gov/FSRS) under RHTCMS332054, as republished by USAspending (ALN 93.798), subaward report 30042237-05EB-4949-8FA2-1332DA8F54C2
+note: FFATA first-tier subaward filed by WEST VIRGINIA STATE HEALTH DEPARTMENT under RHTCMS332054 (subaward G270773, action date 2026-09-21). Recipient in no award file of this state (session 116c, case c). Description as filed: 'SUPPORT TO RURAL HEALTH TRANSFORMATION BY DEPLOYING MOBILE MEDICAL UNITS THAT COMBINE IN-PERSON CARE AND VIRTUAL TELEHEALTH TO EXPAND HEALTHCARE ACCESS IN ISOLATED COMMUNITIES THROUGH THE CONNECTED CARE GRID INITIATIVE.'.
+state_source_url: https://www.usaspending.gov/award/ASST_NON_RHTCMS332054_075/
+source_archive_path: data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip"
+IC29,FL,data/reference/fl_year1_awardees.csv,62,Holmes County Hospital Corporation (Doctors Memorial Hospital),225393.97,"source_document_title: Florida Rural Health Transformation Program | Year 1 Awardees
+state_source_url: https://flgov.com/eog/sites/default/files/shared/2026/08/RHTP%20-%20PDF.pdf"
+IC18,KS,data/reference/ks_year1_awardees.csv,13,Smith County Memorial Hospital,550000,"award_pool: REH_CAP
+source_document_title: REH CAP and RPGP Award Winners
+note: KDHE REH_CAP award. Recipient name rule: name states a hospital. §10.2 DIRECT: the named recipient is a hospital or hospital system and the state's award document names both the recipient and the amount.
+state_source_url: https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+source_archive_path: data/evidence/KS/2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf"
+IC33,NE,data/reference/ne_cms_obligation_awardees.csv,3,CHI Health St Marys,38239.96,"award_pool: Initiative 4: eHealth and Mobile | Appropriate Care Availability
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line NE-004-16-59 (p. 48): ""$38,239.96 for CHI Health St Marys to implement healthcare-associated infection prevention initiatives.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC01,VT,data/reference/vt_year1_awardees.csv,236,Gifford Medical Center,172500,"activity: Health care professions mentorship program
+initiative: Workforce Development
+award_pool: Workforce Development
+source_document_title: RHT Year 1 Awards and Contracts -- Updated as of October 30, 2026
+note: Executed agreement, Workforce Development: Health care professions mentorship program. AHS: the list 'does not reflect the entirety of Vermont's Year 1 RHT funding commitments'.
+state_source_url: https://healthcarereform.vermont.gov/rht-year-1-executed-agreements-and-contracts
+source_archive_path: data/evidence/recheck/2026-11-02/VT/2026-11-02_vt_year1_awards_FULLY_OBLIGATED_10-30.html"
+IC30,SD,data/reference/sd_rht_contracts.csv,108,MONUMENT HEALTH RAPID CITY HOS,12915000,"description: The purpose is to fund EHR enhancement, purchase imaging and laboratory equipment, and strengthen network and cybersecurity across the Monument system.
+award_pool: RHT series - named RHTP awards whose round the register does not state (may sit INSIDE the $90M Technology and data round; NEVER added to it)
+source_document_title: South Dakota Open SD - Grants and Contracts register, contract 27RHT00112
+note: 09 - HEALTH | NA | RAPID CITY, SD
+state_source_url: https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00112
+source_archive_path: data/evidence/SD/contract_details/27RHT00112.html"
+IC38,RI,data/reference/ri_year1_awardees.csv,1,Rhode Island League of Cities and Towns,50461.65,"award_pool: Initiative 1: Integrated Rural Population Health Infrastructure | Fostering Collaboration
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-001-02-04 (p. 81): ""$50,461.65 for Rhode Island League of Cities and Towns (RILCT) to support convenings of members, including rural municipalities, informing collaboration as part of an integrated health strategy.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC03,MS,data/reference/ms_year1_awardees.csv,120,"North Mississippi Medical Center, Inc.",2500000,"award_pool: Rural Capital Project Care Gap Closure (RCGC)
+source_document_title: Governor Reeves Announces 167 Rural Health Transformation Program Awards Totaling More Than $104 Million
+note: To expand access to advanced minimally invasive surgical care. [Lee County]
+state_source_url: https://governorreeves.ms.gov/governor-reeves-announces-167-rural-health-transformation-program-awards-totaling-more-than-104-million/
+source_archive_path: data/evidence/MS/2026-09-14_ms_governor_167_awards_ROSTER.html"
+IC25,SD,data/reference/sd_rht_contracts.csv,114,HORIZON HEALTH CARE INC,1151259,"description: The purpose is to fund EHR enhancements, network infrastructure, and cybersecurity training and infrastructure.
+award_pool: RHT series - named RHTP awards whose round the register does not state (may sit INSIDE the $90M Technology and data round; NEVER added to it)
+source_document_title: South Dakota Open SD - Grants and Contracts register, contract 27RHT00118
+note: 09 - HEALTH | NA | HOWARD, SD
+state_source_url: https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00118
+source_archive_path: data/evidence/SD/contract_details/27RHT00118.html"
+IC02,WA,data/reference/wa_year1_awardees.csv,2,The Rural Collaborative,5430000,"initiative: 1.1 Rural hospital capacity and revenue cycle
+award_pool: 1.1 Rural hospital capacity and revenue cycle
+source_document_title: HCA, Rural Health Transformation Program Update webinar deck, 2026-09-16
+note: SUB-RECIPIENT line on HCA's 2026-09-16 deck, slide 9 ('1.1 TRC - 30 member hospitals $5.43M').
+state_source_url: https://www.hca.wa.gov/about-hca/programs-and-initiatives/rural-health-transformation-program
+source_archive_path: data/evidence/recheck/2026-09-23/WA/hca_rhtp_webinar_2026-09-16.pdf"
+IC05,WY,data/reference/wy_year1_awardees.csv,24,North Lincoln County Hospital District dba Star Valley Heal,2200000,"award_pool: 1.2 EMS Regionalization
+source_document_title: Wyoming Rural Health Transformation Advisory Committee, Award Approvals - 8.11.26
+note: Initiative 1.2 EMS Regionalization. APPROVED BY THE RURAL HEALTH TRANSFORMATION ADVISORY COMMITTEE ON 2026-08-11, NOT EXECUTED: Wyoming's Year 1 obligation deadline for executed contracts is End of October 2026 (the minutes' own words) and WDH's programme-page timeline gives 2026-10-01. `round_amount` is this INITIATIVE's approved pool and repeats on every row of it -- never sum that column (Georgia's trap); use wy_reconcile(). 
+state_source_url: https://health.wyo.gov/admin/rural-health-transformation-program/
+source_archive_path: data/evidence/WY/2026-09-03_wy_advisory_committee_award_approvals_2026-08-11.pdf"
+IC17,NJ,data/reference/nj_year1_awardees.csv,74,St. Luke's Warren Hospital,1460000,"activity_raw: This project will upgrade Ultrasound, General Diagnostic and Women's Imaging equipment with the latest software to improve patient care.
+award_pool: Building Rural Hospital Capacity
+source_document_title: Rural Health Transformation Program Funding Allocations – July 31, 2026 (NJ DOH/DHS)
+note: NJRHT first-round award, 2026-07-31. Building Rural Hospital Capacity.
+state_source_url: https://nj.gov/rural-health-transformation/documents/njrht-funding-allocations-2026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf"
+IC22,IA,data/reference/ia_fsrs_awardees.csv,1,SHERIFFS DEPARTMENT: MARION COUNTY,15128000.00,"fsrs_description: (1) TO IMPROVE THE HEALTH OF RURAL IOWANS THROUGH THE PURCHASE AND DISTRIBUTION OF SCREENING TEST KITS, CONSUMER FACING TELEHEALTH EQUIPMENT, AND TOOLS AND TRAINING FOR HEALTH CARE PROFESSIONALS FOR EARLY DETECTION OF COLORECTAL AND SKIN CANCERS; (2) TO INCREASE AWARENESS OF THE RISK FACTORS AND PREVENTATIVE BEHAVIORS THAT CAN HELP PROTECT RURAL IOWANS FROM DEVELOPING CANCERS BY PLANNING AND IM...
+award_pool: FSRS RHTCMS332065
+source_document_title: IOWA DEPARTMENT OF HEALTH AND HUMAN SERVICES, FFATA first-tier subaward report (SAM.gov/FSRS) under RHTCMS332065, as republished by USAspending (ALN 93.798), subaward report DAAFB26A-CED4-4D14-8ED9-64720DB49AD3
+note: FFATA first-tier subaward filed by IOWA DEPARTMENT OF HEALTH AND HUMAN SERVICES under RHTCMS332065 (subaward PHTHOCC26755, action date 2026-03-20). Recipient in no award file of this state (session 116c, case c). Description as filed: '(1) TO IMPROVE THE HEALTH OF RURAL IOWANS THROUGH THE PURCHASE AND DISTRIBUTION OF SCREENING TEST KITS, CONSUMER FACING TELEHEALTH EQUIPMENT, AND TOOLS AND TRAINING FOR HEALTH CARE PROFESSIONALS FOR EARLY DETECTION OF COLORECTAL AND SKIN CANCERS; (2) TO INCREASE AWARENESS OF THE RISK FACTORS AND PREVENTATIVE BEHAVIORS THAT CAN HELP PROTECT RURAL IOWANS FROM DEVELOPING CANCERS BY PLANNING AND IM...'.
+state_source_url: https://www.usaspending.gov/award/ASST_NON_RHTCMS332065_075/
+source_archive_path: data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip"
+IC20,LA,data/reference/la_year1_awardees.csv,1,Ochsner Clinic Foundation,1500000,"award_pool: Rural Clinician Credit Bank
+source_document_title: Rural Health Transformation Program Updates -- September 2026 (LDH stakeholder webinar, 2026-09-03)
+note: Rural Clinician Credit Bank, Year 1. One of LDH's five named 'Multi-parish awardees' (8 parishes), $1,500,000, as of 8/28/26. CEAs were due for signature 9/15/26, so this is an award LDH reports as made whose agreement was not yet executed. LDH's deck prints 'Ceiling applied per multi-entity system $1,500,000' and this is the only $1,500,000 award, so LDH is describing this awardee as a MULTI-ENTITY SYSTEM whose request was capped. It does not say what kind of system, and it is NOT typed as a hospital here (§0.4); queued.
+state_source_url: https://ldh.la.gov/assets/docs/Secretary/RHTP/Shareholder-Presentation-09092026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/LA/2026-09-09_la_ldh_rhtp_stakeholder_webinar_RCCB_53_AWARDS.pdf"
+IC19,NJ,data/reference/nj_year1_awardees.csv,65,AtlantiCare Regional Medical Center,1460000,"activity_raw: [Mainland Campus] This project is intended to modernize and strengthen the digital infrastructure, security posture, and clinical technology capabilities across the two-campus health system.
+award_pool: Building Rural Hospital Capacity
+source_document_title: Rural Health Transformation Program Funding Allocations – July 31, 2026 (NJ DOH/DHS)
+note: NJRHT first-round award, 2026-07-31. Building Rural Hospital Capacity. SITE (not the recipient): Mainland Campus.
+state_source_url: https://nj.gov/rural-health-transformation/documents/njrht-funding-allocations-2026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf"
+IC15,KY,data/reference/ky_fsrs_awardees.csv,21,"BRACKEN, COUNTY OF",470280.00,"fsrs_description: KENTUCKY RURAL HEALTH TRANSFORMATION PLAN
+award_pool: FSRS RHTCMS332079
+source_document_title: HEALTH SERVICES KENTUCKY CABINET FOR, FFATA first-tier subaward report (SAM.gov/FSRS) under RHTCMS332079, as republished by USAspending (ALN 93.798), subaward report 77C866A1-7860-4BC1-BC49-0989D47D9A03
+note: FFATA first-tier subaward filed by HEALTH SERVICES KENTUCKY CABINET FOR under RHTCMS332079 (subaward PON3 728 26*085, action date 2026-07-01). Recipient in no award file of this state (session 116c, case c). Description as filed: 'KENTUCKY RURAL HEALTH TRANSFORMATION PLAN'.
+state_source_url: https://www.usaspending.gov/award/ASST_NON_RHTCMS332079_075/
+source_archive_path: data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip"
+IC23,SD,data/reference/sd_rht_contracts.csv,85,ABERDEEN DENTAL,29619,"description: The purpose is to purchase dental equipment for the Britton and Faulkton dental offices.
+award_pool: RHT series - named RHTP awards whose round the register does not state (may sit INSIDE the $90M Technology and data round; NEVER added to it)
+source_document_title: South Dakota Open SD - Grants and Contracts register, contract 27RHT00086
+note: 09 - HEALTH | NA | ABERDEEN, SD
+state_source_url: https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00086
+source_archive_path: data/evidence/SD/contract_details/27RHT00086.html"
+IC39,RI,data/reference/ri_year1_awardees.csv,75,Rhode Island Department of Education,4197879.41,"award_pool: Initiative 10: Rural Workforce Program | Appropriate Care Availability
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-010-47-106 (p. 86): ""$4,197,879.41 for RIDE career and technical education activities, building a greater talent pipeline to right size the rural health workforce long term.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC08,CA,data/reference/ca_year1_awardees.csv,4,Inland Empire Health Plan,2472952.57,"award_pool: Accelerator Partner Program
+source_document_title: HCAI, 'Recommended Subrecipients for CalRHT Budget Period 1 Announced' (October 21, 2026), CalRHT Program Updates
+note: Accelerator Partner Program (Transformative Care Model) line 4 on HCAI's Recommended Subrecipients for CalRHT Budget Period 1; Counties Served: San Bernardino, Riverside.
+state_source_url: https://hcai.ca.gov/rural-health/calrht/calrht-program-updates/
+source_archive_path: data/evidence/CA/2026-10-28_ca_hcai_calrht_program_updates_RECOMMENDED_SUBRECIPIENTS.html"
+IC14,MN,data/reference/mn_year1_awardees.csv,4,Minnesota Community Health Worker Alliance,386146,"award_pool: Earn and Train Pathways
+source_document_title: Minnesota Department of Health, 'Rural Health Transformation Program Funding: Earn and Train Pathways' (PDF dated 09/17/2026, linked under 'RHTP Sub-Recipient Awardees' on https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/grants.html, Last Updated 10/27/2026)
+note: MDH 'RHTP Sub-Recipient Awardees': Earn and Train Pathways (Saint Paul).
+state_source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/awardees/chwa.pdf
+source_archive_path: data/evidence/MN/2026-11-02_mdh_rhtp_awardee_chwa.pdf"
+IC07,OK,data/reference/ok_fsrs_awardees.csv,1,LIFECARE ALLIANCE LLC,33862084.00,"fsrs_description: CREATING JOINT RESILIENCY THROUGH A RURAL-FOCUSED PROVIDER COLLABORATIVE NETWORK UNDER A NEW NONPROFIT OWNED BY MEMBER HOSPITALS. THE MODEL MAINTAINS LOCAL CONTROL WHILE GIVING MEMBERS ACCESS TO SHARED ADMINISTRATIVE SUPPORT, TECHNICAL ASSISTANCE, STAFFING AND TECHNOLOGY. THE NETWORK WILL ALSO BUILD ON THE RURAL REGIONAL REORIENTATION PLAN TO GUIDE A CENTRAL REFERRAL MANAGEMENT SYSTEM.
+award_pool: FSRS RHTCMS332048
+source_document_title: OKLAHOMA STATE DEPARTMENT OF HEALTH, FFATA first-tier subaward report (SAM.gov/FSRS) under RHTCMS332048, as republished by USAspending (ALN 93.798), subaward report 6510232A-AD13-47FC-BA96-C6C3B2F134FB
+note: FFATA first-tier subaward filed by OKLAHOMA STATE DEPARTMENT OF HEALTH under RHTCMS332048 (subaward 3409028583, action date 2026-07-02). Recipient in no award file of this state (session 116c, case c). Description as filed: 'CREATING JOINT RESILIENCY THROUGH A RURAL-FOCUSED PROVIDER COLLABORATIVE NETWORK UNDER A NEW NONPROFIT OWNED BY MEMBER HOSPITALS. THE MODEL MAINTAINS LOCAL CONTROL WHILE GIVING MEMBERS ACCESS TO SHARED ADMINISTRATIVE SUPPORT, TECHNICAL ASSISTANCE, STAFFING AND TECHNOLOGY. THE NETWORK WILL ALSO BUILD ON THE RURAL REGIONAL REORIENTATION PLAN TO GUIDE A CENTRAL REFERRAL MANAGEMENT SYSTEM.'.
+state_source_url: https://www.usaspending.gov/award/ASST_NON_RHTCMS332048_075/
+source_archive_path: data/raw/usaspending/2026-11-20/usaspending_rhtp_93798_prime_and_subawards.zip"
+IC11,OK,data/reference/ok_year1_ems_cp_awardees.csv,45,"LifeNet, Inc.",139255.75,"round_name: Expanding Care: Community Paramedicine -- Community Paramedicine Vehicles
+award_pool: Expanding Care: Community Paramedicine -- Community Paramedicine Vehicles
+source_document_title: Oklahoma RHTP Funding Recipients -- Expanding Care: Community Paramedicine -- Community Paramedicine Vehicles
+note: Expanding Care: Community Paramedicine -- Community Paramedicine Vehicles, OSDH Funding Recipients page (read 2026-10-12). Marked '*': 'These organizations have received Community Paramedicine training from RHTP/OSU.'
+state_source_url: https://oklahoma.gov/rhtp/rhtp-funding-recipients.html
+source_archive_path: data/evidence/OK/new_rosters/2026-10-12_ok_rhtp_funding_recipients.html"
+IC28,NJ,data/reference/nj_year1_awardees.csv,15,Center for Health Equity a Public Health Institute Inc.,21748500,"activity_raw: Improve rural community capacity to deliver preventive health interventions and addressing social drivers of health, improve access to health coverage and primary care by using AI outreach platforms to conduct eligibility screening and care connections, and improve the clinical workforce through recruitment and retention efforts.
+award_pool: Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey
+source_document_title: Rural Health Transformation Program Funding Allocations – July 31, 2026 (NJ DOH/DHS)
+note: NJRHT first-round award, 2026-07-31. Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey.
+state_source_url: https://nj.gov/rural-health-transformation/documents/njrht-funding-allocations-2026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf"
+IC37,RI,data/reference/ri_year1_awardees.csv,21,Rhode Island Department of Health,200000,"award_pool: Initiative 4: Rural EMS Health Access and Integration | Capital Expenditures and Infrastructure
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-004-15-34 (p. 82): ""$200,000.00 for RIDOH for minor renovations & equipment upgrades to improve capacity of rural EMS agencies.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC40,RI,data/reference/ri_year1_awardees.csv,68,Alvarez & Marsal,22873.72,"award_pool: Initiative 9: Modernizing Health Care Delivery for the Narragansett Indian Tribe | Fostering Collaboration
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-009-44-97 (p. 85): ""$22,873.72 for Alvarez & Marsal to support program management and infrastructure work, bringing together stakeholders and facilitating partnerships for implementation and beyond.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC12,GA,data/reference/ga_great_health_awards.csv,125,"Planning and actuarial development, Nutrition and Weight Management eligibility category - recipient not named",,"strategy: Planning for Healthy Babies demonstration
+initiative: Strengthening the Continuum of Care in Rural Georgia
+source_document_title: Georgia Reaches Major Milestone with All Year 1 GREAT Health Awards Fully Committed
+note: Actuarial and planning work on a proposed Medicaid eligibility category. No recipient named.
+state_source_url: https://dch.georgia.gov/announcement/2026-08-27/georgia-reaches-major-milestone-all-year-1-great-health-awards-fully
+source_archive_path: data/evidence/GA/2026-08-27_great_health_phase4_awards.html"
+IC24,KS,data/reference/ks_year1_awardees.csv,34,Kanza Mental Health & Guidance Center,1354975,"award_pool: RPGP
+source_document_title: REH CAP and RPGP Award Winners
+note: KDHE RPGP award. Recipient is named but the source does not state its organisational form; §8 settled fallback (session 10). §10.2 NON_HOSPITAL: the named recipient is not a hospital (§0.3a -- judged on the recipient, not the activity), and the source does not mention hospitals anywhere in the funded work.
+state_source_url: https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+source_archive_path: data/evidence/KS/2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf"
+IC27,NJ,data/reference/nj_year1_awardees.csv,11,Bridgeway Behavioral Health Services A NJ Nonprofit Corporation,208537,"activity_raw: Increase coordinated, prevention-focused interventions for individuals with serious mental illness (SMI) and co-occurring metabolic conditions in rural Sussex County.
+award_pool: Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey
+source_document_title: Rural Health Transformation Program Funding Allocations – July 31, 2026 (NJ DOH/DHS)
+note: NJRHT first-round award, 2026-07-31. Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey.
+state_source_url: https://nj.gov/rural-health-transformation/documents/njrht-funding-allocations-2026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf"
+IC09,SD,data/reference/sd_rht_contracts.csv,122,WATERTOWN SCHOOL DISTRICT 14-4,43200,"description: Offer specialized training and certificaiton/education for CHWs and CHRs in South Dakota.
+activity_type_raw: Professional Services under $50K (5-18D-17)
+award_pool: RHT series - programme administration, consulting, evaluation and workforce contracts
+source_document_title: South Dakota Open SD - Grants and Contracts register, contract 27RHT00139
+note: 09 - HEALTH | Professional Services under $50K (5-18D-17) | WATERTOWN, SD
+state_source_url: https://open.sd.gov/contractsDocShow.aspx?DocID=27RHT00139
+source_archive_path: data/evidence/SD/contract_details/27RHT00139.html"
+IC10,MN,data/reference/mn_year1_awardees.csv,9,Minnesota Medical Association,165007,"award_pool: Project Echo for Maternal and Behavioral Health
+source_document_title: Minnesota Department of Health, 'Rural Health Transformation Program Funding: Project Echo for Maternal and Behavioral Health' (PDF dated 09/17/2026, linked under 'RHTP Sub-Recipient Awardees' on https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/grants.html, Last Updated 10/27/2026)
+note: MDH 'RHTP Sub-Recipient Awardees': Project Echo for Maternal and Behavioral Health (Minneapolis).
+state_source_url: https://www.health.state.mn.us/facilities/ruralhealth/ruraltrans/docs/awardees/perimed.pdf
+source_archive_path: data/evidence/MN/2026-11-02_mdh_rhtp_awardee_perimed.pdf"
+IC32,NE,data/reference/ne_cms_obligation_awardees.csv,1,Nebraska Hospital Association,3474937.5,"award_pool: Initiative 2: Regionalized Rural Access and Navigation | Capital Expenditures and Infrastructure
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line NE-002-08-13 (p. 46): ""$3,474,937.50 for Nebraska Hospital Association to support Critical Access Hospitals evaluating and transitioning to the Rural Emergency Hospital model.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC31,NE,data/reference/ne_cms_obligation_awardees.csv,6,Chase County Community Hospital,87732.1,"award_pool: Initiative 4: eHealth and Mobile | Consumer Tech Solutions
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line NE-004-19-76 (p. 49): ""$87,732.10 for Chase County Community Hospital to implement healthcare-associated infection prevention programs to improve healthcare outcomes in rural Nebraska.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC35,RI,data/reference/ri_year1_awardees.csv,29,Hospital Association of Rhode Island,15787413.2,"award_pool: Initiative 5: Rural Hospital-at-Home Program | Appropriate Care Availability
+source_document_title: CMS, RHTP Obligated Funds Report (data as of 2026-07-31, 10-14 edition, posted 2026-10-19), Budget Period 1
+note: CMS obligation line RI-005-20-44 (p. 83): ""$15,787,413.20 for Hospital Association of Rhode Island (HARI) to assess needs for a rural hospital at home program, providing people with acute care services where they are.""
+state_source_url: https://www.medicaid.gov/resources-for-states/rural-health/rhtp-resources/RHTP-Obligated-Funds-20261014.pdf
+source_archive_path: data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+IC16,KS,data/reference/ks_year1_awardees.csv,19,Stormont Vail Health,5465969,"award_pool: RPGP
+source_document_title: REH CAP and RPGP Award Winners
+note: KDHE RPGP award. Recipient is named but the source does not state its organisational form; §8 settled fallback (session 10). §10.2 IN_KIND_BENEFIT: the recipient is not a hospital and keeps the funds, and the source names hospitals among the parties the funded work serves. These dollars must never enter a 'funds distributed to hospitals' total; they are kept visible rather than discarded.
+state_source_url: https://www.kdhe.ks.gov/2361/Rural-Health-Transformation-Program
+source_archive_path: data/evidence/KS/2026-08-29_kdhe_reh_cap_and_rpgp_award_winners.pdf"
+IC21,NJ,data/reference/nj_year1_awardees.csv,58,Virtua Health Inc.,1196187,"activity_raw: Increase awareness of and access to preventive health services among rural residents in Atlantic and Burlington Counties, improve early identification and outcomes for pediatric and caregiver health needs by strengthening rural provider knowledge and capacities, and improve chronic disease outcomes through technology solutions.
+award_pool: Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey
+source_document_title: Rural Health Transformation Program Funding Allocations – July 31, 2026 (NJ DOH/DHS)
+note: NJRHT first-round award, 2026-07-31. Advancing Technology, Prevention, and Workforce Capacity in Rural New Jersey.
+state_source_url: https://nj.gov/rural-health-transformation/documents/njrht-funding-allocations-2026.pdf
+source_archive_path: data/evidence/recheck/2026-09-24/NJ/njrht_funding_allocations_2026-07-31.pdf"

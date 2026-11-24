@@ -189,3 +189,23 @@ test_that("the verified vendor list carries the use group of every case's award 
   expect_true("Use group (primary)" %in% names(vl))
   expect_false(any(is.na(vl$`Use group (primary)`)))
 })
+
+test_that("the session-123 independent check is recorded, stratified and fully resolved (Task 5)", {
+  ic <- readr::read_csv(here::here("config/use_category_independent_check.csv"), col_types = readr::cols(.default = "c"),
+                        progress = FALSE)
+  expect_equal(nrow(ic), 40L)
+  expect_equal(as.integer(table(ic$our_basis)[c("AWARD_SOURCE", "INITIATIVE_CROSSWALK", "PURPOSE_TEXT")]), c(10L, 15L, 15L))
+  expect_gte(sum(ic$hosp == "TRUE"), 15L)
+  expect_true(all(nzchar(ic$resolution)))
+  expect_equal(sum(ic$group_agree == "TRUE"), 37L)   # 92.5% at group level before reconciliation
+  # every row the check covered still carries a category (none fell to NOT_STATED by accident)
+  for (i in seq_len(nrow(ic))) {
+    d <- uc_read(files[[ic$file_key[i]]])
+    r <- d[d$row_no == ic$row_no[i] & d$budget_period == "1", ][1, ]
+    expect_false(r$use_category_basis == "NOT_STATED", info = ic$check_id[i])
+  }
+  # the one fix is applied
+  nj <- ic[ic$check_id == "IC27", ]
+  d <- uc_read(files[["NJ"]]); r <- d[d$row_no == nj$row_no & d$budget_period == "1", ][1, ]
+  expect_identical(r$use_group_primary, "PREVENTION_CHRONIC_DISEASE")
+})
