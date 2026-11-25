@@ -44,3 +44,4 @@ IL,trig_01B62afWZaQXR4Hooi2gjZmH,20 16 * * 3,R/03cg_il_rhtp_probe.R,weekly,2026-
 RI,trig_01WXYStckEw4tjE1Er77BV94,50 19 * * 2,R/03ci_ri_press_probe.R,weekly,2026-10-26T14:05:16Z,,,
 FSRS,trig_01NcEJkGQZVkxSWcEd5rm538,17 21 * * 2,R/09a_usaspending_rhtp.R,weekly,2026-11-09T20:45:04Z,,,
 RHTPTRACKER,trig_01FsufuT9voRgAhvSzYQpUMk,23 20 * * 5,R/03cw_rhtptracker_leads.R,weekly,2026-11-16T17:52:28Z,,,
+MA,trig_01JcoBDKBoSQ3yASzgUcizP2,25 18 * * 4,R/03cy_ma_rhtp_probe.R,weekly,2026-11-25T16:44:20Z,,,

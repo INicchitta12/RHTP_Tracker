@@ -326,8 +326,12 @@ SURVEY_EXTRACTED_STATES <- c("AK", "AL", "AR", "CO", "CT", "DE", "FL", "GA", "IA
 # Session 112: Minnesota leaves for SURVEY_EXTRACTED_STATES (R/03cp).
 # Session 121: Wisconsin leaves for SURVEY_EXTRACTED_STATES (R/03cx, the DHS
 # award tables extracted as intents on the owner's ruling); R/03y watches them.
+# Session 124: Massachusetts joins from INVESTIGATED_NO_PROBE: every mass.gov
+# path is 403 here, but MeHI's and the MassCyberCenter's RHTP programme pages
+# read, and R/03cy probes them weekly on its own runner (trig_01JcoBDKBoSQ3yASzgUcizP2).
+# No MA source read names a Year 1 awardee.
 SURVEY_INVESTIGATED_NO_LIST_STATES <- c("ND",
-                                        "NM")
+                                        "NM", "MA")
 
 # The states that HAVE been worked and have NO PROBE, so the finding is not
 # re-checkable. Added session 43, at the owner's request, because leaving them
@@ -406,7 +410,9 @@ SURVEY_INVESTIGATED_NO_LIST_STATES <- c("ND",
 # no recipient. HI and MA remain, and neither is an ordinary negative.
 # SESSION 101: HAWAII LEFT BY EXTRACTION (R/03cd), straight from this code to
 # EXTRACTED, as the note above allows. It still has no probe or Routine.
-SURVEY_INVESTIGATED_NO_PROBE_STATES <- c("MA")
+# SESSION 124: MASSACHUSETTS LEFT, the second the way the note asked: a probe
+# (R/03cy, on MeHI and the MassCyberCenter, off mass.gov) and a Routine.
+SURVEY_INVESTIGATED_NO_PROBE_STATES <- character(0)
 
 
 # -- Inputs ------------------------------------------------------------------
