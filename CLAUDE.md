@@ -1574,6 +1574,38 @@ of Public Law 119-21; `data/reference/rhtp_use_categories.csv`, quoted from the 
   Provider payments (B) and capital (J) against the 15% / 20% caps are **published awards only, not the state's
   budget**: never call a state over a cap on this basis.
 
+#### Awardee identity and the ranking (session 125, owner direction)
+
+`R/12_awardee_ranking.R` ranks Year 1 awardees by total award dollars, an awardee's awards in several states summed
+into one line. **A name is never enough to join two states' awards** (11-23's name-only pass joined Memorial Health
+System KS/MS, County of Clay IL/TX and four other pairs of different bodies, and missed "Comagine" vs "COMAGINE HEALTH").
+- **The join rule.** Every Year 1 award row gets `awardee_entity_id`. Rows join only on, in order: the same **UEI** (a
+  new FSRS row's `fsrs_uei`, or the UEI of the row's OWN paired subaward, `fsrs_match` EXACT / DIFFERS /
+  PRICED_FROM_FSRS; never a sibling or pool-member pointer); the same **EIN**; the same **CCN** (`ccn` or the CCN in
+  `cms_enrolment_record`; the same CCN is the same hospital); a **hand review** in `config/awardee_entities.csv` with its
+  basis quoted and an `evidence_class`; or the same normalised name **within one state** (refused where the two sides
+  carry different UEIs or different CCNs). No fuzzy match. `entity_match_basis` is on every row.
+- **Hand-review evidence classes for a cross-state join:** FEDERAL_RECORD (one UEI or enrolment shown in both states)
+  and ENTITY_WEBSITE (the entity's own site, archived under `data/evidence/awardee_identity/`). An identical legal name,
+  even with its legal form, or a 116e vendor case without an address, is NOT_CONFIRMED (the independent check withdrew
+  Guidehouse, Deloitte, Fond of You, Cornerstone, GoodLife and Mayo on this). NOT_CONFIRMED pairs are kept separate in
+  `config/awardee_entities_distinct.csv` beside every collision proven distinct (different UEI, CCN, legal entity or
+  organisation). A row whose paired subaward is filed to another legal entity is listed in
+  `config/awardee_uei_not_own.csv` (OK Findhelp / OHCA). SD register rows take the UEI of SD's FSRS filing with the same
+  contract number.
+- **What is ranked.** Award + intent dollars (intents shown separately), Year 1, STATE_FILES. CMS obligation lines and
+  contract-file maximums/obligations are their own columns, never in the total. NM Accenture is held out. A row naming
+  several organisations with no split (`MULTI_RECIPIENT_FIELD`, `NOT_YET_NAMED`, or `config/awardee_unattributed_rows.csv`)
+  is never divided and goes to Unattributed pools; an intermediary that received the money (ICAHN, WSHA, NHVN) ranks,
+  flagged `pass_through`. Unpriced rows are counted, never ranked on. `multi_state` counts award and intent rows only.
+- **Reconciliation (asserted):** ranked + obligation lines + unattributed pools + held out = every priced Year 1 row =
+  R/08's `published_priced_usd + excluded_award_usd`; pool-level amounts are listed separately.
+- **Parent systems** roll up only verified parents: a same-state CMS ORGANIZATION NAME shared by several CCNs (never
+  across states), and `config/awardee_parent_systems.csv` (the standing rulings: Sanford, Avera, Vandalia). Never
+  replaces the entity view. FSRS's SAM parent field is the awarding state on every record and is not used.
+- **Delaware:** every DE row is confidential; `awardee_ranking_<date>_team.xlsx` removes them. Pinned in
+  `test_12_awardee_ranking.R`.
+
 #### Hospital foundations and affiliated arms
 
 **A foundation or affiliated arm of a *named* hospital or health system is
@@ -1924,6 +1956,8 @@ determinations are OVERLAYS on top of that rebuild and must be re-applied:
 - **Session 110** (`R/07_summary_calls.R --apply`): LAST, after every `--build` and every other overlay, on any
   file. A rebuild drops the three summary columns and `test_07` fails until it is re-run. Judgments key on
   file + exact awardee; a new or renamed row needing one fails `--apply` by name (`--missing` lists them).
+- **Session 125** (`R/12_awardee_ranking.R --build <date>`): after `R/11 --apply` and BEFORE `R/08 --build`, which
+  reads `awardee_ranking_<date>.csv` into its Notes. A new hand join, collision or parent goes in its config file.
 - **Session 58** (`R/03ax --apply`) for Florida. Order: `R/03e --ingest`, then the 03ap overlay, then
   `R/03ax --apply`.
 - **Session 71** (`R/03bj --apply`): after any rebuild of a touched state (AL AK OR WY MI GA NC IA OK). The AR,
@@ -2123,14 +2157,14 @@ through the work: an award file, or an archive plus a probe plus a Routine.
 ### Hospital partition (re-derived 2026-11-25, session 124, from `STATE_FILES` in `tests/testthat/test_state_union.R`)
 
 PUBLISHED figures: `rhtp_hospital_dollar_partition()` leaves `SOURCE_SUSPECT` rows out by default (owner ruling,
-session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,391 / $2,299,673,584.33
+session 102). The INTERNAL figure, `include_source_suspect = TRUE`, is NAMED_HOSPITAL 2,397 / $2,311,026,562.33
 (NV's FLEX-36 $2,458,060.00 back in; FLEX-28 was cleared on an exact FSRS pair in session 116d); never
 publish it alone. SESSION 116c/116d: FSRS/FFATA subawards are an award source (R/09b): $0 rows priced
 (`validation_source_type = FSRS_FFATA`, original kept) and `<st>_fsrs_awardees.csv` new rows; both subtract by
 `validation_source_type`.
 
 ```
-NAMED_HOSPITAL          2,390 rows   $2,297,215,524.33   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
+NAMED_HOSPITAL          2,396 rows   $2,308,568,502.33   43 states   (CA 59 / $82,852,823.14, UT 6 / $5,196,812.90 and MO SG 12 / $23,596,409.17 are INTENTS; FSRS-priced and FSRS new rows subtract by validation_source_type)
 POOL_NAMED_HOSPITALS       11 rows      $96,565,779.43   WA (HCA's 28 hospitals $9,670,000, estimated, session 118) + NE (NHVN $18,156,856.12) + CT (Hartford HealthCare pair $12,650,000) + NV (NRHP lines $24,448,315.31, 4 rows) + OH (ODH's 22 hospitals $30,300,000, rounded) + VA (VCU Health pair $1,000,000) + OK (two SSM affiliate lung-screening lines $340,608)
 POOL_UNNAMED_HOSPITALS      6 rows      $79,214,848.17   IL (ICAHN $50,008,264) + RI (HARI $15,839,907.67) + NE (NHA $3,474,937.50) + UT (UHA recruit-and-retain $9,891,739, intent) + HI (HAH, $0)
 ```
@@ -2181,7 +2215,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | MO SG | 25 | 25 | $39,400,821 | 14 / $31,862,170 (Smart Growth CONTINGENT roster, 10-30; 23 intents pending CMS approval, 2 "approved by CMS"; DSS says 26 providers, the table lists 25; LOW $9,191,320; Ozarks Community Hospital $787,430 not a hospital row, no enrolment; owner ruling session 114) |
 | NE | 91 | 74 | $44,835,140 (4 $0 rows priced from FSRS; Memorial Health Care Systems' filing paired to row 28, session 118) | 60 / $17,579,429 + POOL_NAMED 1 / $18,156,856 |
 | OK RRR | 20 | 20 | $40,078,522 | 11 / $22,723,303 (Keetoowah $1,123,500 withdrawn 10-12; SSM St. Anthony Shawnee Cancer Center $1,623,498.82 added 10-16, CCN 370149, LOW; LOW $9,895,512: 4 enrolment bridges; Mercy $3,938,438 general knowledge, no CCN) |
-| SD contracts | 122 | 122 | $90,790,630 | 40 / $52,943,667 (11-19/11-20 register, session 121: +59 contracts; Monument Health $12,915,000 released on the owner's ruling, Year 1 on SD's completion statement "committed every dollar ... by the federal deadline", recorded on all 34 02-20 contracts; 10 CCBHC grants inside R/03bw's round; 72 unplaced, never on top of $90M; LOW bridges incl. Winner, Vermillion, Marshall County, Monument; Sanford + Avera parents) |
+| SD contracts | 138 | 138 | $106,846,147 | 46 / $64,554,838 (11-25 register, session 125, owner ruling b: +16 contracts, the 15 FSRS filings 27RHT00126-142 on begin dates on or before 10-30 plus Vision Care; Platte, Freeman and Brookings Health System x2 hand-read bridges, LOW; City of Brookings EMS $203,375 queued; 11-19/11-20 register, session 121: +59 contracts; Monument Health $12,915,000 released on the owner's ruling, Year 1 on SD's completion statement "committed every dollar ... by the federal deadline", recorded on all 34 02-20 contracts; 10 CCBHC grants inside R/03bw's round; 72 unplaced, never on top of $90M; LOW bridges incl. Winner, Vermillion, Marshall County, Monument; Sanford + Avera parents) |
 | DE FQHC | 3 | 3 | $22,690,000 | 0 (3 FQHCs; amounts rounded in source) |
 | OK CDM | 15 | 15 | $15,608,845 | 6 / $9,197,657 (Choctaw Nation on its CMS hospital enrolment) |
 | ME | 1 | 1 | $12,000,000 | 0 (11 invited hospitals in `me_rhef_cohort.csv`, not awards) |
@@ -2207,7 +2241,7 @@ Change a state file and you must update this table in the same commit. Never loo
 | IN MTB | 20 | 11 | $885,195 (11 feasibility subawards priced from FSRS, routed by the Meds-to-Beds description, session 124) | 20 / $885,195 (IDOH Initiative 6 Meds-to-Beds, "Year 1 Grant Agreements Executed July 2026", 13 implementation + 7 planning sites, no amounts; names model-read from the archived awardee map (MODEL_ASSISTED, CONFIRM); 16 exact CMS IN enrolments, 4 LOW bridges; R/03cz, session 121) |
 | IA | 264 | 161 | $156,302,236 (161 $0 rows priced from FSRS, paired by RFP pool, session 116c; sibling rows point at the priced row) | 218 / $144,551,736 |
 | IA CC R2 | 4 | 0 | — | 4 / $0 (Combat Cancer Health Hubs Round 2 NOIA, COMPADM26008, 2026-08-12; INTENTS; typed on CMS IA enrolment, CCNs 160047/160064/160082/160083 in the basis; footer is the allotment; owner ruling session 116) |
-| NC | 44 | 42 | $97,146,908 (FSRS, Rowan and Wilkes MIH re-priced on the 11-19 archive, +$44,000: 36 MIH counties, the five ROOTS Hub Leads; MIH reaches its $10M round) | 2 / $14,550,000 (UNC Hospitals $14,250,000 DIRECT; Cape Fear Valley MIH $300,000; the four non-hospital Hub Leads stay Unclear, FHC rule) |
+| NC | 44 | 42 | $97,102,908 (FSRS; Rowan and Wilkes MIH's 11-17 in-place raises (+$44,000) held as Year 2 increments, session 125 owner ruling a: 36 MIH counties, the five ROOTS Hub Leads; MIH reaches its $10M round) | 2 / $14,550,000 (UNC Hospitals $14,250,000 DIRECT; Cape Fear Valley MIH $300,000; the four non-hospital Hub Leads stay Unclear, FHC rule) |
 | NC SBHC | 5 | 0 | — (pool $1.25M) | 1 / $0 (FirstHealth) |
 | TN | 53 | 46 | $3,831,081 (43 HART rows priced from FSRS 10-31 filings, Year 1 on TDH's 2026-09-03 award release, session 121 date rule; End Zone etc. 10-31 filings held as Year 2) | 2 / $148,832 (Macon Hospital $72,727.27 LOW bridge CCN 441305; Cookeville Regional Medical Center Foundation $76,105.13; the $422M / 138-project five-year roster is a NON-AWARD file, owner ruling b session 118) |
 | DE | 4 | 3 | $2,854,876 (FSRS) | 4 / $2,854,876 |
@@ -2228,13 +2262,13 @@ Change a state file and you must update this table in the same commit. Never loo
 | IA_FSRS | 26 | 26 | $34,392,111 | 24 / $18,531,106 (FSRS new rows, session 116c; R/09b) |
 | IL_FSRS | 89 | 89 | $135,834,540 | 80 / $53,821,675 (FSRS new rows, session 116c; R/09b; Morris Hospital 11-02 is Year 2, held) |
 | KS_FSRS | 13 | 13 | $90,975,349 | 1 / $1,950,110 (FSRS new rows, session 116c; R/09b; DCF $1,460,000 paired to KS row 31 KCDD, session 119) |
-| KY_FSRS | 48 | 48 | $101,694,355 | 3 / $4,348,529 (FSRS new rows, sessions 116c and 124; R/09b; FHKY re-filed $50,490,600 -> $41,388,100 on 11-23) |
-| ME_FSRS | 53 | 53 | $75,589,641 | 14 / $16,059,670 (FSRS new rows, sessions 116c, 120 and 124; ten CD-series subawards re-filed at double their amounts on 11-23 (read as filed, a lead); 38 rows from the 11-19 archive, the OMS-26-70xx alternative-payment round: 12 hospitals incl. MaineHealth $8,831,846 and MaineGeneral $452,992 (hand bridge, LOW); Northeastern University's Roux Institute $32,006,378.15 non-hospital, HD80; R/09b) |
+| KY_FSRS | 48 | 48 | $100,000,697 | 3 / $4,348,529 (FSRS new rows, sessions 116c and 124; R/09b; FHKY re-filed $50,490,600 -> $41,388,100 on 11-23, accepted AMENDED_DOWN; University of Louisville's 11-23 raise $1,693,658 held as a Year 2 increment, session 125) |
+| ME_FSRS | 53 | 53 | $72,336,443 | 14 / $15,801,477 (FSRS new rows, sessions 116c, 120 and 124; ten 11-23 in-place raises (the doublings, MCD, Sweetser) keep their prior amounts and the increments are held BUDGET_PERIOD_2_HELD, session 125 owner ruling a; 38 rows from the 11-19 archive, the OMS-26-70xx alternative-payment round: 12 hospitals incl. MaineHealth $8,831,846 and MaineGeneral $452,992 (hand bridge, LOW); Northeastern University's Roux Institute $32,006,378.15 non-hospital, HD80; R/09b) |
 | MN_FSRS | 141 | 141 | $145,016,441 | 90 / $120,867,622 (FSRS new rows, sessions 116c and 118; 42 hospital rows added session 118, the CAH direct allocations; Pipestone County Medical Center $1,697,594 on CAH 241374, LOW bridge, session 119; Murray County $1,610,332 on CAH 241319, owner ruling a session 120, LOW; Graceville Health Center CAH 241321 and Family Services Collaborative added session 120; R/09b) |
 | MT_FSRS | 1 | 1 | $22,093,078 | 0 (FSRS new rows, session 116c; R/09b) |
 | NC_FSRS | 9 | 9 | $7,124,404 | 0 (FSRS new rows, session 116c; R/09b) |
 | ND_FSRS | 150 | 150 | $26,178,752 | 70 / $11,449,213 (FSRS new rows, sessions 116c, 121 and 124 (+38 from the 11-25 archive, 16 CAH rows; Linton Hospital Foundation a hospital row on §7); +5 CAH rows from the 11-20 archive on exact CMS ND enrolment, independent duplicate check clean; R/09b) |
-| NE_FSRS | 143 | 143 | $97,389,670 | 14 / $9,667,929 (FSRS new rows, sessions 116c and 124 (Providence Wayne, Niobrara Valley extras); R/09b; 21 extras applied session 118, owner ruling a: NE is COMPLETE on FULL_OBLIGATION, its roster a floor; Alegent Creighton $711,629.63 held, same amount on roster) |
+| NE_FSRS | 145 | 145 | $97,702,390 | 14 / $9,667,929 (FSRS new rows, sessions 116c, 124 and 125 (Northeast Community College's two other subawards written as extras once its NOA amount paired exactly, session 125); four 11-20 in-place raises held as Year 2 increments; R/09b; 21 extras applied session 118, owner ruling a: NE is COMPLETE on FULL_OBLIGATION, its roster a floor; Alegent Creighton $711,629.63 held, same amount on roster) |
 | NM_FSRS | 5 | 5 | $154,099,169 | 0 (FSRS new rows, sessions 116c and 118; the Healthy Horizons hub filings of 11-03 are Year 2, held; ACCENTURE LLP $128,979,618.21 ASO, VENDOR_OR_CONTRACTOR, flagged ADMINISTRATOR_PASS_THROUGH_UNRESOLVED session 119: held out of NM awards and the >=50% test by R/08, verified as administers only) |
 | OK_FSRS | 24 | 24 | $103,414,608 | 1 / $100,000 (FSRS new rows, session 116c; R/09b; SWOSU $99,997.96 paired to OK row 66, session 119) |
 | RI_FSRS | 5 | 5 | $37,724,387 | 0 (FSRS new rows, session 116c; R/09b) |

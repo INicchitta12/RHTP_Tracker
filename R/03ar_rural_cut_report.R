@@ -415,10 +415,14 @@ rc_assert <- function(rows = rc_rows()) {
   # Session 124: FSRS 11-25 archive (ND 16 CAH rows, NE 2, WV War Memorial $1M,
   # ND Linton Hospital Foundation on §7) and IN Meds-to-Beds priced (11 rows,
   # $885,195, already counted at $0): 2,390 / $2,297,215,524.33 / 43.
-  if (nrow(rows) != 2390L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2297215524.33) > 0.005 ||
+  # Session 125 (owner rulings a, b): SD register 11-25, six hospital rows on
+  # CMS SD enrolment (+$11,611,171: Fall River, Madison, Platte, Freeman,
+  # Brookings Health System x2); ME's in-place FSRS raises held as Year 2
+  # (MaineHealth -$258,193): 2,396 / $2,308,568,502.33 / 43.
+  if (nrow(rows) != 2396L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2308568502.33) > 0.005 ||
       dplyr::n_distinct(rows$state) != 43L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,390 rows / $2,297,215,524.33 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,396 rows / $2,308,568,502.33 ",
          "/ 43 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

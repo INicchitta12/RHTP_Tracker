@@ -55,6 +55,7 @@ source(here::here("R", "08_year1_summary.R"))
 AW_ENTITIES    <- "config/awardee_entities.csv"
 AW_DISTINCT    <- "config/awardee_entities_distinct.csv"
 AW_UNATTRIB    <- "config/awardee_unattributed_rows.csv"
+AW_NOT_OWN_UEI <- "config/awardee_uei_not_own.csv"   # rows whose paired subaward is filed to another legal entity
 AW_PARENTS     <- "config/awardee_parent_systems.csv"
 AW_FSRS_REC    <- "data/reference/fsrs_subaward_records.csv"
 AW_CONTRACTS   <- "data/reference/contracts"
@@ -109,7 +110,7 @@ aw_rows <- function(files = sc_state_files()) {
       hospital_attribution = col("hospital_attribution"), distributed_to_hospital = col("distributed_to_hospital"),
       intermediary_name = col("intermediary_name"), flag_reason = col("flag_reason"),
       validation_source_type = col("validation_source_type"),
-      ccn_raw = col("ccn"), cms_enrolment_record = col("cms_enrolment_record"), ein = col("ein"),
+      contract_number = col("contract_number"), ccn_raw = col("ccn"), cms_enrolment_record = col("cms_enrolment_record"), ein = col("ein"),
       fsrs_uei = col("fsrs_uei"), fsrs_match = col("fsrs_match"), fsrs_subaward_ids = col("fsrs_subaward_ids"),
       summary_hospital_call = col("summary_hospital_call"), spend_category = col("spend_category"),
       vendor_verified = col("vendor_verified"), out_of_state = col("out_of_state"),
@@ -126,6 +127,21 @@ aw_rows <- function(files = sc_state_files()) {
     dplyr::group_by(.i) %>% dplyr::summarise(paired_uei = paste(sort(unique(uei)), collapse = ";"), .groups = "drop")
   out <- out %>% dplyr::mutate(.i = dplyr::row_number()) %>% dplyr::left_join(own, by = ".i") %>%
     dplyr::select(-.i)
+  # a paired subaward filed to a DIFFERENT legal entity (a pass-through) is not
+  # the row's own identifier (OK Findhelp / OHCA; independent check)
+  no <- aw_read_cfg(AW_NOT_OWN_UEI, c("file_key", "awardee", "reason"))
+  out$paired_uei[paste(out$file_key, out$awardee) %in% paste(no$file_key, no$awardee)] <- NA_character_
+  # South Dakota's register prints the state's contract number, which is the
+  # subaward number on SD's own FSRS filing: the UEI of that filing is the
+  # row's own (a federal record for the same agreement; independent check:
+  # Sanford Health Network and Avera McKennan rows had gone unpaired)
+  sdr <- readr::read_csv(here::here(AW_FSRS_REC), col_types = readr::cols(.default = "c"), na = c("", "NA"),
+                         progress = FALSE) %>% dplyr::filter(st == "SD", !is.na(uei)) %>%
+    dplyr::group_by(subaward_number) %>% dplyr::filter(dplyr::n_distinct(uei) == 1) %>%
+    dplyr::summarise(sd_uei = dplyr::first(uei), .groups = "drop")
+  cn <- if ("contract_number" %in% names(out)) out$contract_number else NA_character_
+  out$sd_uei <- dplyr::if_else(out$file_key == "SD_CONTRACTS", sdr$sd_uei[match(cn, sdr$subaward_number)], NA_character_)
+  out$paired_uei <- dplyr::coalesce(out$paired_uei, out$sd_uei)
   ccn_enrol <- stringr::str_match(dplyr::coalesce(out$cms_enrolment_record, ""), "CCN[ :]*([0-9]{2}[0-9A-Z]{4})")[, 2]
   out %>% dplyr::mutate(
     uei = dplyr::coalesce(dplyr::na_if(fsrs_uei, ""), paired_uei),
@@ -559,6 +575,7 @@ aw_notes <- function(out, team) {
     paste0("HELD OUT: ", paste0(held$awardee, " (", held$state, ") $", aw_money(held$amount), collapse = "; "),
            ". ADMINISTRATOR_PASS_THROUGH_UNRESOLVED: its fee and pass-through share are unsplit, so it is out of every total, as in the Year 1 summary."),
     "UNATTRIBUTED POOLS. A row naming several organisations with no split (Ohio's 22 hospitals, WA's 28, the CT/VA/OK pairs) or naming none is never divided and is not ranked; it is on the Unattributed pools tab. A pass-through intermediary that received the money itself (ICAHN, WSHA, NHVN, NRHP) ranks as the awardee, flagged pass_through with its intermediary role.",
+    "TWO TIERS, ONE AWARD (open for the owner). Virginia Health Care Foundation ranks on its two FSRS subawards from the state (RHT26-007 Provider Productivity, RHT26-008 Provider Interoperability, $25,965,319), and its own subgrantees rank separately from VHCF's rosters (VA_VHCF $14,390,000; VA_VHCF_PP $8,644,000). Up to about $22.0M is the same money at both tiers, in the ranking and in the Year 1 award totals alike (found by the independent check, session 125; nothing was moved).",
     "UNPRICED ROWS. A named award with no published amount is counted in awards_no_published_amount and never ranked on; an entity with only unpriced rows has no rank.",
     "SUMMARY CALL. HOSPITAL / NOT_HOSPITAL from the summary-call layer (R/07); MIXED where an entity's rows carry both calls (hospital_call_usd shows the HOSPITAL-called dollars).",
     "PARENT SYSTEMS. The Parent systems tab rolls entities up to a parent ONLY where the parent is verified (config/awardee_parent_systems.csv: the standing system-parent rulings and the CMS enrolment's ORGANIZATION NAME). It never replaces the entity view and is never added to it.",

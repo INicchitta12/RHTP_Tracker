@@ -376,6 +376,13 @@ test_that("the partition: NAMED_HOSPITAL 1,313 / $1,216,466,199.99 / 32; pools u
   # this overlay): +1 / +$325,000: 2,370 / $2,292,358,452.90 / 43. Subtracted first.
   # Session 124: FSRS 11-25 and IN Meds-to-Beds priced (not via this overlay):
   # +20 / +$4,857,071.43: 2,390 / $2,297,215,524.33 / 43. Subtracted first.
+  # Session 125: SD register 11-25 (R/03i bridges, not via this overlay) and
+  # ME's held FSRS raises: +6 / +$11,352,978: 2,396 / $2,308,568,502.33 / 43.
+  expect_equal(n$rows, 2396L)
+  expect_equal(round(n$dollars, 2), 2308568502.33)
+  expect_equal(n$states, 43L)
+  n$rows <- n$rows - 6L
+  n$dollars <- n$dollars - 11352978
   expect_equal(n$rows, 2390L)
   expect_equal(round(n$dollars, 2), 2297215524.33)
   expect_equal(n$states, 43L)

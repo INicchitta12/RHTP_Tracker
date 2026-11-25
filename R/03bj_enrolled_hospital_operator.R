@@ -398,7 +398,9 @@ EH_READ_NOT_APPLIED <- tibble::tribble(
   "ia_fsrs_awardees.csv", "SANFORD MEDICAL CENTER", "430027", "OWNER_RULING_NOT_APPLIED",
     "The hit is SANFORD MEDICAL CENTER dba Sanford USD Medical Center, Sioux Falls, SOUTH DAKOTA (CCN 430027), out of state for an Iowa FFATA subaward. Owner ruling (session 116d, f): strict typing unchanged; the summary layer calls it HOSPITAL (SC_FSRS_OVERRIDES).",
   "tx_fsrs_awardees.csv", "DEPARTMENT OF STATE HEALTH SERVICES", "670125", "OWNER_RULING_NOT_APPLIED",
-    "The hit is the Texas DEPARTMENT OF STATE HEALTH SERVICES' own hospital enrolment (CCN 670125; it operates state hospitals). Owner ruling (session 116d, f): a state body holding a hospital enrolment is STATE_AGENCY, NOT_HOSPITAL."
+    "The hit is the Texas DEPARTMENT OF STATE HEALTH SERVICES' own hospital enrolment (CCN 670125; it operates state hospitals). Owner ruling (session 116d, f): a state body holding a hospital enrolment is STATE_AGENCY, NOT_HOSPITAL.",
+  "sd_rht_contracts.csv", "CITY OF BROOKINGS", "430008", "DEFERRED_TO_OWNER",
+    "Session 125: 27RHT00141 ($203,375, begun 2026-09-01), 'Consultant will modernize ambulance infrastructure by enhancing radio communications, simulation and training, and enhancement to patient care reporting'. The string is the exact legal name of CITY OF BROOKINGS dba BROOKINGS HEALTH SYSTEM (CCN 430008). The rule reads as APPLY (a local government that holds the hospital's enrolment), but the award is EMS and the owner's state-body ruling (TX DSHS) has not been extended to a city; applying it moves $203,375 into the hospital figures. Queued, not applied. The city's two Health System contracts (27RHT00133, 00136) are bridged in R/03i."
   # National Jewish Health (Quitlink), MI, CCN 060107, sat here as
   # DEFERRED_TO_OWNER in session 82; the owner applied it in session 83 and it
   # is now in EH_APPLY.
