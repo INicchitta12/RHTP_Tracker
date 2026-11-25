@@ -1053,6 +1053,7 @@ ys_use_build <- function(s, items = ys_use_items(s)) {
                      award_usd = sum(usd),
                      award_source_usd = sum(usd[use_category_basis == "AWARD_SOURCE"]),
                      crosswalk_usd = sum(usd[use_category_basis == "INITIATIVE_CROSSWALK"]),
+                     cms_heading_usd = sum(usd[use_category_basis == "CMS_REPORT_HEADING"]),
                      purpose_text_usd = sum(usd[use_category_basis == "PURPOSE_TEXT"]),
                      not_stated_usd = sum(usd[use_category_basis == "NOT_STATED"]), .groups = "drop") %>%
     dplyr::mutate(classified_usd = award_usd - not_stated_usd,
@@ -1060,10 +1061,10 @@ ys_use_build <- function(s, items = ys_use_items(s)) {
                   rows_classified_share_pct = ifelse(rows > 0, rows_classified / rows, NA_real_))
   cov_state <- allot %>% dplyr::select(state, state_name) %>% dplyr::left_join(bs, by = "state") %>%
     dplyr::mutate(dplyr::across(c(rows, rows_classified), ~ dplyr::coalesce(.x, 0L)),
-                  dplyr::across(c(award_usd, award_source_usd, crosswalk_usd, purpose_text_usd, not_stated_usd, classified_usd),
+                  dplyr::across(c(award_usd, award_source_usd, crosswalk_usd, cms_heading_usd, purpose_text_usd, not_stated_usd, classified_usd),
                                 ~ dplyr::coalesce(.x, 0))) %>%
     dplyr::select(state, state_name, rows, rows_classified, rows_classified_share_pct, award_usd, classified_usd,
-                  classified_share_pct, award_source_usd, crosswalk_usd, purpose_text_usd, not_stated_usd)
+                  classified_share_pct, award_source_usd, crosswalk_usd, cms_heading_usd, purpose_text_usd, not_stated_usd)
   # By state: dollars by group (wide), and the two capped letters.
   wide <- items %>% dplyr::group_by(state, use_group_primary) %>% dplyr::summarise(v = sum(usd), .groups = "drop") %>%
     dplyr::mutate(use_group_primary = factor(use_group_primary, YS_USE_GROUPS)) %>%
@@ -1093,8 +1094,22 @@ ys_use_build <- function(s, items = ys_use_items(s)) {
     dplyr::mutate(use_group_primary = factor(use_group_primary, YS_USE_GROUPS)) %>%
     tidyr::pivot_wider(names_from = use_group_primary, values_from = v, values_fill = 0, names_expand = TRUE)
   names(hg)[match(YS_USE_GROUPS, names(hg))] <- paste0("hospital_", tolower(YS_USE_GROUPS), "_usd")
+  # SESSION 124 (owner ruling 7a-f): NON-ADDITIVE. Award dollars whose evidence
+  # includes each group: an award counts under EVERY group its letters touch.
+  # Never summed; the primary-group table (1) stays the additive one.
+  grp_of <- rhtp_use_groups()
+  touch <- items %>% dplyr::filter(nzchar(dplyr::coalesce(use_categories_all, ""))) %>%
+    dplyr::mutate(g = lapply(strsplit(use_categories_all, ";", fixed = TRUE),
+                             function(l) unique(unname(grp_of[trimws(l)])))) %>%
+    tidyr::unnest(g) %>%
+    dplyr::group_by(use_group = g) %>%
+    dplyr::summarise(award_usd_touching = sum(usd), hospital_usd_touching = sum(usd[call == "HOSPITAL"]),
+                     .groups = "drop") %>%
+    dplyr::mutate(use_group = factor(use_group, YS_USE_GROUPS)) %>% dplyr::arrange(use_group) %>%
+    dplyr::mutate(use_group = as.character(use_group), use_group_label = ys_use_label(use_group)) %>%
+    dplyr::select(use_group, use_group_label, award_usd_touching, hospital_usd_touching)
   list(national = national, basis = basis, coverage_state = cov_state, by_state = by_state, caps = caps,
-       hospital_by_group = hg, items = items)
+       hospital_by_group = hg, items = items, touches = touch)
 }
 
 #' The CSV record of the sheet (long form).
@@ -1120,6 +1135,9 @@ YS_USE_DEFINITIONS <- tibble::tribble(
   "share_of_classified_pct", "The group's dollars over all CLASSIFIED dollars (every group except NOT_STATED; MULTIPLE is classified). The hospital and non-hospital shares use the same denominator restricted to that call.",
   "classified_share_pct (coverage)", "Classified award dollars (basis not NOT_STATED) over the state's award dollars. A low share is a statement about what the state published, never about how it spends.",
   "b_primary / j_primary share of allotment", "PUBLISHED AWARDS ONLY, NOT THE STATE'S BUDGET. Award dollars whose primary category is B (provider payments) or J (capital), over the state's FY2026 allotment, beside the NOFO caps (B 15%, J 20% of the budget period award). b_any / j_any count every award whose evidence includes the letter, even where primary is another letter or MULTIPLE. These are not a test of compliance and no state is over a cap on this basis: caps apply to the state's whole budget, most money is not yet published, and an award carrying J among other letters is not all capital.",
+  "CMS_REPORT_HEADING (basis, session 124)", "MEDIUM. A category heading CMS prints over the programme's line in its Obligated Funds Report (10-14 edition), tied to the plan's initiative by exact normalised name or a hand-reviewed line (config/use_category_cms_headings.csv). Where the heading's letter is among the plan's letters it sets the primary and resolves MULTIPLE; where it is not, the plan's letters stand and the conflict is recorded in use_category_quote.",
+  "use_category_text_method (session 124)", "How an INITIATIVE_CROSSWALK plan quote was read: NATIVE_TEXT, OCR (MS, MI, KY: image-only or unreadable text layers) or HAND_TRANSCRIBED (HI Appendix A). OCR and transcription are admitted at MEDIUM (owner ruling) with the page images archived and each quoted line checked against its image.",
+  "award_usd_touching (table 6)", "NON-ADDITIVE. Award dollars whose evidence includes the group: an award counts under every group its letters touch. Never summed; the primary-group table is the additive one.",
   "hospital_<group>_usd (Detail)", "The state's hospital best estimate (hospital_summary_usd) by use group, on the same items; the eleven columns sum to hospital_summary_usd.")
 
 ys_use_notes <- function(u) {
@@ -1158,6 +1176,10 @@ ys_use_sheet <- function(wb, u, styles) {
   put(paste("5. Provider payments (B) and capital (J) as a share of the FY2026 allotment, beside the NOFO caps.",
             "PUBLISHED AWARDS ONLY, NOT THE STATE'S BUDGET: never read as a state over a cap."),
       u$caps, uc(u$caps), pc(u$caps))
+  put(paste("6. NON-ADDITIVE VIEW: award dollars whose evidence includes each group. An award counts under every group",
+            "its letters touch, so this table is NEVER summed and its rows do not add to awards published.",
+            "Table 1 (primary group) is the additive one."),
+      u$touches, uc(u$touches), integer(0))
   openxlsx::setColWidths(wb, sh, cols = 1:16, widths = c(34, 30, rep(17, 14)))
   openxlsx::freezePane(wb, sh, firstRow = FALSE, firstCol = TRUE)
   invisible(sh)

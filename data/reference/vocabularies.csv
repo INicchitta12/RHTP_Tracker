@@ -230,3 +230,7 @@ use_category_basis,NOT_STATED,Added session 123. None of the three applies. use_
 use_category_confidence,HIGH,Added session 123. use_category_basis AWARD_SOURCE.
 use_category_confidence,MEDIUM,Added session 123. use_category_basis INITIATIVE_CROSSWALK.
 use_category_confidence,LOW,Added session 123. use_category_basis PURPOSE_TEXT.
+use_category_basis,CMS_REPORT_HEADING,"Added session 124 (owner ruling). A category heading CMS prints over the programme's line in its Obligated Funds Report, tied to the plan's initiative by exact normalised name or a hand-reviewed line (config/use_category_cms_headings.csv). Sets the primary only where its letter is among the plan's letters; a conflict keeps the plan and is recorded. Confidence MEDIUM."
+use_category_text_method,NATIVE_TEXT,Added session 124. The INITIATIVE_CROSSWALK plan quote was read from the document's own text layer.
+use_category_text_method,OCR,"Added session 124 (owner ruling). The plan quote was read by OCR from page images (MS, MI, KY); admitted at MEDIUM with the images archived and each quoted line checked against its image."
+use_category_text_method,HAND_TRANSCRIBED,"Added session 124 (owner ruling). The plan quote was transcribed by hand from page renders (HI Appendix A); admitted at MEDIUM on the same terms as OCR."

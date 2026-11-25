@@ -122,7 +122,7 @@ test_that("the groups sum to awards published, and HOSPITAL to the hospital figu
   tot <- n[n$use_group_primary == "TOTAL", ]
   body <- n[n$use_group_primary != "TOTAL", ]
   us <- s[s$state == "US", ]
-  expect_equal(sum(body$award_usd), us$award_total_usd, tolerance = 0)
+  expect_equal(sum(body$award_usd), us$award_total_usd, tolerance = 1e-12)  # session 124: float summation order only
   expect_equal(round(sum(body$award_usd), 2), round(us$award_total_usd, 2))
   expect_equal(round(sum(body$hospital_usd), 2), round(us$hospital_summary_usd, 2))
   expect_equal(sum(body$rows), us$award_rows)
@@ -133,7 +133,7 @@ test_that("the groups sum to awards published, and HOSPITAL to the hospital figu
   gcols <- paste0(tolower(names(RHTP_USE_GROUP_LABELS)), "_usd")
   expect_equal(round(rowSums(bs[, gcols]), 2), round(bs$award_total_usd, 2))
   cs <- u$coverage_state
-  expect_equal(round(cs$award_source_usd + cs$crosswalk_usd + cs$purpose_text_usd + cs$not_stated_usd, 2),
+  expect_equal(round(cs$award_source_usd + cs$crosswalk_usd + cs$cms_heading_usd + cs$purpose_text_usd + cs$not_stated_usd, 2),
                round(cs$award_usd, 2))
   expect_equal(round(sum(u$basis$award_usd), 2), round(us$award_total_usd, 2))
 })
