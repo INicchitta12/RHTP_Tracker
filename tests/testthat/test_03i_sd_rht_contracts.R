@@ -230,7 +230,8 @@ test_that("Sanford Health and Avera Health are system parents, typed LOW on gene
   # CMS enrolment bridges of session 99 (subtractable on the same column).
   # Session 112: + the four hand-read bridges of the 2026-11-02 re-read.
   # Session 121: + four bridges (Winner x2, Vermillion, Marshall County) and Avera Health 00084.
-  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 15L)
+  # Session 125: + four bridges (Platte, Freeman, Brookings Health System x2).
+  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 19L)
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {

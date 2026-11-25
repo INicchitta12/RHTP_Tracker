@@ -87,8 +87,8 @@ test_that("the summary layer does not move the strict partition", {
   # Session 117a: + WV Cabell Huntington Hospital (1 / $1,544,313).
   # Session 117: TX 11/12 list (-3 / -$1,695,726.58), NE FSRS extras held (-3).
   # Session 118: FSRS 11-16 refresh and the owner's rulings (WA pool +$9.67M).
-  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 2390L)   # session 124: + FSRS 11-25, IN MTB priced   # session 122: + KS Labette   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx intents)   # session 120: FSRS 11-19, MN Murray County
-  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 2297215524.33)
+  expect_equal(s$rows[s$bucket == "NAMED_HOSPITAL"], 2396L)   # session 125: + 6 SD register, ME raise held   # session 124: + FSRS 11-25, IN MTB priced   # session 122: + KS Labette   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx intents)   # session 120: FSRS 11-19, MN Murray County
+  expect_equal(s$dollars[s$bucket == "NAMED_HOSPITAL"], 2308568502.33)
   expect_equal(s$dollars[s$bucket == "POOL_NAMED_HOSPITALS"], 96565779.43)
   expect_equal(s$dollars[s$bucket == "POOL_UNNAMED_HOSPITALS"], 79214848.17)
   # With the summary columns stripped, the partition is identical.

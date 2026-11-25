@@ -47,8 +47,9 @@ test_that("every sweep hit carries a hand-read verdict, and no EXACT verdict is 
   # Session 116c/d: + Sanford Medical Center (IA FSRS, SD CCN 430027), Texas
   # DSHS x3 (its own CCN 670125), both OWNER_RULING_NOT_APPLIED (ruling f), and
   # PA's The Guidance Center (AZ's Guidance Center, a different body): 78 -> 83.
-  expect_equal(nrow(sw), 83L)
-  expect_setequal(EH_READ_NOT_APPLIED$verdict, c("DIFFERENT_LEGAL_BODY", "OWNER_RULING_NOT_APPLIED"))
+  # Session 125: + SD City of Brookings (27RHT00141, EMS; its own CCN 430008), DEFERRED_TO_OWNER: 83 -> 84.
+  expect_equal(nrow(sw), 84L)
+  expect_setequal(EH_READ_NOT_APPLIED$verdict, c("DIFFERENT_LEGAL_BODY", "OWNER_RULING_NOT_APPLIED", "DEFERRED_TO_OWNER"))
   nj <- sw[sw$awardee == "National Jewish Health (Quitlink)", ]
   expect_equal(nrow(nj), 1L)
   expect_equal(nj$ccn, "060107")
