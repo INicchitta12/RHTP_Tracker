@@ -135,12 +135,14 @@ test_that("ND: the NAME tripwire still fires on a recipient named in an Awarded 
 })
 
 test_that("ND: a second heading turning 'Awarded' trips", {
-  hot <- sub("Hospital-Based Wellness Equipment – Closed",
-             "Hospital-Based Wellness Equipment – Awarded", nd_html,
+  # Session 124: Hospital-Based Wellness Equipment went "Awarded" and is now
+  # known; the fixture uses a round the archive still heads "Closed".
+  hot <- sub("Ensuring Safety Net Service Delivery – Closed",
+             "Ensuring Safety Net Service Delivery – Awarded", nd_html,
              fixed = TRUE)
   expect_false(identical(hot, nd_html))
   expect_error(nd_assert_headings(charToRaw(hot)),
-               "NEW OPPORTUNITY HEADED 'AWARDED'.*Hospital-Based")
+               "NEW OPPORTUNITY HEADED 'AWARDED'.*Ensuring Safety Net")
 })
 
 test_that("ND: a page with no headings is our reader, not North Dakota", {

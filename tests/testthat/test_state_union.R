@@ -641,7 +641,9 @@ test_that("named-hospital dollars and pooled dollars never merge", {
   # extras are applied: +$2,540,586.72, less two Memorial filings the
   # independent check paired to roster rows (-$339,999.92 on row 74 and
   # -$152,194.00) -> 27,430,085.75.
-  expect_equal(round(named$dollars[named$state == "NE"], 2), 27430085.75)
+  # Session 124: + FSRS 11-25 extras Providence Medical Center Wayne ($121,717.60)
+  # and Niobrara Valley Hospital ($198,458) -> 27,750,261.35.
+  expect_equal(round(named$dollars[named$state == "NE"], 2), 27750261.35)
   # Louisiana (session 64) named no hospital by FORM. Session 71: Ochsner Clinic
   # Foundation, a named Credit Bank awardee, is the enrolled legal entity of
   # Ochsner Medical Center (CCN 190036), so ONE named row enters at
