@@ -231,6 +231,9 @@ Rscript R/10_contract_registers.R --validate
 Rscript R/11_use_categories.R --apply        # session 123: use categories, LAST (after R/09b and R/07)
 Rscript R/11_use_categories.R --validate
 Rscript R/11_use_categories.R --report
+Rscript R/12_awardee_ranking.R --build <date>   # session 125: awardee ranking; after R/11, BEFORE R/08 (its Notes read it)
+Rscript R/12_awardee_ranking.R --validate       # identity rules + reconciliation, writes nothing
+Rscript R/12_awardee_ranking.R --candidates     # cross-state name collisions not yet joined or recorded
 Rscript R/07_summary_calls.R --apply           # LAST: summary calls, budget_period, AND the spend columns
 Rscript R/08_year1_summary.R --build           # + year1_vendor_summary_<date>.csv, the Vendor spending sheet
 Rscript R/09c_verified_vendor_list.R --xlsx    # verified_vendor_list_<date>.xlsx from the spend layer

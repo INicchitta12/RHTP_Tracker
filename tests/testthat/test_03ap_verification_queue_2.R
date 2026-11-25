@@ -627,6 +627,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # Session 124: FSRS 11-25 archive (ND 16 CAH rows + Linton foundation, NE 2,
   # WV War Memorial) and IN Meds-to-Beds priced (rows already at $0):
   # +20 / +$4,857,071.43: 2,390 / $2,297,215,524.33 / 43. Subtracted first.
+  # Session 125 (owner rulings a, b): SD register 11-25, six hospital rows
+  # (+$11,611,171) and ME's in-place FSRS raises held (-$258,193):
+  # +6 / +$11,352,978: 2,396 / $2,308,568,502.33 / 43. Subtracted first.
+  expect_equal(named$rows, 2396L)
+  expect_equal(round(named$dollars, 2), 2308568502.33, tolerance = 0)
+  expect_equal(named$states, 43L)
+  named$rows <- named$rows - 6L
+  named$dollars <- named$dollars - 11352978
   expect_equal(named$rows, 2390L)
   expect_equal(round(named$dollars, 2), 2297215524.33, tolerance = 0)
   expect_equal(named$states, 43L)

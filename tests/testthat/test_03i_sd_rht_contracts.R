@@ -40,18 +40,20 @@ test_that("122 contracts in the RHT series, $90,790,630, in four pools", {
   # file (+$36,541,264); Monument Health's $12,915,000 was HELD and is RELEASED on
   # the owner's ruling (SD's completion statement), so all 58 are in. The 11-20
   # live probe found one more (27RHT00139, Watertown SD 14-4, $43,200, ADMIN).
-  expect_equal(nrow(records), 122L)
-  expect_equal(sum(records$amount), 90790630)
+  # Session 125 (owner ruling b): the 2026-11-25 re-read added 16 (+$16,055,517):
+  # the 15 FSRS filings 27RHT00126-142 and Vision Care 27RHT00129 (15 unplaced, 1 CCBHC).
+  expect_equal(nrow(records), 138L)
+  expect_equal(sum(records$amount), 106846147)
   expect_true(all(grepl("RHT", records$contract_number)))
   rs <- records$round_id %in% "RS"
   un <- records$round_id %in% "UNPLACED"
   cc <- records$round_id %in% "CCBHC"
   expect_equal(sum(rs), 19L)
   expect_equal(sum(records$amount[rs]), 25318346)
-  expect_equal(sum(un), 72L)
-  expect_equal(sum(records$amount[un]), 45931196)
-  expect_equal(sum(cc), 10L)
-  expect_equal(sum(records$amount[cc]), 11257786)
+  expect_equal(sum(un), 87L)
+  expect_equal(sum(records$amount[un]), 61039059)
+  expect_equal(sum(cc), 11L)
+  expect_equal(sum(records$amount[cc]), 12205440)
   expect_equal(sum(!rs & !un & !cc), 21L)
   expect_equal(sum(records$amount[!rs & !un & !cc]), 8283302)
   expect_setequal(unique(records$award_pool),
@@ -110,7 +112,9 @@ test_that("none of the 15 is added on top of the $121.5M announced", {
   expect_lte(sum(records$amount[rs]), SD_RS_ROUND_AMOUNT)
   expect_lte(sum(rs), SD_RS_ROUND_GRANTS)
   expect_lte(sum(records$amount[un]), SD_TD_ROUND_AMOUNT)
-  expect_lte(sum(un), SD_TD_ROUND_GRANTS)
+  # session 125: the count cap is SD's own 234 Year 1 agreements (the 87 unplaced
+  # include non-technology awards); the dollar caps stand
+  expect_lte(nrow(records), SD_Y1_AGREEMENTS)
   expect_lte(sum(records$amount[rs | un]), SD_RS_ROUND_AMOUNT + SD_TD_ROUND_AMOUNT)
   expect_true(all(grepl("in\\s+neither case is it ever added to a round total",
                         records$determination_basis[un])))
@@ -197,10 +201,11 @@ test_that("no ADMINISTRATIVE dollar reaches a hospital; 13 RS and 11 unplaced ro
   hosp <- records[records$distributed_to_hospital == "Yes", ]
   # Session 112: + 7 unplaced hospital rows, +$2,515,882.
   # Session 121: + 16 rows, +$25,994,573 (14 unplaced incl. Monument $12,915,000, 1 RS, 1 CCBHC).
-  expect_equal(nrow(hosp), 40L)
-  expect_equal(sum(hosp$amount), 52943667)
+  # Session 125: + 6 unplaced (Fall River, Madison, Platte, Freeman, Brookings Health System x2), +$11,611,171.
+  expect_equal(nrow(hosp), 46L)
+  expect_equal(sum(hosp$amount), 64554838)
   expect_equal(sum(hosp$round_id == "RS"), 14L)
-  expect_equal(sum(hosp$amount[hosp$round_id %in% "UNPLACED"]), 29769768)
+  expect_equal(sum(hosp$amount[hosp$round_id %in% "UNPLACED"]), 41380939)
   expect_equal(sum(hosp$round_id %in% "CCBHC"), 1L)
   expect_true(all(hosp$recipient_type == "HOSPITAL_OR_SYSTEM"))
 })
@@ -225,7 +230,8 @@ test_that("Sanford Health and Avera Health are system parents, typed LOW on gene
   # CMS enrolment bridges of session 99 (subtractable on the same column).
   # Session 112: + the four hand-read bridges of the 2026-11-02 re-read.
   # Session 121: + four bridges (Winner x2, Vermillion, Marshall County) and Avera Health 00084.
-  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 15L)
+  # Session 125: + four bridges (Platte, Freeman, Brookings Health System x2).
+  expect_equal(sum(records$basis_type %in% "GENERAL_KNOWLEDGE"), 19L)
 })
 
 test_that("the two Community Memorial Hospitals are two hospitals, not one", {

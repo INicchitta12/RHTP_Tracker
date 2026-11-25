@@ -803,13 +803,15 @@ VV_NOTES <- c(
          "'administers' with no verified vendor dollars until HCA publishes the fee and the pass-through share. New York: named ",
          "by the Governor's 2026-11-16 release as the cybersecurity implementation partner (part of the $79.5M Tech/Cyber ",
          "initiative) with no amount; Open Book New York carries DOH contract T044019, 'RHTP 2026-2031', a contract MAXIMUM of ",
-         "$307,086,040 (07/01/2026-06/30/2031, $0 spent). HELD for an owner ruling, not on the verified list. Neither enters a vendor figure."),
+         "$307,086,040 (07/01/2026-06/30/2031, $0 spent). OWNER RULING (session 125): kept OFF the verified list, a vendor lead only. Neither enters a vendor figure."),
   paste0("NEW YORK'S THREE IMPLEMENTATION PARTNERS ARE PRICED ONLY AS CONTRACT MAXIMUMS (session 124; ",
          "data/reference/ny_rhtp_contract_leads.csv): Primary Care Development Corporation T044018 $169,500,000 (08/2026-08/2027), ",
          "Public Consulting Group T044016 $154,205,000 (07/2026-06/2031), Accenture LLP T044019 $307,086,040. Together $630,791,040, ",
          "MORE than New York's whole FY2026 + FY2027 RHTP award ($419,808,278.74). All three are OSC type T (not pre-audited), ",
-         "spending to date $0. Held for an owner ruling: they would multiply the verified contract-maximum line roughly 25-fold. ",
-         "No vendor address is shown, so the out-of-state test cannot be run from this source."))
+         "spending to date $0. OWNER RULING (session 125): kept out of the verified list as vendor leads; no ceiling enters any total. ",
+         "Each Open Book record reads 'RHTP 2026-2031' with a 2026 start, no earlier contract and no amendment: RHTP-specific ",
+         "contracts on their face, not broader DOH contracts that RHTP work was added to. Open Book shows no funding source for a ",
+         "T contract (NOT_SHOWN) and no vendor address, so the out-of-state test cannot be run from this source."))
 
 #' Every verified 116e case with the row that carries it in the spend layer
 vv_layer_cases <- function(b = vv_build(write = FALSE)) {

@@ -317,10 +317,10 @@ Y1_STATUS <- tibble::tribble(
   "RHIT, RHOAP and a Tribal section have since awarded (155 named actions, session 64), but the Presidential Fitness Test, Correctional and Veterans opportunities still have no section, and NVHA: 'All RHT subawards for BP1 to be finalized by October 1, 2026' (session 26).",
   "data/evidence/NV/2026-09-24_nv_rht_funded_projects_bp1.html; data/evidence/NV/2026-06-09_nv_rhtsc_program_fiscal_update.pdf",
 
-  "MO", "PARTIAL", "No", "Yes",
-  "2026-09-23",
-  "DSS: the ToRCH Care Smart Growth IFB is 'part of a multi-phase funding strategy' spanning Program Years 1 and 2, and its timeline reads 'Aug - Sept 2026 Announce select procurement awardees'. The 20 SMRP hospital awards are named but unpriced.",
-  "data/evidence/MO/2026-09-23_dss_rural_health.html; data/evidence/MO/2026-09-23_dss_smrp_awardees.html",
+  "MO", "PARTIAL", "Yes", "Yes",
+  "2026-11-12",
+  "DSS, 2026-11-12: 'Missouri has committed $216 million in first-year funding through the Rural Health Transformation Program (RHTP)' -- a full-commitment statement (source_calls_complete = Yes, WA's and NC's shape). The same release names a known remainder: 'Missouri is preparing an additional $55 million in funding opportunities through 2026 to support workforce retention, telehealth expansion, remote patient monitoring, mobile health units, and rural care certifications' (the 11-06 opportunities, Tier 2, unawarded). PARTIAL on the owner's ruling (session 125, Task 0c): a committed total with a named unawarded remainder is not COMPLETE. Earlier: the Smart Growth IFB 'part of a multi-phase funding strategy' (2026-09-23).",
+  "data/evidence/recheck/2026-11-13/MO/2026-11-13_mo_dss_commits_216m_first_year.html; data/evidence/MO/2026-09-23_dss_rural_health.html",
 
   "NH", "PARTIAL", "No", "Yes",
   "2026-09-01",

@@ -497,7 +497,28 @@ ys_notes <- function(s, date, rows) {
     ys_fsrs_note(),
     "NATIONAL ALLOTMENT. National allotment sums to $10,000,000,003 because each state's allotment is rounded to the dollar.",
     "NEW HAMPSHIRE. The $17.5M Critical Access and Acute Care Hospital RFA (inside the Foundation for Healthy Communities award, called HOSPITAL) has not yet awarded: FHC's notification of award for its initial cohort is due mid-December 2026.",
-    paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail).")))
+    paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail)."),
+    ys_awardee_lines(date)))
+}
+
+# SESSION 125: the awardee ranking (R/12) feeds two lines and the top-25 table
+# into the Notes. R/12 runs BEFORE R/08 in the standard rebuild and writes
+# data/reference/awardee_ranking_<date>.csv; R/08 only reads it.
+YS_AWARDEE_RANK <- function(date) file.path("data", "reference", paste0("awardee_ranking_", date, ".csv"))
+ys_awardee_lines <- function(date) {
+  p <- here::here(YS_AWARDEE_RANK(date))
+  if (!file.exists(p)) return(paste0("AWARDEE RANKING. Not built for ", date, " (run R/12_awardee_ranking.R --build ", date, " before R/08)."))
+  r <- readr::read_csv(p, show_col_types = FALSE, progress = FALSE)
+  top <- r[!is.na(r$rank), , drop = FALSE]
+  top <- top[order(top$rank), , drop = FALSE][seq_len(min(25, nrow(top))), , drop = FALSE]
+  f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
+  c(paste0("AWARDEE RANKING (R/12; output/awardee_ranking_", date, ".xlsx, team copy _team.xlsx without Delaware). ",
+           sum(r$multi_state), " awardee entities hold Year 1 awards in two or more states; each is joined on a UEI, EIN, CMS CCN or a hand review ",
+           "with its basis quoted, never on a name alone (CLAUDE.md §7). Ranked on award + intent dollars; CMS obligation lines and contract maximums ",
+           "are separate columns, a row naming several organisations with no split is never divided, and NM Accenture is held out."),
+    paste0("TOP 25 AWARDEES BY YEAR 1 AWARD DOLLARS: ",
+           paste0(top$rank, ". ", top$awardee, " ", f(top$total_award_usd), " (", top$states, "; ", top$recipient_type, "; ",
+                  top$summary_call, ifelse(top$confidential, "; CONFIDENTIAL: Delaware", ""), ")", collapse = " | ")))
 }
 
 #' One row per state: the primary source document(s) and their archive paths

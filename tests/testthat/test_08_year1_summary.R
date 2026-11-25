@@ -36,18 +36,18 @@ test_that("the 2026-11-09 totals are pinned (session 116c)", {
   # Session 115: + WV CAMC $3,930,266 -> 4,096,207,624.46.
   # Session 116c: FSRS priced $0 rows and added 684 new rows -> 5,735,713,681.34.
   # Session 117: TX 11/12 list (-$2,047,938.82 Year 1) and NE FSRS extras held (-$10,319,625).
-  expect_equal(round(us$published_priced_usd, 2), 6145444538.35, tolerance = 1e-12)   # session 121: + WI, SD register, WV roster, TN HART, ND FSRS, OK   # session 120: + FSRS 11-19 (ME, MN, TN, NC) and OH ORHA   # session 119: -131,763,851.17 (NM Accenture held out, CT de-obligations, OK SWOSU and KS DCF paired)   # session 118: 5740322597.74 -> 5950874531.59
+  expect_equal(round(us$published_priced_usd, 2), 6156821918.60, tolerance = 1e-12)   # session 125: KY -1,693,658, ME -3,253,198.57, NC -44,000, NE +312,719.83 (FSRS amendments), SD +16,055,517 (register 11-25)   # session 121: + WI, SD register, WV roster, TN HART, ND FSRS, OK   # session 120: + FSRS 11-19 (ME, MN, TN, NC) and OH ORHA   # session 119: -131,763,851.17 (NM Accenture held out, CT de-obligations, OK SWOSU and KS DCF paired)   # session 118: 5740322597.74 -> 5950874531.59
   # Session 114: 4,512,205,898.91 -> 4,556,066,882.39 (+ MO $39,400,820.55,
   # + OK CHW Expansion pool $4,460,162.93, on no row).
   # Session 115: + WV CAMC $3,930,266.
   # Session 116c: 4,559,997,148.39 -> 6,189,503,205.27 (FSRS).
   # Session 117a: + WV's 11-10 release, $16,976,480 (every US pin below moves
   # by exactly that release: + $1,544,313 Cabell Huntington Hospital).
-  expect_equal(round(us$award_total_usd, 2), 6550043828.28, tolerance = 1e-12)   # session 121: +195,038,885.50   # session 120: +59,804,956.71   # session 117: -$12,367,563.60 (TX, NE)   # session 118: 6194112121.67 -> 6404664055.52
+  expect_equal(round(us$award_total_usd, 2), 6545365691.53, tolerance = 1e-12)   # session 125: -4,678,136.75 (FSRS amendments in place; SD's register rows sit inside its rounds)   # session 121: +195,038,885.50   # session 120: +59,804,956.71   # session 117: -$12,367,563.60 (TX, NE)   # session 118: 6194112121.67 -> 6404664055.52
   # Session 114: + MO's 14 hospital rows, $31,862,169.80.
   # Session 115: + WV CAMC's three hospital rows, $3,930,266.
   # Session 116c: + FSRS strict named dollars (+$360,669,892.98).
-  expect_equal(round(us$hospital_coded_usd, 2), 2356733460.15, tolerance = 1e-12)   # session 121: +68,879,545.52   # session 120: +17,190,075   # session 117: -$4,236,313.30 (TX -$1,695,726.58, NE -$2,540,586.72)   # session 118: 2227251182.40 -> 2263784174.20
+  expect_equal(round(us$hospital_coded_usd, 2), 2368086438.15, tolerance = 1e-12)   # session 125: SD +11,611,171, ME -258,193   # session 121: +68,879,545.52   # session 120: +17,190,075   # session 117: -$4,236,313.30 (TX -$1,695,726.58, NE -$2,540,586.72)   # session 118: 2227251182.40 -> 2263784174.20
   # Session 116c: + VHHA Foundation $27,201,764 (association ruling, now priced).
   expect_equal(round(us$hospital_best_judgment_usd, 2), 253109128.19, tolerance = 1e-12)   # session 118: 243439128.19 -> 269809128.19
   expect_equal(round(us$hospital_bj_row_usd, 2), 184285089.26, tolerance = 1e-12)   # session 118: 174615089.26 -> 184285089.26
@@ -58,8 +58,8 @@ test_that("the 2026-11-09 totals are pinned (session 116c)", {
   # NH FHC's CAH and Acute Care Hospital RFA, "approximately $17.5 million" (ruling a).
   # Session 116d (ruling a): + VHHA Foundation RPM $14,837,326 and GME $9,891,550.
   expect_equal(round(us$hospital_bj_component_usd, 2), 42228876)
-  expect_equal(round(us$hospital_summary_usd, 2), 2609842588.34, tolerance = 1e-12)   # session 121: WI +32,216,238, SD +25,994,573, WV +9,945,786, ND +524,116, TN +148,832, OK +50,000   # session 120: ME +15,543,284, MN +1,646,791   # session 119: 2533593302.39 -> 2518590896.39 (IN -16.7M, MN Pipestone +1,697,594)   # session 118: 2470690310.59 -> 2533593302.39
-  expect_equal(round(us$strict_named_hospital_usd, 2), 2297215524.33, tolerance = 1e-12)   # session 121   # session 120   # session 119: + MN Pipestone   # session 118: 2167733246.58 -> 2204266238.38
+  expect_equal(round(us$hospital_summary_usd, 2), 2621195566.34, tolerance = 1e-12)   # session 125: SD +11,611,171, ME -258,193   # session 121: WI +32,216,238, SD +25,994,573, WV +9,945,786, ND +524,116, TN +148,832, OK +50,000   # session 120: ME +15,543,284, MN +1,646,791   # session 119: 2533593302.39 -> 2518590896.39 (IN -16.7M, MN Pipestone +1,697,594)   # session 118: 2470690310.59 -> 2533593302.39
+  expect_equal(round(us$strict_named_hospital_usd, 2), 2308568502.33, tolerance = 1e-12)   # session 125   # session 121   # session 120   # session 119: + MN Pipestone   # session 118: 2167733246.58 -> 2204266238.38
   expect_equal(round(us$strict_pool_named_hospitals_usd, 2), 96565779.43)   # session 118: 86895779.43 -> 96565779.43
   expect_equal(round(us$strict_pool_unnamed_hospitals_usd, 2), 79214848.17)
   expect_equal(round(us$layer_association_ruling_usd, 2), 187258340.60)
@@ -67,17 +67,17 @@ test_that("the 2026-11-09 totals are pinned (session 116c)", {
   # Session 114: + MO's four CAHs (Hermann, Mercy Perry, Scotland, Washington
   # County), $7,305,357.76.
   # Session 116c: FSRS rows typed on CMS enrolment -> 673,247,294.36.
-  expect_equal(round(us$strict_rural_cut_usd, 2), 738800784.92)   # session 121: WI 21 CAH rows, SD, ND, WV, TN   # session 120: ME CAHs, Murray, Graceville   # session 119: + Pipestone CAH   # session 117: - Yoakum x2, LLano (TX, rural)   # session 118: 671551567.78 -> 696097519.78
+  expect_equal(round(us$strict_rural_cut_usd, 2), 746533943.92)   # session 125: SD 4 CAHs   # session 121: WI 21 CAH rows, SD, ND, WV, TN   # session 120: ME CAHs, Murray, Graceville   # session 119: + Pipestone CAH   # session 117: - Yoakum x2, LLano (TX, rural)   # session 118: 671551567.78 -> 696097519.78
   # session 114: 631 -> 639 (OK CHW 3, MO SG 5); session 115: -1 (CA Legacy MD
   # Medical Group now CODED as PHYSICIAN_PRACTICE).
   # Session 116c: + 220 (FSRS new rows judged NOT_HOSPITAL by class, and others).
-  expect_equal(us$best_judgment_rows, 967L)   # session 124: + FSRS 11-25 default rows   # session 122: + MO Kids Win (default row)   # session 121: + WI, SD, WV, ND default rows   # session 120: + FSRS 11-19 default rows   # session 119: + 5 IN GROW reinstated, - SWOSU and KS DCF FSRS rows (paired)  # session 117a: + 2 ROAM WV rows (default); session 117: - 1 (TX withdrawn line)   # session 118: 840 -> 851
+  expect_equal(us$best_judgment_rows, 975L)   # session 125: + SD register default rows   # session 124: + FSRS 11-25 default rows   # session 122: + MO Kids Win (default row)   # session 121: + WI, SD, WV, ND default rows   # session 120: + FSRS 11-19 default rows   # session 119: + 5 IN GROW reinstated, - SWOSU and KS DCF FSRS rows (paired)  # session 117a: + 2 ROAM WV rows (default); session 117: - 1 (TX withdrawn line)   # session 118: 840 -> 851
   # + 29 OK CHW (session 114); - AVEM Health Partners (session 115, owner ruling a).
   # Session 116 (same-date rebuild): + 4 IA Combat Cancer Round 2 intents at $0.
   # Session 116c: 301 -> 219, FSRS priced Iowa's and others' $0 hospital rows.
   expect_equal(us$named_hospital_recipients_no_amount, 250L)   # session 124: IN Meds-to-Beds 11 priced, + FSRS hospital rows   # session 121: + IN Meds-to-Beds, Parkview Goshen, less WV rows priced   # session 119: + Bluffton Health System   # session 118: 218 -> 245
-  expect_equal(us$hospital_share_of_awards_pct, 39.8)   # session 124   # session 121   # session 120   # session 119   # session 118: 39.9 -> 39.6
-  expect_equal(us$hospital_share_of_allotment_pct, 26.1)   # session 124   # session 121   # session 120   # session 119   # session 118: 24.7 -> 25.3
+  expect_equal(us$hospital_share_of_awards_pct, 40.0)   # session 125   # session 124   # session 121   # session 120   # session 119   # session 118: 39.9 -> 39.6
+  expect_equal(us$hospital_share_of_allotment_pct, 26.2)   # session 125   # session 124   # session 121   # session 120   # session 119   # session 118: 24.7 -> 25.3
 })
 
 test_that("the change from the pre-FSRS 11-09 build is exactly the session 116c FSRS changes, state by state", {
@@ -94,12 +94,12 @@ test_that("the change from the pre-FSRS 11-09 build is exactly the session 116c 
   # paired); WA +9,670,000 (pool); NE +2,048,392.80; VT -2,000,000 (to zero); TN +643,500;
   # OK +275,156.
   expect_equal(round(us$hospital_summary_usd - 2075115137.63, 2),
-               round(398267173.26 + 1544313 - 4236313.30 + 62902991.80 - 15002406 + 17190075 + 68879545.52 + 325000 + 4857071.43, 2))   # session 124: FSRS 11-25 + IN MTB   # session 122: KS Labette IFTp   # session 121: WI, SD, WV, ND, TN, OK   # session 120: ME +15,543,284, MN +1,646,791   # session 119: IN -16,700,000, MN +1,697,594
+               round(398267173.26 + 1544313 - 4236313.30 + 62902991.80 - 15002406 + 17190075 + 68879545.52 + 325000 + 4857071.43 + 11352978, 2))   # session 125: SD register +11,611,171, ME -258,193   # session 124: FSRS 11-25 + IN MTB   # session 122: KS Labette IFTp   # session 121: WI, SD, WV, ND, TN, OK   # session 120: ME +15,543,284, MN +1,646,791   # session 119: IN -16,700,000, MN +1,697,594
   expect_equal(d("hospital_summary_usd"),
                c(CT = 15005890 - 13116917, DE = 3291276, IA = 163815846.2, IL = 53821674.53, IN = 885195,
-                 KS = 1950110 + 325000, KY = 4348529, ME = 258193 + 15543284 + 258193, MN = 68840377 + 48682860 + 1697594 + 1646791, NC = 14550000,
+                 KS = 1950110 + 325000, KY = 4348529, ME = 258193 + 15543284 + 258193 - 258193, MN = 68840377 + 48682860 + 1697594 + 1646791, NC = 14550000,
                  ND = 8751588.75 + 524116.12 + 2173507.8, NE = 12987780.26 - 2540586.72 + 2048392.80 + 320175.6, NV = 997361,
-                 OK = 136594 + 275156 + 50000 + 220000, SD = 25994573, TN = 16699481.52 + 643500 + 148832.40, TX = -1695726.58, VA = 24728876,
+                 OK = 136594 + 275156 + 50000 + 220000, SD = 25994573 + 11611171, TN = 16699481.52 + 643500 + 148832.40, TX = -1695726.58, VA = 24728876,
                  WA = 9670000, WI = 32216238, WV = 6083596 + 1544313 + 9945786 + 1000000))   # session 124: IN Meds-to-Beds, FSRS 11-25   # session 121
   # strict moves in the same states less VA (its $24.7M are the VHHA components,
   # a best-judgment figure) and IA by $733,005 less (Sanford Medical Center, a
@@ -191,7 +191,7 @@ test_that("the Vendor spending table: verified only, never across types, nationa
                  vt[[paste0("vendor_total_", tn, "_usd")]], info = tn)
   }
   # the hospital columns on this sheet are Detail's, unchanged
-  expect_equal(round(usv$hospital_summary_usd, 2), 2609842588.34)   # session 124   # session 121; 2535780971.39 session 120; 2518590896.39 session 119   # session 118 (2,470,690,310.59 in session 117)
+  expect_equal(round(usv$hospital_summary_usd, 2), 2621195566.34)   # session 125   # session 124   # session 121; 2535780971.39 session 120; 2518590896.39 session 119   # session 118 (2,470,690,310.59 in session 117)
   # within a type the categories add to the total
   for (tn in c("award", "intent", "contract_maximum", "obligation")) {
     parts <- grep(paste0("^vendor_(consultant|data_tech_vendor|administrator|non_provider_intermediary)_", tn, "_usd$"),
@@ -281,7 +281,7 @@ test_that("Hospital % of awards is n/m below 50% of the allotment, in Overview a
   # Session 121: Wisconsin's award tables put it at 73.3% published; its share prints.
   expect_equal(round(100 * as.numeric(ov[["Hospital % of awards"]][ov$State == "Wisconsin"]), 1), 21.6)
   # Session 116d (owner ruling b): the national share prints.
-  expect_equal(round(100 * as.numeric(ov[["Hospital % of awards"]][ov$State == "National (50 states)"]), 1), 39.8)   # session 124  # session 121: 40.0 -> 39.9  # session 120: 40.2 -> 40.0  # session 119: 39.6 -> 40.2  # session 118: 39.9 -> 39.6; session 117a: 40.0 -> 39.9 (WV awards +$17.0M, hospital +$1.5M)
+  expect_equal(round(100 * as.numeric(ov[["Hospital % of awards"]][ov$State == "National (50 states)"]), 1), 40.0)   # session 125   # session 124  # session 121: 40.0 -> 39.9  # session 120: 40.2 -> 40.0  # session 119: 39.6 -> 40.2  # session 118: 39.9 -> 39.6; session 117a: 40.0 -> 39.9 (WV awards +$17.0M, hospital +$1.5M)
   dt <- openxlsx::read.xlsx(ov_x, "Detail")
   dm <- ss_award(s) / s$allotment_usd >= 0.5
   expect_true(all(dt$hospital_share_of_awards_pct[!dm] == "n/m"))
@@ -406,11 +406,11 @@ test_that("the second national row: states with >=50% published on state award s
   # own session 112 changes.
   # Session 116c (n = 32).
   expect_equal(round(ge$allotment_usd, 2), 7207367904.00)   # session 121: + WI, WV   # session 119: NM out   # session 118: 6429873667 -> 7015706541.00
-  expect_equal(round(ge$award_total_usd, 2), 5688411909.90, tolerance = 1e-12)   # session 121: + WI, WV and members' moves   # session 120: MN +422,629, OH +1,000,000   # session 119   # session 117: TX, NE   # session 118: 5165708788.33 -> 5574558778.50
-  expect_equal(round(ge$hospital_summary_usd, 2), 2393258174.03, tolerance = 1e-12)   # session 121   # session 120: MN +1,646,791   # session 119   # session 118: 2129504777.63 -> 2317774646.43
-  expect_equal(round(ge$strict_named_hospital_usd, 2), 2118945955.19, tolerance = 1e-12)   # session 121   # session 120   # session 119   # session 118: 1912292558.79 -> 2026762427.59
-  expect_equal(ge$hospital_share_of_awards_pct, 42.1)   # session 121   # session 119   # session 118: 41.2 -> 41.6
-  expect_equal(ge$hospital_share_of_allotment_pct, 33.2)   # session 121   # session 120   # session 119   # session 117: 33.2 -> 33.1   # session 118: 33.1 -> 33.0
+  expect_equal(round(ge$award_total_usd, 2), 5688724629.72, tolerance = 1e-12)   # session 125: NE +312,719.83   # session 121: + WI, WV and members' moves   # session 120: MN +422,629, OH +1,000,000   # session 119   # session 117: TX, NE   # session 118: 5165708788.33 -> 5574558778.50
+  expect_equal(round(ge$hospital_summary_usd, 2), 2404869345.03, tolerance = 1e-12)   # session 125: SD +11,611,171   # session 121   # session 120: MN +1,646,791   # session 119   # session 118: 2129504777.63 -> 2317774646.43
+  expect_equal(round(ge$strict_named_hospital_usd, 2), 2130557126.19, tolerance = 1e-12)   # session 125   # session 121   # session 120   # session 119   # session 118: 1912292558.79 -> 2026762427.59
+  expect_equal(ge$hospital_share_of_awards_pct, 42.3)   # session 125   # session 121   # session 119   # session 118: 41.2 -> 41.6
+  expect_equal(ge$hospital_share_of_allotment_pct, 33.4)   # session 125   # session 121   # session 120   # session 119   # session 117: 33.2 -> 33.1   # session 118: 33.1 -> 33.0
   # a subset of the national row, never more
   for (col in c("allotment_usd", "award_total_usd", "hospital_summary_usd", "strict_named_hospital_usd")) {
     expect_true(ge[[col]] <= us[[col]], info = col)
@@ -420,8 +420,8 @@ test_that("the second national row: states with >=50% published on state award s
   expect_equal(g[["FY2026 allotment"]], ge$allotment_usd)
   expect_equal(g[["Awards published"]], ge$award_total_usd)
   expect_equal(g[["Hospital $ (best estimate)"]], ge$hospital_summary_usd)
-  expect_equal(round(100 * as.numeric(g[["Hospital % of awards"]]), 1), 42.1)   # session 121   # session 119   # session 118 (41.2)
-  expect_equal(round(100 * g[["Hospital % of allotment"]], 1), 33.2)   # session 121   # session 120   # session 119   # session 118 (33.1)
+  expect_equal(round(100 * as.numeric(g[["Hospital % of awards"]]), 1), 42.3)   # session 121   # session 119   # session 118 (41.2)
+  expect_equal(round(100 * g[["Hospital % of allotment"]], 1), 33.4)   # session 121   # session 120   # session 119   # session 118 (33.1)
   expect_equal(g[["Strict named-hospital $"]], ge$strict_named_hospital_usd)
   expect_true(is.na(g[["% of allotment awarded"]]))
   expect_true(is.na(g[["Hospitals named, no amount"]]))
@@ -429,7 +429,7 @@ test_that("the second national row: states with >=50% published on state award s
   expect_false(ov[["Hospital % of awards"]][51] == "n/m")
   dt <- openxlsx::read.xlsx(ov_x, "Detail")
   expect_equal(dt$state[52], "US_GE50")
-  expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 42.1)   # session 121   # session 119
+  expect_equal(round(100 * as.numeric(dt$hospital_share_of_awards_pct[52]), 1), 42.3)   # session 121   # session 119
 })
 
 test_that("the subset drops CMS files, refuses a mixed file, and refuses a CMS dollar", {
