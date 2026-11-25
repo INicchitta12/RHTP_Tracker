@@ -52,6 +52,11 @@ RTL_SITEMAP <- file.path(RTL_DIR, "sitemap.xml")
 # SESSION 122: the sitemap was re-based to 2026-11-23 after the 43 new pages
 # were read; the awards-page link baseline stays at 2026-11-16, because every
 # awards page is access-gated now and carries no body link to re-base to.
+# SESSION 124 (owner Task 6): the state award pages sit behind an access
+# request. This check therefore yields OPPORTUNITY leads only (sitemap pages
+# under /opportunities/); it never requests access and never works around the
+# gate. The awards-link comparison stays on the 11-16 baseline and can no
+# longer surface a new award link. Weekly run kept (Fri 20:23Z).
 RTL_LINKS <- file.path("data", "evidence", "leads", "rhtptracker", "2026-11-16",
                        "state_awards_official_links.csv")
 RTL_AGENT <- "Mozilla/5.0 (compatible; AHA-RHTP-Tracker/0.1; +https://www.aha.org)"
