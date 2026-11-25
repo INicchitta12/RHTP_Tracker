@@ -1469,6 +1469,14 @@ the action date is after 2026-10-30. `R/09b_fsrs_award_source.R` reads the archi
 - **De-obligations (session 119).** A negative FSRS amount nets against its subaward (same state, subaward number,
   UEI): it reduces the earliest written positive action of that key dated before it, stated in `amount_basis`, and is
   listed `NETTED_DEOBLIGATION` in `fsrs_held.csv`. With no written base it stays `HELD_NEGATIVE_AMOUNT` (CT's six net).
+- **Amendments in place (session 125, owner ruling).** A state can re-file a subaward under the same SAM report id
+  with a new amount; `fsrs_amendments()` walks every archive. A re-filing that LOWERS the amount nets like a
+  de-obligation (accepted; `AMENDED_DOWN` in `fsrs_held.csv` with both amounts). One that RAISES it, dated after
+  2026-10-30 (the new action date if the re-filing moved it, else the report's last-modified date), is a Year 2
+  increment: Year 1 keeps the prior amount and the increment is `BUDGET_PERIOD_2_HELD`, unless
+  `config/fsrs_amendment_increase_dates.csv` holds a state source dating the increase on or before 10-30. FSRS
+  carries no subaward period of performance, so an extension cannot be read. Maine's ten 11-23 doublings are held
+  increments; Kentucky FHKY's decrease is accepted. Pinned in `test_09b_amendments_in_place.R`.
 - **A state's own FSRS filing outranks its programme page (session 119, owner ruling).** A member a state removed from
   a page but still pays on a live FSRS subaward counts as a member (Indiana GROW: five reinstated; Region 5 7-of-14, a tie).
 - **What it is not.** FSRS shows subawards only: state procurement contracts are not reportable (2 CFR 170),

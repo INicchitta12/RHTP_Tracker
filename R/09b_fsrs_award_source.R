@@ -135,6 +135,100 @@ fsrs_raw <- function(as_of = FSRS_AS_OF) {
     )
 }
 
+# SESSION 125, OWNER RULING (a): FSRS AMENDMENTS IN PLACE. A state can re-file a
+# subaward under the SAME SAM report id with a new amount (Maine's ten CD-series
+# subawards doubled on 11-23; Kentucky's Foundation for a Healthy Kentucky fell
+# $50,490,600 -> $41,388,100). One archive cannot show this; the archive SERIES
+# can. fsrs_amendments() walks every archive up to FSRS_AS_OF, per report id:
+#   * a re-filing that LOWERS the amount nets like a de-obligation: the lower
+#     amount is the Year 1 amount (accepted), listed AMENDED_DOWN in
+#     fsrs_held.csv with both amounts;
+#   * a re-filing that RAISES the amount is a Year 2 increment when the
+#     amendment is dated after 2026-10-30: Year 1 keeps the prior amount and the
+#     increment is listed BUDGET_PERIOD_2_HELD. The amendment's date is the new
+#     action date where the re-filing moved it, else the report's last-modified
+#     date (USAspending carries no subaward period of performance, so an
+#     extension cannot be read; the date test is the whole test here). A raise
+#     dated on or before 2026-10-30, or one a state source dates there
+#     (config/fsrs_amendment_increase_dates.csv), is accepted.
+# The first archive's amount is the baseline: a re-filing before 2026-11-09 is
+# invisible to this rule (the earliest archive is 11-09).
+FSRS_AMEND_INCREASE_DATES <- "config/fsrs_amendment_increase_dates.csv"
+
+fsrs_archive_dates <- function(as_of = FSRS_AS_OF) {
+  d <- basename(list.dirs(here::here("data", "raw", "usaspending"), recursive = FALSE))
+  sort(d[grepl("^\\d{4}-\\d{2}-\\d{2}$", d) & d <= as_of])
+}
+
+fsrs_increase_dates <- function(path = FSRS_AMEND_INCREASE_DATES) {
+  if (!file.exists(here::here(path))) return(tibble::tibble(fsrs_id = character(0), state_source_date = character(0)))
+  x <- readr::read_csv(here::here(path), col_types = readr::cols(.default = "c"), na = c("", "NA"), progress = FALSE)
+  need <- c("fsrs_id", "state_source_date", "source_archive", "source_quote", "reviewer")
+  if (length(setdiff(need, names(x)))) stop("[fsrs] ", path, " lacks: ", paste(setdiff(need, names(x)), collapse = ", "), call. = FALSE)
+  if (any(x$state_source_date > FSRS_BP1_END)) stop("[fsrs] an increase dated after 2026-10-30 cannot be Year 1.", call. = FALSE)
+  miss <- x$source_archive[!file.exists(here::here(x$source_archive))]
+  if (length(miss)) stop("[fsrs] increase-date archives not on disk: ", paste(miss, collapse = ", "), call. = FALSE)
+  x
+}
+
+#' Per SAM report id whose amount changed between archives: the Year 1 amount
+#' and the history (session 125 owner ruling a)
+fsrs_amendments <- function(as_of = FSRS_AS_OF, raws = NULL, increase_dates = fsrs_increase_dates()) {
+  if (is.null(raws)) {
+    ds <- fsrs_archive_dates(as_of)
+    raws <- stats::setNames(lapply(ds, fsrs_raw), ds)
+  }
+  ds <- names(raws)
+  h <- dplyr::bind_rows(lapply(ds, function(d) raws[[d]] %>%
+    dplyr::transmute(archive = d, fsrs_id, st, name, subaward_number, uei, amount, action_date,
+                     last_modified = substr(last_modified, 1, 10))))
+  ch <- h %>% dplyr::group_by(fsrs_id) %>%
+    dplyr::filter(dplyr::n_distinct(round(amount, 2)) > 1) %>% dplyr::arrange(archive, .by_group = TRUE)
+  empty <- tibble::tibble(fsrs_id = character(0), st = character(0), name = character(0),
+                          first_amount = numeric(0), latest_amount = numeric(0), year1_amount = numeric(0),
+                          held_increment = numeric(0), amendment_kind = character(0), history = character(0))
+  if (!nrow(ch)) return(empty)
+  out <- lapply(split(ch, ch$fsrs_id), function(x) {
+    y <- x$amount[1]; ad <- x$action_date[1]; held <- 0; kinds <- character(0); hist <- character(0)
+    for (i in seq_len(nrow(x))[-1]) {
+      a <- x$amount[i]
+      if (abs(a - x$amount[i - 1]) < 0.005) { ad <- x$action_date[i]; next }
+      amend_date <- if (x$action_date[i] != ad) x$action_date[i] else x$last_modified[i]
+      inc_dated <- x$fsrs_id[1] %in% increase_dates$fsrs_id
+      if (a < y - 0.005) {
+        kinds <- c(kinds, "AMENDED_DOWN"); y <- a; held <- 0
+      } else if (a > y + 0.005) {
+        if (amend_date <= FSRS_BP1_END || inc_dated) {
+          kinds <- c(kinds, if (inc_dated) "AMENDED_UP_STATE_DATED" else "AMENDED_UP_IN_BP1"); y <- a; held <- 0
+        } else {
+          kinds <- c(kinds, "AMENDED_UP_YEAR2_INCREMENT"); held <- a - y
+        }
+      }
+      hist <- c(hist, sprintf("%s: $%s -> $%s (action %s, report modified %s; amendment dated %s)",
+                              x$archive[i], format(round(x$amount[i - 1], 2), big.mark = ",", nsmall = 2),
+                              format(round(a, 2), big.mark = ",", nsmall = 2), x$action_date[i],
+                              x$last_modified[i], amend_date))
+      ad <- x$action_date[i]
+    }
+    tibble::tibble(fsrs_id = x$fsrs_id[1], st = x$st[1], name = x$name[1],
+                   first_amount = x$amount[1], latest_amount = x$amount[nrow(x)],
+                   year1_amount = round(y, 2), held_increment = round(held, 2),
+                   amendment_kind = paste(unique(kinds), collapse = ";"),
+                   history = paste(hist, collapse = " | "))
+  })
+  dplyr::bind_rows(empty, dplyr::bind_rows(out)) %>% dplyr::arrange(st, name)
+}
+
+#' The current archive with each amended record carrying its Year 1 amount
+fsrs_amended_raw <- function(as_of = FSRS_AS_OF, am = fsrs_amendments(as_of)) {
+  r <- fsrs_raw(as_of)
+  i <- match(r$fsrs_id, am$fsrs_id)
+  hit <- !is.na(i)
+  r$amount_as_filed <- r$amount
+  r$amount[hit] <- am$year1_amount[i[hit]]
+  r
+}
+
 # SESSION 121, OWNER RULING: WHICH DATE DECIDES YEAR 1. A row is Year 1
 # (budget_period 1) if a STATE SOURCE shows the award or contract was executed
 # or started on or before 2026-10-30, even when its FSRS filing is dated later.
@@ -196,7 +290,7 @@ fsrs_year1_basis_text <- function(ids, records) {
 }
 
 #' The amendment rule: every record with its disposition
-fsrs_dispose <- function(raw = fsrs_raw(), state_dates = fsrs_state_dates()) {
+fsrs_dispose <- function(raw = fsrs_amended_raw(), state_dates = fsrs_state_dates()) {
   sd <- state_dates %>% dplyr::select(st = state, subaward_number, uei, state_source_date, date_kind)
   r <- raw %>%
     dplyr::group_by(st, subaward_number, uei, action_date, amount, description) %>%
@@ -767,7 +861,8 @@ fsrs_type_from_sam <- function(bt, name) {
 # -- 8. the plan --------------------------------------------------------------------
 
 fsrs_plan <- function() {
-  rec <- fsrs_dispose()
+  am <- fsrs_amendments()
+  rec <- fsrs_dispose(fsrs_amended_raw(am = am))
   tot <- fsrs_state_totals(rec)
   rc <- fsrs_reconcile(rec)
   rc <- fsrs_pool_guard(rc)
@@ -843,7 +938,7 @@ fsrs_plan <- function() {
     status = dplyr::if_else(typing == "CMS_ADDRESS" & st %in% held_states, "HELD_RULING_OVER_25M", status))
   rc$recon <- rc$recon %>% dplyr::rows_update(typed %>% dplyr::select(fsrs_id, status), by = "fsrs_id")
   list(records = rec, totals = tot, recon = rc$recon, overlay = rc$overlay, aw = rc$aw,
-       typed = typed, candidates = rc$candidates, held_states = held_states)
+       typed = typed, candidates = rc$candidates, held_states = held_states, amend = am)
 }
 
 # SESSION 119 RULE (owner Task 4): A NEGATIVE FSRS AMOUNT IS A DE-OBLIGATION
@@ -1228,7 +1323,23 @@ fsrs_held <- function(p) {
     dplyr::transmute(st, fsrs_id, status, name, amount,
                      detail = paste0("Negative action of ", action_date, " under subaward ", subaward_number,
                                      ": netted against that subaward's base action (session 119 rule); never a row."))
-  dplyr::bind_rows(h1, h2, h4, h3, h5, h7, h6) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  # SESSION 125, owner ruling (a): amendments in place
+  am <- if (!is.null(p$amend)) p$amend else fsrs_amendments()
+  h8 <- am %>% dplyr::filter(grepl("AMENDED_DOWN", amendment_kind)) %>%
+    dplyr::transmute(st, fsrs_id, status = "AMENDED_DOWN", name, amount = year1_amount,
+                     detail = paste0("Re-filed lower under the same SAM report id: first archived $",
+                                     format(first_amount, big.mark = ",", nsmall = 2), ", now $",
+                                     format(latest_amount, big.mark = ",", nsmall = 2),
+                                     ". Nets like a de-obligation (session 125 owner ruling a); the lower amount is ",
+                                     "the Year 1 amount. History: ", history))
+  h9 <- am %>% dplyr::filter(held_increment > 0) %>%
+    dplyr::transmute(st, fsrs_id, status = "BUDGET_PERIOD_2_HELD", name, amount = held_increment,
+                     detail = paste0("YEAR 2 INCREMENT of an amendment in place (session 125 owner ruling a): ",
+                                     "re-filed higher after 2026-10-30, $", format(year1_amount, big.mark = ",", nsmall = 2),
+                                     " -> $", format(latest_amount, big.mark = ",", nsmall = 2),
+                                     ". Year 1 keeps $", format(year1_amount, big.mark = ",", nsmall = 2),
+                                     "; the increment is held. History: ", history))
+  dplyr::bind_rows(h1, h2, h4, h3, h5, h7, h6, h8, h9) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {

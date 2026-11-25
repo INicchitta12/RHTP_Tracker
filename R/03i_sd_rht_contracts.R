@@ -116,7 +116,8 @@ SD_SEARCH_ARCHIVES <- c(
   "2026-10-12_open_sd_contract_search_RHT.html",
   "2026-11-02_open_sd_contract_search_RHT.html",
   "2026-11-19_open_sd_contract_search_RHT.html",
-  "2026-11-20_open_sd_contract_search_RHT.html"
+  "2026-11-20_open_sd_contract_search_RHT.html",
+  "2026-11-25_open_sd_contract_search_RHT.html"
 )
 SD_SEARCH_FILE <- SD_SEARCH_ARCHIVES[1]                          # the first read
 SD_SEARCH_LATEST <- SD_SEARCH_ARCHIVES[length(SD_SEARCH_ARCHIVES)]
@@ -298,6 +299,25 @@ SD_PLACEMENT <- tibble::tribble(
   "27RHT00123",     "UNPLACED", "Coteau des Prairies Hospital (Sisseton): 'purchase equipment ... to improve patient monitoring and imaging services'. No round named.",
   "27RHT00124",     "UNPLACED", "Community Memorial Hospital (Redfield): 'purchase equipment for Community Memorial Hospital (Redfield) to improve telehealth, screening, and imaging services'. No round named.",
   "27RHT00125",     "UNPLACED", "Palmquist, Collin C (Watertown): 'purchase dental equipment to improve dental access in northeast South Dakota'. No round named.",
+  # SESSION 125 (owner ruling b; live register re-read 2026-11-25): sixteen more contracts. Fifteen are the FSRS
+  # filings 27RHT00126-142 held as Year 2 by action date in session 124; every one is on the register with a
+  # begin date on or before 2026-10-30, so the session 121 date rule makes it Year 1.
+  "27RHT00126",     "UNPLACED", "Schwab Audiology Inc: 'fund technology and equipment that will expand diagnostic...' (begun 2026-02-20). No round named.",
+  "27RHT00127",     "UNPLACED", "Springfield Asst Living Center: 'fund equipment to facilitate patient care' (begun 2026-02-20). No round named.",
+  "27RHT00128",     "UNPLACED", "Fall River Health Services: 'fund imaging equipment and an upgraded firewall' (begun 2026-02-20). No round named.",
+  "27RHT00129",     "UNPLACED", "Vision Care Associates LLP: 'contractual Technical Assistance and Support to assist with their EHR planning' (begun 2026-02-20; the State Veterans Home's 27RHT00047 wording). No round named; not on FSRS.",
+  "27RHT00130",     "UNPLACED", "Platte Community Memorial Hosp: 'purchase imaging equipment' (begun 2026-02-20). No round named.",
+  "27RHT00131",     "UNPLACED", "Behavior Management Systems: 'fund EHR enhancements, SD HIE connection, and telehealth equipment' (begun 2026-02-20). No round named.",
+  "27RHT00132",     "UNPLACED", "Active Living Chiropractic PC: 'purchase equipment to improve chiropractic services' (begun 2026-02-20). No round named.",
+  "27RHT00133",     "UNPLACED", "City of Brookings Health Syst: 'To implement the Avera Maternal Health Hub & eOB Network as part of the Rural Health Transformation Project' (begun 2026-08-01; 27RHT00038's, 00055's and 00097's hub). No round named.",
+  "27RHT00134",     "UNPLACED", "Dow Rummel Village Inc: 'fund equipment and strengthen network infrastructure' (begun 2026-02-20). No round named.",
+  "27RHT00135",     "UNPLACED", "Madison Community Hospital: 'fund EHR enhancement, imaging and laboratory equipment, ...' (begun 2026-02-20). No round named.",
+  "27RHT00136",     "UNPLACED", "City of Brookings Health Syst: 'replace Brookings Health System's EHR and purchase equipment' (begun 2026-02-20). No round named.",
+  "27RHT00137",     "UNPLACED", "Freeman Regional Health Servic: 'fund imaging equipment and fire suppression infrastructure' (begun 2026-02-19). No round named.",
+  "27RHT00138",     "UNPLACED", "Lewis & Clark Behvrl Hlth Svcs: 'enhance EHR, connect to SD HIE, and network infrastructure' (begun 2026-02-19). No round named.",
+  "27RHT00140",     "UNPLACED", "Cheyenne River Long Term Recvy: 'The Consultant will provide comprehensive, community-based first aid training to equip up to 120 community members' (begun 2026-09-01). No round named.",
+  "27RHT00141",     "UNPLACED", "City of Brookings: 'Consultant will modernize ambulance infrastructure by enhancing radio communications, simulation and training, and enhancement to patient care reporting' (begun 2026-09-01). No round named; the 2026-10-02 EMS round (RFP 26-09RHT-023) names nobody, so it is not placed there.",
+  "27RHT00142",     "CCBHC", "CCBHC Core Service Areas grant: 'financial and technical assistance for activities to support the Rural Behavioral Health Modernization Infrastructure and Sustainability through development and expansion of the CCHBC Core Service Areas Program' (the register's own spelling), begun 2026-09-01: the eleventh such grant, inside the CCBHC round of 2026-09-24 (R/03bw, 'more than $13 million', 12 grants) and never on top.",
   # SESSION 121 (live probe 2026-11-20 16:24Z): one more contract, archived the same day.
   "27RHT00139",     "ADMIN",    "Watertown School District 14-4: 'Offer specialized training and certificaiton/education for CHWs and CHRs in South Dakota' (sic), $43,200, Professional Services under $50K, begun 2026-08-01 -- workforce training, the kind of award session 64 read as administrative."
 )
@@ -377,7 +397,17 @@ SD_ENROLMENT_BRIDGES <- tibble::tribble(
   "27RHT00082",     "VERMILLION SANFORD HEALTH",      "SANFORD HEALTH NETWORK",                  "VERMILLION",  "DBA_OF_LEGAL_ENTITY",
   "27RHT00072",     "MARSHALL COUNTY MEMORIAL HOSP",  "MARSHALL COUNTY MEMORIAL HOSPITAL",       "BRITTON",     "LEGAL_NAME_TRUNCATED",
   # Monument Health's second contract: 27RHT00048's string and bridge (released on the owner's ruling).
-  "27RHT00112",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED"
+  "27RHT00112",     "MONUMENT HEALTH RAPID CITY HOS", "MONUMENT HEALTH RAPID CITY HOSPITAL INC", "RAPID CITY",  "LEGAL_NAME_TRUNCATED",
+  # SESSION 125, hand-read the same way against the same archived file:
+  #   * Platte, Freeman: 30-character truncations of the enrolled legal names (CAHs).
+  #   * City of Brookings Health Syst (x2): the enrolled legal entity CITY OF
+  #     BROOKINGS plus its DBA BROOKINGS HEALTH SYSTEM, truncated (CCN 430008).
+  #   27RHT00141 "CITY OF BROOKINGS" (ambulance modernization) is NOT bridged:
+  #   the string names the city, not the health system, and the award is EMS.
+  "27RHT00130",     "PLATTE COMMUNITY MEMORIAL HOSP", "PLATTE COMMUNITY MEMORIAL HOSPITAL INC",  "PLATTE",      "LEGAL_NAME_TRUNCATED",
+  "27RHT00137",     "FREEMAN REGIONAL HEALTH SERVIC", "FREEMAN REGIONAL HEALTH SERVICES",        "FREEMAN",     "LEGAL_NAME_TRUNCATED",
+  "27RHT00133",     "CITY OF BROOKINGS HEALTH SYST",  "CITY OF BROOKINGS",                       "BROOKINGS",   "DBA_OF_LEGAL_ENTITY",
+  "27RHT00136",     "CITY OF BROOKINGS HEALTH SYST",  "CITY OF BROOKINGS",                       "BROOKINGS",   "DBA_OF_LEGAL_ENTITY"
 )
 # What each session-112 bridge read, in place of session 99's truncation sentence.
 SD_BRIDGE_READING <- c(
@@ -388,7 +418,11 @@ SD_BRIDGE_READING <- c(
   "27RHT00093" = "the register truncates vendor names at 30 characters (session 121; 00062's string)",
   "27RHT00104" = "the register truncates vendor names at 30 characters (session 121; 00062's string)",
   "27RHT00082" = "the register prints the town and the system name, not the enrolled DBA; the only enrolled hospital in Vermillion is Sanford's (session 121)",
-  "27RHT00072" = "the register abbreviates HOSPITAL to HOSP; the only enrolled hospital in Britton (session 121)")
+  "27RHT00072" = "the register abbreviates HOSPITAL to HOSP; the only enrolled hospital in Britton (session 121)",
+  "27RHT00130" = "the register truncates vendor names at 30 characters (session 125)",
+  "27RHT00137" = "the register truncates vendor names at 30 characters (session 125)",
+  "27RHT00133" = "the register prints the enrolled legal entity CITY OF BROOKINGS with its DBA BROOKINGS HEALTH SYSTEM, truncated at 30 characters; the only six-digit enrolment in Brookings (session 125)",
+  "27RHT00136" = "the register prints the enrolled legal entity CITY OF BROOKINGS with its DBA BROOKINGS HEALTH SYSTEM, truncated at 30 characters; the only six-digit enrolment in Brookings (session 125)")
 SD_PLACEMENT_FROM <- "2026-10-02_open_sd_contract_search_RHT.html"
 
 # Health-system PARENTS, typed by hand on the owner's resolution of
@@ -433,6 +467,7 @@ SD_ANNOUNCED_ROUNDS <- tibble::tribble(
   "Rural Strong grants (2026-07-23)",           "2026-07-23", "28 projects across 20 health systems", 31500000,
   "Technology and data grants (2026-08-19)",    "2026-08-19", "82 rural healthcare organizations",    90000000
 )
+SD_Y1_AGREEMENTS <- 234L   # "through 234 agreements" (Governor/DOH, 11-10; SD_Y1_COMPLETION_QUOTE)
 SD_CMS_YEAR1_AWARD <- 189477607.26  # stated in DOH's own press-release footnote
 
 
@@ -1353,7 +1388,13 @@ rhtp_sd_assert <- function(records = rhtp_sd_build()) {
   # Strong rows they cannot exceed the $121.5M South Dakota announced. If they
   # do, something other than the two rounds has posted into the series, and
   # the file is re-read rather than allowed to imply money beyond the rounds.
-  if (sum(unplaced) > SD_TD_ROUND_GRANTS ||
+  # SESSION 125: the COUNT half of this check is retired. It assumed every
+  # unplaced contract is one of the 82 technology grants; the 2026-11-25 read
+  # carries 87 unplaced contracts, among them a first-aid trainer (27RHT00140)
+  # and EHR-planning consultants (27RHT00129), and South Dakota reports 234
+  # Year 1 agreements in all (SD_Y1_COMPLETION_QUOTE). The DOLLAR caps stand,
+  # and the series may never hold more contracts than South Dakota's 234.
+  if (nrow(records) > SD_Y1_AGREEMENTS ||
       sum(records$amount[unplaced]) > SD_TD_ROUND_AMOUNT ||
       sum(records$amount[rs | unplaced]) > SD_RS_ROUND_AMOUNT + SD_TD_ROUND_AMOUNT) {
     stop("[SD] the UNPLACED pool (", sum(unplaced), " contracts, $",
