@@ -1422,6 +1422,17 @@ ne_live_get <- function(url) {
 NE_NAME_SCOPE <- c(from = "What you need to know Page Content",
                    to = "More Navigation List Name")
 
+# SESSION 124, READ 2026-11-25 (Routine TRIPWIRE 11-25 10:34Z): judged NOT
+# recipients, matched exactly (§2.3). The page's menu gained a "Dashboard ...
+# Catalyst Fund ... Timeline and RFA Awardees" run (its Awardees links are the
+# same four Notices of Award), and its news list gained the 11-10 Year 2
+# release ("$219.2 Million for Second Year", Tier 1) and the 10-23 Catalyst
+# Fund applications-open release (Tier 2). Nobody named, no amount.
+NE_NAME_FURNITURE <- list(program_page = c(
+  "Dashboard Nebraska Rural Health Technology Catalyst Fund Funding OpportunitiesTimeline and RFA Awardees",
+  "Million for Second Year of Rural Health Transformation ProgramDHHS News Release",
+  "Applications Open for the Nebraska Rural Health Technology Catalyst FundDHHS News Release"))
+
 ne_name_scope <- function(text) {
   rhtp_name_scope(text, from = NE_NAME_SCOPE[["from"]],
                   to = NE_NAME_SCOPE[["to"]], state = NE_STATE,
@@ -1449,7 +1460,7 @@ ne_probe <- function() {
   rhtp_assert_no_new_organisations_across(
     live = list(program_page = ne_name_scope(live_txt)),
     archived = list(program_page = ne_name_scope(arch_txt)),
-    state = NE_STATE)
+    state = NE_STATE, furniture = NE_NAME_FURNITURE)
 
   cmp <- tibble::tibble(
     key = "program_page",

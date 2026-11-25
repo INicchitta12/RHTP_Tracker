@@ -101,7 +101,8 @@ uc_rows <- function(files = uc_state_files()) {
                    use_category_basis = d$use_category_basis,
                    use_category_confidence = dplyr::coalesce(d$use_category_confidence, ""),
                    use_category_quote = dplyr::coalesce(d$use_category_quote, ""),
-                   use_category_source = dplyr::coalesce(d$use_category_source, ""))
+                   use_category_source = dplyr::coalesce(d$use_category_source, ""),
+                   use_category_text_method = dplyr::coalesce(d$use_category_text_method, ""))
   }))
 }
 
@@ -118,12 +119,70 @@ uc_report <- function() {
   invisible(list(basis = b, group = g))
 }
 
+# -- SESSION 124 (owner ruling 7a-b): CMS obligation-report headings ---------------
+#
+# CMS's Obligated Funds Report (10-14 edition, parsed by R/00e into
+# cms_obligations_bp1_lines_20261014.csv) prints each state's initiatives with
+# CATEGORY headings, which are the NOFO's uses of funds by name. A heading is
+# programme-level evidence (basis CMS_REPORT_HEADING, MEDIUM). It is tied to a
+# crosswalk rule only two ways, never by a fuzzy match:
+#   INITIATIVE  the CMS initiative and the rule's initiative_as_printed are the
+#               same name after normalisation (case, "&"/"and", punctuation, a
+#               leading "Initiative N:" and a trailing "Initiative" removed),
+#               and CMS prints exactly ONE programmatic heading under it;
+#   LINE        a hand-reviewed entry (UC_HEADING_LINES) naming one report line
+#               whose text names the rule's programme.
+UC_HEADING_LINES <- tibble::tribble(
+  ~rule_id, ~cms_line_id, ~link_basis,
+  "MS-X01", "MS-006-06-06", "hand-reviewed (session 124): the line reads 'for the Rural Capital Care Gap Closure Grant Program', the rule's programme (award_pool 'Rural Capital Project Care Gap Closure (RCGC)')",
+  "OK-X18", "OK-003-12-31", "hand-reviewed (session 124): the line reads 'for building joint resiliency for rural hospitals through a rural-focused provider collaborative', the rule's programme (LifeCare's FSRS description 'CREATING JOINT RESILIENCY THROUGH A RURAL-FOCUSED PROVIDER COLLABORATIVE')")
+UC_LINES <- "data/reference/cms_obligations_bp1_lines_20261014.csv"
+UC_REPORT_PDF <- "data/raw/cms/obligations/2026-07-31/RHTP-Obligated-Funds-20261014.pdf"
+
+uc_heading_norm <- function(x) {
+  x <- tolower(gsub("&", " and ", x, fixed = TRUE))
+  x <- sub("^\\s*initiative\\s*[0-9]+\\s*:\\s*", "", x)
+  x <- gsub("\\binitiative\\b", " ", x)
+  gsub("[^a-z0-9]", "", x)
+}
+
+uc_headings_build <- function() {
+  l <- readr::read_csv(here::here(UC_LINES), col_types = readr::cols(.default = "c"), progress = FALSE) %>%
+    dplyr::filter(!is.na(category), category %in% names(RHTP_USE_CMS_HEADING_LETTER))
+  x <- readr::read_csv(here::here(RHTP_USE_CROSSWALK), col_types = readr::cols(.default = "c"),
+                       na = character(), progress = FALSE)
+  one <- l %>% dplyr::group_by(state, initiative) %>%
+    dplyr::summarise(k = dplyr::n_distinct(RHTP_USE_CMS_HEADING_LETTER[category]), category = dplyr::first(category),
+                     line = dplyr::first(line_id), hquote = dplyr::first(description_clean), .groups = "drop") %>%
+    dplyr::filter(k == 1) %>% dplyr::mutate(nn = uc_heading_norm(initiative))
+  ini <- x %>% dplyr::mutate(nn = uc_heading_norm(initiative_as_printed)) %>%
+    dplyr::inner_join(one, by = c("state", "nn")) %>%
+    dplyr::transmute(rule_id = crosswalk_id, state, heading_letter = unname(RHTP_USE_CMS_HEADING_LETTER[category]),
+                     heading_as_printed = category, heading_level = "INITIATIVE", cms_initiative = initiative,
+                     cms_line_id = line, heading_quote = hquote, heading_archive = UC_REPORT_PDF,
+                     quote_text_path = UC_LINES,
+                     link_basis = "exact initiative name after normalisation; CMS prints one programmatic heading under it")
+  ln <- UC_HEADING_LINES %>% dplyr::inner_join(l %>% dplyr::select(cms_line_id = line_id, state, initiative,
+                                                                   category, description_clean), by = "cms_line_id")
+  if (nrow(ln) != nrow(UC_HEADING_LINES)) stop("[use] a hand heading line is not in the report.", call. = FALSE)
+  ln <- ln %>% dplyr::transmute(rule_id, state, heading_letter = unname(RHTP_USE_CMS_HEADING_LETTER[category]),
+                                heading_as_printed = category, heading_level = "LINE", cms_initiative = initiative,
+                                cms_line_id, heading_quote = description_clean, heading_archive = UC_REPORT_PDF,
+                                quote_text_path = UC_LINES, link_basis)
+  h <- dplyr::bind_rows(ln, ini %>% dplyr::filter(!rule_id %in% ln$rule_id)) %>% dplyr::arrange(state, rule_id)
+  readr::write_csv(h, here::here(RHTP_USE_CMS_HEADINGS), na = "")
+  message("[use] wrote ", nrow(h), " CMS headings (", sum(h$heading_level == "LINE"), " line-level, ",
+          sum(h$heading_level == "INITIATIVE"), " initiative-level) to ", RHTP_USE_CMS_HEADINGS)
+  invisible(h)
+}
+
 if (sys.nframe() == 0) {
   args <- commandArgs(trailingOnly = TRUE)
+  if ("--headings" %in% args) uc_headings_build()
   if ("--apply" %in% args) uc_apply()
   if ("--validate" %in% args) { uc_validate(); message("[use] all assertions pass.") }
   if ("--report" %in% args) uc_report()
-  if (!length(intersect(args, c("--apply", "--validate", "--report")))) {
+  if (!length(intersect(args, c("--apply", "--validate", "--report", "--headings")))) {
     message("Usage: Rscript R/11_use_categories.R --apply | --validate | --report")
   }
 }

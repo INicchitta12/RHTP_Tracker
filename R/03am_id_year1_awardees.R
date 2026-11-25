@@ -230,7 +230,9 @@ id_have_archive <- function() {
 
 #' SESSION 108: the funding page links the list this file extracted, and no
 #' other. A new list (a new date, a new document id) is a new roster to read.
-ID_ROSTER_LINK_TEXT <- "See the list of awardees as of Oct. 16."
+# Session 124: DHW dropped the link's closing full stop by 11-24 (same document
+# id 37915, read): the pin no longer carries it.
+ID_ROSTER_LINK_TEXT <- "See the list of awardees as of Oct. 16"
 ID_ROSTER_DOCID <- "docid=37915"
 id_assert_roster_link <- function(body = NULL) {
   txt <- stringr::str_replace_all(id_html_text("funding", body), "\\s+", " ")
@@ -409,9 +411,14 @@ ID_NAME_FURNITURE <- list(
     "Graduate Medical Education", "Sate Board of Education",
     "School-Based Family Support Hubs",
     "Idaho Cognitive Care Pathway Network",
-    "Cognitive Health Workforce Response Network"),
+    "Cognitive Health Workforce Response Network",
+    # Session 124: the same resources-page link title as on `about`.
+    "Idaho Rural Health Transformation Vendor-Subawardee Resources"),
+  # Session 124: the title of DHW's new resources page for vendors and
+  # subawardees (a link title, read 2026-11-25; it names nobody).
   about = c(
-    "Idaho Rural Health Transformation Program Implementation Task Force"))
+    "Idaho Rural Health Transformation Program Implementation Task Force",
+    "Idaho Rural Health Transformation Vendor-Subawardee Resources"))
 
 id_probe <- function() {
   keys <- c("funding", "about")

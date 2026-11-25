@@ -47,5 +47,5 @@ queue_rank,state,state_name,trigger_source,queue_status,rcj_tier3_candidates,rcj
 46,NY,New York,CMS_ONLY,EXTRACTED,0,0,0,2026-09-04,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-76-million-strengthen-regional-coordination-modernize-healthcare,212058208,EXTRACTED,2026-09-02
 47,WY,Wyoming,CMS_ONLY,EXTRACTED,0,0,0,2026-10-23,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-205-million-strengthen-emergency-care-expand-rural-health-workforce,205004743,EXTRACTED,2026-09-03
 48,NM,New Mexico,BOTH,INVESTIGATED_NO_LIST,11,11,8793574,2026-09-21,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-74-million-expand-specialty-maternal-behavioral-healthcare-across-0,211484741,INVESTIGATED_NO_LIST,2026-08-28
-49,MA,Massachusetts,RCJ_ONLY,INVESTIGATED_NO_PROBE,1,1,1,,,,162005238,INVESTIGATED_NO_PROBE,2026-09-03
+49,MA,Massachusetts,RCJ_ONLY,INVESTIGATED_NO_LIST,1,1,1,,,,162005238,INVESTIGATED_NO_LIST,2026-09-03
 50,ND,North Dakota,BOTH,INVESTIGATED_NO_LIST,1,1,630000,2026-08-20,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-delivers-critical-funding-launch-coordinating-connecting-care-initiative-north,198936970,INVESTIGATED_NO_LIST,2026-08-28

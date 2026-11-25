@@ -42,7 +42,7 @@ rank,state,state_name,tier3_candidates,tier3_pass,tier3_flagged,tier3_quarantine
 41,NC,North Carolina,1,1,0,0,1,195000,195000,1,Yes,2026-09-14,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-expands-preventive-behavioral-healthcare-access-students-across-rural-north,213008356,EXTRACTED,RCJ_AND_CMS,No
 42,VA,Virginia,1,1,0,0,1,127500,127500,1,Yes,2026-08-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-122-million-expand-healthcare-access-workforce-innovation-across,189544888,EXTRACTED,RCJ_AND_CMS,No
 43,ID,Idaho,1,0,1,0,1,1,1,1,Yes,2026-10-28,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-nearly-186-million-expand-rural-healthcare-access-modernize,185974368,EXTRACTED,RCJ_AND_CMS,No
-44,MA,Massachusetts,1,0,1,0,1,1,1,1,No,,,,162005238,INVESTIGATED_NO_PROBE,RCJ_ONLY,No
+44,MA,Massachusetts,1,0,1,0,1,1,1,1,No,,,,162005238,INVESTIGATED_NO_LIST,RCJ_ONLY,No
 45,TN,Tennessee,1,0,1,0,1,1,1,1,No,,,,206888882,EXTRACTED,RCJ_ONLY,No
 46,CA,California,0,0,0,4,0,0,,5,Yes,2026-10-29,BOTH,https://www.cms.gov/newsroom/press-releases/trump-administration-announces-more-233-million-improve-rural-healthcare-services-across-california,233639308,EXTRACTED,CMS_ONLY,No
 47,IL,Illinois,0,0,0,0,0,0,,0,No,,,,193418216,EXTRACTED,NEITHER,No

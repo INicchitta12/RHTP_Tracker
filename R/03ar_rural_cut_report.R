@@ -412,10 +412,13 @@ rc_assert <- function(rows = rc_rows()) {
   # re-pricing, FSRS 11-20 (ND +5): 2,369 / $2,292,033,452.90 / 43.
   # Session 122: KDHE IFTp, Labette County Medical Center (CCN 170120,
   # $325,000): 2,370 / $2,292,358,452.90 / 43.
-  if (nrow(rows) != 2370L ||
-      abs(sum(rows$amount, na.rm = TRUE) - 2292358452.90) > 0.005 ||
+  # Session 124: FSRS 11-25 archive (ND 16 CAH rows, NE 2, WV War Memorial $1M,
+  # ND Linton Hospital Foundation on §7) and IN Meds-to-Beds priced (11 rows,
+  # $885,195, already counted at $0): 2,390 / $2,297,215,524.33 / 43.
+  if (nrow(rows) != 2390L ||
+      abs(sum(rows$amount, na.rm = TRUE) - 2297215524.33) > 0.005 ||
       dplyr::n_distinct(rows$state) != 43L) {
-    stop("[rural cut] NAMED_HOSPITAL is no longer 2,370 rows / $2,292,358,452.90 ",
+    stop("[rural cut] NAMED_HOSPITAL is no longer 2,390 rows / $2,297,215,524.33 ",
          "/ 43 states; re-state the rural cut against the new partition.",
          call. = FALSE)
   }

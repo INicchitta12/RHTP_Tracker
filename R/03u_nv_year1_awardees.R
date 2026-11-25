@@ -1218,7 +1218,9 @@ NV_LOCAL_TYPE_OVERRIDES <- tibble::tribble(
   "^Nevada Rural Hospital Partners$",     "HOSPITAL_AFFILIATED_ENTITY", "MEDIUM",
   "Nevada Rural Hospital Partners is the state's rural hospital association (the shared override table's own description of it, on its Foundation's row) -- an association, not a hospital; the hospital name rule reads the word 'Hospital' in its name (§10.2, the MHA trap)",
   "^NSHE\\b",                             "UNIVERSITY_OR_AHC",          "MEDIUM",
-  "the recipient string names NSHE, the Nevada System of Higher Education, and a UNR or UNLV unit -- the page's own Medical Residency section writes 'Board of Regents, NSHE, obo University of Nevada, Reno'; a university unit, whatever its programme is called (§0.3a)"
+  "the recipient string names NSHE, the Nevada System of Higher Education, and a UNR or UNLV unit -- the page's own Medical Residency section writes 'Board of Regents, NSHE, obo University of Nevada, Reno'; a university unit, whatever its programme is called (§0.3a)",
+  "^Esmeralda County Board of Commissioners$", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "MEDIUM",
+  "session 124 (owner Task 5b): a county's board of commissioners is the county government; the recipient string states the form (the classifier's NONPROFIT_CBO fallback read 'Commissioners' as nothing)"
 )
 
 #' The shared classifier, with Nevada's two local corrections applied first.
@@ -3136,8 +3138,16 @@ NV_PROBE_PAGES <- tibble::tribble(
   # 2026-09-24 only by the "Subrecipient Report for BP1" link (read).
   "roster", paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
   "data/evidence/NV/2026-10-15_nv_rht_funded_projects_bp1.html", TRUE,
+  # Session 124: re-based to the 2026-11-25 copy after reading the diff the
+  # Routine logged CHANGED (and, through 11-20, TRIPWIRE) every firing since
+  # 11-10. Only Budget Period 2 text moved: an intro "preparing to release
+  # additional funding opportunities ... for Budget Period 2 (BP2)", the
+  # "Rural Health Transformation Applicant Guide - Budget Period 2", and two
+  # NEW RFAs, CBHT WRRAP (due 12-10) and Medicaid Reentry RHIT/FLEX (due
+  # 12-15). Tier 2, Year 2: nobody named, no amount. The 08-31 copy stays (the
+  # NOFO page is a positive control in NV_SOURCES).
   "nofos", paste0(NV_BASE, "/RHTP/rht-nofos/"),
-  "data/evidence/NV/2026-08-31_nv_rht_nofos.html", TRUE
+  "data/evidence/recheck/2026-11-25/NV/2026-11-25_nv_rht_nofos.html", TRUE
 )
 
 # Session 121, READ 2026-11-20: the NOFO page is now Budget Period 2 (CBHT WRRAP

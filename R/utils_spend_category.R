@@ -579,3 +579,55 @@ rhtp_unnamed_contractor_lines <- function(edition_file = utils::tail(rhtp_cms_li
     quote = description_clean, initiative, as_of) %>%
     dplyr::arrange(state, dplyr::desc(amount_obligated))
 }
+
+# -- SESSION 124 (owner Task 5): THE NAMED VENDOR FIGURES ----------------------
+# Sessions 121 and 122 both called a figure the "award line" and they were
+# different figures ($251,281,669.26 vs $199,513,205.75). The gap, exactly
+# $51,768,463.51, is the UKHS Care Collaborative's four lines (owner ruling:
+# PROVIDER_PASS_THROUGH on every line) and the VHHA Foundation component: the
+# 116e check list (verified_vendor_list.csv) still files them as vendor awards,
+# the spend layer does not. From now on every report states these five figures
+# under these labels, computed here and nowhere else. They are NEVER added
+# together: each is a different amount type or a different kind of recipient.
+RHTP_VENDOR_FIGURES <- tibble::tribble(
+  ~key, ~label, ~definition,
+  "vendor_awards", "Verified vendor awards (excluding provider pass-through)",
+  "Verified dollars (V1-V9) of amount type award on award rows whose spend_category is CONSULTANT, DATA_TECH_VENDOR, ADMINISTRATOR or NON_PROVIDER_INTERMEDIARY. The headline vendor figure. An intermediary that pays providers is not in it.",
+  "pass_through_awards", "Verified pass-through to providers (awards)",
+  "Verified 116e cases of amount type award whose row is PROVIDER_PASS_THROUGH (an intermediary paying care providers) or HOSPITAL. Not vendor spending. Reported with the part already inside the hospital best estimate (rows whose summary call is HOSPITAL), so it is never counted twice.",
+  "vendor_intents", "Verified vendor intents",
+  "Verified dollars of amount type intent (a notice of intent or tentative award) on vendor-category rows. Not an award.",
+  "vendor_contract_maximums", "Verified vendor contract maximums",
+  "Verified dollars of amount type contract maximum on vendor-category contract rows: a ceiling, not spending.",
+  "vendor_obligations", "Verified vendor obligations",
+  "Verified dollars of amount type obligation (a state's report of funds obligated) on vendor-category rows. Not an award."
+)
+
+#' The five named vendor figures (session 124), from the spend layer and the
+#' verified case files. Returns a tibble: key, label, usd, of_which_in_hospital_usd.
+rhtp_vendor_figures <- function(spend,
+                                cases = c("data/reference/verified_vendor_list.csv",
+                                          "data/reference/verified_vendor_pass_through.csv")) {
+  v <- spend %>% dplyr::filter(vendor_verified %in% TRUE, spend_category %in% RHTP_VENDOR_CATEGORIES)
+  vt <- function(t) sum(v$vendor_verified_usd[v$amount_type == t], na.rm = TRUE)
+  cs <- dplyr::bind_rows(lapply(cases, function(p) readr::read_csv(here::here(p),
+          col_types = readr::cols(.default = "c"), progress = FALSE))) %>%
+    dplyr::filter(dplyr::coalesce(toupper(passed), "TRUE") == "TRUE") %>%
+    dplyr::distinct(case_id, .keep_all = TRUE)
+  rows <- spend %>% dplyr::filter(!is.na(vendor_case_id), vendor_case_id != "") %>%
+    tidyr::separate_rows(vendor_case_id, sep = ";") %>%
+    dplyr::group_by(case_id = vendor_case_id) %>%
+    dplyr::summarise(row_cat = dplyr::first(spend_category),
+                     in_hospital = any(summary_hospital_call %in% "HOSPITAL" | spend_category %in% "HOSPITAL"),
+                     .groups = "drop")
+  pt <- cs %>% dplyr::inner_join(rows, by = "case_id") %>%
+    dplyr::filter(amount_type == "award", row_cat %in% c("PROVIDER_PASS_THROUGH", "HOSPITAL")) %>%
+    dplyr::mutate(amount = as.numeric(amount))
+  usd <- c(vendor_awards = vt("award"), pass_through_awards = sum(pt$amount),
+           vendor_intents = vt("intent"), vendor_contract_maximums = vt("contract maximum"),
+           vendor_obligations = vt("obligation"))
+  RHTP_VENDOR_FIGURES %>% dplyr::mutate(
+    usd = round(unname(usd[key]), 2),
+    of_which_in_hospital_usd = dplyr::if_else(key == "pass_through_awards",
+                                              round(sum(pt$amount[pt$in_hospital]), 2), NA_real_))
+}

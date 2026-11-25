@@ -50,13 +50,26 @@
 
 RHTP_USE_COLUMNS <- c("use_category_primary", "use_group_primary", "use_categories_all",
                       "use_category_basis", "use_category_confidence", "use_category_quote",
-                      "use_category_source")
+                      "use_category_source", "use_category_text_method")
 RHTP_USE_CATEGORIES_CSV <- "data/reference/rhtp_use_categories.csv"
 RHTP_USE_CASES <- "config/use_category_cases.csv"
 RHTP_USE_CROSSWALK <- "config/initiative_use_crosswalk.csv"
 RHTP_USE_LETTERS <- LETTERS[1:11]
-RHTP_USE_BASES <- c("AWARD_SOURCE", "INITIATIVE_CROSSWALK", "PURPOSE_TEXT", "NOT_STATED")
-RHTP_USE_CONFIDENCE <- c(AWARD_SOURCE = "HIGH", INITIATIVE_CROSSWALK = "MEDIUM", PURPOSE_TEXT = "LOW")
+RHTP_USE_BASES <- c("AWARD_SOURCE", "INITIATIVE_CROSSWALK", "CMS_REPORT_HEADING", "PURPOSE_TEXT", "NOT_STATED")
+RHTP_USE_CONFIDENCE <- c(AWARD_SOURCE = "HIGH", INITIATIVE_CROSSWALK = "MEDIUM", CMS_REPORT_HEADING = "MEDIUM",
+                         PURPOSE_TEXT = "LOW")
+# SESSION 124 (owner ruling 7a-a): how an INITIATIVE_CROSSWALK rule's plan text
+# was read. OCR and hand transcription are admitted at MEDIUM where the page
+# images are archived and each quoted line was checked against its image.
+RHTP_USE_TEXT_METHODS <- c("NATIVE_TEXT", "OCR", "HAND_TRANSCRIBED")
+# SESSION 124 (owner ruling 7a-b): CMS's obligation-report category headings.
+RHTP_USE_CMS_HEADINGS <- "config/use_category_cms_headings.csv"
+RHTP_USE_CMS_HEADING_LETTER <- c(
+  "Prevention and Chronic Disease" = "A", "Prevention of Chronic Disease" = "A",
+  "Provider Payments" = "B", "Consumer Tech Solutions" = "C",
+  "Training and Technical Assistance" = "D", "Workforce" = "E", "IT Advances" = "F",
+  "Appropriate Care Availability" = "G", "Behavioral Health" = "H", "Innovative Care" = "I",
+  "Capital Expenditures and Infrastructure" = "J", "Fostering Collaboration" = "K")
 RHTP_USE_PLAN_SOURCE_TYPES <- c("CMS_ABSTRACT", "BUDGET_NARRATIVE", "PROJECT_NARRATIVE",
                                 "STATE_SOLICITATION", "STATE_PROGRAM_PAGE", "CMS_ANNOUNCEMENT")
 # Owner-facing labels (owner direction 11-24), in report order.
@@ -166,7 +179,8 @@ rhtp_use_rules <- function(check_quotes = TRUE) {
   c <- rd(RHTP_USE_CASES)
   need_x <- c("crosswalk_id", "state", "file_key", "match_field", "match_value", "initiative_as_printed",
               "letters", "primary_letter", "primary_quote", "primary_source", "plan_document",
-              "plan_source_type", "link_basis", "archive_path", "quote_text_path", "quote", "note")
+              "plan_source_type", "link_basis", "archive_path", "quote_text_path", "quote", "note",
+              "text_method")
   need_c <- c("case_id", "state", "file_key", "match_field", "match_value", "basis", "letters",
               "primary_letter", "primary_quote", "primary_source", "archive_path", "quote_text_path",
               "quote", "note")
@@ -177,15 +191,20 @@ rhtp_use_rules <- function(check_quotes = TRUE) {
          paste(unique(x$plan_source_type[!x$plan_source_type %in% RHTP_USE_PLAN_SOURCE_TYPES]), collapse = ", "), call. = FALSE)
   }
   if (any(!nzchar(x$link_basis))) stop("[use] a crosswalk row has no link_basis.", call. = FALSE)
+  if (any(!x$text_method %in% RHTP_USE_TEXT_METHODS)) {
+    stop("[use] crosswalk text_method outside NATIVE_TEXT | OCR | HAND_TRANSCRIBED: ",
+         paste(x$crosswalk_id[!x$text_method %in% RHTP_USE_TEXT_METHODS], collapse = ", "), call. = FALSE)
+  }
   if (any(!c$basis %in% c("AWARD_SOURCE", "PURPOSE_TEXT"))) {
     stop("[use] a case's basis is not AWARD_SOURCE or PURPOSE_TEXT.", call. = FALSE)
   }
   r <- dplyr::bind_rows(
     x %>% dplyr::transmute(rule_id = crosswalk_id, state, file_key, match_field, match_value,
                            basis = "INITIATIVE_CROSSWALK", letters, primary_letter, primary_quote,
-                           primary_source, archive_path, quote_text_path, quote),
+                           primary_source, archive_path, quote_text_path, quote, text_method),
     c %>% dplyr::transmute(rule_id = case_id, state, file_key, match_field, match_value, basis, letters,
-                           primary_letter, primary_quote, primary_source, archive_path, quote_text_path, quote))
+                           primary_letter, primary_quote, primary_source, archive_path, quote_text_path, quote,
+                           text_method = ""))
   bad <- function(cond, what) if (any(cond)) stop("[use] ", what, ": ",
                                                   paste(r$rule_id[cond], collapse = ", "), call. = FALSE)
   bad(duplicated(r$rule_id), "duplicate rule ids")
@@ -212,6 +231,10 @@ rhtp_use_rules <- function(check_quotes = TRUE) {
     bad(miss, "quote not found verbatim in its quote_text_path")
   }
   r$letters_v <- lt
+  # SESSION 124: the CMS report heading over the rule's programme, if any.
+  h <- rhtp_use_cms_headings(check_quotes)
+  r <- r %>% dplyr::left_join(h %>% dplyr::select(rule_id, heading_letter, heading_as_printed, heading_level,
+                                                  heading_quote, heading_archive), by = "rule_id")
   r$spec <- unname(RHTP_USE_MATCH_FIELDS[r$match_field])
   r$rank <- match(r$basis, RHTP_USE_BASES)
   r
@@ -248,7 +271,7 @@ rhtp_use_category <- function(d, file_key, rules = rhtp_use_rules(), groups = rh
   out <- tibble::tibble(use_category_primary = rep("NOT_STATED", n), use_group_primary = "NOT_STATED",
                         use_categories_all = "", use_category_basis = "NOT_STATED",
                         use_category_confidence = "", use_category_quote = "", use_category_source = "",
-                        use_rule_id = "")
+                        use_category_text_method = "", use_rule_id = "")
   for (i in which(!is.na(hit))) {
     r <- rk[hit[i], ]
     lt <- r$letters_v[[1]]
@@ -266,8 +289,52 @@ rhtp_use_category <- function(d, file_key, rules = rhtp_use_rules(), groups = rh
       paste(r$archive_path, r$primary_source, sep = " ; ")
     } else r$archive_path
     out$use_rule_id[i] <- r$rule_id
+    out$use_category_text_method[i] <- r$text_method
+    # SESSION 124 (owner ruling 7a-b): CMS's heading over the programme. Where
+    # its letter is among the plan's letters and the plan names no primary, it
+    # sets the primary (and resolves MULTIPLE): basis CMS_REPORT_HEADING. Where
+    # it is not, the plan's letters stand and the conflict is recorded.
+    if (!is.na(r$heading_letter) && r$basis == "INITIATIVE_CROSSWALK" && !nzchar(r$primary_letter)) {
+      hq <- paste0(" || CMS obligation report (", r$heading_level, ") heading '", r$heading_as_printed,
+                   "' = ", r$heading_letter, ": ", r$heading_quote)
+      if (r$heading_letter %in% lt) {
+        out$use_category_primary[i] <- r$heading_letter
+        out$use_group_primary[i] <- unname(groups[[r$heading_letter]])
+        out$use_category_basis[i] <- "CMS_REPORT_HEADING"
+        out$use_category_confidence[i] <- RHTP_USE_CONFIDENCE[["CMS_REPORT_HEADING"]]
+        out$use_category_quote[i] <- paste0(out$use_category_quote[i], hq)
+      } else {
+        out$use_category_quote[i] <- paste0(out$use_category_quote[i], hq,
+                                            " [CONFLICT: the heading's letter is not among the plan's letters; plan kept]")
+      }
+      out$use_category_source[i] <- paste(out$use_category_source[i], r$heading_archive, sep = " ; ")
+    }
   }
   out
+}
+
+#' SESSION 124: the CMS obligation-report headings, one per crosswalk rule
+#' (config/use_category_cms_headings.csv, built by R/11 --headings). A quote
+#' must be found verbatim in the parsed report lines.
+rhtp_use_cms_headings <- function(check_quotes = TRUE) {
+  p <- here::here(RHTP_USE_CMS_HEADINGS)
+  empty <- tibble::tibble(rule_id = character(), heading_letter = character(), heading_as_printed = character(),
+                          heading_level = character(), heading_quote = character(), heading_archive = character())
+  if (!file.exists(p)) return(empty)
+  h <- readr::read_csv(p, col_types = readr::cols(.default = "c"), na = character(), progress = FALSE)
+  need <- c("rule_id", "state", "heading_letter", "heading_as_printed", "heading_level", "cms_initiative",
+            "cms_line_id", "heading_quote", "heading_archive", "quote_text_path", "link_basis")
+  if (!identical(names(h), need)) stop("[use] ", RHTP_USE_CMS_HEADINGS, " columns differ from the schema.", call. = FALSE)
+  if (anyDuplicated(h$rule_id)) stop("[use] two CMS headings for one rule.", call. = FALSE)
+  if (any(unname(RHTP_USE_CMS_HEADING_LETTER[h$heading_as_printed]) != h$heading_letter)) {
+    stop("[use] a CMS heading's letter does not match its printed heading.", call. = FALSE)
+  }
+  if (any(!file.exists(here::here(h$heading_archive)))) stop("[use] a CMS heading archive is missing.", call. = FALSE)
+  if (check_quotes) {
+    miss <- !vapply(seq_len(nrow(h)), function(i) rhtp_use_quote_found(h$heading_quote[i], h$quote_text_path[i]), TRUE)
+    if (any(miss)) stop("[use] CMS heading quote not found: ", paste(h$rule_id[miss], collapse = ", "), call. = FALSE)
+  }
+  h
 }
 
 #' Write the seven columns onto a file read with rhtp_summary_read().

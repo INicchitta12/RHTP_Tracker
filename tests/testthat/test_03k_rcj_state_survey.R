@@ -215,12 +215,11 @@ test_that("the five worked-but-unprobed states carry INVESTIGATED_NO_PROBE", {
   # INVESTIGATED_NO_LIST, and two remain.
   # SESSION 101: HAWAII LEFT BY EXTRACTION (R/03cd, three RVBI Notices of
   # Award on SHPDA's page), so one remains.
-  two <- c("MA")
-  expect_setequal(SURVEY_INVESTIGATED_NO_PROBE_STATES, two)
+  # SESSION 124: MASSACHUSETTS LEFT BY THE PROBE BEING WRITTEN (R/03cy, off
+  # mass.gov) and scheduled, so none remain.
+  expect_length(SURVEY_INVESTIGATED_NO_PROBE_STATES, 0L)
   expect_equal(survey$extraction_status[survey$state == "HI"], "EXTRACTED")
-  got <- survey$extraction_status[match(two, survey$state)]
-  expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(two, got, collapse = "; "))
+  expect_equal(survey$extraction_status[survey$state == "MA"], "INVESTIGATED_NO_LIST")
   # Session 112: MN then left INVESTIGATED_NO_LIST by EXTRACTION (R/03cp).
   expect_equal(survey$extraction_status[survey$state == "MN"],
                "EXTRACTED")
@@ -349,7 +348,8 @@ test_that("the fifty states split four ways and every state has a disposition", 
   # Session 121: WI (INVESTIGATED_NO_LIST) -> EXTRACTED (R/03cx, the DHS
   # award tables as intents), so 45/2/1/2.
   expect_equal(unname(tab[["EXTRACTED"]]), 45L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 2L)
-  expect_equal(unname(tab[["INVESTIGATED_NO_PROBE"]]), 1L)
+  # Session 124: MA (INVESTIGATED_NO_PROBE) -> INVESTIGATED_NO_LIST, so 45/3/0/2.
+  expect_equal(unname(tab[["INVESTIGATED_NO_LIST"]]), 3L)
+  expect_false("INVESTIGATED_NO_PROBE" %in% names(tab) && tab[["INVESTIGATED_NO_PROBE"]] > 0)
   expect_equal(unname(tab[["NOT_EXTRACTED"]]), 2L)
 })

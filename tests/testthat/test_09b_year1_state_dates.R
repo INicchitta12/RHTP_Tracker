@@ -91,9 +91,11 @@ test_that("the committed config: 67 subawards (TN HART 45, SD 22), none held wit
   # TN's twelve non-HART or unmatched filings
   rec <- fsrs_dispose()
   held <- rec[rec$record_status == "BUDGET_PERIOD_2_HELD", ]
-  expect_equal(nrow(held), 17L)
-  expect_equal(as.integer(table(held$st)[c("IL", "NM", "TN")]), c(1L, 4L, 12L))
-  expect_false("SD" %in% held$st)
+  # Session 124: + 19 from the 11-25 archive: SD 27RHT00126-142 (15; not on the
+  # archived register, so no state date reaches them) and IN 4 (11-02..11-19).
+  expect_equal(nrow(held), 36L)
+  expect_equal(as.integer(table(held$st)[c("IL", "IN", "NM", "SD", "TN")]), c(1L, 4L, 4L, 15L, 12L))
+  expect_true(all(held$subaward_number[held$st == "SD"] >= "27RHT00126"))
   expect_false("27RHT00112" %in% held$subaward_number)
   moved <- rec[rec$year1_date_basis != "FSRS_ACTION_DATE", ]
   expect_equal(nrow(moved), 67L)

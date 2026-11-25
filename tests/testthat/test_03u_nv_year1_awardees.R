@@ -629,7 +629,9 @@ test_that("nothing was promoted: the soft set is still on §8's fallback", {
   recs <- nv_records()
   soft_all <- recs[grepl("RECIPIENT_TYPE_INFERRED", recs$flag_reason), ]
   # 23 on the 2026-08-31 rows (pre-overlay) + 34 on the 2026-09-24 rows.
-  expect_equal(sum(soft_all$listed_from == "2026-09-24"), 34L)
+  # Session 124: - Esmeralda County Board of Commissioners, re-typed
+  # LOCAL_GOVT_OR_PUBLIC_HEALTH (a county government; owner Task 5b).
+  expect_equal(sum(soft_all$listed_from == "2026-09-24"), 33L)
   soft <- soft_all[soft_all$listed_from == "2026-08-31", ]
   expect_equal(nrow(soft), 23L)
   expect_true(all(soft$recipient_type == "NONPROFIT_CBO"))

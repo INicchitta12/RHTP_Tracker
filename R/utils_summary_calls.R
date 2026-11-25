@@ -221,6 +221,6 @@ rhtp_strip_summary_calls <- function(d) {
 }
 RHTP_USE_STRIP_COLUMNS <- c("use_category_primary", "use_group_primary", "use_categories_all",
                             "use_category_basis", "use_category_confidence", "use_category_quote",
-                            "use_category_source")
+                            "use_category_source", "use_category_text_method")
 RHTP_SPEND_STRIP_COLUMNS <- c("spend_category", "spend_category_basis", "vendor_role", "out_of_state",
                               "vendor_public", "vendor_verified", "vendor_verified_usd", "vendor_case_id")

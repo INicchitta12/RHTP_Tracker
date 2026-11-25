@@ -436,15 +436,25 @@ TN_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
   "rhtp", "https://www.tn.gov/health/rural.html",
   "data/evidence/TN/2026-09-23_tn_rhtp_programme.html", TRUE,
+  # Session 124: re-based to the 11-25 copy after reading it. The rolling
+  # 15-item index aged out the 03-31 and first-NOFO headlines; it carries the
+  # award release, the $422M five-year roster release (a NON-AWARD file, owner
+  # ruling session 118) and the 11-19 "Year-Two" release (Tier 1, Year 2).
   "news", "https://www.tn.gov/health/news.html",
-  "data/evidence/TN/2026-09-23_tn_health_news_index.html", FALSE,
+  "data/evidence/recheck/2026-11-25/TN/2026-11-25_tn_health_news_index.html", FALSE,
   "ramp", "https://www.tn.gov/health/ramp",
   "data/evidence/TN/2026-09-23_tn_ramp_STATE_PROGRAM.html", FALSE)
 
 # The three RHTP headlines the 2026-09-23 news index carries. A FOURTH that
 # says recipients/awards/grants is the next tranche.
+# Session 124: the first two are the headlines a SHORT index must still carry
+# (the award release and the $422M release, both read); the older two aged out
+# of TDH's rolling 15-item index by 11-21 and tripped the short-index check.
+# The 11-19 Year-Two release is Tier 1, Year 2, read in session 122.
 TN_KNOWN_RHTP_HEADLINES <- c(
   "Tennessee Department of Health Announces 1st Recipients of Rural Health Transformation Program Grants",
+  "Tennessee Announces $422 Million in Rural Health Transformation Grants for 138 Projects Statewide",
+  "Tennessee Receives Increased Rural Health Transformation Funding in Year-Two",
   "Tennessee to Release 1st Grant Funding Opportunity of Rural Health Transformation Program",
   "Statewide Session March 31 to Highlight Tennessee Rural Health Transformation Program Funding Opportunities")
 

@@ -224,6 +224,14 @@ fsrs_dispose <- function(raw = fsrs_raw(), state_dates = fsrs_state_dates()) {
       # SESSION 121: unless a state source dates the award or contract on or
       # before 2026-10-30 (year1_date is then the state's date).
       year1_date > FSRS_BP1_END ~ "BUDGET_PERIOD_2_HELD",
+      # SESSION 124: Texas files each Rural Texas Strong subaward twice, under
+      # one subaward number and one action date: an "RHTCMS100F-26" record
+      # equal to the Year 1 subset HHSC's own list prints for the line, and an
+      # "RHTCMS100F-27" record for the rest of the multi-year award (Rankin
+      # County HD: $1,029,800 Year 1 + $970,200 = the list's $2,000,000
+      # total). The state's list says the -27 money is not Year 1, so it is
+      # held like Year 2 money, never written (fsrs_tx_remainder()).
+      fsrs_tx_remainder(st, description) ~ "HELD_TX_NOT_YEAR1_SUBSET",
       TRUE ~ "CURRENT"))
   un <- sd %>% dplyr::anti_join(r, by = c("st", "subaward_number", "uei"))
   if (nrow(un)) stop("[fsrs] state source dates naming no FSRS record: ",
@@ -239,9 +247,24 @@ fsrs_dispose <- function(raw = fsrs_raw(), state_dates = fsrs_state_dates()) {
   r %>% dplyr::left_join(k, by = "fsrs_id") %>%
     dplyr::mutate(actions_under_key = dplyr::coalesce(actions_under_key, 0L),
                   same_desc_diff_amount = dplyr::coalesce(same_desc_diff_amount, FALSE),
-                  budget_period = dplyr::if_else(year1_date > FSRS_BP1_END, 2L, 1L)) %>%
+                  budget_period = dplyr::if_else(year1_date > FSRS_BP1_END |
+                                                    record_status == "HELD_TX_NOT_YEAR1_SUBSET", 2L, 1L)) %>%
     dplyr::select(-refiling_rank, -state_source_date, -date_kind, -state_dated) %>%
     dplyr::arrange(st, subaward_number, uei, action_date)
+}
+
+#' TRUE for a Texas FSRS record carrying HHSC's "RHTCMS100F-27" funding-plan
+#' code: the part of a multi-year Rural Texas Strong award outside the Year 1
+#' subset the state's list prints (session 124).
+fsrs_tx_remainder <- function(st, description) {
+  st == "TX" & stringr::str_detect(dplyr::coalesce(description, ""), "RHTCMS100F-27")
+}
+
+#' TRUE for an FSRS description naming Indiana's Meds-to-Beds programme
+#' ("FEASIBILITY ANALYSIS FOR MEDS-TO-BEDS PROGRAM"; session 124).
+fsrs_in_mtb <- function(description) {
+  stringr::str_detect(dplyr::coalesce(description, ""),
+                      stringr::regex("MEDS[- ]TO[- ]BEDS", ignore_case = TRUE))
 }
 
 fsrs_current <- function(rec = fsrs_dispose()) {
@@ -435,6 +458,13 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
     # max_diff: a hand-read rounding gap (TX Moore County $221,976 vs $221,980.30)
     dplyr::filter(abs(amount - amt) < dplyr::coalesce(suppressWarnings(as.numeric(max_diff)), 0.005)) %>%
     dplyr::distinct(fsrs_id, .keep_all = TRUE)
+  # SESSION 124: a pairing's printed amount must be the FSRS record's own
+  # amount (within its max_diff). Two hand lines with their ids swapped had
+  # passed, because the amount was only ever compared with the roster row.
+  bad_amt <- pl %>% dplyr::inner_join(cur %>% dplyr::select(fsrs_id, rec_amt = amount), by = "fsrs_id") %>%
+    dplyr::filter(abs(rec_amt - amt) >= dplyr::coalesce(suppressWarnings(as.numeric(max_diff)), 0.005) + 0.005)
+  if (nrow(bad_amt)) stop("[fsrs] pairings whose amount is not the FSRS record's own amount: ",
+                          paste(bad_amt$fsrs_id, collapse = ", "), call. = FALSE)
   miss <- setdiff(pr$fsrs_id, pl$fsrs_id)
   if (length(miss)) stop("[fsrs] pairings whose roster row (same awardee, same amount) is not found: ",
                          paste(miss, collapse = ", "), call. = FALSE)
@@ -453,6 +483,18 @@ fsrs_reconcile <- function(rec = fsrs_dispose(), files = fsrs_state_files()) {
   link <- link %>% dplyr::left_join(ia, by = "fsrs_id") %>%
     dplyr::left_join(aw %>% dplyr::select(row_id, award_pool, file_key), by = "row_id") %>%
     dplyr::filter(is.na(ia_pool) | file_key != "IA" | award_pool == ia_pool) %>%
+    dplyr::select(fsrs_id, row_id, how)
+
+  # SESSION 124: Indiana routes by programme. A subaward whose FSRS description
+  # names Meds-to-Beds (IDOH Initiative 6) links only to the Meds-to-Beds
+  # roster (IN_MTB); every other Indiana subaward never links there. Seven of
+  # the eleven Meds-to-Beds feasibility subawards had been held against GROW
+  # members and three against "zero rows in several files" (session 122).
+  link <- link %>% dplyr::left_join(cur %>% dplyr::select(fsrs_id, st, description), by = "fsrs_id") %>%
+    dplyr::left_join(aw %>% dplyr::select(row_id, file_key), by = "row_id") %>%
+    dplyr::filter(st != "IN" |
+                    (fsrs_in_mtb(description) & file_key == "IN_MTB") |
+                    (!fsrs_in_mtb(description) & file_key != "IN_MTB")) %>%
     dplyr::select(fsrs_id, row_id, how)
 
   # connected components of subawards and rows
@@ -937,7 +979,36 @@ FSRS_HAND_TYPING <- tibble::tribble(
          "PART A PROVIDER - HOSPITAL, CCN printed '200039A', 35 MEDICAL CENTER PARKWAY, AUGUSTA. The FSRS filing names ",
          "'MAINE GENERAL MEDICAL CENTER', 35 MEDICAL CENTER PKWY, AUGUSTA, SAM business type HOSPITAL: the enrolled ",
          "legal name with one space added, at the same street address (a hand-read bridge, LOW). §0.3a: the recipient ",
-         "is a hospital whatever the activity."))
+         "is a hospital whatever the activity."),
+  # SESSION 124 (independent duplicate check): Linton Hospital Foundation names
+  # its parent, Linton Hospital, a CAH already on ND's FSRS rows. §7 hospital
+  # foundations: a foundation of a NAMED hospital is HOSPITAL_OR_SYSTEM, DIRECT.
+  "ND", "EYARLPADH1U9", "HOSPITAL_OR_SYSTEM", "DIRECT", "Yes", "Yes", "GENERAL_KNOWLEDGE",
+  NA_character_,
+  paste0("§10.2 DIRECT, TYPED BY HAND (session 124): 'LINTON HOSPITAL FOUNDATION' names its parent, Linton ",
+         "Hospital (Linton, ND), an enrolled critical access hospital already on this file's FSRS rows. §7: a ",
+         "fundraising foundation of a named hospital is the hospital's, and the money it receives is the hospital's. ",
+         "The parent is read from the name alone (no CCN on the foundation), so LOW."),
+  # SESSION 124 (owner Task 5b): government bodies the classifier had typed
+  # NONPROFIT_CBO. The recipient's own name states the form.
+  "HI", "QMUKABQ3NXR4", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'STATE HLTH. PLNG. & DEV. AGENCY' is Hawaii's State Health Planning and ",
+         "Development Agency (SHPDA), an agency of the State of Hawaii (HRS ch. 323D), filed by the Executive Office ",
+         "of the State of Hawaii. A state agency, not a nonprofit; never a hospital."),
+  "OK", "SVPSDU5GCKG2", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): the Oklahoma Health Care Workforce Training Commission is a state agency ",
+         "(the name states it; formerly the Physician Manpower Training Commission). Never a hospital."),
+  "RI", "LWPVXFL8DS51", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'RI DEPT. OF BEHAVIORAL HEALTHCARE DEVEL' is the Rhode Island Department of ",
+         "Behavioral Healthcare, Developmental Disabilities and Hospitals (BHDDH), a state department. Never a hospital ",
+         "row (it operates state hospitals; R/09b's state-body-with-enrolment hold covers any such reading)."),
+  "ME", "T439PRTT8TD1", "SCHOOL_OR_DISTRICT", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'AUGUSTA SCHOOL DEPARTMENT' is the City of Augusta's public school ",
+         "department (a school administrative unit). Never a hospital."))
 FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319", DCJGSC4LY1W4 = "200039A")  # as CMS publishes it (Prairie Lakes 430005A precedent)
 FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
                                              "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"),
@@ -1148,11 +1219,16 @@ fsrs_held <- function(p) {
     dplyr::transmute(st, fsrs_id, status = "BUDGET_PERIOD_2_HELD", name, amount,
                      detail = paste0("action date ", action_date, " after the end of Budget Period 1 (2026-10-30): ",
                                      "Year 2 money, held under the session-116 safeguards, never in a Year 1 file."))
+  h7 <- p$records %>% dplyr::filter(record_status == "HELD_TX_NOT_YEAR1_SUBSET") %>%
+    dplyr::transmute(st, fsrs_id, status = "HELD_TX_NOT_YEAR1_SUBSET", name, amount,
+                     detail = paste0("Texas 'RHTCMS100F-27' record (action ", action_date, ", subaward ",
+                                     subaward_number, "): the part of a multi-year Rural Texas Strong award ",
+                                     "outside the Year 1 subset HHSC's list prints (session 124). Never written."))
   h6 <- p$typed %>% dplyr::filter(status == "NETTED_DEOBLIGATION") %>%
     dplyr::transmute(st, fsrs_id, status, name, amount,
                      detail = paste0("Negative action of ", action_date, " under subaward ", subaward_number,
                                      ": netted against that subaward's base action (session 119 rule); never a row."))
-  dplyr::bind_rows(h1, h2, h4, h3, h5, h6) %>% dplyr::arrange(status, st, dplyr::desc(amount))
+  dplyr::bind_rows(h1, h2, h4, h3, h5, h7, h6) %>% dplyr::arrange(status, st, dplyr::desc(amount))
 }
 
 fsrs_nonfilers <- function(tot) {

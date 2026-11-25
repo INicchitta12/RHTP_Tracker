@@ -187,6 +187,12 @@ OKC_TYPING <- tibble::tribble(
   # ---- EMS / Community Paramedicine ---------------------------------------
   "Cheyenne and Arapaho Tribes", "TRIBAL_ORG", "GENERAL_KNOWLEDGE", "LOW", NA, NA, NA,
   "A federally recognised tribe (general knowledge; OSDH states no form) -- R/03bt's Wyandotte Nation precedent. The name rule misses the plural 'Tribes'. Not a hospital either way.",
+  # Session 124 (owner Task 5b): municipal fire departments that run EMS; the
+  # classifier's fallback had typed them NONPROFIT_CBO.
+  "Elk City Fire Department", "EMS_OR_PSAP", "STATE_SOURCE", "MEDIUM", NA, NA, NA,
+  "A city fire department funded for ambulance/EMS work (OSDH's EMS & Community Paramedicine roster names it as such): EMS_OR_PSAP, a municipal body, not a nonprofit. Not a hospital.",
+  "Tonkawa Fire Department", "EMS_OR_PSAP", "STATE_SOURCE", "MEDIUM", NA, NA, NA,
+  "A city fire department funded for ambulance/EMS work (OSDH's EMS & Community Paramedicine roster names it as such): EMS_OR_PSAP, a municipal body, not a nonprofit. Not a hospital.",
   # ---- EMS / Community Paramedicine: the hospitals ------------------------
   "Baptist Healthcare of Oklahoma, LLC d/b/a INTEGRIS Miami Hospital", "HOSPITAL_OR_SYSTEM", "GENERAL_KNOWLEDGE", "LOW", "370004", "DBA_OF_LEGAL_ENTITY",
   "INTEGRIS MIAMI HOSPITAL|370004",

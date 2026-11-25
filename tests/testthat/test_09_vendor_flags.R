@@ -151,7 +151,7 @@ test_that("the USAspending archive is what the flags were built from", {
   expect_equal(nrow(cv), 50L)
   # Session 118: the 2026-11-16 archive (Alabama the 32nd filer).
   expect_equal(sum(cv$reports_subawards), 32L)
-  expect_equal(sum(cv$subaward_rows), 2574L)   # session 120: the 2026-11-19 archive
+  expect_equal(sum(cv$subaward_rows), 3072L)   # session 124: the 2026-11-25 archive   # session 120: the 2026-11-19 archive
   expect_true(file.exists(file.path(USA_RAW_DIR(), USA_ZIP)))
   expect_true(file.exists(paste0(file.path(USA_RAW_DIR(), USA_ZIP), ".manifest.txt")))
 })
@@ -177,7 +177,7 @@ test_that("NO HOSPITAL FIGURE CHANGED: the partition is session 116's", {
   pin <- tibble::tribble(
     ~bucket, ~rows, ~dollars,
     # Session 116c/d moved it (R/09b, FSRS as an award source); R/09 still moves nothing.
-    "NAMED_HOSPITAL", 2370L, 2292358452.90,   # session 122: + KS Labette   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx intents);   # session 120: FSRS 11-19, MN Murray County;   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
+    "NAMED_HOSPITAL", 2390L, 2297215524.33,   # session 124: + FSRS 11-25, IN MTB priced   # session 122: + KS Labette   # session 121: + 39 WI, + 45 rebuild (SD Monument et al., TN HART, WV roster, IN MTB, ND FSRS, OK) (R/03cx intents);   # session 120: FSRS 11-19, MN Murray County;   # session 118: FSRS 11-16 refresh and rulings;   # session 117: TX 11/12 list, NE FSRS extras held;   # session 117a: + WV Cabell Huntington (1 / $1,544,313)
     "POOL_NAMED_HOSPITALS", 11L, 96565779.43,   # session 118: + WA HCA pool $9.67M
     "POOL_UNNAMED_HOSPITALS", 6L, 79214848.17)
   for (i in seq_len(nrow(pin))) {
