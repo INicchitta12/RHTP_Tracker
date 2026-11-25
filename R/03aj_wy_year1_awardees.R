@@ -2400,6 +2400,25 @@ wy_drive_link_findings <- function(html, known = WY_KNOWN_DRIVE_TARGETS) {
          "it is.")
 }
 
+# Session 124: the probe's own BASELINES for the two pages whose committed
+# copies are also extraction sources. `programme` carries the BP1 footer that
+# wy_assert_all() checks ($205,004,742.95) and `submittable` is the "no open
+# calls" control, so neither is overwritten. Both were READ 2026-11-25: the
+# programme button now reads "Year One Award Summaries" (the Drive folder read
+# in session 112) and the footer prints $412,236,673.93 "in Budget Periods 1 &
+# 2" (FY2026 $205,004,743 + FY2027 $207,231,931); the portal has one open call,
+# 1.2 EMS Regionalization (an RFA, Tier 2). No recipient, no amount.
+WY_PROBE_BASELINES <- c(
+  programme   = "data/evidence/recheck/2026-11-25/WY/2026-11-25_wy_wdh_rhtp_programme.html",
+  submittable = "data/evidence/recheck/2026-11-25/WY/2026-11-25_wy_submittable.html")
+
+#' The archived text a probe compares against: the probe baseline where one is
+#' set, else the committed source copy.
+wy_probe_archived_text <- function(key) {
+  b <- WY_PROBE_BASELINES[key]
+  if (!is.na(b)) wy_html_text(here::here(b)) else wy_text(key)
+}
+
 wy_probe <- function() {
   keys <- c("programme", "public_notice", "applications", "submittable")
   cat("\nWYOMING -- live probe\n"); cat(strrep("-", 78), "\n")
@@ -2415,7 +2434,7 @@ wy_probe <- function() {
     })
     if (is.null(body)) { cat(sprintf("  %-16s UNREACHABLE\n", k)); next }
     live <- wy_content_digest(k, body)
-    archived <- wy_content_digest(k)
+    archived <- digest::digest(wy_probe_archived_text(k), algo = "sha256")
     same <- identical(live, archived)
     if (!same) changed <- c(changed, k)
     cat(sprintf("  %-16s %s\n", k, if (same) "UNCHANGED" else "CHANGED"))
@@ -2432,7 +2451,7 @@ wy_probe <- function() {
     # is a portal shell whose text is a JavaScript application, not prose.
     if (k != "submittable") {
       rhtp_assert_no_new_organisations(
-        live = live_txt, archived = wy_html_text(wy_path(k)),
+        live = live_txt, archived = wy_probe_archived_text(k),
         state = "WY", page = k,
         furniture = WY_NAME_FURNITURE[[k]] %||% character(0))
     }

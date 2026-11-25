@@ -512,3 +512,12 @@ test_that("changed text on the programme page still moves the content digest", {
   expect_identical(wy_content_digest("programme", wy_prog_html),
                    wy_content_digest("programme"))
 })
+
+test_that("session 124: the probe has its own baselines and the source copies are untouched", {
+  expect_true(all(file.exists(here::here(WY_PROBE_BASELINES))))
+  expect_match(wy_probe_archived_text("programme"), "Year One Award Summaries", fixed = TRUE)
+  expect_match(wy_probe_archived_text("submittable"), "EMS Regionalization", fixed = TRUE)
+  # the extraction source still carries the BP1 footer the validator reads
+  expect_match(wy_text("programme"), "205,004,742.95", fixed = TRUE)
+  expect_identical(wy_probe_archived_text("public_notice"), wy_text("public_notice"))
+})

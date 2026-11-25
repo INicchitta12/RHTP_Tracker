@@ -3136,8 +3136,16 @@ NV_PROBE_PAGES <- tibble::tribble(
   # 2026-09-24 only by the "Subrecipient Report for BP1" link (read).
   "roster", paste0(NV_BASE, "/RHTP/rht-funded-projects---bp1/"),
   "data/evidence/NV/2026-10-15_nv_rht_funded_projects_bp1.html", TRUE,
+  # Session 124: re-based to the 2026-11-25 copy after reading the diff the
+  # Routine logged CHANGED (and, through 11-20, TRIPWIRE) every firing since
+  # 11-10. Only Budget Period 2 text moved: an intro "preparing to release
+  # additional funding opportunities ... for Budget Period 2 (BP2)", the
+  # "Rural Health Transformation Applicant Guide - Budget Period 2", and two
+  # NEW RFAs, CBHT WRRAP (due 12-10) and Medicaid Reentry RHIT/FLEX (due
+  # 12-15). Tier 2, Year 2: nobody named, no amount. The 08-31 copy stays (the
+  # NOFO page is a positive control in NV_SOURCES).
   "nofos", paste0(NV_BASE, "/RHTP/rht-nofos/"),
-  "data/evidence/NV/2026-08-31_nv_rht_nofos.html", TRUE
+  "data/evidence/recheck/2026-11-25/NV/2026-11-25_nv_rht_nofos.html", TRUE
 )
 
 # Session 121, READ 2026-11-20: the NOFO page is now Budget Period 2 (CBHT WRRAP

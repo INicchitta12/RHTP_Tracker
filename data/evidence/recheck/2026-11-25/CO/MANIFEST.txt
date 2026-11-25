@@ -1,0 +1,2 @@
+faefd237be43f23ed41bd5796cc7fa8185e0b2e16c54006cdb89596bf683b790  2026-11-25_hcpf_rhtp_programme.html  https://hcpf.colorado.gov/rural-health-transformation-program  full_page_sha256=f81f7739b047163a140652c5a599e1dfa1ecb3a419b3df6fa00be88c75037cb6  2026-11-25T16:09:37Z
+6aa803e55e12b88b8ac6668b00ce11ddc426999ad9ff52e3e636a5265a4668b6  2026-11-25_hcpf_rhtp_awardees.html  https://hcpf.colorado.gov/RHTP-awardees  full_page_sha256=8fd56135395a3c940d5339368fcb94c149b8e74807f131d36b58865cfebdd465  2026-11-25T16:13:27Z

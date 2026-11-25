@@ -528,7 +528,11 @@ co_status_table <- function(a = co_year1_awardees()) {
 
 CO_PROBE_PAGES <- tibble::tribble(
   ~key, ~url, ~file, ~name_diff,
-  "awardees", CO_ROSTER_URL, CO_SOURCES$file[1], TRUE,
+  # Session 124: the probe baseline is the 11-25 copy, read: only HCPF's
+  # breadcrumb moved ("Home About our RHTP Awardees"); the roster text is
+  # identical to the 11-02 extraction source, which stays CO_SOURCES$file[1].
+  "awardees", CO_ROSTER_URL,
+  file.path("data", "evidence", "recheck", "2026-11-25", "CO", "2026-11-25_hcpf_rhtp_awardees.html"), TRUE,
   # Session 112: re-based to the 11-02 copy after reading it (menu
   # restructure, "Grant Awardees"/"Grantee Resources" links, 11-23/24 meeting
   # dates; no recipient named). The 10-01 copy stays CO_SOURCES' release check.
@@ -540,8 +544,14 @@ CO_PROBE_PAGES <- tibble::tribble(
   # Entities tab carries the same four entities and obligations as
   # co_contracts.csv), and "Colorado's BY2 Documents Coming soon!". No
   # recipient is named.
+  # Session 124: re-based to the 11-25 copy after reading the diff (TRIPWIRE
+  # on "Grantee Open Office Hours" since 11-23; read in session 122). The
+  # kickoff and AC/stakeholder meeting block was replaced by open office hours
+  # (11-25, 11-30, 12-03), "The Advisory Committee will not meet in December",
+  # and the sidebar was re-ordered. No recipient, no amount. HCPF reads from
+  # this environment again (403 in session 123).
   "programme", CO_SOURCES$url[2],
-  file.path("data", "evidence", "recheck", "2026-11-16", "CO", "2026-11-16_hcpf_rhtp_programme.html"), TRUE)
+  file.path("data", "evidence", "recheck", "2026-11-25", "CO", "2026-11-25_hcpf_rhtp_programme.html"), TRUE)
 
 #' TRIPWIRE: the roster's line count or total moved
 co_assert_roster_unchanged <- function(raw) {
