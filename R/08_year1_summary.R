@@ -771,6 +771,8 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows), u = 
     YS_STATUS_LABELS %>% dplyr::transmute(sheet = "Year 1 status label", term = label, definition),
     YS_DEFINITIONS %>% dplyr::transmute(sheet = "Detail", term = column, definition),
     YS_VENDOR_DEFINITIONS %>% dplyr::transmute(sheet = "Vendor spending", term = column, definition),
+    # SESSION 124: the five named vendor figures every report states.
+    RHTP_VENDOR_FIGURES %>% dplyr::transmute(sheet = "Vendor figures (named)", term = label, definition),
     YS_USE_DEFINITIONS %>% dplyr::transmute(sheet = "By use category", term = column, definition))
   openxlsx::addWorksheet(wb, "Definitions")
   openxlsx::writeData(wb, "Definitions", defs, headerStyle = hdr)
@@ -899,12 +901,24 @@ YS_VENDOR_DEFINITIONS <- tibble::tribble(
   "unnamed_contractor_only_obligation_usd", "Context: CMS Obligated Funds Report lines (newest parsed edition) obligating money to contractors or consultants it does not name. Never a vendor figure.",
   "unnamed_contractor_mixed_obligation_usd", "Context: as above, where the line also covers state staff, state agencies or administrative infrastructure (e.g. NH, KS), so not all of it is contractor money.")
 
-ys_vendor_notes <- function(vt) {
+ys_vendor_notes <- function(vt, figs = NULL) {
   us <- vt[vt$state == "US", ]
   f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
-  c(paste0("VENDOR SPENDING (session 116f, owner direction). The 'Vendor spending' sheet tracks consultants, data/tech vendors, programme administrators and ",
+  # SESSION 124: the named figures lead, under their settled labels.
+  if (is.null(figs)) figs <- rhtp_vendor_figures(rhtp_spend_rows(sc_state_files()))
+  g <- function(k) figs$usd[figs$key == k]
+  lab <- function(k) figs$label[figs$key == k]
+  if (abs(g("vendor_awards") - us$vendor_total_award_usd) > 0.01) {
+    stop("[ys] the named vendor-awards figure and the Vendor spending sheet disagree.", call. = FALSE)
+  }
+  c(paste0("VENDOR FIGURES, NAMED (session 124; never added together): ", lab("vendor_awards"), " ", f(g("vendor_awards")),
+           "; ", lab("pass_through_awards"), " ", f(g("pass_through_awards")), " (of which ",
+           f(figs$of_which_in_hospital_usd[figs$key == "pass_through_awards"]), " is already inside the hospital best estimate); ",
+           lab("vendor_intents"), " ", f(g("vendor_intents")), "; ", lab("vendor_contract_maximums"), " ",
+           f(g("vendor_contract_maximums")), "; ", lab("vendor_obligations"), " ", f(g("vendor_obligations")), "."),
+    paste0("VENDOR SPENDING (session 116f, owner direction). The 'Vendor spending' sheet tracks consultants, data/tech vendors, programme administrators and ",
            "non-provider intermediaries beside hospital spending. ONLY VERIFIED DOLLARS count (session 116e tests V1-V9); unverified vendor-category rows are leads. ",
-           "Nationally: award ", f(us$vendor_total_award_usd), ", intent ", f(us$vendor_total_intent_usd), ", contract maximum ",
+           "Nationally: verified vendor awards (excluding provider pass-through) ", f(us$vendor_total_award_usd), ", intent ", f(us$vendor_total_intent_usd), ", contract maximum ",
            f(us$vendor_total_contract_maximum_usd), ", obligation ", f(us$vendor_total_obligation_usd),
            ". The four amount types are never added together."),
     paste0("VENDOR vs HOSPITAL. Verified vendor dollars on award rows (award + intent) are ", f(us$vendor_award_file_usd),

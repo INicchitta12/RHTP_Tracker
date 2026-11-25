@@ -796,6 +796,16 @@ VV_METHOD <- c(
 # have not changed. The live check is the 2026-11-10 one (VV_AS_OF).
 VV_XLSX_AS_OF <- "2026-11-24"   # session 123 (122: 2026-11-23) (121: 2026-11-20) (120: 2026-11-19; 119: 2026-11-16; 116f: 2026-11-11)
 
+# SESSION 124: notes carried on the workbook's Notes tab.
+VV_NOTES <- c(
+  paste0("ACCENTURE LLP NOW APPEARS IN TWO STATES (session 124). New Mexico: the RHTP Administrative Services Organization ",
+         "subaward, $128,979,618.21 (FSRS, 2026-10-28), HELD under ADMINISTRATOR_PASS_THROUGH_UNRESOLVED and shown as amount type ",
+         "'administers' with no verified vendor dollars until HCA publishes the fee and the pass-through share. New York: named ",
+         "by the Governor's 2026-11-16 release as an implementation partner for cybersecurity (part of the $79.5M Tech/Cyber ",
+         "initiative), with no amount: a vendor lead, not on the verified list. Neither enters a vendor figure."),
+  paste0("NEW YORK'S OTHER TWO IMPLEMENTATION PARTNERS (session 124): Primary Care Development Corporation (the $30M Primary ",
+         "Care initiative) and Public Consulting Group. No amounts; vendor leads only."))
+
 #' Every verified 116e case with the row that carries it in the spend layer
 vv_layer_cases <- function(b = vv_build(write = FALSE)) {
   spend <- rhtp_spend_rows(vf_state_files())
@@ -968,6 +978,29 @@ vv_xlsx <- function(as_of = VV_XLSX_AS_OF) {
   openxlsx::writeData(wb, "Method", tibble::tibble(Method = method), headerStyle = hs)
   openxlsx::addStyle(wb, "Method", wrap, rows = 2:(length(method) + 1), cols = 1)
   openxlsx::setColWidths(wb, "Method", cols = 1, widths = 150)
+  # SESSION 124 (owner Task 5): the five NAMED vendor figures and their
+  # definitions, the same labels R/08 prints. Never added together.
+  figs <- rhtp_vendor_figures(rhtp_spend_rows(vf_state_files()))
+  vv_defs <- dplyr::bind_rows(
+    figs %>% dplyr::transmute(Term = label, Figure = usd, Definition = paste0(
+      definition, dplyr::if_else(is.na(of_which_in_hospital_usd), "",
+        paste0(" Of this, $", formatC(of_which_in_hospital_usd, format = "f", digits = 2, big.mark = ","),
+               " is already inside the hospital best estimate.")))),
+    tibble::tibble(Term = "Never added", Figure = NA_real_,
+                   Definition = "The five figures above are different amount types or different kinds of recipient. No report adds them."),
+    tibble::tibble(Term = "116e check list", Figure = NA_real_,
+                   Definition = paste0("data/reference/verified_vendor_list.csv is the 116e V1-V9 check list, keyed by case. It is not a figure source: ",
+                                       "it still files five cases the spend layer treats as provider pass-through (UKHS Care Collaborative x4, ",
+                                       "the VHHA Foundation component), so its 'award' column sums higher. Report the named figures.")))
+  openxlsx::addWorksheet(wb, "Definitions")
+  openxlsx::writeData(wb, "Definitions", vv_defs, headerStyle = hs)
+  openxlsx::addStyle(wb, "Definitions", openxlsx::createStyle(numFmt = "$#,##0.00"), rows = 2:(nrow(vv_defs) + 1), cols = 2)
+  openxlsx::addStyle(wb, "Definitions", wrap, rows = 2:(nrow(vv_defs) + 1), cols = 3, stack = TRUE)
+  openxlsx::setColWidths(wb, "Definitions", cols = 1:3, widths = c(48, 18, 120))
+  openxlsx::addWorksheet(wb, "Notes")
+  openxlsx::writeData(wb, "Notes", tibble::tibble(Note = VV_NOTES), headerStyle = hs)
+  openxlsx::addStyle(wb, "Notes", wrap, rows = 2:(length(VV_NOTES) + 1), cols = 1)
+  openxlsx::setColWidths(wb, "Notes", cols = 1, widths = 150)
   openxlsx::saveWorkbook(wb, VV_XLSX(as_of), overwrite = TRUE)
   # Task 6: openxlsx lists drawing parts it never writes; strip them so strict
   # readers (openpyxl, Excel's repair prompt) open the file cleanly.

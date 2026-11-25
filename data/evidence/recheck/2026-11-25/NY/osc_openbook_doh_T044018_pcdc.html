@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TLFFQK2');</script>
+<!-- End Google Tag Manager -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>Open Book New York - Office of the State Comptroller</title>
+
+<script type="text/javascript" language="JavaScript1.2" src="../transparency.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../styles/transparency_table.css" />
+<link type="text/css" rel="stylesheet" href="../styles/transparency_page.css" />
+<link type="text/css" rel="stylesheet" href="../styles/queryresults.css" />
+
+
+<link type="text/css" rel="stylesheet" href="../styles/tooltip.css" />
+<script type="text/javascript" src="../tooltip.js"></script>
+
+<script type="text/javascript">
+	/***************************************************************************************
+	*	openContractGlossaryWindow()
+	*
+	*	Author:		Randy Bohannon
+	*	Purpose:	Opens popup glossary window.
+	*
+	*	Usage:	For glossary of contract types, pass in "APP=ContractType" as queryString,
+	*			otherwise don't pass in anything.
+	*
+	*	This function is used in contractresults.cfm, contractsearch.cfm, and contracttransactions.cfm.
+	*	It could be moved to a separate file and included in each cfm file.
+	*/
+	function openContractGlossaryWindow(queryString) {
+		window.open(
+			'contractglossarypopup.cfm?' + queryString,
+			'longDefinitionWindow',
+			'resizable=yes,scrollbars=yes,menubar=no,toolbar=yes,status=no,width=640,height=480'
+		).focus(); 
+		
+		return false;
+	}; // end openContractGlossaryWindow()
+</script>
+
+</head>
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLFFQK2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div id="wrapper">
+
+	
+
+<div id="masthead"><a href="http://www.openbooknewyork.com/"><img src="../images/openbookbanner.jpg" alt="Open Book New York" class="linkedimage"/></a></div>
+<!-- masthead-->
+
+<div id="navigationbox"> 
+ 
+
+ 
+	<ul class="navigationtext">
+		<li><a href="http://www.openbooknewyork.com/index.htm">Home</a></li>
+		<li>|</li>  
+		<li><a href="contractoverview.cfm">Overview</a></li>
+		<li>|</li>  
+		<li><a href="contracttips.cfm">Search Tips</a></li>
+		<li>|</li>
+		<li><a href="contact.cfm">Contact Us</a></li>
+		<li>|</li>
+		<li><a target="_newtab" href="https://www.surveymonkey.com/r/3X85VS7">Feedback</a></li>
+	</ul>
+
+</div>
+<!-- navigationbox -->
+
+	
+		
+      	<span id="Contract Type Link" class="tt_container">
+        	<span class="tt_heading">Contract Type</span>
+        	<span class="tt_body">
+            	A general categorization of a contract based on the type of goods, 
+				services, or program provided under the contract.
+			</span>
+			<span class="tt_footer" onclick="openContractGlossaryWindow('APP=ContractType');">View Contract Types</span>
+		</span>
+		
+		<span id="Contract Number Link" class="tt_container">
+        	<span class="tt_heading">Contract Number</span>
+        	<span class="tt_body">
+            	A number assigned by a State agency or authority to a contract to aid in identifying the contract.
+				Contract numbers begin with letter prefixes,
+				which provide a more detailed categorization of the contract. Different contracts may have the same
+				contract number because each State agency/authority has its own contract numbering system.
+			</span>
+			<span class="tt_footer" onclick="openContractGlossaryWindow('APP=ContractPfix');">View Letter Prefixes</span>
+		</span>
+		
+		<div id="breadcrumbs">
+			<a href="http://www.openbooknewyork.com/index.htm">Home</a> &gt;
+			<a href="contractsearch.cfm">NYS Contract Search</a> &gt;
+			Contract Search Results
+		</div>
+		
+		<div align="left" id="searchResults">
+    		<h3>
+				<a 
+					class="tooltipLink" 
+					href="#" 
+					onMouseOver="showTooltip(event, 'Information'); return false;"
+				><img src="../images/infobox.gif" alt="Information" border="0" /></a>
+			
+				
+					Contract Search Results
+				
+			</h3>
+			
+    			  
+			
+				<span id="Amended End Date" class="tt_container">
+					<span class="tt_heading">Amended End Date</span>
+					<span class="tt_body">The adjusted date a contract ends, after which the contractor may no longer provide the contractual goods or services. This data may not be available for State authority contracts. The field may be blank if the amendment only changes the contract amount rather than the end date.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Centralized Contract" class="tt_container">
+					<span class="tt_heading">Centralized Contract</span>
+					<span class="tt_body">A contract for commodities or services negotiated by the Office of General Services that can be used by State agencies or other users authorized by law.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Community Projects Fund (Member Initiatives)" class="tt_container">
+					<span class="tt_heading">Community Projects Fund (Member Initiatives)</span>
+					<span class="tt_body">A contract, commonly referred to as a member initiative, awarded by the legislature funded through the Community Projects Fund.  Member initiatives may also be classified as Grant Contracts.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract  Number" class="tt_container">
+					<span class="tt_heading">Contract  Number</span>
+					<span class="tt_body">A number assigned by a State agency or authority to a contract to aid in identifying the contract. Contract numbers begin with <a href="contractglossarypopup.cfm?APP=ContractPfix">letter prefixes</a>, which provide a more detailed categorization of the contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract  Type" class="tt_container">
+					<span class="tt_heading">Contract  Type</span>
+					<span class="tt_body">A general categorization of a contract based on the type of goods, services, or program provided under the contract. <a href="contractglossarypopup.cfm?APP=ContractType">View Contract Types</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Description" class="tt_container">
+					<span class="tt_heading">Contract Description</span>
+					<span class="tt_body">A brief description of the goods or services being purchased under a contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract End Date" class="tt_container">
+					<span class="tt_heading">Contract End Date</span>
+					<span class="tt_body">The date a contract ends, after which the contractor may no longer provide the contractual goods or services. This data may not be available for State authority contracts.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Number" class="tt_container">
+					<span class="tt_heading">Contract Number</span>
+					<span class="tt_body">A number assigned by a State agency or authority to a contract to aid in identifying the contract. Contract numbers begin with <a href="contractglossarypopup.cfm?APP=ContractPfix">letter prefixes</a>, which provide a more detailed categorization of the contract. Different contracts may have the same contract number because each State agency/authority has its own contract numbering system.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Period" class="tt_container">
+					<span class="tt_heading">Contract Period</span>
+					<span class="tt_body">The specified start and end date of the contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Start Date" class="tt_container">
+					<span class="tt_heading">Contract Start Date</span>
+					<span class="tt_body">The date a contract begins. This date is determined by the contracting State agency or authority.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Sub-Type" class="tt_container">
+					<span class="tt_heading">Contract Sub-Type</span>
+					<span class="tt_body">A sub-category grouping under a specific contract type.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Contract Type" class="tt_container">
+					<span class="tt_heading">Contract Type</span>
+					<span class="tt_body">A general categorization of a contract based on the type of goods, services or program provided under the contract. <a href="contractglossary.cfm?APP=ContractType">View Contract Types</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Converted Contract" class="tt_container">
+					<span class="tt_heading">Converted Contract</span>
+					<span class="tt_body">A converted contract is a contract that was approved before April 1, 2012 and has been transferred to the new Statewide Financial System now in use for all financial information. A converted contract combines information for both the original contract and any amendments to the original contract approved prior to April 1, 2012. Amendments after this date for converted contracts are displayed separately on the Open Book website. Detail about converted contracts prior to April 1, 2012 can be requested by <a href="http://www.openbooknewyork.com/contact.htm">contacting OSC</a>.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Current Contract Amount" class="tt_container">
+					<span class="tt_heading">Current Contract Amount</span>
+					<span class="tt_body">The amount to be spent over the life of the contract, including adjustments as a result of amendments to the contract.  A zero will appear if the amount was too difficult to estimate at the time of approval by the Office of the State Comptroller.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Department/Facility" class="tt_container">
+					<span class="tt_heading">Department/Facility</span>
+					<span class="tt_body">For agencies with decentralized contract administration, the facility, campus, etc. administering the contract.  Otherwise, the common name assigned to the Agency.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Description" class="tt_container">
+					<span class="tt_heading">Description</span>
+					<span class="tt_body">A brief description of the goods or services being purchased under the contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Download Additional Contract and Related Amendment Data for OSC approved transactions" class="tt_container">
+					<span class="tt_heading">Download Additional Contract and Related Amendment Data for OSC approved transactions</span>
+					<span class="tt_body">Download Additional Contract and Related Amendment Data for OSC approved transactions to a file that can be opened in Microsoft Excel or another spreadsheet application. Please note that this data excludes any transactions where the contract data is not available or contract amendment records are not subject to OSC approval.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Download Summary Contract Information to a Printer Friendly (PDF)" class="tt_container">
+					<span class="tt_heading">Download Summary Contract Information to a Printer Friendly (PDF)</span>
+					<span class="tt_body">If you are unable to open the printer friendly PDF, please click the link below to download the free Adobe reader and follow the installation instructions on Adobe's website. <br /><br /><a target=”_blank” href=https://get.adobe.com/reader/> Download Acrobat Reader</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Download Summary Contract Information to an Excel Spreadsheet" class="tt_container">
+					<span class="tt_heading">Download Summary Contract Information to an Excel Spreadsheet</span>
+					<span class="tt_body">If you are unable to open the spreadsheet, please click the link below to download a free Microsoft Excel viewer and follow the installation instructions on Microsoft's website.<br /><br /><a target=”_blank” href=http://www.microsoft.com/downloads/details.aspx?FamilyId=C8378BF4-996C-4569-B547-75EDBD03AAF0&displaylang=en>Download Microsoft Excel Viewer</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Execution Date" class="tt_container">
+					<span class="tt_heading">Execution Date</span>
+					<span class="tt_body">The date a contract was signed by a State authority. Under New York State Public Authorities Law, contracts submitted to the Comptroller's Office for filing must be received within 60 days of execution.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Eligible - New" class="tt_container">
+					<span class="tt_heading">Filed SA Eligible - New</span>
+					<span class="tt_body">This transaction type denotes a new State authority eligible contract that was filed by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Eligible – Amendment" class="tt_container">
+					<span class="tt_heading">Filed SA Eligible – Amendment</span>
+					<span class="tt_body">This transaction type denotes a State authority eligible contract amendment that was filed by OSC where the original contract was previously filed or approved by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Eligible – Amendment - No Original" class="tt_container">
+					<span class="tt_heading">Filed SA Eligible – Amendment - No Original</span>
+					<span class="tt_body">This transaction type denotes a State authority eligible contract amendment that was filed by OSC where the original contract was not required to be filed or approved by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Exempt – Amendment" class="tt_container">
+					<span class="tt_heading">Filed SA Exempt – Amendment</span>
+					<span class="tt_body">This transaction type denotes a State authority exempt contract amendment that was filed by OSC where the original contract was previously filed or approved by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Exempt – Amendment - No Original" class="tt_container">
+					<span class="tt_heading">Filed SA Exempt – Amendment - No Original</span>
+					<span class="tt_body">This transaction type denotes a State authority exempt contract amendment that was filed by OSC where the original contract was not required to be filed or approved by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Filed SA Exempt – New" class="tt_container">
+					<span class="tt_heading">Filed SA Exempt – New</span>
+					<span class="tt_body">This transaction type denotes a new State authority exempt contract that was filed by OSC.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Original Contract Approved/Filed Date" class="tt_container">
+					<span class="tt_heading">Original Contract Approved/Filed Date</span>
+					<span class="tt_body">For contracts subject to the Comptroller’s approval, the date the contract was approved by the Comptroller; and for State authority contracts subject to filing requirements, the date the contract was filed with the Office of the State Comptroller. The approved/filed date can come after the contract start date.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="SA Eligible Contract" class="tt_container">
+					<span class="tt_heading">SA Eligible Contract</span>
+					<span class="tt_body">A State authority contract with an anticipated contract value exceeding $1 million that is paid partially or totally from moneys appropriated by the State <strong>or</strong> was awarded noncompetitively.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="SA Exempt Contract" class="tt_container">
+					<span class="tt_heading">SA Exempt Contract</span>
+					<span class="tt_body">A State authority contract that is exempt from the Comptroller's review under New York State Public Authorities Law Section 2879-a(3).</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Spending to Date" class="tt_container">
+					<span class="tt_heading">Spending to Date</span>
+					<span class="tt_body">The amount the State has paid to date to the Vendor under the contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="State Agency" class="tt_container">
+					<span class="tt_heading">State Agency</span>
+					<span class="tt_body">The name associated with state government entities including state agencies and certain departments, offices, boards, commissions, divisions and councils.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="State Authority" class="tt_container">
+					<span class="tt_heading">State Authority</span>
+					<span class="tt_body">The name associated with public authorities or public benefit corporations created by New York State law, other than an interstate or international authority, with at least one member appointed by the governor or who serves as a member by virtue of holding a civil office of the State.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Transaction Amount" class="tt_container">
+					<span class="tt_heading">Transaction Amount</span>
+					<span class="tt_body">The dollar value of a contract or a contract amendment. The amount can be a negative number if the agency reduced a previously approved contract amount. It can also be zero if an amendment changes the end date but not the contract amount.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Transaction Approved/Filed Date" class="tt_container">
+					<span class="tt_heading">Transaction Approved/Filed Date</span>
+					<span class="tt_body">The date the transaction was approved by the Comptroller's Office or the date that a State authority contract was filed with the Office of the State Comptroller when the contract is subject to filing requirements.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Transaction Type" class="tt_container">
+					<span class="tt_heading">Transaction Type</span>
+					<span class="tt_body">A converted contract, a new contract, a contract amendment, or, in the case of State Authorities, the filing of a new contract or contract amendment.<br /><br />A converted contract is a contract that was approved before April 1, 2012 and has been transferred to the new Statewide Financial System now in use for all financial information. A converted contract combines information for both the original contract and any amendments to the original contract approved prior to April 1, 2012. Amendments after this date for converted contracts are displayed separately on the Open Book website. Detail about converted contracts prior to April 1, 2012 can be requested by <a href="http://www.openbooknewyork.com/contact.htm">contacting OSC</a>.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Vendor" class="tt_container">
+					<span class="tt_heading">Vendor</span>
+					<span class="tt_body">Any entity, which may be an individual, business, not-for-profit organization, or government agency, that provides goods or services. Vendors that had an approved/filed contract with an authority. </span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Vendor Name" class="tt_container">
+					<span class="tt_heading">Vendor Name</span>
+					<span class="tt_body">The legal or common name of the vendor that has entered into a contract with the State. You will only find vendors that have at least one approved contract.</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Download to an Excel Spreadsheet" class="tt_container">
+        			<span class="tt_heading">Download to an Excel Spreadsheet</span>
+        			<span class="tt_body">If you are unable to open the spreadsheet, please click the link below to download a free Microsoft Excel viewer and follow the installation instructions on Microsoft's website.<br /><br /><a target=”_blank” href=http://www.microsoft.com/downloads/details.aspx?FamilyId=C8378BF4-996C-4569-B547-75EDBD03AAF0&displaylang=en>Download Microsoft Excel Viewer</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Information" class="tt_container">
+        			<span class="tt_heading">Information</span>
+        			<span class="tt_body">Left click on any column heading one time and the column will sort in descending order; left click the column heading again and the column will sort in ascending order.<br /><br />
+
+Clicking on the vendor name will give you all contracts that the vendor currently has with all state agencies. <br /><br /> 
+
+Clicking on the agency name will further refine your search to give you all records for that search result for that selected agency. <br /><br /></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Printer Friendly (PDF)" class="tt_container">
+        			<span class="tt_heading">Printer Friendly (PDF)</span>
+        			<span class="tt_body">If you are unable to open the printer friendly PDF, please click the link below to download the free Adobe reader and follow the installation instructions on Adobe's website. <br /><br /><a target=”_blank” href=http://www.adobe.com/products/acrobat/readstep2.html> Download Acrobat Reader</a></span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+				<span id="Printer Friendly Version - Print Results" class="tt_container">
+        			<span class="tt_heading">Printer Friendly Version - Print Results</span>
+        			<span class="tt_body">Select the 'printer-friendly (PDF)' link in the upper right-hand corner of the screen.  You may need to download a free version of <a target=”_blank” href="http://get.adobe.com/reader/">Adobe Reader</a>.
+</span>
+        			<span class="tt_footer"></span>
+            	</span>
+			
+  				<div id="navigation" style="width:580px;">
+					<a 
+						href="contractresults.cfm?DocType=pdf&PageNum_rsContract=1&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&order=VENDOR_NAME&sort=ASC" 
+						target="_blank">Download Summary Contract Information to a Printer Friendly (PDF)</a>
+						
+    				<a 
+						class="tooltipLink" 
+						href="#" 
+						onClick="showTooltip(event, 'Download Summary Contract Information to a Printer Friendly (PDF)'); return false;"
+					><img src="../images/questionbox_reverse.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+					<br />
+					
+					<a 
+						href="contractresults.cfm?DocType=xlsx&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&order=VENDOR_NAME&sort=ASC"
+					>Download Summary Contract Information to an Excel Spreadsheet</a>
+					
+					<a 
+						class="tooltipLink" 
+						href="#" 
+						onClick="showTooltip(event, 'Download Summary Contract Information to an Excel Spreadsheet'); return false;"
+					><img src="../images/questionbox_reverse.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+					
+					<br />
+					
+					<a 
+						href="contractresults.cfm?DocType=csv&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search"
+					>Download Additional Contract and Related Amendment Data for OSC approved transactions</a>
+					
+					<a 
+						class="tooltipLink" 
+						href="#" 
+						onClick="showTooltip(event, 'Download Additional Contract and Related Amendment Data for OSC approved transactions'); return false;"
+					><img src="../images/questionbox_reverse.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+					
+				</div>  
+				
+				
+				<div align="left" class="paging">
+	  				1 Contract Found - 
+							Displaying page 1 of 1  <br />
+							Contract Number = T044018, <br />Agency = Health, Department of <br />
+					 
+			
+						
+  
+				</div>
+  
+				<table width="750" border="1" cellpadding="2" cellspacing="2" class="tableData" id="tableData">
+					
+					<tr>
+						  
+							<th>
+								<div style="text-align:left">
+									<a 
+										class="tooltipLink" 
+										href="#" 
+										onClick="showTooltip(event, 'Vendor Name'); return false;"
+									><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+								</div>
+								
+								<a 
+									href="contractresults.cfm?order=VENDOR_NAME&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=DESC"
+								>Vendor Name</a>
+								
+								<img src="../images/ascending.gif" alt="" border="0" />
+							</th>
+						
+							<th>
+								<div style="text-align:left">
+									<a 
+										class="tooltipLink" 
+										href="#" onClick="showTooltip(event, 'Department/Facility'); return false;"
+									><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+								</div>
+								
+								<a 
+									href="contractresults.cfm?order=DEP_FRIENDLY_NAME&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+								>Department/Facility</a>
+								<img src="../images/inviso.gif" alt="" border="0" /></th>
+    					<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Contract Number Link'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=CONTRACT_NUMBER&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Contract Number</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Current Contract Amount'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+						
+							<a 
+								href="contractresults.cfm?order=CONTRACT_AMOUNT&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Current Contract Amount</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+					
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Spending to Date'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=EXPENDITURES&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Spending to Date</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+					
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Contract Start Date'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=CONTRACT_START_DATE&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Contract Start Date</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+					
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Contract End Date'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=CONTRACT_END_DATE&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Contract End Date</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+					
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Contract Description'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=CONTRACT_DESCRIPTION&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Contract Description</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+						
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Contract Type Link'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=REPORTING_CODE_DESC&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Contract Type</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+						
+						<th>
+							<div style="text-align:left">
+								<a 
+									class="tooltipLink" 
+									href="#" 
+									onClick="showTooltip(event, 'Original Contract Approved/Filed Date'); return false;"
+								><img src="../images/questionbox.gif" alt="Tool Tip" width="19" height="19" border="0" /></a>
+							</div>
+							
+							<a 
+								href="contractresults.cfm?order=ORIG_AUDIT_DATE&ac=&amp;v=&amp;vo=B&amp;cn=T044018&amp;a=DOH01&amp;selOrigDateChoiceOperator=0&amp;txtOrigFromDate=&amp;txtOrigToDate=&amp;selCTDateChoice=0&amp;selCTDateChoiceOperator=0&amp;txtCTFromDate=&amp;txtCTToDate=&amp;selContractAmountChoice=0&amp;txtContractAmount1=&amp;txtContractAmount2=&amp;b=Search&sort=ASC"
+							>Original Contract Approved/Filed Date</a>
+							<img src="../images/inviso.gif" alt="" border="0" />
+						</th>
+	
+					</tr>
+					
+						<tr>
+							
+      							<td>
+									<a 
+										href="contractresults.cfm?ID=336" 
+										target="_self">PRIMARY CARE DEVELOPMENT CORP</a></td>
+							
+								<td>Department of Health</td>
+							
+
+							<td>
+								<a 
+									href="contracttransactions.cfm?Contract=0000000000000000000201825" 
+									target="_top">T044018</a>
+							</td>
+							<td>
+								<div align="right">$169,500,000.00</div>
+							</td>
+							
+							
+								<td><div align="right">$0.00</div></td>
+							
+							
+							<td>08/01/2026</td>
+							
+							
+								<td>08/31/2027</td>
+							
+							
+							<td>RHTP 2026-2031</td>
+							<td>Contracts Not Subject to OSC Pre-Audit</td>
+							<td>10/30/2026</td>
+						</tr>
+						
+				</table>
+
+				<div align="left" class="paging">
+					1 Contract Found - 
+							Displaying page 1 of 1 
+						<br />
+					
+				</div>
+				<br /><br />
+  			
+			
+      		
+	</div>
+</div><!-- wrapper -->
+
+<script type="text/javascript">
+   colorTableRows("tableData", "#d4dfe1");
+</script>
+
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-44909036-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+</body>
+</html> 
