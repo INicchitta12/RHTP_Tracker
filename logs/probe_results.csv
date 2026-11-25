@@ -3241,3 +3241,32 @@ MA,2026-11-25T16:43:23Z,UNCHANGED,mehi_sandbox,,interactive
 MA,2026-11-25T16:43:23Z,UNCHANGED,mehi_shine,,interactive
 MA,2026-11-25T16:43:23Z,UNCHANGED,mehi_hie,,interactive
 MA,2026-11-25T16:43:23Z,UNCHANGED,cyber,,interactive
+ID,2026-11-25T16:45:27Z,CHANGED,funding,,interactive
+ID,2026-11-25T16:45:27Z,CHANGED,about,,interactive
+ID,2026-11-25T16:45:27Z,TRIPWIRE,funding,"[ID] 'funding' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Idaho Rural Health Transformation Vendor-Subawardee Resources. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ID,2026-11-25T16:45:27Z,TRIPWIRE,about,"[ID] 'about' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Idaho Rural Health Transformation Vendor-Subawardee Resources. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+NE,2026-11-25T16:45:33Z,CHANGED,program_page,,interactive
+NE,2026-11-25T16:45:33Z,UNCHANGED,noa_3_3,,interactive
+NE,2026-11-25T16:45:33Z,UNCHANGED,noa_4_4a,,interactive
+NE,2026-11-25T16:45:33Z,UNCHANGED,noa_4_4b,,interactive
+NE,2026-11-25T16:45:33Z,UNCHANGED,noa_5_3,,interactive
+NE,2026-11-25T16:45:33Z,TRIPWIRE,program_page,"[NE] 'program_page' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Dashboard Nebraska Rural Health Technology Catalyst Fund Funding OpportunitiesTimeline and RFA Awardees | Million for Second Year of Rural Health Transformation ProgramDHHS News Release | Applications Open for the Nebraska Rural Health Technology Catalyst FundDHHS News Release. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ND,2026-11-25T16:45:47Z,TRIPWIRE,(probe),[ND] NEW OPPORTUNITY HEADED 'AWARDED': 'Community-Based Walking Program'; 'School-Based Wellness Equipment'; 'Hospital-Based Wellness Equipment'; 'Technology as an Extender'; 'Rural Health Clinical Equipment'; 'Rural Ambulance Modernization'; 'Clinics without Walls: Telehealth Infrastructure'; 'Clinics without Walls: Remote Patient Monitoring'; 'Coordinating and Con​necting Care'; 'Electronic Medical Record Enhancement'; 'Harnessing Artificial Intelligence Innovation'; 'Self-Serve Dispensing Kiosks in Pharmacies'. THAT IS THE SIGNAL. North Dakota marks an award in the heading; read the section for an awardee list and extract it.,interactive
+NM,2026-11-25T16:45:50Z,CHANGED,aso_search,,interactive
+NM,2026-11-25T16:45:50Z,ERROR,programme_v2,[NM] HTTP 404 for https://www.hca.nm.gov/get-help/programs-services-reforms-initiatives/medicaid-hcbs-health-coverage-programs/rural-health-transformation-program,interactive
+ND,2026-11-25T16:46:50Z,TRIPWIRE,(probe),[ND] NEW OPPORTUNITY HEADED 'AWARDED': 'Coordinating and Con​necting Care'. THAT IS THE SIGNAL. North Dakota marks an award in the heading; read the section for an awardee list and extract it.,interactive
+ND,2026-11-25T16:47:05Z,UNCHANGED,programme,,interactive
+ND,2026-11-25T16:47:05Z,CHANGED,funding,,interactive
+NE,2026-11-25T16:47:34Z,CHANGED,program_page,,interactive
+NE,2026-11-25T16:47:34Z,UNCHANGED,noa_3_3,,interactive
+NE,2026-11-25T16:47:34Z,UNCHANGED,noa_4_4a,,interactive
+NE,2026-11-25T16:47:34Z,UNCHANGED,noa_4_4b,,interactive
+NE,2026-11-25T16:47:34Z,UNCHANGED,noa_5_3,,interactive
+ID,2026-11-25T16:47:56Z,CHANGED,funding,,interactive
+ID,2026-11-25T16:47:56Z,CHANGED,about,,interactive
+ID,2026-11-25T16:47:56Z,TRIPWIRE,funding,"[ID] 'funding' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Idaho Rural Health Transformation Vendor-Subawardee Resources. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ID,2026-11-25T16:48:05Z,CHANGED,funding,,interactive
+ID,2026-11-25T16:48:05Z,CHANGED,about,,interactive
+ID,2026-11-25T16:48:05Z,TRIPWIRE,funding,"[ID] 'funding' NAMES 1 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Idaho Rural Health Transformation Vendor-Subawardee Resources. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",interactive
+ID,2026-11-25T16:48:15Z,CHANGED,funding,,interactive
+ID,2026-11-25T16:48:15Z,CHANGED,about,,interactive

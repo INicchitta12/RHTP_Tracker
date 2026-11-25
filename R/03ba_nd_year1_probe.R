@@ -100,7 +100,26 @@ ND_KNOWN_AWARDED <- c(
   # both pages still catches a roster.
   "Suicide Intervention \u2013 Healthcare Systems Initiative",
   "Childcare for the Rural Health Workforce",
-  "Non-Emergency Medical Transportation Acquisition")
+  "Non-Emergency Medical Transportation Acquisition",
+  # SESSION 124, read 2026-11-25 (Routine TRIPWIRE 11-25 09:22Z): twelve more
+  # headings went to "Awarded | N Applicants". No section names an awardee or
+  # prints an amount (RFP, TA and FAQ text only; every 'awardee' on the page is
+  # FAQ text). Hospital-Based Wellness Equipment is NOT hospitals only: its FAQ
+  # admits "non-federally operated IHS facilities and tribally run 638 health"
+  # centres. (The log printed "Con<zero-width space>necting": rhtp_watch_quote()
+  # breaks "connect" so the log never reads it as an access error.)
+  "Community-Based Walking Program",
+  "School-Based Wellness Equipment",
+  "Hospital-Based Wellness Equipment",
+  "Technology as an Extender",
+  "Rural Health Clinical Equipment",
+  "Rural Ambulance Modernization",
+  "Clinics without Walls: Telehealth Infrastructure",
+  "Clinics without Walls: Remote Patient Monitoring",
+  "Coordinating and Connecting Care",
+  "Electronic Medical Record Enhancement",
+  "Harnessing Artificial Intelligence Innovation",
+  "Self-Serve Dispensing Kiosks in Pharmacies")
 
 # SESSION 121: THE SAME ROUNDS AS A RECORD, so "Awarded, nobody named" is a
 # statement in the file and not only a comment. One row per round North Dakota
@@ -121,7 +140,19 @@ ND_AWARDED_ROUNDS <- tibble::tribble(
   "Train In Place",                                                                                         45L,         "2026-10-12", 99L,      0L,     FALSE,
   "Suicide Intervention \u2013 Healthcare Systems Initiative",                                              5L,          "2026-11-19", 120L,     0L,     FALSE,
   "Childcare for the Rural Health Workforce",                                                               8L,          "2026-11-19", 120L,     0L,     FALSE,
-  "Non-Emergency Medical Transportation Acquisition",                                                       13L,         "2026-11-19", 120L,     0L,     FALSE) %>%
+  "Non-Emergency Medical Transportation Acquisition",                                                       13L,         "2026-11-19", 120L,     0L,     FALSE,
+  "Community-Based Walking Program", 30L, "2026-11-25", 124L, 0L, FALSE,
+  "School-Based Wellness Equipment", 60L, "2026-11-25", 124L, 0L, FALSE,
+  "Hospital-Based Wellness Equipment", 38L, "2026-11-25", 124L, 0L, FALSE,
+  "Technology as an Extender", 45L, "2026-11-25", 124L, 0L, FALSE,
+  "Rural Health Clinical Equipment", 38L, "2026-11-25", 124L, 0L, FALSE,
+  "Rural Ambulance Modernization", 82L, "2026-11-25", 124L, 0L, FALSE,
+  "Clinics without Walls: Telehealth Infrastructure", 17L, "2026-11-25", 124L, 0L, FALSE,
+  "Clinics without Walls: Remote Patient Monitoring", 18L, "2026-11-25", 124L, 0L, FALSE,
+  "Coordinating and Connecting Care", 10L, "2026-11-25", 124L, 0L, FALSE,
+  "Electronic Medical Record Enhancement", 12L, "2026-11-25", 124L, 0L, FALSE,
+  "Harnessing Artificial Intelligence Innovation", 11L, "2026-11-25", 124L, 0L, FALSE,
+  "Self-Serve Dispensing Kiosks in Pharmacies", 5L, "2026-11-25", 124L, 0L, FALSE) %>%
   dplyr::mutate(status = "AWARDED_NOBODY_NAMED")
 
 # THE ROUNDS WHOSE ELIGIBLE CLASS IS HOSPITALS ONLY (session 94, owner). When
