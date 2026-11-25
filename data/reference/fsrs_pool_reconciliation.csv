@@ -1,19 +1,19 @@
 file_key,pool,pool_usd,members_with_fsrs,fsrs_usd,gap_usd,gap_pct,decision,as_of
-IN_GROW,GROW Regional Grants -- Region 1,12600000,17,13509155.85,909155.85,7.2,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 2,20700000,17,14046883.65,-6653116.35,-32.1,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 3,9700000,16,12627569.87,2927569.87,30.2,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 4,15200000,12,13410048.02,-1789951.98,-11.8,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 5,16700000,8,14957160.99,-1742839.01,-10.4,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 6,13000000,14,5744728.78,-7255271.22,-55.8,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 7,13100000,14,19373302.87,6273302.87,47.9,HOLD,2026-11-20
-IN_GROW,GROW Regional Grants -- Region 8,11400000,6,6779534.59,-4620465.41,-40.5,HOLD,2026-11-20
-NC_SBHC,Expanding School Health Centers to Rural Areas,1250000,4,1000000,-250000,-20,HOLD,2026-11-20
-NV,WRRAP_RECRUITMENT_RETENTION,32300000,1,486996,-31813004,-98.5,HOLD,2026-11-20
-OH,"ODH Clinically Integrated Networks and Rural Health Innovation Hubs ($31.4M, shared with non-hospitals; no bucket)",,1,137251,,,HOLD,2026-11-20
-OK_CHW,Community Health Worker Expansion,4460162.93,2,192158.06,-4268004.87,-95.7,HOLD,2026-11-20
-SD_CCBHC,Certified Community Behavioral Health Clinic (CCBHC) modernization and infrastructure grants,13000000,3,4436929,-8563071,-65.9,HOLD,2026-11-20
-IN (state),pool-level figures naming no recipient (R/08 pool_level_usd),112400000,20,8051496.04,-104348503.96,-92.8,HOLD,2026-11-20
-OH (state),pool-level figures naming no recipient (R/08 pool_level_usd),61700000,22,6790599.4799999995,-54909400.52,-89,HOLD,2026-11-20
-OR (state),pool-level figures naming no recipient (R/08 pool_level_usd),26700000,46,45460009.47,18760009.47,70.3,HOLD,2026-11-20
-SD (state),pool-level figures naming no recipient (R/08 pool_level_usd),101182906,16,6552346.07,-94630559.93,-93.5,HOLD,2026-11-20
-WA (state),pool-level figures naming no recipient (R/08 pool_level_usd),19410000,36,25953803.03,6543803.03,33.7,HOLD,2026-11-20
+IN_GROW,GROW Regional Grants -- Region 1,12600000,17,13509155.85,909155.85,7.2,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 2,20700000,17,18993953.23,-1706046.77,-8.2,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 3,9700000,16,12627569.87,2927569.87,30.2,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 4,15200000,12,13290048.02,-1909951.98,-12.6,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 5,16700000,8,14797160.99,-1902839.01,-11.4,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 6,13000000,16,7020636.58,-5979363.42,-46,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 7,13100000,16,21528951.22,8428951.22,64.3,HOLD,2026-11-25
+IN_GROW,GROW Regional Grants -- Region 8,11400000,7,8906970.67,-2493029.33,-21.9,HOLD,2026-11-25
+NC_SBHC,Expanding School Health Centers to Rural Areas,1250000,4,1000000,-250000,-20,HOLD,2026-11-25
+NV,WRRAP_RECRUITMENT_RETENTION,32300000,1,486996,-31813004,-98.5,HOLD,2026-11-25
+OH,"ODH Clinically Integrated Networks and Rural Health Innovation Hubs ($31.4M, shared with non-hospitals; no bucket)",,1,137251,,,HOLD,2026-11-25
+OK_CHW,Community Health Worker Expansion,4460162.93,2,192158.06,-4268004.87,-95.7,HOLD,2026-11-25
+SD_CCBHC,Certified Community Behavioral Health Clinic (CCBHC) modernization and infrastructure grants,13000000,3,4436929,-8563071,-65.9,HOLD,2026-11-25
+IN (state),pool-level figures naming no recipient (R/08 pool_level_usd),112400000,21,8086496.04,-104313503.96,-92.8,HOLD,2026-11-25
+OH (state),pool-level figures naming no recipient (R/08 pool_level_usd),61700000,22,6790599.4799999995,-54909400.52,-89,HOLD,2026-11-25
+OR (state),pool-level figures naming no recipient (R/08 pool_level_usd),26700000,49,46139388.42,19439388.42,72.8,HOLD,2026-11-25
+SD (state),pool-level figures naming no recipient (R/08 pool_level_usd),101182906,16,6552346.07,-94630559.93,-93.5,HOLD,2026-11-25
+WA (state),pool-level figures naming no recipient (R/08 pool_level_usd),19410000,36,25953803.03,6543803.03,33.7,HOLD,2026-11-25
