@@ -1218,7 +1218,9 @@ NV_LOCAL_TYPE_OVERRIDES <- tibble::tribble(
   "^Nevada Rural Hospital Partners$",     "HOSPITAL_AFFILIATED_ENTITY", "MEDIUM",
   "Nevada Rural Hospital Partners is the state's rural hospital association (the shared override table's own description of it, on its Foundation's row) -- an association, not a hospital; the hospital name rule reads the word 'Hospital' in its name (§10.2, the MHA trap)",
   "^NSHE\\b",                             "UNIVERSITY_OR_AHC",          "MEDIUM",
-  "the recipient string names NSHE, the Nevada System of Higher Education, and a UNR or UNLV unit -- the page's own Medical Residency section writes 'Board of Regents, NSHE, obo University of Nevada, Reno'; a university unit, whatever its programme is called (§0.3a)"
+  "the recipient string names NSHE, the Nevada System of Higher Education, and a UNR or UNLV unit -- the page's own Medical Residency section writes 'Board of Regents, NSHE, obo University of Nevada, Reno'; a university unit, whatever its programme is called (§0.3a)",
+  "^Esmeralda County Board of Commissioners$", "LOCAL_GOVT_OR_PUBLIC_HEALTH", "MEDIUM",
+  "session 124 (owner Task 5b): a county's board of commissioners is the county government; the recipient string states the form (the classifier's NONPROFIT_CBO fallback read 'Commissioners' as nothing)"
 )
 
 #' The shared classifier, with Nevada's two local corrections applied first.

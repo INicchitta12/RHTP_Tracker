@@ -988,7 +988,27 @@ FSRS_HAND_TYPING <- tibble::tribble(
   paste0("§10.2 DIRECT, TYPED BY HAND (session 124): 'LINTON HOSPITAL FOUNDATION' names its parent, Linton ",
          "Hospital (Linton, ND), an enrolled critical access hospital already on this file's FSRS rows. §7: a ",
          "fundraising foundation of a named hospital is the hospital's, and the money it receives is the hospital's. ",
-         "The parent is read from the name alone (no CCN on the foundation), so LOW."))
+         "The parent is read from the name alone (no CCN on the foundation), so LOW."),
+  # SESSION 124 (owner Task 5b): government bodies the classifier had typed
+  # NONPROFIT_CBO. The recipient's own name states the form.
+  "HI", "QMUKABQ3NXR4", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'STATE HLTH. PLNG. & DEV. AGENCY' is Hawaii's State Health Planning and ",
+         "Development Agency (SHPDA), an agency of the State of Hawaii (HRS ch. 323D), filed by the Executive Office ",
+         "of the State of Hawaii. A state agency, not a nonprofit; never a hospital."),
+  "OK", "SVPSDU5GCKG2", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): the Oklahoma Health Care Workforce Training Commission is a state agency ",
+         "(the name states it; formerly the Physician Manpower Training Commission). Never a hospital."),
+  "RI", "LWPVXFL8DS51", "STATE_AGENCY", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'RI DEPT. OF BEHAVIORAL HEALTHCARE DEVEL' is the Rhode Island Department of ",
+         "Behavioral Healthcare, Developmental Disabilities and Hospitals (BHDDH), a state department. Never a hospital ",
+         "row (it operates state hospitals; R/09b's state-body-with-enrolment hold covers any such reading)."),
+  "ME", "T439PRTT8TD1", "SCHOOL_OR_DISTRICT", "NON_HOSPITAL", "No", "No", "STATE_SOURCE",
+  NA_character_,
+  paste0("TYPED BY HAND (session 124): 'AUGUSTA SCHOOL DEPARTMENT' is the City of Augusta's public school ",
+         "department (a school administrative unit). Never a hospital."))
 FSRS_HAND_CCN <- c(NL3YAWLVSGK1 = "241374", VHBBM8QCCG63 = "241319", DCJGSC4LY1W4 = "200039A")  # as CMS publishes it (Prairie Lakes 430005A precedent)
 FSRS_HAND_RECORD <- c(NL3YAWLVSGK1 = paste0("PIPESTONE COUNTY MEDICAL CENTER (241374, PIPESTONE), PART A PROVIDER - ",
                                              "CRITICAL ACCESS HOSPITAL; 916 4TH AVE SW (FSRS: 916 5TH AVE SW)"),
