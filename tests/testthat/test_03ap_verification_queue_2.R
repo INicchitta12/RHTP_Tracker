@@ -624,6 +624,14 @@ test_that("the three buckets are what SESSION 51 publishes, and what session 49 
   # 2,369 / $2,292,033,452.90 / 43. Subtracted first.
   # Session 122: KDHE IFTp, Labette County Medical Center ($325,000):
   # +1 / +$325,000: 2,370 / $2,292,358,452.90 / 43. Subtracted first.
+  # Session 124: FSRS 11-25 archive (ND 16 CAH rows + Linton foundation, NE 2,
+  # WV War Memorial) and IN Meds-to-Beds priced (rows already at $0):
+  # +20 / +$4,857,071.43: 2,390 / $2,297,215,524.33 / 43. Subtracted first.
+  expect_equal(named$rows, 2390L)
+  expect_equal(round(named$dollars, 2), 2297215524.33, tolerance = 0)
+  expect_equal(named$states, 43L)
+  named$rows <- named$rows - 20L
+  named$dollars <- named$dollars - 4857071.43
   expect_equal(named$rows, 2370L)
   expect_equal(round(named$dollars, 2), 2292358452.90, tolerance = 0)
   expect_equal(named$states, 43L)

@@ -207,11 +207,11 @@ test_that("INVESTIGATED_NO_PROBE carries through to the queue and leaves QUEUED"
   # SESSION 76: two. Minnesota left for INVESTIGATED_NO_LIST because its
   # probe was written (R/03bn) and scheduled.
   # SESSION 101: one. Hawaii left by extraction (R/03cd).
-  two <- c("MA")
+  # SESSION 124: none. Massachusetts left for INVESTIGATED_NO_LIST: a probe off
+  # mass.gov (R/03cy, MeHI + MassCyberCenter) and its own Routine.
   expect_equal(queue$queue_status[queue$state == "HI"], "EXTRACTED")
-  got <- queue$queue_status[match(two, queue$state)]
-  expect_true(all(got == "INVESTIGATED_NO_PROBE"),
-              info = paste(two, got, collapse = "; "))
+  expect_equal(queue$queue_status[queue$state == "MA"], "INVESTIGATED_NO_LIST")
+  expect_false(any(queue$queue_status == "INVESTIGATED_NO_PROBE"))
   # Session 112: MN then left INVESTIGATED_NO_LIST by EXTRACTION (R/03cp).
   expect_equal(queue$queue_status[queue$state == "MN"], "EXTRACTED")
   expect_equal(queue$queue_status[queue$state == "SC"], "EXTRACTED")
