@@ -794,7 +794,7 @@ VV_METHOD <- c(
 # not the 116e label; the evidence columns (quote, source, archive, SHA-256,
 # live check, independent check) still come from this file's checks, which
 # have not changed. The live check is the 2026-11-10 one (VV_AS_OF).
-VV_XLSX_AS_OF <- "2026-11-25"   # session 124 (123: 2026-11-24; 122: 2026-11-23) (121: 2026-11-20) (120: 2026-11-19; 119: 2026-11-16; 116f: 2026-11-11)
+VV_XLSX_AS_OF <- "2026-11-26"   # session 125b (124: 2026-11-25; 123: 2026-11-24; 122: 2026-11-23) (121: 2026-11-20) (120: 2026-11-19; 119: 2026-11-16; 116f: 2026-11-11)
 
 # SESSION 124: notes carried on the workbook's Notes tab.
 VV_NOTES <- c(

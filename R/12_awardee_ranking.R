@@ -41,6 +41,25 @@
 # itself (ICAHN, WSHA, NHVN) ranks as the awardee, flagged PASS_THROUGH.
 # Unpriced rows are counted, never ranked on.
 #
+# SESSION 125b (owner audit of the team copy, 2026-11-25):
+#   DELAWARE IS NOT CONFIDENTIAL (owner ruling 2026-11-25). Delaware rows appear in
+#     every tab and total; the team copy is the same workbook. A row citing the
+#     owner-supplied DE Verify.xlsx is flagged owner_supplied_source (none does).
+#   SECOND TIER. An intermediary's own subgrants that are also priced rows are
+#     SECOND_TIER_OF its first-tier row (config/second_tier_rows.csv, R/08): role
+#     SECOND_TIER, never ranked, never in the ranking total or its reconciliation,
+#     listed on the "Second-tier recipients" tab. The intermediary ranks at its
+#     first-tier amount.
+#   NAMES. The within-state name key reads "A DBA B" and "B DBA A" as one name and
+#     lets either half of a DBA string match the same half printed alone (still
+#     refused where UEIs or CCNs differ). Same-state hand joins (one legal body,
+#     several hospitals) are SAME_STATE_LEGAL_BODY entries. Lines that share a
+#     printed name but are different entities carry a display_name label (UEI legal
+#     name and city, or the CCN's facility and city).
+#   READER COLUMNS. organisation_type (a plain label; "Organisation (form not
+#     stated)" wherever the form is the RECIPIENT_TYPE_INFERRED fallback, never
+#     "Nonprofit"), and a "Read first" tab.
+#
 # Usage:
 #   Rscript R/12_awardee_ranking.R --build [YYYY-MM-DD]  # data/reference/awardee_*.csv and
 #                                                       # output/awardee_ranking_<date>{,_team}.xlsx
@@ -72,18 +91,41 @@ AW_PT_FLOWS <- c("PASS_THROUGH_DESIGNATED", "PASS_THROUGH_UNRESOLVED")
 AW_LEGAL_SUFFIX <- c("INC", "INCORPORATED", "LLC", "L L C", "LLP", "CORP", "CORPORATION", "CO", "LTD", "PC",
                      "PLLC", "PA", "LP", "NPC")
 
-#' The normalised name: upper case, '&' as AND, punctuation and parenthesised
-#' text removed, a leading THE and trailing legal-form tokens dropped
+aw_norm_part <- function(x) {
+  x <- stringr::str_squish(x)
+  x <- sub("^THE ", "", x)
+  pat <- paste0(" (", paste(AW_LEGAL_SUFFIX, collapse = "|"), ")$")
+  for (i in 1:3) x <- sub(pat, "", x)
+  stringr::str_squish(x)
+}
+
+#' The normalised name: upper case, '&' as AND, punctuation (hyphens included)
+#' and parenthesised text removed, a leading THE and trailing legal-form tokens
+#' dropped. SESSION 125b: a "DBA" string (dba, d/b/a, d.b.a.) is split into its
+#' halves, each normalised, and the halves sorted, so "A DBA B" and "B DBA A" are
+#' one name (VT's Five-Town Health Alliance / Mountain Community Health).
 aw_norm <- function(x) {
   x <- toupper(dplyr::coalesce(x, ""))
   x <- gsub("&", " AND ", x, fixed = TRUE)
   x <- gsub("\\(.*?\\)", " ", x)
   x <- gsub("[^A-Z0-9 ]", " ", x)
   x <- stringr::str_squish(x)
-  x <- sub("^THE ", "", x)
-  pat <- paste0(" (", paste(AW_LEGAL_SUFFIX, collapse = "|"), ")$")
-  for (i in 1:3) x <- sub(pat, "", x)
-  stringr::str_squish(x)
+  x <- gsub("\\bD B A\\b", "DBA", x)
+  vapply(strsplit(x, " DBA ", fixed = TRUE), function(p) {
+    p <- aw_norm_part(p); p <- p[p != "" & p != "DBA"]
+    paste(sort(unique(p)), collapse = " DBA ")
+  }, character(1), USE.NAMES = FALSE)
+}
+
+#' The within-state name keys of a normalised name: the whole name and, for a
+#' DBA string, each half (so "AHS Hospital Corp DBA X" also meets "AHS Hospital
+#' Corp"); every join is still refused where UEIs or CCNs differ
+aw_name_keys <- function(norm) {
+  lapply(norm, function(z) {
+    if (is.na(z) || z == "") return(character(0))
+    parts <- strsplit(z, " DBA ", fixed = TRUE)[[1]]
+    unique(c(z, if (length(parts) > 1) parts))
+  })
 }
 
 aw_ccn_norm <- function(x) {
@@ -114,8 +156,9 @@ aw_rows <- function(files = sc_state_files()) {
       fsrs_uei = col("fsrs_uei"), fsrs_match = col("fsrs_match"), fsrs_subaward_ids = col("fsrs_subaward_ids"),
       summary_hospital_call = col("summary_hospital_call"), spend_category = col("spend_category"),
       vendor_verified = col("vendor_verified"), out_of_state = col("out_of_state"),
-      use_group_primary = col("use_group_primary"),
-      confidential_hit = ys_confidential_hit(d))
+      use_group_primary = col("use_group_primary"), recipient_subtype = col("recipient_subtype"),
+      determination_confidence = col("determination_confidence"),
+      owner_supplied_hit = ys_owner_supplied_hit(d))
   }))
   # UEI of the row's OWN paired subaward(s)
   own <- out %>% dplyr::mutate(.i = dplyr::row_number()) %>%
@@ -152,7 +195,8 @@ aw_rows <- function(files = sc_state_files()) {
       validation_source_type %in% "CMS_OBLIGATION_REPORT" ~ "obligation",
       validation_source_type %in% "NOTICE_OF_INTENT_TO_AWARD" ~ "intent",
       TRUE ~ "award"),
-    confidential = state %in% "DE" | confidential_hit,
+    owner_supplied_source = owner_supplied_hit,
+    second_tier_of = ys_second_tier_of(file_key, awardee),
     row_id = paste0(file_key, "#", row_index))
 }
 
@@ -161,6 +205,7 @@ aw_roles <- function(rows, unattrib = aw_unattributed_config()) {
   hand_un <- paste(unattrib$file_key, unattrib$awardee)
   rows %>% dplyr::mutate(role = dplyr::case_when(
     ys_has(flag_reason, YS_EXCLUDED_FLAG) ~ "HELD_OUT_ADMINISTRATOR",
+    !is.na(second_tier_of) ~ "SECOND_TIER",
     ys_has(flag_reason, "MULTI_RECIPIENT_FIELD") ~ "UNATTRIBUTED_POOL",
     recipient_type %in% "NOT_YET_NAMED" ~ "UNATTRIBUTED_POOL",
     paste(file_key, awardee) %in% hand_un ~ "UNATTRIBUTED_POOL",
@@ -180,9 +225,6 @@ aw_hand_config <- function() {
   if (any(is.na(x$basis) | is.na(x$source) | is.na(x$reviewer))) {
     stop("[awardee] every hand-reviewed join needs a quoted basis, a source and a reviewer.", call. = FALSE)
   }
-  k <- x %>% dplyr::count(entity_key) %>% dplyr::filter(n < 2)
-  if (nrow(k)) stop("[awardee] a hand-reviewed entity needs two or more members: ", paste(k$entity_key, collapse = ", "),
-                    call. = FALSE)
   x
 }
 aw_distinct_config <- function() aw_read_cfg(AW_DISTINCT, c("norm_name", "states", "reason_type", "reason", "reviewer"))
@@ -221,7 +263,24 @@ aw_entities <- function(rows, hand = aw_hand_config()) {
   }
   link_groups(uei_sets, "UEI")
   link_groups(lapply(rows$ein, function(z) if (is.na(z)) character(0) else z), "EIN")
-  link_groups(ccn_sets, "CCN")
+  # SESSION 125b (independent check): a CCN join is refused where the two rows
+  # carry DIFFERENT UEIs AND DIFFERENT normalised names. A row's CCN can rest on
+  # an address match to an enrolled hospital (ND Griggs County Nursing Home on
+  # Cooperstown's 351306; WV East Mountain Health Physicians on War Memorial's
+  # 511309), and two disagreeing federal identifiers on two different names
+  # outrank it. One legal name filed under several site UEIs (OSF HEALTHCARE
+  # SYSTEM, IL) still joins on its CCN. A hand review can join any pair.
+  ccn_df <- tibble::tibble(i = rep(seq_len(n), lengths(ccn_sets)), k = unlist(ccn_sets))
+  refused_ccn <- list()
+  for (g in split(ccn_df$i, ccn_df$k)) if (length(g) > 1) for (j in g[-1]) {
+    ui <- uei_sets[[g[1]]]; uj <- uei_sets[[j]]
+    conflict <- length(ui) && length(uj) && !length(intersect(ui, uj)) && rows$norm_name[g[1]] != rows$norm_name[j]
+    if (conflict) {
+      # try any already-linked member of the group with the same name or UEI first
+      alt <- g[g != j & (rows$norm_name[g] == rows$norm_name[j] | vapply(g, function(z) length(intersect(uei_sets[[z]], uj)) > 0, logical(1)))]
+      if (length(alt)) merge(alt[1], j, "CCN") else refused_ccn[[length(refused_ccn) + 1]] <- c(rows$row_id[g[1]], rows$row_id[j])
+    } else merge(g[1], j, "CCN")
+  }
   # hand-reviewed joins, keyed on (state, awardee as printed)
   hk <- paste(hand$state, hand$awardee)
   rk <- paste(rows$state, rows$awardee)
@@ -229,13 +288,17 @@ aw_entities <- function(rows, hand = aw_hand_config()) {
   if (nrow(miss)) stop("[awardee] hand-reviewed members not found among Year 1 rows: ",
                        paste(miss$state, miss$awardee, sep = " / ", collapse = "; "), call. = FALSE)
   hand_keys <- lapply(rk, function(z) unique(hand$entity_key[hk == z]))
+  k <- table(unlist(hand_keys))
+  if (length(hand$entity_key) && any(k < 2 | !unique(hand$entity_key) %in% names(k))) {
+    stop("[awardee] a hand-reviewed entity must reach two or more Year 1 rows: ",
+         paste(setdiff(unique(hand$entity_key), names(k)[k >= 2]), collapse = ", "), call. = FALSE)
+  }
   link_groups(hand_keys, "HAND_REVIEWED")
   # same-state exact normalised name, with the conflict check
-  name_keys <- as.list(ifelse(rows$norm_name == "", NA, paste(rows$state, rows$norm_name)))
-  name_keys <- lapply(name_keys, function(z) if (is.na(z)) character(0) else z)
+  nk <- aw_name_keys(rows$norm_name)
+  name_keys <- lapply(seq_len(n), function(i) if (length(nk[[i]])) paste(rows$state[i], nk[[i]]) else character(0))
   refused <- list()
-  df <- tibble::tibble(i = seq_len(n), k = unlist(lapply(name_keys, function(z) if (length(z)) z else NA))) %>%
-    dplyr::filter(!is.na(k))
+  df <- tibble::tibble(i = rep(seq_len(n), lengths(name_keys)), k = unlist(name_keys))
   for (g in split(df$i, df$k)) if (length(g) > 1) for (j in g[-1]) {
     ok <- merge(g[1], j, "SAME_STATE_EXACT_NAME", check = TRUE)
     if (!ok) refused[[length(refused) + 1]] <- c(rows$row_id[g[1]], rows$row_id[j])
@@ -265,10 +328,58 @@ aw_entities <- function(rows, hand = aw_hand_config()) {
   }
   rows <- rows %>% dplyr::left_join(ids %>% dplyr::select(root, awardee_entity_id), by = "root") %>% dplyr::select(-root)
   attr(rows, "refused_name_joins") <- refused
+  attr(rows, "refused_ccn_joins") <- refused_ccn
   rows
 }
 
 # -- 3. the ranking --------------------------------------------------------------------
+
+# SESSION 125b (owner audit): a reader-facing organisation type. The internal
+# coding is unchanged. NONPROFIT_CBO carrying RECIPIENT_TYPE_INFERRED is the
+# standing fallback for an UNSTATED form, so it prints "Organisation (form not
+# stated)", never "Nonprofit". Academic health centres (recipient_subtype) and
+# hospital associations/networks (config/spend_category_entities.csv,
+# hospital_affiliate TRUE) are marked.
+AW_ORG_LABELS <- c(
+  HOSPITAL_OR_SYSTEM = "Hospital or health system",
+  HOSPITAL_AFFILIATED_ENTITY = "Hospital-affiliated organisation",
+  FQHC_OR_RHC = "FQHC or rural health clinic",
+  EMS_OR_PSAP = "EMS agency or 911 centre",
+  UNIVERSITY_OR_AHC = "University",
+  AHEC = "Area Health Education Center",
+  SCHOOL_OR_DISTRICT = "School or school district",
+  LOCAL_GOVT_OR_PUBLIC_HEALTH = "Local government or public health department",
+  TRIBAL_ORG = "Tribal nation or tribal organisation",
+  STATE_AGENCY = "State agency",
+  VENDOR_OR_CONTRACTOR = "Vendor or contractor",
+  NONPROFIT_CBO = "Nonprofit or community organisation",
+  PHYSICIAN_PRACTICE = "Physician practice",
+  MANAGED_CARE_ORGANIZATION = "Managed care organisation",
+  OTHER = "Other (form stated in the source)",
+  NOT_YET_NAMED = "Not yet named")
+AW_FORM_NOT_STATED <- "Organisation (form not stated)"
+
+#' One plain label per row. NONPROFIT_CBO prints "Organisation (form not
+#' stated)" where the form is the fallback (RECIPIENT_TYPE_INFERRED), where the
+#' typing is LOW confidence, or where the printed name carries a for-profit legal
+#' form (LLC, LLP, PLLC, PC, Corp): the code has been used for nursing-home LLCs
+#' and similar whose nonprofit status no source states (session 125b measurement:
+#' 421 NONPROFIT_CBO award rows without the flag, 192 of them LOW).
+AW_FORPROFIT_FORM <- "\\b(LLC|L\\.L\\.C\\.|LLP|PLLC|P\\.C\\.|PC|CORP|CORPORATION|LP)\\b"
+aw_org_type <- function(recipient_type, flag_reason, recipient_subtype, awardee, confidence = NA_character_,
+                        ent = rhtp_spend_entities()) {
+  lab <- unname(AW_ORG_LABELS[dplyr::coalesce(recipient_type, "")])
+  lab[is.na(lab)] <- "Not coded"
+  inferred <- ys_has(flag_reason, "RECIPIENT_TYPE_INFERRED") | confidence %in% "LOW" |
+    grepl(AW_FORPROFIT_FORM, toupper(dplyr::coalesce(awardee, "")))
+  lab[inferred & recipient_type %in% c("NONPROFIT_CBO", NA)] <- AW_FORM_NOT_STATED
+  ahc <- recipient_subtype %in% "ACADEMIC_HEALTH_CENTER"
+  lab[ahc] <- paste0(lab[ahc], " (academic health centre)")
+  eidx <- rhtp_spend_entity_match(awardee, ent)
+  assoc <- !is.na(eidx) & ent$hospital_affiliate[pmax(eidx, 1L)] == "TRUE" & !recipient_type %in% "HOSPITAL_OR_SYSTEM"
+  lab[assoc] <- "Hospital association or network"
+  lab
+}
 
 aw_money <- function(x) formatC(x, format = "f", digits = 2, big.mark = ",")
 
@@ -276,6 +387,8 @@ aw_money <- function(x) formatC(x, format = "f", digits = 2, big.mark = ",")
 aw_rank <- function(er, parents = aw_parent_map(er)) {
   r <- er %>% dplyr::filter(role == "RANKED") %>% dplyr::mutate(amt = dplyr::coalesce(amount, 0),
                                                                 is_award = amount_type %in% c("award", "intent"))
+  if (!"org_type" %in% names(r)) r$org_type <- aw_org_type(r$recipient_type, r$flag_reason, r$recipient_subtype, r$awardee,
+                                                           r$determination_confidence)
   st <- r %>% dplyr::filter(is_award) %>% dplyr::group_by(awardee_entity_id, state) %>%
     dplyr::summarise(usd = sum(amt), .groups = "drop") %>% dplyr::arrange(awardee_entity_id, dplyr::desc(usd), state) %>%
     dplyr::group_by(awardee_entity_id) %>%
@@ -296,6 +409,9 @@ aw_rank <- function(er, parents = aw_parent_map(er)) {
     awards_no_published_amount = sum(is.na(amount)),
     rows_total = dplyr::n(),
     recipient_type = { t <- unique(stats::na.omit(recipient_type)); if (length(t) > 1) paste(t, collapse = ";") else dplyr::coalesce(t[1], NA_character_) },
+    organisation_type = { t <- unique(org_type[order(-amt)]); paste(t, collapse = "; ") },
+    ccns = paste(sort(unique(stats::na.omit(ccn))), collapse = ";"),
+    ueis = { z <- sort(unique(unlist(strsplit(stats::na.omit(uei), ";")))); paste(z[z != ""], collapse = ";") },
     summary_call = dplyr::case_when(all(summary_hospital_call %in% "HOSPITAL") ~ "HOSPITAL",
                                     !any(summary_hospital_call %in% "HOSPITAL") ~ "NOT_HOSPITAL",
                                     TRUE ~ "MIXED"),
@@ -308,8 +424,7 @@ aw_rank <- function(er, parents = aw_parent_map(er)) {
     intermediary_role = { z <- unique(paste(flow_type, hospital_attribution, sep = " / ")[flow_type %in% AW_PT_FLOWS]); paste(z, collapse = "; ") },
     top_use_group = top_of(use_group_primary[is_award & amt > 0 & !is.na(use_group_primary)],
                            amt[is_award & amt > 0 & !is.na(use_group_primary)]),
-    confidential = any(confidential),
-    confidential_usd = round(sum(amt[is_award & confidential]), 2),
+    owner_supplied_source = any(owner_supplied_source),
     .groups = "drop") %>%
     dplyr::left_join(st, by = "awardee_entity_id")
   use_share <- r %>% dplyr::filter(is_award, amt > 0) %>%
@@ -337,9 +452,78 @@ aw_cms_orgs <- function() {
     j <- jsonlite::fromJSON(f)
     if (!is.data.frame(j)) j <- as.data.frame(j[[1]])
     if (!all(c("CCN", "ORGANIZATION NAME") %in% names(j))) return(NULL)
-    tibble::tibble(ccn = as.character(j$CCN), cms_org = stringr::str_squish(toupper(j$`ORGANIZATION NAME`)),
+    col <- function(c) if (c %in% names(j)) stringr::str_squish(toupper(as.character(j[[c]]))) else NA_character_
+    cc <- as.character(j$CCN)
+    cc <- ifelse(grepl("^[0-9]{5}$", cc), paste0("0", cc), cc)   # session 125b: CO's file drops the leading zero
+    tibble::tibble(ccn = cc, cms_org = stringr::str_squish(toupper(j$`ORGANIZATION NAME`)),
+                   cms_dba = col("DOING BUSINESS AS NAME"), cms_city = col("CITY"),
                    cms_file = sub(paste0(here::here(), "/"), "", f))
   })) %>% dplyr::filter(grepl("^[0-9]{6}$", ccn)) %>% dplyr::distinct(ccn, cms_org, .keep_all = TRUE)
+}
+
+# SESSION 125b: labels a reader needs.
+#' display_name (a label where two ranked lines share a printed name but are
+#' different entities: the UEI's FSRS legal name and city, else the CCN's CMS
+#' facility and city) and facilities (every CCN of a multi-hospital entity)
+aw_labels <- function(rank, er, cms = aw_cms_orgs()) {
+  rec <- readr::read_csv(here::here(AW_FSRS_REC), col_types = readr::cols(.default = "c"), na = c("", "NA"),
+                         progress = FALSE) %>% dplyr::filter(!is.na(uei)) %>% dplyr::distinct(uei, .keep_all = TRUE)
+  t <- function(x) {
+    x <- stringr::str_to_title(dplyr::coalesce(x, ""))
+    gsub("\\b(Llp|Llc|Pllc|Lp|Pc|Ii|Iii)\\b", "\\U\\1", x, perl = TRUE)
+  }
+  cms1 <- cms %>% dplyr::distinct(ccn, .keep_all = TRUE)
+  fac <- function(ccns) {
+    z <- strsplit(ccns, ";")[[1]]; z <- z[z != ""]
+    if (!length(z)) return("")
+    m <- cms1[match(z, cms1$ccn), ]
+    nm <- ifelse(!is.na(m$cms_dba) & m$cms_dba != "", m$cms_dba, m$cms_org)
+    paste0("CCN ", z, ifelse(is.na(nm), "", paste0(": ", t(nm), ", ", t(m$cms_city))), collapse = "; ")
+  }
+  rank$facilities <- vapply(rank$ccns, function(z) if (length(strsplit(z, ";")[[1]]) > 1) fac(z) else "", "")
+  key <- aw_norm(rank$canonical_name)
+  dup <- key %in% key[duplicated(key)] & key != ""
+  lab <- vapply(seq_len(nrow(rank)), function(i) {
+    if (!dup[i]) return(rank$canonical_name[i])
+    u <- strsplit(dplyr::coalesce(rank$ueis[i], ""), ";")[[1]]; u <- u[u != ""]
+    c1 <- strsplit(dplyr::coalesce(rank$ccns[i], ""), ";")[[1]]; c1 <- c1[c1 != ""]
+    id <- if (length(c1) == 1) fac(c1) else if (length(c1) > 1) paste0(length(c1), " hospitals: ", fac(paste(c1, collapse = ";"))) else if (length(u)) {
+      m <- rec[match(u[1], rec$uei), ]
+      paste0("UEI ", u[1], ": ", t(m$name), ", ", t(m$city))
+    } else "state roster name; no federal identifier on the row"
+    st <- if (nzchar(dplyr::coalesce(rank$states[i], ""))) rank$states[i] else rank$obligation_states[i]
+    paste0(rank$canonical_name[i], " [", st, "; ", id, "]")
+  }, "")
+  rank$display_name <- lab
+  rank$relabelled <- dup
+  rank
+}
+
+#' The Second-tier recipients tab: every SECOND_TIER row with its first-tier
+#' intermediary; never ranked. Also writes the count and dollars onto the
+#' intermediary's ranked line.
+aw_second_tier <- function(er, rank) {
+  er %>% dplyr::filter(role == "SECOND_TIER") %>%
+    dplyr::transmute(first_tier = sub("^SECOND_TIER_OF ", "", second_tier_of), state, file_key, awardee,
+                     organisation_type = org_type, amount, amount_type, summary_hospital_call, hospital_attribution,
+                     recipient_type, awardee_entity_id) %>%
+    dplyr::arrange(first_tier, dplyr::desc(dplyr::coalesce(amount, 0)))
+}
+aw_second_tier_cols <- function(rank, er) {
+  st <- er %>% dplyr::filter(role == "SECOND_TIER") %>%
+    dplyr::mutate(ft = sub(" \\(.*$", "", sub("^SECOND_TIER_OF ", "", second_tier_of)),
+                  ft_file = sub(":.*$", "", ft), ft_awardee = sub("^[^:]*: ", "", ft)) %>%
+    dplyr::group_by(ft_file, ft_awardee) %>%
+    dplyr::summarise(second_tier_recipients = dplyr::n(), second_tier_usd = round(sum(amount, na.rm = TRUE), 2), .groups = "drop")
+  ids <- er %>% dplyr::filter(role == "RANKED") %>% dplyr::distinct(file_key, awardee, awardee_entity_id)
+  st <- st %>% dplyr::inner_join(ids, by = c("ft_file" = "file_key", "ft_awardee" = "awardee")) %>%
+    dplyr::group_by(awardee_entity_id) %>%
+    dplyr::summarise(second_tier_recipients = sum(second_tier_recipients), second_tier_usd = sum(second_tier_usd), .groups = "drop")
+  rank %>% dplyr::select(-dplyr::any_of(c("second_tier_recipients", "second_tier_usd"))) %>%
+    dplyr::left_join(st, by = "awardee_entity_id") %>%
+    dplyr::mutate(second_tier_recipients = dplyr::coalesce(second_tier_recipients, 0L),
+                  second_tier_usd = dplyr::coalesce(second_tier_usd, 0),
+                  pass_through = pass_through | second_tier_recipients > 0)
 }
 
 #' entity -> verified parent system. Two sources, in this order:
@@ -400,8 +584,7 @@ aw_parent_view <- function(rank) {
                      intent_usd = round(sum(intent_usd), 2),
                      hospital_call_usd = round(sum(hospital_call_usd), 2),
                      awards_no_published_amount = sum(awards_no_published_amount),
-                     parent_basis = paste(unique(parent_basis), collapse = " | "),
-                     confidential = any(confidential), .groups = "drop") %>%
+                     parent_basis = paste(unique(parent_basis), collapse = " | "), .groups = "drop") %>%
     dplyr::mutate(rollup = "PARENT_ROLLUP (verified parent only; never replaces the entity view)") %>%
     dplyr::arrange(dplyr::desc(total_award_usd))
 }
@@ -433,7 +616,7 @@ aw_contract_columns <- function(er) {
 aw_unattributed <- function(er) {
   er %>% dplyr::filter(role == "UNATTRIBUTED_POOL") %>%
     dplyr::transmute(state, file_key, awardee, amount, amount_type, recipient_type, flow_type, hospital_attribution,
-                     summary_hospital_call, flag_reason, confidential,
+                     summary_hospital_call, flag_reason, owner_supplied_source,
                      why = dplyr::case_when(ys_has(flag_reason, "MULTI_RECIPIENT_FIELD") ~ "MULTI_RECIPIENT_FIELD: several organisations, no split (never divided)",
                                             recipient_type %in% "NOT_YET_NAMED" ~ "NOT_YET_NAMED: recipients unnamed",
                                             TRUE ~ "hand list (config/awardee_unattributed_rows.csv): several organisations, no split")) %>%
@@ -450,6 +633,10 @@ aw_reconcile <- function(er, rank, ys = NULL) {
   ranked_obl <- round(sum(rank$obligation_usd), 2)
   unattr <- tot(er$role == "UNATTRIBUTED_POOL")
   held <- tot(er$role == "HELD_OUT_ADMINISTRATOR")
+  second <- tot(er$role == "SECOND_TIER")
+  if (abs(round(second - us$second_tier_usd, 2)) > 0.05) {
+    stop("[awardee] second-tier dollars differ from R/08's second_tier_usd", call. = FALSE)
+  }
   lines <- tibble::tribble(
     ~line, ~usd,
     "Ranked awardees: award + intent dollars (the ranking)", ranked_award,
@@ -461,7 +648,9 @@ aw_reconcile <- function(er, rank, ys = NULL) {
     "R/08 excluded_award_usd (the held-out administrator)", round(us$excluded_award_usd, 2),
     "R/08 priced + excluded", round(us$published_priced_usd + us$excluded_award_usd, 2),
     "Pool-level amounts with no per-recipient split (listed separately, not in any line above)", round(us$pool_level_usd, 2),
-    "R/08 awards published incl. pool level (award_total_usd)", round(us$award_total_usd, 2))
+    "R/08 awards published incl. pool level (award_total_usd)", round(us$award_total_usd, 2),
+    "Second-tier recipients: an intermediary's own subgrants, counted ONCE at the first tier (excluded from every line above; Second-tier recipients tab)", second,
+    "R/08 second_tier_usd (excluded from awards published)", round(us$second_tier_usd, 2))
   diff <- round(ranked_award + ranked_obl + unattr + held - (us$published_priced_usd + us$excluded_award_usd), 2)
   if (abs(diff) > 0.05) stop("[awardee] the ranking does not reconcile to awards published: off by $", diff, call. = FALSE)
   if (abs(round(ranked_award + ranked_obl + unattr - us$published_priced_usd, 2)) > 0.05) {
@@ -516,7 +705,13 @@ aw_candidates <- function(er) {
 aw_build <- function(date = format(Sys.Date(), "%Y-%m-%d"), write = TRUE, xlsx = TRUE) {
   rows <- aw_roles(aw_rows())
   er <- aw_entities(rows)
+  er$org_type <- aw_org_type(er$recipient_type, er$flag_reason, er$recipient_subtype, er$awardee, er$determination_confidence)
   rank <- aw_rank(er)
+  rank <- aw_labels(rank, er)
+  rank <- aw_second_tier_cols(rank, er)
+  st_chk <- rank %>% dplyr::filter(second_tier_usd > total_award_usd + 0.005)
+  if (nrow(st_chk)) stop("[awardee] second-tier dollars exceed the intermediary's first-tier award: ",
+                         paste(st_chk$canonical_name, collapse = ", "), call. = FALSE)
   ct <- aw_contract_columns(er)
   rank <- rank %>% dplyr::left_join(ct, by = "awardee_entity_id") %>%
     dplyr::mutate(dplyr::across(c(contract_maximum_usd, contract_obligation_usd, contract_other_usd), ~ dplyr::coalesce(.x, 0)))
@@ -524,16 +719,20 @@ aw_build <- function(date = format(Sys.Date(), "%Y-%m-%d"), write = TRUE, xlsx =
   rec <- aw_reconcile(er, rank, ys)
   aw_check(er, rank)
   out <- list(rows = er, rank = rank, parents = aw_parent_view(rank), unattributed = aw_unattributed(er),
+              second_tier = aw_second_tier(er, rank),
               reconciliation = rec, distinct = aw_distinct_config(), contracts_unmatched = attr(ct, "unmatched"),
               refused = attr(er, "refused_name_joins"), ys = ys)
   if (write) {
     readr::write_csv(er %>% dplyr::select(row_id, file_key, state, awardee, amount, amount_type, role, awardee_entity_id,
-                                          entity_match_basis, uei, ccn, ein, norm_name, confidential),
+                                          entity_match_basis, uei, ccn, ein, norm_name, organisation_type = org_type,
+                                          second_tier_of, owner_supplied_source),
                      here::here(AW_OUT_ROWS), na = "")
     readr::write_csv(aw_rank_columns(rank), here::here(AW_OUT_RANK(date)), na = "")
     message("[awardee] wrote ", AW_OUT_ROWS, " and ", AW_OUT_RANK(date))
   }
   if (xlsx) {
+    # SESSION 125b: Delaware is not confidential (owner ruling 2026-11-25); the
+    # team copy is the same workbook, kept as a file colleagues expect.
     aw_workbook(out, date, team = FALSE)
     aw_workbook(out, date, team = TRUE)
   }
@@ -542,24 +741,49 @@ aw_build <- function(date = format(Sys.Date(), "%Y-%m-%d"), write = TRUE, xlsx =
 
 aw_rank_columns <- function(rank) {
   rank %>% dplyr::transmute(
-    rank, awardee = canonical_name, name_variants, awardee_entity_id, entity_match_basis,
+    rank, awardee = display_name, organisation_type, pass_through, second_tier_recipients, second_tier_usd,
+    printed_name = canonical_name, name_variants, facilities, awardee_entity_id, entity_match_basis,
     state_count, multi_state, states, dollars_by_state, total_award_usd, intent_usd, intent_share,
     awards_priced, awards_no_published_amount, obligation_usd, obligation_states, contract_maximum_usd, contract_obligation_usd,
     recipient_type, summary_call, hospital_call_usd, spend_category, verified_vendor, out_of_state,
-    pass_through, intermediary_role, top_use_group, top_use_group_share, parent_system, parent_basis,
-    confidential, confidential_usd)
+    intermediary_role, top_use_group, top_use_group_share, parent_system, parent_basis,
+    owner_supplied_source)
 }
 
 # -- 8. workbook ---------------------------------------------------------------------------
 
-#' Remove Delaware-confidential dollars: rows, entities left with nothing, and
-#' the DE share of a multi-state entity's figures
-aw_team_rank <- function(rank, er) {
-  keep <- er %>% dplyr::filter(role == "RANKED", !confidential)
-  r2 <- aw_rank(keep %>% dplyr::select(dplyr::everything()))
-  ct <- aw_contract_columns(keep)
-  r2 %>% dplyr::left_join(ct, by = "awardee_entity_id") %>%
-    dplyr::mutate(dplyr::across(c(contract_maximum_usd, contract_obligation_usd, contract_other_usd), ~ dplyr::coalesce(.x, 0)))
+#' The Read first tab (session 125b, owner audit): plain words for a reader who
+#' opens nothing else
+aw_read_first <- function(out, date) {
+  us <- out$ys[out$ys$state == "US", ]
+  f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
+  held <- out$rows %>% dplyr::filter(role == "HELD_OUT_ADMINISTRATOR")
+  rk <- out$rank %>% dplyr::filter(!is.na(rank))
+  top10 <- sum(utils::head(rk$total_award_usd, 10))
+  pt_top25 <- sum(utils::head(rk$pass_through, 25))
+  c(
+    paste0("WHAT THIS IS. A ranking of every organisation that received a Year 1 Rural Health Transformation Program award, by its total Year 1 award dollars, ",
+           "summed across states where the same legal entity was awarded in more than one. Built ", date, " from the state award files (R/12_awardee_ranking.R)."),
+    paste0("WHAT IS RANKED. Year 1 award dollars. Notices of intent to award are included and shown in their own column (intent_usd), because a state's intent is not yet an executed award. ",
+           "CMS obligation-report lines and state contract maximums are in separate columns and never added to the ranked total."),
+    paste0("INTERMEDIARIES PASS MONEY ON. Many of the largest lines are intermediaries: hospital associations, foundations, collaboratives, universities and state agencies that receive an award and pass much of it on to others. ",
+           "They are flagged in the pass_through column (", pt_top25, " of the top 25). Their rank measures the money that went THROUGH them, not money they kept."),
+    paste0("COUNTED ONCE. Where an intermediary's own subgrants are also published (Virginia Health Care Foundation's ", sum(out$rows$role == "SECOND_TIER"),
+           " RHT subgrants, ", f(sum(out$rows$amount[out$rows$role == "SECOND_TIER"], na.rm = TRUE)), "), the money is counted once, at the intermediary's award from the state. ",
+           "The subgrantees are listed on the Second-tier recipients tab and are not ranked beside it (the intermediary line shows second_tier_recipients and second_tier_usd)."),
+    paste0("CONCENTRATION, NOT THE HOSPITAL SHARE. Hospitals receive many smaller awards, so few appear near the top. The ranking shows how concentrated the money is (the top 10 lines hold ",
+           f(top10), " of ", f(sum(rk$total_award_usd)), " ranked). For the hospital share, use the Year 1 summary: hospital best estimate ", f(us$hospital_summary_usd),
+           ", ", formatC(us$hospital_share_of_awards_pct, format = "f", digits = 1), "% of awards published (", f(us$award_total_usd), ")."),
+    paste0("ORGANISATION TYPE. A plain label for each line. 'Organisation (form not stated)' means the state's award document did not say what kind of organisation the recipient is; it is not a claim that the recipient is a nonprofit. ",
+           "Academic health centres and hospital associations or networks are marked."),
+    paste0("HELD OUT: ", paste0(held$awardee, " (", held$state, ", ", f(held$amount), ")", collapse = "; "),
+           ". Its administration fee and the programme money it pays on are not split on any state source, so it is out of every total."),
+    paste0("LISTED SEPARATELY, NOT RANKED: pools with no per-recipient split (a row naming several organisations, or none) on the Unattributed pools tab; ",
+           "second-tier recipients on their tab; awards with no published amount (counted in awards_no_published_amount, never ranked)."),
+    "SAME NAME, DIFFERENT ENTITY. Where two lines share a printed name but are different organisations (for example two Oklahoma State University campuses with different federal UEIs), the awardee column adds the federal legal name and city or the hospital's CMS facility name in brackets.",
+    "DELAWARE. Delaware rows appear like every other state's (owner ruling 2026-11-25; Delaware is no longer confidential).",
+    "See Notes and method for the identity rules and the Reconciliation tab for how the totals tie to the Year 1 summary."
+  )
 }
 
 aw_notes <- function(out, team) {
@@ -568,28 +792,29 @@ aw_notes <- function(out, team) {
   held <- out$rows %>% dplyr::filter(role == "HELD_OUT_ADMINISTRATOR")
   c(
     "HOW TO READ THIS. One line per awardee ENTITY (a legal entity), ranked by its Year 1 award dollars (award + intent) summed across every state. An entity's awards in several states are summed only where the rows are joined by a UEI, an EIN, a CMS CCN or a hand review with its basis quoted; a name alone never joins two states.",
-    paste0("JOIN BASIS. entity_match_basis lists how the entity's rows were joined: UEI (the same SAM UEI, from FSRS), EIN, CCN (the same CMS CCN; different CCNs are different hospitals), HAND_REVIEWED (config/awardee_entities.csv, each with its basis), SAME_STATE_EXACT_NAME (the same normalised name within ONE state only), SINGLE_ROW."),
+    paste0("JOIN BASIS. entity_match_basis lists how the entity's rows were joined: UEI (the same SAM UEI, from FSRS), EIN, CCN (the same CMS CCN; different CCNs are different hospitals), HAND_REVIEWED (config/awardee_entities.csv, each with its basis; SAME_STATE_LEGAL_BODY entries join one legal body's several hospitals, listed in facilities), SAME_STATE_EXACT_NAME (the same normalised name within ONE state only; 'A DBA B' and 'B DBA A' are one name, and either half of a DBA string meets the same half printed alone), SINGLE_ROW."),
     paste0("MULTI-STATE: ", nrow(ms), " entities hold awards in two or more states, each on a confirmed identifier. Cross-state names that are not one entity are on the Distinct name collisions tab with the reason; ",
            nrow(out$distinct), " are recorded."),
     "WHAT IS COUNTED. Award amounts only (Year 1, STATE_FILES), intents included and shown separately (intent_usd, intent_share). CMS obligation-report lines (obligation_usd) and contract-file maximums and obligations (contract_maximum_usd, contract_obligation_usd) are in their own columns and NEVER added to the award total.",
     paste0("HELD OUT: ", paste0(held$awardee, " (", held$state, ") $", aw_money(held$amount), collapse = "; "),
            ". ADMINISTRATOR_PASS_THROUGH_UNRESOLVED: its fee and pass-through share are unsplit, so it is out of every total, as in the Year 1 summary."),
     "UNATTRIBUTED POOLS. A row naming several organisations with no split (Ohio's 22 hospitals, WA's 28, the CT/VA/OK pairs) or naming none is never divided and is not ranked; it is on the Unattributed pools tab. A pass-through intermediary that received the money itself (ICAHN, WSHA, NHVN, NRHP) ranks as the awardee, flagged pass_through with its intermediary role.",
-    "TWO TIERS, ONE AWARD (open for the owner). Virginia Health Care Foundation ranks on its two FSRS subawards from the state (RHT26-007 Provider Productivity, RHT26-008 Provider Interoperability, $25,965,319), and its own subgrantees rank separately from VHCF's rosters (VA_VHCF $14,390,000; VA_VHCF_PP $8,644,000). Up to about $22.0M is the same money at both tiers, in the ranking and in the Year 1 award totals alike (found by the independent check, session 125; nothing was moved).",
+    paste0("SECOND TIER (session 125b, owner ruling 2026-11-25). Money is counted once, at the first tier: the state's award to the intermediary. Virginia Health Care Foundation ranks on its two FSRS subawards from the state (RHT26-007 Provider Productivity $9,891,550; RHT26-008 Provider Interoperability $16,073,769); its own ",
+           sum(out$rows$role == "SECOND_TIER"), " subgrants ($", aw_money(sum(out$rows$amount[out$rows$role == "SECOND_TIER"], na.rm = TRUE)),
+           ") are SECOND_TIER_OF it (config/second_tier_rows.csv), listed on the Second-tier recipients tab, never ranked, and excluded from awards published; a named hospital subgrantee stays in every hospital figure. Every other intermediary was swept: none has priced subrecipient rows of its own (docs/session125b_ranking_audit_fixes.md)."),
     "UNPRICED ROWS. A named award with no published amount is counted in awards_no_published_amount and never ranked on; an entity with only unpriced rows has no rank.",
     "SUMMARY CALL. HOSPITAL / NOT_HOSPITAL from the summary-call layer (R/07); MIXED where an entity's rows carry both calls (hospital_call_usd shows the HOSPITAL-called dollars).",
+    "ORGANISATION TYPE. A reader label for recipient_type (unchanged internally). NONPROFIT_CBO with flag RECIPIENT_TYPE_INFERRED is the standing fallback for an unstated form and prints 'Organisation (form not stated)'.",
     "PARENT SYSTEMS. The Parent systems tab rolls entities up to a parent ONLY where the parent is verified (config/awardee_parent_systems.csv: the standing system-parent rulings and the CMS enrolment's ORGANIZATION NAME). It never replaces the entity view and is never added to it.",
-    if (team) "TEAM COPY: every Delaware row (Delaware rows are confidential under the standing rule) and every row citing DE Verify.xlsx is REMOVED, and figures are recomputed without them." else
-      "CONFIDENTIAL: rows from Delaware and any row citing DE Verify.xlsx are flagged (confidential, confidential_usd). The _team copy removes them; this copy must not leave the team.",
-    "RECONCILIATION (tab): ranked award dollars + CMS obligation lines + unattributed pools + the held-out administrator equal every priced Year 1 row, which equals the Year 1 summary's published priced awards plus its excluded column; pool-level amounts with no per-recipient split are listed separately.",
+    "DELAWARE. Not confidential (owner ruling 2026-11-25): Delaware rows are in every tab and total. owner_supplied_source flags any row citing the owner-supplied DE Verify.xlsx (no award row does). The _team copy is the same workbook.",
+    "RECONCILIATION (tab): ranked award dollars + CMS obligation lines + unattributed pools + the held-out administrator equal every priced Year 1 row except second-tier rows, which equals the Year 1 summary's published priced awards plus its excluded column; second-tier and pool-level amounts are listed separately.",
     "SOURCES: the state award files in data/reference (STATE_FILES), the FSRS archive under data/raw/usaspending/, CMS hospital enrollment files under data/evidence/federal_records/. Built by R/12_awardee_ranking.R."
   )
 }
 
 aw_workbook <- function(out, date, team = FALSE) {
-  rank <- if (team) aw_team_rank(out$rank, out$rows) else out$rank
-  if (team) rank$parent_system <- rank$parent_system  # parents re-joined in aw_rank
-  er <- if (team) out$rows %>% dplyr::filter(!confidential) else out$rows
+  rank <- out$rank
+  er <- out$rows
   un <- aw_unattributed(er)
   par <- aw_parent_view(rank)
   r <- aw_rank_columns(rank)
@@ -597,40 +822,62 @@ aw_workbook <- function(out, date, team = FALSE) {
   hs <- openxlsx::createStyle(textDecoration = "bold", fgFill = "#DDEBF7", wrapText = TRUE, valign = "top")
   usd <- openxlsx::createStyle(numFmt = "$#,##0")
   pct <- openxlsx::createStyle(numFmt = "0.0%")
-  conf <- openxlsx::createStyle(fgFill = "#FCE4D6")
+  flag <- openxlsx::createStyle(fgFill = "#FCE4D6")
+  wrap <- openxlsx::createStyle(wrapText = TRUE, valign = "top")
+  text_sheet <- function(name, lines) {
+    openxlsx::addWorksheet(wb, name)
+    openxlsx::writeData(wb, name, tibble::tibble(!!name := lines), headerStyle = hs)
+    openxlsx::setColWidths(wb, name, cols = 1, widths = 160)
+    openxlsx::addStyle(wb, name, wrap, rows = 2:(length(lines) + 1), cols = 1, gridExpand = TRUE)
+  }
   sheet <- function(name, d, usd_cols = grep("_usd$", names(d), value = TRUE), pct_cols = grep("_share$", names(d), value = TRUE)) {
     openxlsx::addWorksheet(wb, name)
     openxlsx::writeData(wb, name, d, headerStyle = hs)
     if (nrow(d)) {
       for (cn in intersect(usd_cols, names(d))) openxlsx::addStyle(wb, name, usd, rows = 2:(nrow(d) + 1), cols = which(names(d) == cn), gridExpand = TRUE)
       for (cn in intersect(pct_cols, names(d))) openxlsx::addStyle(wb, name, pct, rows = 2:(nrow(d) + 1), cols = which(names(d) == cn), gridExpand = TRUE)
-      if ("confidential" %in% names(d)) {
-        cr <- which(d$confidential %in% TRUE) + 1
-        if (length(cr)) openxlsx::addStyle(wb, name, conf, rows = cr, cols = 1:ncol(d), gridExpand = TRUE, stack = TRUE)
+      if ("owner_supplied_source" %in% names(d)) {
+        cr <- which(d$owner_supplied_source %in% TRUE) + 1
+        if (length(cr)) openxlsx::addStyle(wb, name, flag, rows = cr, cols = 1:ncol(d), gridExpand = TRUE, stack = TRUE)
       }
     }
     openxlsx::freezePane(wb, name, firstRow = TRUE, firstCol = TRUE)
     openxlsx::setColWidths(wb, name, cols = seq_len(ncol(d)), widths = pmin(60, pmax(10, nchar(names(d)) + 2)))
   }
+  text_sheet("Read first", aw_read_first(out, date))
   sheet("All awardees", r)
   sheet("Multi-state awardees", r %>% dplyr::filter(multi_state))
   sheet("Hospitals", r %>% dplyr::filter(summary_call %in% c("HOSPITAL", "MIXED")))
   sheet("Non-hospital", r %>% dplyr::filter(summary_call == "NOT_HOSPITAL"))
   sheet("Verified vendors", r %>% dplyr::filter(verified_vendor))
   sheet("Parent systems", par)
+  sheet("Second-tier recipients", out$second_tier)
   sheet("Unattributed pools", un)
+  sheet("Joins and relabels", aw_join_report(out))
   sheet("Distinct name collisions", out$distinct)
-  sheet("Reconciliation", if (team) tibble::tibble(line = "Team copy: Delaware rows removed; the reconciliation is in the full copy.", usd = NA_real_) else out$reconciliation)
-  openxlsx::addWorksheet(wb, "Notes and method")
-  openxlsx::writeData(wb, "Notes and method", tibble::tibble(`Notes and method` = aw_notes(out, team)), headerStyle = hs)
-  openxlsx::setColWidths(wb, "Notes and method", cols = 1, widths = 160)
-  openxlsx::addStyle(wb, "Notes and method", openxlsx::createStyle(wrapText = TRUE, valign = "top"),
-                     rows = 2:20, cols = 1, gridExpand = TRUE)
+  sheet("Reconciliation", out$reconciliation)
+  text_sheet("Notes and method", aw_notes(out, team))
   path <- here::here(AW_OUT_XLSX(date, team))
   openxlsx::saveWorkbook(wb, path, overwrite = TRUE)
   rhtp_xlsx_strip_dangling_rels(path)
   message("[awardee] wrote ", AW_OUT_XLSX(date, team))
   invisible(path)
+}
+
+#' Every same-state join that rests on more than one printed string or a hand
+#' review, and every relabelled line (session 125b, Task 3)
+aw_join_report <- function(out) {
+  er <- out$rows %>% dplyr::filter(role %in% c("RANKED", "SECOND_TIER"))
+  j <- er %>% dplyr::group_by(awardee_entity_id) %>%
+    dplyr::filter(dplyr::n_distinct(awardee) > 1 | any(entity_match_basis == "HAND_REVIEWED") | dplyr::n_distinct(ccn, na.rm = TRUE) > 1) %>%
+    dplyr::summarise(what = "JOINED", states = paste(sort(unique(state)), collapse = ";"),
+                     printed_names = paste(sort(unique(awardee)), collapse = " | "),
+                     basis = paste(intersect(AW_BASES, unique(entity_match_basis)), collapse = ";"),
+                     usd = round(sum(amount[role == "RANKED"], na.rm = TRUE), 2), .groups = "drop")
+  rl <- out$rank %>% dplyr::filter(relabelled) %>%
+    dplyr::transmute(awardee_entity_id, what = "RELABELLED", states, printed_names = canonical_name, basis = display_name,
+                     usd = total_award_usd)
+  dplyr::bind_rows(j, rl) %>% dplyr::arrange(what, dplyr::desc(usd))
 }
 
 #' The top-25 table and the multi-state count for R/08's Overview notes
@@ -641,7 +888,7 @@ aw_overview_lines <- function(date) {
   top <- r %>% dplyr::filter(!is.na(rank)) %>% dplyr::arrange(rank) %>% utils::head(25)
   c(paste0("AWARDEE RANKING (R/12, output/awardee_ranking_", date, ".xlsx): ", sum(r$multi_state), " awardee entities hold Year 1 awards in two or more states, each joined on a UEI, EIN, CCN or a hand review, never on a name alone. Top 25 by Year 1 award dollars (award + intent; obligations and contract maximums excluded):"),
     paste0("  ", top$rank, ". ", top$awardee, " -- $", aw_money(top$total_award_usd), " (", top$states, "; ",
-           top$recipient_type, "; ", top$summary_call, ")", ifelse(top$confidential, " [CONFIDENTIAL: Delaware]", "")))
+           top$organisation_type, "; ", top$summary_call, ")"))
 }
 
 if (sys.nframe() == 0L) {
