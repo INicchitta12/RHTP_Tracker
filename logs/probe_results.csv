@@ -3296,3 +3296,10 @@ SD,2026-11-26T12:23:12Z,CHANGED,'Rural Health Transformation' in the description
 CMS,2026-11-26T13:08:39Z,UNCHANGED,newsroom+medicaid,,trig_01CwTmWX2sdYLPNtEBgRJcUd
 CMS,2026-11-26T13:08:39Z,UNCHANGED,obligation_report,,trig_01CwTmWX2sdYLPNtEBgRJcUd
 AL,2026-11-26T14:42:00Z,TRIPWIRE,(probe),"[AL] 'resources' HAS 1 NEW SENTENCE(S) OF THE KIND THIS WATCH EXISTS FOR: ""6, 2026 Request for Reimbursement Training Update Grantee Resources ARHTP Subrecipient Kickoff FAQ Read the ARHTP Subrecipient Kickoff Frequently Asked Questions Beason-Hammon Certificate of Compliance Download the Beason-Hammon Certificate of Compliance RHTP Certification Form 9.26 Download the RHT"". Community Medicine, ARHTP's eleventh initiative, begins in Year 2 (2027) as a subaward round. Read the page: a NOFO is Tier 2 and names nobody; an award names recipients, coded one at a time on the RECIPIENT (§0.3a).",trig_01NtbC312pu2u8d7uePQXEty
+IA,2026-11-26T15:22:16Z,UNCHANGED,programme,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,UNCHANGED,noia_index,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,UNCHANGED,council,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,CHANGED,council_0827,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,UNCHANGED,hhs_news,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,CHANGED,gov_news,,trig_01ECTghY5iHNh5RvWGLMfqBY
+IA,2026-11-26T15:22:16Z,TRIPWIRE,council_0827,"[IA] 'council_0827' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: HHS Council Meeting and Budget Public Hearing | HHS Council Event Details Event Date. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01ECTghY5iHNh5RvWGLMfqBY
