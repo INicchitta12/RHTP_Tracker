@@ -3304,3 +3304,26 @@ IA,2026-11-26T15:22:16Z,UNCHANGED,hhs_news,,trig_01ECTghY5iHNh5RvWGLMfqBY
 IA,2026-11-26T15:22:16Z,CHANGED,gov_news,,trig_01ECTghY5iHNh5RvWGLMfqBY
 IA,2026-11-26T15:22:16Z,TRIPWIRE,council_0827,"[IA] 'council_0827' NAMES 2 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: HHS Council Meeting and Budget Public Hearing | HHS Council Event Details Event Date. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01ECTghY5iHNh5RvWGLMfqBY
 CT,2026-11-26T15:41:58Z,UNCHANGED,(all),,trig_01MkoE5FCTVpcbi3MrzbS3NE
+NEWSROOM,2026-11-26T16:51:40Z,CHANGED,AZ:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:40Z,CHANGED,AZ:ahcccs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:47Z,CHANGED,DE:news,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:48Z,UNCHANGED,FL:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:48Z,ERROR,governor,HTTP 403 from https://www.flgov.com/eog/news/press,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:49Z,CHANGED,IA:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:50Z,CHANGED,ID:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:50Z,CHANGED,ID:dhw,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:52Z,UNCHANGED,MN:mdh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:52Z,UNCHANGED,MT:news,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:52Z,UNCHANGED,MT:dphhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:54Z,CHANGED,NE:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:54Z,UNCHANGED,NE:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:55Z,CHANGED,NJ:doh,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:56Z,UNCHANGED,NV:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:56Z,UNCHANGED,NV:nvha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:57Z,UNCHANGED,OK:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:57Z,UNCHANGED,OR:oha,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:59Z,CHANGED,TX:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:51:59Z,UNCHANGED,TX:hhsc,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:52:00Z,CHANGED,UT:governor,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:52:00Z,UNCHANGED,UT:dhhs,,trig_018XcygicsAyLfgdhgjE7uDU
+NEWSROOM,2026-11-26T16:52:01Z,CHANGED,MD:governor,,trig_018XcygicsAyLfgdhgjE7uDU
