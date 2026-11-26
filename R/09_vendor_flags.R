@@ -805,7 +805,7 @@ VF_NOTES <- c(
   "",
   "DE-DUPLICATION. The same contract seen in two sources is one row, with the other citation in also_cited_in. Automatic only on an exact state + firm + amount match; Utah's Comagine FAST 4.1 agreement ($2.0M intent vs $6.0M FFATA-reported) is paired by hand.",
   "",
-  "DELAWARE. Delaware's confidential hand-verified source (DE Verify.xlsx) is NOT used. Delaware rows come from USAspending only.",
+  "DELAWARE. The owner-supplied hand-verified DE Verify.xlsx (not a public document) is NOT used as a source; Delaware is not confidential (owner ruling 2026-11-25). Delaware rows come from USAspending only.",
   "",
   "SOURCES. USAspending.gov custom award download for 93.798 (fetched 2026-11-09, data/raw/usaspending/2026-11-09/); the committed Year 1 state award files (budget_period == 1); CMS RHTP Obligated Funds Report, 10-14 edition (data as of 2026-07-31); South Dakota open.sd.gov contract register; Kansas and Connecticut budget narratives; Colorado's Annual Report as of 6.31.26 (archived 2026-11-09); RCJ (leads only). Texas's BP1 first-tier report, Oklahoma's legislative quarterly reports and Indiana's IDOA award letters were read: Texas names only hospital districts, Oklahoma names agencies and LifeCare, and Indiana's vendors are already in the award file.",
   "",

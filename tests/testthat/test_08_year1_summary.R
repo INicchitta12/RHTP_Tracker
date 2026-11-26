@@ -462,12 +462,32 @@ test_that("Notes open with How to read this and carry the n/m and coverage notes
   expect_true(any(grepl("State shares are not comparable to one another", n, fixed = TRUE)))
 })
 
-test_that("Delaware's confidential source is flagged, and no figure rests on it", {
+test_that("Delaware is not confidential (owner ruling 11-25): DE Verify.xlsx is flagged OWNER_SUPPLIED_SOURCE, nothing withheld", {
   de <- s[s$state == "DE", ]
-  expect_match(de$confidential_source_flag, "^CITED IN STATUS NOTES")
-  expect_false(any(rows$confidential_hit))
+  expect_match(de$owner_supplied_source_flag, "^CITED IN STATUS NOTES")
+  expect_false(grepl("do not circulate|must not leave|confidential", de$owner_supplied_source_flag, ignore.case = TRUE))
+  expect_false(any(rows$owner_supplied_hit))
+  expect_true(de$award_rows > 0 && de$published_priced_usd > 0)
   others <- s[!s$state %in% c("DE", YS_NATIONAL), ]
-  expect_true(all(others$confidential_source_flag == ""))
+  expect_true(all(others$owner_supplied_source_flag == ""))
+  expect_false("confidential_source_flag" %in% names(s))
+})
+
+test_that("second tier (session 125b, owner ruling): VHCF's subgrants are out of awards published, in the hospital figures", {
+  va <- s[s$state == "VA", ]
+  expect_equal(va$second_tier_rows, 48L)
+  expect_equal(va$second_tier_usd, 23034000)
+  st <- rows[!is.na(rows$second_tier_of), ]
+  expect_true(all(st$file_key %in% c("VA_VHCF", "VA_VHCF_PP")))
+  expect_equal(round(va$published_priced_usd, 2),
+               round(sum(rows$amount[rows$state == "VA" & is.na(rows$second_tier_of)], na.rm = TRUE), 2))
+  # the first tier is never a hospital row, so no hospital dollar counts twice
+  vhcf <- rows[rows$file_key == "VA" & rows$awardee == "Virginia Health Care Foundation", ]
+  expect_false(vhcf$call %in% "HOSPITAL")
+  expect_true(sum(st$amount, na.rm = TRUE) <= vhcf$amount)
+  # a second tier above its first tier is refused
+  bad <- rows; bad$amount[bad$file_key == "VA_VHCF"][1] <- 5e7
+  expect_error(ys_second_tier_check(bad %>% dplyr::filter(!ys_has(flag_reason, YS_EXCLUDED_FLAG))), "exceed")
 })
 
 test_that("Ohio's pools are NOT, and Indiana Region 5 (7 of 13 since session 118) is HOSPITAL, on typed members", {

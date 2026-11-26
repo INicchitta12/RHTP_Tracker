@@ -139,7 +139,7 @@ test_that("every flag cites a source and the hand rows match their archives", {
   expect_true(vf_validate_hand_rows())
 })
 
-test_that("Delaware's confidential source is not used", {
+test_that("the owner-supplied DE Verify.xlsx is not used as a source", {
   src <- paste(readLines(here::here("R", "09_vendor_flags.R")), collapse = "\n")
   src <- sub("VF_NOTES <- c\\(.*", "", src)   # the Notes text names it to say so
   expect_false(grepl("DE Verify", src, fixed = TRUE))

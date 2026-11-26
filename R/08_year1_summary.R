@@ -102,14 +102,80 @@ ys_rows <- function(files = sc_state_files()) {
       source_document_title = col("source_document_title"),
       state_source_url = col("state_source_url"),
       source_archive_path = col("source_archive_path"),
-      confidential_hit = ys_confidential_hit(d),
+      owner_supplied_hit = ys_owner_supplied_hit(d),
       call = d$summary_hospital_call, basis = d$summary_call_basis)
-  }))
+  })) %>% dplyr::mutate(second_tier_of = ys_second_tier_of(file_key, awardee))
 }
 
-# -- confidential sources (session 111) ------------------------------------------
+# -- second-tier rows (session 125b, owner ruling 2026-11-25) --------------------
 #
-# DELAWARE'S CONFIDENTIAL SOURCE IS `DE Verify.xlsx` (repository root; owner-
+# MONEY IS COUNTED ONCE, AT THE FIRST TIER: the state's award to the
+# intermediary. Where an intermediary's own subrecipients are ALSO priced rows,
+# each such row is SECOND_TIER_OF its first-tier row (config/second_tier_rows.csv,
+# with the basis quoted). A second-tier row KEEPS its hospital attribution (a
+# priced, named hospital subrecipient stays NAMED_HOSPITAL and in every hospital
+# figure) and is EXCLUDED from awards published (published_priced_usd,
+# award_total_usd, award_intent_usd), the ranking total and its reconciliation;
+# its dollars are shown in second_tier_usd. Its first-tier row is never a
+# hospital row, so no hospital dollar is counted twice (asserted). The
+# intermediary's second-tier dollars may not exceed its first-tier award, nor
+# the FSRS subaward each round sits under (asserted). CLAUDE.md §7.
+YS_SECOND_TIER <- "config/second_tier_rows.csv"
+ys_second_tier_config <- function() {
+  x <- readr::read_csv(here::here(YS_SECOND_TIER), col_types = readr::cols(.default = "c"), na = c("", "NA"),
+                       progress = FALSE)
+  need <- c("file_key", "awardee", "first_tier_file_key", "first_tier_awardee", "first_tier_subaward",
+            "first_tier_subaward_usd", "basis", "source", "reviewer")
+  miss <- setdiff(need, names(x))
+  if (length(miss)) stop("[second tier] ", YS_SECOND_TIER, " lacks: ", paste(miss, collapse = ", "), call. = FALSE)
+  if (any(is.na(x$basis) | is.na(x$source) | is.na(x$first_tier_awardee))) {
+    stop("[second tier] every entry needs its first-tier row, a quoted basis and a source.", call. = FALSE)
+  }
+  x
+}
+#' "SECOND_TIER_OF <file_key>: <awardee> (<subaward>)" or NA
+ys_second_tier_of <- function(file_key, awardee, cfg = ys_second_tier_config()) {
+  out <- rep(NA_character_, length(file_key))
+  for (i in seq_len(nrow(cfg))) {
+    hit <- file_key == cfg$file_key[i] & (cfg$awardee[i] == "*" | stringr::str_squish(awardee) == cfg$awardee[i])
+    out[hit & is.na(out)] <- paste0("SECOND_TIER_OF ", cfg$first_tier_file_key[i], ": ", cfg$first_tier_awardee[i],
+                                    " (", cfg$first_tier_subaward[i], ")")
+  }
+  out
+}
+#' Every first-tier row exists, is priced and is not a hospital row; its
+#' second-tier dollars do not exceed it, nor each subaward's
+ys_second_tier_check <- function(rows, cfg = ys_second_tier_config()) {
+  for (k in unique(cfg$file_key)) if (!k %in% rows$file_key) stop("[second tier] no rows for ", k, call. = FALSE)
+  ft <- cfg %>% dplyr::distinct(first_tier_file_key, first_tier_awardee)
+  for (i in seq_len(nrow(ft))) {
+    f <- rows[rows$file_key == ft$first_tier_file_key[i] & stringr::str_squish(rows$awardee) == ft$first_tier_awardee[i], ]
+    if (nrow(f) != 1 || is.na(f$amount)) stop("[second tier] first-tier row not found once, priced: ", ft$first_tier_awardee[i], call. = FALSE)
+    if (f$call %in% "HOSPITAL") stop("[second tier] a first-tier row called HOSPITAL would count hospital dollars twice: ",
+                                     ft$first_tier_awardee[i], call. = FALSE)
+    tag <- paste0("SECOND_TIER_OF ", ft$first_tier_file_key[i], ": ", ft$first_tier_awardee[i])
+    st <- sum(rows$amount[startsWith(dplyr::coalesce(rows$second_tier_of, ""), tag)], na.rm = TRUE)
+    if (st > f$amount + 0.005) stop("[second tier] second-tier dollars $", st, " exceed the first-tier award $", f$amount,
+                                    " of ", ft$first_tier_awardee[i], call. = FALSE)
+  }
+  by_sub <- cfg %>% dplyr::distinct(file_key, first_tier_subaward, first_tier_subaward_usd)
+  for (i in seq_len(nrow(by_sub))) {
+    st <- sum(rows$amount[rows$file_key == by_sub$file_key[i] & !is.na(rows$second_tier_of)], na.rm = TRUE)
+    if (st > as.numeric(by_sub$first_tier_subaward_usd[i]) + 0.005) {
+      stop("[second tier] ", by_sub$file_key[i], " exceeds its subaward ", by_sub$first_tier_subaward[i], call. = FALSE)
+    }
+  }
+  invisible(TRUE)
+}
+
+# -- owner-supplied sources (session 111; confidentiality lifted session 125b) ---
+#
+# SESSION 125b, OWNER RULING 2026-11-25: DELAWARE IS NO LONGER CONFIDENTIAL.
+# Nothing is withheld or marked "do not circulate". What stays is a FLAG: a row
+# whose text cites the owner-supplied `DE Verify.xlsx` (not a public state or
+# federal document) is marked OWNER_SUPPLIED_SOURCE so the owner can decide.
+#
+# THE OWNER-SUPPLIED SOURCE IS `DE Verify.xlsx` (repository root; owner-
 # supplied hand verification, rows sourced "API call" and "FDC qc"; never
 # ingested, open blocker 2). Any award row or status row whose text cites it is
 # flagged, and every figure built on a flagged row is flagged on the Detail
@@ -118,25 +184,25 @@ ys_rows <- function(files = sc_state_files()) {
 # DHSS and Governor press releases; four of its status-table channels cite it
 # (DHIN, Delaware Health Force, Thomas Jefferson University, the diabetes
 # pilot's named hospitals), none of which carries a figure in this table.
-YS_CONFIDENTIAL_SOURCES <- c("DE Verify.xlsx")
-YS_CONFIDENTIAL_NOTE <- paste(
-  "Figures or rows flagged here rest on, or cite, Delaware's confidential source (DE Verify.xlsx).",
-  "They must not leave the team.")
+YS_OWNER_SUPPLIED_SOURCES <- c("DE Verify.xlsx")
+YS_OWNER_SUPPLIED_NOTE <- paste(
+  "OWNER_SUPPLIED_SOURCE: figures or rows flagged here rest on, or cite, the owner-supplied DE Verify.xlsx,",
+  "which is not a public state or federal document. Delaware is not confidential (owner ruling 2026-11-25); the flag is for the owner's decision.")
 
-ys_confidential_hit <- function(d) {
+ys_owner_supplied_hit <- function(d) {
   if (!nrow(d)) return(logical(0))
   txt <- do.call(paste, c(lapply(d, function(x) dplyr::coalesce(as.character(x), "")), sep = " | "))
-  Reduce(`|`, lapply(YS_CONFIDENTIAL_SOURCES, function(src) grepl(src, txt, fixed = TRUE)))
+  Reduce(`|`, lapply(YS_OWNER_SUPPLIED_SOURCES, function(src) grepl(src, txt, fixed = TRUE)))
 }
 
 #' Status-table rows (data/reference/<st>_year1_status.csv) that cite a
-#' confidential source, per state
-ys_confidential_status <- function() {
+#' owner-supplied source, per state
+ys_owner_supplied_status <- function() {
   fs <- list.files(here::here("data/reference"), "^[a-z]{2}_year1_status\\.csv$", full.names = TRUE)
   dplyr::bind_rows(lapply(fs, function(f) {
     d <- readr::read_csv(f, col_types = readr::cols(.default = "c"), progress = FALSE)
     tibble::tibble(state = toupper(substr(basename(f), 1, 2)),
-                   status_rows_citing = sum(ys_confidential_hit(d)))
+                   status_rows_citing = sum(ys_owner_supplied_hit(d)))
   })) %>% dplyr::filter(status_rows_citing > 0)
 }
 
@@ -174,7 +240,10 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
     dplyr::group_by(state) %>%
     dplyr::summarise(excluded_award_usd = ys_usd(amount), .groups = "drop")
   rows <- rows %>% dplyr::filter(!ys_has(flag_reason, YS_EXCLUDED_FLAG))
+  if (!"second_tier_of" %in% names(rows)) rows$second_tier_of <- NA_character_
+  ys_second_tier_check(rows)
   rows <- rows %>% dplyr::mutate(
+    second = !is.na(second_tier_of),
     suspect = ys_has(flag_reason, "SOURCE_SUSPECT"),
     amt = dplyr::coalesce(amount, 0),
     hosp = call == "HOSPITAL" & !suspect,
@@ -185,7 +254,7 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
       flow_type %in% c("PASS_THROUGH_DESIGNATED", "PASS_THROUGH_UNRESOLVED", "IN_KIND_BENEFIT"),
     named_unpriced = hosp & is.na(amount) & !recipient_type %in% "NOT_YET_NAMED")
 
-  part <- rhtp_hospital_dollar_partition(rows %>% dplyr::select(-suspect, -amt, -hosp, -assoc, -named_unpriced))
+  part <- rhtp_hospital_dollar_partition(rows %>% dplyr::select(-suspect, -amt, -hosp, -assoc, -named_unpriced, -second, -second_tier_of))
   strict <- part %>%
     dplyr::select(state, bucket, dollars) %>%
     tidyr::pivot_wider(names_from = bucket, values_from = dollars, values_fill = 0)
@@ -206,14 +275,16 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
     dplyr::summarise(
       strict_rural_cut_usd = ys_usd(amount[counts_as_rural == "TRUE"]),
       strict_cah_usd = ys_usd(amount[!is.na(ccn) & grepl("^[0-9]{2}13[0-9]{2}$", ccn)]), .groups = "drop")
-  conf_status <- ys_confidential_status()
+  conf_status <- ys_owner_supplied_status()
 
   by <- rows %>% dplyr::group_by(state) %>% dplyr::summarise(
     award_files = dplyr::n_distinct(file_key),
     award_rows = dplyr::n(),
     priced_rows = sum(!is.na(amount)),
-    published_priced_usd = ys_usd(amount),
-    award_intent_usd = ys_usd(amount[validation_source_type %in% "NOTICE_OF_INTENT_TO_AWARD"]),
+    published_priced_usd = ys_usd(amount[!second]),
+    award_intent_usd = ys_usd(amount[!second & validation_source_type %in% "NOTICE_OF_INTENT_TO_AWARD"]),
+    second_tier_rows = sum(second),
+    second_tier_usd = ys_usd(amount[second]),
     hospital_rows = sum(hosp),
     hospital_coded_usd = ys_usd(amt[hosp & basis == "CODED"]),
     hospital_bj_row_usd = ys_usd(amt[hosp & basis == "BEST_JUDGMENT"]),
@@ -227,8 +298,8 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
     layer_association_ruling_usd = ys_usd(amt[assoc]),
     layer_cms_obligation_usd = ys_usd(amt[hosp & validation_source_type %in% "CMS_OBLIGATION_REPORT"]),
     layer_source_suspect_usd = ys_usd(amt[call == "HOSPITAL" & suspect]),
-    confidential_award_rows = sum(confidential_hit),
-    confidential_award_usd = ys_usd(amt[confidential_hit]),
+    owner_supplied_award_rows = sum(owner_supplied_hit),
+    owner_supplied_award_usd = ys_usd(amt[owner_supplied_hit]),
     .groups = "drop")
 
   st_status <- dplyr::bind_rows(
@@ -240,10 +311,11 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
                 "called_pool_outside_files_usd", "file_pool_level_usd", "hospital_bj_pool_usd",
                 "hospital_bj_component_usd", "not_hospital_component_usd",
                 "NAMED_HOSPITAL", "POOL_NAMED_HOSPITALS", "POOL_UNNAMED_HOSPITALS",
-                "strict_rural_cut_usd", "strict_cah_usd", "confidential_award_usd", "excluded_award_usd")
+                "strict_rural_cut_usd", "strict_cah_usd", "owner_supplied_award_usd", "excluded_award_usd",
+                "second_tier_usd")
   int_cols <- c("award_files", "award_rows", "priced_rows", "hospital_rows", "best_judgment_rows",
                 "named_hospital_rows_no_amount", "named_hospital_recipients_no_amount",
-                "confidential_award_rows", "status_rows_citing")
+                "owner_supplied_award_rows", "status_rows_citing", "second_tier_rows")
   out <- allot %>%
     dplyr::select(state, state_name, allotment_usd = fy2026_allotment) %>%
     dplyr::left_join(by, by = "state") %>%
@@ -274,12 +346,12 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
       hospital_share_of_awards_pct = ys_pct(hospital_summary_usd, award_total_usd),
       hospital_share_of_allotment_pct = ys_pct(hospital_summary_usd, allotment_usd),
       award_share_of_allotment_pct = ys_pct(award_total_usd, allotment_usd),
-      confidential_source_flag = dplyr::case_when(
-        confidential_award_rows > 0 ~ paste0("YES: ", confidential_award_rows, " award row(s) / $",
-                                             formatC(confidential_award_usd, format = "f", digits = 2, big.mark = ","),
-                                             " cite a confidential source; do not circulate outside the team"),
+      owner_supplied_source_flag = dplyr::case_when(
+        owner_supplied_award_rows > 0 ~ paste0("YES: ", owner_supplied_award_rows, " award row(s) / $",
+                                             formatC(owner_supplied_award_usd, format = "f", digits = 2, big.mark = ","),
+                                             " cite the owner-supplied DE Verify.xlsx (OWNER_SUPPLIED_SOURCE)"),
         status_rows_citing > 0 ~ paste0("CITED IN STATUS NOTES: ", status_rows_citing,
-                                        " status-table row(s) cite a confidential source; no figure in this row rests on it; do not circulate those notes outside the team"),
+                                        " status-table row(s) cite the owner-supplied DE Verify.xlsx; no figure in this row rests on it"),
         TRUE ~ "")) %>%
     dplyr::transmute(
       state, state_name, completion_status, allotment_usd,
@@ -298,7 +370,8 @@ ys_build <- function(rows = ys_rows(), pools = NULL, components = NULL, files = 
       named_hospital_recipients_no_amount, named_hospital_rows_no_amount,
       layer_source_suspect_usd,
       excluded_award_usd,
-      confidential_source_flag)
+      second_tier_rows, second_tier_usd,
+      owner_supplied_source_flag)
   if (!subset) return(tab)
   dplyr::bind_rows(tab, ys_subset_row(rows, pools, components, files))
 }
@@ -375,8 +448,8 @@ ys_subset_row <- function(rows, pools, components, files) {
   row$state_name <- paste0("States with \u2265", 100 * YS_AWARD_SHARE_MIN, "% published, state award sources (n = ", nrow(m), ")")
   row$completion_status <- paste0(sum(m$completion_status == "COMPLETE"), " COMPLETE of ", nrow(m), ": ",
                                   paste(m$state, collapse = " "))
-  flagged <- m$state[nzchar(m$confidential_source_flag)]
-  row$confidential_source_flag <- if (length(flagged)) {
+  flagged <- m$state[nzchar(m$owner_supplied_source_flag)]
+  row$owner_supplied_source_flag <- if (length(flagged)) {
     paste0("MEMBER STATES FLAGGED: ", paste(flagged, collapse = ", "), "; see their rows")
   } else ""
   row[, names(tab)]
@@ -425,7 +498,9 @@ YS_DEFINITIONS <- tibble::tribble(
   "named_hospital_rows_no_amount", "Award rows behind the previous column.",
   "layer_source_suspect_usd", "Hospital dollars on rows whose published amount is internally inconsistent (SOURCE_SUSPECT). EXCLUDED from every hospital figure; shown so the exclusion is visible.",
   "excluded_award_usd", "Award dollars held OUT of every figure in this row, including the award total and the >=50% subset test, pending a ruling: an administrator's award whose own fee and the programme money it pays on are not split on any state source (flag ADMINISTRATOR_PASS_THROUGH_UNRESOLVED; New Mexico's Accenture ASO subaward, session 119). Never a hospital dollar.",
-  "confidential_source_flag", "Marks a state whose rows or notes cite Delaware's confidential source (DE Verify.xlsx). Flagged material must not leave the team.")
+  "second_tier_rows", "Award rows that are an intermediary's own subgrants, SECOND_TIER_OF a first-tier row in the same state (config/second_tier_rows.csv; session 125b, owner ruling): Virginia Health Care Foundation's 48 RHT subgrants.",
+  "second_tier_usd", "Dollars on second-tier rows. Money is counted once, at the first tier (the state's award to the intermediary), so these are EXCLUDED from awards published and the award total; their hospital dollars stay in every hospital figure (the first-tier row is never a hospital row).",
+  "owner_supplied_source_flag", "OWNER_SUPPLIED_SOURCE: marks a state whose rows or notes cite the owner-supplied DE Verify.xlsx (not a public document). Delaware is not confidential (owner ruling 2026-11-25).")
 
 #' Each state carrying CMS obligation lines: its share of allotment published with
 #' and without them, and whether it qualifies on state-sourced awards
@@ -497,7 +572,7 @@ ys_notes <- function(s, date, rows) {
     ys_fsrs_note(),
     "NATIONAL ALLOTMENT. National allotment sums to $10,000,000,003 because each state's allotment is rounded to the dollar.",
     "NEW HAMPSHIRE. The $17.5M Critical Access and Acute Care Hospital RFA (inside the Foundation for Healthy Communities award, called HOSPITAL) has not yet awarded: FHC's notification of award for its initial cohort is due mid-December 2026.",
-    paste0("CONFIDENTIAL SOURCES. ", YS_CONFIDENTIAL_NOTE, " As built, no award row or figure cites it; Delaware's status-table notes do (confidential_source_flag; the row is shaded on Overview and Detail)."),
+    paste0("OWNER-SUPPLIED SOURCES. ", YS_OWNER_SUPPLIED_NOTE, " As built, no award row or figure cites it; four Delaware status-table notes do (owner_supplied_source_flag; the row is shaded on Overview and Detail)."),
     ys_awardee_lines(date)))
 }
 
@@ -512,13 +587,13 @@ ys_awardee_lines <- function(date) {
   top <- r[!is.na(r$rank), , drop = FALSE]
   top <- top[order(top$rank), , drop = FALSE][seq_len(min(25, nrow(top))), , drop = FALSE]
   f <- function(x) paste0("$", formatC(x, format = "f", digits = 0, big.mark = ","))
-  c(paste0("AWARDEE RANKING (R/12; output/awardee_ranking_", date, ".xlsx, team copy _team.xlsx without Delaware). ",
+  c(paste0("AWARDEE RANKING (R/12; output/awardee_ranking_", date, ".xlsx, team copy _team.xlsx). ",
            sum(r$multi_state), " awardee entities hold Year 1 awards in two or more states; each is joined on a UEI, EIN, CMS CCN or a hand review ",
            "with its basis quoted, never on a name alone (CLAUDE.md §7). Ranked on award + intent dollars; CMS obligation lines and contract maximums ",
            "are separate columns, a row naming several organisations with no split is never divided, and NM Accenture is held out."),
     paste0("TOP 25 AWARDEES BY YEAR 1 AWARD DOLLARS: ",
-           paste0(top$rank, ". ", top$awardee, " ", f(top$total_award_usd), " (", top$states, "; ", top$recipient_type, "; ",
-                  top$summary_call, ifelse(top$confidential, "; CONFIDENTIAL: Delaware", ""), ")", collapse = " | ")))
+           paste0(top$rank, ". ", top$awardee, " ", f(top$total_award_usd), " (", top$states, "; ", top$organisation_type, "; ",
+                  top$summary_call, ")", collapse = " | ")))
 }
 
 #' One row per state: the primary source document(s) and their archive paths
@@ -545,7 +620,7 @@ ys_sources <- function(rows, s) {
     out
   }
   status <- readr::read_csv(here::here(YS_STATUS), show_col_types = FALSE, progress = FALSE)
-  conf <- ys_confidential_status()
+  conf <- ys_owner_supplied_status()
   fsrs <- tibble::tibble(
     state = "FSRS (all states)",
     award_files = "data/reference/<st>_fsrs_awardees.csv; FSRS overlay columns (fsrs_amount, fsrs_match) on every award file of a filing state",
@@ -554,7 +629,7 @@ ys_sources <- function(rows, s) {
     source_urls = "https://api.usaspending.gov/api/v2/download/awards/ (custom award download, filter program_numbers = 93.798)",
     archive_paths = "data/raw/usaspending/2026-11-09/usaspending_rhtp_93798_prime_and_subawards.zip (+ .manifest.txt with SHA-256)",
     status_evidence = "data/reference/fsrs_state_totals.csv; data/reference/fsrs_reconciliation.csv; data/reference/fsrs_held.csv; data/reference/fsrs_nonfiling_states.csv",
-    evidence_directory = "data/raw/usaspending/2026-11-09", confidential_source = "")
+    evidence_directory = "data/raw/usaspending/2026-11-09", owner_supplied_source = "")
   dplyr::bind_rows(fsrs, lapply(st, function(x) {
     r <- rows[rows$state == x, ]
     ev <- status$evidence_path[status$state == x]
@@ -566,8 +641,8 @@ ys_sources <- function(rows, s) {
       archive_paths = j(r$source_archive_path),
       status_evidence = if (length(ev)) j(ev) else "",
       evidence_directory = if (dir.exists(here::here("data/evidence", x))) file.path("data/evidence", x) else "",
-      confidential_source = if (x %in% conf$state || any(r$confidential_hit))
-        paste0("Cites ", paste(YS_CONFIDENTIAL_SOURCES, collapse = ", "), ". ", YS_CONFIDENTIAL_NOTE) else "")
+      owner_supplied_source = if (x %in% conf$state || any(r$owner_supplied_hit))
+        paste0("Cites ", paste(YS_OWNER_SUPPLIED_SOURCES, collapse = ", "), ". ", YS_OWNER_SUPPLIED_NOTE) else "")
   }))
 }
 
@@ -707,7 +782,7 @@ ys_widths <- function(d, usd_cols, pct_cols, cap = 60) {
 }
 
 #' Write one table sheet with currency and percentage formats, n/m cells, a
-#' bold national row, shaded confidential rows and a frozen header and first column
+#' bold national row, shaded owner-supplied-source rows and a frozen header and first column
 ys_table_sheet <- function(wb, sheet, d, usd_cols, pct_cols, nm_rows, nm_col, conf_rows, bold_rows, styles) {
   openxlsx::addWorksheet(wb, sheet)
   openxlsx::writeData(wb, sheet, d, headerStyle = styles$hdr)
@@ -750,7 +825,7 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows), u = 
     wrap = openxlsx::createStyle(wrapText = TRUE, valign = "top"))
   wrap <- styles$wrap; hdr <- styles$hdr; conf <- styles$conf
   nm_rows <- which(!ys_share_meaningful(s, rows))
-  conf_rows <- which(nzchar(s$confidential_source_flag) & !s$state %in% YS_NATIONAL)
+  conf_rows <- which(nzchar(s$owner_supplied_source_flag) & !s$state %in% YS_NATIONAL)
 
   # Overview is sorted by state NAME (the column it shows), national row last.
   so <- s[order(match(s$state, YS_NATIONAL, nomatch = 0L), s$state_name), ]
@@ -760,7 +835,7 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows), u = 
                                                     "Hospital $ (best estimate)", "Strict named-hospital $")),
                  pct_cols = which(grepl("%", names(ov))),
                  nm_rows = which(!ys_share_meaningful(so, rows)), nm_col = which(names(ov) == "Hospital % of awards"),
-                 conf_rows = which(nzchar(so$confidential_source_flag) & !so$state %in% YS_NATIONAL),
+                 conf_rows = which(nzchar(so$owner_supplied_source_flag) & !so$state %in% YS_NATIONAL),
                  bold_rows = which(so$state %in% YS_NATIONAL), styles = styles)
 
   de <- ys_detail(s, rows)
@@ -813,7 +888,7 @@ ys_workbook <- function(s, rows, date, path, vt = ys_vendor_build(s, rows), u = 
   openxlsx::writeData(wb, "Sources", src, headerStyle = hdr)
   openxlsx::setColWidths(wb, "Sources", cols = seq_along(src), widths = c(8, 40, 60, 60, 60, 50, 20, 40))
   openxlsx::addStyle(wb, "Sources", wrap, rows = 2:(nrow(src) + 1), cols = seq_along(src), gridExpand = TRUE, stack = TRUE)
-  sc <- which(nzchar(src$confidential_source)) + 1
+  sc <- which(nzchar(src$owner_supplied_source)) + 1
   if (length(sc)) openxlsx::addStyle(wb, "Sources", conf, rows = sc, cols = seq_along(src), gridExpand = TRUE, stack = TRUE)
 
   dir.create(dirname(path), showWarnings = FALSE, recursive = TRUE)
@@ -986,6 +1061,22 @@ ys_use_items <- function(s, files = sc_state_files(), components = NULL) {
                   call = dplyr::if_else(call == "HOSPITAL" & !suspect, "HOSPITAL", "NOT_HOSPITAL"),
                   usd = dplyr::coalesce(amount, 0), kind = "row", n_rows = 1L,
                   item = paste0(file_key, " row ", row_no))
+  # SESSION 125b: a second-tier row keeps its own item (its category and its
+  # hospital split); an OFFSET item on its first-tier row, at that row's
+  # category and NOT_HOSPITAL, nets the passed-on dollars out, so the items still
+  # sum to award_total_usd (first tier counted once) and to the hospital figure.
+  r$second_tier_of <- ys_second_tier_of(r$file_key, r$awardee)
+  off <- r %>% dplyr::filter(!is.na(second_tier_of)) %>%
+    dplyr::mutate(ft = sub(" \\(.*$", "", sub("^SECOND_TIER_OF ", "", second_tier_of))) %>%
+    dplyr::group_by(ft) %>% dplyr::summarise(off_usd = sum(usd), .groups = "drop") %>%
+    dplyr::mutate(ft_file = sub(":.*$", "", ft), ft_awardee = sub("^[^:]*: ", "", ft))
+  offs <- dplyr::bind_rows(lapply(seq_len(nrow(off)), function(i) {
+    f <- r[r$file_key == off$ft_file[i] & stringr::str_squish(r$awardee) == off$ft_awardee[i], , drop = FALSE]
+    if (nrow(f) != 1) stop("[use] second-tier first-tier row not found: ", off$ft[i], call. = FALSE)
+    f %>% dplyr::mutate(usd = -off$off_usd[i], call = "NOT_HOSPITAL", kind = "second_tier_offset", n_rows = 0L,
+                        item = paste0(file_key, " second-tier offset: ", awardee))
+  }))
+  r <- dplyr::bind_rows(r, offs)
   p <- rhtp_use_pool_items(files) %>%
     dplyr::mutate(kind = "pool", n_rows = 0L, item = paste0(file_key, " pool: ", pool_key))
   cp <- components %>% dplyr::mutate(component_usd = as.numeric(component_usd)) %>%
