@@ -167,3 +167,17 @@ test_that("organisation type: the unstated-form fallback never prints as Nonprof
   g <- rank[grepl("^Access East", rank$awardee), ]
   expect_false(grepl("Nonprofit", g$organisation_type))
 })
+
+test_that("a CCN never joins two differently named rows with different UEIs (independent check, 125b)", {
+  x <- tibble::tibble(row_id = paste0("C#", 1:4), file_key = "C", state = "ND",
+                      awardee = c("Cooperstown Medical Center", "Griggs County Nursing Home", "OSF Healthcare System", "OSF Healthcare System"),
+                      amount = c(1, 2, 3, 4), uei = c("U1", "U2", "U3", "U4"), ccn = c("351306", "351306", "141325", "141325"),
+                      ein = NA_character_, role = "RANKED", amount_type = "award") %>% dplyr::mutate(norm_name = aw_norm(awardee))
+  e <- aw_entities(x, no_hand)
+  id <- function(r) e$awardee_entity_id[e$row_id == r]
+  expect_false(id("C#1") == id("C#2"))
+  expect_equal(id("C#3"), id("C#4"))
+  ids <- function(pat, st) unique(er$awardee_entity_id[grepl(pat, er$awardee) & er$state == st])
+  expect_length(ids("^(COOPERSTOWN MEDICAL CENTER|GRIGGS COUNTY NURSING HOME)$", "ND"), 2)
+  expect_length(ids("^(WAR MEMORIAL HOSPITAL, INC.|EAST MOUNTAIN HEALTH PHYSICIANS INC)$", "WV"), 2)
+})

@@ -263,7 +263,24 @@ aw_entities <- function(rows, hand = aw_hand_config()) {
   }
   link_groups(uei_sets, "UEI")
   link_groups(lapply(rows$ein, function(z) if (is.na(z)) character(0) else z), "EIN")
-  link_groups(ccn_sets, "CCN")
+  # SESSION 125b (independent check): a CCN join is refused where the two rows
+  # carry DIFFERENT UEIs AND DIFFERENT normalised names. A row's CCN can rest on
+  # an address match to an enrolled hospital (ND Griggs County Nursing Home on
+  # Cooperstown's 351306; WV East Mountain Health Physicians on War Memorial's
+  # 511309), and two disagreeing federal identifiers on two different names
+  # outrank it. One legal name filed under several site UEIs (OSF HEALTHCARE
+  # SYSTEM, IL) still joins on its CCN. A hand review can join any pair.
+  ccn_df <- tibble::tibble(i = rep(seq_len(n), lengths(ccn_sets)), k = unlist(ccn_sets))
+  refused_ccn <- list()
+  for (g in split(ccn_df$i, ccn_df$k)) if (length(g) > 1) for (j in g[-1]) {
+    ui <- uei_sets[[g[1]]]; uj <- uei_sets[[j]]
+    conflict <- length(ui) && length(uj) && !length(intersect(ui, uj)) && rows$norm_name[g[1]] != rows$norm_name[j]
+    if (conflict) {
+      # try any already-linked member of the group with the same name or UEI first
+      alt <- g[g != j & (rows$norm_name[g] == rows$norm_name[j] | vapply(g, function(z) length(intersect(uei_sets[[z]], uj)) > 0, logical(1)))]
+      if (length(alt)) merge(alt[1], j, "CCN") else refused_ccn[[length(refused_ccn) + 1]] <- c(rows$row_id[g[1]], rows$row_id[j])
+    } else merge(g[1], j, "CCN")
+  }
   # hand-reviewed joins, keyed on (state, awardee as printed)
   hk <- paste(hand$state, hand$awardee)
   rk <- paste(rows$state, rows$awardee)
@@ -311,6 +328,7 @@ aw_entities <- function(rows, hand = aw_hand_config()) {
   }
   rows <- rows %>% dplyr::left_join(ids %>% dplyr::select(root, awardee_entity_id), by = "root") %>% dplyr::select(-root)
   attr(rows, "refused_name_joins") <- refused
+  attr(rows, "refused_ccn_joins") <- refused_ccn
   rows
 }
 
