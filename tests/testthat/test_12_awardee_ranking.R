@@ -137,7 +137,7 @@ test_that("DBA names: 'A DBA B' equals 'B DBA A'; each half meets the half print
   expect_equal(aw_norm("Mountain Community Health DBA Five Town Health Alliance, INC"),
                aw_norm("Five-Town Health Alliance Inc DBA Mountain Community Health, Inc."))
   expect_equal(aw_norm("X Corp d/b/a Y Clinic"), aw_norm("Y Clinic dba X Corp"))
-  expect_true("AHS HOSPITAL CORP" %in% aw_name_keys(aw_norm("AHS Hospital Corp. dba Newton Medical Center"))[[1]])
+  expect_true(aw_norm("AHS Hospital Corp.") %in% aw_name_keys(aw_norm("AHS Hospital Corp. dba Newton Medical Center"))[[1]])
   ids <- function(pat, st) unique(er$awardee_entity_id[grepl(pat, er$awardee, ignore.case = TRUE) & er$state == st & er$role == "RANKED"])
   expect_length(ids("Five.Town|Mountain Community Health", "VT"), 1)
   expect_length(ids("^Bartlett Regional Hospital$", "AK"), 1)

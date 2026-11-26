@@ -157,6 +157,7 @@ aw_rows <- function(files = sc_state_files()) {
       summary_hospital_call = col("summary_hospital_call"), spend_category = col("spend_category"),
       vendor_verified = col("vendor_verified"), out_of_state = col("out_of_state"),
       use_group_primary = col("use_group_primary"), recipient_subtype = col("recipient_subtype"),
+      determination_confidence = col("determination_confidence"),
       owner_supplied_hit = ys_owner_supplied_hit(d))
   }))
   # UEI of the row's OWN paired subaward(s)
@@ -340,11 +341,19 @@ AW_ORG_LABELS <- c(
   NOT_YET_NAMED = "Not yet named")
 AW_FORM_NOT_STATED <- "Organisation (form not stated)"
 
-#' One plain label per row
-aw_org_type <- function(recipient_type, flag_reason, recipient_subtype, awardee, ent = rhtp_spend_entities()) {
+#' One plain label per row. NONPROFIT_CBO prints "Organisation (form not
+#' stated)" where the form is the fallback (RECIPIENT_TYPE_INFERRED), where the
+#' typing is LOW confidence, or where the printed name carries a for-profit legal
+#' form (LLC, LLP, PLLC, PC, Corp): the code has been used for nursing-home LLCs
+#' and similar whose nonprofit status no source states (session 125b measurement:
+#' 421 NONPROFIT_CBO award rows without the flag, 192 of them LOW).
+AW_FORPROFIT_FORM <- "\\b(LLC|L\\.L\\.C\\.|LLP|PLLC|P\\.C\\.|PC|CORP|CORPORATION|LP)\\b"
+aw_org_type <- function(recipient_type, flag_reason, recipient_subtype, awardee, confidence = NA_character_,
+                        ent = rhtp_spend_entities()) {
   lab <- unname(AW_ORG_LABELS[dplyr::coalesce(recipient_type, "")])
   lab[is.na(lab)] <- "Not coded"
-  inferred <- ys_has(flag_reason, "RECIPIENT_TYPE_INFERRED")
+  inferred <- ys_has(flag_reason, "RECIPIENT_TYPE_INFERRED") | confidence %in% "LOW" |
+    grepl(AW_FORPROFIT_FORM, toupper(dplyr::coalesce(awardee, "")))
   lab[inferred & recipient_type %in% c("NONPROFIT_CBO", NA)] <- AW_FORM_NOT_STATED
   ahc <- recipient_subtype %in% "ACADEMIC_HEALTH_CENTER"
   lab[ahc] <- paste0(lab[ahc], " (academic health centre)")
@@ -360,7 +369,8 @@ aw_money <- function(x) formatC(x, format = "f", digits = 2, big.mark = ",")
 aw_rank <- function(er, parents = aw_parent_map(er)) {
   r <- er %>% dplyr::filter(role == "RANKED") %>% dplyr::mutate(amt = dplyr::coalesce(amount, 0),
                                                                 is_award = amount_type %in% c("award", "intent"))
-  if (!"org_type" %in% names(r)) r$org_type <- aw_org_type(r$recipient_type, r$flag_reason, r$recipient_subtype, r$awardee)
+  if (!"org_type" %in% names(r)) r$org_type <- aw_org_type(r$recipient_type, r$flag_reason, r$recipient_subtype, r$awardee,
+                                                           r$determination_confidence)
   st <- r %>% dplyr::filter(is_award) %>% dplyr::group_by(awardee_entity_id, state) %>%
     dplyr::summarise(usd = sum(amt), .groups = "drop") %>% dplyr::arrange(awardee_entity_id, dplyr::desc(usd), state) %>%
     dplyr::group_by(awardee_entity_id) %>%
@@ -677,7 +687,7 @@ aw_candidates <- function(er) {
 aw_build <- function(date = format(Sys.Date(), "%Y-%m-%d"), write = TRUE, xlsx = TRUE) {
   rows <- aw_roles(aw_rows())
   er <- aw_entities(rows)
-  er$org_type <- aw_org_type(er$recipient_type, er$flag_reason, er$recipient_subtype, er$awardee)
+  er$org_type <- aw_org_type(er$recipient_type, er$flag_reason, er$recipient_subtype, er$awardee, er$determination_confidence)
   rank <- aw_rank(er)
   rank <- aw_labels(rank, er)
   rank <- aw_second_tier_cols(rank, er)
