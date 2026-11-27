@@ -3396,3 +3396,10 @@ IN,2026-11-27T09:51:35Z,CHANGED,grow_home,,trig_01Rk8bnWZfCRJnU4bCM7UKXu
 IN,2026-11-27T09:51:35Z,UNCHANGED,newsletter,,trig_01Rk8bnWZfCRJnU4bCM7UKXu
 IN,2026-11-27T09:51:35Z,CHANGED,init6,,trig_01Rk8bnWZfCRJnU4bCM7UKXu
 IN,2026-11-27T09:51:35Z,TRIPWIRE,(finding),"GROW HOME: a NEW newsletter issue is linked: https://view.subscription.in.gov/?qs=ACN7ImQiOjUwNjksInQiOjc5NzksInAiOiJWVyIsInMiOjEzfQANAAAAAAG_BstK8Y0G9bK4jijcxAgiaSGCGV3jCkAuQwM8ifmRocm_cbGl0qEtc7LPXZXMvaxZsQhnNG7UFG7gBnwqzm_sVXRA3X5mRrvPaI-Av7vlauI. Read it for named Meds-to-Beds hospitals (October: '20 hospitals awarded funding', none named).",trig_01Rk8bnWZfCRJnU4bCM7UKXu
+VA,2026-11-27T10:21:20Z,UNCHANGED,vhcf,,trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,CHANGED,vhha_foundation,,trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,CHANGED,ways_to_apply,,trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,UNCHANGED,news,,trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,UNCHANGED,vhcf_news,,trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,TRIPWIRE,vhha_foundation,"[VA] 'vhha_foundation' NAMES 3 ORGANISATION(S) THE ARCHIVED COPY DOES NOT: Virginia Rural Health Transformation Program Contact Us Four Interconnected Initiatives Virginia’s | Centers for Medicare | Medicaid Services. THAT IS THE SIGNAL, NOT A DEFECT. This fires on the page NAMING somebody new, whatever words it used to do it -- which is the half the phrase lists cannot cover, and the half New Mexico's six Regional Hubs went through. Re-fetch, READ what changed, and then either extract it or add the names to this page's `known` list with the sentence that justifies them. Do NOT widen the suffix list to make this quiet.",trig_01FBq8rLWpLgcbroYHcCPChz
+VA,2026-11-27T10:21:20Z,YEAR2,vhha_foundation,"[VA] 'vhha_foundation' YEAR 2 SIGNAL, HELD: names 1 organisation(s) in a Year 2 context: U.S. Department of Health and Human Services. A Year 2 (Budget Period 2) item is never a Year 1 award: do not extract it into any Year 1 file. Logged YEAR2 for a human to read (owner ruling, session 116).",trig_01FBq8rLWpLgcbroYHcCPChz
